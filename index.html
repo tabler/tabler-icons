@@ -8,16 +8,26 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
 	<title>Tabler Icons</title>
 </head>
 <body>
 <div class="container">
-	<ul>
-		{% for icon in site.icons %}
-		<li>{{ icon }}</li>
-		{% endfor %}
-	</ul>
+	<div class="box">
+		<div class="icon-preview-wrap">
+			<div class="icon-preview">
+				{% include icon.html name="arrow-left" %}
+			</div>
+		</div>
+		<div class="icons-list">
+			{% for icon in site.icons %}
+			<div class="icon">
+				{% assign name = icon.slug %}
+				{% include icon.html name=name %}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
 </div>
 </body>
 </html>

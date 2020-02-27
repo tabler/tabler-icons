@@ -1,0 +1,18 @@
+---
+---
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd" stroke="#206bc4" stroke-width=".05" opacity="1">
+    <rect x="8" y="2" width="32" height="44" rx="3"></rect>
+    <rect x="5" y="5" width="38" height="38" rx="3"></rect>
+    <rect x="2" y="8" width="44" height="32" rx="3"></rect>
+    <circle cx="24" cy="24" r="10"></circle>
+    <circle cx="24" cy="24" r="22"></circle>
+    <path d="M0 48L48 0M0 0l48 48M24 48V0M17 0v48M31 0v48M48 24H0M0 31h48M0 17h48"></path>
+  </g>
+  <g stroke="#666" stroke-width=".01" opacity="1">
+    {% for i in (1..24) %}
+    <line x1="0" y1="{{ i | times: 2 }}" x2="48" y2="{{ i | times: 2 }}"></line>
+    <line x1="{{ i | times: 2 }}" y1="0" x2="{{ i | times: 2 }}" y2="48"></line>
+    {% endfor %}
+  </g>
+</svg>
