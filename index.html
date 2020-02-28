@@ -20,7 +20,7 @@
 		{% include icon.html name=last-icon.slug %}
 		{% endcapture %}
 
-		<div class="row">
+		<div class="row mb">
 			<div class="col">
 
 				<div class="icon-preview-wrap">
@@ -71,15 +71,23 @@
 		</div>
 
 
-		<div class="icons-list">
-			{% for icon in site.icons %}
-			<div class="icon" title="{{ icon.slug }}">
-				{% assign name = icon.slug %}
-				{% include icon.html name=name %}
+		<div>
+			<div class="icons-list">
+				{% for icon in site.icons %}
+				<a href="#" class="icons-list-icon" title="{{ icon.slug }}">
+					{% assign name = icon.slug %}
+					{% include icon.html name=name %}
+				</a>
+				{% endfor %}
 			</div>
-			{% endfor %}
 		</div>
 	</div>
 </div>
+
+<script>
+	(function(){
+
+	})();
+</script>
 </body>
 </html>
