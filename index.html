@@ -20,7 +20,7 @@
 		{% include icon.html name=last-icon.slug %}
 		{% endcapture %}
 
-		<div class="row mb">
+		<div class="row mb js-icon-manager">
 			<div class="col">
 
 				<div class="icon-preview-wrap">
@@ -74,7 +74,7 @@
 		<div>
 			<div class="icons-list">
 				{% for icon in site.icons %}
-				<a href="#" class="icons-list-icon" title="{{ icon.slug }}">
+				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}">
 					{% assign name = icon.slug %}
 					{% include icon.html name=name %}
 				</a>
@@ -84,10 +84,13 @@
 	</div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script>
-	(function(){
-
-	})();
+	$(document).ready(function(){
+		$('body').on('click', '.js-icon', function(){
+			$('.js-icon-manager svg').replaceWith($(this).find('>svg:eq(0)').clone());
+		});
+	});
 </script>
 </body>
 </html>
