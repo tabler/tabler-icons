@@ -14,14 +14,66 @@
 <body>
 <div class="container">
 	<div class="box">
-		<div class="icon-preview-wrap">
-			<div class="icon-preview">
-				{% include icon.html name="arrow-left" %}
+
+		{% assign last-icon = site.icons | sort: date | reverse | first %}
+		{% capture last-icon %}
+		{% include icon.html name=last-icon.slug %}
+		{% endcapture %}
+
+		<div class="row">
+			<div class="col">
+
+				<div class="icon-preview-wrap">
+					<div class="icon-preview">
+						{{ last-icon }}
+					</div>
+				</div>
+			</div>
+			<div class="col-aside">
+
+				<div class="mb">
+					<button class="btn">
+						{{ last-icon }} Button
+					</button>
+					<button class="btn btn-icon">
+						{{ last-icon }}
+					</button>
+					<button class="btn btn-link">
+						{{ last-icon }} Button
+					</button>
+				</div>
+
+				<div class="input-icon mb">
+					<input type="text" class="input" value="Input value">
+					{{ last-icon }}
+				</div>
+
+				<div class="input-icon icon-left mb">
+					{{ last-icon }}
+					<input type="text" class="input" placeholder="Input placeholder">
+				</div>
+
+				<div class="mb">
+					<div class="avatar">{{ last-icon }}</div>
+					<div class="avatar avatar-sm">{{ last-icon }}</div>
+				</div>
+
+				<div class="tabs mb">
+					<a class="tab active">{{ last-icon }} Tab 1</a>
+					<a class="tab">Tab 2</a>
+					<a class="tab">Tab 3</a>
+				</div>
+
+				<div class="mb">
+					<a href="#">{{ last-icon }} Link</a>
+				</div>
 			</div>
 		</div>
+
+
 		<div class="icons-list">
 			{% for icon in site.icons %}
-			<div class="icon">
+			<div class="icon" title="{{ icon.slug }}">
 				{% assign name = icon.slug %}
 				{% include icon.html name=name %}
 			</div>

@@ -1,5 +1,16 @@
 ---
 ---
+
+$breakpoint: (min-width: 50rem);
+$primary: #206bc4;
+$border: #eeeeee;
+$muted: #aaaaaa;
+$btn-form-height: 2rem;
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 16px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
@@ -7,21 +18,54 @@ html {
 
 body {
   background: #fafbfc;
-  font-size: 1rem;
+  font-size: .9375rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .container {
-  max-width: 50rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 1rem
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+
+  @media #{$breakpoint} {
+    flex-direction: row;
+  }
+}
+
+.col {
+  flex: 1;
+}
+
+.col-aside {
+  width: 15rem;
+  margin-top: 2rem;
+
+  @media #{$breakpoint} {
+    margin-top: 0;
+    margin-left: 2rem;
+    flex-direction: row;
+  }
 }
 
 .box {
   padding: 2rem;
   background: #ffff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
 }
 
 .icon-preview-wrap {
@@ -73,3 +117,141 @@ body {
   }
 }
 
+.mb {
+  margin-bottom: 2rem;
+}
+
+
+/*
+Components
+ */
+.btn {
+  display: inline-flex;
+  color: #ffffff;
+  background: $primary;
+  border: 0;
+  border-radius: 3px;
+  font-size: inherit;
+  line-height: 1;
+  justify-content: center;
+  align-items: center;
+  min-height: $btn-form-height;
+  min-width: $btn-form-height;
+  padding: 0 .75rem;
+
+
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2;
+    margin: 0 .5rem 0 -.25rem;
+  }
+}
+
+.btn-icon {
+  padding: 0;
+  justify-content: center;
+
+  .icon {
+    margin: 0;
+  }
+}
+
+.btn-link {
+  background: transparent;
+  color: $primary;
+}
+
+.input {
+  border: 1px solid $border;
+  border-radius: 3px;
+  height: $btn-form-height;
+  display: block;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0 .5rem;
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba($primary, .1);
+    border-color: rgba($primary, .4);
+  }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.15em;
+}
+
+.input-icon {
+  position: relative;
+
+  .input {
+    padding-right: 2rem;
+  }
+
+  .icon {
+    color: $muted;
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.5;
+    position: absolute;
+    top: ($btn-form-height - 1.25rem) / 2;
+    right: ($btn-form-height - 1.25rem) / 2;
+  }
+
+  &.icon-left {
+    .icon {
+      left: ($btn-form-height - 1.25rem) / 2;
+      right: auto;
+    }
+
+    .input {
+      padding-left: 2rem;
+      padding-right: 0;
+    }
+  }
+}
+
+.avatar {
+  background: rgba($muted, .1);
+  color: $muted;
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  vertical-align: bottom;
+
+  .icon {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+.avatar-sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.tabs {
+  display: flex;
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    border-bottom: 1px solid $border;
+    padding: .25rem 0;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    &.active {
+      color: $primary;
+      border-bottom-color: $primary;
+    }
+  }
+}

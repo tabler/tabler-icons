@@ -1,18 +1,30 @@
 ---
 ---
-<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" fill-rule="evenodd" stroke="#206bc4" stroke-width=".05" opacity="1">
-    <rect x="8" y="2" width="32" height="44" rx="3"></rect>
-    <rect x="5" y="5" width="38" height="38" rx="3"></rect>
-    <rect x="2" y="8" width="44" height="32" rx="3"></rect>
-    <circle cx="24" cy="24" r="10"></circle>
-    <circle cx="24" cy="24" r="22"></circle>
-    <path d="M0 48L48 0M0 0l48 48M24 48V0M17 0v48M31 0v48M48 24H0M0 31h48M0 17h48"></path>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd" stroke="#206bc4" stroke-width=".025" opacity="1">
+    <rect x="4" y="1" width="16" height="22" rx="1.5"></rect>
+    <rect x="2" y="2" width="20" height="20" rx="1.5"></rect>
+    <rect x="1" y="4" width="22" height="16" rx="1.5"></rect>
+    <circle cx="12" cy="12" r="5"></circle>
+    <circle cx="12" cy="12" r="11"></circle>
+    <line x1="0" y1="0" x2="24" y2="24"></line>
+    <line x1="24" y1="0" x2="0" y2="24"></line>
+    <line x1="0" y1="8.5" x2="24" y2="8.5"></line>
+    <line x1="0" y1="15.5" x2="24" y2="15.5"></line>
+    <line x1="8.5" y1="0" x2="8.5" y2="24"></line>
+    <line x1="15.5" y1="0" x2="15.5" y2="24"></line>
   </g>
-  <g stroke="#666" stroke-width=".01" opacity="1">
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji">
     {% for i in (1..24) %}
-    <line x1="0" y1="{{ i | times: 2 }}" x2="48" y2="{{ i | times: 2 }}"></line>
-    <line x1="{{ i | times: 2 }}" y1="0" x2="{{ i | times: 2 }}" y2="48"></line>
+    <g fill="#ccc" font-size=".3">
+      <text x="0" y="{{ i | plus: 0.35 }}" >{{ i }}</text>
+      <text x="{{ i | plus: 0.1 }}" y=".25" >{{ i }}</text>
+    </g>
+    <g stroke="#666" stroke-width=".01">
+      <line x1="0" y1="{{ i }}" x2="24" y2="{{ i }}"></line>
+      <line x1="{{ i }}" y1="0" x2="{{ i }}" y2="24"></line>
+    </g>
+
     {% endfor %}
   </g>
 </svg>
