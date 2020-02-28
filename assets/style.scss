@@ -101,6 +101,15 @@ a {
     height: 100%;
     stroke-width: 2;
     opacity: .8;
+
+    + svg {
+      stroke-width: .08;
+      opacity: 1;
+      stroke: red;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 }
 
@@ -128,7 +137,6 @@ a {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    stroke-width: 2;
   }
 }
 
