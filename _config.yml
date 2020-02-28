@@ -3,6 +3,13 @@ plugins:
 
 exclude:
   - .idea/*
+  - package.json
+
+defaults:
+  - scope:
+      type: "icons"
+    values:
+      layout: icon
 
 collections:
   icons:
