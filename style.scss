@@ -5,6 +5,7 @@ $breakpoint: 50rem;
 $primary: #206bc4;
 $border: #eeeeee;
 $muted: #aaaaaa;
+$dark: #222222;
 $btn-form-height: 2rem;
 $hover: rgba(0, 0, 0, .04);
 
@@ -20,6 +21,7 @@ html {
 body {
   background: #fafbfc;
   font-size: .9375rem;
+  color: $dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -99,7 +101,6 @@ a {
   svg {
     width: 100%;
     height: 100%;
-    stroke-width: 2;
     opacity: .8;
 
     + svg {
@@ -109,6 +110,13 @@ a {
       position: absolute;
       left: 0;
       top: 0;
+      pointer-events: none;
+
+      stroke-dasharray: 0 !important;
+
+      * {
+        stroke-dasharray: 0 !important;
+      }
     }
   }
 }
@@ -116,13 +124,28 @@ a {
 
 .icons-list {
   display: flex;
+  flex-wrap: wrap;
   margin: -.25rem;
+}
+
+.icons-list-squares,
+.icons-list-circles {
+  .icons-list-icon {
+    background: $dark;
+    color: #fff;
+  }
+}
+
+.icons-list-circles {
+  .icons-list-icon {
+    border-radius: 50%;
+  }
 }
 
 .icons-list-icon {
   margin: .25rem;
-  width: 2rem;
-  height: 2rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
   color: inherit;
   border-radius: 3px;
   display: inline-flex;
@@ -130,7 +153,7 @@ a {
   justify-content: center;
 
   &:hover {
-    background-color: $hover;
+    opacity: .75;
   }
 
   .icon {
@@ -162,11 +185,9 @@ Components
   min-width: $btn-form-height;
   padding: 0 .75rem;
 
-
   .icon {
     width: 1rem;
     height: 1rem;
-    stroke-width: 2;
     margin: 0 .5rem 0 -.25rem;
   }
 }
@@ -219,7 +240,6 @@ Components
     color: $muted;
     width: 1.25rem;
     height: 1.25rem;
-    stroke-width: 1.5;
     position: absolute;
     top: ($btn-form-height - 1.25rem) / 2;
     right: ($btn-form-height - 1.25rem) / 2;
@@ -250,8 +270,8 @@ Components
   vertical-align: bottom;
 
   .icon {
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
   }
 }
 
@@ -275,6 +295,11 @@ Components
     &.active {
       color: $primary;
       border-bottom-color: $primary;
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
