@@ -1,3 +1,3 @@
 # Tabler icons
 
-![Tabler icons](/icons.svg?raw=true)
+![Tabler icons](./icons.svg)
