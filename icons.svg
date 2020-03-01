@@ -98,6 +98,10 @@
 </symbol>
 	<symbol id="tabler-border-vertical" class="icon tabler-icon tabler-icon-border-vertical" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20" /><g stroke-dasharray=".001 4"><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="4" x2="20" y2="4" /><line x1="4" y1="20" x2="4" y2="4" /><line x1="20" y1="20" x2="4" y2="20" /><line x1="20" y1="4" x2="20" y2="20" /></g>
 </symbol>
+	<symbol id="tabler-camera" class="icon tabler-icon tabler-icon-camera" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h1a2 2 0 002 -2a1 1 0 011 -1h6a1 1 0 011 1a2 2 0 002 2h1a2 2 0 012 2v9a2 2 0 01-2 2h-14a2 2 0 01-2 -2v-9a2 2 0 012 -2"></path><circle cx="12" cy="13" r="3" />
+</symbol>
+	<symbol id="tabler-cash" class="icon tabler-icon tabler-icon-cash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="14" height="10" rx="2"></rect><circle cx="14" cy="14" r="2" /><path d="M17 9v-2a2 2 0 00-2 -2h-10a2 2 0 00-2 2v6a2 2 0 002 2h2"></path>
+</symbol>
 	<symbol id="tabler-check" class="icon tabler-icon tabler-icon-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 10 17 5 12" />
 </symbol>
 	<symbol id="tabler-chevron-down" class="icon tabler-icon tabler-icon-chevron-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" />
@@ -159,6 +163,8 @@
 	<symbol id="tabler-lock-open" class="icon tabler-icon tabler-icon-lock-open" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><polyline points="12 15 12 17"></polyline><path d="M8 11v-5a4 4 0 018 0"></path>
 </symbol>
 	<symbol id="tabler-lock" class="icon tabler-icon tabler-icon-lock" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><polyline points="12 15 12 17"></polyline><path d="M8 11v-4a4 4 0 018 0v4"></path>
+</symbol>
+	<symbol id="tabler-magnet" class="icon tabler-icon tabler-icon-magnet" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-8a2 2 0 012 -2h1a2 2 0 012 2v8a2 2 0 006 0v-8a2 2 0 012 -2h1a2 2 0 012 2v8a8 8 0 01-16 0"></path><polyline points="4 8 9 8"></polyline><polyline points="15 8 19 8"></polyline>
 </symbol>
 	<symbol id="tabler-map-pin" class="icon tabler-icon tabler-icon-map-pin" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="3"></circle><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
 </symbol>
@@ -272,70 +278,73 @@
 	<use xlink:href="#tabler-border-right" x="456" y="132" width="24" height="24" />
 	<use xlink:href="#tabler-border-top" x="510" y="132" width="24" height="24" />
 	<use xlink:href="#tabler-border-vertical" x="564" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-check" x="618" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-chevron-down" x="672" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-chevron-left" x="726" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-chevron-right" x="780" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-chevron-up" x="834" y="132" width="24" height="24" />
-	<use xlink:href="#tabler-chevrons-down" x="24" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-chevrons-left" x="78" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-chevrons-right" x="132" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-chevrons-up" x="186" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-circle" x="240" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-clipboard" x="294" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-clock" x="348" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-code" x="402" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-cog" x="456" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-device-desktop" x="510" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-device-mobile" x="564" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-device-tablet" x="618" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-download" x="672" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-file-check" x="726" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-file-download" x="780" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-file-minus" x="834" y="186" width="24" height="24" />
-	<use xlink:href="#tabler-file-plus" x="24" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-file-text" x="78" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-file-x" x="132" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-file" x="186" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-grid" x="240" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-heart" x="294" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-home" x="348" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-layout" x="402" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-lock-open" x="456" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-lock" x="510" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-map-pin" x="564" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-menu" x="618" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-minus-circle" x="672" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-minus-square" x="726" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-minus" x="780" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-mood-confuzed" x="834" y="240" width="24" height="24" />
-	<use xlink:href="#tabler-mood-happy" x="24" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-mood-neutral" x="78" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-mood-sad" x="132" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-mood-smile" x="186" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-more-vertical" x="240" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-more" x="294" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-photo" x="348" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-plus-circle" x="402" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-plus-square" x="456" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-plus" x="510" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-qrcode" x="564" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-search" x="618" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-square" x="672" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-star" x="726" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-swich-horizontal" x="780" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-switch-vertical" x="834" y="294" width="24" height="24" />
-	<use xlink:href="#tabler-trending-down" x="24" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-trending-up" x="78" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-upload" x="132" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-user-check" x="186" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-user-minus" x="240" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-user-plus" x="294" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-user-x" x="348" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-user" x="402" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-viewfinder" x="456" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-x" x="510" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-zoom-in" x="564" y="348" width="24" height="24" />
-	<use xlink:href="#tabler-zoom-out" x="618" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-camera" x="618" y="132" width="24" height="24" />
+	<use xlink:href="#tabler-cash" x="672" y="132" width="24" height="24" />
+	<use xlink:href="#tabler-check" x="726" y="132" width="24" height="24" />
+	<use xlink:href="#tabler-chevron-down" x="780" y="132" width="24" height="24" />
+	<use xlink:href="#tabler-chevron-left" x="834" y="132" width="24" height="24" />
+	<use xlink:href="#tabler-chevron-right" x="24" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-chevron-up" x="78" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-chevrons-down" x="132" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-chevrons-left" x="186" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-chevrons-right" x="240" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-chevrons-up" x="294" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-circle" x="348" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-clipboard" x="402" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-clock" x="456" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-code" x="510" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-cog" x="564" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-device-desktop" x="618" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-device-mobile" x="672" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-device-tablet" x="726" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-download" x="780" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-file-check" x="834" y="186" width="24" height="24" />
+	<use xlink:href="#tabler-file-download" x="24" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-file-minus" x="78" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-file-plus" x="132" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-file-text" x="186" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-file-x" x="240" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-file" x="294" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-grid" x="348" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-heart" x="402" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-home" x="456" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-layout" x="510" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-lock-open" x="564" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-lock" x="618" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-magnet" x="672" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-map-pin" x="726" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-menu" x="780" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-minus-circle" x="834" y="240" width="24" height="24" />
+	<use xlink:href="#tabler-minus-square" x="24" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-minus" x="78" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-mood-confuzed" x="132" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-mood-happy" x="186" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-mood-neutral" x="240" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-mood-sad" x="294" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-mood-smile" x="348" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-more-vertical" x="402" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-more" x="456" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-photo" x="510" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-plus-circle" x="564" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-plus-square" x="618" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-plus" x="672" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-qrcode" x="726" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-search" x="780" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-square" x="834" y="294" width="24" height="24" />
+	<use xlink:href="#tabler-star" x="24" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-swich-horizontal" x="78" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-switch-vertical" x="132" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-trending-down" x="186" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-trending-up" x="240" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-upload" x="294" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-user-check" x="348" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-user-minus" x="402" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-user-plus" x="456" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-user-x" x="510" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-user" x="564" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-viewfinder" x="618" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-x" x="672" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-zoom-in" x="726" y="348" width="24" height="24" />
+	<use xlink:href="#tabler-zoom-out" x="780" y="348" width="24" height="24" />
 
 </svg>
