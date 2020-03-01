@@ -1,7 +1,6 @@
 {
   "name": "tabler-icons",
   "version": "1.0.0",
-  "description": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -10,5 +9,15 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "homepage": "https://github.com/tabler/tabler-icons#readme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "description": "",
+  "devDependencies": {
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2"
   }
 }
