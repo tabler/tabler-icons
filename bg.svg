@@ -2,19 +2,19 @@
 ---
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <g fill="none" fill-rule="evenodd" stroke="#206bc4" stroke-width=".025" opacity=".5">
-    <rect x="4" y="1" width="16" height="22" rx="3"></rect>
-    <rect x="2" y="2" width="20" height="20" rx="3"></rect>
-    <rect x="1" y="4" width="22" height="16" rx="3"></rect>
-    <circle cx="12" cy="12" r="5"></circle>
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="0" y1="0" x2="24" y2="24"></line>
-    <line x1="24" y1="0" x2="0" y2="24"></line>
-    <line x1="0" y1="8.5" x2="24" y2="8.5"></line>
-    <line x1="0" y1="15.5" x2="24" y2="15.5"></line>
-    <line x1="8.5" y1="0" x2="8.5" y2="24"></line>
-    <line x1="15.5" y1="0" x2="15.5" y2="24"></line>
-    <line x1="0" y1="12" x2="24" y2="12"></line>
-    <line x1="12" y1="0" x2="12" y2="24"></line>
+    <rect x="4" y="1" width="16" height="22" rx="3" />
+    <rect x="2" y="2" width="20" height="20" rx="3" />
+    <rect x="1" y="4" width="22" height="16" rx="3" />
+    <circle cx="12" cy="12" r="5" />
+    <circle cx="12" cy="12" r="10" />
+    <line x1="0" y1="0" x2="24" y2="24" />
+    <line x1="24" y1="0" x2="0" y2="24" />
+    <line x1="0" y1="8.5" x2="24" y2="8.5" />
+    <line x1="0" y1="15.5" x2="24" y2="15.5" />
+    <line x1="8.5" y1="0" x2="8.5" y2="24" />
+    <line x1="15.5" y1="0" x2="15.5" y2="24" />
+    <line x1="0" y1="12" x2="24" y2="12" />
+    <line x1="12" y1="0" x2="12" y2="24" />
   </g>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji">
     {% for i in (1..24) %}
@@ -23,8 +23,8 @@
       <text x="{{ i | plus: 0.1 }}" y=".25" >{{ i }}</text>
     </g>
     <g stroke="#666" stroke-width=".01">
-      <line x1="0" y1="{{ i }}" x2="24" y2="{{ i }}"></line>
-      <line x1="{{ i }}" y1="0" x2="{{ i }}" y2="24"></line>
+      <line x1="0" y1="{{ i }}" x2="24" y2="{{ i }}" />
+      <line x1="{{ i }}" y1="0" x2="{{ i }}" y2="24" />
     </g>
 
     {% endfor %}
