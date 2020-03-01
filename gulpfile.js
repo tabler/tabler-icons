@@ -50,3 +50,21 @@ gulp.task('icons-sprite', function (cb) {
 		cb();
 	});
 });
+
+gulp.task('optimize', function(){
+	glob("_site/icons/*.svg", {}, function (er, files) {
+
+		files.forEach(function (file, i) {
+			let svgFile = fs.readFileSync(file),
+				svgFileContent = svgFile.toString();
+
+			svgFileContent = svgFileContent
+				.replace(/><\/(polyline|line|rect|circle)>/, '/>')
+				.replace(/\n\n+/g, "\n");
+
+			fs.writeFileSync(file, svgFileContent);
+		});
+
+		cb();
+	});
+});
