@@ -6,10 +6,10 @@ const gulp = require('gulp'),
 
 
 gulp.task('icons-sprite', function (cb) {
-	const columnsCount = 20,
-		padding = 16,
+	const columnsCount = 10,
+		padding = 24,
 		paddingOuter = 49,
-		iconSize = 24;
+		iconSize = 48;
 
 	glob("_site/icons/*.svg", {}, function (er, files) {
 		const iconsCount = files.length,
