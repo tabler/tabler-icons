@@ -6,10 +6,10 @@ const gulp = require('gulp'),
 
 
 gulp.task('icons-sprite', function (cb) {
-	const columnsCount = 10,
-		padding = 24,
+	const columnsCount = 20,
+		padding = 16,
 		paddingOuter = 49,
-		iconSize = 48;
+		iconSize = 24;
 
 	glob("_site/icons/*.svg", {}, function (er, files) {
 		const iconsCount = files.length,
@@ -44,7 +44,7 @@ gulp.task('icons-sprite', function (cb) {
 			}
 		});
 
-		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}"><rect x="0" y="0" width="${width}" height="${height}" fill="#fafafa"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
+		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#f5f7fb"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
 		fs.writeFileSync('icons.svg', svgContent);
 		cb();
