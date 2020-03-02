@@ -5,7 +5,8 @@ $breakpoint: 50rem;
 $primary: #206bc4;
 $border: #eeeeee;
 $muted: #aaaaaa;
-$dark: #222222;
+$dark: #354052;
+$light: #fafbfc;
 $btn-form-height: 2rem;
 $hover: rgba(0, 0, 0, .04);
 
@@ -135,11 +136,17 @@ a {
   margin: -.25rem;
 }
 
+.icons-list-borders {
+  .icons-list-icon {
+    border-color: $dark;
+  }
+}
+
 .icons-list-squares,
 .icons-list-circles {
   .icons-list-icon {
     background: $dark;
-    color: #fff;
+    color: $light;
   }
 }
 
@@ -158,6 +165,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
 
   &:hover {
     opacity: .75;
