@@ -64,6 +64,7 @@ gulp.task('optimize', function(cb){
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+				.replace(/\s+"/g, '"')
 				.replace(/\n\n+/g, "\n");
 			
 			console.log('file', file);
