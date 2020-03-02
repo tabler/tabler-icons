@@ -1,16 +1,16 @@
 ---
 ---
 <svg>
-  <rect x="4" y="4" width="4" height="4" rx="1" ry="1"/>
-  <rect x="16" y="4" width="4" height="4" rx="1" ry="1"/>
-  <rect x="4" y="16" width="4" height="4" rx="1" ry="1"/>
-  <polyline points="12 4 12 5"/>
-  <polyline points="12 8 12 12 15 12"/>
-  <polyline points="4 12 5 12"/>
-  <polyline points="8 12 9 12"/>
-  <polyline points="18 12 20 12"/>
-  <polyline points="12 16 16 16"/>
-  <polyline points="19 16 20 16"/>
-  <polyline points="12 20 14 20"/>
-  <polyline points="17 20 20 20"/>
+  <rect x="4" y="4" width="4" height="4" rx="1" />
+  <rect x="16" y="4" width="4" height="4" rx="1" />
+  <rect x="4" y="16" width="4" height="4" rx="1" />
+  <line x1="12" y1="4" x2="12" y2="5" />
+  <polyline points="12 8 12 12 15 12" />
+  <line x1="4" y1="12" x2="5" y2="12" />
+  <line x1="8" y1="12" x2="9" y2="12" />
+  <line x1="18" y1="12" x2="20" y2="12" />
+  <line x1="12" y1="16" x2="16" y2="16" />
+  <line x1="19" y1="16" x2="20" y2="16" />
+  <line x1="12" y1="20" x2="14" y2="20" />
+  <line x1="17" y1="20" x2="20" y2="20" />
 </svg>

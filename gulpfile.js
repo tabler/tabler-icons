@@ -51,16 +51,22 @@ gulp.task('icons-sprite', function (cb) {
 	});
 });
 
-gulp.task('optimize', function(){
-	glob("_site/icons/*.svg", {}, function (er, files) {
+gulp.task('optimize', function(cb){
+	glob("_icons/*.svg", {}, function (er, files) {
 
 		files.forEach(function (file, i) {
 			let svgFile = fs.readFileSync(file),
 				svgFileContent = svgFile.toString();
 
 			svgFileContent = svgFileContent
-				.replace(/><\/(polyline|line|rect|circle)>/, '/>')
+				.replace(/><\/(polyline|line|rect|circle|path)>/g, '/>')
+				.replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
+				.replace(/\s?\/>/g, ' />')
+				.replace(/\n\s*<(line|circle|path|polyline)/g, "\n  <$1")
+				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
 				.replace(/\n\n+/g, "\n");
+			
+			console.log('file', file);
 
 			fs.writeFileSync(file, svgFileContent);
 		});
