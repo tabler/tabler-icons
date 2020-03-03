@@ -12,6 +12,8 @@ $hover: rgba(0, 0, 0, .04);
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -39,7 +41,11 @@ a {
 .container {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 1rem
+  padding: 1rem;
+
+  @media (max-width: #{$breakpoint}) {
+    padding: 0;
+  }
 }
 
 .row {
@@ -71,6 +77,11 @@ a {
   padding: 2rem;
   background: #ffff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+
+  @media (max-width: #{$breakpoint}) {
+    padding: .5rem;
+    box-shadow: none;
+  }
 }
 
 .icon-title {
