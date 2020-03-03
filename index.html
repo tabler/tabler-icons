@@ -80,6 +80,10 @@
 					<a href="#">{{ first-icon }} Link</a>
 				</div>
 
+				<div class="mt-auto">
+					<input class="input-range js-input-range" type="range" min="1.25" max="2.75" step=".25" value="2">
+				</div>
+
 			</div>
 		</div>
 
@@ -125,21 +129,29 @@
 <script>
 
 	$(document).ready(function () {
-		$('body').on('click', '.js-icon', function (e) {
-			var icon = $(this).attr('data-icon');
-			
-			$('.js-icon-name').html(icon);
-			localStorage.setItem('icon', icon);
+		$('body')
+			.on('click', '.js-icon', function (e) {
+				var icon = $(this).attr('data-icon');
 
-			$('.js-icon-manager svg').replaceWith($(this).find('>svg:eq(0)').clone());
+				$('.js-icon-name').html(icon);
+				localStorage.setItem('icon', icon);
 
-			e.preventDefault();
-			return false;
-		});
+				$('.js-icon-manager svg').replaceWith($(this).find('>svg:eq(0)').clone());
+
+				e.preventDefault();
+				return false;
+			})
+			.on('input', '.js-input-range', function(e){
+				$('.js-icon svg').css('stroke-width', $(this).val());
+				
+				e.preventDefault();
+				return false;
+			});
+
 
 		var icon = localStorage.getItem('icon');
 		if (icon) {
-			$('.js-icon[data-icon="' + icon + '"]').click();
+			$('.js-icon[data-icon="' + icon + '"]').eq(0).click();
 		}
 
 		document.body.style.display = "block"

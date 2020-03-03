@@ -58,11 +58,12 @@ a {
 .col-aside {
   width: 15rem;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: #{$breakpoint}) {
     margin-top: 0;
     margin-left: 2rem;
-    flex-direction: row;
   }
 }
 
@@ -180,6 +181,10 @@ a {
 
 .mb {
   margin-bottom: 2rem;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 
 
@@ -318,4 +323,8 @@ Components
       height: 1rem;
     }
   }
+}
+
+.input-range {
+  width: 100%;
 }
