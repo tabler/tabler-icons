@@ -37,7 +37,7 @@
 				{% for icon in site.icons %}
 				{% assign name = icon.slug %}
 				<div class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name width=1.25 %}
+					{% include icon.html name=name stroke=1.25 %}
 				</div>
 				{% endfor %}
 			</div>
