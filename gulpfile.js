@@ -8,7 +8,7 @@ const gulp = require('gulp'),
 gulp.task('icons-sprite', function (cb) {
 	const columnsCount = 16,
 		padding = 30,
-		paddingOuter = 24,
+		paddingOuter = 0,
 		iconSize = 24;
 
 	glob("_site/icons/*.svg", {}, function (er, files) {
@@ -44,7 +44,7 @@ gulp.task('icons-sprite', function (cb) {
 			}
 		});
 
-		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fafbfc"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
+		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
 		fs.writeFileSync('icons.svg', svgContent);
 		cb();
@@ -57,7 +57,7 @@ gulp.task('icons-stroke', function (cb) {
 		strokes = ['.5', '1', '1.5', '2', '2.75'],
 		svgFileContent = fs.readFileSync(`_site/icons/tabler-${icon}.svg`).toString(),
 		padding = 32,
-		paddingOuter = 32,
+		paddingOuter = 0,
 		iconSize = 128,
 		width = (strokes.length * (iconSize + padding) - padding) + paddingOuter * 2,
 		height = iconSize + paddingOuter * 2;
@@ -84,7 +84,7 @@ gulp.task('icons-stroke', function (cb) {
 		x += padding + iconSize;
 	});
 
-	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fafbfc"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
+	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
 	fs.writeFileSync('icons-stroke.svg', svgContent);
 
