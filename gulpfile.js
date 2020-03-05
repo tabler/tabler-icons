@@ -6,9 +6,9 @@ const gulp = require('gulp'),
 
 
 gulp.task('icons-sprite', function (cb) {
-	const columnsCount = 16,
-		padding = 30,
-		paddingOuter = 0,
+	const columnsCount = 17,
+		padding = 29,
+		paddingOuter = 5,
 		iconSize = 24;
 
 	glob("_site/icons/*.svg", {}, function (er, files) {
@@ -56,9 +56,9 @@ gulp.task('icons-stroke', function (cb) {
 	const icon = "disabled",
 		strokes = ['.5', '1', '1.5', '2', '2.75'],
 		svgFileContent = fs.readFileSync(`_site/icons/tabler-${icon}.svg`).toString(),
-		padding = 32,
-		paddingOuter = 0,
-		iconSize = 128,
+		padding = 16,
+		paddingOuter = 5,
+		iconSize = 64,
 		width = (strokes.length * (iconSize + padding) - padding) + paddingOuter * 2,
 		height = iconSize + paddingOuter * 2;
 
