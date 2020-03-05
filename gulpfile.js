@@ -51,7 +51,47 @@ gulp.task('icons-sprite', function (cb) {
 	});
 });
 
-gulp.task('optimize', function(cb){
+gulp.task('icons-stroke', function (cb) {
+
+	const icon = "disabled",
+		strokes = ['.5', '1', '1.5', '2', '2.75'],
+		svgFileContent = fs.readFileSync(`_site/icons/tabler-${icon}.svg`).toString(),
+		padding = 32,
+		paddingOuter = 32,
+		iconSize = 128,
+		width = (strokes.length * (iconSize + padding) - padding) + paddingOuter * 2,
+		height = iconSize + paddingOuter * 2;
+
+	let svgContentSymbols = '',
+		svgContentIcons = '',
+		x = paddingOuter;
+	
+	console.log('width', width);
+
+	strokes.forEach(function (stroke) {
+		console.log('stroke', stroke);
+
+		let svgFileContentStroked = svgFileContent
+			.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
+			.replace(' width="24" height="24"', '')
+			.replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
+			.replace('</svg>', '</symbol>')
+			.replace(/\n\s+/g, '');
+
+		svgContentSymbols += `\t${svgFileContentStroked}\n`;
+		svgContentIcons += `\t<use xlink:href="#icon-${stroke}" x="${x}" y="${paddingOuter}" width="${iconSize}" height="${iconSize}" />\n`;
+
+		x += padding + iconSize;
+	});
+
+	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fafbfc"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
+
+	fs.writeFileSync('icons-stroke.svg', svgContent);
+
+	cb();
+});
+
+gulp.task('optimize', function (cb) {
 	glob("_icons/*.svg", {}, function (er, files) {
 
 		files.forEach(function (file, i) {
@@ -66,7 +106,7 @@ gulp.task('optimize', function(cb){
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
 				.replace(/\s+"/g, '"')
 				.replace(/\n\n+/g, "\n");
-			
+
 			console.log('file', file);
 
 			fs.writeFileSync(file, svgFileContent);
