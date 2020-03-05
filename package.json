@@ -13,11 +13,11 @@
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp optimize && gulp icons-sprite && gulp icons-stroke"
   },
   "description": "",
   "devDependencies": {
-    "glob": "^7.1.6",
-    "gulp": "^4.0.2"
+    "glob": "7.1.6",
+    "gulp": "4.0.2"
   }
 }
