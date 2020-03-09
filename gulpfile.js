@@ -22,7 +22,7 @@ gulp.task('icons-sprite', function (cb) {
 				.replace(/>\s+</g, '><')
 				.trim();
 
-			svgContent += `<symbol id="${name}" viewBox="0 0 24 24">${svgFileContent}</symbol>`
+			svgContent += `<symbol id="${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
 		});
 
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
