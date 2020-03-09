@@ -14,7 +14,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "optimize": "gulp optimize",
-    "build": "gulp optimize && gulp build && gulp icons-sprite"
+    "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite"
   },
   "description": "",
   "devDependencies": {

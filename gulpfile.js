@@ -6,6 +6,33 @@ const gulp = require('gulp'),
 
 
 gulp.task('icons-sprite', function (cb) {
+	glob("_site/icons/*.svg", {}, function (er, files) {
+
+		let svgContent = '';
+
+		files.forEach(function (file, i) {
+			let name = path.basename(file, '.svg'),
+				svgFile = fs.readFileSync(file),
+				svgFileContent = svgFile.toString();
+
+			svgFileContent = svgFileContent
+				.replace(/<svg[^>]+>/g, '')
+				.replace(/<\/svg>/g, '')
+				.replace(/\n+/g, '')
+				.replace(/>\s+</g, '><')
+				.trim();
+
+			svgContent += `<symbol id="${name}" viewBox="0 0 24 24">${svgFileContent}</symbol>`
+		});
+
+		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
+
+		fs.writeFileSync('icons-sprite.svg', svg);
+		cb();
+	});
+});
+
+gulp.task('icons-preview', function (cb) {
 	const columnsCount = 17,
 		padding = 29,
 		paddingOuter = 5,
@@ -46,7 +73,7 @@ gulp.task('icons-sprite', function (cb) {
 
 		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-		fs.writeFileSync('icons.svg', svgContent);
+		fs.writeFileSync('demo/icons.svg', svgContent);
 		cb();
 	});
 });
@@ -82,7 +109,7 @@ gulp.task('icons-stroke', function (cb) {
 
 	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-	fs.writeFileSync('icons-stroke.svg', svgContent);
+	fs.writeFileSync('demo/icons-stroke.svg', svgContent);
 	cb();
 });
 
@@ -101,8 +128,6 @@ gulp.task('optimize', function (cb) {
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
 				.replace(/\s+"/g, '"')
 				.replace(/\n\n+/g, "\n");
-
-			console.log('file', file);
 
 			fs.writeFileSync(file, svgFileContent);
 		});
