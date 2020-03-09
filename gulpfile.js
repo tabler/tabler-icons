@@ -1,8 +1,8 @@
 const gulp = require('gulp'),
+	cp = require('child_process'),
 	glob = require("glob"),
 	fs = require("fs"),
-	path = require("path"),
-	svg2img = require('svg2img');
+	path = require("path");
 
 
 gulp.task('icons-sprite', function (cb) {
@@ -55,7 +55,7 @@ gulp.task('icons-stroke', function (cb) {
 
 	const icon = "disabled",
 		strokes = ['.5', '1', '1.5', '2', '2.75'],
-		svgFileContent = fs.readFileSync(`_site/icons/tabler-${icon}.svg`).toString(),
+		svgFileContent = fs.readFileSync(`_site/icons/${icon}.svg`).toString(),
 		padding = 16,
 		paddingOuter = 5,
 		iconSize = 64,
@@ -109,4 +109,13 @@ gulp.task('optimize', function (cb) {
 
 		cb();
 	});
+});
+
+gulp.task('build', function (cb) {
+	cp.exec('bundle exec jekyll build', function() {
+
+		cp.exec('rm -f ./icons/* && cp ./_site/icons/* ./icons', function() {
+			cb();
+		});
+	})
 });
