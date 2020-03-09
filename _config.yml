@@ -1,7 +1,4 @@
-plugins:
-  - jekyll-last-modified-at
-
-
+source: src
 host: 0.0.0.0
 
 exclude:
@@ -13,7 +10,8 @@ defaults:
       type: "icons"
     values:
       layout: icon
-      permalink: 'icons/tabler-:slug'
+      in-bg: true
+      permalink: 'icons/:slug'
 
 collections:
   icons:
