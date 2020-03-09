@@ -87,7 +87,7 @@ gulp.task('icons-stroke', function (cb) {
 });
 
 gulp.task('optimize', function (cb) {
-	glob("_icons/*.svg", {}, function (er, files) {
+	glob("src/_icons/*.svg", {}, function (er, files) {
 
 		files.forEach(function (file, i) {
 			let svgFile = fs.readFileSync(file),
