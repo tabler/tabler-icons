@@ -73,7 +73,7 @@ gulp.task('icons-preview', function (cb) {
 
 		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-		fs.writeFileSync('demo/icons.svg', svgContent);
+		fs.writeFileSync('icons.svg', svgContent);
 		cb();
 	});
 });
@@ -109,7 +109,7 @@ gulp.task('icons-stroke', function (cb) {
 
 	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-	fs.writeFileSync('demo/icons-stroke.svg', svgContent);
+	fs.writeFileSync('dist/icons-stroke.svg', svgContent);
 	cb();
 });
 
@@ -139,7 +139,7 @@ gulp.task('optimize', function (cb) {
 gulp.task('build', function (cb) {
 	cp.exec('bundle exec jekyll build', function() {
 
-		cp.exec('rm -f ./icons/* && cp ./_site/icons/* ./icons', function() {
+		cp.exec('rm -f ./dist/icons/* && cp ./_site/icons/* ./dist/icons', function() {
 			cb();
 		});
 	})

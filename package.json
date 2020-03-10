@@ -14,6 +14,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "optimize": "gulp optimize",
+    "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite"
   },
   "description": "",
