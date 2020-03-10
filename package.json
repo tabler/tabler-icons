@@ -13,6 +13,7 @@
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "main": "gulpfile.js",
   "scripts": {
+    "precommit": "gulp optimize",
     "optimize": "gulp optimize",
     "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite"
