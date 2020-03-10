@@ -15,22 +15,22 @@ npm install tabler-icons --save
 
 All icons are built with SVG, so you can place them as `<img>`, `background-image` and inline in HTML code.
 
+### Inline HTML
+
 ```html
+<a href="">
+   <svg xmlns="http://www.w3.org/2000/svg" 
+      class="icon tabler-icon tabler-icon-disabled" 
+      width="24" height="24" viewBox="0 0 24 24" 
+      stroke-width="1.25" stroke="currentColor" fill="none" 
+      stroke-linecap="round" stroke-linejoin="round">...</svg>
+   Click me
+</a>
 ```
 
 ## Multiple strokes
 
 All icons in this repository are drawn with the value of `stroke` property, so if you change its value you can get different variants of icon, that will fit into your project.
-
-```html
-<svg xmlns="http://www.w3.org/2000/svg" 
-   class="icon tabler-icon tabler-icon-disabled" 
-   width="24" height="24" viewBox="0 0 24 24" 
-   stroke-width="1.25" stroke="currentColor" fill="none" 
-   stroke-linecap="round" stroke-linejoin="round">
-  ...
-</svg>
-```
 
 ![Tabler icons](icons-stroke.svg)
 
