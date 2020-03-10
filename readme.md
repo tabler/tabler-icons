@@ -57,7 +57,7 @@ Include an icon on your page with the following markup (`activity` in the above 
 
 ```html
 <svg width="24" height="24">
-  <use xlink:href="path/to/tabler-sprite.svg#activity"/>
+  <use xlink:href="path/to/tabler-sprite.svg#tabler-activity"/>
 </svg>
 ```
 
