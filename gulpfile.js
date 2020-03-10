@@ -27,7 +27,7 @@ gulp.task('icons-sprite', function (cb) {
 
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
-		fs.writeFileSync('dist/icons-sprite.svg', svg);
+		fs.writeFileSync('dist/tabler-sprite.svg', svg);
 		cb();
 	});
 });
