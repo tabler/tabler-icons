@@ -1,6 +1,6 @@
 # Tabler Icons
 
-A set of over 300 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and `2px` stroke.
+A set of over 300 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
 
 ```
 npm install tabler-icons --save
@@ -17,7 +17,7 @@ All icons are built with SVG, so you can place them as `<img>`, `background-imag
 
 ### HTML image
 
-If you load the icon as an image you can manipulate size with CSS.
+If you upload an icon as an image, you can modify its size using CSS.
 
 ```html
 <img src="path/to/icon.svg" alt="icon title"/>
@@ -25,7 +25,7 @@ If you load the icon as an image you can manipulate size with CSS.
 
 ### Inline HTML
 
-You can paste the content of the icon file into the HTML code and it will be displayed on the page. 
+You can paste the content of the icon file into your HTML code to display it on the page. 
 
 ```html
 <a href="">
@@ -40,7 +40,7 @@ You can paste the content of the icon file into the HTML code and it will be dis
 </a>
 ```
 
-In this way you can change size, color and `stroke-width` of the icon with CSS code.
+Thanks to that, you can change the size, color and the `stroke-width` of the icons with CSS code.
 
 ```css
 .icon-tabler {
@@ -53,7 +53,7 @@ In this way you can change size, color and `stroke-width` of the icon with CSS c
 
 ### SVG sprite
 
-Include an icon on your page with the following markup (`activity` in the above example can be replaced with any valid icon name):
+Add an icon to be displayed on your page with the following markup (`activity` in the above example can be replaced with any valid icon name):
 
 ```html
 <svg width="24" height="24">
@@ -63,7 +63,7 @@ Include an icon on your page with the following markup (`activity` in the above 
 
 ## Multiple strokes
 
-All icons in this repository are drawn with the value of `stroke-width` property, so if you change its value you can get different variants of icon, that will fit into your project.
+All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
 ![Tabler icons](icons-stroke.svg)
 
