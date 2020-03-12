@@ -11,12 +11,10 @@ const createScreenshot = async (filePath) => {
 	try {
 		filePath = path.join(__dirname, filePath);
 
-		const fileName = path.basename(filePath, path.extname(filePath));
+		const fileName = filePath.replace('.svg', '');
 		const htmlFilePath = path.join("file:", filePath);
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
-		
-		console.log('htmlFilePath', htmlFilePath);
 		
 		await page.setViewport({
 			height: 100,
@@ -60,7 +58,7 @@ gulp.task('icons-sprite', function (cb) {
 
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
-		fs.writeFileSync('.github/tabler-sprite.svg', svg);
+		fs.writeFileSync('dist/tabler-sprite.svg', svg);
 		cb();
 	});
 });
