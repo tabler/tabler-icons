@@ -1,9 +1,42 @@
 const gulp = require('gulp'),
 	cp = require('child_process'),
-	glob = require("glob"),
-	fs = require("fs"),
-	path = require("path");
+	glob = require('glob'),
+	fs = require('fs'),
+	path = require('path'),
+	p = require('./package.json'),
+	zip = require('gulp-zip'),
+	puppeteer = require('puppeteer');
 
+const createScreenshot = async (filePath) => {
+	try {
+		filePath = path.join(__dirname, filePath);
+
+		const fileName = path.basename(filePath, path.extname(filePath));
+		const htmlFilePath = path.join("file:", filePath);
+		const browser = await puppeteer.launch();
+		const page = await browser.newPage();
+		
+		console.log('htmlFilePath', htmlFilePath);
+		
+		await page.setViewport({
+			height: 100,
+			width: 100
+		});
+
+		await page.goto(htmlFilePath);
+
+		await page.screenshot({
+			path: `${fileName}.png`,
+			omitBackground: false,
+			fullPage: true
+		});
+
+		await browser.close();
+	} catch (error) {
+		console.error(error);
+		throw Error(error);
+	}
+};
 
 gulp.task('icons-sprite', function (cb) {
 	glob("_site/icons/*.svg", {}, function (er, files) {
@@ -74,6 +107,7 @@ gulp.task('icons-preview', function (cb) {
 		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
 		fs.writeFileSync('icons.svg', svgContent);
+		createScreenshot('icons.svg');
 		cb();
 	});
 });
@@ -110,6 +144,7 @@ gulp.task('icons-stroke', function (cb) {
 	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
 	fs.writeFileSync('icons-stroke.svg', svgContent);
+	createScreenshot('icons-stroke.svg');
 	cb();
 });
 
@@ -136,11 +171,24 @@ gulp.task('optimize', function (cb) {
 	});
 });
 
-gulp.task('build', function (cb) {
-	cp.exec('bundle exec jekyll build', function() {
+gulp.task('build-zip', function(cb) {
+	const version = p.version;
 
-		cp.exec('rm -f ./dist/icons/* && cp ./_site/icons/* ./dist/icons', function() {
-			cb();
-		});
-	})
+	return gulp.src('dist/**/*')
+		.pipe(zip(`${version}.zip`))
+		.pipe(gulp.dest('packages'))
 });
+
+gulp.task('build-jekyll', function(cb){
+	cp.exec('bundle exec jekyll build', function() {
+		cb();
+	});
+});
+
+gulp.task('build-copy', function(cb){
+	cp.exec('mkdir -p dist/icons/ && rm -f ./dist/icons/* && cp ./_site/icons/* ./dist/icons && cp ./icons.{png,svg} ./dist && cp ./tabler-icons.png ./dist', function() {
+		cb();
+	});
+});
+
+gulp.task('build', gulp.series('build-jekyll', 'build-copy', 'build-zip'));

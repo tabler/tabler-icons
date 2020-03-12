@@ -17,7 +17,7 @@ All icons are built with SVG, so you can place them as `<img>`, `background-imag
 
 ### HTML image
 
-If you upload an icon as an image, you can modify its size using CSS.
+If you load an icon as an image, you can modify its size using CSS.
 
 ```html
 <img src="path/to/icon.svg" alt="icon title"/>

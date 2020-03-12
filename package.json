@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
   },
-  "files":  [
+  "files": [
     "dist/*"
   ],
   "homepage": "https://github.com/tabler/tabler-icons#readme",
@@ -24,6 +24,8 @@
   "description": "",
   "devDependencies": {
     "glob": "7.1.6",
-    "gulp": "4.0.2"
+    "gulp": "4.0.2",
+    "gulp-zip": "5.0.1",
+    "puppeteer": "2.1.1"
   }
 }
