@@ -58,7 +58,7 @@ gulp.task('icons-sprite', function (cb) {
 
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
-		fs.writeFileSync('dist/tabler-sprite.svg', svg);
+		fs.writeFileSync('tabler-sprite.svg', svg);
 		cb();
 	});
 });
@@ -172,7 +172,7 @@ gulp.task('optimize', function (cb) {
 gulp.task('build-zip', function(cb) {
 	const version = p.version;
 
-	return gulp.src('dist/**/*')
+	return gulp.src('icons/**/*')
 		.pipe(zip(`${version}.zip`))
 		.pipe(gulp.dest('packages'))
 });
@@ -184,7 +184,7 @@ gulp.task('build-jekyll', function(cb){
 });
 
 gulp.task('build-copy', function(cb){
-	cp.exec('mkdir -p dist/icons/ && rm -f ./dist/icons/* && cp ./_site/icons/* ./dist/icons && cp ./icons.{png,svg} ./dist && cp ./tabler-icons.png ./dist', function() {
+	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function() {
 		cb();
 	});
 });
