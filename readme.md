@@ -8,7 +8,7 @@ npm install tabler-icons --save
 
 ## Preview
 
-![Tabler icons](icons.svg)
+![](./.github/icons.svg)
 
 
 ## Usage
@@ -65,7 +65,7 @@ Add an icon to be displayed on your page with the following markup (`activity` i
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
-![Tabler icons](icons-stroke.svg)
+![](./.github/icons-stroke.svg)
 
 ## License
 

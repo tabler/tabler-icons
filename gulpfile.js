@@ -60,7 +60,7 @@ gulp.task('icons-sprite', function (cb) {
 
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
-		fs.writeFileSync('dist/tabler-sprite.svg', svg);
+		fs.writeFileSync('.github/tabler-sprite.svg', svg);
 		cb();
 	});
 });
@@ -106,8 +106,8 @@ gulp.task('icons-preview', function (cb) {
 
 		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-		fs.writeFileSync('icons.svg', svgContent);
-		createScreenshot('icons.svg');
+		fs.writeFileSync('.github/icons.svg', svgContent);
+		createScreenshot('.github/icons.svg');
 		cb();
 	});
 });
