@@ -7,6 +7,38 @@ const gulp = require('gulp'),
 	zip = require('gulp-zip'),
 	puppeteer = require('puppeteer');
 
+async function asyncForEach(array, callback) {
+	for (let index = 0; index < array.length; index++) {
+		await callback(array[index], index, array);
+	}
+}
+
+const svgToPng = async (filePath, destination) => {
+	filePath = path.join(__dirname, filePath);
+
+	const htmlFilePath = path.join("file:", filePath);
+	const browser = await puppeteer.launch();
+	const page = await browser.newPage();
+
+	await page.setViewport({
+		height: 24,
+		width: 24,
+		deviceScaleFactor: 10
+	});
+
+	await page.goto(htmlFilePath);
+
+	await page.screenshot({
+		path: path.join(__dirname, destination),
+		omitBackground: true,
+		fullPage: true
+	});
+
+	await browser.close();
+
+	return page;
+};
+
 const createScreenshot = async (filePath) => {
 	try {
 		filePath = path.join(__dirname, filePath);
@@ -188,5 +220,19 @@ gulp.task('build-copy', function(cb){
 		cb();
 	});
 });
+
+gulp.task('svg-to-png', gulp.series('build-jekyll', async (cb) => {
+	let files = glob.sync("_site/icons/*.svg");
+
+	await asyncForEach(files, async function (file, i) {
+		let name = path.basename(file, '.svg');
+
+		console.log('name', name);
+
+		await svgToPng(file, `icons-png/${name}.png`);
+	});
+
+	cb();
+}));
 
 gulp.task('build', gulp.series('build-jekyll', 'build-copy', 'build-zip'));
