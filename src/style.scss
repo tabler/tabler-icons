@@ -350,8 +350,28 @@ Components
   }
 }
 
-.icon-size-16 { width: 16px; }
-.icon-size-24 { width: 24px; }
-.icon-size-32 { width: 32px; }
-.icon-size-48 { width: 48px; }
-.icon-size-64 { width: 64px; }
+.icon-size-16 { width: 16px; height: 16px }
+.icon-size-24 { width: 24px; height: 24px }
+.icon-size-32 { width: 32px; height: 32px }
+.icon-size-48 { width: 48px; height: 48px }
+.icon-size-64 { width: 64px; height: 64px }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td, th {
+    padding: .5rem;
+    text-align: left;
+    border: 1px solid #eee;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.td-1 {
+  width: 1%;
+}

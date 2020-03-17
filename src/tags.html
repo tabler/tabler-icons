@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="container">
+	<div class="box">
+		<table class="table">
+			{% for icon in site.icons %}
+			<tr>
+				<td class="td-1">{% include icon.html name=icon.slug %}</td>
+				<th>{{ icon.slug }}</th>
+				<td>{{ icon.tags | join: ', ' }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
