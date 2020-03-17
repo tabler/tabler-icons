@@ -20,7 +20,8 @@
     "precommit": "gulp optimize",
     "optimize": "gulp optimize",
     "start": "bundle exec jekyll serve --watch --livereload",
-    "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite"
+    "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite",
+    "png": "gulp svg-to-png"
   },
   "description": "",
   "devDependencies": {

@@ -221,7 +221,13 @@ gulp.task('build-copy', function(cb){
 	});
 });
 
-gulp.task('svg-to-png', gulp.series('build-jekyll', async (cb) => {
+gulp.task('clean-png', function(cb){
+	cp.exec('rm -fd ./icons-png/*', function() {
+		cb();
+	});
+});
+
+gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	let files = glob.sync("_site/icons/*.svg");
 
 	await asyncForEach(files, async function (file, i) {
