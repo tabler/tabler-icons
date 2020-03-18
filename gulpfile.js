@@ -204,7 +204,7 @@ gulp.task('build-zip', function(cb) {
 	const version = p.version;
 
 	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg}')
-		.pipe(zip(`${version}.zip`))
+		.pipe(zip(`tabler-icons-${version}.zip`))
 		.pipe(gulp.dest('packages'))
 });
 
