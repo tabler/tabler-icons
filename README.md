@@ -2,14 +2,20 @@
 
 A set of over 300 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
 
-```
-npm install tabler-icons --save
-```
+**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm)!**
 
 ## Preview
 
 ![](./.github/icons.svg)
 
+
+## Installation
+
+```
+npm install tabler-icons --save
+```
+
+or just download from Github.
 
 ## Usage
 
