@@ -191,6 +191,7 @@ gulp.task('optimize', function (cb) {
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+				.replace(/a([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/g, 'a$1 $2 $3 $4 $5 $6 $7')
 				.replace(/\n\n+/g, "\n");
 
 			fs.writeFileSync(file, svgFileContent);
@@ -204,7 +205,7 @@ gulp.task('build-zip', function(cb) {
 	const version = p.version;
 
 	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg}')
-		.pipe(zip(`${version}.zip`))
+		.pipe(zip(`tabler-icons-${version}.zip`))
 		.pipe(gulp.dest('packages'))
 });
 
