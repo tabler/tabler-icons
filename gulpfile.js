@@ -191,7 +191,7 @@ gulp.task('optimize', function (cb) {
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
-				.replace(/a([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/g, 'a$1 $2 $3 $4 $5 $6 $7')
+				.replace(/a\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/g, 'a$1 $2 $3 $4 $5 $6 $7')
 				.replace(/\n\n+/g, "\n");
 
 			fs.writeFileSync(file, svgFileContent);
@@ -201,7 +201,61 @@ gulp.task('optimize', function (cb) {
 	});
 });
 
-gulp.task('build-zip', function(cb) {
+gulp.task('prepare-changelog', function(cb) {
+	cp.exec('git status', function(err, ret) {
+		let newIcons = [], modifiedIcons = [], renamedIcons = [];
+
+		ret.replace(/new file:\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			newIcons.push(fileName);
+		});
+
+		ret.replace(/modified:\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			modifiedIcons.push(fileName);
+		});
+
+		ret.replace(/renamed:\s+src\/_icons\/([a-z1-9-]+).svg -> src\/_icons\/([a-z1-9-]+).svg/g, function (m, fileNameBefore, fileNameAfter) {
+			renamedIcons.push([fileNameBefore, fileNameAfter]);
+		});
+
+		modifiedIcons = modifiedIcons.filter( function( el ) {
+			return newIcons.indexOf( el ) < 0;
+		});
+
+		if(newIcons.length > 0) {
+			console.log(`**${newIcons.length} new icons:**\n`);
+
+			newIcons.forEach(function(icon){
+				console.log(`- \`${icon}\``);
+			});
+
+			console.log('');
+		}
+
+		if(modifiedIcons.length > 0) {
+			console.log(`**Fixed icons:**\n`);
+
+			modifiedIcons.forEach(function(icon){
+				console.log(`- \`${icon}\``);
+			});
+
+			console.log('');
+		}
+
+		if(renamedIcons.length > 0) {
+			console.log(`**Renamed icons:**\n`);
+
+			renamedIcons.forEach(function(icon){
+				console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``);
+			})
+		}
+
+		cb();
+	});
+
+
+});
+
+gulp.task('build-zip', function() {
 	const version = p.version;
 
 	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg}')
