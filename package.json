@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -13,7 +13,8 @@
   "files": [
     "icons/*",
     "icons-png/*",
-    "tabler-sprite.svg"
+    "tabler-sprite.svg",
+    "tabler-sprite-nostroke.svg"
   ],
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "main": "gulpfile.js",
@@ -21,7 +22,7 @@
     "precommit": "gulp optimize",
     "optimize": "gulp optimize",
     "start": "bundle exec jekyll serve --watch --livereload",
-    "build": "gulp optimize && gulp build && gulp icons-preview && gulp icons-sprite",
+    "build": "gulp build",
     "png": "gulp svg-to-png",
     "zip": "gulp build-zip"
   },
