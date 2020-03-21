@@ -2,11 +2,11 @@
 
 A set of over 300 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm)!**
+**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate me on PayPal](https://paypal.me/codecalm) 🙂**
 
 ## Preview
 
-![](./.github/icons.svg)
+![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png)
 
 
 ## Installation
@@ -71,7 +71,7 @@ Add an icon to be displayed on your page with the following markup (`activity` i
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
-![](./.github/icons-stroke.svg)
+![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png)
 
 ## License
 

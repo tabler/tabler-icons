@@ -49,8 +49,9 @@ const createScreenshot = async (filePath) => {
 		const page = await browser.newPage();
 		
 		await page.setViewport({
-			height: 100,
-			width: 100
+			height: 10,
+			width: 10,
+			deviceScaleFactor: 2
 		});
 
 		await page.goto(htmlFilePath);
@@ -67,6 +68,77 @@ const createScreenshot = async (filePath) => {
 		throw Error(error);
 	}
 };
+
+
+const printChangelog = function(newIcons, modifiedIcons, renamedIcons) {
+	if(newIcons.length > 0) {
+		let str = '';
+		str += `${newIcons.length} new icons: `;
+
+		newIcons.forEach(function(icon, i){
+			str += `\`${icon}\``;
+
+			if((i + 1) <= newIcons.length - 1) {
+				str += ', '
+			}
+		});
+
+		console.log(str);
+		console.log('');
+	}
+
+	if(modifiedIcons.length > 0) {
+		let str = '';
+		str += `Fixed icons: `;
+
+		modifiedIcons.forEach(function(icon, i){
+			str += `\`${icon}\``;
+
+			if((i + 1) <= modifiedIcons.length - 1) {
+				str += ', '
+			}
+		});
+
+		console.log(str);
+		console.log('');
+	}
+
+	if(renamedIcons.length > 0) {
+		console.log(`Renamed icons: `);
+
+		renamedIcons.forEach(function(icon, i){
+			console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``);
+		});
+	}
+};
+
+
+
+gulp.task('build-zip', function() {
+	const version = p.version;
+
+	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
+		.pipe(zip(`tabler-icons-${version}.zip`))
+		.pipe(gulp.dest('packages'))
+});
+
+gulp.task('build-jekyll', function(cb){
+	cp.exec('bundle exec jekyll build', function() {
+		cb();
+	});
+});
+
+gulp.task('build-copy', function(cb){
+	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function() {
+		cb();
+	});
+});
+
+gulp.task('clean-png', function(cb){
+	cp.exec('rm -fd ./icons-png/*', function() {
+		cb();
+	});
+});
 
 gulp.task('icons-sprite', function (cb) {
 	glob("_site/icons/*.svg", {}, function (er, files) {
@@ -143,14 +215,14 @@ gulp.task('icons-preview', function (cb) {
 	});
 });
 
-gulp.task('icons-stroke', function (cb) {
+gulp.task('icons-stroke', gulp.series('build-jekyll', function (cb) {
 
 	const icon = "disabled",
 		strokes = ['.5', '1', '1.5', '2', '2.75'],
-		svgFileContent = fs.readFileSync(`_site/icons/${icon}.svg`).toString(),
+		svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
 		padding = 16,
 		paddingOuter = 5,
-		iconSize = 64,
+		iconSize = 32,
 		width = (strokes.length * (iconSize + padding) - padding) + paddingOuter * 2,
 		height = iconSize + paddingOuter * 2;
 
@@ -174,10 +246,10 @@ gulp.task('icons-stroke', function (cb) {
 
 	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
 
-	fs.writeFileSync('icons-stroke.svg', svgContent);
-	createScreenshot('icons-stroke.svg');
+	fs.writeFileSync('.github/icons-stroke.svg', svgContent);
+	createScreenshot('.github/icons-stroke.svg');
 	cb();
-});
+}));
 
 gulp.task('optimize', function (cb) {
 	glob("src/_icons/*.svg", {}, function (er, files) {
@@ -202,31 +274,61 @@ gulp.task('optimize', function (cb) {
 	});
 });
 
-gulp.task('build-zip', function(cb) {
+
+gulp.task('changelog-commit', function(cb) {
+	cp.exec('git status', function(err, ret) {
+		let newIcons = [], modifiedIcons = [], renamedIcons = [];
+
+		ret.replace(/new file:\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			newIcons.push(fileName);
+		});
+
+		ret.replace(/modified:\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			modifiedIcons.push(fileName);
+		});
+
+		ret.replace(/renamed:\s+src\/_icons\/([a-z1-9-]+).svg -> src\/_icons\/([a-z1-9-]+).svg/g, function (m, fileNameBefore, fileNameAfter) {
+			renamedIcons.push([fileNameBefore, fileNameAfter]);
+		});
+
+		modifiedIcons = modifiedIcons.filter( function( el ) {
+			return newIcons.indexOf( el ) < 0;
+		});
+
+		printChangelog(newIcons, modifiedIcons, renamedIcons);
+
+		cb();
+	});
+});
+
+gulp.task('changelog-diff', function(cb) {
 	const version = p.version;
+	cp.exec(`git diff v${version} HEAD --name-status`, function(err, ret) {
 
-	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
-		.pipe(zip(`tabler-icons-${version}.zip`))
-		.pipe(gulp.dest('packages'))
-});
+		let newIcons = [], modifiedIcons = [], renamedIcons = [];
 
-gulp.task('build-jekyll', function(cb){
-	cp.exec('bundle exec jekyll build', function() {
+		ret.replace(/A\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			newIcons.push(fileName);
+		});
+
+		ret.replace(/M\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+			modifiedIcons.push(fileName);
+		});
+
+		ret.replace(/R[0-9]+\s+src\/_icons\/([a-z1-9-]+)\.svg\s+src\/_icons\/([a-z1-9-]+).svg/g, function (m, fileNameBefore, fileNameAfter) {
+			renamedIcons.push([fileNameBefore, fileNameAfter]);
+		});
+
+		modifiedIcons = modifiedIcons.filter( function( el ) {
+			return newIcons.indexOf( el ) < 0;
+		});
+
+		printChangelog(newIcons, modifiedIcons, renamedIcons);
+
 		cb();
 	});
 });
 
-gulp.task('build-copy', function(cb){
-	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function() {
-		cb();
-	});
-});
-
-gulp.task('clean-png', function(cb){
-	cp.exec('rm -fd ./icons-png/*', function() {
-		cb();
-	});
-});
 
 gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	let files = glob.sync("_site/icons/*.svg");
