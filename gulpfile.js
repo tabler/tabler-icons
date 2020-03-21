@@ -223,7 +223,7 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', function (cb) {
 		padding = 16,
 		paddingOuter = 5,
 		iconSize = 32,
-		width = (strokes.length * (iconSize + padding) - padding) + paddingOuter * 2,
+		width = 882,
 		height = iconSize + paddingOuter * 2;
 
 	let svgContentSymbols = '',
