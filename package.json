@@ -28,7 +28,7 @@
     "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp build",
     "png": "gulp svg-to-png",
-    "release": "release-it"
+    "release": "release-it --ci"
   },
   "description": "",
   "devDependencies": {
@@ -39,6 +39,9 @@
     "release-it": "13.1.2"
   },
   "release-it": {
+    "git": {
+      "tagName": "v${version}"
+    },
     "github": {
       "release": true
     }
