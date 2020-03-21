@@ -1,2 +1,2 @@
 {% assign stroke = include.stroke | default: 2 %}{% assign width = 24 %}{% assign name = include.name %}{% assign icon = site.icons | where: "slug", name | first %}{% capture replace-to %}<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-{{ name }}" width="{{ width }}" height="{{ width }}" viewBox="0 0 24 24" stroke-width="{{ stroke }}" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="0" y="0" width="24" height="24" stroke="none"></rect>{% endcapture %}{% assign content = icon.content | replace: '<svg>', replace-to %}{{ content }}
+  <path stroke="none" d="M0 0h24v24H0z"/>{% endcapture %}{% assign content = icon.content | replace: '<svg>', replace-to %}{{ content }}

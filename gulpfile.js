@@ -222,31 +222,48 @@ gulp.task('prepare-changelog', function(cb) {
 		});
 
 		if(newIcons.length > 0) {
-			console.log(`**${newIcons.length} new icons:**\n`);
+			let str = '';
+			str += `${newIcons.length} new icons: `;
 
-			newIcons.forEach(function(icon){
-				console.log(`- \`${icon}\``);
+			newIcons.forEach(function(icon, i){
+				str += `\`${icon}\``;
+
+				if((i + 1) <= newIcons.length - 1) {
+					str += ', '
+				}
 			});
 
-			console.log('');
+			console.log(str);
 		}
 
 		if(modifiedIcons.length > 0) {
-			console.log(`**Fixed icons:**\n`);
+			let str = '';
+			str += `Fixed icons: `;
 
-			modifiedIcons.forEach(function(icon){
-				console.log(`- \`${icon}\``);
+			modifiedIcons.forEach(function(icon, i){
+				str += `\`${icon}\``;
+
+				if((i + 1) <= modifiedIcons.length - 1) {
+					str += ', '
+				}
 			});
 
-			console.log('');
+			console.log(str);
 		}
 
 		if(renamedIcons.length > 0) {
-			console.log(`**Renamed icons:**\n`);
+			let str = '';
+			str += `**Renamed icons: `;
 
-			renamedIcons.forEach(function(icon){
-				console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``);
-			})
+			renamedIcons.forEach(function(icon, i){
+				str += `\`${icon[0]}\` renamed to \`${icon[1]}\``;
+
+				if((i + 1) <= renamedIcons.length - 1) {
+					str += ', '
+				}
+			});
+
+			console.log(str);
 		}
 
 		cb();
