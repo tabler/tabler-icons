@@ -91,6 +91,7 @@ gulp.task('icons-sprite', function (cb) {
 		let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
 		fs.writeFileSync('tabler-sprite.svg', svg);
+		fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''));
 		cb();
 	});
 });
@@ -189,7 +190,7 @@ gulp.task('optimize', function (cb) {
 				.replace(/><\/(polyline|line|rect|circle|path)>/g, '/>')
 				.replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
 				.replace(/\s?\/>/g, ' />')
-				.replace(/\n\s*<(line|circle|path|polyline)/g, "\n  <$1")
+				.replace(/\n\s*<(line|circle|path|polyline|rect)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
 				.replace(/a([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/g, 'a$1 $2 $3 $4 $5 $6 $7')
 				.replace(/\n\n+/g, "\n");
@@ -204,7 +205,7 @@ gulp.task('optimize', function (cb) {
 gulp.task('build-zip', function(cb) {
 	const version = p.version;
 
-	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg}')
+	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
 		.pipe(zip(`tabler-icons-${version}.zip`))
 		.pipe(gulp.dest('packages'))
 });
@@ -241,4 +242,4 @@ gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	cb();
 }));
 
-gulp.task('build', gulp.series('build-jekyll', 'build-copy', 'build-zip'));
+gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'build-zip'));
