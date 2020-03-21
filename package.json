@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -9,6 +9,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
   },
   "files": [
     "icons/*",
@@ -24,13 +28,23 @@
     "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp build",
     "png": "gulp svg-to-png",
-    "zip": "gulp build-zip"
+    "zip": "gulp build-zip",
+    "release": "release-it"
   },
   "description": "",
   "devDependencies": {
     "glob": "7.1.6",
     "gulp": "4.0.2",
     "gulp-zip": "5.0.1",
-    "puppeteer": "2.1.1"
+    "puppeteer": "2.1.1",
+    "release-it": "13.1.2"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
