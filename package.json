@@ -10,6 +10,10 @@
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
   "files": [
     "icons/*",
     "icons-png/*",
@@ -23,13 +27,20 @@
     "optimize": "gulp optimize",
     "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp build",
-    "png": "gulp svg-to-png"
+    "png": "gulp svg-to-png",
+    "release": "release-it"
   },
   "description": "",
   "devDependencies": {
     "glob": "7.1.6",
     "gulp": "4.0.2",
     "gulp-zip": "5.0.1",
-    "puppeteer": "2.1.1"
+    "puppeteer": "2.1.1",
+    "release-it": "^13.1.2"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   }
 }
