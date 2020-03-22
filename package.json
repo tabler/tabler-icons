@@ -35,12 +35,20 @@
     "glob": "7.1.6",
     "gulp": "4.0.2",
     "gulp-zip": "5.0.1",
+    "minimist": "1.2.5",
     "puppeteer": "2.1.1",
     "release-it": "13.1.2"
   },
   "release-it": {
+    "hooks": {
+      "after:bump": "npm run build && npm run png",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    },
     "git": {
-      "tagName": "v${version}"
+      "changelog": "gulp changelog-diff --silent --latest-tag ${latestTag}",
+      "tagName": "v${version}",
+      "requireBranch": "master",
+      "requireCommits": true
     },
     "github": {
       "release": true

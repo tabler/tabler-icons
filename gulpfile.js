@@ -5,7 +5,8 @@ const gulp = require('gulp'),
 	path = require('path'),
 	p = require('./package.json'),
 	zip = require('gulp-zip'),
-	puppeteer = require('puppeteer');
+	puppeteer = require('puppeteer'),
+	argv = require('minimist')(process.argv.slice(2));
 
 async function asyncForEach(array, callback) {
 	for (let index = 0; index < array.length; index++) {
@@ -47,7 +48,7 @@ const createScreenshot = async (filePath) => {
 		const htmlFilePath = path.join("file:", filePath);
 		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
-		
+
 		await page.setViewport({
 			height: 10,
 			width: 10,
@@ -70,15 +71,15 @@ const createScreenshot = async (filePath) => {
 };
 
 
-const printChangelog = function(newIcons, modifiedIcons, renamedIcons) {
-	if(newIcons.length > 0) {
+const printChangelog = function (newIcons, modifiedIcons, renamedIcons) {
+	if (newIcons.length > 0) {
 		let str = '';
 		str += `${newIcons.length} new icons: `;
 
-		newIcons.forEach(function(icon, i){
+		newIcons.forEach(function (icon, i) {
 			str += `\`${icon}\``;
 
-			if((i + 1) <= newIcons.length - 1) {
+			if ((i + 1) <= newIcons.length - 1) {
 				str += ', '
 			}
 		});
@@ -87,14 +88,14 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons) {
 		console.log('');
 	}
 
-	if(modifiedIcons.length > 0) {
+	if (modifiedIcons.length > 0) {
 		let str = '';
 		str += `Fixed icons: `;
 
-		modifiedIcons.forEach(function(icon, i){
+		modifiedIcons.forEach(function (icon, i) {
 			str += `\`${icon}\``;
 
-			if((i + 1) <= modifiedIcons.length - 1) {
+			if ((i + 1) <= modifiedIcons.length - 1) {
 				str += ', '
 			}
 		});
@@ -103,18 +104,65 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons) {
 		console.log('');
 	}
 
-	if(renamedIcons.length > 0) {
+	if (renamedIcons.length > 0) {
 		console.log(`Renamed icons: `);
 
-		renamedIcons.forEach(function(icon, i){
+		renamedIcons.forEach(function (icon, i) {
 			console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``);
 		});
 	}
 };
 
+const generateIconsPreview = function(files, destFile, cb, columnsCount = 17) {
 
+	const padding = 29,
+		paddingOuter = 5,
+		iconSize = 24;
 
-gulp.task('build-zip', function() {
+	const iconsCount = files.length,
+		rowsCount = Math.ceil(iconsCount / columnsCount),
+		width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
+		height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding;
+
+	let svgContentSymbols = '',
+		svgContentIcons = '',
+		x = paddingOuter,
+		y = paddingOuter;
+
+	files.forEach(function (file, i) {
+		let name = path.basename(file, '.svg');
+
+		let svgFile = fs.readFileSync(file),
+			svgFileContent = svgFile.toString();
+
+		svgFileContent = svgFileContent
+			.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
+			.replace(' width="24" height="24"', '')
+			.replace('</svg>', '</symbol>')
+			.replace(/\n\s+/g, '');
+
+		svgContentSymbols += `\t${svgFileContent}\n`;
+		svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`;
+
+		x += padding + iconSize;
+
+		if (i % columnsCount === columnsCount - 1) {
+			x = paddingOuter;
+			y += padding + iconSize;
+		}
+	});
+
+	const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
+
+	fs.writeFileSync(destFile, svgContent);
+	createScreenshot(destFile);
+
+	cb();
+};
+
+//*********************************************************************************************
+
+gulp.task('build-zip', function () {
 	const version = p.version;
 
 	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
@@ -122,20 +170,20 @@ gulp.task('build-zip', function() {
 		.pipe(gulp.dest('packages'))
 });
 
-gulp.task('build-jekyll', function(cb){
-	cp.exec('bundle exec jekyll build', function() {
+gulp.task('build-jekyll', function (cb) {
+	cp.exec('bundle exec jekyll build', function () {
 		cb();
 	});
 });
 
-gulp.task('build-copy', function(cb){
-	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function() {
+gulp.task('build-copy', function (cb) {
+	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function () {
 		cb();
 	});
 });
 
-gulp.task('clean-png', function(cb){
-	cp.exec('rm -fd ./icons-png/*', function() {
+gulp.task('clean-png', function (cb) {
+	cp.exec('rm -fd ./icons-png/*', function () {
 		cb();
 	});
 });
@@ -169,49 +217,11 @@ gulp.task('icons-sprite', function (cb) {
 });
 
 gulp.task('icons-preview', function (cb) {
-	const columnsCount = 17,
-		padding = 29,
-		paddingOuter = 5,
-		iconSize = 24;
 
 	glob("_site/icons/*.svg", {}, function (er, files) {
-		const iconsCount = files.length,
-			rowsCount = Math.ceil(iconsCount / columnsCount),
-			width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
-			height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding;
+		console.log('files', files);
 
-		let svgContentSymbols = '',
-			svgContentIcons = '',
-			x = paddingOuter,
-			y = paddingOuter;
-		files.forEach(function (file, i) {
-			let name = path.basename(file, '.svg');
-
-			let svgFile = fs.readFileSync(file),
-				svgFileContent = svgFile.toString();
-
-			svgFileContent = svgFileContent
-				.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
-				.replace(' width="24" height="24"', '')
-				.replace('</svg>', '</symbol>')
-				.replace(/\n\s+/g, '');
-
-			svgContentSymbols += `\t${svgFileContent}\n`;
-			svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`;
-
-			x += padding + iconSize;
-
-			if (i % columnsCount === columnsCount - 1) {
-				x = paddingOuter;
-				y += padding + iconSize;
-			}
-		});
-
-		const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`;
-
-		fs.writeFileSync('.github/icons.svg', svgContent);
-		createScreenshot('.github/icons.svg');
-		cb();
+		generateIconsPreview(files, '.github/icons.svg', cb);
 	});
 });
 
@@ -229,7 +239,7 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', function (cb) {
 	let svgContentSymbols = '',
 		svgContentIcons = '',
 		x = paddingOuter;
-	
+
 	strokes.forEach(function (stroke) {
 		let svgFileContentStroked = svgFileContent
 			.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
@@ -275,8 +285,8 @@ gulp.task('optimize', function (cb) {
 });
 
 
-gulp.task('changelog-commit', function(cb) {
-	cp.exec('git status', function(err, ret) {
+gulp.task('changelog-commit', function (cb) {
+	cp.exec('git status', function (err, ret) {
 		let newIcons = [], modifiedIcons = [], renamedIcons = [];
 
 		ret.replace(/new file:\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
@@ -291,8 +301,8 @@ gulp.task('changelog-commit', function(cb) {
 			renamedIcons.push([fileNameBefore, fileNameAfter]);
 		});
 
-		modifiedIcons = modifiedIcons.filter( function( el ) {
-			return newIcons.indexOf( el ) < 0;
+		modifiedIcons = modifiedIcons.filter(function (el) {
+			return newIcons.indexOf(el) < 0;
 		});
 
 		printChangelog(newIcons, modifiedIcons, renamedIcons);
@@ -301,9 +311,10 @@ gulp.task('changelog-commit', function(cb) {
 	});
 });
 
-gulp.task('changelog-diff', function(cb) {
-	const version = p.version;
-	cp.exec(`git diff v${version} HEAD --name-status`, function(err, ret) {
+gulp.task('changelog-diff', function (cb) {
+	const version = argv['latest-tag'] || `v${p.version}`;
+	
+	cp.exec(`git diff ${version} HEAD --name-status`, function (err, ret) {
 
 		let newIcons = [], modifiedIcons = [], renamedIcons = [];
 
@@ -319,8 +330,8 @@ gulp.task('changelog-diff', function(cb) {
 			renamedIcons.push([fileNameBefore, fileNameAfter]);
 		});
 
-		modifiedIcons = modifiedIcons.filter( function( el ) {
-			return newIcons.indexOf( el ) < 0;
+		modifiedIcons = modifiedIcons.filter(function (el) {
+			return newIcons.indexOf(el) < 0;
 		});
 
 		printChangelog(newIcons, modifiedIcons, renamedIcons);
