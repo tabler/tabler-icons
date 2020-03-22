@@ -24,6 +24,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload",
+    "optimize": "gulp optimize",
     "release": "release-it"
   },
   "description": "",
