@@ -122,10 +122,9 @@ const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty =
 	}
 };
 
-const generateIconsPreview = function(files, destFile, cb, columnsCount = 17) {
+const generateIconsPreview = function(files, destFile, cb, columnsCount = 17, paddingOuter = 5) {
 
 	const padding = 29,
-		paddingOuter = 5,
 		iconSize = 24;
 
 	const iconsCount = files.length,
@@ -366,7 +365,7 @@ gulp.task('changelog-image', function (cb) {
 			});
 
 			if(newIcons.length > 0) {
-				generateIconsPreview(newIcons, `packages/tabler-icons-${newVersion}.svg`, cb, 6);
+				generateIconsPreview(newIcons, `packages/tabler-icons-${newVersion}.svg`, cb, 6, 24);
 			} else {
 				cb();
 			}
