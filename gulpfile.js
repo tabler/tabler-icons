@@ -365,7 +365,7 @@ gulp.task('changelog-image', function (cb) {
 			});
 
 			if(newIcons.length > 0) {
-				generateIconsPreview(newIcons, `packages/tabler-icons-${newVersion}.svg`, cb, 6, 24);
+				generateIconsPreview(newIcons, `.github/tabler-icons-${newVersion}.svg`, cb, 6, 24);
 			} else {
 				cb();
 			}
