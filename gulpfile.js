@@ -355,4 +355,4 @@ gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	cb();
 }));
 
-gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'build-zip'));
+gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'build-zip'));
