@@ -23,12 +23,7 @@
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "main": "gulpfile.js",
   "scripts": {
-    "precommit": "gulp optimize",
-    "optimize": "gulp optimize",
     "start": "bundle exec jekyll serve --watch --livereload",
-    "build": "gulp build",
-    "png": "gulp svg-to-png",
-    "zip": "gulp build-zip",
     "release": "release-it"
   },
   "description": "",
@@ -42,7 +37,7 @@
   },
   "release-it": {
     "hooks": {
-      "after:bump": "npm run build --latest-version ${latestVersion} --new-version ${version}",
+      "after:bump": "gulp build --latest-version ${latestVersion} --new-version ${version}",
       "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
     },
     "git": {
