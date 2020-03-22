@@ -217,10 +217,7 @@ gulp.task('icons-sprite', function (cb) {
 });
 
 gulp.task('icons-preview', function (cb) {
-
-	glob("_site/icons/*.svg", {}, function (er, files) {
-		console.log('files', files);
-
+	glob("icons/*.svg", {}, function (er, files) {
 		generateIconsPreview(files, '.github/icons.svg', cb);
 	});
 });
@@ -311,38 +308,68 @@ gulp.task('changelog-commit', function (cb) {
 	});
 });
 
-gulp.task('changelog-diff', function (cb) {
+gulp.task('changelog', function (cb) {
 	const version = argv['latest-tag'] || `v${p.version}`;
-	
-	cp.exec(`git diff ${version} HEAD --name-status`, function (err, ret) {
 
-		let newIcons = [], modifiedIcons = [], renamedIcons = [];
+	if(version) {
+		cp.exec(`git diff ${version} HEAD --name-status`, function (err, ret) {
 
-		ret.replace(/A\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
-			newIcons.push(fileName);
+			let newIcons = [], modifiedIcons = [], renamedIcons = [];
+
+			ret.replace(/A\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+				newIcons.push(fileName);
+			});
+
+			ret.replace(/M\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+				modifiedIcons.push(fileName);
+			});
+
+			ret.replace(/R[0-9]+\s+src\/_icons\/([a-z1-9-]+)\.svg\s+src\/_icons\/([a-z1-9-]+).svg/g, function (m, fileNameBefore, fileNameAfter) {
+				renamedIcons.push([fileNameBefore, fileNameAfter]);
+			});
+
+			modifiedIcons = modifiedIcons.filter(function (el) {
+				return newIcons.indexOf(el) < 0;
+			});
+
+			printChangelog(newIcons, modifiedIcons, renamedIcons);
+
+			cb();
 		});
+	}
+});
 
-		ret.replace(/M\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
-			modifiedIcons.push(fileName);
+gulp.task('changelog-image', function (cb) {
+	const version = argv['latest-version'] || `${p.version}`,
+		newVersion = argv['new-version'] || `${p.version}`;
+
+	if(version) {
+		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
+
+			let newIcons = [];
+
+			ret.replace(/[AD]\s+src\/_icons\/([a-z1-9-]+)\.svg/g, function (m, fileName) {
+				newIcons.push(fileName);
+			});
+
+			newIcons = newIcons.map(function(icon){
+				return `./icons/${icon}.svg`;
+			});
+
+			if(newIcons.length > 0) {
+				generateIconsPreview(newIcons, `packages/tabler-icons-${newVersion}.svg`, cb, 6);
+			} else {
+				cb();
+			}
 		});
-
-		ret.replace(/R[0-9]+\s+src\/_icons\/([a-z1-9-]+)\.svg\s+src\/_icons\/([a-z1-9-]+).svg/g, function (m, fileNameBefore, fileNameAfter) {
-			renamedIcons.push([fileNameBefore, fileNameAfter]);
-		});
-
-		modifiedIcons = modifiedIcons.filter(function (el) {
-			return newIcons.indexOf(el) < 0;
-		});
-
-		printChangelog(newIcons, modifiedIcons, renamedIcons);
-
+	} else {
 		cb();
-	});
+	}
 });
 
 
 gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
-	let files = glob.sync("_site/icons/*.svg");
+	let files = glob.sync("./icons/*.svg");
 
 	await asyncForEach(files, async function (file, i) {
 		let name = path.basename(file, '.svg');
@@ -355,4 +382,4 @@ gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	cb();
 }));
 
-gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'build-zip'));
+gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'changelog-image', 'build-zip'));
