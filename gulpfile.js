@@ -71,20 +71,29 @@ const createScreenshot = async (filePath) => {
 };
 
 
-const printChangelog = function (newIcons, modifiedIcons, renamedIcons) {
+const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty = false) {
 	if (newIcons.length > 0) {
-		let str = '';
-		str += `${newIcons.length} new icons: `;
+		if(pretty) {
+			console.log(`### ${newIcons.length} new icons:`);
 
-		newIcons.forEach(function (icon, i) {
-			str += `\`${icon}\``;
+			newIcons.forEach(function (icon, i) {
+				console.log(`- \`${icon}\``);
+			});
+		} else {
+			let str = '';
+			str += `${newIcons.length} new icons: `;
 
-			if ((i + 1) <= newIcons.length - 1) {
-				str += ', '
-			}
-		});
+			newIcons.forEach(function (icon, i) {
+				str += `\`${icon}\``;
 
-		console.log(str);
+				if ((i + 1) <= newIcons.length - 1) {
+					str += ', '
+				}
+			});
+
+			console.log(str);
+		}
+
 		console.log('');
 	}
 
@@ -332,7 +341,7 @@ gulp.task('changelog', function (cb) {
 				return newIcons.indexOf(el) < 0;
 			});
 
-			printChangelog(newIcons, modifiedIcons, renamedIcons);
+			printChangelog(newIcons, modifiedIcons, renamedIcons, true);
 
 			cb();
 		});
