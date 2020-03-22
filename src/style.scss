@@ -179,6 +179,10 @@ a {
   justify-content: center;
   border: 1px solid transparent;
 
+  &.active {
+    background: #f0f0f0;
+  }
+
   @at-root a#{&}:hover {
     opacity: .75;
   }

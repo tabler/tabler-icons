@@ -113,6 +113,9 @@ layout: default
 			.on('click', '.js-icon', function (e) {
 				var icon = $(this).attr('data-icon');
 
+				$('.js-icon').removeClass('active');
+				$(this).addClass('active');
+
 				$('.js-icon-name').html(icon);
 				localStorage.setItem('icon', icon);
 

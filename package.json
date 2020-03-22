@@ -28,6 +28,7 @@
     "start": "bundle exec jekyll serve --watch --livereload",
     "build": "gulp build",
     "png": "gulp svg-to-png",
+    "zip": "gulp build-zip",
     "release": "release-it"
   },
   "description": "",
