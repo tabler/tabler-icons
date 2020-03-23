@@ -17,6 +17,7 @@
   "files": [
     "icons/*",
     "icons-png/*",
+    "iconfont/*",
     "tabler-sprite.svg",
     "tabler-sprite-nostroke.svg"
   ],
@@ -29,12 +30,15 @@
   },
   "description": "",
   "devDependencies": {
+    "clean-css": "4.2.3",
     "glob": "7.1.6",
     "gulp": "4.0.2",
+    "gulp-iconfont": "10.0.3",
     "gulp-zip": "5.0.1",
     "minimist": "1.2.5",
     "puppeteer": "2.1.1",
-    "release-it": "13.1.2"
+    "release-it": "13.1.2",
+    "svg-outline-stroke": "1.2.4"
   },
   "release-it": {
     "hooks": {
@@ -50,5 +54,9 @@
     "github": {
       "release": true
     }
+  },
+  "dependencies": {
+    "lodash.template": "^4.5.0",
+    "node-sass": "^4.13.1"
   }
 }

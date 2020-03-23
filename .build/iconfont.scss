@@ -1,0 +1,40 @@
+/*!
+ * Tabler Icons <%= v %> by tabler - https://tabler.io
+ * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
+ */
+$ti-font-family: '<%= fileName %>' !default;
+$ti-font-path: './fonts' !default;
+$ti-font-display: null !default;
+$ti-icon-prefix: 'ti' !default;
+
+@font-face {
+  font-family: $ti-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-display: $ti-font-display;
+  src: url('#{$ti-font-path}/<%= fileName %>.eot');
+  src: url('#{$ti-font-path}/<%= fileName %>.eot?#iefix') format('embedded-opentype'),
+    url('#{$ti-font-path}/<%= fileName %>.woff2') format('woff2'),
+    url('#{$ti-font-path}/<%= fileName %>.woff') format('woff'),
+    url('#{$ti-font-path}/<%= fileName %>.ttf') format('truetype');
+}
+
+.#{$ti-icon-prefix} {
+  font-family: $ti-font-family !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+<% glyphs.forEach(function(glyph) { %>
+$ti-icon-<%= glyph.name %>: '\<%= glyph.unicode[0].codePointAt(0).toString(16) %>';<% }); %>
+
+<% glyphs.forEach(function(glyph) { %>
+.#{$ti-icon-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
