@@ -27,6 +27,10 @@ body {
   color: $dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media print {
+    color: #000;
+  }
 }
 
 a {
