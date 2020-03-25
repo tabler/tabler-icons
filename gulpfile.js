@@ -6,6 +6,11 @@ const gulp = require('gulp'),
 	p = require('./package.json'),
 	zip = require('gulp-zip'),
 	puppeteer = require('puppeteer'),
+	outlineStroke = require('svg-outline-stroke'),
+	iconfont = require('gulp-iconfont'),
+	template = require('lodash.template'),
+	sass = require('node-sass'),
+	cleanCSS = require('clean-css'),
 	argv = require('minimist')(process.argv.slice(2));
 
 async function asyncForEach(array, callback) {
@@ -73,7 +78,7 @@ const createScreenshot = async (filePath) => {
 
 const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty = false) {
 	if (newIcons.length > 0) {
-		if(pretty) {
+		if (pretty) {
 			console.log(`### ${newIcons.length} new icons:`);
 
 			newIcons.forEach(function (icon, i) {
@@ -122,7 +127,7 @@ const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty =
 	}
 };
 
-const generateIconsPreview = function(files, destFile, cb, columnsCount = 17, paddingOuter = 5) {
+const generateIconsPreview = function (files, destFile, cb, columnsCount = 17, paddingOuter = 5) {
 
 	const padding = 29,
 		iconSize = 24;
@@ -170,10 +175,130 @@ const generateIconsPreview = function(files, destFile, cb, columnsCount = 17, pa
 
 //*********************************************************************************************
 
+gulp.task('iconfont-prepare', function (cb) {
+	cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/* && mkdir -p && rm -fd ./iconfont/*', function () {
+		cb();
+	});
+});
+
+gulp.task('iconfont-clean', function (cb) {
+	cp.exec('rm -rf ./icons-outlined', function () {
+		cb();
+	});
+});
+
+gulp.task('iconfont-svg-outline', function (cb) {
+
+	cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/*', async () => {
+		let files = glob.sync("./icons/*.svg");
+
+		let iconfontUnicode = {};
+
+		if(fs.existsSync('./iconfont-unicode.json')) {
+			iconfontUnicode = require('./iconfont-unicode');
+		}
+
+		await asyncForEach(files, async function (file) {
+			const name = path.basename(file, '.svg'),
+				unicode = iconfontUnicode[name];
+
+			await console.log('Stroke for:', file, unicode);
+
+			let strokedSVG = fs.readFileSync(file).toString();
+
+			strokedSVG = strokedSVG
+				.replace('width="24"', 'width="1000"')
+				.replace('height="24"', 'height="1000"');
+
+			await outlineStroke(strokedSVG, {
+				optCurve: false,
+				steps: 4,
+				round: 0,
+				centerHorizontally: true,
+				fixedWidth: true,
+				color: 'black'
+			}).then(outlined => {
+				if(unicode) {
+					fs.writeFileSync(`icons-outlined/u${unicode.toUpperCase()}-${name}.svg`, outlined);
+				} else {
+					fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
+				}
+			}).catch(error => console.log(error));
+		});
+
+		cb();
+	});
+});
+
+gulp.task('iconfont', function () {
+	let maxUnicode = 59905;
+
+	if(fs.existsSync('./iconfont-unicode.json')) {
+		const iconfontUnicode = require('./iconfont-unicode');
+
+		for(const name in iconfontUnicode) {
+			const unicode = parseInt(iconfontUnicode[name], 16);
+
+			maxUnicode = Math.max(maxUnicode, unicode);
+		}
+	}
+	
+	return gulp.src(['icons-outlined/*.svg'])
+		.pipe(iconfont({
+			fontName: 'tabler-icons',
+			prependUnicode: true,
+			formats: ['ttf', 'eot', 'woff', 'woff2'],
+			normalize: true,
+			startUnicode: maxUnicode
+		}))
+		.on('glyphs', function (glyphs, options) {
+			//glyphs json
+			let glyphsObject = {};
+
+			glyphs.forEach(function (glyph) {
+				glyphsObject[glyph.name] = glyph.unicode[0].codePointAt(0).toString(16);
+			});
+
+			fs.writeFileSync(`iconfont-unicode.json`, JSON.stringify(glyphsObject));
+
+			//css
+			options['glyphs'] = glyphs;
+			options['v'] = p.version;
+
+			const compiled = template(fs.readFileSync('.build/iconfont.scss').toString());
+			const result = compiled(options);
+
+			fs.writeFileSync('iconfont/tabler-icons.scss', result);
+
+			//html
+			const compiledHtml = template(fs.readFileSync('.build/iconfont.html').toString());
+			const resultHtml = compiledHtml(options);
+
+			fs.writeFileSync('iconfont/tabler-icons.html', resultHtml);
+		})
+		.pipe(gulp.dest('iconfont/fonts'));
+});
+
+gulp.task('iconfont-css', function (cb) {
+	sass.render({
+		file: 'iconfont/tabler-icons.scss',
+		outputStyle: 'expanded'
+	}, function (err, result) {
+		fs.writeFileSync('iconfont/tabler-icons.css', result.css);
+
+		const cleanOutput = new cleanCSS({}).minify(result.css);
+		fs.writeFileSync('iconfont/tabler-icons.min.css', cleanOutput.styles);
+
+		cb();
+	});
+});
+
+gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css', 'iconfont-clean'));
+
 gulp.task('build-zip', function () {
 	const version = p.version;
 
-	return gulp.src('{icons/**/*,icons-png/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
+	return gulp.src('{icons/**/*,icons-png/**/*,iconfont/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
 		.pipe(zip(`tabler-icons-${version}.zip`))
 		.pipe(gulp.dest('packages'))
 });
@@ -319,7 +444,7 @@ gulp.task('changelog-commit', function (cb) {
 gulp.task('changelog', function (cb) {
 	const version = argv['latest-tag'] || `v${p.version}`;
 
-	if(version) {
+	if (version) {
 		cp.exec(`git diff ${version} HEAD --name-status`, function (err, ret) {
 
 			let newIcons = [], modifiedIcons = [], renamedIcons = [];
@@ -351,7 +476,7 @@ gulp.task('changelog-image', function (cb) {
 	const version = argv['latest-version'] || `${p.version}`,
 		newVersion = argv['new-version'] || `${p.version}`;
 
-	if(version) {
+	if (version) {
 		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
 
 			let newIcons = [];
@@ -360,11 +485,11 @@ gulp.task('changelog-image', function (cb) {
 				newIcons.push(fileName);
 			});
 
-			newIcons = newIcons.map(function(icon){
+			newIcons = newIcons.map(function (icon) {
 				return `./icons/${icon}.svg`;
 			});
 
-			if(newIcons.length > 0) {
+			if (newIcons.length > 0) {
 				generateIconsPreview(newIcons, `.github/tabler-icons-${newVersion}.svg`, cb, 6, 24);
 			} else {
 				cb();
@@ -390,4 +515,4 @@ gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	cb();
 }));
 
-gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'changelog-image', 'build-zip'));
+gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
