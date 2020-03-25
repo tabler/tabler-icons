@@ -46,6 +46,10 @@ a {
   @media (max-width: #{$breakpoint}) {
     padding: 0;
   }
+
+  @media print {
+    padding: 0;
+  }
 }
 
 .row {
@@ -77,10 +81,18 @@ a {
   padding: 2rem;
   background: #ffff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+  page-break-before: always;
+  margin-bottom: 2rem;
 
   @media (max-width: #{$breakpoint}) {
     padding: .5rem;
     box-shadow: none;
+  }
+
+  @media print {
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 0;
   }
 }
 
