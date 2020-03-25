@@ -257,6 +257,11 @@ gulp.task('iconfont', function () {
 			//glyphs json
 			let glyphsObject = {};
 
+			//sort glypht
+			glyphs = glyphs.sort(function(a, b){
+				return ('' + a.name).localeCompare(b.name)
+			});
+
 			glyphs.forEach(function (glyph) {
 				glyphsObject[glyph.name] = glyph.unicode[0].codePointAt(0).toString(16);
 			});
