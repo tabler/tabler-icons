@@ -46,6 +46,7 @@
       "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
     },
     "git": {
+      "addUntrackedFiles": true,
       "changelog": "gulp changelog --silent --latest-tag ${latestTag}",
       "tagName": "v${version}",
       "requireBranch": "master",
