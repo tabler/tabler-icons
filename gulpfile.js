@@ -127,9 +127,9 @@ const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty =
 	}
 };
 
-const generateIconsPreview = function (files, destFile, cb, columnsCount = 17, paddingOuter = 5) {
+const generateIconsPreview = function (files, destFile, cb, columnsCount = 18, paddingOuter = 3) {
 
-	const padding = 29,
+	const padding = 28,
 		iconSize = 24;
 
 	const iconsCount = files.length,
@@ -368,9 +368,9 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', function (cb) {
 		strokes = ['.5', '1', '1.5', '2', '2.75'],
 		svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
 		padding = 16,
-		paddingOuter = 5,
+		paddingOuter = 3,
 		iconSize = 32,
-		width = 882,
+		width = 914,
 		height = iconSize + paddingOuter * 2;
 
 	let svgContentSymbols = '',
