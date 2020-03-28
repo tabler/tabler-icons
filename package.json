@@ -22,7 +22,6 @@
     "tabler-sprite-nostroke.svg"
   ],
   "homepage": "https://github.com/tabler/tabler-icons#readme",
-  "main": "gulpfile.js",
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload",
     "optimize": "gulp optimize",
@@ -30,6 +29,8 @@
   },
   "description": "",
   "devDependencies": {
+    "lodash.template": "4.5.0",
+    "node-sass": "4.13.1",
     "clean-css": "4.2.3",
     "glob": "7.1.6",
     "gulp": "4.0.2",
@@ -55,9 +56,5 @@
     "github": {
       "release": true
     }
-  },
-  "dependencies": {
-    "lodash.template": "^4.5.0",
-    "node-sass": "^4.13.1"
   }
 }
