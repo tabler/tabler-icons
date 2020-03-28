@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons 1.3.0 by tabler - https://tabler.io
+ * Tabler Icons 1.3.1 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
@@ -478,6 +478,10 @@
 
 .ti-check:before {
   content: "";
+}
+
+.ti-checkbox:before {
+  content: "";
 }
 
 .ti-chevron-down:before {
@@ -1130,6 +1134,14 @@
 
 .ti-lock-open:before {
   content: "";
+}
+
+.ti-login:before {
+  content: "";
+}
+
+.ti-logout:before {
+  content: "";
 }
 
 .ti-magnet:before {
