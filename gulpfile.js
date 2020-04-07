@@ -51,7 +51,7 @@ const createScreenshot = async (filePath) => {
 
 		const fileName = filePath.replace('.svg', '');
 		const htmlFilePath = path.join("file:", filePath);
-		const browser = await puppeteer.launch();
+		const browser = await puppeteer.launch({headless: false});
 		const page = await browser.newPage();
 
 		await page.setViewport({
@@ -486,7 +486,7 @@ gulp.task('changelog-image', function (cb) {
 		newVersion = argv['new-version'] || `${p.version}`;
 
 	if (version) {
-		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
+		cp.exec(`git diff v${version} v${newVersion} --name-status`, function (err, ret) {
 
 			let newIcons = [];
 
