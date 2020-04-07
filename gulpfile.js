@@ -486,7 +486,7 @@ gulp.task('changelog-image', function (cb) {
 		newVersion = argv['new-version'] || `${p.version}`;
 
 	if (version) {
-		cp.exec(`git diff v${version} v${newVersion} --name-status`, function (err, ret) {
+		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
 
 			let newIcons = [];
 
