@@ -414,7 +414,9 @@ gulp.task('optimize', function (cb) {
 				.replace(/a\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/g, 'a$1 $2 $3 $4 $5 $6 $7')
 				.replace(/\n\n+/g, "\n");
 
-			fs.writeFileSync(file, svgFileContent);
+			if(svgFile.toString() !== svgFileContent) {
+				fs.writeFileSync(file, svgFileContent);
+			}
 		});
 
 		cb();
