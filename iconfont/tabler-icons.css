@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons 1.3.1 by tabler - https://tabler.io
+ * Tabler Icons 1.4.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
@@ -22,6 +22,10 @@
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-accessible:before {
+  content: "";
 }
 
 .ti-activity:before {
@@ -484,6 +488,10 @@
   content: "";
 }
 
+.ti-checks:before {
+  content: "";
+}
+
 .ti-chevron-down:before {
   content: "";
 }
@@ -656,12 +664,28 @@
   content: "";
 }
 
+.ti-currency-bitcoin:before {
+  content: "";
+}
+
 .ti-currency-dollar:before {
   content: "";
 }
 
 .ti-currency-euro:before {
   content: "";
+}
+
+.ti-currency-pound:before {
+  content: "";
+}
+
+.ti-currency-rupee:before {
+  content: "";
+}
+
+.ti-currency-yen:before {
+  content: "";
 }
 
 .ti-cut:before {
@@ -730,6 +754,10 @@
 
 .ti-disabled:before {
   content: "";
+}
+
+.ti-disabled-2:before {
+  content: "";
 }
 
 .ti-disc:before {
@@ -812,6 +840,10 @@
   content: "";
 }
 
+.ti-file-horizontal:before {
+  content: "";
+}
+
 .ti-file-invoice:before {
   content: "";
 }
@@ -854,6 +886,18 @@
 
 .ti-flip-vertical:before {
   content: "";
+}
+
+.ti-float-center:before {
+  content: "";
+}
+
+.ti-float-left:before {
+  content: "";
+}
+
+.ti-float-right:before {
+  content: "";
 }
 
 .ti-floppy-disk:before {
@@ -1404,8 +1448,16 @@
   content: "";
 }
 
+.ti-rotate-2:before {
+  content: "";
+}
+
 .ti-rotate-clockwise:before {
   content: "";
+}
+
+.ti-rotate-clockwise-2:before {
+  content: "";
 }
 
 .ti-route:before {
