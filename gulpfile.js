@@ -23,7 +23,7 @@ const svgToPng = async (filePath, destination) => {
 	filePath = path.join(__dirname, filePath);
 
 	const htmlFilePath = path.join("file:", filePath);
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch({headless: false});
 	const page = await browser.newPage();
 
 	await page.setViewport({
