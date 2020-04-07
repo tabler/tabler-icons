@@ -2,9 +2,6 @@
 layout: default
 ---
 
-{% assign toolbar = 'arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough|align-left,align-center,align-right,align-justified,line-height|list,list-check|link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings' | split: '|' %}
-
-
 <div class="container">
 	<div class="box">
 
@@ -74,16 +71,8 @@ layout: default
 		</div>
 
 		<div class="mb">
-			<div class="toolbar">
-				{% for group in toolbar %}
-				{% assign buttons = group | split: ',' %}
-				<div class="buttons">
-					{% for button in buttons %}
-					<div class="button js-icon" data-icon="{{ button }}">{% include icon.html name=button %}</div>
-					{% endfor %}
-				</div>
-				{% endfor %}
-			</div>
+			{% include toolbar.html toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough|align-left,align-center,align-right,align-justified,line-height|list,list-check|link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings' %}
+			{% include toolbar.html toolbar='check,checks,x' %}
 		</div>
 
 		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
