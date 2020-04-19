@@ -23,7 +23,7 @@ const svgToPng = async (filePath, destination) => {
 	filePath = path.join(__dirname, filePath);
 
 	const htmlFilePath = path.join("file:", filePath);
-	const browser = await puppeteer.launch({headless: false});
+	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 
 	await page.setViewport({
@@ -51,7 +51,7 @@ const createScreenshot = async (filePath) => {
 
 		const fileName = filePath.replace('.svg', '');
 		const htmlFilePath = path.join("file:", filePath);
-		const browser = await puppeteer.launch({headless: false});
+		const browser = await puppeteer.launch();
 		const page = await browser.newPage();
 
 		await page.setViewport({
@@ -317,7 +317,7 @@ gulp.task('build-jekyll', function (cb) {
 });
 
 gulp.task('build-copy', function (cb) {
-	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function () {
+	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons && cp ./_site/tags.json .', function () {
 		cb();
 	});
 });
