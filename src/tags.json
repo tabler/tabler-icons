@@ -1,0 +1,5 @@
+---
+---
+{ {% for icon in site.icons %}
+{% assign slug-tags = icon.slug | split: '-' %}{% assign tags = slug-tags | concat: icon.tags %}  "{{ icon.slug }}": [{% for tag in tags %}"{{ tag }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]{% unless forloop.last %}, {% endunless %}{% endfor %}
+}

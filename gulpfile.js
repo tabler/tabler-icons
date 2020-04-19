@@ -317,7 +317,7 @@ gulp.task('build-jekyll', function (cb) {
 });
 
 gulp.task('build-copy', function (cb) {
-	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons', function () {
+	cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons && cp ./_site/tags.json .', function () {
 		cb();
 	});
 });
