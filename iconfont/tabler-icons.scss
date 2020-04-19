@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.5.0 by tabler - https://tabler.io
+ * Tabler Icons 1.5.1 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -91,6 +91,7 @@ $ti-icon-award: '\ea2c';
 $ti-icon-backspace: '\ea2d';
 $ti-icon-ban: '\ea2e';
 $ti-icon-bandage: '\eb7a';
+$ti-icon-barcode: '\ebc6';
 $ti-icon-battery: '\ea34';
 $ti-icon-battery-1: '\ea2f';
 $ti-icon-battery-2: '\ea30';
@@ -401,6 +402,7 @@ $ti-icon-refresh: '\eb13';
 $ti-icon-registered: '\eb14';
 $ti-icon-repeat: '\eb72';
 $ti-icon-repeat-once: '\eb71';
+$ti-icon-replace: '\ebc7';
 $ti-icon-rotate: '\eb16';
 $ti-icon-rotate-2: '\ebb4';
 $ti-icon-rotate-clockwise: '\eb15';
@@ -410,6 +412,7 @@ $ti-icon-router: '\eb18';
 $ti-icon-rss: '\eb19';
 $ti-icon-ruler: '\eb1a';
 $ti-icon-scale: '\ebc2';
+$ti-icon-scan: '\ebc8';
 $ti-icon-scissors: '\eb1b';
 $ti-icon-search: '\eb1c';
 $ti-icon-selector: '\eb1d';
@@ -423,6 +426,7 @@ $ti-icon-shield-check: '\eb22';
 $ti-icon-shield-x: '\eb23';
 $ti-icon-shopping-cart: '\eb25';
 $ti-icon-sitemap: '\eb9d';
+$ti-icon-slideshow: '\ebc9';
 $ti-icon-sort-ascending: '\eb26';
 $ti-icon-sort-descending: '\eb27';
 $ti-icon-square: '\eb2c';
@@ -456,6 +460,7 @@ $ti-icon-ticket: '\eb3d';
 $ti-icon-toggle-left: '\eb3e';
 $ti-icon-toggle-right: '\eb3f';
 $ti-icon-tool: '\eb40';
+$ti-icon-tools: '\ebca';
 $ti-icon-trash: '\eb41';
 $ti-icon-trending-down: '\eb42';
 $ti-icon-trending-up: '\eb43';
@@ -478,6 +483,7 @@ $ti-icon-volume: '\eb51';
 $ti-icon-volume-2: '\eb4f';
 $ti-icon-volume-3: '\eb50';
 $ti-icon-wallet: '\eb75';
+$ti-icon-wand: '\ebcb';
 $ti-icon-wifi: '\eb52';
 $ti-icon-wifi-0: '\eba3';
 $ti-icon-wifi-1: '\eba4';
@@ -546,6 +552,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-backspace:before { content: $ti-icon-backspace; }
 .#{$ti-icon-prefix}-ban:before { content: $ti-icon-ban; }
 .#{$ti-icon-prefix}-bandage:before { content: $ti-icon-bandage; }
+.#{$ti-icon-prefix}-barcode:before { content: $ti-icon-barcode; }
 .#{$ti-icon-prefix}-battery:before { content: $ti-icon-battery; }
 .#{$ti-icon-prefix}-battery-1:before { content: $ti-icon-battery-1; }
 .#{$ti-icon-prefix}-battery-2:before { content: $ti-icon-battery-2; }
@@ -856,6 +863,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-registered:before { content: $ti-icon-registered; }
 .#{$ti-icon-prefix}-repeat:before { content: $ti-icon-repeat; }
 .#{$ti-icon-prefix}-repeat-once:before { content: $ti-icon-repeat-once; }
+.#{$ti-icon-prefix}-replace:before { content: $ti-icon-replace; }
 .#{$ti-icon-prefix}-rotate:before { content: $ti-icon-rotate; }
 .#{$ti-icon-prefix}-rotate-2:before { content: $ti-icon-rotate-2; }
 .#{$ti-icon-prefix}-rotate-clockwise:before { content: $ti-icon-rotate-clockwise; }
@@ -865,6 +873,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-rss:before { content: $ti-icon-rss; }
 .#{$ti-icon-prefix}-ruler:before { content: $ti-icon-ruler; }
 .#{$ti-icon-prefix}-scale:before { content: $ti-icon-scale; }
+.#{$ti-icon-prefix}-scan:before { content: $ti-icon-scan; }
 .#{$ti-icon-prefix}-scissors:before { content: $ti-icon-scissors; }
 .#{$ti-icon-prefix}-search:before { content: $ti-icon-search; }
 .#{$ti-icon-prefix}-selector:before { content: $ti-icon-selector; }
@@ -878,6 +887,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-shield-x:before { content: $ti-icon-shield-x; }
 .#{$ti-icon-prefix}-shopping-cart:before { content: $ti-icon-shopping-cart; }
 .#{$ti-icon-prefix}-sitemap:before { content: $ti-icon-sitemap; }
+.#{$ti-icon-prefix}-slideshow:before { content: $ti-icon-slideshow; }
 .#{$ti-icon-prefix}-sort-ascending:before { content: $ti-icon-sort-ascending; }
 .#{$ti-icon-prefix}-sort-descending:before { content: $ti-icon-sort-descending; }
 .#{$ti-icon-prefix}-square:before { content: $ti-icon-square; }
@@ -911,6 +921,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-toggle-left:before { content: $ti-icon-toggle-left; }
 .#{$ti-icon-prefix}-toggle-right:before { content: $ti-icon-toggle-right; }
 .#{$ti-icon-prefix}-tool:before { content: $ti-icon-tool; }
+.#{$ti-icon-prefix}-tools:before { content: $ti-icon-tools; }
 .#{$ti-icon-prefix}-trash:before { content: $ti-icon-trash; }
 .#{$ti-icon-prefix}-trending-down:before { content: $ti-icon-trending-down; }
 .#{$ti-icon-prefix}-trending-up:before { content: $ti-icon-trending-up; }
@@ -933,6 +944,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-volume-2:before { content: $ti-icon-volume-2; }
 .#{$ti-icon-prefix}-volume-3:before { content: $ti-icon-volume-3; }
 .#{$ti-icon-prefix}-wallet:before { content: $ti-icon-wallet; }
+.#{$ti-icon-prefix}-wand:before { content: $ti-icon-wand; }
 .#{$ti-icon-prefix}-wifi:before { content: $ti-icon-wifi; }
 .#{$ti-icon-prefix}-wifi-0:before { content: $ti-icon-wifi-0; }
 .#{$ti-icon-prefix}-wifi-1:before { content: $ti-icon-wifi-1; }
