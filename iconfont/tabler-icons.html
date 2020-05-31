@@ -39,6 +39,8 @@
 			background: #fff;
 			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
 			border-radius: 3px;
+			border-top-right-radius: 0px;
+			border-top-left-radius: 0px;
 		}
 
 		.tabler-icons {
@@ -83,7 +85,20 @@
 			text-align: center;
 			margin: 2rem 0 3rem;
 		}
-
+		.search-bar {
+			padding: 0.75rem 1.5rem;
+			background: #fff;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+			border-radius: 3px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+		.search-bar input[name=search]{
+			padding:0.5rem;
+			background: #fafbfc;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+			width:100%;
+		}
 
 	</style>
 </head>
@@ -96,6 +111,9 @@
 		<p class="text-muted">version 1.6.1</p>
 	</header>
 
+	<div class="search-bar">
+		<input type="text" name="search" placeholder="type to search"/>
+	</div>
 	<div class="box">
 		<div class="tabler-icons">
 			
@@ -4398,4 +4416,25 @@
 
 
 </body>
+
+<script type="text/javascript">
+	const input = document.querySelector("div.search-bar input");
+	const iconContainer = document.querySelector("div.box div.tabler-icons");
+	let icons = [];
+
+	document.querySelectorAll("div.tabler-icon").forEach(icon => icons.push({
+		el : icon,
+		name : icon.querySelector('strong').innerHTML,
+	}));
+
+	input.addEventListener('input', search);
+
+	function search(evt){
+		let searchValue = evt.target.value;
+		let iconsToShow = searchValue.length ? icons.filter(icon => icon.name.includes(searchValue)) : icons;
+		iconContainer.innerHTML = "";
+		iconsToShow.forEach(icon => iconContainer.appendChild(icon.el));
+	}
+</script>
+
 </html>
