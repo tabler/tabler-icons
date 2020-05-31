@@ -1,0 +1,7 @@
+---
+---
+<svg>
+  {% for i in (0..5) %}
+    <path d="M10 4l2 1l2 -1m-2 -2v6.5l3 1.72"{% if i > 0 %} transform="rotate({{ i | times: 60 }} 12 12)"{% endif %}></path>
+  {% endfor %}
+</svg>
