@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.8.0 by tabler - https://tabler.io
+ * Tabler Icons 1.8.1 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -354,9 +354,11 @@ $ti-icon-layout-align-middle: '\ead0';
 $ti-icon-layout-align-right: '\ead1';
 $ti-icon-layout-align-top: '\ead2';
 $ti-icon-layout-bottombar: '\ead3';
+$ti-icon-layout-cards: '\ec13';
 $ti-icon-layout-columns: '\ead4';
 $ti-icon-layout-distribute-horizontal: '\ead5';
 $ti-icon-layout-distribute-vertical: '\ead6';
+$ti-icon-layout-list: '\ec14';
 $ti-icon-layout-navbar: '\ead7';
 $ti-icon-layout-rows: '\ead8';
 $ti-icon-layout-sidebar: '\eada';
@@ -455,6 +457,7 @@ $ti-icon-rotate: '\eb16';
 $ti-icon-rotate-2: '\ebb4';
 $ti-icon-rotate-clockwise: '\eb15';
 $ti-icon-rotate-clockwise-2: '\ebb5';
+$ti-icon-rotate-rectangle: '\ec15';
 $ti-icon-route: '\eb17';
 $ti-icon-router: '\eb18';
 $ti-icon-rss: '\eb19';
@@ -886,9 +889,11 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-layout-align-right:before { content: $ti-icon-layout-align-right; }
 .#{$ti-icon-prefix}-layout-align-top:before { content: $ti-icon-layout-align-top; }
 .#{$ti-icon-prefix}-layout-bottombar:before { content: $ti-icon-layout-bottombar; }
+.#{$ti-icon-prefix}-layout-cards:before { content: $ti-icon-layout-cards; }
 .#{$ti-icon-prefix}-layout-columns:before { content: $ti-icon-layout-columns; }
 .#{$ti-icon-prefix}-layout-distribute-horizontal:before { content: $ti-icon-layout-distribute-horizontal; }
 .#{$ti-icon-prefix}-layout-distribute-vertical:before { content: $ti-icon-layout-distribute-vertical; }
+.#{$ti-icon-prefix}-layout-list:before { content: $ti-icon-layout-list; }
 .#{$ti-icon-prefix}-layout-navbar:before { content: $ti-icon-layout-navbar; }
 .#{$ti-icon-prefix}-layout-rows:before { content: $ti-icon-layout-rows; }
 .#{$ti-icon-prefix}-layout-sidebar:before { content: $ti-icon-layout-sidebar; }
@@ -987,6 +992,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-rotate-2:before { content: $ti-icon-rotate-2; }
 .#{$ti-icon-prefix}-rotate-clockwise:before { content: $ti-icon-rotate-clockwise; }
 .#{$ti-icon-prefix}-rotate-clockwise-2:before { content: $ti-icon-rotate-clockwise-2; }
+.#{$ti-icon-prefix}-rotate-rectangle:before { content: $ti-icon-rotate-rectangle; }
 .#{$ti-icon-prefix}-route:before { content: $ti-icon-route; }
 .#{$ti-icon-prefix}-router:before { content: $ti-icon-router; }
 .#{$ti-icon-prefix}-rss:before { content: $ti-icon-rss; }

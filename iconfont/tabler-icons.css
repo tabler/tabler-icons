@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons 1.8.0 by tabler - https://tabler.io
+ * Tabler Icons 1.8.1 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
@@ -1304,6 +1304,10 @@
   content: "";
 }
 
+.ti-layout-cards:before {
+  content: "";
+}
+
 .ti-layout-columns:before {
   content: "";
 }
@@ -1314,6 +1318,10 @@
 
 .ti-layout-distribute-vertical:before {
   content: "";
+}
+
+.ti-layout-list:before {
+  content: "";
 }
 
 .ti-layout-navbar:before {
@@ -1706,6 +1714,10 @@
 
 .ti-rotate-clockwise-2:before {
   content: "";
+}
+
+.ti-rotate-rectangle:before {
+  content: "";
 }
 
 .ti-route:before {
