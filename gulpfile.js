@@ -490,7 +490,7 @@ gulp.task('changelog-image', function (cb) {
 
 			let newIcons = [];
 
-			ret.replace(/[AD]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
+			ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
 				newIcons.push(fileName);
 			});
 
