@@ -73,6 +73,16 @@ layout: default
 		<div class="mb">
 			{% include toolbar.html toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letter-case,clear-formatting|parentheses,brackets,braces,terminal|github,facebook,twitter,dribbble,google' %}
 			{% include toolbar.html toolbar='check,checks,x|currency-euro,currency-dollar,currency-bitcoin,currency-pound,currency-rupee,currency-yen|bike,car,bus,truck,forklift,tir,firetruck,ambulance,tractor' %}
+
+			{% assign social-icons = '' %}
+			{% for icon in icons %}
+				{% if icon.slug contains 'social-' %}
+					{% assign social-icons = social-icons | append: icon.slug | append: ',' %}
+				{% endif %}
+			{% endfor %}
+			{% assign size = social-icons | size | minus: 1 %}
+			{% assign social-icons = social-icons | slice: 0, size %}
+			{% include toolbar.html toolbar=social-icons %}
 		</div>
 
 		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
