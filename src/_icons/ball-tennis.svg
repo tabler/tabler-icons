@@ -1,0 +1,8 @@
+---
+---
+<svg>
+  <circle cx="12" cy="12" r="9" />
+  {% for i in (0..1) %}
+  <path d="M6 5.3a9 9 0 0 1 0 13.4"{% if i > 0 %} transform="rotate({{ i | times: 180 }} 12 12)"{% endif %} />
+  {% endfor %}
+</svg>
