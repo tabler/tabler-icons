@@ -4,8 +4,6 @@ A set of over 550 free MIT-licensed high-quality SVG icons for you to use in you
 
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
-We prepared for you a site where you can configure stroke, color and size online: [tablericons.com](https://tablericons.com)
-
 ## Preview
 
 ![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png)
