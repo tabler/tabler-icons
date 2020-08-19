@@ -71,15 +71,21 @@ layout: default
 		</div>
 
 		<div class="mb">
-			{% include toolbar.html toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal' %}
-			{% include toolbar.html toolbar='check,checks,x|currency-euro,currency-dollar,currency-bitcoin,currency-pound,currency-rupee,currency-yen|electric-scooter,bike,scooter,car,bus,forklift,tir,firetruck,ambulance,tractor,truck,truck-return,truck-delivery' %}
-			{% include toolbar.html toolbar='letter-a,letter-b,letter-c,letter-d,letter-e,letter-f,letter-g,letter-h,letter-i,letter-j,letter-k,letter-l,letter-m,letter-n,letter-o,letter-p,letter-q,letter-r,letter-s,letter-t,letter-u,letter-v,letter-w,letter-x,letter-y,letter-z' %}
+			{% include toolbar.html
+			toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal'
+			%}
+			{% include toolbar.html
+			toolbar='check,checks,x|currency-euro,currency-dollar,currency-bitcoin,currency-pound,currency-rupee,currency-yen|electric-scooter,bike,scooter,car,bus,forklift,tir,firetruck,ambulance,tractor,truck,truck-return,truck-delivery'
+			%}
+			{% include toolbar.html
+			toolbar='letter-a,letter-b,letter-c,letter-d,letter-e,letter-f,letter-g,letter-h,letter-i,letter-j,letter-k,letter-l,letter-m,letter-n,letter-o,letter-p,letter-q,letter-r,letter-s,letter-t,letter-u,letter-v,letter-w,letter-x,letter-y,letter-z'
+			%}
 
 			{% assign social-icons = '' %}
 			{% for icon in icons %}
-				{% if icon.slug contains 'brand-' %}
-					{% assign social-icons = social-icons | append: icon.slug | append: ',' %}
-				{% endif %}
+			{% if icon.slug contains 'brand-' %}
+			{% assign social-icons = social-icons | append: icon.slug | append: ',' %}
+			{% endif %}
 			{% endfor %}
 			{% assign size = social-icons | size | minus: 1 %}
 			{% assign social-icons = social-icons | slice: 0, size %}
@@ -88,41 +94,27 @@ layout: default
 
 		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
 
+		{% assign icons = icons | group_by: "category" %}
+
 		<div class="mb">
+
+			{% for category in icons %}
+
+			{% if category.name %}
+			<h3 class="category-subtitle">{{ category.name }}</h3>
+			{% endif %}
+
 			<div class="icons-list">
-				{% for icon in icons %}
+
+				{% for icon in category.items %}
 				{% assign name = icon.slug %}
 				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
 					{% include icon.html name=name %}
 				</a>
 				{% endfor %}
 			</div>
+			{% endfor %}
 		</div>
-
-		{% comment %}
-		<div class="mb">
-			<div class="icons-list icons-list-borders">
-				{% for icon in icons %}
-				{% assign name = icon.slug %}
-				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name %}
-				</a>
-				{% endfor %}
-			</div>
-		</div>
-
-		<div class="mb">
-			<div class="icons-list icons-list-squares">
-				{% for icon in icons %}
-				{% assign name = icon.slug %}
-				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name %}
-				</a>
-				{% endfor %}
-			</div>
-		</div>
-		{% endcomment %}
-
 	</div>
 </div>
 
@@ -143,7 +135,7 @@ layout: default
 				e.preventDefault();
 				return false;
 			})
-			.on('input', '.js-input-range', function(e){
+			.on('input', '.js-input-range', function (e) {
 				$('.js-icon svg').css('stroke-width', $(this).val());
 
 				e.preventDefault();
