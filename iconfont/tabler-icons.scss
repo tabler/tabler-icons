@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.13.0 by tabler - https://tabler.io
+ * Tabler Icons 1.13.1 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -600,7 +600,6 @@ $ti-icon-temperature-plus: '\ebee';
 $ti-icon-template: '\eb39';
 $ti-icon-terminal: '\ebdc';
 $ti-icon-terminal-2: '\ebef';
-$ti-icon-test: '\ec6d';
 $ti-icon-test-pipe: '\eb3a';
 $ti-icon-text-wrap: '\ebdd';
 $ti-icon-thumb-down: '\eb3b';
@@ -1225,7 +1224,6 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-template:before { content: $ti-icon-template; }
 .#{$ti-icon-prefix}-terminal:before { content: $ti-icon-terminal; }
 .#{$ti-icon-prefix}-terminal-2:before { content: $ti-icon-terminal-2; }
-.#{$ti-icon-prefix}-test:before { content: $ti-icon-test; }
 .#{$ti-icon-prefix}-test-pipe:before { content: $ti-icon-test-pipe; }
 .#{$ti-icon-prefix}-text-wrap:before { content: $ti-icon-text-wrap; }
 .#{$ti-icon-prefix}-thumb-down:before { content: $ti-icon-thumb-down; }
