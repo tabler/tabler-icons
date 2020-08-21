@@ -418,13 +418,13 @@ gulp.task('optimize', function (cb) {
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
 				.replace(/\n\n+/g, "\n")
 
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)l([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4){
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)v([0-9.]*)"/g, function(f, r1, r2, r3){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([0-9.]*)"/g, function(f, r1, r2, r3){
 					return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)h([0-9.]*)"/g, function(f, r1, r2, r3){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([0-9.]*)"/g, function(f, r1, r2, r3){
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`;
 				});
 
