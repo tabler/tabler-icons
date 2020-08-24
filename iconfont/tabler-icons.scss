@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.14.0 by tabler - https://tabler.io
+ * Tabler Icons 1.15.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -59,6 +59,10 @@ $ti-icon-arrow-back-up: '\eb77';
 $ti-icon-arrow-bar-down: '\ea0d';
 $ti-icon-arrow-bar-left: '\ea0e';
 $ti-icon-arrow-bar-right: '\ea0f';
+$ti-icon-arrow-bar-to-down: '\ec88';
+$ti-icon-arrow-bar-to-left: '\ec89';
+$ti-icon-arrow-bar-to-right: '\ec8a';
+$ti-icon-arrow-bar-to-up: '\ec8b';
 $ti-icon-arrow-bar-up: '\ea10';
 $ti-icon-arrow-down: '\ea16';
 $ti-icon-arrow-down-circle: '\ea11';
@@ -144,18 +148,23 @@ $ti-icon-brand-gitlab: '\ec1d';
 $ti-icon-brand-google: '\ec1f';
 $ti-icon-brand-google-drive: '\ec1e';
 $ti-icon-brand-instagram: '\ec20';
+$ti-icon-brand-linkedin: '\ec8c';
 $ti-icon-brand-medium: '\ec70';
 $ti-icon-brand-messenger: '\ec71';
 $ti-icon-brand-opera: '\ec21';
 $ti-icon-brand-paypal: '\ec22';
+$ti-icon-brand-pinterest: '\ec8d';
+$ti-icon-brand-reddit: '\ec8e';
 $ti-icon-brand-safari: '\ec23';
 $ti-icon-brand-sketch: '\ec24';
 $ti-icon-brand-slack: '\ec72';
 $ti-icon-brand-snapchat: '\ec25';
+$ti-icon-brand-tabler: '\ec8f';
 $ti-icon-brand-telegram: '\ec26';
 $ti-icon-brand-tiktok: '\ec73';
 $ti-icon-brand-twitter: '\ec27';
 $ti-icon-brand-whatsapp: '\ec74';
+$ti-icon-brand-youtube: '\ec90';
 $ti-icon-briefcase: '\ea46';
 $ti-icon-brightness: '\eb7f';
 $ti-icon-brightness-down: '\eb7d';
@@ -316,6 +325,7 @@ $ti-icon-file-music: '\ea9f';
 $ti-icon-file-plus: '\eaa0';
 $ti-icon-file-shredder: '\eaa1';
 $ti-icon-file-text: '\eaa2';
+$ti-icon-file-upload: '\ec91';
 $ti-icon-file-x: '\eaa3';
 $ti-icon-filter: '\eaa5';
 $ti-icon-fingerprint: '\ebd1';
@@ -589,7 +599,7 @@ $ti-icon-sun: '\eb30';
 $ti-icon-sunset: '\ec31';
 $ti-icon-sunshine: '\ec32';
 $ti-icon-superscript: '\eba0';
-$ti-icon-swiming: '\ec85';
+$ti-icon-swimming: '\ec92';
 $ti-icon-switch: '\eb33';
 $ti-icon-switch-horizontal: '\eb31';
 $ti-icon-switch-vertical: '\eb32';
@@ -695,6 +705,10 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-arrow-bar-down:before { content: $ti-icon-arrow-bar-down; }
 .#{$ti-icon-prefix}-arrow-bar-left:before { content: $ti-icon-arrow-bar-left; }
 .#{$ti-icon-prefix}-arrow-bar-right:before { content: $ti-icon-arrow-bar-right; }
+.#{$ti-icon-prefix}-arrow-bar-to-down:before { content: $ti-icon-arrow-bar-to-down; }
+.#{$ti-icon-prefix}-arrow-bar-to-left:before { content: $ti-icon-arrow-bar-to-left; }
+.#{$ti-icon-prefix}-arrow-bar-to-right:before { content: $ti-icon-arrow-bar-to-right; }
+.#{$ti-icon-prefix}-arrow-bar-to-up:before { content: $ti-icon-arrow-bar-to-up; }
 .#{$ti-icon-prefix}-arrow-bar-up:before { content: $ti-icon-arrow-bar-up; }
 .#{$ti-icon-prefix}-arrow-down:before { content: $ti-icon-arrow-down; }
 .#{$ti-icon-prefix}-arrow-down-circle:before { content: $ti-icon-arrow-down-circle; }
@@ -780,18 +794,23 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-brand-google:before { content: $ti-icon-brand-google; }
 .#{$ti-icon-prefix}-brand-google-drive:before { content: $ti-icon-brand-google-drive; }
 .#{$ti-icon-prefix}-brand-instagram:before { content: $ti-icon-brand-instagram; }
+.#{$ti-icon-prefix}-brand-linkedin:before { content: $ti-icon-brand-linkedin; }
 .#{$ti-icon-prefix}-brand-medium:before { content: $ti-icon-brand-medium; }
 .#{$ti-icon-prefix}-brand-messenger:before { content: $ti-icon-brand-messenger; }
 .#{$ti-icon-prefix}-brand-opera:before { content: $ti-icon-brand-opera; }
 .#{$ti-icon-prefix}-brand-paypal:before { content: $ti-icon-brand-paypal; }
+.#{$ti-icon-prefix}-brand-pinterest:before { content: $ti-icon-brand-pinterest; }
+.#{$ti-icon-prefix}-brand-reddit:before { content: $ti-icon-brand-reddit; }
 .#{$ti-icon-prefix}-brand-safari:before { content: $ti-icon-brand-safari; }
 .#{$ti-icon-prefix}-brand-sketch:before { content: $ti-icon-brand-sketch; }
 .#{$ti-icon-prefix}-brand-slack:before { content: $ti-icon-brand-slack; }
 .#{$ti-icon-prefix}-brand-snapchat:before { content: $ti-icon-brand-snapchat; }
+.#{$ti-icon-prefix}-brand-tabler:before { content: $ti-icon-brand-tabler; }
 .#{$ti-icon-prefix}-brand-telegram:before { content: $ti-icon-brand-telegram; }
 .#{$ti-icon-prefix}-brand-tiktok:before { content: $ti-icon-brand-tiktok; }
 .#{$ti-icon-prefix}-brand-twitter:before { content: $ti-icon-brand-twitter; }
 .#{$ti-icon-prefix}-brand-whatsapp:before { content: $ti-icon-brand-whatsapp; }
+.#{$ti-icon-prefix}-brand-youtube:before { content: $ti-icon-brand-youtube; }
 .#{$ti-icon-prefix}-briefcase:before { content: $ti-icon-briefcase; }
 .#{$ti-icon-prefix}-brightness:before { content: $ti-icon-brightness; }
 .#{$ti-icon-prefix}-brightness-down:before { content: $ti-icon-brightness-down; }
@@ -952,6 +971,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-file-plus:before { content: $ti-icon-file-plus; }
 .#{$ti-icon-prefix}-file-shredder:before { content: $ti-icon-file-shredder; }
 .#{$ti-icon-prefix}-file-text:before { content: $ti-icon-file-text; }
+.#{$ti-icon-prefix}-file-upload:before { content: $ti-icon-file-upload; }
 .#{$ti-icon-prefix}-file-x:before { content: $ti-icon-file-x; }
 .#{$ti-icon-prefix}-filter:before { content: $ti-icon-filter; }
 .#{$ti-icon-prefix}-fingerprint:before { content: $ti-icon-fingerprint; }
@@ -1225,7 +1245,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-sunset:before { content: $ti-icon-sunset; }
 .#{$ti-icon-prefix}-sunshine:before { content: $ti-icon-sunshine; }
 .#{$ti-icon-prefix}-superscript:before { content: $ti-icon-superscript; }
-.#{$ti-icon-prefix}-swiming:before { content: $ti-icon-swiming; }
+.#{$ti-icon-prefix}-swimming:before { content: $ti-icon-swimming; }
 .#{$ti-icon-prefix}-switch:before { content: $ti-icon-switch; }
 .#{$ti-icon-prefix}-switch-horizontal:before { content: $ti-icon-switch-horizontal; }
 .#{$ti-icon-prefix}-switch-vertical:before { content: $ti-icon-switch-vertical; }
