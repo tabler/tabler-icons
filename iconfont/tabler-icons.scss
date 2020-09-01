@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.15.0 by tabler - https://tabler.io
+ * Tabler Icons 1.16.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -142,6 +142,7 @@ $ti-icon-brand-chrome: '\ec18';
 $ti-icon-brand-codepen: '\ec6f';
 $ti-icon-brand-dribbble: '\ec19';
 $ti-icon-brand-facebook: '\ec1a';
+$ti-icon-brand-figma: '\ec93';
 $ti-icon-brand-framer: '\ec1b';
 $ti-icon-brand-github: '\ec1c';
 $ti-icon-brand-gitlab: '\ec1d';
@@ -367,6 +368,12 @@ $ti-icon-grid: '\eabb';
 $ti-icon-grid-dots: '\eaba';
 $ti-icon-grip-horizontal: '\ec00';
 $ti-icon-grip-vertical: '\ec01';
+$ti-icon-h-1: '\ec94';
+$ti-icon-h-2: '\ec95';
+$ti-icon-h-3: '\ec96';
+$ti-icon-h-4: '\ec97';
+$ti-icon-h-5: '\ec98';
+$ti-icon-h-6: '\ec99';
 $ti-icon-hand-middle-finger: '\ec2d';
 $ti-icon-hand-stop: '\ec2e';
 $ti-icon-hash: '\eabc';
@@ -477,6 +484,8 @@ $ti-icon-message: '\eaef';
 $ti-icon-message-2: '\eaec';
 $ti-icon-message-circle: '\eaed';
 $ti-icon-message-dots: '\eaee';
+$ti-icon-message-plus: '\ec9a';
+$ti-icon-message-report: '\ec9b';
 $ti-icon-messages: '\eb6c';
 $ti-icon-microphone: '\eaf0';
 $ti-icon-minimize: '\eaf1';
@@ -522,6 +531,7 @@ $ti-icon-phone-plus: '\ec06';
 $ti-icon-phone-x: '\ec07';
 $ti-icon-photo: '\eb0a';
 $ti-icon-pill: '\ec44';
+$ti-icon-pin: '\ec9c';
 $ti-icon-plane: '\eb6f';
 $ti-icon-plane-arrival: '\eb99';
 $ti-icon-plane-departure: '\eb9a';
@@ -535,6 +545,7 @@ $ti-icon-printer: '\eb0e';
 $ti-icon-prompt: '\eb0f';
 $ti-icon-puzzle: '\eb10';
 $ti-icon-qrcode: '\eb11';
+$ti-icon-question-mark: '\ec9d';
 $ti-icon-record-mail: '\eb12';
 $ti-icon-recycle: '\eb9b';
 $ti-icon-refresh: '\eb13';
@@ -559,6 +570,7 @@ $ti-icon-scan: '\ebc8';
 $ti-icon-scissors: '\eb1b';
 $ti-icon-scooter: '\ec6c';
 $ti-icon-search: '\eb1c';
+$ti-icon-select: '\ec9e';
 $ti-icon-selector: '\eb1d';
 $ti-icon-send: '\eb1e';
 $ti-icon-separator: '\ebda';
@@ -594,6 +606,7 @@ $ti-icon-steering-wheel: '\ec7b';
 $ti-icon-sticker: '\eb2f';
 $ti-icon-strikethrough: '\eb9e';
 $ti-icon-subscript: '\eb9f';
+$ti-icon-subtask: '\ec9f';
 $ti-icon-sum: '\eb73';
 $ti-icon-sun: '\eb30';
 $ti-icon-sunset: '\ec31';
@@ -788,6 +801,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-brand-codepen:before { content: $ti-icon-brand-codepen; }
 .#{$ti-icon-prefix}-brand-dribbble:before { content: $ti-icon-brand-dribbble; }
 .#{$ti-icon-prefix}-brand-facebook:before { content: $ti-icon-brand-facebook; }
+.#{$ti-icon-prefix}-brand-figma:before { content: $ti-icon-brand-figma; }
 .#{$ti-icon-prefix}-brand-framer:before { content: $ti-icon-brand-framer; }
 .#{$ti-icon-prefix}-brand-github:before { content: $ti-icon-brand-github; }
 .#{$ti-icon-prefix}-brand-gitlab:before { content: $ti-icon-brand-gitlab; }
@@ -1013,6 +1027,12 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-grid-dots:before { content: $ti-icon-grid-dots; }
 .#{$ti-icon-prefix}-grip-horizontal:before { content: $ti-icon-grip-horizontal; }
 .#{$ti-icon-prefix}-grip-vertical:before { content: $ti-icon-grip-vertical; }
+.#{$ti-icon-prefix}-h-1:before { content: $ti-icon-h-1; }
+.#{$ti-icon-prefix}-h-2:before { content: $ti-icon-h-2; }
+.#{$ti-icon-prefix}-h-3:before { content: $ti-icon-h-3; }
+.#{$ti-icon-prefix}-h-4:before { content: $ti-icon-h-4; }
+.#{$ti-icon-prefix}-h-5:before { content: $ti-icon-h-5; }
+.#{$ti-icon-prefix}-h-6:before { content: $ti-icon-h-6; }
 .#{$ti-icon-prefix}-hand-middle-finger:before { content: $ti-icon-hand-middle-finger; }
 .#{$ti-icon-prefix}-hand-stop:before { content: $ti-icon-hand-stop; }
 .#{$ti-icon-prefix}-hash:before { content: $ti-icon-hash; }
@@ -1123,6 +1143,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-message-2:before { content: $ti-icon-message-2; }
 .#{$ti-icon-prefix}-message-circle:before { content: $ti-icon-message-circle; }
 .#{$ti-icon-prefix}-message-dots:before { content: $ti-icon-message-dots; }
+.#{$ti-icon-prefix}-message-plus:before { content: $ti-icon-message-plus; }
+.#{$ti-icon-prefix}-message-report:before { content: $ti-icon-message-report; }
 .#{$ti-icon-prefix}-messages:before { content: $ti-icon-messages; }
 .#{$ti-icon-prefix}-microphone:before { content: $ti-icon-microphone; }
 .#{$ti-icon-prefix}-minimize:before { content: $ti-icon-minimize; }
@@ -1168,6 +1190,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-phone-x:before { content: $ti-icon-phone-x; }
 .#{$ti-icon-prefix}-photo:before { content: $ti-icon-photo; }
 .#{$ti-icon-prefix}-pill:before { content: $ti-icon-pill; }
+.#{$ti-icon-prefix}-pin:before { content: $ti-icon-pin; }
 .#{$ti-icon-prefix}-plane:before { content: $ti-icon-plane; }
 .#{$ti-icon-prefix}-plane-arrival:before { content: $ti-icon-plane-arrival; }
 .#{$ti-icon-prefix}-plane-departure:before { content: $ti-icon-plane-departure; }
@@ -1181,6 +1204,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-prompt:before { content: $ti-icon-prompt; }
 .#{$ti-icon-prefix}-puzzle:before { content: $ti-icon-puzzle; }
 .#{$ti-icon-prefix}-qrcode:before { content: $ti-icon-qrcode; }
+.#{$ti-icon-prefix}-question-mark:before { content: $ti-icon-question-mark; }
 .#{$ti-icon-prefix}-record-mail:before { content: $ti-icon-record-mail; }
 .#{$ti-icon-prefix}-recycle:before { content: $ti-icon-recycle; }
 .#{$ti-icon-prefix}-refresh:before { content: $ti-icon-refresh; }
@@ -1205,6 +1229,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-scissors:before { content: $ti-icon-scissors; }
 .#{$ti-icon-prefix}-scooter:before { content: $ti-icon-scooter; }
 .#{$ti-icon-prefix}-search:before { content: $ti-icon-search; }
+.#{$ti-icon-prefix}-select:before { content: $ti-icon-select; }
 .#{$ti-icon-prefix}-selector:before { content: $ti-icon-selector; }
 .#{$ti-icon-prefix}-send:before { content: $ti-icon-send; }
 .#{$ti-icon-prefix}-separator:before { content: $ti-icon-separator; }
@@ -1240,6 +1265,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-sticker:before { content: $ti-icon-sticker; }
 .#{$ti-icon-prefix}-strikethrough:before { content: $ti-icon-strikethrough; }
 .#{$ti-icon-prefix}-subscript:before { content: $ti-icon-subscript; }
+.#{$ti-icon-prefix}-subtask:before { content: $ti-icon-subtask; }
 .#{$ti-icon-prefix}-sum:before { content: $ti-icon-sum; }
 .#{$ti-icon-prefix}-sun:before { content: $ti-icon-sun; }
 .#{$ti-icon-prefix}-sunset:before { content: $ti-icon-sunset; }
