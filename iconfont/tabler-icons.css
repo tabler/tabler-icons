@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons 1.16.0 by tabler - https://tabler.io
+ * Tabler Icons 1.17.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
@@ -22,6 +22,10 @@
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-2fa:before {
+  content: "";
 }
 
 .ti-a-b:before {
@@ -530,6 +534,10 @@
 
 .ti-brand-tabler:before {
   content: "";
+}
+
+.ti-brand-tailwind:before {
+  content: "";
 }
 
 .ti-brand-telegram:before {
@@ -1724,6 +1732,14 @@
   content: "";
 }
 
+.ti-loader:before {
+  content: "";
+}
+
+.ti-loader-quarter:before {
+  content: "";
+}
+
 .ti-location:before {
   content: "";
 }
@@ -2292,6 +2308,18 @@
   content: "";
 }
 
+.ti-stairs:before {
+  content: "";
+}
+
+.ti-stairs-down:before {
+  content: "";
+}
+
+.ti-stairs-up:before {
+  content: "";
+}
+
 .ti-star:before {
   content: "";
 }
@@ -2428,6 +2456,10 @@
   content: "";
 }
 
+.ti-text-wrap-disabled:before {
+  content: "";
+}
+
 .ti-thumb-down:before {
   content: "";
 }
@@ -2560,6 +2592,14 @@
   content: "";
 }
 
+.ti-vector:before {
+  content: "";
+}
+
+.ti-vector-triangle:before {
+  content: "";
+}
+
 .ti-venus:before {
   content: "";
 }
@@ -2624,6 +2664,14 @@
   content: "";
 }
 
+.ti-wiper:before {
+  content: "";
+}
+
+.ti-wiper-wash:before {
+  content: "";
+}
+
 .ti-woman:before {
   content: "";
 }
@@ -2638,6 +2686,54 @@
 
 .ti-yin-yang:before {
   content: "";
+}
+
+.ti-zodiac-aquarius:before {
+  content: "";
+}
+
+.ti-zodiac-aries:before {
+  content: "";
+}
+
+.ti-zodiac-cancer:before {
+  content: "";
+}
+
+.ti-zodiac-capricorn:before {
+  content: "";
+}
+
+.ti-zodiac-gemini:before {
+  content: "";
+}
+
+.ti-zodiac-leo:before {
+  content: "";
+}
+
+.ti-zodiac-libra:before {
+  content: "";
+}
+
+.ti-zodiac-pisces:before {
+  content: "";
+}
+
+.ti-zodiac-sagittarius:before {
+  content: "";
+}
+
+.ti-zodiac-scorpio:before {
+  content: "";
+}
+
+.ti-zodiac-taurus:before {
+  content: "";
+}
+
+.ti-zodiac-virgo:before {
+  content: "";
 }
 
 .ti-zoom-cancel:before {

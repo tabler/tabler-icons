@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.16.0 by tabler - https://tabler.io
+ * Tabler Icons 1.17.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -34,6 +34,7 @@ $ti-icon-prefix: 'ti' !default;
 }
 
 
+$ti-icon-2fa: '\eca0';
 $ti-icon-a-b: '\ec36';
 $ti-icon-accessible: '\eba9';
 $ti-icon-activity: '\ea01';
@@ -161,6 +162,7 @@ $ti-icon-brand-sketch: '\ec24';
 $ti-icon-brand-slack: '\ec72';
 $ti-icon-brand-snapchat: '\ec25';
 $ti-icon-brand-tabler: '\ec8f';
+$ti-icon-brand-tailwind: '\eca1';
 $ti-icon-brand-telegram: '\ec26';
 $ti-icon-brand-tiktok: '\ec73';
 $ti-icon-brand-twitter: '\ec27';
@@ -459,6 +461,8 @@ $ti-icon-list: '\eb6b';
 $ti-icon-list-check: '\eb6a';
 $ti-icon-live-photo: '\eadf';
 $ti-icon-live-view: '\ec6b';
+$ti-icon-loader: '\eca3';
+$ti-icon-loader-quarter: '\eca2';
 $ti-icon-location: '\eae0';
 $ti-icon-lock: '\eae2';
 $ti-icon-lock-open: '\eae1';
@@ -601,6 +605,9 @@ $ti-icon-square-minus: '\eb29';
 $ti-icon-square-plus: '\eb2a';
 $ti-icon-square-x: '\eb2b';
 $ti-icon-stack: '\eb2d';
+$ti-icon-stairs: '\eca6';
+$ti-icon-stairs-down: '\eca4';
+$ti-icon-stairs-up: '\eca5';
 $ti-icon-star: '\eb2e';
 $ti-icon-steering-wheel: '\ec7b';
 $ti-icon-sticker: '\eb2f';
@@ -635,6 +642,7 @@ $ti-icon-terminal: '\ebdc';
 $ti-icon-terminal-2: '\ebef';
 $ti-icon-test-pipe: '\eb3a';
 $ti-icon-text-wrap: '\ebdd';
+$ti-icon-text-wrap-disabled: '\eca7';
 $ti-icon-thumb-down: '\eb3b';
 $ti-icon-thumb-up: '\eb3c';
 $ti-icon-ticket: '\eb3d';
@@ -668,6 +676,8 @@ $ti-icon-user-minus: '\eb4a';
 $ti-icon-user-plus: '\eb4b';
 $ti-icon-user-x: '\eb4c';
 $ti-icon-users: '\ebf2';
+$ti-icon-vector: '\eca9';
+$ti-icon-vector-triangle: '\eca8';
 $ti-icon-venus: '\ec86';
 $ti-icon-viewfinder: '\eb4e';
 $ti-icon-viewport-narrow: '\ebf3';
@@ -684,15 +694,30 @@ $ti-icon-wifi-0: '\eba3';
 $ti-icon-wifi-1: '\eba4';
 $ti-icon-wifi-2: '\eba5';
 $ti-icon-wind: '\ec34';
+$ti-icon-wiper: '\ecab';
+$ti-icon-wiper-wash: '\ecaa';
 $ti-icon-woman: '\eb53';
 $ti-icon-world: '\eb54';
 $ti-icon-x: '\eb55';
 $ti-icon-yin-yang: '\ec35';
+$ti-icon-zodiac-aquarius: '\ecac';
+$ti-icon-zodiac-aries: '\ecad';
+$ti-icon-zodiac-cancer: '\ecae';
+$ti-icon-zodiac-capricorn: '\ecaf';
+$ti-icon-zodiac-gemini: '\ecb0';
+$ti-icon-zodiac-leo: '\ecb1';
+$ti-icon-zodiac-libra: '\ecb2';
+$ti-icon-zodiac-pisces: '\ecb3';
+$ti-icon-zodiac-sagittarius: '\ecb4';
+$ti-icon-zodiac-scorpio: '\ecb5';
+$ti-icon-zodiac-taurus: '\ecb6';
+$ti-icon-zodiac-virgo: '\ecb7';
 $ti-icon-zoom-cancel: '\ec4d';
 $ti-icon-zoom-in: '\eb56';
 $ti-icon-zoom-out: '\eb57';
 
 
+.#{$ti-icon-prefix}-2fa:before { content: $ti-icon-2fa; }
 .#{$ti-icon-prefix}-a-b:before { content: $ti-icon-a-b; }
 .#{$ti-icon-prefix}-accessible:before { content: $ti-icon-accessible; }
 .#{$ti-icon-prefix}-activity:before { content: $ti-icon-activity; }
@@ -820,6 +845,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-brand-slack:before { content: $ti-icon-brand-slack; }
 .#{$ti-icon-prefix}-brand-snapchat:before { content: $ti-icon-brand-snapchat; }
 .#{$ti-icon-prefix}-brand-tabler:before { content: $ti-icon-brand-tabler; }
+.#{$ti-icon-prefix}-brand-tailwind:before { content: $ti-icon-brand-tailwind; }
 .#{$ti-icon-prefix}-brand-telegram:before { content: $ti-icon-brand-telegram; }
 .#{$ti-icon-prefix}-brand-tiktok:before { content: $ti-icon-brand-tiktok; }
 .#{$ti-icon-prefix}-brand-twitter:before { content: $ti-icon-brand-twitter; }
@@ -1118,6 +1144,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-list-check:before { content: $ti-icon-list-check; }
 .#{$ti-icon-prefix}-live-photo:before { content: $ti-icon-live-photo; }
 .#{$ti-icon-prefix}-live-view:before { content: $ti-icon-live-view; }
+.#{$ti-icon-prefix}-loader:before { content: $ti-icon-loader; }
+.#{$ti-icon-prefix}-loader-quarter:before { content: $ti-icon-loader-quarter; }
 .#{$ti-icon-prefix}-location:before { content: $ti-icon-location; }
 .#{$ti-icon-prefix}-lock:before { content: $ti-icon-lock; }
 .#{$ti-icon-prefix}-lock-open:before { content: $ti-icon-lock-open; }
@@ -1260,6 +1288,9 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-square-plus:before { content: $ti-icon-square-plus; }
 .#{$ti-icon-prefix}-square-x:before { content: $ti-icon-square-x; }
 .#{$ti-icon-prefix}-stack:before { content: $ti-icon-stack; }
+.#{$ti-icon-prefix}-stairs:before { content: $ti-icon-stairs; }
+.#{$ti-icon-prefix}-stairs-down:before { content: $ti-icon-stairs-down; }
+.#{$ti-icon-prefix}-stairs-up:before { content: $ti-icon-stairs-up; }
 .#{$ti-icon-prefix}-star:before { content: $ti-icon-star; }
 .#{$ti-icon-prefix}-steering-wheel:before { content: $ti-icon-steering-wheel; }
 .#{$ti-icon-prefix}-sticker:before { content: $ti-icon-sticker; }
@@ -1294,6 +1325,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-terminal-2:before { content: $ti-icon-terminal-2; }
 .#{$ti-icon-prefix}-test-pipe:before { content: $ti-icon-test-pipe; }
 .#{$ti-icon-prefix}-text-wrap:before { content: $ti-icon-text-wrap; }
+.#{$ti-icon-prefix}-text-wrap-disabled:before { content: $ti-icon-text-wrap-disabled; }
 .#{$ti-icon-prefix}-thumb-down:before { content: $ti-icon-thumb-down; }
 .#{$ti-icon-prefix}-thumb-up:before { content: $ti-icon-thumb-up; }
 .#{$ti-icon-prefix}-ticket:before { content: $ti-icon-ticket; }
@@ -1327,6 +1359,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-user-plus:before { content: $ti-icon-user-plus; }
 .#{$ti-icon-prefix}-user-x:before { content: $ti-icon-user-x; }
 .#{$ti-icon-prefix}-users:before { content: $ti-icon-users; }
+.#{$ti-icon-prefix}-vector:before { content: $ti-icon-vector; }
+.#{$ti-icon-prefix}-vector-triangle:before { content: $ti-icon-vector-triangle; }
 .#{$ti-icon-prefix}-venus:before { content: $ti-icon-venus; }
 .#{$ti-icon-prefix}-viewfinder:before { content: $ti-icon-viewfinder; }
 .#{$ti-icon-prefix}-viewport-narrow:before { content: $ti-icon-viewport-narrow; }
@@ -1343,10 +1377,24 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-wifi-1:before { content: $ti-icon-wifi-1; }
 .#{$ti-icon-prefix}-wifi-2:before { content: $ti-icon-wifi-2; }
 .#{$ti-icon-prefix}-wind:before { content: $ti-icon-wind; }
+.#{$ti-icon-prefix}-wiper:before { content: $ti-icon-wiper; }
+.#{$ti-icon-prefix}-wiper-wash:before { content: $ti-icon-wiper-wash; }
 .#{$ti-icon-prefix}-woman:before { content: $ti-icon-woman; }
 .#{$ti-icon-prefix}-world:before { content: $ti-icon-world; }
 .#{$ti-icon-prefix}-x:before { content: $ti-icon-x; }
 .#{$ti-icon-prefix}-yin-yang:before { content: $ti-icon-yin-yang; }
+.#{$ti-icon-prefix}-zodiac-aquarius:before { content: $ti-icon-zodiac-aquarius; }
+.#{$ti-icon-prefix}-zodiac-aries:before { content: $ti-icon-zodiac-aries; }
+.#{$ti-icon-prefix}-zodiac-cancer:before { content: $ti-icon-zodiac-cancer; }
+.#{$ti-icon-prefix}-zodiac-capricorn:before { content: $ti-icon-zodiac-capricorn; }
+.#{$ti-icon-prefix}-zodiac-gemini:before { content: $ti-icon-zodiac-gemini; }
+.#{$ti-icon-prefix}-zodiac-leo:before { content: $ti-icon-zodiac-leo; }
+.#{$ti-icon-prefix}-zodiac-libra:before { content: $ti-icon-zodiac-libra; }
+.#{$ti-icon-prefix}-zodiac-pisces:before { content: $ti-icon-zodiac-pisces; }
+.#{$ti-icon-prefix}-zodiac-sagittarius:before { content: $ti-icon-zodiac-sagittarius; }
+.#{$ti-icon-prefix}-zodiac-scorpio:before { content: $ti-icon-zodiac-scorpio; }
+.#{$ti-icon-prefix}-zodiac-taurus:before { content: $ti-icon-zodiac-taurus; }
+.#{$ti-icon-prefix}-zodiac-virgo:before { content: $ti-icon-zodiac-virgo; }
 .#{$ti-icon-prefix}-zoom-cancel:before { content: $ti-icon-zoom-cancel; }
 .#{$ti-icon-prefix}-zoom-in:before { content: $ti-icon-zoom-in; }
 .#{$ti-icon-prefix}-zoom-out:before { content: $ti-icon-zoom-out; }
