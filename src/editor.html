@@ -72,34 +72,8 @@ layout: default
 
 		<div class="mb">
 			{% include toolbar.html
-			toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|h-1,h-2,h-3,h-4,h-5,h-6,link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal'
+			toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|h-1,h-2,h-3,h-4,h-5,h-6,link,photo,table|sort-ascending,sort-descending|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal|bike,run,swimming,walk,pray'
 			%}
-			{% include toolbar.html
-			toolbar='check,checks,x|currency-euro,currency-dollar,currency-bitcoin,currency-pound,currency-rupee,currency-yen|electric-scooter,bike,scooter,car,bus,forklift,tir,firetruck,ambulance,tractor,truck,truck-return,truck-delivery'
-			%}
-			{% include toolbar.html
-			toolbar='letter-a,letter-b,letter-c,letter-d,letter-e,letter-f,letter-g,letter-h,letter-i,letter-j,letter-k,letter-l,letter-m,letter-n,letter-o,letter-p,letter-q,letter-r,letter-s,letter-t,letter-u,letter-v,letter-w,letter-x,letter-y,letter-z'
-			%}
-
-			{% assign social-icons = '' %}
-			{% for icon in icons %}
-			{% if icon.slug contains 'brand-' %}
-			{% assign social-icons = social-icons | append: icon.slug | append: ',' %}
-			{% endif %}
-			{% endfor %}
-			{% assign size = social-icons | size | minus: 1 %}
-			{% assign social-icons = social-icons | slice: 0, size %}
-			{% include toolbar.html toolbar=social-icons %}
-
-			{% assign zodiac-icons = '' %}
-			{% for icon in icons %}
-			{% if icon.slug contains 'zodiac-' %}
-			{% assign zodiac-icons = zodiac-icons | append: icon.slug | append: ',' %}
-			{% endif %}
-			{% endfor %}
-			{% assign size = zodiac-icons | size | minus: 1 %}
-			{% assign zodiac-icons = zodiac-icons | slice: 0, size %}
-			{% include toolbar.html toolbar=zodiac-icons %}
 		</div>
 
 		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
