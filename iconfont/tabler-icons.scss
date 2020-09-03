@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.18.0 by tabler - https://tabler.io
+ * Tabler Icons 1.19.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -37,13 +37,13 @@ $ti-icon-prefix: 'ti' !default;
 $ti-icon-2fa: '\eca0';
 $ti-icon-a-b: '\ec36';
 $ti-icon-accessible: '\eba9';
-$ti-icon-activity: '\ea01';
 $ti-icon-ad: '\ea02';
 $ti-icon-adjustments: '\ea03';
 $ti-icon-adjustments-alt: '\ec37';
 $ti-icon-adjustments-horizontal: '\ec38';
 $ti-icon-alarm: '\ea04';
 $ti-icon-alert-circle: '\ea05';
+$ti-icon-alert-octagon: '\ecc6';
 $ti-icon-alert-triangle: '\ea06';
 $ti-icon-alien: '\ebde';
 $ti-icon-align-center: '\ea07';
@@ -52,6 +52,11 @@ $ti-icon-align-left: '\ea09';
 $ti-icon-align-right: '\ea0a';
 $ti-icon-ambulance: '\ebf5';
 $ti-icon-anchor: '\eb76';
+$ti-icon-antenna-bars-1: '\ecc7';
+$ti-icon-antenna-bars-2: '\ecc8';
+$ti-icon-antenna-bars-3: '\ecc9';
+$ti-icon-antenna-bars-4: '\ecca';
+$ti-icon-antenna-bars-5: '\eccb';
 $ti-icon-aperture: '\eb58';
 $ti-icon-apps: '\ebb6';
 $ti-icon-archive: '\ea0b';
@@ -528,6 +533,7 @@ $ti-icon-palette: '\eb01';
 $ti-icon-paperclip: '\eb02';
 $ti-icon-parentheses: '\ebd8';
 $ti-icon-parking: '\eb03';
+$ti-icon-pause: '\eccc';
 $ti-icon-peace: '\ecbe';
 $ti-icon-pencil: '\eb04';
 $ti-icon-phone: '\eb09';
@@ -546,6 +552,7 @@ $ti-icon-plane: '\eb6f';
 $ti-icon-plane-arrival: '\eb99';
 $ti-icon-plane-departure: '\eb9a';
 $ti-icon-planet: '\ec08';
+$ti-icon-play: '\eccd';
 $ti-icon-plug: '\ebd9';
 $ti-icon-plus: '\eb0b';
 $ti-icon-point: '\eb0c';
@@ -602,6 +609,8 @@ $ti-icon-shirt: '\ec0a';
 $ti-icon-shopping-cart: '\eb25';
 $ti-icon-sitemap: '\eb9d';
 $ti-icon-skateboard: '\ecc2';
+$ti-icon-skip-back: '\ecce';
+$ti-icon-skip-forward: '\eccf';
 $ti-icon-slice: '\ebdb';
 $ti-icon-slideshow: '\ebc9';
 $ti-icon-smoking: '\ecc4';
@@ -663,6 +672,9 @@ $ti-icon-toggle-left: '\eb3e';
 $ti-icon-toggle-right: '\eb3f';
 $ti-icon-tool: '\eb40';
 $ti-icon-tools: '\ebca';
+$ti-icon-tournament: '\ecd0';
+$ti-icon-track-next: '\ecd1';
+$ti-icon-track-prev: '\ecd2';
 $ti-icon-tractor: '\ec0d';
 $ti-icon-trademark: '\ec0e';
 $ti-icon-traffic-cone: '\ec0f';
@@ -702,6 +714,10 @@ $ti-icon-volume-3: '\eb50';
 $ti-icon-walk: '\ec87';
 $ti-icon-wallet: '\eb75';
 $ti-icon-wand: '\ebcb';
+$ti-icon-wave-saw-tool: '\ecd3';
+$ti-icon-wave-sine: '\ecd4';
+$ti-icon-wave-square: '\ecd5';
+$ti-icon-wave-triangle: '\ecd6';
 $ti-icon-wifi: '\eb52';
 $ti-icon-wifi-0: '\eba3';
 $ti-icon-wifi-1: '\eba4';
@@ -733,13 +749,13 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-2fa:before { content: $ti-icon-2fa; }
 .#{$ti-icon-prefix}-a-b:before { content: $ti-icon-a-b; }
 .#{$ti-icon-prefix}-accessible:before { content: $ti-icon-accessible; }
-.#{$ti-icon-prefix}-activity:before { content: $ti-icon-activity; }
 .#{$ti-icon-prefix}-ad:before { content: $ti-icon-ad; }
 .#{$ti-icon-prefix}-adjustments:before { content: $ti-icon-adjustments; }
 .#{$ti-icon-prefix}-adjustments-alt:before { content: $ti-icon-adjustments-alt; }
 .#{$ti-icon-prefix}-adjustments-horizontal:before { content: $ti-icon-adjustments-horizontal; }
 .#{$ti-icon-prefix}-alarm:before { content: $ti-icon-alarm; }
 .#{$ti-icon-prefix}-alert-circle:before { content: $ti-icon-alert-circle; }
+.#{$ti-icon-prefix}-alert-octagon:before { content: $ti-icon-alert-octagon; }
 .#{$ti-icon-prefix}-alert-triangle:before { content: $ti-icon-alert-triangle; }
 .#{$ti-icon-prefix}-alien:before { content: $ti-icon-alien; }
 .#{$ti-icon-prefix}-align-center:before { content: $ti-icon-align-center; }
@@ -748,6 +764,11 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-align-right:before { content: $ti-icon-align-right; }
 .#{$ti-icon-prefix}-ambulance:before { content: $ti-icon-ambulance; }
 .#{$ti-icon-prefix}-anchor:before { content: $ti-icon-anchor; }
+.#{$ti-icon-prefix}-antenna-bars-1:before { content: $ti-icon-antenna-bars-1; }
+.#{$ti-icon-prefix}-antenna-bars-2:before { content: $ti-icon-antenna-bars-2; }
+.#{$ti-icon-prefix}-antenna-bars-3:before { content: $ti-icon-antenna-bars-3; }
+.#{$ti-icon-prefix}-antenna-bars-4:before { content: $ti-icon-antenna-bars-4; }
+.#{$ti-icon-prefix}-antenna-bars-5:before { content: $ti-icon-antenna-bars-5; }
 .#{$ti-icon-prefix}-aperture:before { content: $ti-icon-aperture; }
 .#{$ti-icon-prefix}-apps:before { content: $ti-icon-apps; }
 .#{$ti-icon-prefix}-archive:before { content: $ti-icon-archive; }
@@ -1224,6 +1245,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-paperclip:before { content: $ti-icon-paperclip; }
 .#{$ti-icon-prefix}-parentheses:before { content: $ti-icon-parentheses; }
 .#{$ti-icon-prefix}-parking:before { content: $ti-icon-parking; }
+.#{$ti-icon-prefix}-pause:before { content: $ti-icon-pause; }
 .#{$ti-icon-prefix}-peace:before { content: $ti-icon-peace; }
 .#{$ti-icon-prefix}-pencil:before { content: $ti-icon-pencil; }
 .#{$ti-icon-prefix}-phone:before { content: $ti-icon-phone; }
@@ -1242,6 +1264,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-plane-arrival:before { content: $ti-icon-plane-arrival; }
 .#{$ti-icon-prefix}-plane-departure:before { content: $ti-icon-plane-departure; }
 .#{$ti-icon-prefix}-planet:before { content: $ti-icon-planet; }
+.#{$ti-icon-prefix}-play:before { content: $ti-icon-play; }
 .#{$ti-icon-prefix}-plug:before { content: $ti-icon-plug; }
 .#{$ti-icon-prefix}-plus:before { content: $ti-icon-plus; }
 .#{$ti-icon-prefix}-point:before { content: $ti-icon-point; }
@@ -1298,6 +1321,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-shopping-cart:before { content: $ti-icon-shopping-cart; }
 .#{$ti-icon-prefix}-sitemap:before { content: $ti-icon-sitemap; }
 .#{$ti-icon-prefix}-skateboard:before { content: $ti-icon-skateboard; }
+.#{$ti-icon-prefix}-skip-back:before { content: $ti-icon-skip-back; }
+.#{$ti-icon-prefix}-skip-forward:before { content: $ti-icon-skip-forward; }
 .#{$ti-icon-prefix}-slice:before { content: $ti-icon-slice; }
 .#{$ti-icon-prefix}-slideshow:before { content: $ti-icon-slideshow; }
 .#{$ti-icon-prefix}-smoking:before { content: $ti-icon-smoking; }
@@ -1359,6 +1384,9 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-toggle-right:before { content: $ti-icon-toggle-right; }
 .#{$ti-icon-prefix}-tool:before { content: $ti-icon-tool; }
 .#{$ti-icon-prefix}-tools:before { content: $ti-icon-tools; }
+.#{$ti-icon-prefix}-tournament:before { content: $ti-icon-tournament; }
+.#{$ti-icon-prefix}-track-next:before { content: $ti-icon-track-next; }
+.#{$ti-icon-prefix}-track-prev:before { content: $ti-icon-track-prev; }
 .#{$ti-icon-prefix}-tractor:before { content: $ti-icon-tractor; }
 .#{$ti-icon-prefix}-trademark:before { content: $ti-icon-trademark; }
 .#{$ti-icon-prefix}-traffic-cone:before { content: $ti-icon-traffic-cone; }
@@ -1398,6 +1426,10 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-walk:before { content: $ti-icon-walk; }
 .#{$ti-icon-prefix}-wallet:before { content: $ti-icon-wallet; }
 .#{$ti-icon-prefix}-wand:before { content: $ti-icon-wand; }
+.#{$ti-icon-prefix}-wave-saw-tool:before { content: $ti-icon-wave-saw-tool; }
+.#{$ti-icon-prefix}-wave-sine:before { content: $ti-icon-wave-sine; }
+.#{$ti-icon-prefix}-wave-square:before { content: $ti-icon-wave-square; }
+.#{$ti-icon-prefix}-wave-triangle:before { content: $ti-icon-wave-triangle; }
 .#{$ti-icon-prefix}-wifi:before { content: $ti-icon-wifi; }
 .#{$ti-icon-prefix}-wifi-0:before { content: $ti-icon-wifi-0; }
 .#{$ti-icon-prefix}-wifi-1:before { content: $ti-icon-wifi-1; }
