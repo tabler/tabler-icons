@@ -1,0 +1,5 @@
+import * as React from "react";
+
+const IconLayersIntersect = (size = 24, color = "currentColor", stroke = 2, ...props) => <svg className="icon icon-tabler icon-tabler-layers-intersect" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><rect x={8} y={4} width={12} height={12} rx={2} /><rect x={4} y={8} width={12} height={12} rx={2} /></svg>;
+
+export default IconLayersIntersect;

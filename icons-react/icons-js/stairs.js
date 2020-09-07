@@ -1,0 +1,5 @@
+import * as React from "react";
+
+const IconStairs = (size = 24, color = "currentColor", stroke = 2, ...props) => <svg className="icon icon-tabler icon-tabler-stairs" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M4 18h4v-4h4v-4h4v-4h4" /></svg>;
+
+export default IconStairs;

@@ -11,7 +11,8 @@ const gulp = require('gulp'),
 	template = require('lodash.template'),
 	sass = require('node-sass'),
 	cleanCSS = require('clean-css'),
-	argv = require('minimist')(process.argv.slice(2));
+	argv = require('minimist')(process.argv.slice(2)),
+	svgr = require('@svgr/core').default;
 
 async function asyncForEach(array, callback) {
 	for (let index = 0; index < array.length; index++) {
@@ -194,7 +195,7 @@ gulp.task('iconfont-svg-outline', function (cb) {
 
 		let iconfontUnicode = {};
 
-		if(fs.existsSync('./iconfont-unicode.json')) {
+		if (fs.existsSync('./iconfont-unicode.json')) {
 			iconfontUnicode = require('./iconfont-unicode');
 		}
 
@@ -218,7 +219,7 @@ gulp.task('iconfont-svg-outline', function (cb) {
 				fixedWidth: true,
 				color: 'black'
 			}).then(outlined => {
-				if(unicode) {
+				if (unicode) {
 					fs.writeFileSync(`icons-outlined/u${unicode.toUpperCase()}-${name}.svg`, outlined);
 				} else {
 					fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
@@ -233,10 +234,10 @@ gulp.task('iconfont-svg-outline', function (cb) {
 gulp.task('iconfont', function () {
 	let maxUnicode = 59905;
 
-	if(fs.existsSync('./iconfont-unicode.json')) {
+	if (fs.existsSync('./iconfont-unicode.json')) {
 		const iconfontUnicode = require('./iconfont-unicode');
 
-		for(const name in iconfontUnicode) {
+		for (const name in iconfontUnicode) {
 			const unicode = parseInt(iconfontUnicode[name], 16);
 
 			maxUnicode = Math.max(maxUnicode, unicode);
@@ -258,7 +259,7 @@ gulp.task('iconfont', function () {
 			let glyphsObject = {};
 
 			//sort glypht
-			glyphs = glyphs.sort(function(a, b){
+			glyphs = glyphs.sort(function (a, b) {
 				return ('' + a.name).localeCompare(b.name)
 			});
 
@@ -399,7 +400,7 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', function (cb) {
 }));
 
 gulp.task('optimize', function (cb) {
-	const addFloats = function(n1, n2) {
+	const addFloats = function (n1, n2) {
 		return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
 	};
 
@@ -418,20 +419,20 @@ gulp.task('optimize', function (cb) {
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
 				.replace(/\n\n+/g, "\n")
 
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function (f, r1, r2, r3, r4) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([0-9.]*)"/g, function(f, r1, r2, r3){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([0-9.]*)"/g, function (f, r1, r2, r3) {
 					return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([0-9.]*)"/g, function(f, r1, r2, r3){
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([0-9.]*)"/g, function (f, r1, r2, r3) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`;
 				});
 
 			//  
 			//
 
-			if(svgFile.toString() !== svgFileContent) {
+			if (svgFile.toString() !== svgFileContent) {
 				fs.writeFileSync(file, svgFileContent);
 			}
 		});
@@ -526,7 +527,6 @@ gulp.task('changelog-image', function (cb) {
 	}
 });
 
-
 gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 	let files = glob.sync("./icons/*.svg");
 
@@ -536,6 +536,59 @@ gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
 		console.log('name', name);
 
 		await svgToPng(file, `icons-png/${name}.png`);
+	});
+
+	cb();
+}));
+
+gulp.task('clean-react', function (cb) {
+	cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', function () {
+		cb();
+	});
+});
+
+gulp.task('svg-to-react', gulp.series('clean-react', async function (cb) {
+	let files = glob.sync("./icons/*.svg");
+
+	const camelize = function (str) {
+		str = str.replace(/-/g, ' ');
+
+		return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+			return word.toUpperCase();
+		}).replace(/\s+/g, '');
+	};
+
+	const componentName = function (file) {
+		file = path.basename(file, '.svg');
+		file = camelize(`Icon ${file}`);
+
+		return file;
+	};
+
+	const optimizeSvgCode = function(svgCode) {
+		return svgCode.replace('<path stroke="none" d="M0 0h24v24H0z"/>', '');
+	};
+
+	let indexCode = '',
+		indexDCode = `import { FC, SVGAttributes } from 'react';\n\ninterface TablerIconProps extends SVGAttributes<SVGElement> { color?: string; size?: string | number; }\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`;
+
+	await asyncForEach(files, async function (file) {
+		const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
+			fileName = path.basename(file, '.svg') + '.js',
+			iconComponentName = componentName(file);
+
+		svgr(svgCode, {
+			icon: false,
+			svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
+			template: require('./.build/svgr-template')
+		}, { componentName: iconComponentName }).then(jsCode => {
+			fs.writeFileSync('icons-react/icons-js/' + fileName, jsCode);
+			indexCode += `export { default as ${iconComponentName} } from './icons-js/${fileName}';\n`;
+			indexDCode += `export const ${iconComponentName}: TablerIcon;\n`;
+		});
+
+		fs.writeFileSync('icons-react/index.js', indexCode);
+		fs.writeFileSync('icons-react/index.d.js', indexDCode);
 	});
 
 	cb();

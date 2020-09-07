@@ -1,0 +1,5 @@
+import * as React from "react";
+
+const IconMusic = (size = 24, color = "currentColor", stroke = 2, ...props) => <svg className="icon icon-tabler icon-tabler-music" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><circle cx={6} cy={17} r={3} /><circle cx={16} cy={17} r={3} /><polyline points="9 17 9 4 19 4 19 17" /><line x1={9} y1={8} x2={19} y2={8} /></svg>;
+
+export default IconMusic;
