@@ -594,4 +594,4 @@ gulp.task('svg-to-react', gulp.series('clean-react', async function (cb) {
 	cb();
 }));
 
-gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
+gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'icons-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
