@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.20.0 by tabler - https://tabler.io
+ * Tabler Icons 1.21.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -148,6 +148,7 @@ $ti-icon-brand-apple: '\ec17';
 $ti-icon-brand-behance: '\ec6e';
 $ti-icon-brand-chrome: '\ec18';
 $ti-icon-brand-codepen: '\ec6f';
+$ti-icon-brand-discord: '\ece3';
 $ti-icon-brand-dribbble: '\ec19';
 $ti-icon-brand-facebook: '\ec1a';
 $ti-icon-brand-figma: '\ec93';
@@ -239,7 +240,9 @@ $ti-icon-circle: '\ea6b';
 $ti-icon-circle-check: '\ea67';
 $ti-icon-circle-minus: '\ea68';
 $ti-icon-circle-plus: '\ea69';
+$ti-icon-circle-square: '\ece4';
 $ti-icon-circle-x: '\ea6a';
+$ti-icon-circles: '\ece5';
 $ti-icon-clear-formatting: '\ebe5';
 $ti-icon-click: '\ebbc';
 $ti-icon-clipboard: '\ea6f';
@@ -518,6 +521,8 @@ $ti-icon-mood-smile: '\eaf7';
 $ti-icon-mood-suprised: '\ec04';
 $ti-icon-mood-tongue: '\eb95';
 $ti-icon-moon: '\eaf8';
+$ti-icon-moon-2: '\ece6';
+$ti-icon-moon-stars: '\ece7';
 $ti-icon-moped: '\ecbc';
 $ti-icon-mouse: '\eaf9';
 $ti-icon-movie: '\eafa';
@@ -695,6 +700,7 @@ $ti-icon-trees: '\ec10';
 $ti-icon-trending-down: '\eb42';
 $ti-icon-trending-up: '\eb43';
 $ti-icon-triangle: '\eb44';
+$ti-icon-triangle-square-circle: '\ece8';
 $ti-icon-trident: '\ecc5';
 $ti-icon-trophy: '\eb45';
 $ti-icon-truck: '\ebc4';
@@ -872,6 +878,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-brand-behance:before { content: $ti-icon-brand-behance; }
 .#{$ti-icon-prefix}-brand-chrome:before { content: $ti-icon-brand-chrome; }
 .#{$ti-icon-prefix}-brand-codepen:before { content: $ti-icon-brand-codepen; }
+.#{$ti-icon-prefix}-brand-discord:before { content: $ti-icon-brand-discord; }
 .#{$ti-icon-prefix}-brand-dribbble:before { content: $ti-icon-brand-dribbble; }
 .#{$ti-icon-prefix}-brand-facebook:before { content: $ti-icon-brand-facebook; }
 .#{$ti-icon-prefix}-brand-figma:before { content: $ti-icon-brand-figma; }
@@ -963,7 +970,9 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-circle-check:before { content: $ti-icon-circle-check; }
 .#{$ti-icon-prefix}-circle-minus:before { content: $ti-icon-circle-minus; }
 .#{$ti-icon-prefix}-circle-plus:before { content: $ti-icon-circle-plus; }
+.#{$ti-icon-prefix}-circle-square:before { content: $ti-icon-circle-square; }
 .#{$ti-icon-prefix}-circle-x:before { content: $ti-icon-circle-x; }
+.#{$ti-icon-prefix}-circles:before { content: $ti-icon-circles; }
 .#{$ti-icon-prefix}-clear-formatting:before { content: $ti-icon-clear-formatting; }
 .#{$ti-icon-prefix}-click:before { content: $ti-icon-click; }
 .#{$ti-icon-prefix}-clipboard:before { content: $ti-icon-clipboard; }
@@ -1242,6 +1251,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-mood-suprised:before { content: $ti-icon-mood-suprised; }
 .#{$ti-icon-prefix}-mood-tongue:before { content: $ti-icon-mood-tongue; }
 .#{$ti-icon-prefix}-moon:before { content: $ti-icon-moon; }
+.#{$ti-icon-prefix}-moon-2:before { content: $ti-icon-moon-2; }
+.#{$ti-icon-prefix}-moon-stars:before { content: $ti-icon-moon-stars; }
 .#{$ti-icon-prefix}-moped:before { content: $ti-icon-moped; }
 .#{$ti-icon-prefix}-mouse:before { content: $ti-icon-mouse; }
 .#{$ti-icon-prefix}-movie:before { content: $ti-icon-movie; }
@@ -1419,6 +1430,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-trending-down:before { content: $ti-icon-trending-down; }
 .#{$ti-icon-prefix}-trending-up:before { content: $ti-icon-trending-up; }
 .#{$ti-icon-prefix}-triangle:before { content: $ti-icon-triangle; }
+.#{$ti-icon-prefix}-triangle-square-circle:before { content: $ti-icon-triangle-square-circle; }
 .#{$ti-icon-prefix}-trident:before { content: $ti-icon-trident; }
 .#{$ti-icon-prefix}-trophy:before { content: $ti-icon-trophy; }
 .#{$ti-icon-prefix}-truck:before { content: $ti-icon-truck; }
