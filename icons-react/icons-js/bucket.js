@@ -1,0 +1,5 @@
+import * as React from "react";
+
+const IconBucket = (size = 24, color = "currentColor", stroke = 2, ...props) => <svg className="icon icon-tabler icon-tabler-bucket" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M19 9l-2 9a2 2.5 0 0 1 -2 2h-6a2 2.5 0 0 1 -2 -2l-2 -9Z" /><path d="M7 9a5 5 0 0 1 10 0" /></svg>;
+
+export default IconBucket;
