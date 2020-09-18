@@ -279,6 +279,10 @@ Components
     box-shadow: 0 0 0 3px rgba($primary, .1);
     border-color: rgba($primary, .4);
   }
+
+  @at-root textarea#{&} {
+    min-height: 8rem;
+  }
 }
 
 .icon {

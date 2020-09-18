@@ -62,6 +62,10 @@ layout: default
 					<a class="tab">Tab 3</a>
 				</div>
 
+				<div class="mb">
+					<textarea rows="10" class="input js-textarea"></textarea>
+				</div>
+
 
 				<div class="mt-auto">
 					<input class="input-range js-input-range" type="range" min="1.25" max="2.75" step=".25" value="2">
@@ -115,6 +119,8 @@ layout: default
 				localStorage.setItem('icon', icon);
 
 				$('.js-icon-manager svg').replaceWith($(this).find('>svg:eq(0)').clone());
+
+				$('.js-textarea').val($(this)[0].innerHTML.trim());
 
 				e.preventDefault();
 				return false;
