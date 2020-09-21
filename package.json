@@ -30,7 +30,7 @@
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "optimize": "gulp optimize",
-    "release": "release-it --verbose"
+    "release": "release-it"
   },
   "description": "",
   "devDependencies": {
