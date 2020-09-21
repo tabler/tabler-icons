@@ -3,7 +3,7 @@ category: Sport
 ---
 <svg>
   <circle cx="12" cy="12" r="9" />
-  {% for i in (0..2) %}
-  <path d="M12 12a8 8 0 0 0 8 4M7.5 13.5a12 12 0 0 0 8.5 6.5"{% if i > 0 %} transform="rotate({{ i | times: 120 }} 12 12)"{% endif %} />
-  {% endfor %}
+  <path d="M12 12a8 8 0 0 0 8 4m-12.5 -2.5a12 12 0 0 0 8.5 6.5" />
+  <path d="M12 12a8 8 0 0 0 8 4m-12.5 -2.5a12 12 0 0 0 8.5 6.5" transform="rotate(120 12 12)" />
+  <path d="M12 12a8 8 0 0 0 8 4m-12.5 -2.5a12 12 0 0 0 8.5 6.5" transform="rotate(240 12 12)" />
 </svg>

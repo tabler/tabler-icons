@@ -416,6 +416,7 @@ gulp.task('optimize', function (cb) {
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline|rect)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+				.replace(/d="m/g, 'd="M')
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
 				.replace(/\n\n+/g, "\n")
 
@@ -427,7 +428,16 @@ gulp.task('optimize', function (cb) {
 				})
 				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([0-9.]*)"/g, function (f, r1, r2, r3) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`;
-				});
+				})
+				.replace(/<path d="([^"]+)"/g, function (f, r1) {
+					r1 = r1
+						.replace(/ -0\./g, " -.")
+						.replace(/ 0\./g, " .")
+						.replace(/\s([a-z])/gi, "$1")
+						.replace(/([a-z])\s/gi, "$1");
+					return `<path d="${r1}"`;
+				})
+			;
 
 			//  
 			//
