@@ -28,7 +28,7 @@
   ],
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "scripts": {
-    "start": "bundle exec jekyll serve --watch --livereload --trace",
+    "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "optimize": "gulp optimize",
     "release": "release-it"
   },
