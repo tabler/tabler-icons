@@ -588,7 +588,7 @@ gulp.task('svg-to-react', gulp.series('clean-react', async function (cb) {
 		});
 
 		fs.writeFileSync('icons-react/index.js', indexCode);
-		fs.writeFileSync('icons-react/index.d.js', indexDCode);
+		fs.writeFileSync('icons-react/index.d.ts', indexDCode);
 	});
 
 	cb();
