@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.24.0 by tabler - https://tabler.io
+ * Tabler Icons 1.25.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -37,6 +37,8 @@ $ti-icon-prefix: 'ti' !default;
 $ti-icon-2fa: '\eca0';
 $ti-icon-3d-cube-sphere: '\ecd7';
 $ti-icon-a-b: '\ec36';
+$ti-icon-access-point: '\ed1b';
+$ti-icon-access-point-off: '\ed1a';
 $ti-icon-accessible: '\eba9';
 $ti-icon-ad: '\ea02';
 $ti-icon-adjustments: '\ea03';
@@ -120,6 +122,7 @@ $ti-icon-battery-2: '\ea30';
 $ti-icon-battery-3: '\ea31';
 $ti-icon-battery-4: '\ea32';
 $ti-icon-battery-charging: '\ea33';
+$ti-icon-battery-off: '\ed1c';
 $ti-icon-bed: '\eb5c';
 $ti-icon-bell: '\ea35';
 $ti-icon-bell-off: '\ece9';
@@ -432,6 +435,7 @@ $ti-icon-hand-off: '\ed15';
 $ti-icon-hand-stop: '\ec2e';
 $ti-icon-hash: '\eabc';
 $ti-icon-headphones: '\eabd';
+$ti-icon-headphones-off: '\ed1d';
 $ti-icon-headset: '\eb90';
 $ti-icon-heart: '\eabe';
 $ti-icon-heart-broken: '\ecba';
@@ -518,6 +522,7 @@ $ti-icon-loader: '\eca3';
 $ti-icon-loader-quarter: '\eca2';
 $ti-icon-location: '\eae0';
 $ti-icon-lock: '\eae2';
+$ti-icon-lock-off: '\ed1e';
 $ti-icon-lock-open: '\eae1';
 $ti-icon-login: '\eba7';
 $ti-icon-logout: '\eba8';
@@ -770,6 +775,10 @@ $ti-icon-users: '\ebf2';
 $ti-icon-vector: '\eca9';
 $ti-icon-vector-triangle: '\eca8';
 $ti-icon-venus: '\ec86';
+$ti-icon-video: '\ed22';
+$ti-icon-video-minus: '\ed1f';
+$ti-icon-video-off: '\ed20';
+$ti-icon-video-plus: '\ed21';
 $ti-icon-viewfinder: '\eb4e';
 $ti-icon-viewport-narrow: '\ebf3';
 $ti-icon-viewport-wide: '\ebf4';
@@ -816,6 +825,8 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-2fa:before { content: $ti-icon-2fa; }
 .#{$ti-icon-prefix}-3d-cube-sphere:before { content: $ti-icon-3d-cube-sphere; }
 .#{$ti-icon-prefix}-a-b:before { content: $ti-icon-a-b; }
+.#{$ti-icon-prefix}-access-point:before { content: $ti-icon-access-point; }
+.#{$ti-icon-prefix}-access-point-off:before { content: $ti-icon-access-point-off; }
 .#{$ti-icon-prefix}-accessible:before { content: $ti-icon-accessible; }
 .#{$ti-icon-prefix}-ad:before { content: $ti-icon-ad; }
 .#{$ti-icon-prefix}-adjustments:before { content: $ti-icon-adjustments; }
@@ -899,6 +910,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-battery-3:before { content: $ti-icon-battery-3; }
 .#{$ti-icon-prefix}-battery-4:before { content: $ti-icon-battery-4; }
 .#{$ti-icon-prefix}-battery-charging:before { content: $ti-icon-battery-charging; }
+.#{$ti-icon-prefix}-battery-off:before { content: $ti-icon-battery-off; }
 .#{$ti-icon-prefix}-bed:before { content: $ti-icon-bed; }
 .#{$ti-icon-prefix}-bell:before { content: $ti-icon-bell; }
 .#{$ti-icon-prefix}-bell-off:before { content: $ti-icon-bell-off; }
@@ -1211,6 +1223,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-hand-stop:before { content: $ti-icon-hand-stop; }
 .#{$ti-icon-prefix}-hash:before { content: $ti-icon-hash; }
 .#{$ti-icon-prefix}-headphones:before { content: $ti-icon-headphones; }
+.#{$ti-icon-prefix}-headphones-off:before { content: $ti-icon-headphones-off; }
 .#{$ti-icon-prefix}-headset:before { content: $ti-icon-headset; }
 .#{$ti-icon-prefix}-heart:before { content: $ti-icon-heart; }
 .#{$ti-icon-prefix}-heart-broken:before { content: $ti-icon-heart-broken; }
@@ -1297,6 +1310,7 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-loader-quarter:before { content: $ti-icon-loader-quarter; }
 .#{$ti-icon-prefix}-location:before { content: $ti-icon-location; }
 .#{$ti-icon-prefix}-lock:before { content: $ti-icon-lock; }
+.#{$ti-icon-prefix}-lock-off:before { content: $ti-icon-lock-off; }
 .#{$ti-icon-prefix}-lock-open:before { content: $ti-icon-lock-open; }
 .#{$ti-icon-prefix}-login:before { content: $ti-icon-login; }
 .#{$ti-icon-prefix}-logout:before { content: $ti-icon-logout; }
@@ -1549,6 +1563,10 @@ $ti-icon-zoom-out: '\eb57';
 .#{$ti-icon-prefix}-vector:before { content: $ti-icon-vector; }
 .#{$ti-icon-prefix}-vector-triangle:before { content: $ti-icon-vector-triangle; }
 .#{$ti-icon-prefix}-venus:before { content: $ti-icon-venus; }
+.#{$ti-icon-prefix}-video:before { content: $ti-icon-video; }
+.#{$ti-icon-prefix}-video-minus:before { content: $ti-icon-video-minus; }
+.#{$ti-icon-prefix}-video-off:before { content: $ti-icon-video-off; }
+.#{$ti-icon-prefix}-video-plus:before { content: $ti-icon-video-plus; }
 .#{$ti-icon-prefix}-viewfinder:before { content: $ti-icon-viewfinder; }
 .#{$ti-icon-prefix}-viewport-narrow:before { content: $ti-icon-viewport-narrow; }
 .#{$ti-icon-prefix}-viewport-wide:before { content: $ti-icon-viewport-wide; }
