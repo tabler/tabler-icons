@@ -423,10 +423,10 @@ gulp.task('optimize', function (cb) {
 				.replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function (f, r1, r2, r3, r4) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([0-9.]*)"/g, function (f, r1, r2, r3) {
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function (f, r1, r2, r3) {
 					return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`;
 				})
-				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([0-9.]*)"/g, function (f, r1, r2, r3) {
+				.replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function (f, r1, r2, r3) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`;
 				})
 				.replace(/<path d="([^"]+)"/g, function (f, r1) {
