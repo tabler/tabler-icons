@@ -604,4 +604,50 @@ gulp.task('svg-to-react', gulp.series('clean-react', async function (cb) {
 	cb();
 }));
 
-gulp.task('build', gulp.series('optimize', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
+const setVersions = function(version, files) {
+	for(const i in files) {
+		const file = files[i];
+
+		if (fs.existsSync(`src/_icons/${file}.svg`)) {
+			let svgFile = fs.readFileSync(`src/_icons/${file}.svg`).toString();
+			
+			if(!svgFile.match(/version: ([0-9.]+)/i)) {
+				svgFile = svgFile.replace(/---\n<svg>/i, function(m){
+					return `version: ${version}\n${m}`;
+				});
+				
+				fs.writeFileSync(`src/_icons/${file}.svg`, svgFile);
+			} else {
+				console.log(`File ${file} already has version`);
+			}
+			
+		} else {
+			console.log(`File ${file} doesn't exists`);
+		}
+	}
+};
+
+gulp.task('update-icons-version', function (cb) {
+
+	const version = argv['latest-version'] || `${p.version}`,
+		newVersion = argv['new-version'] || `${p.version}`;
+
+	if (version) {
+		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
+
+			let newIcons = [];
+			
+			ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
+				newIcons.push(fileName);
+			});
+
+			if(newIcons.length) {
+				setVersions(newVersion.replace(/\.0$/, ''), newIcons);
+			}
+		});
+	}
+
+	cb();
+});
+
+gulp.task('build', gulp.series('optimize', 'update-icons-version', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));

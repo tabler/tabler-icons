@@ -10,6 +10,7 @@ layout: default
 				<td class="td-1">{% include icon.html name=icon.slug %}</td>
 				<th>{{ icon.slug }}</th>
 				<td>{{ icon.tags | join: ', ' }}</td>
+				<td>{{ icon.version }}</td>
 			</tr>
 			{% endfor %}
 		</table>
