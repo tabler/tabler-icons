@@ -1,822 +1,4132 @@
 { 
-  "2fa": ["2fa"], 
-  "3d-cube-sphere": ["3d", "cube", "sphere"], 
-  "a-b": ["a", "b"], 
-  "access-point-off": ["access", "point", "off"], 
-  "access-point": ["access", "point"], 
-  "accessible": ["accessible", "low-vision", "blind", "disability", "handicapped"], 
-  "activity": ["activity", "pulse", "motion", "health", "action"], 
-  "ad": ["ad", "advert", "advertisement", "marketing", "commercial", "traffic"], 
-  "adjustments-alt": ["adjustments", "alt", "equalizer", "sliders", "controls", "settings", "filter"], 
-  "adjustments-horizontal": ["adjustments", "horizontal", "equalizer", "sliders", "controls", "settings", "filter"], 
-  "adjustments": ["adjustments", "equalizer", "sliders", "controls", "settings", "filter"], 
-  "alarm": ["alarm", "time", "watch", "clock", "ring"], 
-  "alert-circle": ["alert", "circle", "warning", "danger", "caution", "risk"], 
-  "alert-octagon": ["alert", "octagon"], 
-  "alert-triangle": ["alert", "triangle", "warning", "danger", "caution", "risk"], 
-  "alien": ["alien"], 
-  "align-center": ["align", "center", "text", "alignment", "position"], 
-  "align-justified": ["align", "justified", "text", "alignment", "position"], 
-  "align-left": ["align", "left", "text", "alignment", "position"], 
-  "align-right": ["align", "right", "text", "alignment", "position"], 
-  "ambulance": ["ambulance"], 
-  "anchor": ["anchor", "hold", "ship", "harbor", "docks"], 
-  "antenna-bars-1": ["antenna", "bars", "1"], 
-  "antenna-bars-2": ["antenna", "bars", "2"], 
-  "antenna-bars-3": ["antenna", "bars", "3"], 
-  "antenna-bars-4": ["antenna", "bars", "4"], 
-  "antenna-bars-5": ["antenna", "bars", "5"], 
-  "aperture": ["aperture", "hole", "opening", "vent"], 
-  "apps": ["apps", "application", "add-on", "user", "download", "mobile"], 
-  "archive": ["archive", "box", "index", "records", "old", "collect"], 
-  "arrow-back-up": ["arrow", "back", "up", "pointer", "return", "revert", "reverse"], 
-  "arrow-back": ["arrow", "back", "pointer", "return", "revert", "reverse"], 
-  "arrow-bar-down": ["arrow", "bar", "down", "drag", "move"], 
-  "arrow-bar-left": ["arrow", "bar", "left", "drag", "move"], 
-  "arrow-bar-right": ["arrow", "bar", "right", "drag", "move"], 
-  "arrow-bar-to-down": ["arrow", "bar", "to", "down", "drag", "move"], 
-  "arrow-bar-to-left": ["arrow", "bar", "to", "left", "drag", "move"], 
-  "arrow-bar-to-right": ["arrow", "bar", "to", "right", "drag", "move"], 
-  "arrow-bar-to-up": ["arrow", "bar", "to", "up", "drag", "move"], 
-  "arrow-bar-up": ["arrow", "bar", "up", "drag", "move"], 
-  "arrow-down-circle": ["arrow", "down", "circle", "proceed", "swipe", "below", "bottom"], 
-  "arrow-down-left-circle": ["arrow", "down", "left", "circle", "corner", "bottom", "point"], 
-  "arrow-down-left": ["arrow", "down", "left", "corner", "bottom", "point"], 
-  "arrow-down-right-circle": ["arrow", "down", "right", "circle", "corner", "bottom", "point"], 
-  "arrow-down-right": ["arrow", "down", "right", "corner", "bottom", "point"], 
-  "arrow-down": ["arrow", "down", "proceed", "swipe", "below", "bottom"], 
-  "arrow-forward-up": ["arrow", "forward", "up", "point", "turn", "next"], 
-  "arrow-forward": ["arrow", "forward", "point", "turn", "next"], 
-  "arrow-left-circle": ["arrow", "left", "circle", "back", "swipe", "return"], 
-  "arrow-left": ["arrow", "left", "back", "swipe", "return"], 
-  "arrow-narrow-down": ["arrow", "narrow", "down", "bottom", "proceed", "swipe", "next"], 
-  "arrow-narrow-left": ["arrow", "narrow", "left", "back", "previous", "pointer", "point"], 
-  "arrow-narrow-right": ["arrow", "narrow", "right", "next", "proceed", "point", "pointer"], 
-  "arrow-narrow-up": ["arrow", "narrow", "up", "top", "point"], 
-  "arrow-ramp-left": ["arrow", "ramp", "left"], 
-  "arrow-ramp-right": ["arrow", "ramp", "right"], 
-  "arrow-right-circle": ["arrow", "right", "circle", "next", "proceed", "swipe"], 
-  "arrow-right": ["arrow", "right", "next", "proceed", "swipe"], 
-  "arrow-up-circle": ["arrow", "up", "circle", "top", "point"], 
-  "arrow-up-left-circle": ["arrow", "up", "left", "circle", "top", "corner", "point"], 
-  "arrow-up-left": ["arrow", "up", "left", "top", "corner", "point"], 
-  "arrow-up-right-circle": ["arrow", "up", "right", "circle", "top", "corner", "point"], 
-  "arrow-up-right": ["arrow", "up", "right", "top", "corner", "point"], 
-  "arrow-up": ["arrow", "up", "top", "point"], 
-  "arrows-diagonal-2": ["arrows", "diagonal", "2", "zoom", "corners", "stretch"], 
-  "arrows-diagonal": ["arrows", "diagonal", "zoom", "corners", "stretch"], 
-  "arrows-horizontal": ["arrows", "horizontal", "zoom", "stretch", "left", "right"], 
-  "arrows-maximize": ["arrows", "maximize", "fullscreen", "expand"], 
-  "arrows-minimize": ["arrows", "minimize", "fullscreen", "exit", "close"], 
-  "arrows-sort": ["arrows", "sort", "top", "bottom", "parallel", "order"], 
-  "arrows-vertical": ["arrows", "vertical", "expand", "stretch", "top", "bottom"], 
-  "artboard": ["artboard", "graphics", "drawing", "design", "art", "canvas"], 
-  "aspect-ratio": ["aspect", "ratio"], 
-  "at": ["at", "email", "message", "mention", "sign", "@"], 
-  "atom-2": ["atom", "2"], 
-  "atom": ["atom", "unit", "element", "part", "electrons"], 
-  "award": ["award", "prize", "reward", "competition", "contest", "win"], 
-  "backspace": ["backspace", "delete", "remove", "eliminate"], 
-  "ball-basketball": ["ball", "basketball"], 
-  "ball-bowling": ["ball", "bowling"], 
-  "ball-tennis": ["ball", "tennis"], 
-  "ball-volleyball": ["ball", "volleyball"], 
-  "ban": ["ban", "no", "reject", "restriction", "prohibited"], 
-  "bandage": ["bandage", "patch", "wound", "cut", "pain"], 
-  "barcode": ["barcode", "product", "shop", "scan", "supermarket"], 
-  "basket": ["basket"], 
-  "battery-1": ["battery", "1", "energy", "power", "electricity"], 
-  "battery-2": ["battery", "2", "energy", "power", "electricity"], 
-  "battery-3": ["battery", "3", "energy", "power", "electricity"], 
-  "battery-4": ["battery", "4", "energy", "power", "electricity"], 
-  "battery-charging": ["battery", "charging", "charge", "energy", "power", "electricity"], 
-  "battery-off": ["battery", "off", "energy", "power", "electricity"], 
-  "battery": ["battery", "energy", "power", "electricity"], 
-  "bed": ["bed", "sleep", "night", "bedroom", "rest"], 
-  "bell-off": ["bell", "off"], 
-  "bell-ringing": ["bell", "ringing", "alarm", "sound", "notification"], 
-  "bell": ["bell", "alarm", "sound", "notification"], 
-  "bike": ["bike", "cycling", "bicycle", "sport", "wheel"], 
-  "biohazard": ["biohazard"], 
-  "bluetooth-connected": ["bluetooth", "connected", "wireless", "connection", "connect"], 
-  "bluetooth-off": ["bluetooth", "off"], 
-  "bluetooth": ["bluetooth", "wireless", "connection", "connect"], 
-  "bold": ["bold", "font", "style", "boldface"], 
-  "bolt-off": ["bolt", "off"], 
-  "bolt": ["bolt", "energy", "power", "electricity", "storm"], 
-  "book": ["book", "read", "dictionary", "magazine", "library", "booklet", "novel"], 
-  "bookmark-off": ["bookmark", "off", "read", "clip", "marker", "tag"], 
-  "bookmark": ["bookmark", "read", "clip", "marker", "tag"], 
-  "bookmarks": ["bookmarks"], 
-  "border-all": ["border", "all", "table", "side", "line"], 
-  "border-bottom": ["border", "bottom", "table", "side", "line"], 
-  "border-horizontal": ["border", "horizontal", "table", "side", "line"], 
-  "border-inner": ["border", "inner", "table", "side", "line"], 
-  "border-left": ["border", "left", "table", "side", "line"], 
-  "border-none": ["border", "none", "table"], 
-  "border-outer": ["border", "outer", "table", "side", "line"], 
-  "border-radius": ["border", "radius", "corner", "rounded", "line"], 
-  "border-right": ["border", "right", "table", "side", "line"], 
-  "border-top": ["border", "top", "table", "side", "line"], 
-  "border-vertical": ["border", "vertical", "table", "side", "line"], 
-  "box": ["box", "cube", "app", "application", "package", "container"], 
-  "braces": ["braces", "punctuation", "additional", "information"], 
-  "brackets": ["brackets", "punctuation", "additional", "information"], 
-  "brand-android": ["brand", "android"], 
-  "brand-apple": ["brand", "apple"], 
-  "brand-appstore": ["brand", "appstore"], 
-  "brand-behance": ["brand", "behance"], 
-  "brand-chrome": ["brand", "chrome", "browser", "internet", "web", "logo"], 
-  "brand-codepen": ["brand", "codepen"], 
-  "brand-deviantart": ["brand", "deviantart"], 
-  "brand-discord": ["brand", "discord"], 
-  "brand-dribbble": ["brand", "dribbble"], 
-  "brand-edge": ["brand", "edge", "browser", "internet", "web", "logo", "explorer"], 
-  "brand-facebook": ["brand", "facebook"], 
-  "brand-figma": ["brand", "figma"], 
-  "brand-firefox": ["brand", "firefox", "browser", "internet", "web", "logo"], 
-  "brand-flickr": ["brand", "flickr"], 
-  "brand-foursquare": ["brand", "foursquare"], 
-  "brand-framer": ["brand", "framer"], 
-  "brand-github": ["brand", "github"], 
-  "brand-gitlab": ["brand", "gitlab"], 
-  "brand-google-drive": ["brand", "google", "drive"], 
-  "brand-google-play": ["brand", "google", "play"], 
-  "brand-google": ["brand", "google"], 
-  "brand-instagram": ["brand", "instagram"], 
-  "brand-linkedin": ["brand", "linkedin"], 
-  "brand-medium": ["brand", "medium"], 
-  "brand-messenger": ["brand", "messenger"], 
-  "brand-opera": ["brand", "opera", "browser", "internet", "web", "logo"], 
-  "brand-paypal": ["brand", "paypal"], 
-  "brand-pinterest": ["brand", "pinterest"], 
-  "brand-pocket": ["brand", "pocket"], 
-  "brand-python": ["brand", "python"], 
-  "brand-reddit": ["brand", "reddit"], 
-  "brand-safari": ["brand", "safari", "navigation", "compass", "travel", "direction", "discover", "browser", "internet", "web", "logo"], 
-  "brand-sketch": ["brand", "sketch"], 
-  "brand-skype": ["brand", "skype"], 
-  "brand-slack": ["brand", "slack"], 
-  "brand-snapchat": ["brand", "snapchat"], 
-  "brand-spotify": ["brand", "spotify"], 
-  "brand-tabler": ["brand", "tabler"], 
-  "brand-tailwind": ["brand", "tailwind"], 
-  "brand-telegram": ["brand", "telegram"], 
-  "brand-tiktok": ["brand", "tiktok"], 
-  "brand-tumblr": ["brand", "tumblr"], 
-  "brand-twitch": ["brand", "twitch"], 
-  "brand-twitter": ["brand", "twitter"], 
-  "brand-vimeo": ["brand", "vimeo"], 
-  "brand-whatsapp": ["brand", "whatsapp"], 
-  "brand-windows": ["brand", "windows"], 
-  "brand-youtube": ["brand", "youtube"], 
-  "briefcase": ["briefcase", "bag", "baggage", "folder", "carrier", "documents"], 
-  "brightness-down": ["brightness", "down", "dark", "darker", "screen"], 
-  "brightness-up": ["brightness", "up", "light", "screen"], 
-  "brightness": ["brightness", "light", "dark", "screen"], 
-  "browser": ["browser", "internet", "web", "display"], 
-  "brush": ["brush", "paint", "art", "picture", "paintbrush", "painter"], 
-  "bucket": ["bucket", "collection", "container", "water", "liquid"], 
-  "bug": ["bug", "germ", "insect", "error", "nature"], 
-  "building-arch": ["building", "arch", "arc", "curve", "dome", "monument", "history", "architecture"], 
-  "building-bank": ["building", "bank"], 
-  "building-bridge-2": ["building", "bridge", "2", "architecture", "urban", "river", "overpass", "city", "countryside"], 
-  "building-bridge": ["building", "bridge", "architecture", "urban", "river", "overpass", "city", "countryside"], 
-  "building-church": ["building", "church", "religion", "chapel", "sanctuary", "temple", "cathedral", "pray", "prayer"], 
-  "building-community": ["building", "community"], 
-  "building-hospital": ["building", "hospital", "doctor", "sickness", "illness", "nurse", "medication", "emergency", "treat", "surgery"], 
-  "building-monument": ["building", "monument"], 
-  "building-pavilon": ["building", "pavilon"], 
-  "building-skyscraper": ["building", "skyscraper"], 
-  "building-store": ["building", "store", "shopping", "shop", "supermarket", "market", "products", "retail", "buy", "sell"], 
-  "building-warehouse": ["building", "warehouse"], 
-  "building": ["building", "flat", "office", "city", "urban", "scyscraper", "architecture", "construction"], 
-  "bulb-off": ["bulb", "off", "energy", "power", "electricity", "creativity", "light", "idea"], 
-  "bulb": ["bulb", "energy", "power", "electricity", "creativity", "light", "idea"], 
-  "bus": ["bus", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"], 
-  "calculator": ["calculator", "math", "count", "add", "subtract", "multiply", "divide", "amount"], 
-  "calendar-event": ["calendar", "event", "date", "day", "plan", "schedule", "agenda"], 
-  "calendar-minus": ["calendar", "minus", "date", "day", "plan", "schedule", "agenda"], 
-  "calendar-plus": ["calendar", "plus", "date", "day", "plan", "schedule", "agenda", "add"], 
-  "calendar": ["calendar", "date", "day", "plan", "schedule", "agenda"], 
-  "camera-minus": ["camera", "minus", "video", "photo", "aperture"], 
-  "camera-off": ["camera", "off"], 
-  "camera-plus": ["camera", "plus", "video", "photo", "aperture"], 
-  "camera": ["camera", "video", "photo", "aperture"], 
-  "capture": ["capture"], 
-  "car": ["car", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"], 
-  "caravan": ["caravan"], 
-  "caret-down": ["caret", "down", "next", "bottom", "dropdown", "show", "more"], 
-  "caret-left": ["caret", "left", "back", "previous"], 
-  "caret-right": ["caret", "right", "next", "play", "more"], 
-  "caret-up": ["caret", "up", "dropdown", "less", "up"], 
-  "cash": ["cash", "currency", "payment", "money", "pay"], 
-  "cast": ["cast", "broadcast", "stream", "mirroring", "apple", "airplay", "chromecast"], 
-  "chart-area-line": ["chart", "area", "line", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-area": ["chart", "area", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-bar": ["chart", "bar", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-bubble": ["chart", "bubble"], 
-  "chart-candle": ["chart", "candle", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-donut": ["chart", "donut", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-line": ["chart", "line", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "chart-pie": ["chart", "pie", "statistics", "diagram", "graph", "rhythm", "data", "analysis"], 
-  "check": ["check", "tick", "yes", "confirm"], 
-  "checkbox": ["checkbox", "survey", "confirm", "tick", "yes", "to-do"], 
-  "checks": ["checks", "tick", "yes", "confirm"], 
-  "chevron-down-left": ["chevron", "down", "left"], 
-  "chevron-down-right": ["chevron", "down", "right"], 
-  "chevron-down": ["chevron", "down", "move", "next", "swipe", "bottom"], 
-  "chevron-left": ["chevron", "left", "move", "previous", "back"], 
-  "chevron-right": ["chevron", "right", "move", "checklist", "next"], 
-  "chevron-up-left": ["chevron", "up", "left"], 
-  "chevron-up-right": ["chevron", "up", "right"], 
-  "chevron-up": ["chevron", "up", "move", "top"], 
-  "chevrons-down-left": ["chevrons", "down", "left"], 
-  "chevrons-down-right": ["chevrons", "down", "right"], 
-  "chevrons-down": ["chevrons", "down", "move", "bottom"], 
-  "chevrons-left": ["chevrons", "left", "move", "back", "roll"], 
-  "chevrons-right": ["chevrons", "right", "move", "next", "checklist"], 
-  "chevrons-up-left": ["chevrons", "up", "left"], 
-  "chevrons-up-right": ["chevrons", "up", "right"], 
-  "chevrons-up": ["chevrons", "up", "move", "top"], 
-  "circle-check": ["circle", "check", "yes", "confirm"], 
-  "circle-dashed": ["circle", "dashed"], 
-  "circle-dotted": ["circle", "dotted"], 
-  "circle-minus": ["circle", "minus", "remove", "delete"], 
-  "circle-plus": ["circle", "plus", "add", "create", "new"], 
-  "circle-square": ["circle", "square"], 
-  "circle-x": ["circle", "x", "cancel", "no"], 
-  "circle": ["circle", "false", "zero"], 
-  "circles": ["circles"], 
-  "clear-formatting": ["clear", "formatting"], 
-  "click": ["click", "select", "cursor"], 
-  "clipboard-check": ["clipboard", "check", "copy", "yes"], 
-  "clipboard-list": ["clipboard", "list", "copy", "items"], 
-  "clipboard-x": ["clipboard", "x", "copy", "no"], 
-  "clipboard": ["clipboard", "copy"], 
-  "clock": ["clock", "time", "watch", "alarm"], 
-  "cloud-download": ["cloud", "download", "files"], 
-  "cloud-fog": ["cloud", "fog", "weather", "online"], 
-  "cloud-off": ["cloud", "off"], 
-  "cloud-rain": ["cloud", "rain", "weather", "dry"], 
-  "cloud-snow": ["cloud", "snow", "weather", "blizzard"], 
-  "cloud-storm": ["cloud", "storm", "weather", "lightning"], 
-  "cloud-upload": ["cloud", "upload", "files"], 
-  "cloud": ["cloud", "weather", "online"], 
-  "code": ["code", "brackets", "source", "programming", "command"], 
-  "coin": ["coin", "money", "earn", "salary", "change", "dollar"], 
-  "color-picker": ["color", "picker"], 
-  "color-swatch": ["color", "swatch", "sample", "choice", "selection"], 
-  "columns": ["columns", "text", "gap", "table"], 
-  "comet": ["comet"], 
-  "command": ["command", "apple", "key", "keyboard", "cmd"], 
-  "compass": ["compass", "navigation", "safari", "travel", "direction", "discover"], 
-  "contrast": ["contrast"], 
-  "copy": ["copy", "clipboard", "clone", "duplicate"], 
-  "copyleft": ["copyleft", "licence", "license"], 
-  "copyright": ["copyright", "licence", "license"], 
-  "corner-down-left": ["corner", "down", "left", "move", "arrow"], 
-  "corner-down-right": ["corner", "down", "right", "move", "arrow"], 
-  "corner-left-down": ["corner", "left", "down", "move", "arrow"], 
-  "corner-left-up": ["corner", "left", "up", "move", "arrow"], 
-  "corner-right-down": ["corner", "right", "down", "move", "arrow"], 
-  "corner-right-up": ["corner", "right", "up", "move", "arrow"], 
-  "corner-up-left": ["corner", "up", "left", "move", "arrow"], 
-  "corner-up-right": ["corner", "up", "right", "move", "arrow"], 
-  "credit-card-off": ["credit", "card", "off", "money", "purchase", "payment", "cc"], 
-  "credit-card": ["credit", "card", "money", "purchase", "payment", "cc"], 
-  "crop": ["crop", "photo", "image"], 
-  "crosshair": ["crosshair"], 
-  "crown": ["crown"], 
-  "curly-loop": ["curly", "loop"], 
-  "currency-bitcoin": ["currency", "bitcoin", "digital", "network", "peer-to-peer", "mining"], 
-  "currency-dollar": ["currency", "dollar", "money", "bucks", "usa", "banknote", "pay"], 
-  "currency-euro": ["currency", "euro", "money", "banknote", "pay", "europe", "eu"], 
-  "currency-pound": ["currency", "pound", "money", "banknote", "pay", "britain", "uk"], 
-  "currency-rupee": ["currency", "rupee", "money", "banknote", "pay", "india"], 
-  "currency-yen": ["currency", "yen", "money", "banknote", "pay", "japan"], 
-  "current-location": ["current", "location"], 
-  "cut": ["cut", "scissors", "divide", "hairdresser", "sharp"], 
-  "dashboard": ["dashboard", "home", "car"], 
-  "database": ["database", "storage", "data", "memory"], 
-  "device-desktop": ["device", "desktop", "monitor", "computer", "imac"], 
-  "device-floppy": ["device", "floppy", "save", "file"], 
-  "device-gamepad": ["device", "gamepad", "play", "entertainment", "console", "joystick", "joypad", "controller"], 
-  "device-laptop": ["device", "laptop", "workstation", "mac", "notebook", "portable", "screen", "computer"], 
-  "device-mobile-rotated": ["device", "mobile", "rotated", "iphone", "phone", "smartphone", "cellphone"], 
-  "device-mobile-vibration": ["device", "mobile", "vibration", "iphone", "phone", "smartphone", "cellphone"], 
-  "device-mobile": ["device", "mobile", "iphone", "phone", "smartphone", "cellphone"], 
-  "device-speaker": ["device", "speaker", "sound", "music", "loud", "audio", "media"], 
-  "device-tablet": ["device", "tablet", "ipad", "mobile", "touchscreen", "portable"], 
-  "device-tv": ["device", "tv", "screen", "display", "movie", "film", "watch", "audio", "video", "media"], 
-  "device-watch": ["device", "watch"], 
-  "devices-2": ["devices", "2"], 
-  "devices": ["devices", "computer", "laptop", "notebook", "tablet", "phone", "mobile", "mac", "iphone"], 
-  "diamond": ["diamond", "jewellery", "crystal", "mineral", "jewelry", "ring"], 
-  "dice": ["dice", "game", "boardgame", "roll", "throw", "cube", "numbers", "gambling"], 
-  "direction-horizontal": ["direction", "horizontal"], 
-  "direction": ["direction"], 
-  "directions": ["directions", "travel", "navigation", "discover"], 
-  "disabled-2": ["disabled", "2", "wheelchair", "accessible", "handicapped"], 
-  "disabled": ["disabled", "wheelchair", "handicapped"], 
-  "disc": ["disc", "cd", "music", "album"], 
-  "discount": ["discount", "sale", "reduction", "price", "cost", "money", "shopping", "bargain"], 
-  "dots-circle-horizontal": ["dots", "circle", "horizontal", "more", "options"], 
-  "dots-diagonal-2": ["dots", "diagonal", "2", "hellip", "more", "ellipsis"], 
-  "dots-diagonal": ["dots", "diagonal", "hellip", "more", "ellipsis"], 
-  "dots-vertical": ["dots", "vertical", "hellip", "more", "ellipsis"], 
-  "dots": ["dots", "hellip", "more", "ellipsis"], 
-  "download": ["download", "save", "arrow"], 
-  "drag-drop-2": ["drag", "drop", "2", "location", "gesture", "move"], 
-  "drag-drop": ["drag", "drop", "location", "gesture", "move"], 
-  "droplet": ["droplet", "water", "rain", "liquid"], 
-  "ear": ["ear", "sound", "listen", "music", "hear", "loud", "speakers"], 
-  "edit": ["edit", "pencil", "change", "update"], 
-  "egg": ["egg", "food", "easter", "chicken"], 
-  "emphasis": ["emphasis", "highlight", "priority", "stress"], 
-  "eraser": ["eraser", "delete", "remove", "eliminate", "wipe-out"], 
-  "exchange": ["exchange"], 
-  "exposure": ["exposure", "light", "bright", "dark", "camera"], 
-  "external-link": ["external", "link", "connection", "outbound", "redirect"], 
-  "eye-off": ["eye", "off"], 
-  "eye": ["eye", "view", "watch"], 
-  "face-id": ["face", "id", "apple", "iphone", "ipad"], 
-  "fall": ["fall"], 
-  "file-check": ["file", "check", "yes"], 
-  "file-code": ["file", "code", "paper", "new"], 
-  "file-diff": ["file", "diff", "add", "create", "new"], 
-  "file-dislike": ["file", "dislike", "rejected", "document"], 
-  "file-download": ["file", "download", "save", "transfer", "input"], 
-  "file-horizontal": ["file", "horizontal", "paper", "new"], 
-  "file-invoice": ["file", "invoice", "accounting", "bill", "statement", "settlement", "finance"], 
-  "file-like": ["file", "like", "approved", "document"], 
-  "file-minus": ["file", "minus", "remove", "delete"], 
-  "file-music": ["file", "music", "mp3", "wma", "wav"], 
-  "file-off": ["file", "off"], 
-  "file-phone": ["file", "phone", "save", "transfer", "input"], 
-  "file-plus": ["file", "plus", "add", "create", "new"], 
-  "file-shredder": ["file", "shredder", "shred", "destroy", "cut"], 
-  "file-text": ["file", "text", "data", "pdf", "txt"], 
-  "file-upload": ["file", "upload", "save", "transfer", "input"], 
-  "file-x": ["file", "x", "remove", "delete", "erase"], 
-  "file": ["file", "paper", "new"], 
-  "filter-off": ["filter", "off"], 
-  "filter": ["filter", "funnel", "hopper", "filtration"], 
-  "fingerprint": ["fingerprint", "indentify", "mark", "surface", "security", "access"], 
-  "firetruck": ["firetruck"], 
-  "flag": ["flag", "banner", "pin", "report", "map"], 
-  "flame": ["flame"], 
-  "flask": ["flask", "liquid", "container", "glass", "chemistry"], 
-  "flip-horizontal": ["flip", "horizontal", "mirror", "rotate"], 
-  "flip-vertical": ["flip", "vertical", "mirror", "rotate"], 
-  "float-center": ["float", "center", "position"], 
-  "float-left": ["float", "left", "position"], 
-  "float-none": ["float", "none", "position"], 
-  "float-right": ["float", "right", "position"], 
-  "focus-2": ["focus", "2", "spotlight", "attention", "center", "aim", "target"], 
-  "focus": ["focus", "target", "bullseye", "aim"], 
-  "folder-minus": ["folder", "minus", "directory", "dir"], 
-  "folder-off": ["folder", "off", "cancel", "no", "directory", "dir"], 
-  "folder-plus": ["folder", "plus", "add", "create", "new", "directory", "dir"], 
-  "folder-x": ["folder", "x", "directory", "dir"], 
-  "folder": ["folder", "cancel", "no", "directory", "dir"], 
-  "folders": ["folders", "directory", "dir", "clone", "copy"], 
-  "forbid-2": ["forbid", "2", "access", "restriction", "ban", "limit"], 
-  "forbid": ["forbid", "access", "restriction", "ban", "limit"], 
-  "forklift": ["forklift"], 
-  "frame": ["frame", "crop"], 
-  "friends": ["friends", "people", "boy", "girl", "man", "woman"], 
-  "gas-station": ["gas", "station"], 
-  "gauge": ["gauge", "car", "dashboard"], 
-  "ghost": ["ghost", "spirit", "transparent", "fairytale", "horror", "movie", "shadow", "haunt"], 
-  "gift": ["gift", "present", "birthday", "celebration", "wish", "bonus", "souvenire", "surprise"], 
-  "git-branch": ["git", "branch", "code", "version control", "command"], 
-  "git-commit": ["git", "commit", "code", "version control", "command"], 
-  "git-compare": ["git", "compare", "code", "version control", "command"], 
-  "git-fork": ["git", "fork", "code", "version control", "command"], 
-  "git-merge": ["git", "merge", "code", "version control", "command"], 
-  "git-pull-request": ["git", "pull", "request", "code", "version control", "command"], 
-  "glass-full": ["glass", "full", "wine", "cup", "goblet"], 
-  "glass": ["glass", "wine", "cup", "goblet"], 
-  "globe": ["globe", "world", "travel", "journey", "trip", "planet", "earth"], 
-  "grid-dots": ["grid", "dots", "network", "pattern", "layout"], 
-  "grid": ["grid", "layout", "table", "network", "pattern"], 
-  "grip-horizontal": ["grip", "horizontal"], 
-  "grip-vertical": ["grip", "vertical"], 
-  "h-1": ["h", "1"], 
-  "h-2": ["h", "2"], 
-  "h-3": ["h", "3"], 
-  "h-4": ["h", "4"], 
-  "h-5": ["h", "5"], 
-  "h-6": ["h", "6"], 
-  "hand-middle-finger": ["hand", "middle", "finger"], 
-  "hand-off": ["hand", "off"], 
-  "hand-stop": ["hand", "stop"], 
-  "hash": ["hash", "hashtag", "#", "instagram"], 
-  "headphones-off": ["headphones", "off"], 
-  "headphones": ["headphones", "music", "headset", "audio", "sound"], 
-  "headset": ["headset", "music", "headphones", "audio", "sound"], 
-  "heart-broken": ["heart", "broken", "love", "emotion", "like", "favorite", "relationship"], 
-  "heart": ["heart", "love", "emotion", "like", "favorite", "relationship"], 
-  "help": ["help", "tooltip", "assistance", "advice", "support"], 
-  "hexagon": ["hexagon"], 
-  "history": ["history"], 
-  "home-2": ["home", "2", "house", "dashboard", "living", "building"], 
-  "home": ["home", "house", "dashboard", "living", "building"], 
-  "ice-cream": ["ice", "cream", "candy", "dessert", "frozen", "sweet"], 
-  "id": ["id", "identification", "card", "personal details"], 
-  "inbox": ["inbox", "mail", "gmail", "email", "envelope", "post"], 
-  "indent-decrease": ["indent", "decrease", "line", "position", "block", "margin", "paragraph"], 
-  "indent-increase": ["indent", "increase", "line", "position", "block", "margin", "paragraph"], 
-  "infinity": ["infinity", "endless", "eternity", "continuum", "time"], 
-  "info-circle": ["info", "circle", "information", "advice", "news", "tip", "sign"], 
-  "info-square": ["info", "square", "information", "advice", "news", "tip", "sign"], 
-  "italic": ["italic", "typography", "font", "typeface", "emphasise"], 
-  "karate": ["karate"], 
-  "key": ["key", "password", "login", "authentication", "secure"], 
-  "keyboard-hide": ["keyboard", "hide", "computer", "laptop", "device", "type"], 
-  "keyboard-show": ["keyboard", "show", "computer", "laptop", "device", "type"], 
-  "keyboard": ["keyboard", "computer", "laptop", "device", "type"], 
-  "language": ["language", "tongue", "country", "speech", "speak", "translate", "communication", "communicate", "english", "dialect", "dictionary", "word"], 
-  "layers-difference": ["layers", "difference", "stack"], 
-  "layers-intersect": ["layers", "intersect", "stack"], 
-  "layers-subtract": ["layers", "subtract", "stack"], 
-  "layers-union": ["layers", "union", "stack", "join"], 
-  "layout-2": ["layout", "2", "grid", "columns", "masonry", "collage"], 
-  "layout-align-bottom": ["layout", "align", "bottom", "position", "element", "design"], 
-  "layout-align-center": ["layout", "align", "center", "position", "element", "design"], 
-  "layout-align-left": ["layout", "align", "left", "position", "element", "design"], 
-  "layout-align-middle": ["layout", "align", "middle", "position", "element", "design"], 
-  "layout-align-right": ["layout", "align", "right", "position", "element", "design"], 
-  "layout-align-top": ["layout", "align", "top", "position", "element", "design"], 
-  "layout-bottombar": ["layout", "bottombar", "position", "element", "design", "grid", "footer"], 
-  "layout-cards": ["layout", "cards"], 
-  "layout-columns": ["layout", "columns", "grid", "column", "rows"], 
-  "layout-distribute-horizontal": ["layout", "distribute", "horizontal", "position", "element", "design", "around"], 
-  "layout-distribute-vertical": ["layout", "distribute", "vertical", "position", "element", "design", "around"], 
-  "layout-kanban": ["layout", "kanban"], 
-  "layout-list": ["layout", "list"], 
-  "layout-navbar": ["layout", "navbar", "grid", "row", "header"], 
-  "layout-rows": ["layout", "rows", "grid", "masonry", "collage"], 
-  "layout-sidebar-right": ["layout", "sidebar", "right", "grid", "aside", "column", "columns"], 
-  "layout-sidebar": ["layout", "sidebar", "grid", "aside", "column", "columns"], 
-  "layout": ["layout", "grid", "columns", "masonry", "collage"], 
-  "lego": ["lego", "toy", "boy", "face", "play"], 
-  "letter-a": ["letter", "a"], 
-  "letter-b": ["letter", "b"], 
-  "letter-c": ["letter", "c"], 
-  "letter-d": ["letter", "d"], 
-  "letter-e": ["letter", "e"], 
-  "letter-f": ["letter", "f"], 
-  "letter-g": ["letter", "g"], 
-  "letter-h": ["letter", "h"], 
-  "letter-i": ["letter", "i"], 
-  "letter-j": ["letter", "j"], 
-  "letter-k": ["letter", "k"], 
-  "letter-l": ["letter", "l"], 
-  "letter-m": ["letter", "m"], 
-  "letter-n": ["letter", "n"], 
-  "letter-o": ["letter", "o"], 
-  "letter-p": ["letter", "p"], 
-  "letter-q": ["letter", "q"], 
-  "letter-r": ["letter", "r"], 
-  "letter-s": ["letter", "s"], 
-  "letter-t": ["letter", "t"], 
-  "letter-u": ["letter", "u"], 
-  "letter-v": ["letter", "v"], 
-  "letter-w": ["letter", "w"], 
-  "letter-x": ["letter", "x"], 
-  "letter-y": ["letter", "y"], 
-  "letter-z": ["letter", "z"], 
-  "letters-case": ["letters", "case", "typography", "uppercase", "capitals", "lowercase", "type"], 
-  "license": ["license", "authorisation", "permission", "consent", "permit", "document", "agree"], 
-  "lifebuoy": ["lifebuoy", "life ring", "help", "support"], 
-  "line-height": ["line", "height", "space", "inline", "display"], 
-  "line": ["line"], 
-  "link": ["link", "chain", "url", "connection", "address"], 
-  "list-check": ["list", "check", "to-do", "checklist", "form", "template", "task", "reminder", "schedule", "agenda"], 
-  "list": ["list", "task", "unordered", "bullets", "agenda", "shopping"], 
-  "live-photo": ["live", "photo", "capture", "photo", "movement", "sound", "memory", "image", "camera"], 
-  "live-view": ["live", "view"], 
-  "loader-quarter": ["loader", "quarter"], 
-  "loader": ["loader"], 
-  "location": ["location", "navigation", "map", "direction", "discover", "travel"], 
-  "lock-off": ["lock", "off"], 
-  "lock-open": ["lock", "open", "security", "password", "secure", "unprotected"], 
-  "lock": ["lock", "security", "password", "secure"], 
-  "login": ["login", "initialize", "password", "enter", "account", "permission"], 
-  "logout": ["logout", "exit", "shut", "unplug", "close"], 
-  "magnet": ["magnet", "magnetic field", "pole", "iron", "attract"], 
-  "mail-opened": ["mail", "opened", "inbox", "gmail", "email", "envelope", "message", "read"], 
-  "mail": ["mail", "inbox", "gmail", "email", "envelope", "message"], 
-  "man": ["man", "guy", "boy", "male", "gender"], 
-  "map-2": ["map", "2", "navigation", "location", "travel", "pin", "position", "marker"], 
-  "map-pin-off": ["map", "pin", "off"], 
-  "map-pin": ["map", "pin", "navigation", "location", "travel", "pin", "position", "marker"], 
-  "map": ["map", "navigation", "location", "travel"], 
-  "markdown": ["markdown"], 
-  "marquee": ["marquee"], 
-  "mars": ["mars"], 
-  "math": ["math"], 
-  "maximize": ["maximize", "fullscreen"], 
-  "medal": ["medal"], 
-  "medical-cross": ["medical", "cross"], 
-  "menu-2": ["menu", "2", "bars", "hamburger", "navigation", "burger"], 
-  "menu": ["menu", "bars", "hamburger", "navigation", "burger"], 
-  "message-2": ["message", "2", "comment", "chat", "reply"], 
-  "message-circle-2": ["message", "circle", "2", "comment", "chat", "reply"], 
-  "message-circle-off": ["message", "circle", "off", "comment", "chat", "reply"], 
-  "message-circle": ["message", "circle", "comment", "chat", "reply"], 
-  "message-dots": ["message", "dots", "comment", "chat", "reply"], 
-  "message-off": ["message", "off", "comment", "chat", "reply"], 
-  "message-plus": ["message", "plus", "comment", "chat", "reply", "communication", "conversation"], 
-  "message-report": ["message", "report", "comment", "chat", "reply", "communication", "conversation"], 
-  "message": ["message", "comment", "chat", "reply", "communication", "conversation"], 
-  "messages-off": ["messages", "off", "chat", "reply", "comment", "conversation", "communication"], 
-  "messages": ["messages", "chat", "reply", "comment", "conversation", "communication"], 
-  "microphone-off": ["microphone", "off"], 
-  "microphone": ["microphone", "record", "sound", "listen"], 
-  "minimize": ["minimize", "exit", "close"], 
-  "minus": ["minus", "subtract", "less"], 
-  "mist": ["mist"], 
-  "mood-boy": ["mood", "boy", "face", "emoji", "emotion"], 
-  "mood-confuzed": ["mood", "confuzed", "face", "emoji", "emotion", "frown"], 
-  "mood-cry": ["mood", "cry", "face", "emoji", "emotion", "mad"], 
-  "mood-happy": ["mood", "happy", "face", "emoji", "emotion"], 
-  "mood-kid": ["mood", "kid", "face", "emoji", "emotion"], 
-  "mood-neutral": ["mood", "neutral", "face", "emoji", "emotion"], 
-  "mood-sad": ["mood", "sad", "face", "emoji", "emotion", "mad"], 
-  "mood-smile": ["mood", "smile", "face", "emoji", "emotion"], 
-  "mood-suprised": ["mood", "suprised", "face", "emoji", "emotion"], 
-  "mood-tongue": ["mood", "tongue", "face", "emoji", "emotion"], 
-  "moon-2": ["moon", "2"], 
-  "moon-stars": ["moon", "stars", "night", "dark mode"], 
-  "moon": ["moon", "night", "dark mode"], 
-  "moped": ["moped", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"], 
-  "mouse": ["mouse", "pointer", "cursor", "device"], 
-  "movie": ["movie", "film", "video", "cinema"], 
-  "mug": ["mug", "tea", "coffee", "drink", "container", "jug"], 
-  "music": ["music", "sound", "mp3", "album", "sound", "speakers", "melody"], 
-  "new-section": ["new", "section", "add", "element", "component", "layout", "page"], 
-  "news": ["news", "newspaper", "article"], 
-  "note": ["note", "checkbox", "brief", "record", "write", "message"], 
-  "notebook": ["notebook", "study", "learn", "diary", "write", "journal", "page", "paper", "jot down"], 
-  "notes": ["notes", "notetaking", "journal", "draft", "idea", "to-do list"], 
-  "notification": ["notification", "bell", "alarm", "reminder", "important"], 
-  "octagon": ["octagon"], 
-  "omega": ["omega", "alphabet", "greek", "symbol", "final", "last"], 
-  "outlet": ["outlet", "socket", "electricity", "electrical", "plug in", "device"], 
-  "package": ["package", "npm", "box", "container"], 
-  "page-break": ["page", "break"], 
-  "paint": ["paint", "brush", "renovation", "refurbishment", "color", "wall"], 
-  "palette": ["palette", "color", "paint", "painter", "picture", "board", "artist"], 
-  "panorama-horizontal": ["panorama", "horizontal"], 
-  "panorama-vertical": ["panorama", "vertical"], 
-  "paperclip": ["paperclip", "attachment", "annex", "hold"], 
-  "parentheses": ["parentheses", "brackets", "aside", "punctuation", "mark", "insert"], 
-  "parking": ["parking", "sign", "car", "vehicle", "space"], 
-  "peace": ["peace"], 
-  "pencil": ["pencil", "write", "draft", "edit", "note"], 
-  "percentage": ["percentage"], 
-  "phone-call": ["phone", "call", "ring", "mobile", "conversation", "answer", "dial", "landline"], 
-  "phone-calling": ["phone", "calling", "ring", "mobile", "conversation", "answer", "dial", "landline"], 
-  "phone-check": ["phone", "check", "ring", "mobile", "conversation", "answer", "dial", "landline"], 
-  "phone-incoming": ["phone", "incoming", "call", "answer", "mobile", "landline", "conversation"], 
-  "phone-off": ["phone", "off", "call", "mobile", "conversation", "landline", "answer", "number"], 
-  "phone-outgoing": ["phone", "outgoing", "call", "signal", "mobile", "landline", "conversation"], 
-  "phone-pause": ["phone", "pause", "call", "mute", "mobile", "landline", "conversation"], 
-  "phone-plus": ["phone", "plus", "call", "signal", "mobile", "landline", "conversation"], 
-  "phone-x": ["phone", "x", "ring", "mobile", "conversation", "answer", "dial", "landline"], 
-  "phone": ["phone", "call", "mobile", "conversation", "landline", "answer", "number"], 
-  "photo-off": ["photo", "off"], 
-  "photo": ["photo", "image", "picture", "landscape", "camera"], 
-  "picture-in-picture-off": ["picture", "in", "picture", "off"], 
-  "picture-in-picture-on": ["picture", "in", "picture", "on"], 
-  "picture-in-picture": ["picture", "in", "picture"], 
-  "pill": ["pill", "drug", "medication", "illness", "sickness", "doctor", "prescription"], 
-  "pin": ["pin"], 
-  "plane-arrival": ["plane", "arrival", "travel", "land", "journey", "trip", "airport", "baggage", "luggage"], 
-  "plane-departure": ["plane", "departure", "travel", "take off", "journey", "trip", "airport", "baggage", "luggage"], 
-  "plane": ["plane", "travel", "journey", "trip", "airport", "baggage", "luggage"], 
-  "planet": ["planet"], 
-  "player-pause": ["player", "pause"], 
-  "player-play": ["player", "play"], 
-  "player-record": ["player", "record"], 
-  "player-skip-back": ["player", "skip", "back"], 
-  "player-skip-forward": ["player", "skip", "forward"], 
-  "player-stop": ["player", "stop"], 
-  "player-track-next": ["player", "track", "next"], 
-  "player-track-prev": ["player", "track", "prev"], 
-  "plug": ["plug", "electricity", "charger", "socket", "connection"], 
-  "plus": ["plus", "add", "create", "new"], 
-  "point": ["point", "dot", "label"], 
-  "power": ["power", "on", "off", "turn on", "turn off", "electricity"], 
-  "pray": ["pray"], 
-  "presentation": ["presentation", "slideshow", "display", "exhibition", "speech", "topic", "conference"], 
-  "printer": ["printer", "fax", "office", "device"], 
-  "prompt": ["prompt", "command line", "terminal", "code"], 
-  "puzzle": ["puzzle", "jigsaw", "extension", "add-on"], 
-  "qrcode": ["qrcode", "scan", "data"], 
-  "question-mark": ["question", "mark"], 
-  "radioactive": ["radioactive"], 
-  "record-mail": ["record", "mail", "voice", "voicemail", "message"], 
-  "rectangle-vertical": ["rectangle", "vertical"], 
-  "rectangle": ["rectangle"], 
-  "recycle": ["recycle", "trash", "rubbish", "recyclable", "reuse", "waste"], 
-  "refresh": ["refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"], 
-  "registered": ["registered", "copyright", "trademark", "rights"], 
-  "repeat-once": ["repeat", "once", "reuse", "redo", "action", "replay", "loop"], 
-  "repeat": ["repeat", "reuse", "redo", "action", "replay", "loop"], 
-  "replace": ["replace", "change", "place", "position", "move", "exchange"], 
-  "road-sign": ["road", "sign"], 
-  "rocket": ["rocket"], 
-  "rotate-2": ["rotate", "2", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"], 
-  "rotate-clockwise-2": ["rotate", "clockwise", "2", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"], 
-  "rotate-clockwise": ["rotate", "clockwise", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"], 
-  "rotate-rectangle": ["rotate", "rectangle"], 
-  "rotate": ["rotate", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"], 
-  "route": ["route", "path", "navigation", "map"], 
-  "router": ["router", "wifi", "device", "wireless", "signal", "station", "cast"], 
-  "rss": ["rss", "feed", "subscribe"], 
-  "ruler": ["ruler", "maths", "dimensions", "size", "width", "length", "geometry", "measure", "technical"], 
-  "run": ["run"], 
-  "sailboat": ["sailboat"], 
-  "scale": ["scale", "maths", "measure", "weight", "weigh", "balance", "worth"], 
-  "scan": ["scan", "code", "barcode", "qr code", "app", "scanner", "document"], 
-  "school": ["school"], 
-  "scissors": ["scissors", "cut", "paper", "file", "document", "hairdresser", "blade", "sharp"], 
-  "scooter-electric": ["scooter", "electric", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"], 
-  "scooter": ["scooter", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"], 
-  "screen-share-off": ["screen", "share", "off"], 
-  "screen-share": ["screen", "share"], 
-  "search": ["search", "find", "magnifier", "magnifying glass"], 
-  "select": ["select", "input"], 
-  "selector": ["selector", "arrows"], 
-  "send": ["send", "message", "mail", "email", "gmail", "paper", "airplane", "aeroplane"], 
-  "separator-horizontal": ["separator", "horizontal"], 
-  "separator-vertical": ["separator", "vertical"], 
-  "separator": ["separator", "divider", "space", "separate", "set apart"], 
-  "server": ["server", "storage", "hosting", "www"], 
-  "servicemark": ["servicemark"], 
-  "settings": ["settings", "cog", "edit", "gear", "preferences", "tools"], 
-  "shape": ["shape", "draw", "square", "form", "create", "outline"], 
-  "share": ["share", "network", "link", "connection"], 
-  "shield-check": ["shield", "check", "safety", "protect", "protection", "yes", "add"], 
-  "shield-off": ["shield", "off"], 
-  "shield-x": ["shield", "x", "unprotected", "protection", "cancel", "no"], 
-  "shield": ["shield", "safety", "protect", "protection"], 
-  "ship": ["ship"], 
-  "shirt": ["shirt"], 
-  "shopping-cart": ["shopping", "cart", "bag", "ecommerce", "purchase", "store", "online"], 
-  "sitemap": ["sitemap", "page", "webpage", "website", "list", "roadmap", "index"], 
-  "skateboard": ["skateboard"], 
-  "slice": ["slice", "knife", "cut", "chop", "portion", "kitchen", "tool"], 
-  "slideshow": ["slideshow", "photo", "picture", "video", "presentation", "camera", "display", "ad"], 
-  "smart-home": ["smart", "home"], 
-  "smoking-no": ["smoking", "no"], 
-  "smoking": ["smoking"], 
-  "snowflake": ["snowflake"], 
-  "social": ["social"], 
-  "sort-ascending": ["sort", "ascending", "arrange"], 
-  "sort-descending": ["sort", "descending", "arrange"], 
-  "space": ["space"], 
-  "square-check": ["square", "check", "checkbox", "yes"], 
-  "square-minus": ["square", "minus", "remove", "indeterminate"], 
-  "square-plus": ["square", "plus", "add", "create", "new"], 
-  "square-rotated": ["square", "rotated"], 
-  "square-x": ["square", "x", "cancel", "close", "delete", "remove", "times", "clear", "no"], 
-  "square": ["square", "checkbox"], 
-  "stack": ["stack", "pile", "elements", "layout", "wrap"], 
-  "stairs-down": ["stairs", "down"], 
-  "stairs-up": ["stairs", "up"], 
-  "stairs": ["stairs"], 
-  "star-half": ["star", "half", "favorite", "like", "mark", "bookmark", "grade"], 
-  "star": ["star", "favorite", "like", "mark", "bookmark", "grade"], 
-  "stars": ["stars"], 
-  "steering-wheel": ["steering", "wheel"], 
-  "step-into": ["step", "into"], 
-  "step-out": ["step", "out"], 
-  "sticker": ["sticker", "label", "stamp", "adhesive"], 
-  "strikethrough": ["strikethrough", "typography", "horizontal", "deleted", "removed", "unimportant"], 
-  "subscript": ["subscript", "typography", "below", "formula", "maths", "fraction"], 
-  "subtask": ["subtask"], 
-  "sum": ["sum", "equation", "add", "plus", "amount", "total"], 
-  "sun": ["sun", "weather", "light", "mode", "brightness"], 
-  "sunset": ["sunset"], 
-  "sunshine": ["sunshine"], 
-  "superscript": ["superscript", "typography", "above", "maths", "fraction", "trademark", "footer"], 
-  "swimming": ["swimming"], 
-  "switch-horizontal": ["switch", "horizontal", "toggle", "left", "right", "arrows"], 
-  "switch-vertical": ["switch", "vertical", "toggle", "up", "down", "arrows"], 
-  "switch": ["switch", "toggle", "arrows"], 
-  "table": ["table", "spreadsheet", "layout", "grid", "arrange", "row", "column"], 
-  "tag": ["tag", "label", "price"], 
-  "tallymark-1": ["tallymark", "1"], 
-  "tallymark-2": ["tallymark", "2"], 
-  "tallymark-3": ["tallymark", "3"], 
-  "tallymark-4": ["tallymark", "4"], 
-  "tallymarks": ["tallymarks"], 
-  "target": ["target", "focus", "bullseye", "aim"], 
-  "tax": ["tax", "income", "percentage", "money", "finance", "charge", "obligation", "taxpayer", "vat"], 
-  "temperature-celsius": ["temperature", "celsius", "weather", "celcius", "fahrenheit", "cold", "hot"], 
-  "temperature-fahrenheit": ["temperature", "fahrenheit", "weather", "celcius", "fahrenheit", "cold", "hot"], 
-  "temperature-minus": ["temperature", "minus", "weather", "celcius", "fahrenheit", "cold", "hot"], 
-  "temperature-plus": ["temperature", "plus", "weather", "celcius", "fahrenheit", "cold", "hot"], 
-  "temperature": ["temperature", "weather", "celcius", "fahrenheit", "cold", "hot"], 
-  "template": ["template", "grid", "columns", "masonry", "collage"], 
-  "terminal-2": ["terminal", "2", "console", "command", "git", "command line", "command prompt"], 
-  "terminal": ["terminal", "console", "command", "git", "command line", "command prompt"], 
-  "test-pipe": ["test", "pipe", "sample", "color"], 
-  "text-wrap-disabled": ["text", "wrap", "disabled", "text", "alignment", "position"], 
-  "text-wrap": ["text", "wrap", "text", "alignment", "position"], 
-  "thumb-down": ["thumb", "down", "dislike", "bad", "emotion"], 
-  "thumb-up": ["thumb", "up", "like", "emotion", "good", "love"], 
-  "ticket": ["ticket", "cinema", "event", "theatre", "entry", "fine", "coupon", "pass"], 
-  "tir": ["tir"], 
-  "toggle-left": ["toggle", "left", "on", "off", "switch"], 
-  "toggle-right": ["toggle", "right", "on", "off", "switch"], 
-  "tool": ["tool", "preferences", "edit", "settings"], 
-  "tools": ["tools", "preferences", "edit", "settings"], 
-  "tornado": ["tornado"], 
-  "tournament": ["tournament"], 
-  "tractor": ["tractor"], 
-  "trademark": ["trademark"], 
-  "traffic-cone": ["traffic", "cone"], 
-  "traffic-lights": ["traffic", "lights"], 
-  "trash": ["trash", "garbage", "delete", "remove", "bin", "ash-bin", "uninstall", "dustbin"], 
-  "trees": ["trees"], 
-  "trending-down": ["trending", "down", "arrow", "decrease", "fall"], 
-  "trending-up": ["trending", "up", "arrow", "grow", "increase"], 
-  "triangle-square-circle": ["triangle", "square", "circle"], 
-  "triangle": ["triangle", "delta"], 
-  "trident": ["trident"], 
-  "trophy": ["trophy", "success", "win", "prize", "winner"], 
-  "truck-delivery": ["truck", "delivery"], 
-  "truck-return": ["truck", "return"], 
-  "truck": ["truck", "transport", "vahicle", "van", "lorry", "cargo", "delivery"], 
-  "typography": ["typography", "type", "display", "typeface", "point size", "line length", "line-spacing", "letter-spacing", "font"], 
-  "umbrella": ["umbrella"], 
-  "underline": ["underline", "underscore", "emphasis", "horizontal", "typography"], 
-  "unlink": ["unlink", "chain", "url", "address", "remove", "broke", "unconnect"], 
-  "upload": ["upload", "file", "arrow"], 
-  "urgent": ["urgent", "alert", "important"], 
-  "user-check": ["user", "check", "tick", "person", "account"], 
-  "user-exclamation": ["user", "exclamation"], 
-  "user-minus": ["user", "minus", "remove", "cancel", "person", "account", "unsubscribe"], 
-  "user-off": ["user", "off", "person", "account"], 
-  "user-plus": ["user", "plus", "add", "create", "new", "person", "people", "follow", "subscribe"], 
-  "user-x": ["user", "x", "cancel", "remove", "person", "account", "unsubscribe"], 
-  "user": ["user", "person", "account"], 
-  "users": ["users"], 
-  "vector-beizer-2": ["vector", "beizer", "2"], 
-  "vector-beizer": ["vector", "beizer"], 
-  "vector-triangle": ["vector", "triangle"], 
-  "vector": ["vector"], 
-  "venus": ["venus"], 
-  "video-minus": ["video", "minus"], 
-  "video-off": ["video", "off"], 
-  "video-plus": ["video", "plus"], 
-  "video": ["video"], 
-  "viewfinder": ["viewfinder", "target", "aim", "focus"], 
-  "viewport-narrow": ["viewport", "narrow"], 
-  "viewport-wide": ["viewport", "wide"], 
-  "virus": ["virus", "infection", "illness", "cell", "infectious", "health"], 
-  "volume-2": ["volume", "2", "music", "sound", "speaker"], 
-  "volume-3": ["volume", "3", "mute", "music", "sound", "false", "speaker"], 
-  "volume": ["volume", "music", "sound", "speaker"], 
-  "walk": ["walk"], 
-  "wallet": ["wallet", "money", "pay", "banknote", "coin", "payment", "bank"], 
-  "wand": ["wand", "magic", "tool", "color", "pixel", "design"], 
-  "wave-saw-tool": ["wave", "saw", "tool"], 
-  "wave-sine": ["wave", "sine"], 
-  "wave-square": ["wave", "square"], 
-  "wifi-0": ["wifi", "0", "online", "connection", "signal", "wireless"], 
-  "wifi-1": ["wifi", "1", "online", "connection", "signal", "wireless"], 
-  "wifi-2": ["wifi", "2", "online", "connection", "signal", "wireless"], 
-  "wifi-off": ["wifi", "off", "online", "connection", "signal", "wireless"], 
-  "wifi": ["wifi", "online", "connection", "signal", "wireless"], 
-  "wind": ["wind"], 
-  "wiper-wash": ["wiper", "wash"], 
-  "wiper": ["wiper"], 
-  "woman": ["woman", "girl", "female", "gender"], 
-  "world-latitude": ["world", "latitude", "earth", "globe", "global", "language", "union"], 
-  "world-longitude": ["world", "longitude", "earth", "globe", "global", "language", "union"], 
-  "world": ["world", "earth", "globe", "global", "language", "union"], 
-  "x": ["x", "cancel", "remove", "delete", "empty"], 
-  "yin-yang": ["yin", "yang"], 
-  "zodiac-aquarius": ["zodiac", "aquarius"], 
-  "zodiac-aries": ["zodiac", "aries"], 
-  "zodiac-cancer": ["zodiac", "cancer"], 
-  "zodiac-capricorn": ["zodiac", "capricorn"], 
-  "zodiac-gemini": ["zodiac", "gemini"], 
-  "zodiac-leo": ["zodiac", "leo"], 
-  "zodiac-libra": ["zodiac", "libra"], 
-  "zodiac-pisces": ["zodiac", "pisces"], 
-  "zodiac-sagittarius": ["zodiac", "sagittarius"], 
-  "zodiac-scorpio": ["zodiac", "scorpio"], 
-  "zodiac-taurus": ["zodiac", "taurus"], 
-  "zodiac-virgo": ["zodiac", "virgo"], 
-  "zoom-cancel": ["zoom", "cancel", "magnifying glass"], 
-  "zoom-in": ["zoom", "in", "magnifying glass"], 
-  "zoom-out": ["zoom", "out", "magnifying glass"]
+  "2fa": {
+    "category": "",
+    "tags": ["2fa"],
+    "version": "1.17"
+  }, 
+  "3d-cube-sphere": {
+    "category": "",
+    "tags": ["3d", "cube", "sphere"],
+    "version": "1.2"
+  }, 
+  "a-b": {
+    "category": "",
+    "tags": ["a", "b"],
+    "version": "1.11"
+  }, 
+  "access-point-off": {
+    "category": "Devices",
+    "tags": ["access", "point", "off"],
+    "version": "1.25"
+  }, 
+  "access-point": {
+    "category": "Devices",
+    "tags": ["access", "point"],
+    "version": "1.25"
+  }, 
+  "accessible": {
+    "category": "",
+    "tags": ["accessible", "low-vision", "blind", "disability", "handicapped"],
+    "version": "1.4"
+  }, 
+  "activity": {
+    "category": "",
+    "tags": ["activity", "pulse", "motion", "health", "action"],
+    "version": "1.0"
+  }, 
+  "ad": {
+    "category": "",
+    "tags": ["ad", "advert", "advertisement", "marketing", "commercial", "traffic"],
+    "version": "1.1"
+  }, 
+  "adjustments-alt": {
+    "category": "",
+    "tags": ["adjustments", "alt", "equalizer", "sliders", "controls", "settings", "filter"],
+    "version": "1.11"
+  }, 
+  "adjustments-horizontal": {
+    "category": "",
+    "tags": ["adjustments", "horizontal", "equalizer", "sliders", "controls", "settings", "filter"],
+    "version": "1.11"
+  }, 
+  "adjustments": {
+    "category": "",
+    "tags": ["adjustments", "equalizer", "sliders", "controls", "settings", "filter"],
+    "version": "1.0"
+  }, 
+  "alarm": {
+    "category": "",
+    "tags": ["alarm", "time", "watch", "clock", "ring"],
+    "version": "1.1"
+  }, 
+  "alert-circle": {
+    "category": "",
+    "tags": ["alert", "circle", "warning", "danger", "caution", "risk"],
+    "version": "1.0"
+  }, 
+  "alert-octagon": {
+    "category": "",
+    "tags": ["alert", "octagon"],
+    "version": "1.19"
+  }, 
+  "alert-triangle": {
+    "category": "",
+    "tags": ["alert", "triangle", "warning", "danger", "caution", "risk"],
+    "version": "1.0"
+  }, 
+  "alien": {
+    "category": "",
+    "tags": ["alien"],
+    "version": "1.7"
+  }, 
+  "align-center": {
+    "category": "Text",
+    "tags": ["align", "center", "text", "alignment", "position"],
+    "version": "1.0"
+  }, 
+  "align-justified": {
+    "category": "Text",
+    "tags": ["align", "justified", "text", "alignment", "position"],
+    "version": "1.0"
+  }, 
+  "align-left": {
+    "category": "Text",
+    "tags": ["align", "left", "text", "alignment", "position"],
+    "version": "1.0"
+  }, 
+  "align-right": {
+    "category": "Text",
+    "tags": ["align", "right", "text", "alignment", "position"],
+    "version": "1.0"
+  }, 
+  "ambulance": {
+    "category": "Vehicles",
+    "tags": ["ambulance"],
+    "version": "1.8"
+  }, 
+  "anchor": {
+    "category": "Map",
+    "tags": ["anchor", "hold", "ship", "harbor", "docks"],
+    "version": "1.3"
+  }, 
+  "antenna-bars-1": {
+    "category": "Devices",
+    "tags": ["antenna", "bars", "1"],
+    "version": "1.19"
+  }, 
+  "antenna-bars-2": {
+    "category": "Devices",
+    "tags": ["antenna", "bars", "2"],
+    "version": "1.19"
+  }, 
+  "antenna-bars-3": {
+    "category": "Devices",
+    "tags": ["antenna", "bars", "3"],
+    "version": "1.19"
+  }, 
+  "antenna-bars-4": {
+    "category": "Devices",
+    "tags": ["antenna", "bars", "4"],
+    "version": "1.19"
+  }, 
+  "antenna-bars-5": {
+    "category": "Devices",
+    "tags": ["antenna", "bars", "5"],
+    "version": "1.19"
+  }, 
+  "aperture": {
+    "category": "Photos",
+    "tags": ["aperture", "hole", "opening", "vent"],
+    "version": "1.2"
+  }, 
+  "apps": {
+    "category": "",
+    "tags": ["apps", "application", "add-on", "user", "download", "mobile"],
+    "version": "1.5"
+  }, 
+  "archive": {
+    "category": "",
+    "tags": ["archive", "box", "index", "records", "old", "collect"],
+    "version": "1.0"
+  }, 
+  "arrow-back-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "back", "up", "pointer", "return", "revert", "reverse"],
+    "version": "1.3"
+  }, 
+  "arrow-back": {
+    "category": "Arrows",
+    "tags": ["arrow", "back", "pointer", "return", "revert", "reverse"],
+    "version": "1.1"
+  }, 
+  "arrow-bar-down": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "down", "drag", "move"],
+    "version": "1.0"
+  }, 
+  "arrow-bar-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "left", "drag", "move"],
+    "version": "1.0"
+  }, 
+  "arrow-bar-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "right", "drag", "move"],
+    "version": "1.0"
+  }, 
+  "arrow-bar-to-down": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "to", "down", "drag", "move"],
+    "version": "1.15"
+  }, 
+  "arrow-bar-to-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "to", "left", "drag", "move"],
+    "version": "1.15"
+  }, 
+  "arrow-bar-to-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "to", "right", "drag", "move"],
+    "version": "1.15"
+  }, 
+  "arrow-bar-to-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "to", "up", "drag", "move"],
+    "version": "1.15"
+  }, 
+  "arrow-bar-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "bar", "up", "drag", "move"],
+    "version": "1.0"
+  }, 
+  "arrow-down-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "circle", "proceed", "swipe", "below", "bottom"],
+    "version": "1.0"
+  }, 
+  "arrow-down-left-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "left", "circle", "corner", "bottom", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-down-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "left", "corner", "bottom", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-down-right-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "right", "circle", "corner", "bottom", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-down-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "right", "corner", "bottom", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-down": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "proceed", "swipe", "below", "bottom"],
+    "version": "1.0"
+  }, 
+  "arrow-forward-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "forward", "up", "point", "turn", "next"],
+    "version": "1.3"
+  }, 
+  "arrow-forward": {
+    "category": "Arrows",
+    "tags": ["arrow", "forward", "point", "turn", "next"],
+    "version": "1.1"
+  }, 
+  "arrow-left-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "left", "circle", "back", "swipe", "return"],
+    "version": "1.0"
+  }, 
+  "arrow-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "left", "back", "swipe", "return"],
+    "version": "1.0"
+  }, 
+  "arrow-narrow-down": {
+    "category": "Arrows",
+    "tags": ["arrow", "narrow", "down", "bottom", "proceed", "swipe", "next"],
+    "version": "1.0"
+  }, 
+  "arrow-narrow-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "narrow", "left", "back", "previous", "pointer", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-narrow-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "narrow", "right", "next", "proceed", "point", "pointer"],
+    "version": "1.0"
+  }, 
+  "arrow-narrow-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "narrow", "up", "top", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-ramp-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "ramp", "left"],
+    "version": "1.28"
+  }, 
+  "arrow-ramp-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "ramp", "right"],
+    "version": "1.28"
+  }, 
+  "arrow-right-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "right", "circle", "next", "proceed", "swipe"],
+    "version": "1.0"
+  }, 
+  "arrow-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "right", "next", "proceed", "swipe"],
+    "version": "1.0"
+  }, 
+  "arrow-up-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "circle", "top", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-up-left-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "left", "circle", "top", "corner", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-up-left": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "left", "top", "corner", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-up-right-circle": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "right", "circle", "top", "corner", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-up-right": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "right", "top", "corner", "point"],
+    "version": "1.0"
+  }, 
+  "arrow-up": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "top", "point"],
+    "version": "1.0"
+  }, 
+  "arrows-diagonal-2": {
+    "category": "Arrows",
+    "tags": ["arrows", "diagonal", "2", "zoom", "corners", "stretch"],
+    "version": "1.0"
+  }, 
+  "arrows-diagonal": {
+    "category": "Arrows",
+    "tags": ["arrows", "diagonal", "zoom", "corners", "stretch"],
+    "version": "1.0"
+  }, 
+  "arrows-horizontal": {
+    "category": "Arrows",
+    "tags": ["arrows", "horizontal", "zoom", "stretch", "left", "right"],
+    "version": "1.2"
+  }, 
+  "arrows-maximize": {
+    "category": "Arrows",
+    "tags": ["arrows", "maximize", "fullscreen", "expand"],
+    "version": "1.0"
+  }, 
+  "arrows-minimize": {
+    "category": "Arrows",
+    "tags": ["arrows", "minimize", "fullscreen", "exit", "close"],
+    "version": "1.0"
+  }, 
+  "arrows-sort": {
+    "category": "Arrows",
+    "tags": ["arrows", "sort", "top", "bottom", "parallel", "order"],
+    "version": "1.2"
+  }, 
+  "arrows-vertical": {
+    "category": "Arrows",
+    "tags": ["arrows", "vertical", "expand", "stretch", "top", "bottom"],
+    "version": "1.2"
+  }, 
+  "artboard": {
+    "category": "",
+    "tags": ["artboard", "graphics", "drawing", "design", "art", "canvas"],
+    "version": "1.1"
+  }, 
+  "aspect-ratio": {
+    "category": "Media",
+    "tags": ["aspect", "ratio"],
+    "version": "1.27"
+  }, 
+  "at": {
+    "category": "",
+    "tags": ["at", "email", "message", "mention", "sign", "@"],
+    "version": "1.0"
+  }, 
+  "atom-2": {
+    "category": "",
+    "tags": ["atom", "2"],
+    "version": "1.7"
+  }, 
+  "atom": {
+    "category": "",
+    "tags": ["atom", "unit", "element", "part", "electrons"],
+    "version": "1.3"
+  }, 
+  "award": {
+    "category": "",
+    "tags": ["award", "prize", "reward", "competition", "contest", "win"],
+    "version": "1.1"
+  }, 
+  "backspace": {
+    "category": "Text",
+    "tags": ["backspace", "delete", "remove", "eliminate"],
+    "version": "1.0"
+  }, 
+  "ball-basketball": {
+    "category": "Sport",
+    "tags": ["ball", "basketball"],
+    "version": "1.1"
+  }, 
+  "ball-bowling": {
+    "category": "Sport",
+    "tags": ["ball", "bowling"],
+    "version": "1.1"
+  }, 
+  "ball-tennis": {
+    "category": "Sport",
+    "tags": ["ball", "tennis"],
+    "version": "1.1"
+  }, 
+  "ball-volleyball": {
+    "category": "Sport",
+    "tags": ["ball", "volleyball"],
+    "version": "1.1"
+  }, 
+  "ban": {
+    "category": "",
+    "tags": ["ban", "no", "reject", "restriction", "prohibited"],
+    "version": "1.0"
+  }, 
+  "bandage": {
+    "category": "",
+    "tags": ["bandage", "patch", "wound", "cut", "pain"],
+    "version": "1.3"
+  }, 
+  "barcode": {
+    "category": "",
+    "tags": ["barcode", "product", "shop", "scan", "supermarket"],
+    "version": "1.5"
+  }, 
+  "basket": {
+    "category": "",
+    "tags": ["basket"],
+    "version": "1.7"
+  }, 
+  "battery-1": {
+    "category": "Devices",
+    "tags": ["battery", "1", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "battery-2": {
+    "category": "Devices",
+    "tags": ["battery", "2", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "battery-3": {
+    "category": "Devices",
+    "tags": ["battery", "3", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "battery-4": {
+    "category": "Devices",
+    "tags": ["battery", "4", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "battery-charging": {
+    "category": "Devices",
+    "tags": ["battery", "charging", "charge", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "battery-off": {
+    "category": "Devices",
+    "tags": ["battery", "off", "energy", "power", "electricity"],
+    "version": "1.25"
+  }, 
+  "battery": {
+    "category": "Devices",
+    "tags": ["battery", "energy", "power", "electricity"],
+    "version": "1.0"
+  }, 
+  "bed": {
+    "category": "",
+    "tags": ["bed", "sleep", "night", "bedroom", "rest"],
+    "version": "1.2"
+  }, 
+  "bell-off": {
+    "category": "",
+    "tags": ["bell", "off"],
+    "version": "1.22"
+  }, 
+  "bell-ringing": {
+    "category": "",
+    "tags": ["bell", "ringing", "alarm", "sound", "notification"],
+    "version": "1.24"
+  }, 
+  "bell": {
+    "category": "",
+    "tags": ["bell", "alarm", "sound", "notification"],
+    "version": "1.0"
+  }, 
+  "bike": {
+    "category": "Sport",
+    "tags": ["bike", "cycling", "bicycle", "sport", "wheel"],
+    "version": "1.0"
+  }, 
+  "biohazard": {
+    "category": "Symbols",
+    "tags": ["biohazard"],
+    "version": "1.18"
+  }, 
+  "bluetooth-connected": {
+    "category": "Devices",
+    "tags": ["bluetooth", "connected", "wireless", "connection", "connect"],
+    "version": "1.22"
+  }, 
+  "bluetooth-off": {
+    "category": "Devices",
+    "tags": ["bluetooth", "off"],
+    "version": "1.22"
+  }, 
+  "bluetooth": {
+    "category": "Devices",
+    "tags": ["bluetooth", "wireless", "connection", "connect"],
+    "version": "1.0"
+  }, 
+  "bold": {
+    "category": "Text",
+    "tags": ["bold", "font", "style", "boldface"],
+    "version": "1.3"
+  }, 
+  "bolt-off": {
+    "category": "",
+    "tags": ["bolt", "off"],
+    "version": "1.22"
+  }, 
+  "bolt": {
+    "category": "",
+    "tags": ["bolt", "energy", "power", "electricity", "storm"],
+    "version": "1.0"
+  }, 
+  "book": {
+    "category": "Document",
+    "tags": ["book", "read", "dictionary", "magazine", "library", "booklet", "novel"],
+    "version": "1.0"
+  }, 
+  "bookmark-off": {
+    "category": "Document",
+    "tags": ["bookmark", "off", "read", "clip", "marker", "tag"],
+    "version": "1.22"
+  }, 
+  "bookmark": {
+    "category": "Document",
+    "tags": ["bookmark", "read", "clip", "marker", "tag"],
+    "version": "1.0"
+  }, 
+  "bookmarks": {
+    "category": "Document",
+    "tags": ["bookmarks"],
+    "version": "1.24"
+  }, 
+  "border-all": {
+    "category": "Design",
+    "tags": ["border", "all", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-bottom": {
+    "category": "Design",
+    "tags": ["border", "bottom", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-horizontal": {
+    "category": "Design",
+    "tags": ["border", "horizontal", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-inner": {
+    "category": "Design",
+    "tags": ["border", "inner", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-left": {
+    "category": "Design",
+    "tags": ["border", "left", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-none": {
+    "category": "Design",
+    "tags": ["border", "none", "table"],
+    "version": "1.0"
+  }, 
+  "border-outer": {
+    "category": "Design",
+    "tags": ["border", "outer", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-radius": {
+    "category": "Design",
+    "tags": ["border", "radius", "corner", "rounded", "line"],
+    "version": "1.3"
+  }, 
+  "border-right": {
+    "category": "Design",
+    "tags": ["border", "right", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-top": {
+    "category": "Design",
+    "tags": ["border", "top", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "border-vertical": {
+    "category": "Design",
+    "tags": ["border", "vertical", "table", "side", "line"],
+    "version": "1.0"
+  }, 
+  "box": {
+    "category": "",
+    "tags": ["box", "cube", "app", "application", "package", "container"],
+    "version": "1.0"
+  }, 
+  "braces": {
+    "category": "",
+    "tags": ["braces", "punctuation", "additional", "information"],
+    "version": "1.6"
+  }, 
+  "brackets": {
+    "category": "",
+    "tags": ["brackets", "punctuation", "additional", "information"],
+    "version": "1.6"
+  }, 
+  "brand-android": {
+    "category": "Brand",
+    "tags": ["brand", "android"],
+    "version": "1.9"
+  }, 
+  "brand-apple": {
+    "category": "Brand",
+    "tags": ["brand", "apple"],
+    "version": "1.9"
+  }, 
+  "brand-appstore": {
+    "category": "Brand",
+    "tags": ["brand", "appstore"],
+    "version": "1.26"
+  }, 
+  "brand-behance": {
+    "category": "Brand",
+    "tags": ["brand", "behance"],
+    "version": "1.13"
+  }, 
+  "brand-chrome": {
+    "category": "Brand",
+    "tags": ["brand", "chrome", "browser", "internet", "web", "logo"],
+    "version": "1.9"
+  }, 
+  "brand-codepen": {
+    "category": "Brand",
+    "tags": ["brand", "codepen"],
+    "version": "1.13"
+  }, 
+  "brand-deviantart": {
+    "category": "Brand",
+    "tags": ["brand", "deviantart"],
+    "version": "1.23"
+  }, 
+  "brand-discord": {
+    "category": "Brand",
+    "tags": ["brand", "discord"],
+    "version": "1.21"
+  }, 
+  "brand-dribbble": {
+    "category": "Brand",
+    "tags": ["brand", "dribbble"],
+    "version": "1.18"
+  }, 
+  "brand-edge": {
+    "category": "Brand",
+    "tags": ["brand", "edge", "browser", "internet", "web", "logo", "explorer"],
+    "version": "1.23"
+  }, 
+  "brand-facebook": {
+    "category": "Brand",
+    "tags": ["brand", "facebook"],
+    "version": "1.18"
+  }, 
+  "brand-figma": {
+    "category": "Brand",
+    "tags": ["brand", "figma"],
+    "version": "1.16"
+  }, 
+  "brand-firefox": {
+    "category": "Brand",
+    "tags": ["brand", "firefox", "browser", "internet", "web", "logo"],
+    "version": "1.23"
+  }, 
+  "brand-flickr": {
+    "category": "Brand",
+    "tags": ["brand", "flickr"],
+    "version": "1.23"
+  }, 
+  "brand-foursquare": {
+    "category": "Brand",
+    "tags": ["brand", "foursquare"],
+    "version": "1.23"
+  }, 
+  "brand-framer": {
+    "category": "Brand",
+    "tags": ["brand", "framer"],
+    "version": "1.9"
+  }, 
+  "brand-github": {
+    "category": "Brand",
+    "tags": ["brand", "github"],
+    "version": "1.18"
+  }, 
+  "brand-gitlab": {
+    "category": "Brand",
+    "tags": ["brand", "gitlab"],
+    "version": "1.9"
+  }, 
+  "brand-google-drive": {
+    "category": "Brand",
+    "tags": ["brand", "google", "drive"],
+    "version": "1.9"
+  }, 
+  "brand-google-play": {
+    "category": "Brand",
+    "tags": ["brand", "google", "play"],
+    "version": "1.26"
+  }, 
+  "brand-google": {
+    "category": "Brand",
+    "tags": ["brand", "google"],
+    "version": "1.18"
+  }, 
+  "brand-instagram": {
+    "category": "Brand",
+    "tags": ["brand", "instagram"],
+    "version": "1.9"
+  }, 
+  "brand-linkedin": {
+    "category": "Brand",
+    "tags": ["brand", "linkedin"],
+    "version": "1.15"
+  }, 
+  "brand-medium": {
+    "category": "Brand",
+    "tags": ["brand", "medium"],
+    "version": "1.13"
+  }, 
+  "brand-messenger": {
+    "category": "Brand",
+    "tags": ["brand", "messenger"],
+    "version": "1.13"
+  }, 
+  "brand-opera": {
+    "category": "Brand",
+    "tags": ["brand", "opera", "browser", "internet", "web", "logo"],
+    "version": "1.9"
+  }, 
+  "brand-paypal": {
+    "category": "Brand",
+    "tags": ["brand", "paypal"],
+    "version": "1.9"
+  }, 
+  "brand-pinterest": {
+    "category": "Brand",
+    "tags": ["brand", "pinterest"],
+    "version": "1.15"
+  }, 
+  "brand-pocket": {
+    "category": "Brand",
+    "tags": ["brand", "pocket"],
+    "version": "1.23"
+  }, 
+  "brand-python": {
+    "category": "Brand",
+    "tags": ["brand", "python"],
+    "version": "1.23"
+  }, 
+  "brand-reddit": {
+    "category": "Brand",
+    "tags": ["brand", "reddit"],
+    "version": "1.15"
+  }, 
+  "brand-safari": {
+    "category": "Brand",
+    "tags": ["brand", "safari", "navigation", "compass", "travel", "direction", "discover", "browser", "internet", "web", "logo"],
+    "version": "1.9"
+  }, 
+  "brand-sketch": {
+    "category": "Brand",
+    "tags": ["brand", "sketch"],
+    "version": "1.9"
+  }, 
+  "brand-skype": {
+    "category": "Brand",
+    "tags": ["brand", "skype"],
+    "version": "1.23"
+  }, 
+  "brand-slack": {
+    "category": "Brand",
+    "tags": ["brand", "slack"],
+    "version": "1.13"
+  }, 
+  "brand-snapchat": {
+    "category": "Brand",
+    "tags": ["brand", "snapchat"],
+    "version": "1.9"
+  }, 
+  "brand-spotify": {
+    "category": "Brand",
+    "tags": ["brand", "spotify"],
+    "version": "1.23"
+  }, 
+  "brand-tabler": {
+    "category": "Brand",
+    "tags": ["brand", "tabler"],
+    "version": "1.15"
+  }, 
+  "brand-tailwind": {
+    "category": "Brand",
+    "tags": ["brand", "tailwind"],
+    "version": "1.17"
+  }, 
+  "brand-telegram": {
+    "category": "Brand",
+    "tags": ["brand", "telegram"],
+    "version": "1.9"
+  }, 
+  "brand-tiktok": {
+    "category": "Brand",
+    "tags": ["brand", "tiktok"],
+    "version": "1.13"
+  }, 
+  "brand-tumblr": {
+    "category": "Brand",
+    "tags": ["brand", "tumblr"],
+    "version": "1.23"
+  }, 
+  "brand-twitch": {
+    "category": "Brand",
+    "tags": ["brand", "twitch"],
+    "version": "1.23"
+  }, 
+  "brand-twitter": {
+    "category": "Brand",
+    "tags": ["brand", "twitter"],
+    "version": "1.18"
+  }, 
+  "brand-vimeo": {
+    "category": "Brand",
+    "tags": ["brand", "vimeo"],
+    "version": "1.23"
+  }, 
+  "brand-whatsapp": {
+    "category": "Brand",
+    "tags": ["brand", "whatsapp"],
+    "version": "1.13"
+  }, 
+  "brand-windows": {
+    "category": "Brand",
+    "tags": ["brand", "windows"],
+    "version": "1.2"
+  }, 
+  "brand-youtube": {
+    "category": "Brand",
+    "tags": ["brand", "youtube"],
+    "version": "1.15"
+  }, 
+  "briefcase": {
+    "category": "",
+    "tags": ["briefcase", "bag", "baggage", "folder", "carrier", "documents"],
+    "version": "1.0"
+  }, 
+  "brightness-down": {
+    "category": "Photos",
+    "tags": ["brightness", "down", "dark", "darker", "screen"],
+    "version": "1.3"
+  }, 
+  "brightness-up": {
+    "category": "Photos",
+    "tags": ["brightness", "up", "light", "screen"],
+    "version": "1.3"
+  }, 
+  "brightness": {
+    "category": "Photos",
+    "tags": ["brightness", "light", "dark", "screen"],
+    "version": "1.3"
+  }, 
+  "browser": {
+    "category": "",
+    "tags": ["browser", "internet", "web", "display"],
+    "version": "1.5"
+  }, 
+  "brush": {
+    "category": "Design",
+    "tags": ["brush", "paint", "art", "picture", "paintbrush", "painter"],
+    "version": "1.5"
+  }, 
+  "bucket": {
+    "category": "",
+    "tags": ["bucket", "collection", "container", "water", "liquid"],
+    "version": "1.0"
+  }, 
+  "bug": {
+    "category": "",
+    "tags": ["bug", "germ", "insect", "error", "nature"],
+    "version": "1.1"
+  }, 
+  "building-arch": {
+    "category": "Buildings",
+    "tags": ["building", "arch", "arc", "curve", "dome", "monument", "history", "architecture"],
+    "version": "1.1"
+  }, 
+  "building-bank": {
+    "category": "Buildings",
+    "tags": ["building", "bank"],
+    "version": "1.7"
+  }, 
+  "building-bridge-2": {
+    "category": "Buildings",
+    "tags": ["building", "bridge", "2", "architecture", "urban", "river", "overpass", "city", "countryside"],
+    "version": "1.1"
+  }, 
+  "building-bridge": {
+    "category": "Buildings",
+    "tags": ["building", "bridge", "architecture", "urban", "river", "overpass", "city", "countryside"],
+    "version": "1.1"
+  }, 
+  "building-church": {
+    "category": "Buildings",
+    "tags": ["building", "church", "religion", "chapel", "sanctuary", "temple", "cathedral", "pray", "prayer"],
+    "version": "1.1"
+  }, 
+  "building-community": {
+    "category": "Buildings",
+    "tags": ["building", "community"],
+    "version": "1.8"
+  }, 
+  "building-hospital": {
+    "category": "Buildings",
+    "tags": ["building", "hospital", "doctor", "sickness", "illness", "nurse", "medication", "emergency", "treat", "surgery"],
+    "version": "1.1"
+  }, 
+  "building-monument": {
+    "category": "Buildings",
+    "tags": ["building", "monument"],
+    "version": "1.26"
+  }, 
+  "building-pavilon": {
+    "category": "Buildings",
+    "tags": ["building", "pavilon"],
+    "version": "1.8"
+  }, 
+  "building-skyscraper": {
+    "category": "Buildings",
+    "tags": ["building", "skyscraper"],
+    "version": "1.8"
+  }, 
+  "building-store": {
+    "category": "Buildings",
+    "tags": ["building", "store", "shopping", "shop", "supermarket", "market", "products", "retail", "buy", "sell"],
+    "version": "1.1"
+  }, 
+  "building-warehouse": {
+    "category": "Buildings",
+    "tags": ["building", "warehouse"],
+    "version": "1.7"
+  }, 
+  "building": {
+    "category": "Buildings",
+    "tags": ["building", "flat", "office", "city", "urban", "scyscraper", "architecture", "construction"],
+    "version": "1.1"
+  }, 
+  "bulb-off": {
+    "category": "",
+    "tags": ["bulb", "off", "energy", "power", "electricity", "creativity", "light", "idea"],
+    "version": "1.0"
+  }, 
+  "bulb": {
+    "category": "",
+    "tags": ["bulb", "energy", "power", "electricity", "creativity", "light", "idea"],
+    "version": "1.0"
+  }, 
+  "bus": {
+    "category": "Vehicles",
+    "tags": ["bus", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"],
+    "version": "1.7"
+  }, 
+  "calculator": {
+    "category": "",
+    "tags": ["calculator", "math", "count", "add", "subtract", "multiply", "divide", "amount"],
+    "version": "1.3"
+  }, 
+  "calendar-event": {
+    "category": "",
+    "tags": ["calendar", "event", "date", "day", "plan", "schedule", "agenda"],
+    "version": "1.1"
+  }, 
+  "calendar-minus": {
+    "category": "",
+    "tags": ["calendar", "minus", "date", "day", "plan", "schedule", "agenda"],
+    "version": "1.5"
+  }, 
+  "calendar-plus": {
+    "category": "",
+    "tags": ["calendar", "plus", "date", "day", "plan", "schedule", "agenda", "add"],
+    "version": "1.5"
+  }, 
+  "calendar": {
+    "category": "",
+    "tags": ["calendar", "date", "day", "plan", "schedule", "agenda"],
+    "version": "1.0"
+  }, 
+  "camera-minus": {
+    "category": "Media",
+    "tags": ["camera", "minus", "video", "photo", "aperture"],
+    "version": "1.11"
+  }, 
+  "camera-off": {
+    "category": "Media",
+    "tags": ["camera", "off"],
+    "version": "1.22"
+  }, 
+  "camera-plus": {
+    "category": "Media",
+    "tags": ["camera", "plus", "video", "photo", "aperture"],
+    "version": "1.11"
+  }, 
+  "camera": {
+    "category": "Media",
+    "tags": ["camera", "video", "photo", "aperture"],
+    "version": "1.0"
+  }, 
+  "capture": {
+    "category": "Media",
+    "tags": ["capture"],
+    "version": "1.11"
+  }, 
+  "car": {
+    "category": "Vehicles",
+    "tags": ["car", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"],
+    "version": "1.5"
+  }, 
+  "caravan": {
+    "category": "Vehicles",
+    "tags": ["caravan"],
+    "version": "1.14"
+  }, 
+  "caret-down": {
+    "category": "Arrows",
+    "tags": ["caret", "down", "next", "bottom", "dropdown", "show", "more"],
+    "version": "1.2"
+  }, 
+  "caret-left": {
+    "category": "Arrows",
+    "tags": ["caret", "left", "back", "previous"],
+    "version": "1.2"
+  }, 
+  "caret-right": {
+    "category": "Arrows",
+    "tags": ["caret", "right", "next", "play", "more"],
+    "version": "1.2"
+  }, 
+  "caret-up": {
+    "category": "Arrows",
+    "tags": ["caret", "up", "dropdown", "less", "up"],
+    "version": "1.2"
+  }, 
+  "cash": {
+    "category": "",
+    "tags": ["cash", "currency", "payment", "money", "pay"],
+    "version": "1.0"
+  }, 
+  "cast": {
+    "category": "Media",
+    "tags": ["cast", "broadcast", "stream", "mirroring", "apple", "airplay", "chromecast"],
+    "version": "1.0"
+  }, 
+  "chart-area-line": {
+    "category": "Charts",
+    "tags": ["chart", "area", "line", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-area": {
+    "category": "Charts",
+    "tags": ["chart", "area", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-bar": {
+    "category": "Charts",
+    "tags": ["chart", "bar", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-bubble": {
+    "category": "Charts",
+    "tags": ["chart", "bubble"],
+    "version": "1.13"
+  }, 
+  "chart-candle": {
+    "category": "Charts",
+    "tags": ["chart", "candle", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-donut": {
+    "category": "Charts",
+    "tags": ["chart", "donut", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-line": {
+    "category": "Charts",
+    "tags": ["chart", "line", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "chart-pie": {
+    "category": "Charts",
+    "tags": ["chart", "pie", "statistics", "diagram", "graph", "rhythm", "data", "analysis"],
+    "version": "1.0"
+  }, 
+  "check": {
+    "category": "System",
+    "tags": ["check", "tick", "yes", "confirm"],
+    "version": "1.0"
+  }, 
+  "checkbox": {
+    "category": "System",
+    "tags": ["checkbox", "survey", "confirm", "tick", "yes", "to-do"],
+    "version": "1.4"
+  }, 
+  "checks": {
+    "category": "System",
+    "tags": ["checks", "tick", "yes", "confirm"],
+    "version": "1.4"
+  }, 
+  "chevron-down-left": {
+    "category": "Arrows",
+    "tags": ["chevron", "down", "left"],
+    "version": "1.24"
+  }, 
+  "chevron-down-right": {
+    "category": "Arrows",
+    "tags": ["chevron", "down", "right"],
+    "version": "1.24"
+  }, 
+  "chevron-down": {
+    "category": "Arrows",
+    "tags": ["chevron", "down", "move", "next", "swipe", "bottom"],
+    "version": "1.0"
+  }, 
+  "chevron-left": {
+    "category": "Arrows",
+    "tags": ["chevron", "left", "move", "previous", "back"],
+    "version": "1.0"
+  }, 
+  "chevron-right": {
+    "category": "Arrows",
+    "tags": ["chevron", "right", "move", "checklist", "next"],
+    "version": "1.0"
+  }, 
+  "chevron-up-left": {
+    "category": "Arrows",
+    "tags": ["chevron", "up", "left"],
+    "version": "1.24"
+  }, 
+  "chevron-up-right": {
+    "category": "Arrows",
+    "tags": ["chevron", "up", "right"],
+    "version": "1.24"
+  }, 
+  "chevron-up": {
+    "category": "Arrows",
+    "tags": ["chevron", "up", "move", "top"],
+    "version": "1.0"
+  }, 
+  "chevrons-down-left": {
+    "category": "Arrows",
+    "tags": ["chevrons", "down", "left"],
+    "version": "1.24"
+  }, 
+  "chevrons-down-right": {
+    "category": "Arrows",
+    "tags": ["chevrons", "down", "right"],
+    "version": "1.24"
+  }, 
+  "chevrons-down": {
+    "category": "Arrows",
+    "tags": ["chevrons", "down", "move", "bottom"],
+    "version": "1.0"
+  }, 
+  "chevrons-left": {
+    "category": "Arrows",
+    "tags": ["chevrons", "left", "move", "back", "roll"],
+    "version": "1.0"
+  }, 
+  "chevrons-right": {
+    "category": "Arrows",
+    "tags": ["chevrons", "right", "move", "next", "checklist"],
+    "version": "1.0"
+  }, 
+  "chevrons-up-left": {
+    "category": "Arrows",
+    "tags": ["chevrons", "up", "left"],
+    "version": "1.24"
+  }, 
+  "chevrons-up-right": {
+    "category": "Arrows",
+    "tags": ["chevrons", "up", "right"],
+    "version": "1.24"
+  }, 
+  "chevrons-up": {
+    "category": "Arrows",
+    "tags": ["chevrons", "up", "move", "top"],
+    "version": "1.0"
+  }, 
+  "circle-check": {
+    "category": "",
+    "tags": ["circle", "check", "yes", "confirm"],
+    "version": "1.0"
+  }, 
+  "circle-dashed": {
+    "category": "",
+    "tags": ["circle", "dashed"],
+    "version": "1.26"
+  }, 
+  "circle-dotted": {
+    "category": "",
+    "tags": ["circle", "dotted"],
+    "version": "1.26"
+  }, 
+  "circle-minus": {
+    "category": "",
+    "tags": ["circle", "minus", "remove", "delete"],
+    "version": "1.0"
+  }, 
+  "circle-plus": {
+    "category": "",
+    "tags": ["circle", "plus", "add", "create", "new"],
+    "version": "1.0"
+  }, 
+  "circle-square": {
+    "category": "Shapes",
+    "tags": ["circle", "square"],
+    "version": "1.21"
+  }, 
+  "circle-x": {
+    "category": "",
+    "tags": ["circle", "x", "cancel", "no"],
+    "version": "1.0"
+  }, 
+  "circle": {
+    "category": "Shapes",
+    "tags": ["circle", "false", "zero"],
+    "version": "1.0"
+  }, 
+  "circles": {
+    "category": "Shapes",
+    "tags": ["circles"],
+    "version": "1.21"
+  }, 
+  "clear-formatting": {
+    "category": "Text",
+    "tags": ["clear", "formatting"],
+    "version": "1.7"
+  }, 
+  "click": {
+    "category": "",
+    "tags": ["click", "select", "cursor"],
+    "version": "1.5"
+  }, 
+  "clipboard-check": {
+    "category": "Document",
+    "tags": ["clipboard", "check", "copy", "yes"],
+    "version": "1.0"
+  }, 
+  "clipboard-list": {
+    "category": "Document",
+    "tags": ["clipboard", "list", "copy", "items"],
+    "version": "1.0"
+  }, 
+  "clipboard-x": {
+    "category": "Document",
+    "tags": ["clipboard", "x", "copy", "no"],
+    "version": "1.0"
+  }, 
+  "clipboard": {
+    "category": "Document",
+    "tags": ["clipboard", "copy"],
+    "version": "1.0"
+  }, 
+  "clock": {
+    "category": "",
+    "tags": ["clock", "time", "watch", "alarm"],
+    "version": "1.0"
+  }, 
+  "cloud-download": {
+    "category": "",
+    "tags": ["cloud", "download", "files"],
+    "version": "1.0"
+  }, 
+  "cloud-fog": {
+    "category": "Weather",
+    "tags": ["cloud", "fog", "weather", "online"],
+    "version": "1.2"
+  }, 
+  "cloud-off": {
+    "category": "Weather",
+    "tags": ["cloud", "off"],
+    "version": "1.28"
+  }, 
+  "cloud-rain": {
+    "category": "Weather",
+    "tags": ["cloud", "rain", "weather", "dry"],
+    "version": "1.0"
+  }, 
+  "cloud-snow": {
+    "category": "Weather",
+    "tags": ["cloud", "snow", "weather", "blizzard"],
+    "version": "1.0"
+  }, 
+  "cloud-storm": {
+    "category": "Weather",
+    "tags": ["cloud", "storm", "weather", "lightning"],
+    "version": "1.0"
+  }, 
+  "cloud-upload": {
+    "category": "",
+    "tags": ["cloud", "upload", "files"],
+    "version": "1.0"
+  }, 
+  "cloud": {
+    "category": "Weather",
+    "tags": ["cloud", "weather", "online"],
+    "version": "1.0"
+  }, 
+  "code": {
+    "category": "",
+    "tags": ["code", "brackets", "source", "programming", "command"],
+    "version": "1.0"
+  }, 
+  "coin": {
+    "category": "",
+    "tags": ["coin", "money", "earn", "salary", "change", "dollar"],
+    "version": "1.3"
+  }, 
+  "color-picker": {
+    "category": "Design",
+    "tags": ["color", "picker"],
+    "version": "1.7"
+  }, 
+  "color-swatch": {
+    "category": "Design",
+    "tags": ["color", "swatch", "sample", "choice", "selection"],
+    "version": "1.2"
+  }, 
+  "columns": {
+    "category": "Text",
+    "tags": ["columns", "text", "gap", "table"],
+    "version": "1.3"
+  }, 
+  "comet": {
+    "category": "Weather",
+    "tags": ["comet"],
+    "version": "1.13"
+  }, 
+  "command": {
+    "category": "Symbols",
+    "tags": ["command", "apple", "key", "keyboard", "cmd"],
+    "version": "1.0"
+  }, 
+  "compass": {
+    "category": "Map",
+    "tags": ["compass", "navigation", "safari", "travel", "direction", "discover"],
+    "version": "1.0"
+  }, 
+  "contrast": {
+    "category": "Photos",
+    "tags": ["contrast"],
+    "version": "1.12"
+  }, 
+  "copy": {
+    "category": "Text",
+    "tags": ["copy", "clipboard", "clone", "duplicate"],
+    "version": "1.0"
+  }, 
+  "copyleft": {
+    "category": "",
+    "tags": ["copyleft", "licence", "license"],
+    "version": "1.11"
+  }, 
+  "copyright": {
+    "category": "",
+    "tags": ["copyright", "licence", "license"],
+    "version": "1.0"
+  }, 
+  "corner-down-left": {
+    "category": "Arrows",
+    "tags": ["corner", "down", "left", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-down-right": {
+    "category": "Arrows",
+    "tags": ["corner", "down", "right", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-left-down": {
+    "category": "Arrows",
+    "tags": ["corner", "left", "down", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-left-up": {
+    "category": "Arrows",
+    "tags": ["corner", "left", "up", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-right-down": {
+    "category": "Arrows",
+    "tags": ["corner", "right", "down", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-right-up": {
+    "category": "Arrows",
+    "tags": ["corner", "right", "up", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-up-left": {
+    "category": "Arrows",
+    "tags": ["corner", "up", "left", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "corner-up-right": {
+    "category": "Arrows",
+    "tags": ["corner", "up", "right", "move", "arrow"],
+    "version": "1.0"
+  }, 
+  "credit-card-off": {
+    "category": "",
+    "tags": ["credit", "card", "off", "money", "purchase", "payment", "cc"],
+    "version": "1.24"
+  }, 
+  "credit-card": {
+    "category": "",
+    "tags": ["credit", "card", "money", "purchase", "payment", "cc"],
+    "version": "1.0"
+  }, 
+  "crop": {
+    "category": "",
+    "tags": ["crop", "photo", "image"],
+    "version": "1.0"
+  }, 
+  "crosshair": {
+    "category": "",
+    "tags": ["crosshair"],
+    "version": "1.11"
+  }, 
+  "crown": {
+    "category": "",
+    "tags": ["crown"],
+    "version": "1.24"
+  }, 
+  "curly-loop": {
+    "category": "",
+    "tags": ["curly", "loop"],
+    "version": "1.2"
+  }, 
+  "currency-bitcoin": {
+    "category": "Currencies",
+    "tags": ["currency", "bitcoin", "digital", "network", "peer-to-peer", "mining"],
+    "version": "1.4"
+  }, 
+  "currency-dollar": {
+    "category": "Currencies",
+    "tags": ["currency", "dollar", "money", "bucks", "usa", "banknote", "pay"],
+    "version": "1.3"
+  }, 
+  "currency-euro": {
+    "category": "Currencies",
+    "tags": ["currency", "euro", "money", "banknote", "pay", "europe", "eu"],
+    "version": "1.3"
+  }, 
+  "currency-pound": {
+    "category": "Currencies",
+    "tags": ["currency", "pound", "money", "banknote", "pay", "britain", "uk"],
+    "version": "1.4"
+  }, 
+  "currency-rupee": {
+    "category": "Currencies",
+    "tags": ["currency", "rupee", "money", "banknote", "pay", "india"],
+    "version": "1.4"
+  }, 
+  "currency-yen": {
+    "category": "Currencies",
+    "tags": ["currency", "yen", "money", "banknote", "pay", "japan"],
+    "version": "1.4"
+  }, 
+  "current-location": {
+    "category": "Map",
+    "tags": ["current", "location"],
+    "version": "1.22"
+  }, 
+  "cut": {
+    "category": "Design",
+    "tags": ["cut", "scissors", "divide", "hairdresser", "sharp"],
+    "version": "1.0"
+  }, 
+  "dashboard": {
+    "category": "System",
+    "tags": ["dashboard", "home", "car"],
+    "version": "1.0"
+  }, 
+  "database": {
+    "category": "Devices",
+    "tags": ["database", "storage", "data", "memory"],
+    "version": "1.0"
+  }, 
+  "device-desktop": {
+    "category": "Devices",
+    "tags": ["device", "desktop", "monitor", "computer", "imac"],
+    "version": "1.0"
+  }, 
+  "device-floppy": {
+    "category": "Devices",
+    "tags": ["device", "floppy", "save", "file"],
+    "version": "1.2"
+  }, 
+  "device-gamepad": {
+    "category": "Devices",
+    "tags": ["device", "gamepad", "play", "entertainment", "console", "joystick", "joypad", "controller"],
+    "version": "1.2"
+  }, 
+  "device-laptop": {
+    "category": "Devices",
+    "tags": ["device", "laptop", "workstation", "mac", "notebook", "portable", "screen", "computer"],
+    "version": "1.2"
+  }, 
+  "device-mobile-rotated": {
+    "category": "Devices",
+    "tags": ["device", "mobile", "rotated", "iphone", "phone", "smartphone", "cellphone"],
+    "version": "1.2"
+  }, 
+  "device-mobile-vibration": {
+    "category": "Devices",
+    "tags": ["device", "mobile", "vibration", "iphone", "phone", "smartphone", "cellphone"],
+    "version": "1.3"
+  }, 
+  "device-mobile": {
+    "category": "Devices",
+    "tags": ["device", "mobile", "iphone", "phone", "smartphone", "cellphone"],
+    "version": "1.0"
+  }, 
+  "device-speaker": {
+    "category": "Devices",
+    "tags": ["device", "speaker", "sound", "music", "loud", "audio", "media"],
+    "version": "1.1"
+  }, 
+  "device-tablet": {
+    "category": "Devices",
+    "tags": ["device", "tablet", "ipad", "mobile", "touchscreen", "portable"],
+    "version": "1.0"
+  }, 
+  "device-tv": {
+    "category": "Devices",
+    "tags": ["device", "tv", "screen", "display", "movie", "film", "watch", "audio", "video", "media"],
+    "version": "1.0"
+  }, 
+  "device-watch": {
+    "category": "Devices",
+    "tags": ["device", "watch"],
+    "version": "1.8"
+  }, 
+  "devices-2": {
+    "category": "Devices",
+    "tags": ["devices", "2"],
+    "version": "1.26"
+  }, 
+  "devices": {
+    "category": "Devices",
+    "tags": ["devices", "computer", "laptop", "notebook", "tablet", "phone", "mobile", "mac", "iphone"],
+    "version": "1.3"
+  }, 
+  "diamond": {
+    "category": "",
+    "tags": ["diamond", "jewellery", "crystal", "mineral", "jewelry", "ring"],
+    "version": "1.2"
+  }, 
+  "dice": {
+    "category": "",
+    "tags": ["dice", "game", "boardgame", "roll", "throw", "cube", "numbers", "gambling"],
+    "version": "1.2"
+  }, 
+  "direction-horizontal": {
+    "category": "",
+    "tags": ["direction", "horizontal"],
+    "version": "1.8"
+  }, 
+  "direction": {
+    "category": "",
+    "tags": ["direction"],
+    "version": "1.8"
+  }, 
+  "directions": {
+    "category": "Map",
+    "tags": ["directions", "travel", "navigation", "discover"],
+    "version": "1.0"
+  }, 
+  "disabled-2": {
+    "category": "",
+    "tags": ["disabled", "2", "wheelchair", "accessible", "handicapped"],
+    "version": "1.4"
+  }, 
+  "disabled": {
+    "category": "",
+    "tags": ["disabled", "wheelchair", "handicapped"],
+    "version": "1.0"
+  }, 
+  "disc": {
+    "category": "Devices",
+    "tags": ["disc", "cd", "music", "album"],
+    "version": "1.0"
+  }, 
+  "discount": {
+    "category": "",
+    "tags": ["discount", "sale", "reduction", "price", "cost", "money", "shopping", "bargain"],
+    "version": "1.5"
+  }, 
+  "dots-circle-horizontal": {
+    "category": "System",
+    "tags": ["dots", "circle", "horizontal", "more", "options"],
+    "version": "1.0"
+  }, 
+  "dots-diagonal-2": {
+    "category": "System",
+    "tags": ["dots", "diagonal", "2", "hellip", "more", "ellipsis"],
+    "version": "1.0"
+  }, 
+  "dots-diagonal": {
+    "category": "System",
+    "tags": ["dots", "diagonal", "hellip", "more", "ellipsis"],
+    "version": "1.0"
+  }, 
+  "dots-vertical": {
+    "category": "System",
+    "tags": ["dots", "vertical", "hellip", "more", "ellipsis"],
+    "version": "1.0"
+  }, 
+  "dots": {
+    "category": "System",
+    "tags": ["dots", "hellip", "more", "ellipsis"],
+    "version": "1.0"
+  }, 
+  "download": {
+    "category": "",
+    "tags": ["download", "save", "arrow"],
+    "version": "1.0"
+  }, 
+  "drag-drop-2": {
+    "category": "",
+    "tags": ["drag", "drop", "2", "location", "gesture", "move"],
+    "version": "1.3"
+  }, 
+  "drag-drop": {
+    "category": "",
+    "tags": ["drag", "drop", "location", "gesture", "move"],
+    "version": "1.3"
+  }, 
+  "droplet": {
+    "category": "Design",
+    "tags": ["droplet", "water", "rain", "liquid"],
+    "version": "1.0"
+  }, 
+  "ear": {
+    "category": "Media",
+    "tags": ["ear", "sound", "listen", "music", "hear", "loud", "speakers"],
+    "version": "1.6"
+  }, 
+  "edit": {
+    "category": "Design",
+    "tags": ["edit", "pencil", "change", "update"],
+    "version": "1.0"
+  }, 
+  "egg": {
+    "category": "",
+    "tags": ["egg", "food", "easter", "chicken"],
+    "version": "1.3"
+  }, 
+  "emphasis": {
+    "category": "Text",
+    "tags": ["emphasis", "highlight", "priority", "stress"],
+    "version": "1.6"
+  }, 
+  "eraser": {
+    "category": "Text",
+    "tags": ["eraser", "delete", "remove", "eliminate", "wipe-out"],
+    "version": "1.3"
+  }, 
+  "exchange": {
+    "category": "",
+    "tags": ["exchange"],
+    "version": "1.7"
+  }, 
+  "exposure": {
+    "category": "Photos",
+    "tags": ["exposure", "light", "bright", "dark", "camera"],
+    "version": "1.3"
+  }, 
+  "external-link": {
+    "category": "System",
+    "tags": ["external", "link", "connection", "outbound", "redirect"],
+    "version": "1.0"
+  }, 
+  "eye-off": {
+    "category": "",
+    "tags": ["eye", "off"],
+    "version": "1.22"
+  }, 
+  "eye": {
+    "category": "",
+    "tags": ["eye", "view", "watch"],
+    "version": "1.0"
+  }, 
+  "face-id": {
+    "category": "",
+    "tags": ["face", "id", "apple", "iphone", "ipad"],
+    "version": "1.0"
+  }, 
+  "fall": {
+    "category": "",
+    "tags": ["fall"],
+    "version": "1.18"
+  }, 
+  "file-certificate": {
+    "category": "Document",
+    "tags": ["file", "certificate"],
+    "version": "1.29"
+  }, 
+  "file-check": {
+    "category": "Document",
+    "tags": ["file", "check", "yes"],
+    "version": "1.0"
+  }, 
+  "file-code": {
+    "category": "Document",
+    "tags": ["file", "code", "paper", "new"],
+    "version": "1.6"
+  }, 
+  "file-diff": {
+    "category": "Document",
+    "tags": ["file", "diff", "add", "create", "new"],
+    "version": "1.22"
+  }, 
+  "file-dislike": {
+    "category": "Document",
+    "tags": ["file", "dislike", "rejected", "document"],
+    "version": "1.26"
+  }, 
+  "file-download": {
+    "category": "Document",
+    "tags": ["file", "download", "save", "transfer", "input"],
+    "version": "1.0"
+  }, 
+  "file-horizontal": {
+    "category": "Document",
+    "tags": ["file", "horizontal", "paper", "new"],
+    "version": "1.4"
+  }, 
+  "file-invoice": {
+    "category": "Document",
+    "tags": ["file", "invoice", "accounting", "bill", "statement", "settlement", "finance"],
+    "version": "1.2"
+  }, 
+  "file-like": {
+    "category": "Document",
+    "tags": ["file", "like", "approved", "document"],
+    "version": "1.26"
+  }, 
+  "file-minus": {
+    "category": "Document",
+    "tags": ["file", "minus", "remove", "delete"],
+    "version": "1.0"
+  }, 
+  "file-music": {
+    "category": "Document",
+    "tags": ["file", "music", "mp3", "wma", "wav"],
+    "version": "1.0"
+  }, 
+  "file-off": {
+    "category": "Document",
+    "tags": ["file", "off"],
+    "version": "1.22"
+  }, 
+  "file-phone": {
+    "category": "Document",
+    "tags": ["file", "phone", "save", "transfer", "input"],
+    "version": "1.2"
+  }, 
+  "file-plus": {
+    "category": "Document",
+    "tags": ["file", "plus", "add", "create", "new"],
+    "version": "1.0"
+  }, 
+  "file-shredder": {
+    "category": "Document",
+    "tags": ["file", "shredder", "shred", "destroy", "cut"],
+    "version": "1.0"
+  }, 
+  "file-text": {
+    "category": "Document",
+    "tags": ["file", "text", "data", "pdf", "txt"],
+    "version": "1.0"
+  }, 
+  "file-upload": {
+    "category": "Document",
+    "tags": ["file", "upload", "save", "transfer", "input"],
+    "version": "1.15"
+  }, 
+  "file-x": {
+    "category": "Document",
+    "tags": ["file", "x", "remove", "delete", "erase"],
+    "version": "1.0"
+  }, 
+  "file-zip": {
+    "category": "Document",
+    "tags": ["file", "zip"],
+    "version": "1.29"
+  }, 
+  "file": {
+    "category": "Document",
+    "tags": ["file", "paper", "new"],
+    "version": "1.0"
+  }, 
+  "filter-off": {
+    "category": "System",
+    "tags": ["filter", "off"],
+    "version": "1.26"
+  }, 
+  "filter": {
+    "category": "System",
+    "tags": ["filter", "funnel", "hopper", "filtration"],
+    "version": "1.0"
+  }, 
+  "fingerprint": {
+    "category": "",
+    "tags": ["fingerprint", "indentify", "mark", "surface", "security", "access"],
+    "version": "1.6"
+  }, 
+  "firetruck": {
+    "category": "Vehicles",
+    "tags": ["firetruck"],
+    "version": "1.7"
+  }, 
+  "flag": {
+    "category": "Map",
+    "tags": ["flag", "banner", "pin", "report", "map"],
+    "version": "1.0"
+  }, 
+  "flame": {
+    "category": "",
+    "tags": ["flame"],
+    "version": "1.1"
+  }, 
+  "flask": {
+    "category": "",
+    "tags": ["flask", "liquid", "container", "glass", "chemistry"],
+    "version": "1.6"
+  }, 
+  "flip-horizontal": {
+    "category": "Design",
+    "tags": ["flip", "horizontal", "mirror", "rotate"],
+    "version": "1.0"
+  }, 
+  "flip-vertical": {
+    "category": "Design",
+    "tags": ["flip", "vertical", "mirror", "rotate"],
+    "version": "1.0"
+  }, 
+  "float-center": {
+    "category": "Text",
+    "tags": ["float", "center", "position"],
+    "version": "1.4"
+  }, 
+  "float-left": {
+    "category": "Text",
+    "tags": ["float", "left", "position"],
+    "version": "1.4"
+  }, 
+  "float-none": {
+    "category": "Text",
+    "tags": ["float", "none", "position"],
+    "version": "1.24"
+  }, 
+  "float-right": {
+    "category": "Text",
+    "tags": ["float", "right", "position"],
+    "version": "1.4"
+  }, 
+  "focus-2": {
+    "category": "Design",
+    "tags": ["focus", "2", "spotlight", "attention", "center", "aim", "target"],
+    "version": "1.6"
+  }, 
+  "focus": {
+    "category": "Design",
+    "tags": ["focus", "target", "bullseye", "aim"],
+    "version": "1.3"
+  }, 
+  "folder-minus": {
+    "category": "Document",
+    "tags": ["folder", "minus", "directory", "dir"],
+    "version": "1.0"
+  }, 
+  "folder-off": {
+    "category": "Document",
+    "tags": ["folder", "off", "cancel", "no", "directory", "dir"],
+    "version": "1.24"
+  }, 
+  "folder-plus": {
+    "category": "Document",
+    "tags": ["folder", "plus", "add", "create", "new", "directory", "dir"],
+    "version": "1.0"
+  }, 
+  "folder-x": {
+    "category": "Document",
+    "tags": ["folder", "x", "directory", "dir"],
+    "version": "1.0"
+  }, 
+  "folder": {
+    "category": "Document",
+    "tags": ["folder", "cancel", "no", "directory", "dir"],
+    "version": "1.0"
+  }, 
+  "folders": {
+    "category": "Document",
+    "tags": ["folders", "directory", "dir", "clone", "copy"],
+    "version": "1.0"
+  }, 
+  "forbid-2": {
+    "category": "",
+    "tags": ["forbid", "2", "access", "restriction", "ban", "limit"],
+    "version": "1.6"
+  }, 
+  "forbid": {
+    "category": "",
+    "tags": ["forbid", "access", "restriction", "ban", "limit"],
+    "version": "1.6"
+  }, 
+  "forklift": {
+    "category": "Vehicles",
+    "tags": ["forklift"],
+    "version": "1.7"
+  }, 
+  "frame": {
+    "category": "",
+    "tags": ["frame", "crop"],
+    "version": "1.0"
+  }, 
+  "friends": {
+    "category": "",
+    "tags": ["friends", "people", "boy", "girl", "man", "woman"],
+    "version": "1.0"
+  }, 
+  "gas-station": {
+    "category": "Vehicles",
+    "tags": ["gas", "station"],
+    "version": "1.14"
+  }, 
+  "gauge": {
+    "category": "System",
+    "tags": ["gauge", "car", "dashboard"],
+    "version": "1.0"
+  }, 
+  "ghost": {
+    "category": "",
+    "tags": ["ghost", "spirit", "transparent", "fairytale", "horror", "movie", "shadow", "haunt"],
+    "version": "1.3"
+  }, 
+  "gift": {
+    "category": "",
+    "tags": ["gift", "present", "birthday", "celebration", "wish", "bonus", "souvenire", "surprise"],
+    "version": "1.2"
+  }, 
+  "git-branch": {
+    "category": "",
+    "tags": ["git", "branch", "code", "version control", "command"],
+    "version": "1.0"
+  }, 
+  "git-commit": {
+    "category": "",
+    "tags": ["git", "commit", "code", "version control", "command"],
+    "version": "1.0"
+  }, 
+  "git-compare": {
+    "category": "",
+    "tags": ["git", "compare", "code", "version control", "command"],
+    "version": "1.0"
+  }, 
+  "git-fork": {
+    "category": "",
+    "tags": ["git", "fork", "code", "version control", "command"],
+    "version": "1.3"
+  }, 
+  "git-merge": {
+    "category": "",
+    "tags": ["git", "merge", "code", "version control", "command"],
+    "version": "1.0"
+  }, 
+  "git-pull-request": {
+    "category": "",
+    "tags": ["git", "pull", "request", "code", "version control", "command"],
+    "version": "1.0"
+  }, 
+  "glass-full": {
+    "category": "",
+    "tags": ["glass", "full", "wine", "cup", "goblet"],
+    "version": "1.0"
+  }, 
+  "glass": {
+    "category": "",
+    "tags": ["glass", "wine", "cup", "goblet"],
+    "version": "1.0"
+  }, 
+  "globe": {
+    "category": "Map",
+    "tags": ["globe", "world", "travel", "journey", "trip", "planet", "earth"],
+    "version": "1.1"
+  }, 
+  "grid-dots": {
+    "category": "System",
+    "tags": ["grid", "dots", "network", "pattern", "layout"],
+    "version": "1.0"
+  }, 
+  "grid": {
+    "category": "System",
+    "tags": ["grid", "layout", "table", "network", "pattern"],
+    "version": "1.0"
+  }, 
+  "grip-horizontal": {
+    "category": "System",
+    "tags": ["grip", "horizontal"],
+    "version": "1.8"
+  }, 
+  "grip-vertical": {
+    "category": "System",
+    "tags": ["grip", "vertical"],
+    "version": "1.8"
+  }, 
+  "h-1": {
+    "category": "Text",
+    "tags": ["h", "1"],
+    "version": "1.16"
+  }, 
+  "h-2": {
+    "category": "Text",
+    "tags": ["h", "2"],
+    "version": "1.16"
+  }, 
+  "h-3": {
+    "category": "Text",
+    "tags": ["h", "3"],
+    "version": "1.16"
+  }, 
+  "h-4": {
+    "category": "Text",
+    "tags": ["h", "4"],
+    "version": "1.16"
+  }, 
+  "h-5": {
+    "category": "Text",
+    "tags": ["h", "5"],
+    "version": "1.16"
+  }, 
+  "h-6": {
+    "category": "Text",
+    "tags": ["h", "6"],
+    "version": "1.16"
+  }, 
+  "hand-middle-finger": {
+    "category": "",
+    "tags": ["hand", "middle", "finger"],
+    "version": "1.1"
+  }, 
+  "hand-off": {
+    "category": "",
+    "tags": ["hand", "off"],
+    "version": "1.24"
+  }, 
+  "hand-stop": {
+    "category": "",
+    "tags": ["hand", "stop"],
+    "version": "1.1"
+  }, 
+  "hash": {
+    "category": "",
+    "tags": ["hash", "hashtag", "#", "instagram"],
+    "version": "1.0"
+  }, 
+  "headphones-off": {
+    "category": "Media",
+    "tags": ["headphones", "off"],
+    "version": "1.25"
+  }, 
+  "headphones": {
+    "category": "Media",
+    "tags": ["headphones", "music", "headset", "audio", "sound"],
+    "version": "1.0"
+  }, 
+  "headset": {
+    "category": "Media",
+    "tags": ["headset", "music", "headphones", "audio", "sound"],
+    "version": "1.3"
+  }, 
+  "heart-broken": {
+    "category": "",
+    "tags": ["heart", "broken", "love", "emotion", "like", "favorite", "relationship"],
+    "version": "1.18"
+  }, 
+  "heart": {
+    "category": "Shapes",
+    "tags": ["heart", "love", "emotion", "like", "favorite", "relationship"],
+    "version": "1.0"
+  }, 
+  "help": {
+    "category": "",
+    "tags": ["help", "tooltip", "assistance", "advice", "support"],
+    "version": "1.1"
+  }, 
+  "hexagon": {
+    "category": "Shapes",
+    "tags": ["hexagon"],
+    "version": "1.8"
+  }, 
+  "history": {
+    "category": "System",
+    "tags": ["history"],
+    "version": "1.7"
+  }, 
+  "home-2": {
+    "category": "Buildings",
+    "tags": ["home", "2", "house", "dashboard", "living", "building"],
+    "version": "1.1"
+  }, 
+  "home": {
+    "category": "Buildings",
+    "tags": ["home", "house", "dashboard", "living", "building"],
+    "version": "1.0"
+  }, 
+  "ice-cream": {
+    "category": "",
+    "tags": ["ice", "cream", "candy", "dessert", "frozen", "sweet"],
+    "version": "1.0"
+  }, 
+  "id": {
+    "category": "",
+    "tags": ["id", "identification", "card", "personal details"],
+    "version": "1.1"
+  }, 
+  "inbox": {
+    "category": "",
+    "tags": ["inbox", "mail", "gmail", "email", "envelope", "post"],
+    "version": "1.0"
+  }, 
+  "indent-decrease": {
+    "category": "Text",
+    "tags": ["indent", "decrease", "line", "position", "block", "margin", "paragraph"],
+    "version": "1.3"
+  }, 
+  "indent-increase": {
+    "category": "Text",
+    "tags": ["indent", "increase", "line", "position", "block", "margin", "paragraph"],
+    "version": "1.3"
+  }, 
+  "infinity": {
+    "category": "Math",
+    "tags": ["infinity", "endless", "eternity", "continuum", "time"],
+    "version": "1.2"
+  }, 
+  "info-circle": {
+    "category": "",
+    "tags": ["info", "circle", "information", "advice", "news", "tip", "sign"],
+    "version": "1.0"
+  }, 
+  "info-square": {
+    "category": "",
+    "tags": ["info", "square", "information", "advice", "news", "tip", "sign"],
+    "version": "1.0"
+  }, 
+  "italic": {
+    "category": "Text",
+    "tags": ["italic", "typography", "font", "typeface", "emphasise"],
+    "version": "1.3"
+  }, 
+  "karate": {
+    "category": "Sport",
+    "tags": ["karate"],
+    "version": "1.27"
+  }, 
+  "key": {
+    "category": "",
+    "tags": ["key", "password", "login", "authentication", "secure"],
+    "version": "1.0"
+  }, 
+  "keyboard-hide": {
+    "category": "Devices",
+    "tags": ["keyboard", "hide", "computer", "laptop", "device", "type"],
+    "version": "1.14"
+  }, 
+  "keyboard-show": {
+    "category": "Devices",
+    "tags": ["keyboard", "show", "computer", "laptop", "device", "type"],
+    "version": "1.14"
+  }, 
+  "keyboard": {
+    "category": "Devices",
+    "tags": ["keyboard", "computer", "laptop", "device", "type"],
+    "version": "1.6"
+  }, 
+  "language": {
+    "category": "",
+    "tags": ["language", "tongue", "country", "speech", "speak", "translate", "communication", "communicate", "english", "dialect", "dictionary", "word"],
+    "version": "1.5"
+  }, 
+  "layers-difference": {
+    "category": "Design",
+    "tags": ["layers", "difference", "stack"],
+    "version": "1.0"
+  }, 
+  "layers-intersect": {
+    "category": "Design",
+    "tags": ["layers", "intersect", "stack"],
+    "version": "1.0"
+  }, 
+  "layers-subtract": {
+    "category": "Design",
+    "tags": ["layers", "subtract", "stack"],
+    "version": "1.0"
+  }, 
+  "layers-union": {
+    "category": "Design",
+    "tags": ["layers", "union", "stack", "join"],
+    "version": "1.0"
+  }, 
+  "layout-2": {
+    "category": "Design",
+    "tags": ["layout", "2", "grid", "columns", "masonry", "collage"],
+    "version": "1.0"
+  }, 
+  "layout-align-bottom": {
+    "category": "Design",
+    "tags": ["layout", "align", "bottom", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-align-center": {
+    "category": "Design",
+    "tags": ["layout", "align", "center", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-align-left": {
+    "category": "Design",
+    "tags": ["layout", "align", "left", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-align-middle": {
+    "category": "Design",
+    "tags": ["layout", "align", "middle", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-align-right": {
+    "category": "Design",
+    "tags": ["layout", "align", "right", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-align-top": {
+    "category": "Design",
+    "tags": ["layout", "align", "top", "position", "element", "design"],
+    "version": "1.0"
+  }, 
+  "layout-bottombar": {
+    "category": "Design",
+    "tags": ["layout", "bottombar", "position", "element", "design", "grid", "footer"],
+    "version": "1.1"
+  }, 
+  "layout-cards": {
+    "category": "Design",
+    "tags": ["layout", "cards"],
+    "version": "1.8"
+  }, 
+  "layout-columns": {
+    "category": "Design",
+    "tags": ["layout", "columns", "grid", "column", "rows"],
+    "version": "1.0"
+  }, 
+  "layout-distribute-horizontal": {
+    "category": "Design",
+    "tags": ["layout", "distribute", "horizontal", "position", "element", "design", "around"],
+    "version": "1.0"
+  }, 
+  "layout-distribute-vertical": {
+    "category": "Design",
+    "tags": ["layout", "distribute", "vertical", "position", "element", "design", "around"],
+    "version": "1.0"
+  }, 
+  "layout-kanban": {
+    "category": "Design",
+    "tags": ["layout", "kanban"],
+    "version": "1.11"
+  }, 
+  "layout-list": {
+    "category": "Design",
+    "tags": ["layout", "list"],
+    "version": "1.8"
+  }, 
+  "layout-navbar": {
+    "category": "Design",
+    "tags": ["layout", "navbar", "grid", "row", "header"],
+    "version": "1.0"
+  }, 
+  "layout-rows": {
+    "category": "Design",
+    "tags": ["layout", "rows", "grid", "masonry", "collage"],
+    "version": "1.0"
+  }, 
+  "layout-sidebar-right": {
+    "category": "Design",
+    "tags": ["layout", "sidebar", "right", "grid", "aside", "column", "columns"],
+    "version": "1.0"
+  }, 
+  "layout-sidebar": {
+    "category": "Design",
+    "tags": ["layout", "sidebar", "grid", "aside", "column", "columns"],
+    "version": "1.0"
+  }, 
+  "layout": {
+    "category": "Design",
+    "tags": ["layout", "grid", "columns", "masonry", "collage"],
+    "version": "1.0"
+  }, 
+  "leaf": {
+    "category": "",
+    "tags": ["leaf"],
+    "version": "1.29"
+  }, 
+  "lego": {
+    "category": "",
+    "tags": ["lego", "toy", "boy", "face", "play"],
+    "version": "1.0"
+  }, 
+  "letter-a": {
+    "category": "Letters",
+    "tags": ["letter", "a"],
+    "version": "1.12"
+  }, 
+  "letter-b": {
+    "category": "Letters",
+    "tags": ["letter", "b"],
+    "version": "1.12"
+  }, 
+  "letter-c": {
+    "category": "Letters",
+    "tags": ["letter", "c"],
+    "version": "1.12"
+  }, 
+  "letter-d": {
+    "category": "Letters",
+    "tags": ["letter", "d"],
+    "version": "1.12"
+  }, 
+  "letter-e": {
+    "category": "Letters",
+    "tags": ["letter", "e"],
+    "version": "1.12"
+  }, 
+  "letter-f": {
+    "category": "Letters",
+    "tags": ["letter", "f"],
+    "version": "1.12"
+  }, 
+  "letter-g": {
+    "category": "Letters",
+    "tags": ["letter", "g"],
+    "version": "1.12"
+  }, 
+  "letter-h": {
+    "category": "Letters",
+    "tags": ["letter", "h"],
+    "version": "1.12"
+  }, 
+  "letter-i": {
+    "category": "Letters",
+    "tags": ["letter", "i"],
+    "version": "1.12"
+  }, 
+  "letter-j": {
+    "category": "Letters",
+    "tags": ["letter", "j"],
+    "version": "1.12"
+  }, 
+  "letter-k": {
+    "category": "Letters",
+    "tags": ["letter", "k"],
+    "version": "1.12"
+  }, 
+  "letter-l": {
+    "category": "Letters",
+    "tags": ["letter", "l"],
+    "version": "1.12"
+  }, 
+  "letter-m": {
+    "category": "Letters",
+    "tags": ["letter", "m"],
+    "version": "1.12"
+  }, 
+  "letter-n": {
+    "category": "Letters",
+    "tags": ["letter", "n"],
+    "version": "1.12"
+  }, 
+  "letter-o": {
+    "category": "Letters",
+    "tags": ["letter", "o"],
+    "version": "1.12"
+  }, 
+  "letter-p": {
+    "category": "Letters",
+    "tags": ["letter", "p"],
+    "version": "1.12"
+  }, 
+  "letter-q": {
+    "category": "Letters",
+    "tags": ["letter", "q"],
+    "version": "1.12"
+  }, 
+  "letter-r": {
+    "category": "Letters",
+    "tags": ["letter", "r"],
+    "version": "1.12"
+  }, 
+  "letter-s": {
+    "category": "Letters",
+    "tags": ["letter", "s"],
+    "version": "1.12"
+  }, 
+  "letter-t": {
+    "category": "Letters",
+    "tags": ["letter", "t"],
+    "version": "1.12"
+  }, 
+  "letter-u": {
+    "category": "Letters",
+    "tags": ["letter", "u"],
+    "version": "1.12"
+  }, 
+  "letter-v": {
+    "category": "Letters",
+    "tags": ["letter", "v"],
+    "version": "1.12"
+  }, 
+  "letter-w": {
+    "category": "Letters",
+    "tags": ["letter", "w"],
+    "version": "1.12"
+  }, 
+  "letter-x": {
+    "category": "Letters",
+    "tags": ["letter", "x"],
+    "version": "1.12"
+  }, 
+  "letter-y": {
+    "category": "Letters",
+    "tags": ["letter", "y"],
+    "version": "1.12"
+  }, 
+  "letter-z": {
+    "category": "Letters",
+    "tags": ["letter", "z"],
+    "version": "1.12"
+  }, 
+  "letters-case": {
+    "category": "Text",
+    "tags": ["letters", "case", "typography", "uppercase", "capitals", "lowercase", "type"],
+    "version": "1.5"
+  }, 
+  "license": {
+    "category": "",
+    "tags": ["license", "authorisation", "permission", "consent", "permit", "document", "agree"],
+    "version": "1.5"
+  }, 
+  "lifebuoy": {
+    "category": "",
+    "tags": ["lifebuoy", "life ring", "help", "support"],
+    "version": "1.0"
+  }, 
+  "line-height": {
+    "category": "Text",
+    "tags": ["line", "height", "space", "inline", "display"],
+    "version": "1.3"
+  }, 
+  "line": {
+    "category": "Design",
+    "tags": ["line"],
+    "version": "1.11"
+  }, 
+  "link": {
+    "category": "Text",
+    "tags": ["link", "chain", "url", "connection", "address"],
+    "version": "1.0"
+  }, 
+  "list-check": {
+    "category": "Text",
+    "tags": ["list", "check", "to-do", "checklist", "form", "template", "task", "reminder", "schedule", "agenda"],
+    "version": "1.2"
+  }, 
+  "list": {
+    "category": "Text",
+    "tags": ["list", "task", "unordered", "bullets", "agenda", "shopping"],
+    "version": "1.2"
+  }, 
+  "live-photo": {
+    "category": "Photos",
+    "tags": ["live", "photo", "capture", "photo", "movement", "sound", "memory", "image", "camera"],
+    "version": "1.1"
+  }, 
+  "live-view": {
+    "category": "Map",
+    "tags": ["live", "view"],
+    "version": "1.12"
+  }, 
+  "loader-quarter": {
+    "category": "System",
+    "tags": ["loader", "quarter"],
+    "version": "1.17"
+  }, 
+  "loader": {
+    "category": "System",
+    "tags": ["loader"],
+    "version": "1.17"
+  }, 
+  "location": {
+    "category": "Map",
+    "tags": ["location", "navigation", "map", "direction", "discover", "travel"],
+    "version": "1.0"
+  }, 
+  "lock-off": {
+    "category": "",
+    "tags": ["lock", "off"],
+    "version": "1.25"
+  }, 
+  "lock-open": {
+    "category": "",
+    "tags": ["lock", "open", "security", "password", "secure", "unprotected"],
+    "version": "1.0"
+  }, 
+  "lock": {
+    "category": "",
+    "tags": ["lock", "security", "password", "secure"],
+    "version": "1.0"
+  }, 
+  "login": {
+    "category": "",
+    "tags": ["login", "initialize", "password", "enter", "account", "permission"],
+    "version": "1.4"
+  }, 
+  "logout": {
+    "category": "",
+    "tags": ["logout", "exit", "shut", "unplug", "close"],
+    "version": "1.4"
+  }, 
+  "magnet": {
+    "category": "",
+    "tags": ["magnet", "magnetic field", "pole", "iron", "attract"],
+    "version": "1.0"
+  }, 
+  "mail-opened": {
+    "category": "Communication",
+    "tags": ["mail", "opened", "inbox", "gmail", "email", "envelope", "message", "read"],
+    "version": "1.0"
+  }, 
+  "mail": {
+    "category": "Communication",
+    "tags": ["mail", "inbox", "gmail", "email", "envelope", "message"],
+    "version": "1.0"
+  }, 
+  "man": {
+    "category": "",
+    "tags": ["man", "guy", "boy", "male", "gender"],
+    "version": "1.0"
+  }, 
+  "map-2": {
+    "category": "Map",
+    "tags": ["map", "2", "navigation", "location", "travel", "pin", "position", "marker"],
+    "version": "1.0"
+  }, 
+  "map-pin-off": {
+    "category": "Map",
+    "tags": ["map", "pin", "off"],
+    "version": "1.22"
+  }, 
+  "map-pin": {
+    "category": "Map",
+    "tags": ["map", "pin", "navigation", "location", "travel", "pin", "position", "marker"],
+    "version": "1.0"
+  }, 
+  "map": {
+    "category": "Map",
+    "tags": ["map", "navigation", "location", "travel"],
+    "version": "1.0"
+  }, 
+  "markdown": {
+    "category": "Text",
+    "tags": ["markdown"],
+    "version": "1.11"
+  }, 
+  "marquee": {
+    "category": "",
+    "tags": ["marquee"],
+    "version": "1.13"
+  }, 
+  "mars": {
+    "category": "Symbols",
+    "tags": ["mars"],
+    "version": "1.14"
+  }, 
+  "math": {
+    "category": "Math",
+    "tags": ["math"],
+    "version": "1.7"
+  }, 
+  "maximize": {
+    "category": "",
+    "tags": ["maximize", "fullscreen"],
+    "version": "1.0"
+  }, 
+  "medal": {
+    "category": "",
+    "tags": ["medal"],
+    "version": "1.13"
+  }, 
+  "medical-cross": {
+    "category": "Map",
+    "tags": ["medical", "cross"],
+    "version": "1.1"
+  }, 
+  "menu-2": {
+    "category": "System",
+    "tags": ["menu", "2", "bars", "hamburger", "navigation", "burger"],
+    "version": "1.11"
+  }, 
+  "menu": {
+    "category": "System",
+    "tags": ["menu", "bars", "hamburger", "navigation", "burger"],
+    "version": "1.0"
+  }, 
+  "message-2": {
+    "category": "Communication",
+    "tags": ["message", "2", "comment", "chat", "reply"],
+    "version": "1.0"
+  }, 
+  "message-circle-2": {
+    "category": "Communication",
+    "tags": ["message", "circle", "2", "comment", "chat", "reply"],
+    "version": "1.28"
+  }, 
+  "message-circle-off": {
+    "category": "Communication",
+    "tags": ["message", "circle", "off", "comment", "chat", "reply"],
+    "version": "1.28"
+  }, 
+  "message-circle": {
+    "category": "Communication",
+    "tags": ["message", "circle", "comment", "chat", "reply"],
+    "version": "1.0"
+  }, 
+  "message-dots": {
+    "category": "Communication",
+    "tags": ["message", "dots", "comment", "chat", "reply"],
+    "version": "1.0"
+  }, 
+  "message-off": {
+    "category": "Communication",
+    "tags": ["message", "off", "comment", "chat", "reply"],
+    "version": "1.28"
+  }, 
+  "message-plus": {
+    "category": "Communication",
+    "tags": ["message", "plus", "comment", "chat", "reply", "communication", "conversation"],
+    "version": "1.16"
+  }, 
+  "message-report": {
+    "category": "Communication",
+    "tags": ["message", "report", "comment", "chat", "reply", "communication", "conversation"],
+    "version": "1.16"
+  }, 
+  "message": {
+    "category": "Communication",
+    "tags": ["message", "comment", "chat", "reply", "communication", "conversation"],
+    "version": "1.0"
+  }, 
+  "messages-off": {
+    "category": "Communication",
+    "tags": ["messages", "off", "chat", "reply", "comment", "conversation", "communication"],
+    "version": "1.28"
+  }, 
+  "messages": {
+    "category": "Communication",
+    "tags": ["messages", "chat", "reply", "comment", "conversation", "communication"],
+    "version": "1.2"
+  }, 
+  "microphone-off": {
+    "category": "Media",
+    "tags": ["microphone", "off"],
+    "version": "1.24"
+  }, 
+  "microphone": {
+    "category": "Media",
+    "tags": ["microphone", "record", "sound", "listen"],
+    "version": "1.0"
+  }, 
+  "minimize": {
+    "category": "",
+    "tags": ["minimize", "exit", "close"],
+    "version": "1.0"
+  }, 
+  "minus": {
+    "category": "Math",
+    "tags": ["minus", "subtract", "less"],
+    "version": "1.0"
+  }, 
+  "mist": {
+    "category": "Weather",
+    "tags": ["mist"],
+    "version": "1.1"
+  }, 
+  "mood-boy": {
+    "category": "Mood",
+    "tags": ["mood", "boy", "face", "emoji", "emotion"],
+    "version": "1.26"
+  }, 
+  "mood-confuzed": {
+    "category": "Mood",
+    "tags": ["mood", "confuzed", "face", "emoji", "emotion", "frown"],
+    "version": "1.0"
+  }, 
+  "mood-cry": {
+    "category": "Mood",
+    "tags": ["mood", "cry", "face", "emoji", "emotion", "mad"],
+    "version": "1.18"
+  }, 
+  "mood-happy": {
+    "category": "Mood",
+    "tags": ["mood", "happy", "face", "emoji", "emotion"],
+    "version": "1.0"
+  }, 
+  "mood-kid": {
+    "category": "Mood",
+    "tags": ["mood", "kid", "face", "emoji", "emotion"],
+    "version": "1.8"
+  }, 
+  "mood-neutral": {
+    "category": "Mood",
+    "tags": ["mood", "neutral", "face", "emoji", "emotion"],
+    "version": "1.0"
+  }, 
+  "mood-sad": {
+    "category": "Mood",
+    "tags": ["mood", "sad", "face", "emoji", "emotion", "mad"],
+    "version": "1.0"
+  }, 
+  "mood-smile": {
+    "category": "Mood",
+    "tags": ["mood", "smile", "face", "emoji", "emotion"],
+    "version": "1.0"
+  }, 
+  "mood-suprised": {
+    "category": "Mood",
+    "tags": ["mood", "suprised", "face", "emoji", "emotion"],
+    "version": "1.8"
+  }, 
+  "mood-tongue": {
+    "category": "Mood",
+    "tags": ["mood", "tongue", "face", "emoji", "emotion"],
+    "version": "1.3"
+  }, 
+  "moon-2": {
+    "category": "Weather",
+    "tags": ["moon", "2"],
+    "version": "1.21"
+  }, 
+  "moon-stars": {
+    "category": "Weather",
+    "tags": ["moon", "stars", "night", "dark mode"],
+    "version": "1.21"
+  }, 
+  "moon": {
+    "category": "Weather",
+    "tags": ["moon", "night", "dark mode"],
+    "version": "1.0"
+  }, 
+  "moped": {
+    "category": "Vehicles",
+    "tags": ["moped", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"],
+    "version": "1.18"
+  }, 
+  "mouse": {
+    "category": "",
+    "tags": ["mouse", "pointer", "cursor", "device"],
+    "version": "1.0"
+  }, 
+  "movie": {
+    "category": "Media",
+    "tags": ["movie", "film", "video", "cinema"],
+    "version": "1.0"
+  }, 
+  "mug": {
+    "category": "",
+    "tags": ["mug", "tea", "coffee", "drink", "container", "jug"],
+    "version": "1.1"
+  }, 
+  "music": {
+    "category": "Media",
+    "tags": ["music", "sound", "mp3", "album", "sound", "speakers", "melody"],
+    "version": "1.0"
+  }, 
+  "new-section": {
+    "category": "",
+    "tags": ["new", "section", "add", "element", "component", "layout", "page"],
+    "version": "1.5"
+  }, 
+  "news": {
+    "category": "Document",
+    "tags": ["news", "newspaper", "article"],
+    "version": "1.0"
+  }, 
+  "note": {
+    "category": "Document",
+    "tags": ["note", "checkbox", "brief", "record", "write", "message"],
+    "version": "1.2"
+  }, 
+  "notebook": {
+    "category": "Document",
+    "tags": ["notebook", "study", "learn", "diary", "write", "journal", "page", "paper", "jot down"],
+    "version": "1.3"
+  }, 
+  "notes": {
+    "category": "Document",
+    "tags": ["notes", "notetaking", "journal", "draft", "idea", "to-do list"],
+    "version": "1.2"
+  }, 
+  "notification": {
+    "category": "",
+    "tags": ["notification", "bell", "alarm", "reminder", "important"],
+    "version": "1.0"
+  }, 
+  "octagon": {
+    "category": "Shapes",
+    "tags": ["octagon"],
+    "version": "1.18"
+  }, 
+  "omega": {
+    "category": "",
+    "tags": ["omega", "alphabet", "greek", "symbol", "final", "last"],
+    "version": "1.3"
+  }, 
+  "outlet": {
+    "category": "",
+    "tags": ["outlet", "socket", "electricity", "electrical", "plug in", "device"],
+    "version": "1.6"
+  }, 
+  "package": {
+    "category": "",
+    "tags": ["package", "npm", "box", "container"],
+    "version": "1.0"
+  }, 
+  "page-break": {
+    "category": "",
+    "tags": ["page", "break"],
+    "version": "1.14"
+  }, 
+  "paint": {
+    "category": "Design",
+    "tags": ["paint", "brush", "renovation", "refurbishment", "color", "wall"],
+    "version": "1.0"
+  }, 
+  "palette": {
+    "category": "Design",
+    "tags": ["palette", "color", "paint", "painter", "picture", "board", "artist"],
+    "version": "1.1"
+  }, 
+  "panorama-horizontal": {
+    "category": "Photos",
+    "tags": ["panorama", "horizontal"],
+    "version": "1.27"
+  }, 
+  "panorama-vertical": {
+    "category": "Photos",
+    "tags": ["panorama", "vertical"],
+    "version": "1.27"
+  }, 
+  "paperclip": {
+    "category": "",
+    "tags": ["paperclip", "attachment", "annex", "hold"],
+    "version": "1.0"
+  }, 
+  "parentheses": {
+    "category": "Math",
+    "tags": ["parentheses", "brackets", "aside", "punctuation", "mark", "insert"],
+    "version": "1.6"
+  }, 
+  "parking": {
+    "category": "Map",
+    "tags": ["parking", "sign", "car", "vehicle", "space"],
+    "version": "1.0"
+  }, 
+  "peace": {
+    "category": "Symbols",
+    "tags": ["peace"],
+    "version": "1.18"
+  }, 
+  "pencil": {
+    "category": "Design",
+    "tags": ["pencil", "write", "draft", "edit", "note"],
+    "version": "1.1"
+  }, 
+  "percentage": {
+    "category": "Math",
+    "tags": ["percentage"],
+    "version": "1.22"
+  }, 
+  "phone-call": {
+    "category": "Devices",
+    "tags": ["phone", "call", "ring", "mobile", "conversation", "answer", "dial", "landline"],
+    "version": "1.0"
+  }, 
+  "phone-calling": {
+    "category": "Devices",
+    "tags": ["phone", "calling", "ring", "mobile", "conversation", "answer", "dial", "landline"],
+    "version": "1.11"
+  }, 
+  "phone-check": {
+    "category": "Devices",
+    "tags": ["phone", "check", "ring", "mobile", "conversation", "answer", "dial", "landline"],
+    "version": "1.8"
+  }, 
+  "phone-incoming": {
+    "category": "Devices",
+    "tags": ["phone", "incoming", "call", "answer", "mobile", "landline", "conversation"],
+    "version": "1.0"
+  }, 
+  "phone-off": {
+    "category": "Devices",
+    "tags": ["phone", "off", "call", "mobile", "conversation", "landline", "answer", "number"],
+    "version": "1.22"
+  }, 
+  "phone-outgoing": {
+    "category": "Devices",
+    "tags": ["phone", "outgoing", "call", "signal", "mobile", "landline", "conversation"],
+    "version": "1.0"
+  }, 
+  "phone-pause": {
+    "category": "Devices",
+    "tags": ["phone", "pause", "call", "mute", "mobile", "landline", "conversation"],
+    "version": "1.0"
+  }, 
+  "phone-plus": {
+    "category": "Devices",
+    "tags": ["phone", "plus", "call", "signal", "mobile", "landline", "conversation"],
+    "version": "1.8"
+  }, 
+  "phone-x": {
+    "category": "Devices",
+    "tags": ["phone", "x", "ring", "mobile", "conversation", "answer", "dial", "landline"],
+    "version": "1.8"
+  }, 
+  "phone": {
+    "category": "Devices",
+    "tags": ["phone", "call", "mobile", "conversation", "landline", "answer", "number"],
+    "version": "1.0"
+  }, 
+  "photo-off": {
+    "category": "Media",
+    "tags": ["photo", "off"],
+    "version": "1.22"
+  }, 
+  "photo": {
+    "category": "Media",
+    "tags": ["photo", "image", "picture", "landscape", "camera"],
+    "version": "1.0"
+  }, 
+  "picture-in-picture-off": {
+    "category": "Media",
+    "tags": ["picture", "in", "picture", "off"],
+    "version": "1.28"
+  }, 
+  "picture-in-picture-on": {
+    "category": "Media",
+    "tags": ["picture", "in", "picture", "on"],
+    "version": "1.28"
+  }, 
+  "picture-in-picture": {
+    "category": "Media",
+    "tags": ["picture", "in", "picture"],
+    "version": "1.27"
+  }, 
+  "pill": {
+    "category": "",
+    "tags": ["pill", "drug", "medication", "illness", "sickness", "doctor", "prescription"],
+    "version": ""
+  }, 
+  "pin": {
+    "category": "Map",
+    "tags": ["pin"],
+    "version": "1.16"
+  }, 
+  "plane-arrival": {
+    "category": "Vehicles",
+    "tags": ["plane", "arrival", "travel", "land", "journey", "trip", "airport", "baggage", "luggage"],
+    "version": "1.3"
+  }, 
+  "plane-departure": {
+    "category": "Vehicles",
+    "tags": ["plane", "departure", "travel", "take off", "journey", "trip", "airport", "baggage", "luggage"],
+    "version": "1.3"
+  }, 
+  "plane": {
+    "category": "Vehicles",
+    "tags": ["plane", "travel", "journey", "trip", "airport", "baggage", "luggage"],
+    "version": "1.2"
+  }, 
+  "planet": {
+    "category": "Map",
+    "tags": ["planet"],
+    "version": "1.8"
+  }, 
+  "plant": {
+    "category": "",
+    "tags": ["plant"],
+    "version": "1.29"
+  }, 
+  "player-pause": {
+    "category": "Media",
+    "tags": ["player", "pause"],
+    "version": "1.28"
+  }, 
+  "player-play": {
+    "category": "Media",
+    "tags": ["player", "play"],
+    "version": "1.28"
+  }, 
+  "player-record": {
+    "category": "Media",
+    "tags": ["player", "record"],
+    "version": "1.28"
+  }, 
+  "player-skip-back": {
+    "category": "Media",
+    "tags": ["player", "skip", "back"],
+    "version": "1.28"
+  }, 
+  "player-skip-forward": {
+    "category": "Media",
+    "tags": ["player", "skip", "forward"],
+    "version": "1.28"
+  }, 
+  "player-stop": {
+    "category": "Media",
+    "tags": ["player", "stop"],
+    "version": "1.28"
+  }, 
+  "player-track-next": {
+    "category": "Media",
+    "tags": ["player", "track", "next"],
+    "version": "1.28"
+  }, 
+  "player-track-prev": {
+    "category": "Media",
+    "tags": ["player", "track", "prev"],
+    "version": "1.28"
+  }, 
+  "plug": {
+    "category": "",
+    "tags": ["plug", "electricity", "charger", "socket", "connection"],
+    "version": "1.6"
+  }, 
+  "plus": {
+    "category": "Math",
+    "tags": ["plus", "add", "create", "new"],
+    "version": "1.0"
+  }, 
+  "point": {
+    "category": "",
+    "tags": ["point", "dot", "label"],
+    "version": "1.0"
+  }, 
+  "power": {
+    "category": "Devices",
+    "tags": ["power", "on", "off", "turn on", "turn off", "electricity"],
+    "version": "1.0"
+  }, 
+  "pray": {
+    "category": "",
+    "tags": ["pray"],
+    "version": "1.18"
+  }, 
+  "presentation": {
+    "category": "",
+    "tags": ["presentation", "slideshow", "display", "exhibition", "speech", "topic", "conference"],
+    "version": "1.2"
+  }, 
+  "printer": {
+    "category": "Devices",
+    "tags": ["printer", "fax", "office", "device"],
+    "version": "1.0"
+  }, 
+  "prompt": {
+    "category": "",
+    "tags": ["prompt", "command line", "terminal", "code"],
+    "version": "1.0"
+  }, 
+  "puzzle": {
+    "category": "",
+    "tags": ["puzzle", "jigsaw", "extension", "add-on"],
+    "version": "1.0"
+  }, 
+  "qrcode": {
+    "category": "Devices",
+    "tags": ["qrcode", "scan", "data"],
+    "version": "1.0"
+  }, 
+  "question-mark": {
+    "category": "",
+    "tags": ["question", "mark"],
+    "version": "1.16"
+  }, 
+  "radioactive": {
+    "category": "Symbols",
+    "tags": ["radioactive"],
+    "version": "1.18"
+  }, 
+  "record-mail": {
+    "category": "",
+    "tags": ["record", "mail", "voice", "voicemail", "message"],
+    "version": "1.1"
+  }, 
+  "rectangle-vertical": {
+    "category": "Shapes",
+    "tags": ["rectangle", "vertical"],
+    "version": "1.27"
+  }, 
+  "rectangle": {
+    "category": "Shapes",
+    "tags": ["rectangle"],
+    "version": "1.27"
+  }, 
+  "recycle": {
+    "category": "",
+    "tags": ["recycle", "trash", "rubbish", "recyclable", "reuse", "waste"],
+    "version": "1.3"
+  }, 
+  "refresh": {
+    "category": "",
+    "tags": ["refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"],
+    "version": "1.0"
+  }, 
+  "registered": {
+    "category": "",
+    "tags": ["registered", "copyright", "trademark", "rights"],
+    "version": "1.0"
+  }, 
+  "repeat-once": {
+    "category": "Media",
+    "tags": ["repeat", "once", "reuse", "redo", "action", "replay", "loop"],
+    "version": "1.2"
+  }, 
+  "repeat": {
+    "category": "Media",
+    "tags": ["repeat", "reuse", "redo", "action", "replay", "loop"],
+    "version": "1.2"
+  }, 
+  "replace": {
+    "category": "",
+    "tags": ["replace", "change", "place", "position", "move", "exchange"],
+    "version": "1.5"
+  }, 
+  "road-sign": {
+    "category": "Map",
+    "tags": ["road", "sign"],
+    "version": "1.2"
+  }, 
+  "rocket": {
+    "category": "Map",
+    "tags": ["rocket"],
+    "version": "1.11"
+  }, 
+  "rotate-2": {
+    "category": "Arrows",
+    "tags": ["rotate", "2", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"],
+    "version": "1.4"
+  }, 
+  "rotate-clockwise-2": {
+    "category": "Arrows",
+    "tags": ["rotate", "clockwise", "2", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"],
+    "version": "1.4"
+  }, 
+  "rotate-clockwise": {
+    "category": "Arrows",
+    "tags": ["rotate", "clockwise", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"],
+    "version": "1.0"
+  }, 
+  "rotate-rectangle": {
+    "category": "Arrows",
+    "tags": ["rotate", "rectangle"],
+    "version": "1.8"
+  }, 
+  "rotate": {
+    "category": "Arrows",
+    "tags": ["rotate", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows"],
+    "version": "1.0"
+  }, 
+  "route": {
+    "category": "Map",
+    "tags": ["route", "path", "navigation", "map"],
+    "version": "1.0"
+  }, 
+  "router": {
+    "category": "Devices",
+    "tags": ["router", "wifi", "device", "wireless", "signal", "station", "cast"],
+    "version": "1.0"
+  }, 
+  "rss": {
+    "category": "",
+    "tags": ["rss", "feed", "subscribe"],
+    "version": "1.0"
+  }, 
+  "ruler": {
+    "category": "",
+    "tags": ["ruler", "maths", "dimensions", "size", "width", "length", "geometry", "measure", "technical"],
+    "version": "1.1"
+  }, 
+  "run": {
+    "category": "Sport",
+    "tags": ["run"],
+    "version": "1.14"
+  }, 
+  "sailboat": {
+    "category": "Vehicles",
+    "tags": ["sailboat"],
+    "version": "1.14"
+  }, 
+  "scale": {
+    "category": "",
+    "tags": ["scale", "maths", "measure", "weight", "weigh", "balance", "worth"],
+    "version": "1.5"
+  }, 
+  "scan": {
+    "category": "",
+    "tags": ["scan", "code", "barcode", "qr code", "app", "scanner", "document"],
+    "version": "1.5"
+  }, 
+  "school": {
+    "category": "",
+    "tags": ["school"],
+    "version": "1.22"
+  }, 
+  "scissors": {
+    "category": "Design",
+    "tags": ["scissors", "cut", "paper", "file", "document", "hairdresser", "blade", "sharp"],
+    "version": "1.1"
+  }, 
+  "scooter-electric": {
+    "category": "Vehicles",
+    "tags": ["scooter", "electric", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"],
+    "version": "1.12"
+  }, 
+  "scooter": {
+    "category": "Vehicles",
+    "tags": ["scooter", "vehicle", "drive", "driver", "engine", "motor", "journey", "trip"],
+    "version": "1.12"
+  }, 
+  "screen-share-off": {
+    "category": "Devices",
+    "tags": ["screen", "share", "off"],
+    "version": "1.24"
+  }, 
+  "screen-share": {
+    "category": "Devices",
+    "tags": ["screen", "share"],
+    "version": "1.24"
+  }, 
+  "search": {
+    "category": "",
+    "tags": ["search", "find", "magnifier", "magnifying glass"],
+    "version": "1.0"
+  }, 
+  "seeding": {
+    "category": "",
+    "tags": ["seeding"],
+    "version": "1.29"
+  }, 
+  "select": {
+    "category": "",
+    "tags": ["select", "input"],
+    "version": "1.16"
+  }, 
+  "selector": {
+    "category": "",
+    "tags": ["selector", "arrows"],
+    "version": "1.0"
+  }, 
+  "send": {
+    "category": "Communication",
+    "tags": ["send", "message", "mail", "email", "gmail", "paper", "airplane", "aeroplane"],
+    "version": "1.0"
+  }, 
+  "separator-horizontal": {
+    "category": "Text",
+    "tags": ["separator", "horizontal"],
+    "version": "1.13"
+  }, 
+  "separator-vertical": {
+    "category": "Text",
+    "tags": ["separator", "vertical"],
+    "version": "1.13"
+  }, 
+  "separator": {
+    "category": "Text",
+    "tags": ["separator", "divider", "space", "separate", "set apart"],
+    "version": "1.6"
+  }, 
+  "server": {
+    "category": "",
+    "tags": ["server", "storage", "hosting", "www"],
+    "version": "1.0"
+  }, 
+  "servicemark": {
+    "category": "",
+    "tags": ["servicemark"],
+    "version": "1.8"
+  }, 
+  "settings": {
+    "category": "System",
+    "tags": ["settings", "cog", "edit", "gear", "preferences", "tools"],
+    "version": "1.0"
+  }, 
+  "shape": {
+    "category": "Design",
+    "tags": ["shape", "draw", "square", "form", "create", "outline"],
+    "version": "1.3"
+  }, 
+  "share": {
+    "category": "",
+    "tags": ["share", "network", "link", "connection"],
+    "version": "1.0"
+  }, 
+  "shield-check": {
+    "category": "",
+    "tags": ["shield", "check", "safety", "protect", "protection", "yes", "add"],
+    "version": "1.0"
+  }, 
+  "shield-off": {
+    "category": "",
+    "tags": ["shield", "off"],
+    "version": "1.22"
+  }, 
+  "shield-x": {
+    "category": "",
+    "tags": ["shield", "x", "unprotected", "protection", "cancel", "no"],
+    "version": "1.0"
+  }, 
+  "shield": {
+    "category": "",
+    "tags": ["shield", "safety", "protect", "protection"],
+    "version": "1.0"
+  }, 
+  "ship": {
+    "category": "Vehicles",
+    "tags": ["ship"],
+    "version": "1.14"
+  }, 
+  "shirt": {
+    "category": "",
+    "tags": ["shirt"],
+    "version": "1.8"
+  }, 
+  "shopping-cart": {
+    "category": "",
+    "tags": ["shopping", "cart", "bag", "ecommerce", "purchase", "store", "online"],
+    "version": "1.0"
+  }, 
+  "sitemap": {
+    "category": "",
+    "tags": ["sitemap", "page", "webpage", "website", "list", "roadmap", "index"],
+    "version": "1.3"
+  }, 
+  "skateboard": {
+    "category": "Vehicles",
+    "tags": ["skateboard"],
+    "version": "1.18"
+  }, 
+  "slice": {
+    "category": "Design",
+    "tags": ["slice", "knife", "cut", "chop", "portion", "kitchen", "tool"],
+    "version": "1.6"
+  }, 
+  "slideshow": {
+    "category": "Text",
+    "tags": ["slideshow", "photo", "picture", "video", "presentation", "camera", "display", "ad"],
+    "version": "1.5"
+  }, 
+  "smart-home": {
+    "category": "Buildings",
+    "tags": ["smart", "home"],
+    "version": "1.2"
+  }, 
+  "smoking-no": {
+    "category": "",
+    "tags": ["smoking", "no"],
+    "version": "1.18"
+  }, 
+  "smoking": {
+    "category": "",
+    "tags": ["smoking"],
+    "version": "1.18"
+  }, 
+  "snowflake": {
+    "category": "Weather",
+    "tags": ["snowflake"],
+    "version": "1.8"
+  }, 
+  "social": {
+    "category": "",
+    "tags": ["social"],
+    "version": "1.7"
+  }, 
+  "sort-ascending": {
+    "category": "Text",
+    "tags": ["sort", "ascending", "arrange"],
+    "version": "1.0"
+  }, 
+  "sort-descending": {
+    "category": "Text",
+    "tags": ["sort", "descending", "arrange"],
+    "version": "1.0"
+  }, 
+  "space": {
+    "category": "Text",
+    "tags": ["space"],
+    "version": "1.8"
+  }, 
+  "square-check": {
+    "category": "",
+    "tags": ["square", "check", "checkbox", "yes"],
+    "version": "1.0"
+  }, 
+  "square-minus": {
+    "category": "",
+    "tags": ["square", "minus", "remove", "indeterminate"],
+    "version": "1.0"
+  }, 
+  "square-plus": {
+    "category": "",
+    "tags": ["square", "plus", "add", "create", "new"],
+    "version": "1.0"
+  }, 
+  "square-rotated": {
+    "category": "Shapes",
+    "tags": ["square", "rotated"],
+    "version": "1.2"
+  }, 
+  "square-x": {
+    "category": "",
+    "tags": ["square", "x", "cancel", "close", "delete", "remove", "times", "clear", "no"],
+    "version": "1.0"
+  }, 
+  "square": {
+    "category": "Shapes",
+    "tags": ["square", "checkbox"],
+    "version": "1.0"
+  }, 
+  "stack": {
+    "category": "",
+    "tags": ["stack", "pile", "elements", "layout", "wrap"],
+    "version": "1.1"
+  }, 
+  "stairs-down": {
+    "category": "",
+    "tags": ["stairs", "down"],
+    "version": "1.17"
+  }, 
+  "stairs-up": {
+    "category": "",
+    "tags": ["stairs", "up"],
+    "version": "1.17"
+  }, 
+  "stairs": {
+    "category": "",
+    "tags": ["stairs"],
+    "version": "1.17"
+  }, 
+  "star-half": {
+    "category": "Shapes",
+    "tags": ["star", "half", "favorite", "like", "mark", "bookmark", "grade"],
+    "version": "1.24"
+  }, 
+  "star": {
+    "category": "Shapes",
+    "tags": ["star", "favorite", "like", "mark", "bookmark", "grade"],
+    "version": "1.0"
+  }, 
+  "stars": {
+    "category": "",
+    "tags": ["stars"],
+    "version": "1.27"
+  }, 
+  "steering-wheel": {
+    "category": "Vehicles",
+    "tags": ["steering", "wheel"],
+    "version": "1.13"
+  }, 
+  "step-into": {
+    "category": "Arrows",
+    "tags": ["step", "into"],
+    "version": "1.2"
+  }, 
+  "step-out": {
+    "category": "Arrows",
+    "tags": ["step", "out"],
+    "version": "1.2"
+  }, 
+  "sticker": {
+    "category": "",
+    "tags": ["sticker", "label", "stamp", "adhesive"],
+    "version": "1.0"
+  }, 
+  "strikethrough": {
+    "category": "Text",
+    "tags": ["strikethrough", "typography", "horizontal", "deleted", "removed", "unimportant"],
+    "version": "1.3"
+  }, 
+  "subscript": {
+    "category": "Text",
+    "tags": ["subscript", "typography", "below", "formula", "maths", "fraction"],
+    "version": "1.3"
+  }, 
+  "subtask": {
+    "category": "",
+    "tags": ["subtask"],
+    "version": "1.16"
+  }, 
+  "sum": {
+    "category": "",
+    "tags": ["sum", "equation", "add", "plus", "amount", "total"],
+    "version": "1.2"
+  }, 
+  "sun": {
+    "category": "Weather",
+    "tags": ["sun", "weather", "light", "mode", "brightness"],
+    "version": "1.0"
+  }, 
+  "sunset": {
+    "category": "Weather",
+    "tags": ["sunset"],
+    "version": "1.1"
+  }, 
+  "sunshine": {
+    "category": "Weather",
+    "tags": ["sunshine"],
+    "version": "1.1"
+  }, 
+  "superscript": {
+    "category": "Text",
+    "tags": ["superscript", "typography", "above", "maths", "fraction", "trademark", "footer"],
+    "version": "1.3"
+  }, 
+  "swimming": {
+    "category": "Sport",
+    "tags": ["swimming"],
+    "version": "1.14"
+  }, 
+  "switch-horizontal": {
+    "category": "Arrows",
+    "tags": ["switch", "horizontal", "toggle", "left", "right", "arrows"],
+    "version": "1.0"
+  }, 
+  "switch-vertical": {
+    "category": "Arrows",
+    "tags": ["switch", "vertical", "toggle", "up", "down", "arrows"],
+    "version": "1.0"
+  }, 
+  "switch": {
+    "category": "Arrows",
+    "tags": ["switch", "toggle", "arrows"],
+    "version": "1.0"
+  }, 
+  "table": {
+    "category": "Text",
+    "tags": ["table", "spreadsheet", "layout", "grid", "arrange", "row", "column"],
+    "version": "1.3"
+  }, 
+  "tag": {
+    "category": "",
+    "tags": ["tag", "label", "price"],
+    "version": "1.0"
+  }, 
+  "tallymark-1": {
+    "category": "Math",
+    "tags": ["tallymark", "1"],
+    "version": "1.11"
+  }, 
+  "tallymark-2": {
+    "category": "Math",
+    "tags": ["tallymark", "2"],
+    "version": "1.11"
+  }, 
+  "tallymark-3": {
+    "category": "Math",
+    "tags": ["tallymark", "3"],
+    "version": "1.11"
+  }, 
+  "tallymark-4": {
+    "category": "Math",
+    "tags": ["tallymark", "4"],
+    "version": "1.11"
+  }, 
+  "tallymarks": {
+    "category": "Math",
+    "tags": ["tallymarks"],
+    "version": "1.11"
+  }, 
+  "target": {
+    "category": "Map",
+    "tags": ["target", "focus", "bullseye", "aim"],
+    "version": "1.0"
+  }, 
+  "tax": {
+    "category": "",
+    "tags": ["tax", "income", "percentage", "money", "finance", "charge", "obligation", "taxpayer", "vat"],
+    "version": "1.5"
+  }, 
+  "temperature-celsius": {
+    "category": "Weather",
+    "tags": ["temperature", "celsius", "weather", "celcius", "fahrenheit", "cold", "hot"],
+    "version": "1.1"
+  }, 
+  "temperature-fahrenheit": {
+    "category": "Weather",
+    "tags": ["temperature", "fahrenheit", "weather", "celcius", "fahrenheit", "cold", "hot"],
+    "version": "1.1"
+  }, 
+  "temperature-minus": {
+    "category": "Weather",
+    "tags": ["temperature", "minus", "weather", "celcius", "fahrenheit", "cold", "hot"],
+    "version": "1.7"
+  }, 
+  "temperature-plus": {
+    "category": "Weather",
+    "tags": ["temperature", "plus", "weather", "celcius", "fahrenheit", "cold", "hot"],
+    "version": "1.7"
+  }, 
+  "temperature": {
+    "category": "Weather",
+    "tags": ["temperature", "weather", "celcius", "fahrenheit", "cold", "hot"],
+    "version": "1.1"
+  }, 
+  "template": {
+    "category": "Design",
+    "tags": ["template", "grid", "columns", "masonry", "collage"],
+    "version": "1.1"
+  }, 
+  "terminal-2": {
+    "category": "",
+    "tags": ["terminal", "2", "console", "command", "git", "command line", "command prompt"],
+    "version": "1.7"
+  }, 
+  "terminal": {
+    "category": "",
+    "tags": ["terminal", "console", "command", "git", "command line", "command prompt"],
+    "version": "1.6"
+  }, 
+  "test-pipe": {
+    "category": "",
+    "tags": ["test", "pipe", "sample", "color"],
+    "version": "1.0"
+  }, 
+  "text-wrap-disabled": {
+    "category": "Text",
+    "tags": ["text", "wrap", "disabled", "text", "alignment", "position"],
+    "version": "1.17"
+  }, 
+  "text-wrap": {
+    "category": "Text",
+    "tags": ["text", "wrap", "text", "alignment", "position"],
+    "version": "1.6"
+  }, 
+  "thumb-down": {
+    "category": "System",
+    "tags": ["thumb", "down", "dislike", "bad", "emotion"],
+    "version": "1.0"
+  }, 
+  "thumb-up": {
+    "category": "System",
+    "tags": ["thumb", "up", "like", "emotion", "good", "love"],
+    "version": "1.0"
+  }, 
+  "ticket": {
+    "category": "",
+    "tags": ["ticket", "cinema", "event", "theatre", "entry", "fine", "coupon", "pass"],
+    "version": "1.0"
+  }, 
+  "tir": {
+    "category": "Vehicles",
+    "tags": ["tir"],
+    "version": "1.7"
+  }, 
+  "toggle-left": {
+    "category": "System",
+    "tags": ["toggle", "left", "on", "off", "switch"],
+    "version": "1.0"
+  }, 
+  "toggle-right": {
+    "category": "System",
+    "tags": ["toggle", "right", "on", "off", "switch"],
+    "version": "1.0"
+  }, 
+  "tool": {
+    "category": "",
+    "tags": ["tool", "preferences", "edit", "settings"],
+    "version": "1.0"
+  }, 
+  "tools": {
+    "category": "Design",
+    "tags": ["tools", "preferences", "edit", "settings"],
+    "version": "1.5"
+  }, 
+  "tornado": {
+    "category": "Weather",
+    "tags": ["tornado"],
+    "version": "1.2"
+  }, 
+  "tournament": {
+    "category": "",
+    "tags": ["tournament"],
+    "version": "1.19"
+  }, 
+  "tractor": {
+    "category": "Vehicles",
+    "tags": ["tractor"],
+    "version": "1.8"
+  }, 
+  "trademark": {
+    "category": "",
+    "tags": ["trademark"],
+    "version": "1.8"
+  }, 
+  "traffic-cone": {
+    "category": "",
+    "tags": ["traffic", "cone"],
+    "version": "1.8"
+  }, 
+  "traffic-lights": {
+    "category": "Map",
+    "tags": ["traffic", "lights"],
+    "version": "1.27"
+  }, 
+  "trash": {
+    "category": "",
+    "tags": ["trash", "garbage", "delete", "remove", "bin", "ash-bin", "uninstall", "dustbin"],
+    "version": "1.0"
+  }, 
+  "trees": {
+    "category": "",
+    "tags": ["trees"],
+    "version": "1.8"
+  }, 
+  "trending-down": {
+    "category": "Arrows",
+    "tags": ["trending", "down", "arrow", "decrease", "fall"],
+    "version": "1.0"
+  }, 
+  "trending-up": {
+    "category": "Arrows",
+    "tags": ["trending", "up", "arrow", "grow", "increase"],
+    "version": "1.0"
+  }, 
+  "triangle-square-circle": {
+    "category": "Shapes",
+    "tags": ["triangle", "square", "circle"],
+    "version": "1.21"
+  }, 
+  "triangle": {
+    "category": "Shapes",
+    "tags": ["triangle", "delta"],
+    "version": "1.0"
+  }, 
+  "trident": {
+    "category": "",
+    "tags": ["trident"],
+    "version": "1.18"
+  }, 
+  "trophy": {
+    "category": "",
+    "tags": ["trophy", "success", "win", "prize", "winner"],
+    "version": "1.0"
+  }, 
+  "truck-delivery": {
+    "category": "Vehicles",
+    "tags": ["truck", "delivery"],
+    "version": "1.11"
+  }, 
+  "truck-return": {
+    "category": "Vehicles",
+    "tags": ["truck", "return"],
+    "version": "1.11"
+  }, 
+  "truck": {
+    "category": "Vehicles",
+    "tags": ["truck", "transport", "vahicle", "van", "lorry", "cargo", "delivery"],
+    "version": "1.5"
+  }, 
+  "typography": {
+    "category": "Text",
+    "tags": ["typography", "type", "display", "typeface", "point size", "line length", "line-spacing", "letter-spacing", "font"],
+    "version": "1.5"
+  }, 
+  "umbrella": {
+    "category": "",
+    "tags": ["umbrella"],
+    "version": "1.7"
+  }, 
+  "underline": {
+    "category": "Text",
+    "tags": ["underline", "underscore", "emphasis", "horizontal", "typography"],
+    "version": "1.3"
+  }, 
+  "unlink": {
+    "category": "Text",
+    "tags": ["unlink", "chain", "url", "address", "remove", "broke", "unconnect"],
+    "version": "1.0"
+  }, 
+  "upload": {
+    "category": "",
+    "tags": ["upload", "file", "arrow"],
+    "version": "1.0"
+  }, 
+  "urgent": {
+    "category": "",
+    "tags": ["urgent", "alert", "important"],
+    "version": "1.0"
+  }, 
+  "user-check": {
+    "category": "",
+    "tags": ["user", "check", "tick", "person", "account"],
+    "version": "1.0"
+  }, 
+  "user-exclamation": {
+    "category": "",
+    "tags": ["user", "exclamation"],
+    "version": "1.8"
+  }, 
+  "user-minus": {
+    "category": "",
+    "tags": ["user", "minus", "remove", "cancel", "person", "account", "unsubscribe"],
+    "version": "1.0"
+  }, 
+  "user-off": {
+    "category": "",
+    "tags": ["user", "off", "person", "account"],
+    "version": "1.22"
+  }, 
+  "user-plus": {
+    "category": "",
+    "tags": ["user", "plus", "add", "create", "new", "person", "people", "follow", "subscribe"],
+    "version": "1.0"
+  }, 
+  "user-x": {
+    "category": "",
+    "tags": ["user", "x", "cancel", "remove", "person", "account", "unsubscribe"],
+    "version": "1.0"
+  }, 
+  "user": {
+    "category": "",
+    "tags": ["user", "person", "account"],
+    "version": "1.0"
+  }, 
+  "users": {
+    "category": "",
+    "tags": ["users"],
+    "version": "1.7"
+  }, 
+  "vector-beizer-2": {
+    "category": "Design",
+    "tags": ["vector", "beizer", "2"],
+    "version": "1.27"
+  }, 
+  "vector-beizer": {
+    "category": "Design",
+    "tags": ["vector", "beizer"],
+    "version": "1.27"
+  }, 
+  "vector-triangle": {
+    "category": "Design",
+    "tags": ["vector", "triangle"],
+    "version": "1.17"
+  }, 
+  "vector": {
+    "category": "Design",
+    "tags": ["vector"],
+    "version": "1.17"
+  }, 
+  "venus": {
+    "category": "Symbols",
+    "tags": ["venus"],
+    "version": "1.14"
+  }, 
+  "versions": {
+    "category": "",
+    "tags": ["versions"],
+    "version": "1.29"
+  }, 
+  "video-minus": {
+    "category": "Media",
+    "tags": ["video", "minus"],
+    "version": "1.25"
+  }, 
+  "video-off": {
+    "category": "Media",
+    "tags": ["video", "off"],
+    "version": "1.25"
+  }, 
+  "video-plus": {
+    "category": "Media",
+    "tags": ["video", "plus"],
+    "version": "1.25"
+  }, 
+  "video": {
+    "category": "Media",
+    "tags": ["video"],
+    "version": "1.25"
+  }, 
+  "viewfinder": {
+    "category": "Map",
+    "tags": ["viewfinder", "target", "aim", "focus"],
+    "version": "1.0"
+  }, 
+  "viewport-narrow": {
+    "category": "Devices",
+    "tags": ["viewport", "narrow"],
+    "version": "1.7"
+  }, 
+  "viewport-wide": {
+    "category": "Devices",
+    "tags": ["viewport", "wide"],
+    "version": "1.7"
+  }, 
+  "virus": {
+    "category": "",
+    "tags": ["virus", "infection", "illness", "cell", "infectious", "health"],
+    "version": "1.2"
+  }, 
+  "volume-2": {
+    "category": "Media",
+    "tags": ["volume", "2", "music", "sound", "speaker"],
+    "version": "1.0"
+  }, 
+  "volume-3": {
+    "category": "Media",
+    "tags": ["volume", "3", "mute", "music", "sound", "false", "speaker"],
+    "version": "1.0"
+  }, 
+  "volume": {
+    "category": "Media",
+    "tags": ["volume", "music", "sound", "speaker"],
+    "version": "1.0"
+  }, 
+  "walk": {
+    "category": "Sport",
+    "tags": ["walk"],
+    "version": "1.14"
+  }, 
+  "wallet": {
+    "category": "",
+    "tags": ["wallet", "money", "pay", "banknote", "coin", "payment", "bank"],
+    "version": "1.2"
+  }, 
+  "wand": {
+    "category": "",
+    "tags": ["wand", "magic", "tool", "color", "pixel", "design"],
+    "version": "1.5"
+  }, 
+  "wave-saw-tool": {
+    "category": "",
+    "tags": ["wave", "saw", "tool"],
+    "version": "1.19"
+  }, 
+  "wave-sine": {
+    "category": "",
+    "tags": ["wave", "sine"],
+    "version": "1.19"
+  }, 
+  "wave-square": {
+    "category": "",
+    "tags": ["wave", "square"],
+    "version": "1.19"
+  }, 
+  "wifi-0": {
+    "category": "Devices",
+    "tags": ["wifi", "0", "online", "connection", "signal", "wireless"],
+    "version": "1.3"
+  }, 
+  "wifi-1": {
+    "category": "Devices",
+    "tags": ["wifi", "1", "online", "connection", "signal", "wireless"],
+    "version": "1.3"
+  }, 
+  "wifi-2": {
+    "category": "Devices",
+    "tags": ["wifi", "2", "online", "connection", "signal", "wireless"],
+    "version": "1.3"
+  }, 
+  "wifi-off": {
+    "category": "Devices",
+    "tags": ["wifi", "off", "online", "connection", "signal", "wireless"],
+    "version": "1.22"
+  }, 
+  "wifi": {
+    "category": "Devices",
+    "tags": ["wifi", "online", "connection", "signal", "wireless"],
+    "version": "1.0"
+  }, 
+  "wind": {
+    "category": "Weather",
+    "tags": ["wind"],
+    "version": "1.1"
+  }, 
+  "wiper-wash": {
+    "category": "Vehicles",
+    "tags": ["wiper", "wash"],
+    "version": "1.17"
+  }, 
+  "wiper": {
+    "category": "Vehicles",
+    "tags": ["wiper"],
+    "version": "1.17"
+  }, 
+  "woman": {
+    "category": "",
+    "tags": ["woman", "girl", "female", "gender"],
+    "version": "1.0"
+  }, 
+  "world-latitude": {
+    "category": "Map",
+    "tags": ["world", "latitude", "earth", "globe", "global", "language", "union"],
+    "version": "1.26"
+  }, 
+  "world-longitude": {
+    "category": "Map",
+    "tags": ["world", "longitude", "earth", "globe", "global", "language", "union"],
+    "version": "1.26"
+  }, 
+  "world": {
+    "category": "Map",
+    "tags": ["world", "earth", "globe", "global", "language", "union"],
+    "version": "1.0"
+  }, 
+  "x": {
+    "category": "",
+    "tags": ["x", "cancel", "remove", "delete", "empty"],
+    "version": "1.0"
+  }, 
+  "yin-yang": {
+    "category": "Symbols",
+    "tags": ["yin", "yang"],
+    "version": "1.1"
+  }, 
+  "zodiac-aquarius": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "aquarius"],
+    "version": "1.17"
+  }, 
+  "zodiac-aries": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "aries"],
+    "version": "1.17"
+  }, 
+  "zodiac-cancer": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "cancer"],
+    "version": "1.17"
+  }, 
+  "zodiac-capricorn": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "capricorn"],
+    "version": "1.17"
+  }, 
+  "zodiac-gemini": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "gemini"],
+    "version": "1.17"
+  }, 
+  "zodiac-leo": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "leo"],
+    "version": "1.17"
+  }, 
+  "zodiac-libra": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "libra"],
+    "version": "1.17"
+  }, 
+  "zodiac-pisces": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "pisces"],
+    "version": "1.17"
+  }, 
+  "zodiac-sagittarius": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "sagittarius"],
+    "version": "1.17"
+  }, 
+  "zodiac-scorpio": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "scorpio"],
+    "version": "1.17"
+  }, 
+  "zodiac-taurus": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "taurus"],
+    "version": "1.17"
+  }, 
+  "zodiac-virgo": {
+    "category": "Zodiac",
+    "tags": ["zodiac", "virgo"],
+    "version": "1.17"
+  }, 
+  "zoom-cancel": {
+    "category": "Map",
+    "tags": ["zoom", "cancel", "magnifying glass"],
+    "version": "1.11"
+  }, 
+  "zoom-in": {
+    "category": "Map",
+    "tags": ["zoom", "in", "magnifying glass"],
+    "version": "1.0"
+  }, 
+  "zoom-out": {
+    "category": "Map",
+    "tags": ["zoom", "out", "magnifying glass"],
+    "version": "1.0"
+  }
 }
