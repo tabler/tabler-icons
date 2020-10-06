@@ -73,6 +73,25 @@ Add an icon to be displayed on your page with the following markup (`activity` i
 </svg>
 ```
 
+### React
+
+Import the icon and render it in your component. You can adjust SVG properties through React props:
+
+```jsx
+import { IconAward } from 'tabler-icons';
+
+const MyComponent = () => {
+  return <IconAward 
+    size={36} // set custom `width` and `height`
+    color="red" // set `stroke` color
+    stroke={3}  // set `stroke-width`
+    strokeLinejoin="miter" // override other SVG props
+  />
+}
+```
+
+`tabler-icons` exports it's own type declarations for usage with React and Typescript.
+
 ## Multiple strokes
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.

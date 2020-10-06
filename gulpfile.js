@@ -650,4 +650,10 @@ gulp.task('update-icons-version', function (cb) {
 	cb();
 });
 
-gulp.task('build', gulp.series('optimize', 'update-icons-version', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
+gulp.task("build-react", function (cb) {
+	cp.exec("npm run build-react", function () {
+		cb();
+	});
+});
+
+gulp.task('build', gulp.series('optimize', 'update-icons-version', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'));
