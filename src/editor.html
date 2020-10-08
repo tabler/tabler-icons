@@ -80,6 +80,24 @@ layout: default
 			%}
 		</div>
 
+		{% assign new-icons = icons | where: "version", null %}
+
+		{% if new-icons %}
+		<h2 class="icon-subtitle">New icons ({{ new-icons | size }})</h2>
+
+		<div class="mb">
+			<div class="icons-list">
+
+				{% for icon in new-icons %}
+				{% assign name = icon.slug %}
+				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}"{% unless icon.category %} style="color: #999" {% endunless %}>
+					{% include icon.html name=name %}
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+		{% endif %}
+
 		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
 
 		{% assign icons = icons | group_by: "category" %}
