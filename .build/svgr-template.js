@@ -5,8 +5,8 @@ function template(
 ) {
 	return template.ast`
     ${imports}
-    const ${componentName} = (size = 24, color = "currentColor", stroke = 2, ...props) => ${jsx}
+    function ${componentName}({ size = 24, color = "currentColor", stroke = 2, ...props }) { return (${jsx}); }
     ${exports}
-  `
+  `;
 }
 module.exports = template;
