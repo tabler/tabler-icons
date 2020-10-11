@@ -114,7 +114,7 @@ layout: default
 
 				{% for icon in category.items %}
 				{% assign name = icon.slug %}
-				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
+				<a href="#" class="icons-list-icon js-icon{% unless icon.version %} new-icon{% endunless %}" title="{{ icon.slug }}" data-icon="{{ name }}">
 					{% include icon.html name=name %}
 				</a>
 				{% endfor %}
