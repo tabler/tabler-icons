@@ -4,6 +4,7 @@ const gulp = require('gulp'),
 	fs = require('fs'),
 	path = require('path'),
 	p = require('./package.json'),
+	csv = require('csv-parser'),
 	zip = require('gulp-zip'),
 	puppeteer = require('puppeteer'),
 	outlineStroke = require('svg-outline-stroke'),
@@ -12,6 +13,7 @@ const gulp = require('gulp'),
 	sass = require('node-sass'),
 	cleanCSS = require('clean-css'),
 	argv = require('minimist')(process.argv.slice(2)),
+	svgpath = require('svgpath'),
 	svgr = require('@svgr/core').default;
 
 async function asyncForEach(array, callback) {
@@ -647,6 +649,44 @@ gulp.task('update-icons-version', function (cb) {
 		});
 	}
 
+	cb();
+});
+
+// gulp.task('svg-path', function (cb) {
+// 	let transformed = svgpath('m 9 5 a 2.4 2.4 0 0 1 2 -1 a 2.4 2.4 0 0 1 2 1 a 2.4 2.4 0 0 0 2 1 a 2.4 2.4 0 0 0 2 -1 a 2.4 2.4 0 0 1 2 -1 a 2.4 2.4 0 0 1 2 1')
+// 		.rel()
+// 		.toString();
+//
+// 	console.log('transformed', transformed);
+// 	cb();
+// });
+
+gulp.task('import-tags', function(cb) {
+	fs.createReadStream('./_import.csv')
+		.pipe(csv({
+			headers: false,
+			separator: "\t"
+		}))
+		.on('data', (row) => {
+			console.log(row[0], row[1]);
+			
+			const filename = `src/_icons/${row[0]}.svg`;
+
+			let data = fs.readFileSync(filename).toString();
+			data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent){
+
+				headerContent = headerContent.replace(/tags: .*\n/, '');
+				headerContent = headerContent.replace(/---/, `---\ntags: [${row[1]}]`);
+
+				return headerContent;
+			});
+			
+			fs.writeFileSync(filename, data);
+
+		})
+		.on('end', () => {
+			console.log('CSV file successfully processed');
+		});
 	cb();
 });
 
