@@ -13,6 +13,7 @@ const gulp = require('gulp'),
 	sass = require('node-sass'),
 	cleanCSS = require('clean-css'),
 	argv = require('minimist')(process.argv.slice(2)),
+	svgParse = require('parse-svg-path'),
 	svgpath = require('svgpath'),
 	svgr = require('@svgr/core').default;
 
@@ -406,6 +407,17 @@ gulp.task('optimize', function (cb) {
 		return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
 	};
 
+	const optimizePath = function(path) {
+		let transformed = svgpath(path)
+			.rel()
+			.round(3)
+			.toString();
+
+		return svgParse(transformed).map(function(a){
+			return a.join(' ');
+		}).join(' ');
+	};
+
 	glob("src/_icons/*.svg", {}, function (er, files) {
 
 		files.forEach(function (file, i) {
@@ -418,6 +430,11 @@ gulp.task('optimize', function (cb) {
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline|rect)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+				.replace(/<path d="([^"]+)"/g, function(f, r1) {
+					r1 = optimizePath(r1);
+
+					return `<path d="${r1}"`;
+				})
 				.replace(/d="m/g, 'd="M')
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
 				.replace(/\n\n+/g, "\n")
@@ -440,9 +457,6 @@ gulp.task('optimize', function (cb) {
 					return `<path d="${r1}"`;
 				})
 			;
-
-			//  
-			//
 
 			if (svgFile.toString() !== svgFileContent) {
 				fs.writeFileSync(file, svgFileContent);
@@ -651,15 +665,6 @@ gulp.task('update-icons-version', function (cb) {
 
 	cb();
 });
-
-// gulp.task('svg-path', function (cb) {
-// 	let transformed = svgpath('m 9 5 a 2.4 2.4 0 0 1 2 -1 a 2.4 2.4 0 0 1 2 1 a 2.4 2.4 0 0 0 2 1 a 2.4 2.4 0 0 0 2 -1 a 2.4 2.4 0 0 1 2 -1 a 2.4 2.4 0 0 1 2 1')
-// 		.rel()
-// 		.toString();
-//
-// 	console.log('transformed', transformed);
-// 	cb();
-// });
 
 gulp.task('import-tags', function(cb) {
 	fs.createReadStream('./_import.csv')
