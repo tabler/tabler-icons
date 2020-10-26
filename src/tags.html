@@ -7,6 +7,7 @@ layout: default
 		{% assign i = 0 %}
 		<table class="table mb">
 			{% for icon in site.icons %}
+			{% if icon.tags.size == 0 %}
 			<tr>
 				<td class="td-1">{% include icon.html name=icon.slug %}</td>
 				<th>{{ icon.slug }}</th>
@@ -14,7 +15,6 @@ layout: default
 				<td>{{ icon.category }}</td>
 				<td>{{ icon.version }}</td>
 			</tr>
-			{% if icon.tags.size == 0 %}
 			{% assign i = i | plus: 1 %}
 			{% endif %}
 			{% endfor %}
