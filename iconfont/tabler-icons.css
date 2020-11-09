@@ -1,3605 +1,2540 @@
-@charset "UTF-8";
-/*!
- * Tabler Icons 1.34.0 by tabler - https://tabler.io
- * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
- */
+/*
+  Icon Font: tabler-icons
+*/
+
 @font-face {
   font-family: "tabler-icons";
+  src: url("fonts/tabler-icons.eot");
+  src: url("fonts/tabler-icons.eot?#iefix") format("embedded-opentype"),
+       url("fonts/tabler-icons.woff2") format("woff2"),
+       url("fonts/tabler-icons.woff") format("woff"),
+       url("fonts/tabler-icons.ttf") format("truetype"),
+       url("fonts/tabler-icons.svg#tabler-icons") format("svg");
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: url("./fonts/tabler-icons.eot");
-  src: url("./fonts/tabler-icons.eot?#iefix") format("embedded-opentype"), url("./fonts/tabler-icons.woff2") format("woff2"), url("./fonts/tabler-icons.woff") format("woff"), url("./fonts/tabler-icons.ttf") format("truetype");
 }
 
-.ti {
-  font-family: "tabler-icons" !important;
-  speak: none;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "tabler-icons";
+    src: url("fonts/tabler-icons.svg#tabler-icons") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.ti-2fa:before,
+.ti-3d-cube-sphere:before,
+.ti-a-b:before,
+.ti-access-point:before,
+.ti-access-point-off:before,
+.ti-accessible:before,
+.ti-activity:before,
+.ti-ad:before,
+.ti-adjustments:before,
+.ti-adjustments-alt:before,
+.ti-adjustments-horizontal:before,
+.ti-aerial-lift:before,
+.ti-affiliate:before,
+.ti-alarm:before,
+.ti-alert-circle:before,
+.ti-alert-octagon:before,
+.ti-alert-triangle:before,
+.ti-alien:before,
+.ti-align-center:before,
+.ti-align-justified:before,
+.ti-align-left:before,
+.ti-align-right:before,
+.ti-ambulance:before,
+.ti-anchor:before,
+.ti-antenna-bars-1:before,
+.ti-antenna-bars-2:before,
+.ti-antenna-bars-3:before,
+.ti-antenna-bars-4:before,
+.ti-antenna-bars-5:before,
+.ti-aperture:before,
+.ti-apps:before,
+.ti-archive:before,
+.ti-arrow-back:before,
+.ti-arrow-back-up:before,
+.ti-arrow-bar-down:before,
+.ti-arrow-bar-left:before,
+.ti-arrow-bar-right:before,
+.ti-arrow-bar-to-down:before,
+.ti-arrow-bar-to-left:before,
+.ti-arrow-bar-to-right:before,
+.ti-arrow-bar-to-up:before,
+.ti-arrow-bar-up:before,
+.ti-arrow-bottom-bar:before,
+.ti-arrow-bottom-circle:before,
+.ti-arrow-bottom-square:before,
+.ti-arrow-bottom-tail:before,
+.ti-arrow-down:before,
+.ti-arrow-down-circle:before,
+.ti-arrow-down-left:before,
+.ti-arrow-down-left-circle:before,
+.ti-arrow-down-right:before,
+.ti-arrow-down-right-circle:before,
+.ti-arrow-forward:before,
+.ti-arrow-forward-up:before,
+.ti-arrow-left:before,
+.ti-arrow-left-bar:before,
+.ti-arrow-left-circle:before,
+.ti-arrow-left-square:before,
+.ti-arrow-left-tail:before,
+.ti-arrow-loop-left:before,
+.ti-arrow-loop-right:before,
+.ti-arrow-narrow-down:before,
+.ti-arrow-narrow-left:before,
+.ti-arrow-narrow-right:before,
+.ti-arrow-narrow-up:before,
+.ti-arrow-ramp-left:before,
+.ti-arrow-ramp-right:before,
+.ti-arrow-right:before,
+.ti-arrow-right-bar:before,
+.ti-arrow-right-circle:before,
+.ti-arrow-right-square:before,
+.ti-arrow-right-tail:before,
+.ti-arrow-top-bar:before,
+.ti-arrow-top-circle:before,
+.ti-arrow-top-square:before,
+.ti-arrow-top-tail:before,
+.ti-arrow-up:before,
+.ti-arrow-up-circle:before,
+.ti-arrow-up-left:before,
+.ti-arrow-up-left-circle:before,
+.ti-arrow-up-right:before,
+.ti-arrow-up-right-circle:before,
+.ti-arrow-wave-left-down:before,
+.ti-arrow-wave-left-up:before,
+.ti-arrow-wave-right-down:before,
+.ti-arrow-wave-right-up:before,
+.ti-arrows-diagonal:before,
+.ti-arrows-diagonal-2:before,
+.ti-arrows-down:before,
+.ti-arrows-down-up:before,
+.ti-arrows-horizontal:before,
+.ti-arrows-join:before,
+.ti-arrows-join-2:before,
+.ti-arrows-left:before,
+.ti-arrows-left-down:before,
+.ti-arrows-left-right:before,
+.ti-arrows-maximize:before,
+.ti-arrows-minimize:before,
+.ti-arrows-right:before,
+.ti-arrows-right-down:before,
+.ti-arrows-right-left:before,
+.ti-arrows-sort:before,
+.ti-arrows-split:before,
+.ti-arrows-split-2:before,
+.ti-arrows-up:before,
+.ti-arrows-up-down:before,
+.ti-arrows-up-left:before,
+.ti-arrows-up-right:before,
+.ti-arrows-vertical:before,
+.ti-artboard:before,
+.ti-aspect-ratio:before,
+.ti-at:before,
+.ti-atom:before,
+.ti-atom-2:before,
+.ti-award:before,
+.ti-backhoe:before,
+.ti-backspace:before,
+.ti-ball-american-football:before,
+.ti-ball-basketball:before,
+.ti-ball-bowling:before,
+.ti-ball-football:before,
+.ti-ball-football-off:before,
+.ti-ball-tennis:before,
+.ti-ball-volleyball:before,
+.ti-ban:before,
+.ti-bandage:before,
+.ti-barcode:before,
+.ti-basket:before,
+.ti-battery:before,
+.ti-battery-1:before,
+.ti-battery-2:before,
+.ti-battery-3:before,
+.ti-battery-4:before,
+.ti-battery-automotive:before,
+.ti-battery-charging:before,
+.ti-battery-off:before,
+.ti-bed:before,
+.ti-bell:before,
+.ti-bell-off:before,
+.ti-bell-ringing:before,
+.ti-bell-ringing-2:before,
+.ti-bike:before,
+.ti-binary:before,
+.ti-biohazard:before,
+.ti-blockquote:before,
+.ti-bluetooth:before,
+.ti-bluetooth-connected:before,
+.ti-bluetooth-off:before,
+.ti-bold:before,
+.ti-bolt:before,
+.ti-bolt-off:before,
+.ti-bone:before,
+.ti-book:before,
+.ti-bookmark:before,
+.ti-bookmark-off:before,
+.ti-bookmarks:before,
+.ti-border-all:before,
+.ti-border-bottom:before,
+.ti-border-horizontal:before,
+.ti-border-inner:before,
+.ti-border-left:before,
+.ti-border-none:before,
+.ti-border-outer:before,
+.ti-border-radius:before,
+.ti-border-right:before,
+.ti-border-style:before,
+.ti-border-top:before,
+.ti-border-vertical:before,
+.ti-box:before,
+.ti-box-margin:before,
+.ti-box-model:before,
+.ti-box-multiple:before,
+.ti-box-multiple-0:before,
+.ti-box-multiple-1:before,
+.ti-box-multiple-2:before,
+.ti-box-multiple-3:before,
+.ti-box-multiple-4:before,
+.ti-box-multiple-5:before,
+.ti-box-multiple-6:before,
+.ti-box-multiple-7:before,
+.ti-box-multiple-8:before,
+.ti-box-multiple-9:before,
+.ti-box-padding:before,
+.ti-braces:before,
+.ti-brackets:before,
+.ti-brand-airbnb:before,
+.ti-brand-android:before,
+.ti-brand-apple:before,
+.ti-brand-apple-arcade:before,
+.ti-brand-appstore:before,
+.ti-brand-asana:before,
+.ti-brand-behance:before,
+.ti-brand-bing:before,
+.ti-brand-bitbucket:before,
+.ti-brand-booking:before,
+.ti-brand-chrome:before,
+.ti-brand-codepen:before,
+.ti-brand-codesandbox:before,
+.ti-brand-css3:before,
+.ti-brand-deviantart:before,
+.ti-brand-discord:before,
+.ti-brand-disqus:before,
+.ti-brand-docker:before,
+.ti-brand-dribbble:before,
+.ti-brand-edge:before,
+.ti-brand-facebook:before,
+.ti-brand-figma:before,
+.ti-brand-firefox:before,
+.ti-brand-flickr:before,
+.ti-brand-foursquare:before,
+.ti-brand-framer:before,
+.ti-brand-github:before,
+.ti-brand-gitlab:before,
+.ti-brand-google:before,
+.ti-brand-google-analytics:before,
+.ti-brand-google-drive:before,
+.ti-brand-google-play:before,
+.ti-brand-gravatar:before,
+.ti-brand-hipchat:before,
+.ti-brand-html5:before,
+.ti-brand-instagram:before,
+.ti-brand-kickstarter:before,
+.ti-brand-kotlin:before,
+.ti-brand-linkedin:before,
+.ti-brand-medium:before,
+.ti-brand-messenger:before,
+.ti-brand-netflix:before,
+.ti-brand-open-source:before,
+.ti-brand-opera:before,
+.ti-brand-pagekit:before,
+.ti-brand-patreon:before,
+.ti-brand-paypal:before,
+.ti-brand-pinterest:before,
+.ti-brand-pocket:before,
+.ti-brand-producthunt:before,
+.ti-brand-python:before,
+.ti-brand-reddit:before,
+.ti-brand-safari:before,
+.ti-brand-sass:before,
+.ti-brand-sentry:before,
+.ti-brand-shazam:before,
+.ti-brand-sketch:before,
+.ti-brand-skype:before,
+.ti-brand-slack:before,
+.ti-brand-snapchat:before,
+.ti-brand-soundcloud:before,
+.ti-brand-spotify:before,
+.ti-brand-steam:before,
+.ti-brand-stripe:before,
+.ti-brand-tabler:before,
+.ti-brand-tailwind:before,
+.ti-brand-telegram:before,
+.ti-brand-tidal:before,
+.ti-brand-tiktok:before,
+.ti-brand-tinder:before,
+.ti-brand-tumblr:before,
+.ti-brand-twitch:before,
+.ti-brand-twitter:before,
+.ti-brand-unsplash:before,
+.ti-brand-vimeo:before,
+.ti-brand-vk:before,
+.ti-brand-whatsapp:before,
+.ti-brand-windows:before,
+.ti-brand-yahoo:before,
+.ti-brand-ycombinator:before,
+.ti-brand-youtube:before,
+.ti-briefcase:before,
+.ti-brightness:before,
+.ti-brightness-2:before,
+.ti-brightness-down:before,
+.ti-brightness-half:before,
+.ti-brightness-up:before,
+.ti-browser:before,
+.ti-brush:before,
+.ti-bucket:before,
+.ti-bug:before,
+.ti-building:before,
+.ti-building-arch:before,
+.ti-building-bank:before,
+.ti-building-bridge:before,
+.ti-building-bridge-2:before,
+.ti-building-carousel:before,
+.ti-building-castle:before,
+.ti-building-church:before,
+.ti-building-community:before,
+.ti-building-cottage:before,
+.ti-building-factory:before,
+.ti-building-fortress:before,
+.ti-building-hospital:before,
+.ti-building-lighthouse:before,
+.ti-building-monument:before,
+.ti-building-pavilon:before,
+.ti-building-skyscraper:before,
+.ti-building-store:before,
+.ti-building-warehouse:before,
+.ti-bulb:before,
+.ti-bulb-off:before,
+.ti-bulldozer:before,
+.ti-bus:before,
+.ti-businessplan:before,
+.ti-calculator:before,
+.ti-calendar:before,
+.ti-calendar-event:before,
+.ti-calendar-minus:before,
+.ti-calendar-off:before,
+.ti-calendar-plus:before,
+.ti-calendar-stats:before,
+.ti-calendar-time:before,
+.ti-camera:before,
+.ti-camera-minus:before,
+.ti-camera-off:before,
+.ti-camera-plus:before,
+.ti-camera-rotate:before,
+.ti-camera-selfie:before,
+.ti-capture:before,
+.ti-car:before,
+.ti-caravan:before,
+.ti-cardboards:before,
+.ti-caret-down:before,
+.ti-caret-left:before,
+.ti-caret-right:before,
+.ti-caret-up:before,
+.ti-cash:before,
+.ti-cash-banknote:before,
+.ti-cash-banknote-off:before,
+.ti-cast:before,
+.ti-ce:before,
+.ti-certificate:before,
+.ti-charging-pile:before,
+.ti-chart-arcs:before,
+.ti-chart-arcs-3:before,
+.ti-chart-area:before,
+.ti-chart-area-line:before,
+.ti-chart-arrows:before,
+.ti-chart-arrows-vertical:before,
+.ti-chart-bar:before,
+.ti-chart-bubble:before,
+.ti-chart-candle:before,
+.ti-chart-circles:before,
+.ti-chart-donut:before,
+.ti-chart-donut-2:before,
+.ti-chart-donut-3:before,
+.ti-chart-donut-4:before,
+.ti-chart-dots:before,
+.ti-chart-infographic:before,
+.ti-chart-line:before,
+.ti-chart-pie:before,
+.ti-chart-pie-2:before,
+.ti-chart-pie-3:before,
+.ti-chart-pie-4:before,
+.ti-chart-radar:before,
+.ti-check:before,
+.ti-checkbox:before,
+.ti-checks:before,
+.ti-chevron-down:before,
+.ti-chevron-down-left:before,
+.ti-chevron-down-right:before,
+.ti-chevron-left:before,
+.ti-chevron-right:before,
+.ti-chevron-up:before,
+.ti-chevron-up-left:before,
+.ti-chevron-up-right:before,
+.ti-chevrons-down:before,
+.ti-chevrons-down-left:before,
+.ti-chevrons-down-right:before,
+.ti-chevrons-left:before,
+.ti-chevrons-right:before,
+.ti-chevrons-up:before,
+.ti-chevrons-up-left:before,
+.ti-chevrons-up-right:before,
+.ti-christmas-tree:before,
+.ti-circle:before,
+.ti-circle-0:before,
+.ti-circle-1:before,
+.ti-circle-2:before,
+.ti-circle-3:before,
+.ti-circle-4:before,
+.ti-circle-5:before,
+.ti-circle-6:before,
+.ti-circle-7:before,
+.ti-circle-8:before,
+.ti-circle-9:before,
+.ti-circle-check:before,
+.ti-circle-dashed:before,
+.ti-circle-dotted:before,
+.ti-circle-half:before,
+.ti-circle-half-vertical:before,
+.ti-circle-minus:before,
+.ti-circle-off:before,
+.ti-circle-plus:before,
+.ti-circle-square:before,
+.ti-circle-x:before,
+.ti-circles:before,
+.ti-clear-all:before,
+.ti-clear-formatting:before,
+.ti-click:before,
+.ti-clipboard:before,
+.ti-clipboard-check:before,
+.ti-clipboard-list:before,
+.ti-clipboard-x:before,
+.ti-clock:before,
+.ti-cloud:before,
+.ti-cloud-download:before,
+.ti-cloud-fog:before,
+.ti-cloud-off:before,
+.ti-cloud-rain:before,
+.ti-cloud-snow:before,
+.ti-cloud-storm:before,
+.ti-cloud-upload:before,
+.ti-code:before,
+.ti-code-minus:before,
+.ti-code-plus:before,
+.ti-coin:before,
+.ti-color-picker:before,
+.ti-color-swatch:before,
+.ti-column-insert-left:before,
+.ti-column-insert-right:before,
+.ti-columns:before,
+.ti-comet:before,
+.ti-command:before,
+.ti-compass:before,
+.ti-confetti:before,
+.ti-container:before,
+.ti-contrast:before,
+.ti-copy:before,
+.ti-copyleft:before,
+.ti-copyright:before,
+.ti-corner-down-left:before,
+.ti-corner-down-left-double:before,
+.ti-corner-down-right:before,
+.ti-corner-down-right-double:before,
+.ti-corner-left-down:before,
+.ti-corner-left-down-double:before,
+.ti-corner-left-up:before,
+.ti-corner-left-up-double:before,
+.ti-corner-right-down:before,
+.ti-corner-right-down-double:before,
+.ti-corner-right-up:before,
+.ti-corner-right-up-double:before,
+.ti-corner-up-left:before,
+.ti-corner-up-left-double:before,
+.ti-corner-up-right:before,
+.ti-corner-up-right-double:before,
+.ti-credit-card:before,
+.ti-credit-card-off:before,
+.ti-crop:before,
+.ti-crosshair:before,
+.ti-crown:before,
+.ti-crown-off:before,
+.ti-curly-loop:before,
+.ti-currency-bahraini:before,
+.ti-currency-bath:before,
+.ti-currency-bitcoin:before,
+.ti-currency-cent:before,
+.ti-currency-dinar:before,
+.ti-currency-dirham:before,
+.ti-currency-dollar:before,
+.ti-currency-dollar-australian:before,
+.ti-currency-dollar-canadian:before,
+.ti-currency-dollar-singapore:before,
+.ti-currency-ethereum:before,
+.ti-currency-euro:before,
+.ti-currency-forint:before,
+.ti-currency-frank:before,
+.ti-currency-krone-czech:before,
+.ti-currency-krone-danish:before,
+.ti-currency-krone-swedish:before,
+.ti-currency-leu:before,
+.ti-currency-lira:before,
+.ti-currency-litecoin:before,
+.ti-currency-naira:before,
+.ti-currency-pound:before,
+.ti-currency-real:before,
+.ti-currency-renminbi:before,
+.ti-currency-ripple:before,
+.ti-currency-riyal:before,
+.ti-currency-rubel:before,
+.ti-currency-rupee:before,
+.ti-currency-shekel:before,
+.ti-currency-taka:before,
+.ti-currency-tugrik:before,
+.ti-currency-won:before,
+.ti-currency-yen:before,
+.ti-currency-zloty:before,
+.ti-current-location:before,
+.ti-cursor-text:before,
+.ti-cut:before,
+.ti-dashboard:before,
+.ti-database:before,
+.ti-database-export:before,
+.ti-database-import:before,
+.ti-database-off:before,
+.ti-details:before,
+.ti-device-analytics:before,
+.ti-device-audio-tape:before,
+.ti-device-cctv:before,
+.ti-device-computer-camera:before,
+.ti-device-computer-camera-off:before,
+.ti-device-desktop:before,
+.ti-device-desktop-analytics:before,
+.ti-device-desktop-off:before,
+.ti-device-floppy:before,
+.ti-device-gamepad:before,
+.ti-device-laptop:before,
+.ti-device-mobile:before,
+.ti-device-mobile-message:before,
+.ti-device-mobile-rotated:before,
+.ti-device-mobile-vibration:before,
+.ti-device-speaker:before,
+.ti-device-tablet:before,
+.ti-device-tv:before,
+.ti-device-watch:before,
+.ti-devices:before,
+.ti-devices-2:before,
+.ti-devices-pc:before,
+.ti-diamond:before,
+.ti-dice:before,
+.ti-dimensions:before,
+.ti-direction:before,
+.ti-direction-horizontal:before,
+.ti-directions:before,
+.ti-disabled:before,
+.ti-disabled-2:before,
+.ti-disc:before,
+.ti-discount:before,
+.ti-discount-2:before,
+.ti-divide:before,
+.ti-dna:before,
+.ti-dots:before,
+.ti-dots-circle-horizontal:before,
+.ti-dots-diagonal:before,
+.ti-dots-diagonal-2:before,
+.ti-dots-vertical:before,
+.ti-download:before,
+.ti-drag-drop:before,
+.ti-drag-drop-2:before,
+.ti-drone:before,
+.ti-drone-off:before,
+.ti-droplet:before,
+.ti-droplet-filled:before,
+.ti-droplet-filled-2:before,
+.ti-droplet-half:before,
+.ti-droplet-half-2:before,
+.ti-droplet-off:before,
+.ti-ear:before,
+.ti-ear-off:before,
+.ti-edit:before,
+.ti-edit-circle:before,
+.ti-egg:before,
+.ti-emphasis:before,
+.ti-equal:before,
+.ti-equal-not:before,
+.ti-eraser:before,
+.ti-exchange:before,
+.ti-exposure:before,
+.ti-external-link:before,
+.ti-eye:before,
+.ti-eye-check:before,
+.ti-eye-off:before,
+.ti-eyeglass:before,
+.ti-eyeglass-2:before,
+.ti-face-id:before,
+.ti-fall:before,
+.ti-feather:before,
+.ti-file:before,
+.ti-file-alert:before,
+.ti-file-analytics:before,
+.ti-file-certificate:before,
+.ti-file-check:before,
+.ti-file-code:before,
+.ti-file-code-2:before,
+.ti-file-diff:before,
+.ti-file-dislike:before,
+.ti-file-download:before,
+.ti-file-export:before,
+.ti-file-horizontal:before,
+.ti-file-import:before,
+.ti-file-info:before,
+.ti-file-invoice:before,
+.ti-file-like:before,
+.ti-file-minus:before,
+.ti-file-music:before,
+.ti-file-off:before,
+.ti-file-phone:before,
+.ti-file-plus:before,
+.ti-file-report:before,
+.ti-file-search:before,
+.ti-file-shredder:before,
+.ti-file-symlink:before,
+.ti-file-text:before,
+.ti-file-upload:before,
+.ti-file-x:before,
+.ti-file-zip:before,
+.ti-files:before,
+.ti-files-off:before,
+.ti-filter:before,
+.ti-filter-off:before,
+.ti-fingerprint:before,
+.ti-firetruck:before,
+.ti-flag:before,
+.ti-flag-2:before,
+.ti-flag-3:before,
+.ti-flame:before,
+.ti-flare:before,
+.ti-flask:before,
+.ti-flip-horizontal:before,
+.ti-flip-vertical:before,
+.ti-float-center:before,
+.ti-float-left:before,
+.ti-float-none:before,
+.ti-float-right:before,
+.ti-focus:before,
+.ti-focus-2:before,
+.ti-fold:before,
+.ti-fold-down:before,
+.ti-fold-up:before,
+.ti-folder:before,
+.ti-folder-minus:before,
+.ti-folder-off:before,
+.ti-folder-plus:before,
+.ti-folder-x:before,
+.ti-folders:before,
+.ti-forbid:before,
+.ti-forbid-2:before,
+.ti-forklift:before,
+.ti-forms:before,
+.ti-frame:before,
+.ti-friends:before,
+.ti-gas-station:before,
+.ti-gauge:before,
+.ti-geometry:before,
+.ti-ghost:before,
+.ti-gift:before,
+.ti-git-branch:before,
+.ti-git-commit:before,
+.ti-git-compare:before,
+.ti-git-fork:before,
+.ti-git-merge:before,
+.ti-git-pull-request:before,
+.ti-glass:before,
+.ti-glass-full:before,
+.ti-glass-off:before,
+.ti-globe:before,
+.ti-golf:before,
+.ti-gps:before,
+.ti-grain:before,
+.ti-grid-dots:before,
+.ti-grip-horizontal:before,
+.ti-grip-vertical:before,
+.ti-growth:before,
+.ti-h-1:before,
+.ti-h-2:before,
+.ti-h-3:before,
+.ti-h-4:before,
+.ti-h-5:before,
+.ti-h-6:before,
+.ti-hand-finger:before,
+.ti-hand-little-finger:before,
+.ti-hand-middle-finger:before,
+.ti-hand-off:before,
+.ti-hand-ring-finger:before,
+.ti-hand-rock:before,
+.ti-hand-stop:before,
+.ti-hand-three-fingers:before,
+.ti-hand-two-fingers:before,
+.ti-hanger:before,
+.ti-hash:before,
+.ti-heading:before,
+.ti-headphones:before,
+.ti-headphones-off:before,
+.ti-headset:before,
+.ti-heart:before,
+.ti-heart-broken:before,
+.ti-helicopter:before,
+.ti-helicopter-landing:before,
+.ti-help:before,
+.ti-hexagon:before,
+.ti-hexagon-off:before,
+.ti-hierarchy:before,
+.ti-hierarchy-2:before,
+.ti-history:before,
+.ti-home:before,
+.ti-home-2:before,
+.ti-ice-cream:before,
+.ti-ice-cream-2:before,
+.ti-id:before,
+.ti-inbox:before,
+.ti-indent-decrease:before,
+.ti-indent-increase:before,
+.ti-infinity:before,
+.ti-info-circle:before,
+.ti-info-square:before,
+.ti-italic:before,
+.ti-jump-rope:before,
+.ti-karate:before,
+.ti-key:before,
+.ti-keyboard:before,
+.ti-keyboard-hide:before,
+.ti-keyboard-off:before,
+.ti-keyboard-show:before,
+.ti-language:before,
+.ti-layers-difference:before,
+.ti-layers-intersect:before,
+.ti-layers-linked:before,
+.ti-layers-subtract:before,
+.ti-layers-union:before,
+.ti-layout:before,
+.ti-layout-2:before,
+.ti-layout-align-bottom:before,
+.ti-layout-align-center:before,
+.ti-layout-align-left:before,
+.ti-layout-align-middle:before,
+.ti-layout-align-right:before,
+.ti-layout-align-top:before,
+.ti-layout-bottombar:before,
+.ti-layout-cards:before,
+.ti-layout-columns:before,
+.ti-layout-distribute-horizontal:before,
+.ti-layout-distribute-vertical:before,
+.ti-layout-grid:before,
+.ti-layout-grid-add:before,
+.ti-layout-kanban:before,
+.ti-layout-list:before,
+.ti-layout-navbar:before,
+.ti-layout-rows:before,
+.ti-layout-sidebar:before,
+.ti-layout-sidebar-right:before,
+.ti-leaf:before,
+.ti-lego:before,
+.ti-letter-a:before,
+.ti-letter-b:before,
+.ti-letter-c:before,
+.ti-letter-case:before,
+.ti-letter-case-lower:before,
+.ti-letter-case-toggle:before,
+.ti-letter-case-upper:before,
+.ti-letter-d:before,
+.ti-letter-e:before,
+.ti-letter-f:before,
+.ti-letter-g:before,
+.ti-letter-h:before,
+.ti-letter-i:before,
+.ti-letter-j:before,
+.ti-letter-k:before,
+.ti-letter-l:before,
+.ti-letter-m:before,
+.ti-letter-n:before,
+.ti-letter-o:before,
+.ti-letter-p:before,
+.ti-letter-q:before,
+.ti-letter-r:before,
+.ti-letter-s:before,
+.ti-letter-spacing:before,
+.ti-letter-t:before,
+.ti-letter-u:before,
+.ti-letter-v:before,
+.ti-letter-w:before,
+.ti-letter-x:before,
+.ti-letter-y:before,
+.ti-letter-z:before,
+.ti-letters-case:before,
+.ti-license:before,
+.ti-lifebuoy:before,
+.ti-line:before,
+.ti-line-dashed:before,
+.ti-line-dotted:before,
+.ti-line-height:before,
+.ti-link:before,
+.ti-list:before,
+.ti-list-check:before,
+.ti-list-search:before,
+.ti-live-photo:before,
+.ti-live-view:before,
+.ti-loader:before,
+.ti-loader-quarter:before,
+.ti-location:before,
+.ti-lock:before,
+.ti-lock-access:before,
+.ti-lock-off:before,
+.ti-lock-open:before,
+.ti-login:before,
+.ti-logout:before,
+.ti-macro:before,
+.ti-magnet:before,
+.ti-mail:before,
+.ti-mail-forward:before,
+.ti-mail-opened:before,
+.ti-mailbox:before,
+.ti-man:before,
+.ti-manual-gearbox:before,
+.ti-map:before,
+.ti-map-2:before,
+.ti-map-pin:before,
+.ti-map-pin-off:before,
+.ti-map-pins:before,
+.ti-markdown:before,
+.ti-marquee:before,
+.ti-marquee-2:before,
+.ti-mars:before,
+.ti-mask:before,
+.ti-mask-off:before,
+.ti-massage:before,
+.ti-math:before,
+.ti-math-function:before,
+.ti-math-symbols:before,
+.ti-maximize:before,
+.ti-medal:before,
+.ti-medical-cross:before,
+.ti-menu:before,
+.ti-menu-2:before,
+.ti-message:before,
+.ti-message-2:before,
+.ti-message-circle:before,
+.ti-message-circle-2:before,
+.ti-message-circle-off:before,
+.ti-message-dots:before,
+.ti-message-off:before,
+.ti-message-plus:before,
+.ti-message-report:before,
+.ti-messages:before,
+.ti-messages-off:before,
+.ti-microphone:before,
+.ti-microphone-off:before,
+.ti-minimize:before,
+.ti-minus:before,
+.ti-minus-vertical:before,
+.ti-mist:before,
+.ti-mood-boy:before,
+.ti-mood-confuzed:before,
+.ti-mood-crazy-happy:before,
+.ti-mood-cry:before,
+.ti-mood-empty:before,
+.ti-mood-happy:before,
+.ti-mood-kid:before,
+.ti-mood-neutral:before,
+.ti-mood-sad:before,
+.ti-mood-smile:before,
+.ti-mood-suprised:before,
+.ti-mood-tongue:before,
+.ti-moon:before,
+.ti-moon-2:before,
+.ti-moon-stars:before,
+.ti-moped:before,
+.ti-motorbike:before,
+.ti-mouse:before,
+.ti-movie:before,
+.ti-mug:before,
+.ti-music:before,
+.ti-new-section:before,
+.ti-news:before,
+.ti-nfc:before,
+.ti-note:before,
+.ti-notebook:before,
+.ti-notes:before,
+.ti-notification:before,
+.ti-number-0:before,
+.ti-number-1:before,
+.ti-number-2:before,
+.ti-number-3:before,
+.ti-number-4:before,
+.ti-number-5:before,
+.ti-number-6:before,
+.ti-number-7:before,
+.ti-number-8:before,
+.ti-number-9:before,
+.ti-octagon:before,
+.ti-octagon-off:before,
+.ti-old:before,
+.ti-olympics:before,
+.ti-omega:before,
+.ti-outlet:before,
+.ti-overline:before,
+.ti-package:before,
+.ti-pacman:before,
+.ti-page-break:before,
+.ti-paint:before,
+.ti-palette:before,
+.ti-panorama-horizontal:before,
+.ti-panorama-vertical:before,
+.ti-paperclip:before,
+.ti-parachute:before,
+.ti-parentheses:before,
+.ti-parking:before,
+.ti-peace:before,
+.ti-pencil:before,
+.ti-pennant:before,
+.ti-percentage:before,
+.ti-perspective:before,
+.ti-phone:before,
+.ti-phone-call:before,
+.ti-phone-calling:before,
+.ti-phone-check:before,
+.ti-phone-incoming:before,
+.ti-phone-off:before,
+.ti-phone-outgoing:before,
+.ti-phone-pause:before,
+.ti-phone-plus:before,
+.ti-phone-x:before,
+.ti-photo:before,
+.ti-photo-off:before,
+.ti-physotherapist:before,
+.ti-picture-in-picture:before,
+.ti-picture-in-picture-off:before,
+.ti-picture-in-picture-on:before,
+.ti-pill:before,
+.ti-pin:before,
+.ti-pinned:before,
+.ti-pinned-off:before,
+.ti-pizza:before,
+.ti-plane:before,
+.ti-plane-arrival:before,
+.ti-plane-departure:before,
+.ti-planet:before,
+.ti-plant:before,
+.ti-plant-2:before,
+.ti-play-card:before,
+.ti-player-pause:before,
+.ti-player-play:before,
+.ti-player-record:before,
+.ti-player-skip-back:before,
+.ti-player-skip-forward:before,
+.ti-player-stop:before,
+.ti-player-track-next:before,
+.ti-player-track-prev:before,
+.ti-playlist:before,
+.ti-plug:before,
+.ti-plus:before,
+.ti-point:before,
+.ti-pokeball:before,
+.ti-polaroid:before,
+.ti-pool:before,
+.ti-power:before,
+.ti-pray:before,
+.ti-presentation:before,
+.ti-presentation-analytics:before,
+.ti-printer:before,
+.ti-prompt:before,
+.ti-propeller:before,
+.ti-puzzle:before,
+.ti-pyramid:before,
+.ti-qrcode:before,
+.ti-question-mark:before,
+.ti-radioactive:before,
+.ti-radius-bottom-left:before,
+.ti-radius-bottom-right:before,
+.ti-radius-top-left:before,
+.ti-radius-top-right:before,
+.ti-rainbow:before,
+.ti-receipt:before,
+.ti-receipt-2:before,
+.ti-receipt-off:before,
+.ti-receipt-refund:before,
+.ti-receipt-tax:before,
+.ti-recharging:before,
+.ti-record-mail:before,
+.ti-rectangle:before,
+.ti-rectangle-vertical:before,
+.ti-recycle:before,
+.ti-refresh:before,
+.ti-refresh-alert:before,
+.ti-registered:before,
+.ti-relation-many-to-many:before,
+.ti-relation-one-to-many:before,
+.ti-relation-one-to-one:before,
+.ti-repeat:before,
+.ti-repeat-once:before,
+.ti-replace:before,
+.ti-report:before,
+.ti-report-analytics:before,
+.ti-report-medical:before,
+.ti-report-money:before,
+.ti-resize:before,
+.ti-ripple:before,
+.ti-road-sign:before,
+.ti-rocket:before,
+.ti-rotate:before,
+.ti-rotate-2:before,
+.ti-rotate-clockwise:before,
+.ti-rotate-clockwise-2:before,
+.ti-rotate-rectangle:before,
+.ti-route:before,
+.ti-router:before,
+.ti-row-insert-bottom:before,
+.ti-row-insert-top:before,
+.ti-rss:before,
+.ti-ruler:before,
+.ti-ruler-2:before,
+.ti-run:before,
+.ti-sailboat:before,
+.ti-satellite:before,
+.ti-scale:before,
+.ti-scan:before,
+.ti-school:before,
+.ti-scissors:before,
+.ti-scooter:before,
+.ti-scooter-electric:before,
+.ti-screen-share:before,
+.ti-screen-share-off:before,
+.ti-scuba-mask:before,
+.ti-search:before,
+.ti-section:before,
+.ti-seeding:before,
+.ti-select:before,
+.ti-selector:before,
+.ti-send:before,
+.ti-separator:before,
+.ti-separator-horizontal:before,
+.ti-separator-vertical:before,
+.ti-server:before,
+.ti-servicemark:before,
+.ti-settings:before,
+.ti-settings-automation:before,
+.ti-shadow:before,
+.ti-shadow-off:before,
+.ti-shape:before,
+.ti-shape-2:before,
+.ti-shape-3:before,
+.ti-share:before,
+.ti-shield:before,
+.ti-shield-check:before,
+.ti-shield-lock:before,
+.ti-shield-off:before,
+.ti-shield-x:before,
+.ti-ship:before,
+.ti-shirt:before,
+.ti-shopping-cart:before,
+.ti-shopping-cart-discount:before,
+.ti-shopping-cart-off:before,
+.ti-shopping-cart-plus:before,
+.ti-shopping-cart-x:before,
+.ti-shredder:before,
+.ti-signature:before,
+.ti-sitemap:before,
+.ti-skateboard:before,
+.ti-slice:before,
+.ti-slideshow:before,
+.ti-smart-home:before,
+.ti-smoking:before,
+.ti-smoking-no:before,
+.ti-snowflake:before,
+.ti-soccer-field:before,
+.ti-social:before,
+.ti-sock:before,
+.ti-sort-ascending:before,
+.ti-sort-ascending-2:before,
+.ti-sort-descending:before,
+.ti-sort-descending-2:before,
+.ti-space:before,
+.ti-speakerphone:before,
+.ti-speedboat:before,
+.ti-sport-billard:before,
+.ti-square:before,
+.ti-square-0:before,
+.ti-square-1:before,
+.ti-square-2:before,
+.ti-square-3:before,
+.ti-square-4:before,
+.ti-square-5:before,
+.ti-square-6:before,
+.ti-square-7:before,
+.ti-square-8:before,
+.ti-square-9:before,
+.ti-square-check:before,
+.ti-square-dot:before,
+.ti-square-forbid:before,
+.ti-square-forbid-2:before,
+.ti-square-minus:before,
+.ti-square-off:before,
+.ti-square-plus:before,
+.ti-square-root:before,
+.ti-square-root-2:before,
+.ti-square-rotated:before,
+.ti-square-rotated-off:before,
+.ti-square-toggle:before,
+.ti-square-toggle-horizontal:before,
+.ti-square-x:before,
+.ti-squares-diagonal:before,
+.ti-squares-filled:before,
+.ti-stack:before,
+.ti-stack-2:before,
+.ti-stairs:before,
+.ti-stairs-down:before,
+.ti-stairs-up:before,
+.ti-star:before,
+.ti-star-half:before,
+.ti-star-off:before,
+.ti-stars:before,
+.ti-steering-wheel:before,
+.ti-step-into:before,
+.ti-step-out:before,
+.ti-stethoscope:before,
+.ti-sticker:before,
+.ti-strikethrough:before,
+.ti-submarine:before,
+.ti-subscript:before,
+.ti-subtask:before,
+.ti-sum:before,
+.ti-sun:before,
+.ti-sun-off:before,
+.ti-sunset:before,
+.ti-sunshine:before,
+.ti-superscript:before,
+.ti-swimming:before,
+.ti-switch:before,
+.ti-switch-2:before,
+.ti-switch-3:before,
+.ti-switch-horizontal:before,
+.ti-switch-vertical:before,
+.ti-table:before,
+.ti-table-export:before,
+.ti-table-import:before,
+.ti-table-off:before,
+.ti-tag:before,
+.ti-tallymark-1:before,
+.ti-tallymark-2:before,
+.ti-tallymark-3:before,
+.ti-tallymark-4:before,
+.ti-tallymarks:before,
+.ti-tank:before,
+.ti-target:before,
+.ti-temperature:before,
+.ti-temperature-celsius:before,
+.ti-temperature-fahrenheit:before,
+.ti-temperature-minus:before,
+.ti-temperature-plus:before,
+.ti-template:before,
+.ti-tent:before,
+.ti-terminal:before,
+.ti-terminal-2:before,
+.ti-test-pipe:before,
+.ti-text-direction-ltr:before,
+.ti-text-direction-rtl:before,
+.ti-text-wrap:before,
+.ti-text-wrap-disabled:before,
+.ti-thumb-down:before,
+.ti-thumb-up:before,
+.ti-ticket:before,
+.ti-tilt-shift:before,
+.ti-tir:before,
+.ti-toggle-left:before,
+.ti-toggle-right:before,
+.ti-tool:before,
+.ti-tools:before,
+.ti-tools-kitchen:before,
+.ti-tools-kitchen-2:before,
+.ti-tornado:before,
+.ti-tournament:before,
+.ti-track:before,
+.ti-tractor:before,
+.ti-trademark:before,
+.ti-traffic-cone:before,
+.ti-traffic-lights:before,
+.ti-train:before,
+.ti-trash:before,
+.ti-trash-off:before,
+.ti-tree:before,
+.ti-trees:before,
+.ti-trending-down:before,
+.ti-trending-down-2:before,
+.ti-trending-down-3:before,
+.ti-trending-up:before,
+.ti-trending-up-2:before,
+.ti-trending-up-3:before,
+.ti-triangle:before,
+.ti-triangle-off:before,
+.ti-triangle-square-circle:before,
+.ti-trident:before,
+.ti-trophy:before,
+.ti-truck:before,
+.ti-truck-delivery:before,
+.ti-truck-off:before,
+.ti-truck-return:before,
+.ti-typography:before,
+.ti-umbrella:before,
+.ti-underline:before,
+.ti-unlink:before,
+.ti-upload:before,
+.ti-urgent:before,
+.ti-user:before,
+.ti-user-check:before,
+.ti-user-exclamation:before,
+.ti-user-minus:before,
+.ti-user-off:before,
+.ti-user-plus:before,
+.ti-user-x:before,
+.ti-users:before,
+.ti-vaccine:before,
+.ti-variable:before,
+.ti-vector:before,
+.ti-vector-beizer:before,
+.ti-vector-beizer-2:before,
+.ti-vector-triangle:before,
+.ti-venus:before,
+.ti-versions:before,
+.ti-video:before,
+.ti-video-minus:before,
+.ti-video-off:before,
+.ti-video-plus:before,
+.ti-view-360:before,
+.ti-viewfinder:before,
+.ti-viewport-narrow:before,
+.ti-viewport-wide:before,
+.ti-virus:before,
+.ti-virus-off:before,
+.ti-virus-search:before,
+.ti-volume:before,
+.ti-volume-2:before,
+.ti-volume-3:before,
+.ti-walk:before,
+.ti-wallet:before,
+.ti-wand:before,
+.ti-wave-saw-tool:before,
+.ti-wave-sine:before,
+.ti-wave-square:before,
+.ti-wifi:before,
+.ti-wifi-0:before,
+.ti-wifi-1:before,
+.ti-wifi-2:before,
+.ti-wifi-off:before,
+.ti-wind:before,
+.ti-windmill:before,
+.ti-window:before,
+.ti-wiper:before,
+.ti-wiper-wash:before,
+.ti-woman:before,
+.ti-world:before,
+.ti-world-latitude:before,
+.ti-world-longitude:before,
+.ti-wrecking-ball:before,
+.ti-writing:before,
+.ti-writing-sign:before,
+.ti-x:before,
+.ti-yin-yang:before,
+.ti-zodiac-aquarius:before,
+.ti-zodiac-aries:before,
+.ti-zodiac-cancer:before,
+.ti-zodiac-capricorn:before,
+.ti-zodiac-gemini:before,
+.ti-zodiac-leo:before,
+.ti-zodiac-libra:before,
+.ti-zodiac-pisces:before,
+.ti-zodiac-sagittarius:before,
+.ti-zodiac-scorpio:before,
+.ti-zodiac-taurus:before,
+.ti-zodiac-virgo:before,
+.ti-zoom-cancel:before,
+.ti-zoom-check:before,
+.ti-zoom-in:before,
+.ti-zoom-money:before,
+.ti-zoom-out:before {
+  display: inline-block;
+  font-family: "tabler-icons";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
   line-height: 1;
-  /* Better Font Rendering */
-  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.ti-2fa:before {
-  content: "";
-}
-
-.ti-3d-cube-sphere:before {
-  content: "";
-}
-
-.ti-a-b:before {
-  content: "";
-}
-
-.ti-access-point:before {
-  content: "";
-}
-
-.ti-access-point-off:before {
-  content: "";
-}
-
-.ti-accessible:before {
-  content: "";
-}
-
-.ti-activity:before {
-  content: "";
-}
-
-.ti-ad:before {
-  content: "";
-}
-
-.ti-adjustments:before {
-  content: "";
-}
-
-.ti-adjustments-alt:before {
-  content: "";
-}
-
-.ti-adjustments-horizontal:before {
-  content: "";
-}
-
-.ti-alarm:before {
-  content: "";
-}
-
-.ti-alert-circle:before {
-  content: "";
-}
-
-.ti-alert-octagon:before {
-  content: "";
-}
-
-.ti-alert-triangle:before {
-  content: "";
-}
-
-.ti-alien:before {
-  content: "";
-}
-
-.ti-align-center:before {
-  content: "";
-}
-
-.ti-align-justified:before {
-  content: "";
-}
-
-.ti-align-left:before {
-  content: "";
-}
-
-.ti-align-right:before {
-  content: "";
-}
-
-.ti-ambulance:before {
-  content: "";
-}
-
-.ti-anchor:before {
-  content: "";
-}
-
-.ti-antenna-bars-1:before {
-  content: "";
-}
-
-.ti-antenna-bars-2:before {
-  content: "";
-}
-
-.ti-antenna-bars-3:before {
-  content: "";
-}
-
-.ti-antenna-bars-4:before {
-  content: "";
-}
-
-.ti-antenna-bars-5:before {
-  content: "";
-}
-
-.ti-aperture:before {
-  content: "";
-}
-
-.ti-apps:before {
-  content: "";
-}
-
-.ti-archive:before {
-  content: "";
-}
-
-.ti-arrow-back:before {
-  content: "";
-}
-
-.ti-arrow-back-up:before {
-  content: "";
-}
-
-.ti-arrow-bar-down:before {
-  content: "";
-}
-
-.ti-arrow-bar-left:before {
-  content: "";
-}
-
-.ti-arrow-bar-right:before {
-  content: "";
-}
-
-.ti-arrow-bar-to-down:before {
-  content: "";
-}
-
-.ti-arrow-bar-to-left:before {
-  content: "";
-}
-
-.ti-arrow-bar-to-right:before {
-  content: "";
-}
-
-.ti-arrow-bar-to-up:before {
-  content: "";
-}
-
-.ti-arrow-bar-up:before {
-  content: "";
-}
-
-.ti-arrow-down:before {
-  content: "";
-}
-
-.ti-arrow-down-circle:before {
-  content: "";
-}
-
-.ti-arrow-down-left:before {
-  content: "";
-}
-
-.ti-arrow-down-left-circle:before {
-  content: "";
-}
-
-.ti-arrow-down-right:before {
-  content: "";
-}
-
-.ti-arrow-down-right-circle:before {
-  content: "";
-}
-
-.ti-arrow-forward:before {
-  content: "";
-}
-
-.ti-arrow-forward-up:before {
-  content: "";
-}
-
-.ti-arrow-left:before {
-  content: "";
-}
-
-.ti-arrow-left-circle:before {
-  content: "";
-}
-
-.ti-arrow-narrow-down:before {
-  content: "";
-}
-
-.ti-arrow-narrow-left:before {
-  content: "";
-}
-
-.ti-arrow-narrow-right:before {
-  content: "";
-}
-
-.ti-arrow-narrow-up:before {
-  content: "";
-}
-
-.ti-arrow-ramp-left:before {
-  content: "";
-}
-
-.ti-arrow-ramp-right:before {
-  content: "";
-}
-
-.ti-arrow-right:before {
-  content: "";
-}
-
-.ti-arrow-right-circle:before {
-  content: "";
-}
-
-.ti-arrow-up:before {
-  content: "";
-}
-
-.ti-arrow-up-circle:before {
-  content: "";
-}
-
-.ti-arrow-up-left:before {
-  content: "";
-}
-
-.ti-arrow-up-left-circle:before {
-  content: "";
-}
-
-.ti-arrow-up-right:before {
-  content: "";
-}
-
-.ti-arrow-up-right-circle:before {
-  content: "";
-}
-
-.ti-arrows-diagonal:before {
-  content: "";
-}
-
-.ti-arrows-diagonal-2:before {
-  content: "";
-}
-
-.ti-arrows-horizontal:before {
-  content: "";
-}
-
-.ti-arrows-maximize:before {
-  content: "";
-}
-
-.ti-arrows-minimize:before {
-  content: "";
-}
-
-.ti-arrows-sort:before {
-  content: "";
-}
-
-.ti-arrows-vertical:before {
-  content: "";
-}
-
-.ti-artboard:before {
-  content: "";
-}
-
-.ti-aspect-ratio:before {
-  content: "";
-}
-
-.ti-at:before {
-  content: "";
-}
-
-.ti-atom:before {
-  content: "";
-}
-
-.ti-atom-2:before {
-  content: "";
-}
-
-.ti-award:before {
-  content: "";
-}
-
-.ti-backhoe:before {
-  content: "";
-}
-
-.ti-backspace:before {
-  content: "";
-}
-
-.ti-ball-basketball:before {
-  content: "";
-}
-
-.ti-ball-bowling:before {
-  content: "";
-}
-
-.ti-ball-tennis:before {
-  content: "";
-}
-
-.ti-ball-volleyball:before {
-  content: "";
-}
-
-.ti-ban:before {
-  content: "";
-}
-
-.ti-bandage:before {
-  content: "";
-}
-
-.ti-barcode:before {
-  content: "";
-}
-
-.ti-basket:before {
-  content: "";
-}
-
-.ti-battery:before {
-  content: "";
-}
-
-.ti-battery-1:before {
-  content: "";
-}
-
-.ti-battery-2:before {
-  content: "";
-}
-
-.ti-battery-3:before {
-  content: "";
-}
-
-.ti-battery-4:before {
-  content: "";
-}
-
-.ti-battery-charging:before {
-  content: "";
-}
-
-.ti-battery-off:before {
-  content: "";
-}
-
-.ti-bed:before {
-  content: "";
-}
-
-.ti-bell:before {
-  content: "";
-}
-
-.ti-bell-off:before {
-  content: "";
-}
-
-.ti-bell-ringing:before {
-  content: "";
-}
-
-.ti-bike:before {
-  content: "";
-}
-
-.ti-biohazard:before {
-  content: "";
-}
-
-.ti-bluetooth:before {
-  content: "";
-}
-
-.ti-bluetooth-connected:before {
-  content: "";
-}
-
-.ti-bluetooth-off:before {
-  content: "";
-}
-
-.ti-bold:before {
-  content: "";
-}
-
-.ti-bolt:before {
-  content: "";
-}
-
-.ti-bolt-off:before {
-  content: "";
-}
-
-.ti-book:before {
-  content: "";
-}
-
-.ti-bookmark:before {
-  content: "";
-}
-
-.ti-bookmark-off:before {
-  content: "";
-}
-
-.ti-bookmarks:before {
-  content: "";
-}
-
-.ti-border-all:before {
-  content: "";
-}
-
-.ti-border-bottom:before {
-  content: "";
-}
-
-.ti-border-horizontal:before {
-  content: "";
-}
-
-.ti-border-inner:before {
-  content: "";
-}
-
-.ti-border-left:before {
-  content: "";
-}
-
-.ti-border-none:before {
-  content: "";
-}
-
-.ti-border-outer:before {
-  content: "";
-}
-
-.ti-border-radius:before {
-  content: "";
-}
-
-.ti-border-right:before {
-  content: "";
-}
-
-.ti-border-top:before {
-  content: "";
-}
-
-.ti-border-vertical:before {
-  content: "";
-}
-
-.ti-box:before {
-  content: "";
-}
-
-.ti-braces:before {
-  content: "";
-}
-
-.ti-brackets:before {
-  content: "";
-}
-
-.ti-brand-airbnb:before {
-  content: "";
-}
-
-.ti-brand-android:before {
-  content: "";
-}
-
-.ti-brand-apple:before {
-  content: "";
-}
-
-.ti-brand-apple-arcade:before {
-  content: "";
-}
-
-.ti-brand-appstore:before {
-  content: "";
-}
-
-.ti-brand-behance:before {
-  content: "";
-}
-
-.ti-brand-chrome:before {
-  content: "";
-}
-
-.ti-brand-codepen:before {
-  content: "";
-}
-
-.ti-brand-codesandbox:before {
-  content: "";
-}
-
-.ti-brand-css3:before {
-  content: "";
-}
-
-.ti-brand-deviantart:before {
-  content: "";
-}
-
-.ti-brand-discord:before {
-  content: "";
-}
-
-.ti-brand-dribbble:before {
-  content: "";
-}
-
-.ti-brand-edge:before {
-  content: "";
-}
-
-.ti-brand-facebook:before {
-  content: "";
-}
-
-.ti-brand-figma:before {
-  content: "";
-}
-
-.ti-brand-firefox:before {
-  content: "";
-}
-
-.ti-brand-flickr:before {
-  content: "";
-}
-
-.ti-brand-foursquare:before {
-  content: "";
-}
-
-.ti-brand-framer:before {
-  content: "";
-}
-
-.ti-brand-github:before {
-  content: "";
-}
-
-.ti-brand-gitlab:before {
-  content: "";
-}
-
-.ti-brand-google:before {
-  content: "";
-}
-
-.ti-brand-google-drive:before {
-  content: "";
-}
-
-.ti-brand-google-play:before {
-  content: "";
-}
-
-.ti-brand-html5:before {
-  content: "";
-}
-
-.ti-brand-instagram:before {
-  content: "";
-}
-
-.ti-brand-kotlin:before {
-  content: "";
-}
-
-.ti-brand-linkedin:before {
-  content: "";
-}
-
-.ti-brand-medium:before {
-  content: "";
-}
-
-.ti-brand-messenger:before {
-  content: "";
-}
-
-.ti-brand-opera:before {
-  content: "";
-}
-
-.ti-brand-paypal:before {
-  content: "";
-}
-
-.ti-brand-pinterest:before {
-  content: "";
-}
-
-.ti-brand-pocket:before {
-  content: "";
-}
-
-.ti-brand-python:before {
-  content: "";
-}
-
-.ti-brand-reddit:before {
-  content: "";
-}
-
-.ti-brand-safari:before {
-  content: "";
-}
-
-.ti-brand-sketch:before {
-  content: "";
-}
-
-.ti-brand-skype:before {
-  content: "";
-}
-
-.ti-brand-slack:before {
-  content: "";
-}
-
-.ti-brand-snapchat:before {
-  content: "";
-}
-
-.ti-brand-soundcloud:before {
-  content: "";
-}
-
-.ti-brand-spotify:before {
-  content: "";
-}
-
-.ti-brand-steam:before {
-  content: "";
-}
-
-.ti-brand-tabler:before {
-  content: "";
-}
-
-.ti-brand-tailwind:before {
-  content: "";
-}
-
-.ti-brand-telegram:before {
-  content: "";
-}
-
-.ti-brand-tidal:before {
-  content: "";
-}
-
-.ti-brand-tiktok:before {
-  content: "";
-}
-
-.ti-brand-tinder:before {
-  content: "";
-}
-
-.ti-brand-tumblr:before {
-  content: "";
-}
-
-.ti-brand-twitch:before {
-  content: "";
-}
-
-.ti-brand-twitter:before {
-  content: "";
-}
-
-.ti-brand-vimeo:before {
-  content: "";
-}
-
-.ti-brand-vk:before {
-  content: "";
-}
-
-.ti-brand-whatsapp:before {
-  content: "";
-}
-
-.ti-brand-windows:before {
-  content: "";
-}
-
-.ti-brand-yahoo:before {
-  content: "";
-}
-
-.ti-brand-youtube:before {
-  content: "";
-}
-
-.ti-briefcase:before {
-  content: "";
-}
-
-.ti-brightness:before {
-  content: "";
-}
-
-.ti-brightness-down:before {
-  content: "";
-}
-
-.ti-brightness-up:before {
-  content: "";
-}
-
-.ti-browser:before {
-  content: "";
-}
-
-.ti-brush:before {
-  content: "";
-}
-
-.ti-bucket:before {
-  content: "";
-}
-
-.ti-bug:before {
-  content: "";
-}
-
-.ti-building:before {
-  content: "";
-}
-
-.ti-building-arch:before {
-  content: "";
-}
-
-.ti-building-bank:before {
-  content: "";
-}
-
-.ti-building-bridge:before {
-  content: "";
-}
-
-.ti-building-bridge-2:before {
-  content: "";
-}
-
-.ti-building-carousel:before {
-  content: "";
-}
-
-.ti-building-castle:before {
-  content: "";
-}
-
-.ti-building-church:before {
-  content: "";
-}
-
-.ti-building-community:before {
-  content: "";
-}
-
-.ti-building-fortress:before {
-  content: "";
-}
-
-.ti-building-hospital:before {
-  content: "";
-}
-
-.ti-building-lighthouse:before {
-  content: "";
-}
-
-.ti-building-monument:before {
-  content: "";
-}
-
-.ti-building-pavilon:before {
-  content: "";
-}
-
-.ti-building-skyscraper:before {
-  content: "";
-}
-
-.ti-building-store:before {
-  content: "";
-}
-
-.ti-building-warehouse:before {
-  content: "";
-}
-
-.ti-bulb:before {
-  content: "";
-}
-
-.ti-bulb-off:before {
-  content: "";
-}
-
-.ti-buldozer:before {
-  content: "";
-}
-
-.ti-bus:before {
-  content: "";
-}
-
-.ti-calculator:before {
-  content: "";
-}
-
-.ti-calendar:before {
-  content: "";
-}
-
-.ti-calendar-event:before {
-  content: "";
-}
-
-.ti-calendar-minus:before {
-  content: "";
-}
-
-.ti-calendar-plus:before {
-  content: "";
-}
-
-.ti-camera:before {
-  content: "";
-}
-
-.ti-camera-minus:before {
-  content: "";
-}
-
-.ti-camera-off:before {
-  content: "";
-}
-
-.ti-camera-plus:before {
-  content: "";
-}
-
-.ti-capture:before {
-  content: "";
-}
-
-.ti-car:before {
-  content: "";
-}
-
-.ti-caravan:before {
-  content: "";
-}
-
-.ti-cardboards:before {
-  content: "";
-}
-
-.ti-caret-down:before {
-  content: "";
-}
-
-.ti-caret-left:before {
-  content: "";
-}
-
-.ti-caret-right:before {
-  content: "";
-}
-
-.ti-caret-up:before {
-  content: "";
-}
-
-.ti-cash:before {
-  content: "";
-}
-
-.ti-cast:before {
-  content: "";
-}
-
-.ti-ce:before {
-  content: "";
-}
-
-.ti-certificate:before {
-  content: "";
-}
-
-.ti-chart-area:before {
-  content: "";
-}
-
-.ti-chart-area-line:before {
-  content: "";
-}
-
-.ti-chart-bar:before {
-  content: "";
-}
-
-.ti-chart-bubble:before {
-  content: "";
-}
-
-.ti-chart-candle:before {
-  content: "";
-}
-
-.ti-chart-donut:before {
-  content: "";
-}
-
-.ti-chart-line:before {
-  content: "";
-}
-
-.ti-chart-pie:before {
-  content: "";
-}
-
-.ti-chart-radar:before {
-  content: "";
-}
-
-.ti-check:before {
-  content: "";
-}
-
-.ti-checkbox:before {
-  content: "";
-}
-
-.ti-checks:before {
-  content: "";
-}
-
-.ti-chevron-down:before {
-  content: "";
-}
-
-.ti-chevron-down-left:before {
-  content: "";
-}
-
-.ti-chevron-down-right:before {
-  content: "";
-}
-
-.ti-chevron-left:before {
-  content: "";
-}
-
-.ti-chevron-right:before {
-  content: "";
-}
-
-.ti-chevron-up:before {
-  content: "";
-}
-
-.ti-chevron-up-left:before {
-  content: "";
-}
-
-.ti-chevron-up-right:before {
-  content: "";
-}
-
-.ti-chevrons-down:before {
-  content: "";
-}
-
-.ti-chevrons-down-left:before {
-  content: "";
-}
-
-.ti-chevrons-down-right:before {
-  content: "";
-}
-
-.ti-chevrons-left:before {
-  content: "";
-}
-
-.ti-chevrons-right:before {
-  content: "";
-}
-
-.ti-chevrons-up:before {
-  content: "";
-}
-
-.ti-chevrons-up-left:before {
-  content: "";
-}
-
-.ti-chevrons-up-right:before {
-  content: "";
-}
-
-.ti-christmas-tree:before {
-  content: "";
-}
-
-.ti-circle:before {
-  content: "";
-}
-
-.ti-circle-check:before {
-  content: "";
-}
-
-.ti-circle-dashed:before {
-  content: "";
-}
-
-.ti-circle-dotted:before {
-  content: "";
-}
-
-.ti-circle-minus:before {
-  content: "";
-}
-
-.ti-circle-plus:before {
-  content: "";
-}
-
-.ti-circle-square:before {
-  content: "";
-}
-
-.ti-circle-x:before {
-  content: "";
-}
-
-.ti-circles:before {
-  content: "";
-}
-
-.ti-clear-formatting:before {
-  content: "";
-}
-
-.ti-click:before {
-  content: "";
-}
-
-.ti-clipboard:before {
-  content: "";
-}
-
-.ti-clipboard-check:before {
-  content: "";
-}
-
-.ti-clipboard-list:before {
-  content: "";
-}
-
-.ti-clipboard-x:before {
-  content: "";
-}
-
-.ti-clock:before {
-  content: "";
-}
-
-.ti-cloud:before {
-  content: "";
-}
-
-.ti-cloud-download:before {
-  content: "";
-}
-
-.ti-cloud-fog:before {
-  content: "";
-}
-
-.ti-cloud-off:before {
-  content: "";
-}
-
-.ti-cloud-rain:before {
-  content: "";
-}
-
-.ti-cloud-snow:before {
-  content: "";
-}
-
-.ti-cloud-storm:before {
-  content: "";
-}
-
-.ti-cloud-upload:before {
-  content: "";
-}
-
-.ti-code:before {
-  content: "";
-}
-
-.ti-coin:before {
-  content: "";
-}
-
-.ti-color-picker:before {
-  content: "";
-}
-
-.ti-color-swatch:before {
-  content: "";
-}
-
-.ti-columns:before {
-  content: "";
-}
-
-.ti-comet:before {
-  content: "";
-}
-
-.ti-command:before {
-  content: "";
-}
-
-.ti-compass:before {
-  content: "";
-}
-
-.ti-contrast:before {
-  content: "";
-}
-
-.ti-copy:before {
-  content: "";
-}
-
-.ti-copyleft:before {
-  content: "";
-}
-
-.ti-copyright:before {
-  content: "";
-}
-
-.ti-corner-down-left:before {
-  content: "";
-}
-
-.ti-corner-down-right:before {
-  content: "";
-}
-
-.ti-corner-left-down:before {
-  content: "";
-}
-
-.ti-corner-left-up:before {
-  content: "";
-}
-
-.ti-corner-right-down:before {
-  content: "";
-}
-
-.ti-corner-right-up:before {
-  content: "";
-}
-
-.ti-corner-up-left:before {
-  content: "";
-}
-
-.ti-corner-up-right:before {
-  content: "";
-}
-
-.ti-credit-card:before {
-  content: "";
-}
-
-.ti-credit-card-off:before {
-  content: "";
-}
-
-.ti-crop:before {
-  content: "";
-}
-
-.ti-crosshair:before {
-  content: "";
-}
-
-.ti-crown:before {
-  content: "";
-}
-
-.ti-curly-loop:before {
-  content: "";
-}
-
-.ti-currency-bitcoin:before {
-  content: "";
-}
-
-.ti-currency-dollar:before {
-  content: "";
-}
-
-.ti-currency-euro:before {
-  content: "";
-}
-
-.ti-currency-pound:before {
-  content: "";
-}
-
-.ti-currency-rupee:before {
-  content: "";
-}
-
-.ti-currency-yen:before {
-  content: "";
-}
-
-.ti-current-location:before {
-  content: "";
-}
-
-.ti-cut:before {
-  content: "";
-}
-
-.ti-dashboard:before {
-  content: "";
-}
-
-.ti-database:before {
-  content: "";
-}
-
-.ti-device-desktop:before {
-  content: "";
-}
-
-.ti-device-floppy:before {
-  content: "";
-}
-
-.ti-device-gamepad:before {
-  content: "";
-}
-
-.ti-device-laptop:before {
-  content: "";
-}
-
-.ti-device-mobile:before {
-  content: "";
-}
-
-.ti-device-mobile-rotated:before {
-  content: "";
-}
-
-.ti-device-mobile-vibration:before {
-  content: "";
-}
-
-.ti-device-speaker:before {
-  content: "";
-}
-
-.ti-device-tablet:before {
-  content: "";
-}
-
-.ti-device-tv:before {
-  content: "";
-}
-
-.ti-device-watch:before {
-  content: "";
-}
-
-.ti-devices:before {
-  content: "";
-}
-
-.ti-devices-2:before {
-  content: "";
-}
-
-.ti-diamond:before {
-  content: "";
-}
-
-.ti-dice:before {
-  content: "";
-}
-
-.ti-direction:before {
-  content: "";
-}
-
-.ti-direction-horizontal:before {
-  content: "";
-}
-
-.ti-directions:before {
-  content: "";
-}
-
-.ti-disabled:before {
-  content: "";
-}
-
-.ti-disabled-2:before {
-  content: "";
-}
-
-.ti-disc:before {
-  content: "";
-}
-
-.ti-discount:before {
-  content: "";
-}
-
-.ti-divide:before {
-  content: "";
-}
-
-.ti-dots:before {
-  content: "";
-}
-
-.ti-dots-circle-horizontal:before {
-  content: "";
-}
-
-.ti-dots-diagonal:before {
-  content: "";
-}
-
-.ti-dots-diagonal-2:before {
-  content: "";
-}
-
-.ti-dots-vertical:before {
-  content: "";
-}
-
-.ti-download:before {
-  content: "";
-}
-
-.ti-drag-drop:before {
-  content: "";
-}
-
-.ti-drag-drop-2:before {
-  content: "";
-}
-
-.ti-drone:before {
-  content: "";
-}
-
-.ti-droplet:before {
-  content: "";
-}
-
-.ti-ear:before {
-  content: "";
-}
-
-.ti-edit:before {
-  content: "";
-}
-
-.ti-egg:before {
-  content: "";
-}
-
-.ti-emphasis:before {
-  content: "";
-}
-
-.ti-eraser:before {
-  content: "";
-}
-
-.ti-exchange:before {
-  content: "";
-}
-
-.ti-exposure:before {
-  content: "";
-}
-
-.ti-external-link:before {
-  content: "";
-}
-
-.ti-eye:before {
-  content: "";
-}
-
-.ti-eye-off:before {
-  content: "";
-}
-
-.ti-face-id:before {
-  content: "";
-}
-
-.ti-fall:before {
-  content: "";
-}
-
-.ti-file:before {
-  content: "";
-}
-
-.ti-file-certificate:before {
-  content: "";
-}
-
-.ti-file-check:before {
-  content: "";
-}
-
-.ti-file-code:before {
-  content: "";
-}
-
-.ti-file-diff:before {
-  content: "";
-}
-
-.ti-file-dislike:before {
-  content: "";
-}
-
-.ti-file-download:before {
-  content: "";
-}
-
-.ti-file-horizontal:before {
-  content: "";
-}
-
-.ti-file-invoice:before {
-  content: "";
-}
-
-.ti-file-like:before {
-  content: "";
-}
-
-.ti-file-minus:before {
-  content: "";
-}
-
-.ti-file-music:before {
-  content: "";
-}
-
-.ti-file-off:before {
-  content: "";
-}
-
-.ti-file-phone:before {
-  content: "";
-}
-
-.ti-file-plus:before {
-  content: "";
-}
-
-.ti-file-search:before {
-  content: "";
-}
-
-.ti-file-shredder:before {
-  content: "";
-}
-
-.ti-file-symlink:before {
-  content: "";
-}
-
-.ti-file-text:before {
-  content: "";
-}
-
-.ti-file-upload:before {
-  content: "";
-}
-
-.ti-file-x:before {
-  content: "";
-}
-
-.ti-file-zip:before {
-  content: "";
-}
-
-.ti-filter:before {
-  content: "";
-}
-
-.ti-filter-off:before {
-  content: "";
-}
-
-.ti-fingerprint:before {
-  content: "";
-}
-
-.ti-firetruck:before {
-  content: "";
-}
-
-.ti-flag:before {
-  content: "";
-}
-
-.ti-flame:before {
-  content: "";
-}
-
-.ti-flask:before {
-  content: "";
-}
-
-.ti-flip-horizontal:before {
-  content: "";
-}
-
-.ti-flip-vertical:before {
-  content: "";
-}
-
-.ti-float-center:before {
-  content: "";
-}
-
-.ti-float-left:before {
-  content: "";
-}
-
-.ti-float-none:before {
-  content: "";
-}
-
-.ti-float-right:before {
-  content: "";
-}
-
-.ti-focus:before {
-  content: "";
-}
-
-.ti-focus-2:before {
-  content: "";
-}
-
-.ti-fold:before {
-  content: "";
-}
-
-.ti-fold-down:before {
-  content: "";
-}
-
-.ti-fold-up:before {
-  content: "";
-}
-
-.ti-folder:before {
-  content: "";
-}
-
-.ti-folder-minus:before {
-  content: "";
-}
-
-.ti-folder-off:before {
-  content: "";
-}
-
-.ti-folder-plus:before {
-  content: "";
-}
-
-.ti-folder-x:before {
-  content: "";
-}
-
-.ti-folders:before {
-  content: "";
-}
-
-.ti-forbid:before {
-  content: "";
-}
-
-.ti-forbid-2:before {
-  content: "";
-}
-
-.ti-forklift:before {
-  content: "";
-}
-
-.ti-frame:before {
-  content: "";
-}
-
-.ti-friends:before {
-  content: "";
-}
-
-.ti-gas-station:before {
-  content: "";
-}
-
-.ti-gauge:before {
-  content: "";
-}
-
-.ti-ghost:before {
-  content: "";
-}
-
-.ti-gift:before {
-  content: "";
-}
-
-.ti-git-branch:before {
-  content: "";
-}
-
-.ti-git-commit:before {
-  content: "";
-}
-
-.ti-git-compare:before {
-  content: "";
-}
-
-.ti-git-fork:before {
-  content: "";
-}
-
-.ti-git-merge:before {
-  content: "";
-}
-
-.ti-git-pull-request:before {
-  content: "";
-}
-
-.ti-glass:before {
-  content: "";
-}
-
-.ti-glass-full:before {
-  content: "";
-}
-
-.ti-globe:before {
-  content: "";
-}
-
-.ti-golf:before {
-  content: "";
-}
-
-.ti-gps:before {
-  content: "";
-}
-
-.ti-grid:before {
-  content: "";
-}
-
-.ti-grid-dots:before {
-  content: "";
-}
-
-.ti-grip-horizontal:before {
-  content: "";
-}
-
-.ti-grip-vertical:before {
-  content: "";
-}
-
-.ti-h-1:before {
-  content: "";
-}
-
-.ti-h-2:before {
-  content: "";
-}
-
-.ti-h-3:before {
-  content: "";
-}
-
-.ti-h-4:before {
-  content: "";
-}
-
-.ti-h-5:before {
-  content: "";
-}
-
-.ti-h-6:before {
-  content: "";
-}
-
-.ti-hand-middle-finger:before {
-  content: "";
-}
-
-.ti-hand-off:before {
-  content: "";
-}
-
-.ti-hand-stop:before {
-  content: "";
-}
-
-.ti-hash:before {
-  content: "";
-}
-
-.ti-headphones:before {
-  content: "";
-}
-
-.ti-headphones-off:before {
-  content: "";
-}
-
-.ti-headset:before {
-  content: "";
-}
-
-.ti-heart:before {
-  content: "";
-}
-
-.ti-heart-broken:before {
-  content: "";
-}
-
-.ti-helicopter:before {
-  content: "";
-}
-
-.ti-helicopter-landing:before {
-  content: "";
-}
-
-.ti-help:before {
-  content: "";
-}
-
-.ti-hexagon:before {
-  content: "";
-}
-
-.ti-history:before {
-  content: "";
-}
-
-.ti-home:before {
-  content: "";
-}
-
-.ti-home-2:before {
-  content: "";
-}
-
-.ti-ice-cream:before {
-  content: "";
-}
-
-.ti-id:before {
-  content: "";
-}
-
-.ti-inbox:before {
-  content: "";
-}
-
-.ti-indent-decrease:before {
-  content: "";
-}
-
-.ti-indent-increase:before {
-  content: "";
-}
-
-.ti-infinity:before {
-  content: "";
-}
-
-.ti-info-circle:before {
-  content: "";
-}
-
-.ti-info-square:before {
-  content: "";
-}
-
-.ti-italic:before {
-  content: "";
-}
-
-.ti-jump-rope:before {
-  content: "";
-}
-
-.ti-karate:before {
-  content: "";
-}
-
-.ti-key:before {
-  content: "";
-}
-
-.ti-keyboard:before {
-  content: "";
-}
-
-.ti-keyboard-hide:before {
-  content: "";
-}
-
-.ti-keyboard-show:before {
-  content: "";
-}
-
-.ti-language:before {
-  content: "";
-}
-
-.ti-layers-difference:before {
-  content: "";
-}
-
-.ti-layers-intersect:before {
-  content: "";
-}
-
-.ti-layers-subtract:before {
-  content: "";
-}
-
-.ti-layers-union:before {
-  content: "";
-}
-
-.ti-layout:before {
-  content: "";
-}
-
-.ti-layout-2:before {
-  content: "";
-}
-
-.ti-layout-align-bottom:before {
-  content: "";
-}
-
-.ti-layout-align-center:before {
-  content: "";
-}
-
-.ti-layout-align-left:before {
-  content: "";
-}
-
-.ti-layout-align-middle:before {
-  content: "";
-}
-
-.ti-layout-align-right:before {
-  content: "";
-}
-
-.ti-layout-align-top:before {
-  content: "";
-}
-
-.ti-layout-bottombar:before {
-  content: "";
-}
-
-.ti-layout-cards:before {
-  content: "";
-}
-
-.ti-layout-columns:before {
-  content: "";
-}
-
-.ti-layout-distribute-horizontal:before {
-  content: "";
-}
-
-.ti-layout-distribute-vertical:before {
-  content: "";
-}
-
-.ti-layout-kanban:before {
-  content: "";
-}
-
-.ti-layout-list:before {
-  content: "";
-}
-
-.ti-layout-navbar:before {
-  content: "";
-}
-
-.ti-layout-rows:before {
-  content: "";
-}
-
-.ti-layout-sidebar:before {
-  content: "";
-}
-
-.ti-layout-sidebar-right:before {
-  content: "";
-}
-
-.ti-leaf:before {
-  content: "";
-}
-
-.ti-lego:before {
-  content: "";
-}
-
-.ti-letter-a:before {
-  content: "";
-}
-
-.ti-letter-b:before {
-  content: "";
-}
-
-.ti-letter-c:before {
-  content: "";
-}
-
-.ti-letter-d:before {
-  content: "";
-}
-
-.ti-letter-e:before {
-  content: "";
-}
-
-.ti-letter-f:before {
-  content: "";
-}
-
-.ti-letter-g:before {
-  content: "";
-}
-
-.ti-letter-h:before {
-  content: "";
-}
-
-.ti-letter-i:before {
-  content: "";
-}
-
-.ti-letter-j:before {
-  content: "";
-}
-
-.ti-letter-k:before {
-  content: "";
-}
-
-.ti-letter-l:before {
-  content: "";
-}
-
-.ti-letter-m:before {
-  content: "";
-}
-
-.ti-letter-n:before {
-  content: "";
-}
-
-.ti-letter-o:before {
-  content: "";
-}
-
-.ti-letter-p:before {
-  content: "";
-}
-
-.ti-letter-q:before {
-  content: "";
-}
-
-.ti-letter-r:before {
-  content: "";
-}
-
-.ti-letter-s:before {
-  content: "";
-}
-
-.ti-letter-t:before {
-  content: "";
-}
-
-.ti-letter-u:before {
-  content: "";
-}
-
-.ti-letter-v:before {
-  content: "";
-}
-
-.ti-letter-w:before {
-  content: "";
-}
-
-.ti-letter-x:before {
-  content: "";
-}
-
-.ti-letter-y:before {
-  content: "";
-}
-
-.ti-letter-z:before {
-  content: "";
-}
-
-.ti-letters-case:before {
-  content: "";
-}
-
-.ti-license:before {
-  content: "";
-}
-
-.ti-lifebuoy:before {
-  content: "";
-}
-
-.ti-line:before {
-  content: "";
-}
-
-.ti-line-height:before {
-  content: "";
-}
-
-.ti-link:before {
-  content: "";
-}
-
-.ti-list:before {
-  content: "";
-}
-
-.ti-list-check:before {
-  content: "";
-}
-
-.ti-live-photo:before {
-  content: "";
-}
-
-.ti-live-view:before {
-  content: "";
-}
-
-.ti-loader:before {
-  content: "";
-}
-
-.ti-loader-quarter:before {
-  content: "";
-}
-
-.ti-location:before {
-  content: "";
-}
-
-.ti-lock:before {
-  content: "";
-}
-
-.ti-lock-off:before {
-  content: "";
-}
-
-.ti-lock-open:before {
-  content: "";
-}
-
-.ti-login:before {
-  content: "";
-}
-
-.ti-logout:before {
-  content: "";
-}
-
-.ti-magnet:before {
-  content: "";
-}
-
-.ti-mail:before {
-  content: "";
-}
-
-.ti-mail-opened:before {
-  content: "";
-}
-
-.ti-man:before {
-  content: "";
-}
-
-.ti-manual-gearbox:before {
-  content: "";
-}
-
-.ti-map:before {
-  content: "";
-}
-
-.ti-map-2:before {
-  content: "";
-}
-
-.ti-map-pin:before {
-  content: "";
-}
-
-.ti-map-pin-off:before {
-  content: "";
-}
-
-.ti-map-pins:before {
-  content: "";
-}
-
-.ti-markdown:before {
-  content: "";
-}
-
-.ti-marquee:before {
-  content: "";
-}
-
-.ti-mars:before {
-  content: "";
-}
-
-.ti-math:before {
-  content: "";
-}
-
-.ti-maximize:before {
-  content: "";
-}
-
-.ti-medal:before {
-  content: "";
-}
-
-.ti-medical-cross:before {
-  content: "";
-}
-
-.ti-menu:before {
-  content: "";
-}
-
-.ti-menu-2:before {
-  content: "";
-}
-
-.ti-message:before {
-  content: "";
-}
-
-.ti-message-2:before {
-  content: "";
-}
-
-.ti-message-circle:before {
-  content: "";
-}
-
-.ti-message-circle-2:before {
-  content: "";
-}
-
-.ti-message-circle-off:before {
-  content: "";
-}
-
-.ti-message-dots:before {
-  content: "";
-}
-
-.ti-message-off:before {
-  content: "";
-}
-
-.ti-message-plus:before {
-  content: "";
-}
-
-.ti-message-report:before {
-  content: "";
-}
-
-.ti-messages:before {
-  content: "";
-}
-
-.ti-messages-off:before {
-  content: "";
-}
-
-.ti-microphone:before {
-  content: "";
-}
-
-.ti-microphone-off:before {
-  content: "";
-}
-
-.ti-minimize:before {
-  content: "";
-}
-
-.ti-minus:before {
-  content: "";
-}
-
-.ti-mist:before {
-  content: "";
-}
-
-.ti-mood-boy:before {
-  content: "";
-}
-
-.ti-mood-confuzed:before {
-  content: "";
-}
-
-.ti-mood-crazy-happy:before {
-  content: "";
-}
-
-.ti-mood-cry:before {
-  content: "";
-}
-
-.ti-mood-happy:before {
-  content: "";
-}
-
-.ti-mood-kid:before {
-  content: "";
-}
-
-.ti-mood-neutral:before {
-  content: "";
-}
-
-.ti-mood-sad:before {
-  content: "";
-}
-
-.ti-mood-smile:before {
-  content: "";
-}
-
-.ti-mood-suprised:before {
-  content: "";
-}
-
-.ti-mood-tongue:before {
-  content: "";
-}
-
-.ti-moon:before {
-  content: "";
-}
-
-.ti-moon-2:before {
-  content: "";
-}
-
-.ti-moon-stars:before {
-  content: "";
-}
-
-.ti-moped:before {
-  content: "";
-}
-
-.ti-mouse:before {
-  content: "";
-}
-
-.ti-movie:before {
-  content: "";
-}
-
-.ti-mug:before {
-  content: "";
-}
-
-.ti-music:before {
-  content: "";
-}
-
-.ti-new-section:before {
-  content: "";
-}
-
-.ti-news:before {
-  content: "";
-}
-
-.ti-note:before {
-  content: "";
-}
-
-.ti-notebook:before {
-  content: "";
-}
-
-.ti-notes:before {
-  content: "";
-}
-
-.ti-notification:before {
-  content: "";
-}
-
-.ti-octagon:before {
-  content: "";
-}
-
-.ti-omega:before {
-  content: "";
-}
-
-.ti-outlet:before {
-  content: "";
-}
-
-.ti-package:before {
-  content: "";
-}
-
-.ti-page-break:before {
-  content: "";
-}
-
-.ti-paint:before {
-  content: "";
-}
-
-.ti-palette:before {
-  content: "";
-}
-
-.ti-panorama-horizontal:before {
-  content: "";
-}
-
-.ti-panorama-vertical:before {
-  content: "";
-}
-
-.ti-paperclip:before {
-  content: "";
-}
-
-.ti-parachute:before {
-  content: "";
-}
-
-.ti-parentheses:before {
-  content: "";
-}
-
-.ti-parking:before {
-  content: "";
-}
-
-.ti-peace:before {
-  content: "";
-}
-
-.ti-pencil:before {
-  content: "";
-}
-
-.ti-pennant:before {
-  content: "";
-}
-
-.ti-percentage:before {
-  content: "";
-}
-
-.ti-phone:before {
-  content: "";
-}
-
-.ti-phone-call:before {
-  content: "";
-}
-
-.ti-phone-calling:before {
-  content: "";
-}
-
-.ti-phone-check:before {
-  content: "";
-}
-
-.ti-phone-incoming:before {
-  content: "";
-}
-
-.ti-phone-off:before {
-  content: "";
-}
-
-.ti-phone-outgoing:before {
-  content: "";
-}
-
-.ti-phone-pause:before {
-  content: "";
-}
-
-.ti-phone-plus:before {
-  content: "";
-}
-
-.ti-phone-x:before {
-  content: "";
-}
-
-.ti-photo:before {
-  content: "";
-}
-
-.ti-photo-off:before {
-  content: "";
-}
-
-.ti-picture-in-picture:before {
-  content: "";
-}
-
-.ti-picture-in-picture-off:before {
-  content: "";
-}
-
-.ti-picture-in-picture-on:before {
-  content: "";
-}
-
-.ti-pill:before {
-  content: "";
-}
-
-.ti-pin:before {
-  content: "";
-}
-
-.ti-pinned:before {
-  content: "";
-}
-
-.ti-pinned-off:before {
-  content: "";
-}
-
-.ti-plane:before {
-  content: "";
-}
-
-.ti-plane-arrival:before {
-  content: "";
-}
-
-.ti-plane-departure:before {
-  content: "";
-}
-
-.ti-planet:before {
-  content: "";
-}
-
-.ti-plant:before {
-  content: "";
-}
-
-.ti-plant-2:before {
-  content: "";
-}
-
-.ti-player-pause:before {
-  content: "";
-}
-
-.ti-player-play:before {
-  content: "";
-}
-
-.ti-player-record:before {
-  content: "";
-}
-
-.ti-player-skip-back:before {
-  content: "";
-}
-
-.ti-player-skip-forward:before {
-  content: "";
-}
-
-.ti-player-stop:before {
-  content: "";
-}
-
-.ti-player-track-next:before {
-  content: "";
-}
-
-.ti-player-track-prev:before {
-  content: "";
-}
-
-.ti-plug:before {
-  content: "";
-}
-
-.ti-plus:before {
-  content: "";
-}
-
-.ti-point:before {
-  content: "";
-}
-
-.ti-pool:before {
-  content: "";
-}
-
-.ti-power:before {
-  content: "";
-}
-
-.ti-pray:before {
-  content: "";
-}
-
-.ti-presentation:before {
-  content: "";
-}
-
-.ti-printer:before {
-  content: "";
-}
-
-.ti-prompt:before {
-  content: "";
-}
-
-.ti-puzzle:before {
-  content: "";
-}
-
-.ti-qrcode:before {
-  content: "";
-}
-
-.ti-question-mark:before {
-  content: "";
-}
-
-.ti-radioactive:before {
-  content: "";
-}
-
-.ti-record-mail:before {
-  content: "";
-}
-
-.ti-rectangle:before {
-  content: "";
-}
-
-.ti-rectangle-vertical:before {
-  content: "";
-}
-
-.ti-recycle:before {
-  content: "";
-}
-
-.ti-refresh:before {
-  content: "";
-}
-
-.ti-refresh-alert:before {
-  content: "";
-}
-
-.ti-registered:before {
-  content: "";
-}
-
-.ti-relation-many-to-many:before {
-  content: "";
-}
-
-.ti-relation-one-to-many:before {
-  content: "";
-}
-
-.ti-relation-one-to-one:before {
-  content: "";
-}
-
-.ti-repeat:before {
-  content: "";
-}
-
-.ti-repeat-once:before {
-  content: "";
-}
-
-.ti-replace:before {
-  content: "";
-}
-
-.ti-ripple:before {
-  content: "";
-}
-
-.ti-road-sign:before {
-  content: "";
-}
-
-.ti-rocket:before {
-  content: "";
-}
-
-.ti-rotate:before {
-  content: "";
-}
-
-.ti-rotate-2:before {
-  content: "";
-}
-
-.ti-rotate-clockwise:before {
-  content: "";
-}
-
-.ti-rotate-clockwise-2:before {
-  content: "";
-}
-
-.ti-rotate-rectangle:before {
-  content: "";
-}
-
-.ti-route:before {
-  content: "";
-}
-
-.ti-router:before {
-  content: "";
-}
-
-.ti-rss:before {
-  content: "";
-}
-
-.ti-ruler:before {
-  content: "";
-}
-
-.ti-run:before {
-  content: "";
-}
-
-.ti-sailboat:before {
-  content: "";
-}
-
-.ti-scale:before {
-  content: "";
-}
-
-.ti-scan:before {
-  content: "";
-}
-
-.ti-school:before {
-  content: "";
-}
-
-.ti-scissors:before {
-  content: "";
-}
-
-.ti-scooter:before {
-  content: "";
-}
-
-.ti-scooter-electric:before {
-  content: "";
-}
-
-.ti-screen-share:before {
-  content: "";
-}
-
-.ti-screen-share-off:before {
-  content: "";
-}
-
-.ti-search:before {
-  content: "";
-}
-
-.ti-seeding:before {
-  content: "";
-}
-
-.ti-select:before {
-  content: "";
-}
-
-.ti-selector:before {
-  content: "";
-}
-
-.ti-send:before {
-  content: "";
-}
-
-.ti-separator:before {
-  content: "";
-}
-
-.ti-separator-horizontal:before {
-  content: "";
-}
-
-.ti-separator-vertical:before {
-  content: "";
-}
-
-.ti-server:before {
-  content: "";
-}
-
-.ti-servicemark:before {
-  content: "";
-}
-
-.ti-settings:before {
-  content: "";
-}
-
-.ti-shape:before {
-  content: "";
-}
-
-.ti-share:before {
-  content: "";
-}
-
-.ti-shield:before {
-  content: "";
-}
-
-.ti-shield-check:before {
-  content: "";
-}
-
-.ti-shield-lock:before {
-  content: "";
-}
-
-.ti-shield-off:before {
-  content: "";
-}
-
-.ti-shield-x:before {
-  content: "";
-}
-
-.ti-ship:before {
-  content: "";
-}
-
-.ti-shirt:before {
-  content: "";
-}
-
-.ti-shopping-cart:before {
-  content: "";
-}
-
-.ti-sitemap:before {
-  content: "";
-}
-
-.ti-skateboard:before {
-  content: "";
-}
-
-.ti-slice:before {
-  content: "";
-}
-
-.ti-slideshow:before {
-  content: "";
-}
-
-.ti-smart-home:before {
-  content: "";
-}
-
-.ti-smoking:before {
-  content: "";
-}
-
-.ti-smoking-no:before {
-  content: "";
-}
-
-.ti-snowflake:before {
-  content: "";
-}
-
-.ti-soccer-field:before {
-  content: "";
-}
-
-.ti-social:before {
-  content: "";
-}
-
-.ti-sort-ascending:before {
-  content: "";
-}
-
-.ti-sort-descending:before {
-  content: "";
-}
-
-.ti-space:before {
-  content: "";
-}
-
-.ti-speakerphone:before {
-  content: "";
-}
-
-.ti-speedboat:before {
-  content: "";
-}
-
-.ti-square:before {
-  content: "";
-}
-
-.ti-square-check:before {
-  content: "";
-}
-
-.ti-square-dot:before {
-  content: "";
-}
-
-.ti-square-forbid:before {
-  content: "";
-}
-
-.ti-square-forbid-2:before {
-  content: "";
-}
-
-.ti-square-minus:before {
-  content: "";
-}
-
-.ti-square-plus:before {
-  content: "";
-}
-
-.ti-square-rotated:before {
-  content: "";
-}
-
-.ti-square-x:before {
-  content: "";
-}
-
-.ti-stack:before {
-  content: "";
-}
-
-.ti-stairs:before {
-  content: "";
-}
-
-.ti-stairs-down:before {
-  content: "";
-}
-
-.ti-stairs-up:before {
-  content: "";
-}
-
-.ti-star:before {
-  content: "";
-}
-
-.ti-star-half:before {
-  content: "";
-}
-
-.ti-star-off:before {
-  content: "";
-}
-
-.ti-stars:before {
-  content: "";
-}
-
-.ti-steering-wheel:before {
-  content: "";
-}
-
-.ti-step-into:before {
-  content: "";
-}
-
-.ti-step-out:before {
-  content: "";
-}
-
-.ti-sthetoscope:before {
-  content: "";
-}
-
-.ti-sticker:before {
-  content: "";
-}
-
-.ti-strikethrough:before {
-  content: "";
-}
-
-.ti-submarine:before {
-  content: "";
-}
-
-.ti-subscript:before {
-  content: "";
-}
-
-.ti-subtask:before {
-  content: "";
-}
-
-.ti-sum:before {
-  content: "";
-}
-
-.ti-sun:before {
-  content: "";
-}
-
-.ti-sun-off:before {
-  content: "";
-}
-
-.ti-sunset:before {
-  content: "";
-}
-
-.ti-sunshine:before {
-  content: "";
-}
-
-.ti-superscript:before {
-  content: "";
-}
-
-.ti-swimming:before {
-  content: "";
-}
-
-.ti-switch:before {
-  content: "";
-}
-
-.ti-switch-horizontal:before {
-  content: "";
-}
-
-.ti-switch-vertical:before {
-  content: "";
-}
-
-.ti-table:before {
-  content: "";
-}
-
-.ti-tag:before {
-  content: "";
-}
-
-.ti-tallymark-1:before {
-  content: "";
-}
-
-.ti-tallymark-2:before {
-  content: "";
-}
-
-.ti-tallymark-3:before {
-  content: "";
-}
-
-.ti-tallymark-4:before {
-  content: "";
-}
-
-.ti-tallymarks:before {
-  content: "";
-}
-
-.ti-tank:before {
-  content: "";
-}
-
-.ti-target:before {
-  content: "";
-}
-
-.ti-tax:before {
-  content: "";
-}
-
-.ti-temperature:before {
-  content: "";
-}
-
-.ti-temperature-celsius:before {
-  content: "";
-}
-
-.ti-temperature-fahrenheit:before {
-  content: "";
-}
-
-.ti-temperature-minus:before {
-  content: "";
-}
-
-.ti-temperature-plus:before {
-  content: "";
-}
-
-.ti-template:before {
-  content: "";
-}
-
-.ti-terminal:before {
-  content: "";
-}
-
-.ti-terminal-2:before {
-  content: "";
-}
-
-.ti-test-pipe:before {
-  content: "";
-}
-
-.ti-text-wrap:before {
-  content: "";
-}
-
-.ti-text-wrap-disabled:before {
-  content: "";
-}
-
-.ti-thumb-down:before {
-  content: "";
-}
-
-.ti-thumb-up:before {
-  content: "";
-}
-
-.ti-ticket:before {
-  content: "";
-}
-
-.ti-tir:before {
-  content: "";
-}
-
-.ti-toggle-left:before {
-  content: "";
-}
-
-.ti-toggle-right:before {
-  content: "";
-}
-
-.ti-tool:before {
-  content: "";
-}
-
-.ti-tools:before {
-  content: "";
-}
-
-.ti-tools-kitchen:before {
-  content: "";
-}
-
-.ti-tornado:before {
-  content: "";
-}
-
-.ti-tournament:before {
-  content: "";
-}
-
-.ti-tractor:before {
-  content: "";
-}
-
-.ti-trademark:before {
-  content: "";
-}
-
-.ti-traffic-cone:before {
-  content: "";
-}
-
-.ti-traffic-lights:before {
-  content: "";
-}
-
-.ti-train:before {
-  content: "";
-}
-
-.ti-trash:before {
-  content: "";
-}
-
-.ti-trash-off:before {
-  content: "";
-}
-
-.ti-trees:before {
-  content: "";
-}
-
-.ti-trending-down:before {
-  content: "";
-}
-
-.ti-trending-up:before {
-  content: "";
-}
-
-.ti-triangle:before {
-  content: "";
-}
-
-.ti-triangle-square-circle:before {
-  content: "";
-}
-
-.ti-trident:before {
-  content: "";
-}
-
-.ti-trophy:before {
-  content: "";
-}
-
-.ti-truck:before {
-  content: "";
-}
-
-.ti-truck-delivery:before {
-  content: "";
-}
-
-.ti-truck-return:before {
-  content: "";
-}
-
-.ti-typography:before {
-  content: "";
-}
-
-.ti-umbrella:before {
-  content: "";
-}
-
-.ti-underline:before {
-  content: "";
-}
-
-.ti-unlink:before {
-  content: "";
-}
-
-.ti-upload:before {
-  content: "";
-}
-
-.ti-urgent:before {
-  content: "";
-}
-
-.ti-user:before {
-  content: "";
-}
-
-.ti-user-check:before {
-  content: "";
-}
-
-.ti-user-exclamation:before {
-  content: "";
-}
-
-.ti-user-minus:before {
-  content: "";
-}
-
-.ti-user-off:before {
-  content: "";
-}
-
-.ti-user-plus:before {
-  content: "";
-}
-
-.ti-user-x:before {
-  content: "";
-}
-
-.ti-users:before {
-  content: "";
-}
-
-.ti-vector:before {
-  content: "";
-}
-
-.ti-vector-beizer:before {
-  content: "";
-}
-
-.ti-vector-beizer-2:before {
-  content: "";
-}
-
-.ti-vector-triangle:before {
-  content: "";
-}
-
-.ti-venus:before {
-  content: "";
-}
-
-.ti-versions:before {
-  content: "";
-}
-
-.ti-video:before {
-  content: "";
-}
-
-.ti-video-minus:before {
-  content: "";
-}
-
-.ti-video-off:before {
-  content: "";
-}
-
-.ti-video-plus:before {
-  content: "";
-}
-
-.ti-view-360:before {
-  content: "";
-}
-
-.ti-viewfinder:before {
-  content: "";
-}
-
-.ti-viewport-narrow:before {
-  content: "";
-}
-
-.ti-viewport-wide:before {
-  content: "";
-}
-
-.ti-virus:before {
-  content: "";
-}
-
-.ti-virus-off:before {
-  content: "";
-}
-
-.ti-virus-search:before {
-  content: "";
-}
-
-.ti-volume:before {
-  content: "";
-}
-
-.ti-volume-2:before {
-  content: "";
-}
-
-.ti-volume-3:before {
-  content: "";
-}
-
-.ti-walk:before {
-  content: "";
-}
-
-.ti-wallet:before {
-  content: "";
-}
-
-.ti-wand:before {
-  content: "";
-}
-
-.ti-wave-saw-tool:before {
-  content: "";
-}
-
-.ti-wave-sine:before {
-  content: "";
-}
-
-.ti-wave-square:before {
-  content: "";
-}
-
-.ti-wifi:before {
-  content: "";
-}
-
-.ti-wifi-0:before {
-  content: "";
-}
-
-.ti-wifi-1:before {
-  content: "";
-}
-
-.ti-wifi-2:before {
-  content: "";
-}
-
-.ti-wifi-off:before {
-  content: "";
-}
-
-.ti-wind:before {
-  content: "";
-}
-
-.ti-windmill:before {
-  content: "";
-}
-
-.ti-wiper:before {
-  content: "";
-}
-
-.ti-wiper-wash:before {
-  content: "";
-}
-
-.ti-woman:before {
-  content: "";
-}
-
-.ti-world:before {
-  content: "";
-}
-
-.ti-world-latitude:before {
-  content: "";
-}
-
-.ti-world-longitude:before {
-  content: "";
-}
-
-.ti-wrecking-ball:before {
-  content: "";
-}
-
-.ti-x:before {
-  content: "";
-}
-
-.ti-yin-yang:before {
-  content: "";
-}
-
-.ti-zodiac-aquarius:before {
-  content: "";
-}
-
-.ti-zodiac-aries:before {
-  content: "";
-}
-
-.ti-zodiac-cancer:before {
-  content: "";
-}
-
-.ti-zodiac-capricorn:before {
-  content: "";
-}
-
-.ti-zodiac-gemini:before {
-  content: "";
-}
-
-.ti-zodiac-leo:before {
-  content: "";
-}
-
-.ti-zodiac-libra:before {
-  content: "";
-}
-
-.ti-zodiac-pisces:before {
-  content: "";
-}
-
-.ti-zodiac-sagittarius:before {
-  content: "";
-}
-
-.ti-zodiac-scorpio:before {
-  content: "";
-}
-
-.ti-zodiac-taurus:before {
-  content: "";
-}
-
-.ti-zodiac-virgo:before {
-  content: "";
-}
-
-.ti-zoom-cancel:before {
-  content: "";
-}
-
-.ti-zoom-in:before {
-  content: "";
-}
-
-.ti-zoom-out:before {
-  content: "";
-}
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.ti-2fa:before { content: "\100df"; }
+.ti-3d-cube-sphere:before { content: "\100e0"; }
+.ti-a-b:before { content: "\100e1"; }
+.ti-access-point:before { content: "\100e2"; }
+.ti-access-point-off:before { content: "\100e3"; }
+.ti-accessible:before { content: "\100e4"; }
+.ti-activity:before { content: "\100e5"; }
+.ti-ad:before { content: "\100e6"; }
+.ti-adjustments:before { content: "\100e7"; }
+.ti-adjustments-alt:before { content: "\100e8"; }
+.ti-adjustments-horizontal:before { content: "\100e9"; }
+.ti-aerial-lift:before { content: "\100ea"; }
+.ti-affiliate:before { content: "\100eb"; }
+.ti-alarm:before { content: "\100ec"; }
+.ti-alert-circle:before { content: "\100ed"; }
+.ti-alert-octagon:before { content: "\100ee"; }
+.ti-alert-triangle:before { content: "\100ef"; }
+.ti-alien:before { content: "\100f0"; }
+.ti-align-center:before { content: "\100f1"; }
+.ti-align-justified:before { content: "\100f2"; }
+.ti-align-left:before { content: "\100f3"; }
+.ti-align-right:before { content: "\100f4"; }
+.ti-ambulance:before { content: "\100f5"; }
+.ti-anchor:before { content: "\100f6"; }
+.ti-antenna-bars-1:before { content: "\100f7"; }
+.ti-antenna-bars-2:before { content: "\100f8"; }
+.ti-antenna-bars-3:before { content: "\100f9"; }
+.ti-antenna-bars-4:before { content: "\100fa"; }
+.ti-antenna-bars-5:before { content: "\100fb"; }
+.ti-aperture:before { content: "\100fc"; }
+.ti-apps:before { content: "\100fd"; }
+.ti-archive:before { content: "\100fe"; }
+.ti-arrow-back:before { content: "\100ff"; }
+.ti-arrow-back-up:before { content: "\10100"; }
+.ti-arrow-bar-down:before { content: "\10101"; }
+.ti-arrow-bar-left:before { content: "\10102"; }
+.ti-arrow-bar-right:before { content: "\10103"; }
+.ti-arrow-bar-to-down:before { content: "\10104"; }
+.ti-arrow-bar-to-left:before { content: "\10105"; }
+.ti-arrow-bar-to-right:before { content: "\10106"; }
+.ti-arrow-bar-to-up:before { content: "\10107"; }
+.ti-arrow-bar-up:before { content: "\10108"; }
+.ti-arrow-bottom-bar:before { content: "\10109"; }
+.ti-arrow-bottom-circle:before { content: "\1010a"; }
+.ti-arrow-bottom-square:before { content: "\1010b"; }
+.ti-arrow-bottom-tail:before { content: "\1010c"; }
+.ti-arrow-down:before { content: "\1010d"; }
+.ti-arrow-down-circle:before { content: "\1010e"; }
+.ti-arrow-down-left:before { content: "\1010f"; }
+.ti-arrow-down-left-circle:before { content: "\10110"; }
+.ti-arrow-down-right:before { content: "\10111"; }
+.ti-arrow-down-right-circle:before { content: "\10112"; }
+.ti-arrow-forward:before { content: "\10113"; }
+.ti-arrow-forward-up:before { content: "\10114"; }
+.ti-arrow-left:before { content: "\10115"; }
+.ti-arrow-left-bar:before { content: "\10116"; }
+.ti-arrow-left-circle:before { content: "\10117"; }
+.ti-arrow-left-square:before { content: "\10118"; }
+.ti-arrow-left-tail:before { content: "\10119"; }
+.ti-arrow-loop-left:before { content: "\1011a"; }
+.ti-arrow-loop-right:before { content: "\1011b"; }
+.ti-arrow-narrow-down:before { content: "\1011c"; }
+.ti-arrow-narrow-left:before { content: "\1011d"; }
+.ti-arrow-narrow-right:before { content: "\1011e"; }
+.ti-arrow-narrow-up:before { content: "\1011f"; }
+.ti-arrow-ramp-left:before { content: "\10120"; }
+.ti-arrow-ramp-right:before { content: "\10121"; }
+.ti-arrow-right:before { content: "\10122"; }
+.ti-arrow-right-bar:before { content: "\10123"; }
+.ti-arrow-right-circle:before { content: "\10124"; }
+.ti-arrow-right-square:before { content: "\10125"; }
+.ti-arrow-right-tail:before { content: "\10126"; }
+.ti-arrow-top-bar:before { content: "\10127"; }
+.ti-arrow-top-circle:before { content: "\10128"; }
+.ti-arrow-top-square:before { content: "\10129"; }
+.ti-arrow-top-tail:before { content: "\1012a"; }
+.ti-arrow-up:before { content: "\1012b"; }
+.ti-arrow-up-circle:before { content: "\1012c"; }
+.ti-arrow-up-left:before { content: "\1012d"; }
+.ti-arrow-up-left-circle:before { content: "\1012e"; }
+.ti-arrow-up-right:before { content: "\1012f"; }
+.ti-arrow-up-right-circle:before { content: "\10130"; }
+.ti-arrow-wave-left-down:before { content: "\10131"; }
+.ti-arrow-wave-left-up:before { content: "\10132"; }
+.ti-arrow-wave-right-down:before { content: "\10133"; }
+.ti-arrow-wave-right-up:before { content: "\10134"; }
+.ti-arrows-diagonal:before { content: "\10135"; }
+.ti-arrows-diagonal-2:before { content: "\10136"; }
+.ti-arrows-down:before { content: "\10137"; }
+.ti-arrows-down-up:before { content: "\10138"; }
+.ti-arrows-horizontal:before { content: "\10139"; }
+.ti-arrows-join:before { content: "\1013a"; }
+.ti-arrows-join-2:before { content: "\1013b"; }
+.ti-arrows-left:before { content: "\1013c"; }
+.ti-arrows-left-down:before { content: "\1013d"; }
+.ti-arrows-left-right:before { content: "\1013e"; }
+.ti-arrows-maximize:before { content: "\1013f"; }
+.ti-arrows-minimize:before { content: "\10140"; }
+.ti-arrows-right:before { content: "\10141"; }
+.ti-arrows-right-down:before { content: "\10142"; }
+.ti-arrows-right-left:before { content: "\10143"; }
+.ti-arrows-sort:before { content: "\10144"; }
+.ti-arrows-split:before { content: "\10145"; }
+.ti-arrows-split-2:before { content: "\10146"; }
+.ti-arrows-up:before { content: "\10147"; }
+.ti-arrows-up-down:before { content: "\10148"; }
+.ti-arrows-up-left:before { content: "\10149"; }
+.ti-arrows-up-right:before { content: "\1014a"; }
+.ti-arrows-vertical:before { content: "\1014b"; }
+.ti-artboard:before { content: "\1014c"; }
+.ti-aspect-ratio:before { content: "\1014d"; }
+.ti-at:before { content: "\1014e"; }
+.ti-atom:before { content: "\1014f"; }
+.ti-atom-2:before { content: "\10150"; }
+.ti-award:before { content: "\10151"; }
+.ti-backhoe:before { content: "\10152"; }
+.ti-backspace:before { content: "\10153"; }
+.ti-ball-american-football:before { content: "\10154"; }
+.ti-ball-basketball:before { content: "\10155"; }
+.ti-ball-bowling:before { content: "\10156"; }
+.ti-ball-football:before { content: "\10157"; }
+.ti-ball-football-off:before { content: "\10158"; }
+.ti-ball-tennis:before { content: "\10159"; }
+.ti-ball-volleyball:before { content: "\1015a"; }
+.ti-ban:before { content: "\1015b"; }
+.ti-bandage:before { content: "\1015c"; }
+.ti-barcode:before { content: "\1015d"; }
+.ti-basket:before { content: "\1015e"; }
+.ti-battery:before { content: "\1015f"; }
+.ti-battery-1:before { content: "\10160"; }
+.ti-battery-2:before { content: "\10161"; }
+.ti-battery-3:before { content: "\10162"; }
+.ti-battery-4:before { content: "\10163"; }
+.ti-battery-automotive:before { content: "\10164"; }
+.ti-battery-charging:before { content: "\10165"; }
+.ti-battery-off:before { content: "\10166"; }
+.ti-bed:before { content: "\10167"; }
+.ti-bell:before { content: "\10168"; }
+.ti-bell-off:before { content: "\10169"; }
+.ti-bell-ringing:before { content: "\1016a"; }
+.ti-bell-ringing-2:before { content: "\1016b"; }
+.ti-bike:before { content: "\1016c"; }
+.ti-binary:before { content: "\1016d"; }
+.ti-biohazard:before { content: "\1016e"; }
+.ti-blockquote:before { content: "\1016f"; }
+.ti-bluetooth:before { content: "\10170"; }
+.ti-bluetooth-connected:before { content: "\10171"; }
+.ti-bluetooth-off:before { content: "\10172"; }
+.ti-bold:before { content: "\10173"; }
+.ti-bolt:before { content: "\10174"; }
+.ti-bolt-off:before { content: "\10175"; }
+.ti-bone:before { content: "\10176"; }
+.ti-book:before { content: "\10177"; }
+.ti-bookmark:before { content: "\10178"; }
+.ti-bookmark-off:before { content: "\10179"; }
+.ti-bookmarks:before { content: "\1017a"; }
+.ti-border-all:before { content: "\1017b"; }
+.ti-border-bottom:before { content: "\1017c"; }
+.ti-border-horizontal:before { content: "\1017d"; }
+.ti-border-inner:before { content: "\1017e"; }
+.ti-border-left:before { content: "\1017f"; }
+.ti-border-none:before { content: "\10180"; }
+.ti-border-outer:before { content: "\10181"; }
+.ti-border-radius:before { content: "\10182"; }
+.ti-border-right:before { content: "\10183"; }
+.ti-border-style:before { content: "\10184"; }
+.ti-border-top:before { content: "\10185"; }
+.ti-border-vertical:before { content: "\10186"; }
+.ti-box:before { content: "\10187"; }
+.ti-box-margin:before { content: "\10188"; }
+.ti-box-model:before { content: "\10189"; }
+.ti-box-multiple:before { content: "\1018a"; }
+.ti-box-multiple-0:before { content: "\1018b"; }
+.ti-box-multiple-1:before { content: "\1018c"; }
+.ti-box-multiple-2:before { content: "\1018d"; }
+.ti-box-multiple-3:before { content: "\1018e"; }
+.ti-box-multiple-4:before { content: "\1018f"; }
+.ti-box-multiple-5:before { content: "\10190"; }
+.ti-box-multiple-6:before { content: "\10191"; }
+.ti-box-multiple-7:before { content: "\10192"; }
+.ti-box-multiple-8:before { content: "\10193"; }
+.ti-box-multiple-9:before { content: "\10194"; }
+.ti-box-padding:before { content: "\10195"; }
+.ti-braces:before { content: "\10196"; }
+.ti-brackets:before { content: "\10197"; }
+.ti-brand-airbnb:before { content: "\10198"; }
+.ti-brand-android:before { content: "\10199"; }
+.ti-brand-apple:before { content: "\1019a"; }
+.ti-brand-apple-arcade:before { content: "\1019b"; }
+.ti-brand-appstore:before { content: "\1019c"; }
+.ti-brand-asana:before { content: "\1019d"; }
+.ti-brand-behance:before { content: "\1019e"; }
+.ti-brand-bing:before { content: "\1019f"; }
+.ti-brand-bitbucket:before { content: "\101a0"; }
+.ti-brand-booking:before { content: "\101a1"; }
+.ti-brand-chrome:before { content: "\101a2"; }
+.ti-brand-codepen:before { content: "\101a3"; }
+.ti-brand-codesandbox:before { content: "\101a4"; }
+.ti-brand-css3:before { content: "\101a5"; }
+.ti-brand-deviantart:before { content: "\101a6"; }
+.ti-brand-discord:before { content: "\101a7"; }
+.ti-brand-disqus:before { content: "\101a8"; }
+.ti-brand-docker:before { content: "\101a9"; }
+.ti-brand-dribbble:before { content: "\101aa"; }
+.ti-brand-edge:before { content: "\101ab"; }
+.ti-brand-facebook:before { content: "\101ac"; }
+.ti-brand-figma:before { content: "\101ad"; }
+.ti-brand-firefox:before { content: "\101ae"; }
+.ti-brand-flickr:before { content: "\101af"; }
+.ti-brand-foursquare:before { content: "\101b0"; }
+.ti-brand-framer:before { content: "\101b1"; }
+.ti-brand-github:before { content: "\101b2"; }
+.ti-brand-gitlab:before { content: "\101b3"; }
+.ti-brand-google:before { content: "\101b4"; }
+.ti-brand-google-analytics:before { content: "\101b5"; }
+.ti-brand-google-drive:before { content: "\101b6"; }
+.ti-brand-google-play:before { content: "\101b7"; }
+.ti-brand-gravatar:before { content: "\101b8"; }
+.ti-brand-hipchat:before { content: "\101b9"; }
+.ti-brand-html5:before { content: "\101ba"; }
+.ti-brand-instagram:before { content: "\101bb"; }
+.ti-brand-kickstarter:before { content: "\101bc"; }
+.ti-brand-kotlin:before { content: "\101bd"; }
+.ti-brand-linkedin:before { content: "\101be"; }
+.ti-brand-medium:before { content: "\101bf"; }
+.ti-brand-messenger:before { content: "\101c0"; }
+.ti-brand-netflix:before { content: "\101c1"; }
+.ti-brand-open-source:before { content: "\101c2"; }
+.ti-brand-opera:before { content: "\101c3"; }
+.ti-brand-pagekit:before { content: "\101c4"; }
+.ti-brand-patreon:before { content: "\101c5"; }
+.ti-brand-paypal:before { content: "\101c6"; }
+.ti-brand-pinterest:before { content: "\101c7"; }
+.ti-brand-pocket:before { content: "\101c8"; }
+.ti-brand-producthunt:before { content: "\101c9"; }
+.ti-brand-python:before { content: "\101ca"; }
+.ti-brand-reddit:before { content: "\101cb"; }
+.ti-brand-safari:before { content: "\101cc"; }
+.ti-brand-sass:before { content: "\101cd"; }
+.ti-brand-sentry:before { content: "\101ce"; }
+.ti-brand-shazam:before { content: "\101cf"; }
+.ti-brand-sketch:before { content: "\101d0"; }
+.ti-brand-skype:before { content: "\101d1"; }
+.ti-brand-slack:before { content: "\101d2"; }
+.ti-brand-snapchat:before { content: "\101d3"; }
+.ti-brand-soundcloud:before { content: "\101d4"; }
+.ti-brand-spotify:before { content: "\101d5"; }
+.ti-brand-steam:before { content: "\101d6"; }
+.ti-brand-stripe:before { content: "\101d7"; }
+.ti-brand-tabler:before { content: "\101d8"; }
+.ti-brand-tailwind:before { content: "\101d9"; }
+.ti-brand-telegram:before { content: "\101da"; }
+.ti-brand-tidal:before { content: "\101db"; }
+.ti-brand-tiktok:before { content: "\101dc"; }
+.ti-brand-tinder:before { content: "\101dd"; }
+.ti-brand-tumblr:before { content: "\101de"; }
+.ti-brand-twitch:before { content: "\101df"; }
+.ti-brand-twitter:before { content: "\101e0"; }
+.ti-brand-unsplash:before { content: "\101e1"; }
+.ti-brand-vimeo:before { content: "\101e2"; }
+.ti-brand-vk:before { content: "\101e3"; }
+.ti-brand-whatsapp:before { content: "\101e4"; }
+.ti-brand-windows:before { content: "\101e5"; }
+.ti-brand-yahoo:before { content: "\101e6"; }
+.ti-brand-ycombinator:before { content: "\101e7"; }
+.ti-brand-youtube:before { content: "\101e8"; }
+.ti-briefcase:before { content: "\101e9"; }
+.ti-brightness:before { content: "\101ea"; }
+.ti-brightness-2:before { content: "\101eb"; }
+.ti-brightness-down:before { content: "\101ec"; }
+.ti-brightness-half:before { content: "\101ed"; }
+.ti-brightness-up:before { content: "\101ee"; }
+.ti-browser:before { content: "\101ef"; }
+.ti-brush:before { content: "\101f0"; }
+.ti-bucket:before { content: "\101f1"; }
+.ti-bug:before { content: "\101f2"; }
+.ti-building:before { content: "\101f3"; }
+.ti-building-arch:before { content: "\101f4"; }
+.ti-building-bank:before { content: "\101f5"; }
+.ti-building-bridge:before { content: "\101f6"; }
+.ti-building-bridge-2:before { content: "\101f7"; }
+.ti-building-carousel:before { content: "\101f8"; }
+.ti-building-castle:before { content: "\101f9"; }
+.ti-building-church:before { content: "\101fa"; }
+.ti-building-community:before { content: "\101fb"; }
+.ti-building-cottage:before { content: "\101fc"; }
+.ti-building-factory:before { content: "\101fd"; }
+.ti-building-fortress:before { content: "\101fe"; }
+.ti-building-hospital:before { content: "\101ff"; }
+.ti-building-lighthouse:before { content: "\10200"; }
+.ti-building-monument:before { content: "\10201"; }
+.ti-building-pavilon:before { content: "\10202"; }
+.ti-building-skyscraper:before { content: "\10203"; }
+.ti-building-store:before { content: "\10204"; }
+.ti-building-warehouse:before { content: "\10205"; }
+.ti-bulb:before { content: "\10206"; }
+.ti-bulb-off:before { content: "\10207"; }
+.ti-bulldozer:before { content: "\10208"; }
+.ti-bus:before { content: "\10209"; }
+.ti-businessplan:before { content: "\1020a"; }
+.ti-calculator:before { content: "\1020b"; }
+.ti-calendar:before { content: "\1020c"; }
+.ti-calendar-event:before { content: "\1020d"; }
+.ti-calendar-minus:before { content: "\1020e"; }
+.ti-calendar-off:before { content: "\1020f"; }
+.ti-calendar-plus:before { content: "\10210"; }
+.ti-calendar-stats:before { content: "\10211"; }
+.ti-calendar-time:before { content: "\10212"; }
+.ti-camera:before { content: "\10213"; }
+.ti-camera-minus:before { content: "\10214"; }
+.ti-camera-off:before { content: "\10215"; }
+.ti-camera-plus:before { content: "\10216"; }
+.ti-camera-rotate:before { content: "\10217"; }
+.ti-camera-selfie:before { content: "\10218"; }
+.ti-capture:before { content: "\10219"; }
+.ti-car:before { content: "\1021a"; }
+.ti-caravan:before { content: "\1021b"; }
+.ti-cardboards:before { content: "\1021c"; }
+.ti-caret-down:before { content: "\1021d"; }
+.ti-caret-left:before { content: "\1021e"; }
+.ti-caret-right:before { content: "\1021f"; }
+.ti-caret-up:before { content: "\10220"; }
+.ti-cash:before { content: "\10221"; }
+.ti-cash-banknote:before { content: "\10222"; }
+.ti-cash-banknote-off:before { content: "\10223"; }
+.ti-cast:before { content: "\10224"; }
+.ti-ce:before { content: "\10225"; }
+.ti-certificate:before { content: "\10226"; }
+.ti-charging-pile:before { content: "\10227"; }
+.ti-chart-arcs:before { content: "\10228"; }
+.ti-chart-arcs-3:before { content: "\10229"; }
+.ti-chart-area:before { content: "\1022a"; }
+.ti-chart-area-line:before { content: "\1022b"; }
+.ti-chart-arrows:before { content: "\1022c"; }
+.ti-chart-arrows-vertical:before { content: "\1022d"; }
+.ti-chart-bar:before { content: "\1022e"; }
+.ti-chart-bubble:before { content: "\1022f"; }
+.ti-chart-candle:before { content: "\10230"; }
+.ti-chart-circles:before { content: "\10231"; }
+.ti-chart-donut:before { content: "\10232"; }
+.ti-chart-donut-2:before { content: "\10233"; }
+.ti-chart-donut-3:before { content: "\10234"; }
+.ti-chart-donut-4:before { content: "\10235"; }
+.ti-chart-dots:before { content: "\10236"; }
+.ti-chart-infographic:before { content: "\10237"; }
+.ti-chart-line:before { content: "\10238"; }
+.ti-chart-pie:before { content: "\10239"; }
+.ti-chart-pie-2:before { content: "\1023a"; }
+.ti-chart-pie-3:before { content: "\1023b"; }
+.ti-chart-pie-4:before { content: "\1023c"; }
+.ti-chart-radar:before { content: "\1023d"; }
+.ti-check:before { content: "\1023e"; }
+.ti-checkbox:before { content: "\1023f"; }
+.ti-checks:before { content: "\10240"; }
+.ti-chevron-down:before { content: "\10241"; }
+.ti-chevron-down-left:before { content: "\10242"; }
+.ti-chevron-down-right:before { content: "\10243"; }
+.ti-chevron-left:before { content: "\10244"; }
+.ti-chevron-right:before { content: "\10245"; }
+.ti-chevron-up:before { content: "\10246"; }
+.ti-chevron-up-left:before { content: "\10247"; }
+.ti-chevron-up-right:before { content: "\10248"; }
+.ti-chevrons-down:before { content: "\10249"; }
+.ti-chevrons-down-left:before { content: "\1024a"; }
+.ti-chevrons-down-right:before { content: "\1024b"; }
+.ti-chevrons-left:before { content: "\1024c"; }
+.ti-chevrons-right:before { content: "\1024d"; }
+.ti-chevrons-up:before { content: "\1024e"; }
+.ti-chevrons-up-left:before { content: "\1024f"; }
+.ti-chevrons-up-right:before { content: "\10250"; }
+.ti-christmas-tree:before { content: "\10251"; }
+.ti-circle:before { content: "\10252"; }
+.ti-circle-0:before { content: "\10253"; }
+.ti-circle-1:before { content: "\10254"; }
+.ti-circle-2:before { content: "\10255"; }
+.ti-circle-3:before { content: "\10256"; }
+.ti-circle-4:before { content: "\10257"; }
+.ti-circle-5:before { content: "\10258"; }
+.ti-circle-6:before { content: "\10259"; }
+.ti-circle-7:before { content: "\1025a"; }
+.ti-circle-8:before { content: "\1025b"; }
+.ti-circle-9:before { content: "\1025c"; }
+.ti-circle-check:before { content: "\1025d"; }
+.ti-circle-dashed:before { content: "\1025e"; }
+.ti-circle-dotted:before { content: "\1025f"; }
+.ti-circle-half:before { content: "\10260"; }
+.ti-circle-half-vertical:before { content: "\10261"; }
+.ti-circle-minus:before { content: "\10262"; }
+.ti-circle-off:before { content: "\10263"; }
+.ti-circle-plus:before { content: "\10264"; }
+.ti-circle-square:before { content: "\10265"; }
+.ti-circle-x:before { content: "\10266"; }
+.ti-circles:before { content: "\10267"; }
+.ti-clear-all:before { content: "\10268"; }
+.ti-clear-formatting:before { content: "\10269"; }
+.ti-click:before { content: "\1026a"; }
+.ti-clipboard:before { content: "\1026b"; }
+.ti-clipboard-check:before { content: "\1026c"; }
+.ti-clipboard-list:before { content: "\1026d"; }
+.ti-clipboard-x:before { content: "\1026e"; }
+.ti-clock:before { content: "\1026f"; }
+.ti-cloud:before { content: "\10270"; }
+.ti-cloud-download:before { content: "\10271"; }
+.ti-cloud-fog:before { content: "\10272"; }
+.ti-cloud-off:before { content: "\10273"; }
+.ti-cloud-rain:before { content: "\10274"; }
+.ti-cloud-snow:before { content: "\10275"; }
+.ti-cloud-storm:before { content: "\10276"; }
+.ti-cloud-upload:before { content: "\10277"; }
+.ti-code:before { content: "\10278"; }
+.ti-code-minus:before { content: "\10279"; }
+.ti-code-plus:before { content: "\1027a"; }
+.ti-coin:before { content: "\1027b"; }
+.ti-color-picker:before { content: "\1027c"; }
+.ti-color-swatch:before { content: "\1027d"; }
+.ti-column-insert-left:before { content: "\1027e"; }
+.ti-column-insert-right:before { content: "\1027f"; }
+.ti-columns:before { content: "\10280"; }
+.ti-comet:before { content: "\10281"; }
+.ti-command:before { content: "\10282"; }
+.ti-compass:before { content: "\10283"; }
+.ti-confetti:before { content: "\10284"; }
+.ti-container:before { content: "\10285"; }
+.ti-contrast:before { content: "\10286"; }
+.ti-copy:before { content: "\10287"; }
+.ti-copyleft:before { content: "\10288"; }
+.ti-copyright:before { content: "\10289"; }
+.ti-corner-down-left:before { content: "\1028a"; }
+.ti-corner-down-left-double:before { content: "\1028b"; }
+.ti-corner-down-right:before { content: "\1028c"; }
+.ti-corner-down-right-double:before { content: "\1028d"; }
+.ti-corner-left-down:before { content: "\1028e"; }
+.ti-corner-left-down-double:before { content: "\1028f"; }
+.ti-corner-left-up:before { content: "\10290"; }
+.ti-corner-left-up-double:before { content: "\10291"; }
+.ti-corner-right-down:before { content: "\10292"; }
+.ti-corner-right-down-double:before { content: "\10293"; }
+.ti-corner-right-up:before { content: "\10294"; }
+.ti-corner-right-up-double:before { content: "\10295"; }
+.ti-corner-up-left:before { content: "\10296"; }
+.ti-corner-up-left-double:before { content: "\10297"; }
+.ti-corner-up-right:before { content: "\10298"; }
+.ti-corner-up-right-double:before { content: "\10299"; }
+.ti-credit-card:before { content: "\1029a"; }
+.ti-credit-card-off:before { content: "\1029b"; }
+.ti-crop:before { content: "\1029c"; }
+.ti-crosshair:before { content: "\1029d"; }
+.ti-crown:before { content: "\1029e"; }
+.ti-crown-off:before { content: "\1029f"; }
+.ti-curly-loop:before { content: "\102a0"; }
+.ti-currency-bahraini:before { content: "\102a1"; }
+.ti-currency-bath:before { content: "\102a2"; }
+.ti-currency-bitcoin:before { content: "\102a3"; }
+.ti-currency-cent:before { content: "\102a4"; }
+.ti-currency-dinar:before { content: "\102a5"; }
+.ti-currency-dirham:before { content: "\102a6"; }
+.ti-currency-dollar:before { content: "\102a7"; }
+.ti-currency-dollar-australian:before { content: "\102a8"; }
+.ti-currency-dollar-canadian:before { content: "\102a9"; }
+.ti-currency-dollar-singapore:before { content: "\102aa"; }
+.ti-currency-ethereum:before { content: "\102ab"; }
+.ti-currency-euro:before { content: "\102ac"; }
+.ti-currency-forint:before { content: "\102ad"; }
+.ti-currency-frank:before { content: "\102ae"; }
+.ti-currency-krone-czech:before { content: "\102af"; }
+.ti-currency-krone-danish:before { content: "\102b0"; }
+.ti-currency-krone-swedish:before { content: "\102b1"; }
+.ti-currency-leu:before { content: "\102b2"; }
+.ti-currency-lira:before { content: "\102b3"; }
+.ti-currency-litecoin:before { content: "\102b4"; }
+.ti-currency-naira:before { content: "\102b5"; }
+.ti-currency-pound:before { content: "\102b6"; }
+.ti-currency-real:before { content: "\102b7"; }
+.ti-currency-renminbi:before { content: "\102b8"; }
+.ti-currency-ripple:before { content: "\102b9"; }
+.ti-currency-riyal:before { content: "\102ba"; }
+.ti-currency-rubel:before { content: "\102bb"; }
+.ti-currency-rupee:before { content: "\102bc"; }
+.ti-currency-shekel:before { content: "\102bd"; }
+.ti-currency-taka:before { content: "\102be"; }
+.ti-currency-tugrik:before { content: "\102bf"; }
+.ti-currency-won:before { content: "\102c0"; }
+.ti-currency-yen:before { content: "\102c1"; }
+.ti-currency-zloty:before { content: "\102c2"; }
+.ti-current-location:before { content: "\102c3"; }
+.ti-cursor-text:before { content: "\102c4"; }
+.ti-cut:before { content: "\102c5"; }
+.ti-dashboard:before { content: "\102c6"; }
+.ti-database:before { content: "\102c7"; }
+.ti-database-export:before { content: "\102c8"; }
+.ti-database-import:before { content: "\102c9"; }
+.ti-database-off:before { content: "\102ca"; }
+.ti-details:before { content: "\102cb"; }
+.ti-device-analytics:before { content: "\102cc"; }
+.ti-device-audio-tape:before { content: "\102cd"; }
+.ti-device-cctv:before { content: "\102ce"; }
+.ti-device-computer-camera:before { content: "\102cf"; }
+.ti-device-computer-camera-off:before { content: "\102d0"; }
+.ti-device-desktop:before { content: "\102d1"; }
+.ti-device-desktop-analytics:before { content: "\102d2"; }
+.ti-device-desktop-off:before { content: "\102d3"; }
+.ti-device-floppy:before { content: "\102d4"; }
+.ti-device-gamepad:before { content: "\102d5"; }
+.ti-device-laptop:before { content: "\102d6"; }
+.ti-device-mobile:before { content: "\102d7"; }
+.ti-device-mobile-message:before { content: "\102d8"; }
+.ti-device-mobile-rotated:before { content: "\102d9"; }
+.ti-device-mobile-vibration:before { content: "\102da"; }
+.ti-device-speaker:before { content: "\102db"; }
+.ti-device-tablet:before { content: "\102dc"; }
+.ti-device-tv:before { content: "\102dd"; }
+.ti-device-watch:before { content: "\102de"; }
+.ti-devices:before { content: "\102df"; }
+.ti-devices-2:before { content: "\102e0"; }
+.ti-devices-pc:before { content: "\102e1"; }
+.ti-diamond:before { content: "\102e2"; }
+.ti-dice:before { content: "\102e3"; }
+.ti-dimensions:before { content: "\102e4"; }
+.ti-direction:before { content: "\102e5"; }
+.ti-direction-horizontal:before { content: "\102e6"; }
+.ti-directions:before { content: "\102e7"; }
+.ti-disabled:before { content: "\102e8"; }
+.ti-disabled-2:before { content: "\102e9"; }
+.ti-disc:before { content: "\102ea"; }
+.ti-discount:before { content: "\102eb"; }
+.ti-discount-2:before { content: "\102ec"; }
+.ti-divide:before { content: "\102ed"; }
+.ti-dna:before { content: "\102ee"; }
+.ti-dots:before { content: "\102ef"; }
+.ti-dots-circle-horizontal:before { content: "\102f0"; }
+.ti-dots-diagonal:before { content: "\102f1"; }
+.ti-dots-diagonal-2:before { content: "\102f2"; }
+.ti-dots-vertical:before { content: "\102f3"; }
+.ti-download:before { content: "\102f4"; }
+.ti-drag-drop:before { content: "\102f5"; }
+.ti-drag-drop-2:before { content: "\102f6"; }
+.ti-drone:before { content: "\102f7"; }
+.ti-drone-off:before { content: "\102f8"; }
+.ti-droplet:before { content: "\102f9"; }
+.ti-droplet-filled:before { content: "\102fa"; }
+.ti-droplet-filled-2:before { content: "\102fb"; }
+.ti-droplet-half:before { content: "\102fc"; }
+.ti-droplet-half-2:before { content: "\102fd"; }
+.ti-droplet-off:before { content: "\102fe"; }
+.ti-ear:before { content: "\102ff"; }
+.ti-ear-off:before { content: "\10300"; }
+.ti-edit:before { content: "\10301"; }
+.ti-edit-circle:before { content: "\10302"; }
+.ti-egg:before { content: "\10303"; }
+.ti-emphasis:before { content: "\10304"; }
+.ti-equal:before { content: "\10305"; }
+.ti-equal-not:before { content: "\10306"; }
+.ti-eraser:before { content: "\10307"; }
+.ti-exchange:before { content: "\10308"; }
+.ti-exposure:before { content: "\10309"; }
+.ti-external-link:before { content: "\1030a"; }
+.ti-eye:before { content: "\1030b"; }
+.ti-eye-check:before { content: "\1030c"; }
+.ti-eye-off:before { content: "\1030d"; }
+.ti-eyeglass:before { content: "\1030e"; }
+.ti-eyeglass-2:before { content: "\1030f"; }
+.ti-face-id:before { content: "\10310"; }
+.ti-fall:before { content: "\10311"; }
+.ti-feather:before { content: "\10312"; }
+.ti-file:before { content: "\10313"; }
+.ti-file-alert:before { content: "\10314"; }
+.ti-file-analytics:before { content: "\10315"; }
+.ti-file-certificate:before { content: "\10316"; }
+.ti-file-check:before { content: "\10317"; }
+.ti-file-code:before { content: "\10318"; }
+.ti-file-code-2:before { content: "\10319"; }
+.ti-file-diff:before { content: "\1031a"; }
+.ti-file-dislike:before { content: "\1031b"; }
+.ti-file-download:before { content: "\1031c"; }
+.ti-file-export:before { content: "\1031d"; }
+.ti-file-horizontal:before { content: "\1031e"; }
+.ti-file-import:before { content: "\1031f"; }
+.ti-file-info:before { content: "\10320"; }
+.ti-file-invoice:before { content: "\10321"; }
+.ti-file-like:before { content: "\10322"; }
+.ti-file-minus:before { content: "\10323"; }
+.ti-file-music:before { content: "\10324"; }
+.ti-file-off:before { content: "\10325"; }
+.ti-file-phone:before { content: "\10326"; }
+.ti-file-plus:before { content: "\10327"; }
+.ti-file-report:before { content: "\10328"; }
+.ti-file-search:before { content: "\10329"; }
+.ti-file-shredder:before { content: "\1032a"; }
+.ti-file-symlink:before { content: "\1032b"; }
+.ti-file-text:before { content: "\1032c"; }
+.ti-file-upload:before { content: "\1032d"; }
+.ti-file-x:before { content: "\1032e"; }
+.ti-file-zip:before { content: "\1032f"; }
+.ti-files:before { content: "\10330"; }
+.ti-files-off:before { content: "\10331"; }
+.ti-filter:before { content: "\10332"; }
+.ti-filter-off:before { content: "\10333"; }
+.ti-fingerprint:before { content: "\10334"; }
+.ti-firetruck:before { content: "\10335"; }
+.ti-flag:before { content: "\10336"; }
+.ti-flag-2:before { content: "\10337"; }
+.ti-flag-3:before { content: "\10338"; }
+.ti-flame:before { content: "\10339"; }
+.ti-flare:before { content: "\1033a"; }
+.ti-flask:before { content: "\1033b"; }
+.ti-flip-horizontal:before { content: "\1033c"; }
+.ti-flip-vertical:before { content: "\1033d"; }
+.ti-float-center:before { content: "\1033e"; }
+.ti-float-left:before { content: "\1033f"; }
+.ti-float-none:before { content: "\10340"; }
+.ti-float-right:before { content: "\10341"; }
+.ti-focus:before { content: "\10342"; }
+.ti-focus-2:before { content: "\10343"; }
+.ti-fold:before { content: "\10344"; }
+.ti-fold-down:before { content: "\10345"; }
+.ti-fold-up:before { content: "\10346"; }
+.ti-folder:before { content: "\10347"; }
+.ti-folder-minus:before { content: "\10348"; }
+.ti-folder-off:before { content: "\10349"; }
+.ti-folder-plus:before { content: "\1034a"; }
+.ti-folder-x:before { content: "\1034b"; }
+.ti-folders:before { content: "\1034c"; }
+.ti-forbid:before { content: "\1034d"; }
+.ti-forbid-2:before { content: "\1034e"; }
+.ti-forklift:before { content: "\1034f"; }
+.ti-forms:before { content: "\10350"; }
+.ti-frame:before { content: "\10351"; }
+.ti-friends:before { content: "\10352"; }
+.ti-gas-station:before { content: "\10353"; }
+.ti-gauge:before { content: "\10354"; }
+.ti-geometry:before { content: "\10355"; }
+.ti-ghost:before { content: "\10356"; }
+.ti-gift:before { content: "\10357"; }
+.ti-git-branch:before { content: "\10358"; }
+.ti-git-commit:before { content: "\10359"; }
+.ti-git-compare:before { content: "\1035a"; }
+.ti-git-fork:before { content: "\1035b"; }
+.ti-git-merge:before { content: "\1035c"; }
+.ti-git-pull-request:before { content: "\1035d"; }
+.ti-glass:before { content: "\1035e"; }
+.ti-glass-full:before { content: "\1035f"; }
+.ti-glass-off:before { content: "\10360"; }
+.ti-globe:before { content: "\10361"; }
+.ti-golf:before { content: "\10362"; }
+.ti-gps:before { content: "\10363"; }
+.ti-grain:before { content: "\10364"; }
+.ti-grid-dots:before { content: "\10365"; }
+.ti-grip-horizontal:before { content: "\10366"; }
+.ti-grip-vertical:before { content: "\10367"; }
+.ti-growth:before { content: "\10368"; }
+.ti-h-1:before { content: "\10369"; }
+.ti-h-2:before { content: "\1036a"; }
+.ti-h-3:before { content: "\1036b"; }
+.ti-h-4:before { content: "\1036c"; }
+.ti-h-5:before { content: "\1036d"; }
+.ti-h-6:before { content: "\1036e"; }
+.ti-hand-finger:before { content: "\1036f"; }
+.ti-hand-little-finger:before { content: "\10370"; }
+.ti-hand-middle-finger:before { content: "\10371"; }
+.ti-hand-off:before { content: "\10372"; }
+.ti-hand-ring-finger:before { content: "\10373"; }
+.ti-hand-rock:before { content: "\10374"; }
+.ti-hand-stop:before { content: "\10375"; }
+.ti-hand-three-fingers:before { content: "\10376"; }
+.ti-hand-two-fingers:before { content: "\10377"; }
+.ti-hanger:before { content: "\10378"; }
+.ti-hash:before { content: "\10379"; }
+.ti-heading:before { content: "\1037a"; }
+.ti-headphones:before { content: "\1037b"; }
+.ti-headphones-off:before { content: "\1037c"; }
+.ti-headset:before { content: "\1037d"; }
+.ti-heart:before { content: "\1037e"; }
+.ti-heart-broken:before { content: "\1037f"; }
+.ti-helicopter:before { content: "\10380"; }
+.ti-helicopter-landing:before { content: "\10381"; }
+.ti-help:before { content: "\10382"; }
+.ti-hexagon:before { content: "\10383"; }
+.ti-hexagon-off:before { content: "\10384"; }
+.ti-hierarchy:before { content: "\10385"; }
+.ti-hierarchy-2:before { content: "\10386"; }
+.ti-history:before { content: "\10387"; }
+.ti-home:before { content: "\10388"; }
+.ti-home-2:before { content: "\10389"; }
+.ti-ice-cream:before { content: "\1038a"; }
+.ti-ice-cream-2:before { content: "\1038b"; }
+.ti-id:before { content: "\1038c"; }
+.ti-inbox:before { content: "\1038d"; }
+.ti-indent-decrease:before { content: "\1038e"; }
+.ti-indent-increase:before { content: "\1038f"; }
+.ti-infinity:before { content: "\10390"; }
+.ti-info-circle:before { content: "\10391"; }
+.ti-info-square:before { content: "\10392"; }
+.ti-italic:before { content: "\10393"; }
+.ti-jump-rope:before { content: "\10394"; }
+.ti-karate:before { content: "\10395"; }
+.ti-key:before { content: "\10396"; }
+.ti-keyboard:before { content: "\10397"; }
+.ti-keyboard-hide:before { content: "\10398"; }
+.ti-keyboard-off:before { content: "\10399"; }
+.ti-keyboard-show:before { content: "\1039a"; }
+.ti-language:before { content: "\1039b"; }
+.ti-layers-difference:before { content: "\1039c"; }
+.ti-layers-intersect:before { content: "\1039d"; }
+.ti-layers-linked:before { content: "\1039e"; }
+.ti-layers-subtract:before { content: "\1039f"; }
+.ti-layers-union:before { content: "\103a0"; }
+.ti-layout:before { content: "\103a1"; }
+.ti-layout-2:before { content: "\103a2"; }
+.ti-layout-align-bottom:before { content: "\103a3"; }
+.ti-layout-align-center:before { content: "\103a4"; }
+.ti-layout-align-left:before { content: "\103a5"; }
+.ti-layout-align-middle:before { content: "\103a6"; }
+.ti-layout-align-right:before { content: "\103a7"; }
+.ti-layout-align-top:before { content: "\103a8"; }
+.ti-layout-bottombar:before { content: "\103a9"; }
+.ti-layout-cards:before { content: "\103aa"; }
+.ti-layout-columns:before { content: "\103ab"; }
+.ti-layout-distribute-horizontal:before { content: "\103ac"; }
+.ti-layout-distribute-vertical:before { content: "\103ad"; }
+.ti-layout-grid:before { content: "\103ae"; }
+.ti-layout-grid-add:before { content: "\103af"; }
+.ti-layout-kanban:before { content: "\103b0"; }
+.ti-layout-list:before { content: "\103b1"; }
+.ti-layout-navbar:before { content: "\103b2"; }
+.ti-layout-rows:before { content: "\103b3"; }
+.ti-layout-sidebar:before { content: "\103b4"; }
+.ti-layout-sidebar-right:before { content: "\103b5"; }
+.ti-leaf:before { content: "\103b6"; }
+.ti-lego:before { content: "\103b7"; }
+.ti-letter-a:before { content: "\103b8"; }
+.ti-letter-b:before { content: "\103b9"; }
+.ti-letter-c:before { content: "\103ba"; }
+.ti-letter-case:before { content: "\103bb"; }
+.ti-letter-case-lower:before { content: "\103bc"; }
+.ti-letter-case-toggle:before { content: "\103bd"; }
+.ti-letter-case-upper:before { content: "\103be"; }
+.ti-letter-d:before { content: "\103bf"; }
+.ti-letter-e:before { content: "\103c0"; }
+.ti-letter-f:before { content: "\103c1"; }
+.ti-letter-g:before { content: "\103c2"; }
+.ti-letter-h:before { content: "\103c3"; }
+.ti-letter-i:before { content: "\103c4"; }
+.ti-letter-j:before { content: "\103c5"; }
+.ti-letter-k:before { content: "\103c6"; }
+.ti-letter-l:before { content: "\103c7"; }
+.ti-letter-m:before { content: "\103c8"; }
+.ti-letter-n:before { content: "\103c9"; }
+.ti-letter-o:before { content: "\103ca"; }
+.ti-letter-p:before { content: "\103cb"; }
+.ti-letter-q:before { content: "\103cc"; }
+.ti-letter-r:before { content: "\103cd"; }
+.ti-letter-s:before { content: "\103ce"; }
+.ti-letter-spacing:before { content: "\103cf"; }
+.ti-letter-t:before { content: "\103d0"; }
+.ti-letter-u:before { content: "\103d1"; }
+.ti-letter-v:before { content: "\103d2"; }
+.ti-letter-w:before { content: "\103d3"; }
+.ti-letter-x:before { content: "\103d4"; }
+.ti-letter-y:before { content: "\103d5"; }
+.ti-letter-z:before { content: "\103d6"; }
+.ti-letters-case:before { content: "\103d7"; }
+.ti-license:before { content: "\103d8"; }
+.ti-lifebuoy:before { content: "\103d9"; }
+.ti-line:before { content: "\103da"; }
+.ti-line-dashed:before { content: "\103db"; }
+.ti-line-dotted:before { content: "\103dc"; }
+.ti-line-height:before { content: "\103dd"; }
+.ti-link:before { content: "\103de"; }
+.ti-list:before { content: "\103df"; }
+.ti-list-check:before { content: "\103e0"; }
+.ti-list-search:before { content: "\103e1"; }
+.ti-live-photo:before { content: "\103e2"; }
+.ti-live-view:before { content: "\103e3"; }
+.ti-loader:before { content: "\103e4"; }
+.ti-loader-quarter:before { content: "\103e5"; }
+.ti-location:before { content: "\103e6"; }
+.ti-lock:before { content: "\103e7"; }
+.ti-lock-access:before { content: "\103e8"; }
+.ti-lock-off:before { content: "\103e9"; }
+.ti-lock-open:before { content: "\103ea"; }
+.ti-login:before { content: "\103eb"; }
+.ti-logout:before { content: "\103ec"; }
+.ti-macro:before { content: "\103ed"; }
+.ti-magnet:before { content: "\103ee"; }
+.ti-mail:before { content: "\103ef"; }
+.ti-mail-forward:before { content: "\103f0"; }
+.ti-mail-opened:before { content: "\103f1"; }
+.ti-mailbox:before { content: "\103f2"; }
+.ti-man:before { content: "\103f3"; }
+.ti-manual-gearbox:before { content: "\103f4"; }
+.ti-map:before { content: "\103f5"; }
+.ti-map-2:before { content: "\103f6"; }
+.ti-map-pin:before { content: "\103f7"; }
+.ti-map-pin-off:before { content: "\103f8"; }
+.ti-map-pins:before { content: "\103f9"; }
+.ti-markdown:before { content: "\103fa"; }
+.ti-marquee:before { content: "\103fb"; }
+.ti-marquee-2:before { content: "\103fc"; }
+.ti-mars:before { content: "\103fd"; }
+.ti-mask:before { content: "\103fe"; }
+.ti-mask-off:before { content: "\103ff"; }
+.ti-massage:before { content: "\10400"; }
+.ti-math:before { content: "\10401"; }
+.ti-math-function:before { content: "\10402"; }
+.ti-math-symbols:before { content: "\10403"; }
+.ti-maximize:before { content: "\10404"; }
+.ti-medal:before { content: "\10405"; }
+.ti-medical-cross:before { content: "\10406"; }
+.ti-menu:before { content: "\10407"; }
+.ti-menu-2:before { content: "\10408"; }
+.ti-message:before { content: "\10409"; }
+.ti-message-2:before { content: "\1040a"; }
+.ti-message-circle:before { content: "\1040b"; }
+.ti-message-circle-2:before { content: "\1040c"; }
+.ti-message-circle-off:before { content: "\1040d"; }
+.ti-message-dots:before { content: "\1040e"; }
+.ti-message-off:before { content: "\1040f"; }
+.ti-message-plus:before { content: "\10410"; }
+.ti-message-report:before { content: "\10411"; }
+.ti-messages:before { content: "\10412"; }
+.ti-messages-off:before { content: "\10413"; }
+.ti-microphone:before { content: "\10414"; }
+.ti-microphone-off:before { content: "\10415"; }
+.ti-minimize:before { content: "\10416"; }
+.ti-minus:before { content: "\10417"; }
+.ti-minus-vertical:before { content: "\10418"; }
+.ti-mist:before { content: "\10419"; }
+.ti-mood-boy:before { content: "\1041a"; }
+.ti-mood-confuzed:before { content: "\1041b"; }
+.ti-mood-crazy-happy:before { content: "\1041c"; }
+.ti-mood-cry:before { content: "\1041d"; }
+.ti-mood-empty:before { content: "\1041e"; }
+.ti-mood-happy:before { content: "\1041f"; }
+.ti-mood-kid:before { content: "\10420"; }
+.ti-mood-neutral:before { content: "\10421"; }
+.ti-mood-sad:before { content: "\10422"; }
+.ti-mood-smile:before { content: "\10423"; }
+.ti-mood-suprised:before { content: "\10424"; }
+.ti-mood-tongue:before { content: "\10425"; }
+.ti-moon:before { content: "\10426"; }
+.ti-moon-2:before { content: "\10427"; }
+.ti-moon-stars:before { content: "\10428"; }
+.ti-moped:before { content: "\10429"; }
+.ti-motorbike:before { content: "\1042a"; }
+.ti-mouse:before { content: "\1042b"; }
+.ti-movie:before { content: "\1042c"; }
+.ti-mug:before { content: "\1042d"; }
+.ti-music:before { content: "\1042e"; }
+.ti-new-section:before { content: "\1042f"; }
+.ti-news:before { content: "\10430"; }
+.ti-nfc:before { content: "\10431"; }
+.ti-note:before { content: "\10432"; }
+.ti-notebook:before { content: "\10433"; }
+.ti-notes:before { content: "\10434"; }
+.ti-notification:before { content: "\10435"; }
+.ti-number-0:before { content: "\10436"; }
+.ti-number-1:before { content: "\10437"; }
+.ti-number-2:before { content: "\10438"; }
+.ti-number-3:before { content: "\10439"; }
+.ti-number-4:before { content: "\1043a"; }
+.ti-number-5:before { content: "\1043b"; }
+.ti-number-6:before { content: "\1043c"; }
+.ti-number-7:before { content: "\1043d"; }
+.ti-number-8:before { content: "\1043e"; }
+.ti-number-9:before { content: "\1043f"; }
+.ti-octagon:before { content: "\10440"; }
+.ti-octagon-off:before { content: "\10441"; }
+.ti-old:before { content: "\10442"; }
+.ti-olympics:before { content: "\10443"; }
+.ti-omega:before { content: "\10444"; }
+.ti-outlet:before { content: "\10445"; }
+.ti-overline:before { content: "\10446"; }
+.ti-package:before { content: "\10447"; }
+.ti-pacman:before { content: "\10448"; }
+.ti-page-break:before { content: "\10449"; }
+.ti-paint:before { content: "\1044a"; }
+.ti-palette:before { content: "\1044b"; }
+.ti-panorama-horizontal:before { content: "\1044c"; }
+.ti-panorama-vertical:before { content: "\1044d"; }
+.ti-paperclip:before { content: "\1044e"; }
+.ti-parachute:before { content: "\1044f"; }
+.ti-parentheses:before { content: "\10450"; }
+.ti-parking:before { content: "\10451"; }
+.ti-peace:before { content: "\10452"; }
+.ti-pencil:before { content: "\10453"; }
+.ti-pennant:before { content: "\10454"; }
+.ti-percentage:before { content: "\10455"; }
+.ti-perspective:before { content: "\10456"; }
+.ti-phone:before { content: "\10457"; }
+.ti-phone-call:before { content: "\10458"; }
+.ti-phone-calling:before { content: "\10459"; }
+.ti-phone-check:before { content: "\1045a"; }
+.ti-phone-incoming:before { content: "\1045b"; }
+.ti-phone-off:before { content: "\1045c"; }
+.ti-phone-outgoing:before { content: "\1045d"; }
+.ti-phone-pause:before { content: "\1045e"; }
+.ti-phone-plus:before { content: "\1045f"; }
+.ti-phone-x:before { content: "\10460"; }
+.ti-photo:before { content: "\10461"; }
+.ti-photo-off:before { content: "\10462"; }
+.ti-physotherapist:before { content: "\10463"; }
+.ti-picture-in-picture:before { content: "\10464"; }
+.ti-picture-in-picture-off:before { content: "\10465"; }
+.ti-picture-in-picture-on:before { content: "\10466"; }
+.ti-pill:before { content: "\10467"; }
+.ti-pin:before { content: "\10468"; }
+.ti-pinned:before { content: "\10469"; }
+.ti-pinned-off:before { content: "\1046a"; }
+.ti-pizza:before { content: "\1046b"; }
+.ti-plane:before { content: "\1046c"; }
+.ti-plane-arrival:before { content: "\1046d"; }
+.ti-plane-departure:before { content: "\1046e"; }
+.ti-planet:before { content: "\1046f"; }
+.ti-plant:before { content: "\10470"; }
+.ti-plant-2:before { content: "\10471"; }
+.ti-play-card:before { content: "\10472"; }
+.ti-player-pause:before { content: "\10473"; }
+.ti-player-play:before { content: "\10474"; }
+.ti-player-record:before { content: "\10475"; }
+.ti-player-skip-back:before { content: "\10476"; }
+.ti-player-skip-forward:before { content: "\10477"; }
+.ti-player-stop:before { content: "\10478"; }
+.ti-player-track-next:before { content: "\10479"; }
+.ti-player-track-prev:before { content: "\1047a"; }
+.ti-playlist:before { content: "\1047b"; }
+.ti-plug:before { content: "\1047c"; }
+.ti-plus:before { content: "\1047d"; }
+.ti-point:before { content: "\1047e"; }
+.ti-pokeball:before { content: "\1047f"; }
+.ti-polaroid:before { content: "\10480"; }
+.ti-pool:before { content: "\10481"; }
+.ti-power:before { content: "\10482"; }
+.ti-pray:before { content: "\10483"; }
+.ti-presentation:before { content: "\10484"; }
+.ti-presentation-analytics:before { content: "\10485"; }
+.ti-printer:before { content: "\10486"; }
+.ti-prompt:before { content: "\10487"; }
+.ti-propeller:before { content: "\10488"; }
+.ti-puzzle:before { content: "\10489"; }
+.ti-pyramid:before { content: "\1048a"; }
+.ti-qrcode:before { content: "\1048b"; }
+.ti-question-mark:before { content: "\1048c"; }
+.ti-radioactive:before { content: "\1048d"; }
+.ti-radius-bottom-left:before { content: "\1048e"; }
+.ti-radius-bottom-right:before { content: "\1048f"; }
+.ti-radius-top-left:before { content: "\10490"; }
+.ti-radius-top-right:before { content: "\10491"; }
+.ti-rainbow:before { content: "\10492"; }
+.ti-receipt:before { content: "\10493"; }
+.ti-receipt-2:before { content: "\10494"; }
+.ti-receipt-off:before { content: "\10495"; }
+.ti-receipt-refund:before { content: "\10496"; }
+.ti-receipt-tax:before { content: "\10497"; }
+.ti-recharging:before { content: "\10498"; }
+.ti-record-mail:before { content: "\10499"; }
+.ti-rectangle:before { content: "\1049a"; }
+.ti-rectangle-vertical:before { content: "\1049b"; }
+.ti-recycle:before { content: "\1049c"; }
+.ti-refresh:before { content: "\1049d"; }
+.ti-refresh-alert:before { content: "\1049e"; }
+.ti-registered:before { content: "\1049f"; }
+.ti-relation-many-to-many:before { content: "\104a0"; }
+.ti-relation-one-to-many:before { content: "\104a1"; }
+.ti-relation-one-to-one:before { content: "\104a2"; }
+.ti-repeat:before { content: "\104a3"; }
+.ti-repeat-once:before { content: "\104a4"; }
+.ti-replace:before { content: "\104a5"; }
+.ti-report:before { content: "\104a6"; }
+.ti-report-analytics:before { content: "\104a7"; }
+.ti-report-medical:before { content: "\104a8"; }
+.ti-report-money:before { content: "\104a9"; }
+.ti-resize:before { content: "\104aa"; }
+.ti-ripple:before { content: "\104ab"; }
+.ti-road-sign:before { content: "\104ac"; }
+.ti-rocket:before { content: "\104ad"; }
+.ti-rotate:before { content: "\104ae"; }
+.ti-rotate-2:before { content: "\104af"; }
+.ti-rotate-clockwise:before { content: "\104b0"; }
+.ti-rotate-clockwise-2:before { content: "\104b1"; }
+.ti-rotate-rectangle:before { content: "\104b2"; }
+.ti-route:before { content: "\104b3"; }
+.ti-router:before { content: "\104b4"; }
+.ti-row-insert-bottom:before { content: "\104b5"; }
+.ti-row-insert-top:before { content: "\104b6"; }
+.ti-rss:before { content: "\104b7"; }
+.ti-ruler:before { content: "\104b8"; }
+.ti-ruler-2:before { content: "\104b9"; }
+.ti-run:before { content: "\104ba"; }
+.ti-sailboat:before { content: "\104bb"; }
+.ti-satellite:before { content: "\104bc"; }
+.ti-scale:before { content: "\104bd"; }
+.ti-scan:before { content: "\104be"; }
+.ti-school:before { content: "\104bf"; }
+.ti-scissors:before { content: "\104c0"; }
+.ti-scooter:before { content: "\104c1"; }
+.ti-scooter-electric:before { content: "\104c2"; }
+.ti-screen-share:before { content: "\104c3"; }
+.ti-screen-share-off:before { content: "\104c4"; }
+.ti-scuba-mask:before { content: "\104c5"; }
+.ti-search:before { content: "\104c6"; }
+.ti-section:before { content: "\104c7"; }
+.ti-seeding:before { content: "\104c8"; }
+.ti-select:before { content: "\104c9"; }
+.ti-selector:before { content: "\104ca"; }
+.ti-send:before { content: "\104cb"; }
+.ti-separator:before { content: "\104cc"; }
+.ti-separator-horizontal:before { content: "\104cd"; }
+.ti-separator-vertical:before { content: "\104ce"; }
+.ti-server:before { content: "\104cf"; }
+.ti-servicemark:before { content: "\104d0"; }
+.ti-settings:before { content: "\104d1"; }
+.ti-settings-automation:before { content: "\104d2"; }
+.ti-shadow:before { content: "\104d3"; }
+.ti-shadow-off:before { content: "\104d4"; }
+.ti-shape:before { content: "\104d5"; }
+.ti-shape-2:before { content: "\104d6"; }
+.ti-shape-3:before { content: "\104d7"; }
+.ti-share:before { content: "\104d8"; }
+.ti-shield:before { content: "\104d9"; }
+.ti-shield-check:before { content: "\104da"; }
+.ti-shield-lock:before { content: "\104db"; }
+.ti-shield-off:before { content: "\104dc"; }
+.ti-shield-x:before { content: "\104dd"; }
+.ti-ship:before { content: "\104de"; }
+.ti-shirt:before { content: "\104df"; }
+.ti-shopping-cart:before { content: "\104e0"; }
+.ti-shopping-cart-discount:before { content: "\104e1"; }
+.ti-shopping-cart-off:before { content: "\104e2"; }
+.ti-shopping-cart-plus:before { content: "\104e3"; }
+.ti-shopping-cart-x:before { content: "\104e4"; }
+.ti-shredder:before { content: "\104e5"; }
+.ti-signature:before { content: "\104e6"; }
+.ti-sitemap:before { content: "\104e7"; }
+.ti-skateboard:before { content: "\104e8"; }
+.ti-slice:before { content: "\104e9"; }
+.ti-slideshow:before { content: "\104ea"; }
+.ti-smart-home:before { content: "\104eb"; }
+.ti-smoking:before { content: "\104ec"; }
+.ti-smoking-no:before { content: "\104ed"; }
+.ti-snowflake:before { content: "\104ee"; }
+.ti-soccer-field:before { content: "\104ef"; }
+.ti-social:before { content: "\104f0"; }
+.ti-sock:before { content: "\104f1"; }
+.ti-sort-ascending:before { content: "\104f2"; }
+.ti-sort-ascending-2:before { content: "\104f3"; }
+.ti-sort-descending:before { content: "\104f4"; }
+.ti-sort-descending-2:before { content: "\104f5"; }
+.ti-space:before { content: "\104f6"; }
+.ti-speakerphone:before { content: "\104f7"; }
+.ti-speedboat:before { content: "\104f8"; }
+.ti-sport-billard:before { content: "\104f9"; }
+.ti-square:before { content: "\104fa"; }
+.ti-square-0:before { content: "\104fb"; }
+.ti-square-1:before { content: "\104fc"; }
+.ti-square-2:before { content: "\104fd"; }
+.ti-square-3:before { content: "\104fe"; }
+.ti-square-4:before { content: "\104ff"; }
+.ti-square-5:before { content: "\10500"; }
+.ti-square-6:before { content: "\10501"; }
+.ti-square-7:before { content: "\10502"; }
+.ti-square-8:before { content: "\10503"; }
+.ti-square-9:before { content: "\10504"; }
+.ti-square-check:before { content: "\10505"; }
+.ti-square-dot:before { content: "\10506"; }
+.ti-square-forbid:before { content: "\10507"; }
+.ti-square-forbid-2:before { content: "\10508"; }
+.ti-square-minus:before { content: "\10509"; }
+.ti-square-off:before { content: "\1050a"; }
+.ti-square-plus:before { content: "\1050b"; }
+.ti-square-root:before { content: "\1050c"; }
+.ti-square-root-2:before { content: "\1050d"; }
+.ti-square-rotated:before { content: "\1050e"; }
+.ti-square-rotated-off:before { content: "\1050f"; }
+.ti-square-toggle:before { content: "\10510"; }
+.ti-square-toggle-horizontal:before { content: "\10511"; }
+.ti-square-x:before { content: "\10512"; }
+.ti-squares-diagonal:before { content: "\10513"; }
+.ti-squares-filled:before { content: "\10514"; }
+.ti-stack:before { content: "\10515"; }
+.ti-stack-2:before { content: "\10516"; }
+.ti-stairs:before { content: "\10517"; }
+.ti-stairs-down:before { content: "\10518"; }
+.ti-stairs-up:before { content: "\10519"; }
+.ti-star:before { content: "\1051a"; }
+.ti-star-half:before { content: "\1051b"; }
+.ti-star-off:before { content: "\1051c"; }
+.ti-stars:before { content: "\1051d"; }
+.ti-steering-wheel:before { content: "\1051e"; }
+.ti-step-into:before { content: "\1051f"; }
+.ti-step-out:before { content: "\10520"; }
+.ti-stethoscope:before { content: "\10521"; }
+.ti-sticker:before { content: "\10522"; }
+.ti-strikethrough:before { content: "\10523"; }
+.ti-submarine:before { content: "\10524"; }
+.ti-subscript:before { content: "\10525"; }
+.ti-subtask:before { content: "\10526"; }
+.ti-sum:before { content: "\10527"; }
+.ti-sun:before { content: "\10528"; }
+.ti-sun-off:before { content: "\10529"; }
+.ti-sunset:before { content: "\1052a"; }
+.ti-sunshine:before { content: "\1052b"; }
+.ti-superscript:before { content: "\1052c"; }
+.ti-swimming:before { content: "\1052d"; }
+.ti-switch:before { content: "\1052e"; }
+.ti-switch-2:before { content: "\1052f"; }
+.ti-switch-3:before { content: "\10530"; }
+.ti-switch-horizontal:before { content: "\10531"; }
+.ti-switch-vertical:before { content: "\10532"; }
+.ti-table:before { content: "\10533"; }
+.ti-table-export:before { content: "\10534"; }
+.ti-table-import:before { content: "\10535"; }
+.ti-table-off:before { content: "\10536"; }
+.ti-tag:before { content: "\10537"; }
+.ti-tallymark-1:before { content: "\10538"; }
+.ti-tallymark-2:before { content: "\10539"; }
+.ti-tallymark-3:before { content: "\1053a"; }
+.ti-tallymark-4:before { content: "\1053b"; }
+.ti-tallymarks:before { content: "\1053c"; }
+.ti-tank:before { content: "\1053d"; }
+.ti-target:before { content: "\1053e"; }
+.ti-temperature:before { content: "\1053f"; }
+.ti-temperature-celsius:before { content: "\10540"; }
+.ti-temperature-fahrenheit:before { content: "\10541"; }
+.ti-temperature-minus:before { content: "\10542"; }
+.ti-temperature-plus:before { content: "\10543"; }
+.ti-template:before { content: "\10544"; }
+.ti-tent:before { content: "\10545"; }
+.ti-terminal:before { content: "\10546"; }
+.ti-terminal-2:before { content: "\10547"; }
+.ti-test-pipe:before { content: "\10548"; }
+.ti-text-direction-ltr:before { content: "\10549"; }
+.ti-text-direction-rtl:before { content: "\1054a"; }
+.ti-text-wrap:before { content: "\1054b"; }
+.ti-text-wrap-disabled:before { content: "\1054c"; }
+.ti-thumb-down:before { content: "\1054d"; }
+.ti-thumb-up:before { content: "\1054e"; }
+.ti-ticket:before { content: "\1054f"; }
+.ti-tilt-shift:before { content: "\10550"; }
+.ti-tir:before { content: "\10551"; }
+.ti-toggle-left:before { content: "\10552"; }
+.ti-toggle-right:before { content: "\10553"; }
+.ti-tool:before { content: "\10554"; }
+.ti-tools:before { content: "\10555"; }
+.ti-tools-kitchen:before { content: "\10556"; }
+.ti-tools-kitchen-2:before { content: "\10557"; }
+.ti-tornado:before { content: "\10558"; }
+.ti-tournament:before { content: "\10559"; }
+.ti-track:before { content: "\1055a"; }
+.ti-tractor:before { content: "\1055b"; }
+.ti-trademark:before { content: "\1055c"; }
+.ti-traffic-cone:before { content: "\1055d"; }
+.ti-traffic-lights:before { content: "\1055e"; }
+.ti-train:before { content: "\1055f"; }
+.ti-trash:before { content: "\10560"; }
+.ti-trash-off:before { content: "\10561"; }
+.ti-tree:before { content: "\10562"; }
+.ti-trees:before { content: "\10563"; }
+.ti-trending-down:before { content: "\10564"; }
+.ti-trending-down-2:before { content: "\10565"; }
+.ti-trending-down-3:before { content: "\10566"; }
+.ti-trending-up:before { content: "\10567"; }
+.ti-trending-up-2:before { content: "\10568"; }
+.ti-trending-up-3:before { content: "\10569"; }
+.ti-triangle:before { content: "\1056a"; }
+.ti-triangle-off:before { content: "\1056b"; }
+.ti-triangle-square-circle:before { content: "\1056c"; }
+.ti-trident:before { content: "\1056d"; }
+.ti-trophy:before { content: "\1056e"; }
+.ti-truck:before { content: "\1056f"; }
+.ti-truck-delivery:before { content: "\10570"; }
+.ti-truck-off:before { content: "\10571"; }
+.ti-truck-return:before { content: "\10572"; }
+.ti-typography:before { content: "\10573"; }
+.ti-umbrella:before { content: "\10574"; }
+.ti-underline:before { content: "\10575"; }
+.ti-unlink:before { content: "\10576"; }
+.ti-upload:before { content: "\10577"; }
+.ti-urgent:before { content: "\10578"; }
+.ti-user:before { content: "\10579"; }
+.ti-user-check:before { content: "\1057a"; }
+.ti-user-exclamation:before { content: "\1057b"; }
+.ti-user-minus:before { content: "\1057c"; }
+.ti-user-off:before { content: "\1057d"; }
+.ti-user-plus:before { content: "\1057e"; }
+.ti-user-x:before { content: "\1057f"; }
+.ti-users:before { content: "\10580"; }
+.ti-vaccine:before { content: "\10581"; }
+.ti-variable:before { content: "\10582"; }
+.ti-vector:before { content: "\10583"; }
+.ti-vector-beizer:before { content: "\10584"; }
+.ti-vector-beizer-2:before { content: "\10585"; }
+.ti-vector-triangle:before { content: "\10586"; }
+.ti-venus:before { content: "\10587"; }
+.ti-versions:before { content: "\10588"; }
+.ti-video:before { content: "\10589"; }
+.ti-video-minus:before { content: "\1058a"; }
+.ti-video-off:before { content: "\1058b"; }
+.ti-video-plus:before { content: "\1058c"; }
+.ti-view-360:before { content: "\1058d"; }
+.ti-viewfinder:before { content: "\1058e"; }
+.ti-viewport-narrow:before { content: "\1058f"; }
+.ti-viewport-wide:before { content: "\10590"; }
+.ti-virus:before { content: "\10591"; }
+.ti-virus-off:before { content: "\10592"; }
+.ti-virus-search:before { content: "\10593"; }
+.ti-volume:before { content: "\10594"; }
+.ti-volume-2:before { content: "\10595"; }
+.ti-volume-3:before { content: "\10596"; }
+.ti-walk:before { content: "\10597"; }
+.ti-wallet:before { content: "\10598"; }
+.ti-wand:before { content: "\10599"; }
+.ti-wave-saw-tool:before { content: "\1059a"; }
+.ti-wave-sine:before { content: "\1059b"; }
+.ti-wave-square:before { content: "\1059c"; }
+.ti-wifi:before { content: "\1059d"; }
+.ti-wifi-0:before { content: "\1059e"; }
+.ti-wifi-1:before { content: "\1059f"; }
+.ti-wifi-2:before { content: "\105a0"; }
+.ti-wifi-off:before { content: "\105a1"; }
+.ti-wind:before { content: "\105a2"; }
+.ti-windmill:before { content: "\105a3"; }
+.ti-window:before { content: "\105a4"; }
+.ti-wiper:before { content: "\105a5"; }
+.ti-wiper-wash:before { content: "\105a6"; }
+.ti-woman:before { content: "\105a7"; }
+.ti-world:before { content: "\105a8"; }
+.ti-world-latitude:before { content: "\105a9"; }
+.ti-world-longitude:before { content: "\105aa"; }
+.ti-wrecking-ball:before { content: "\105ab"; }
+.ti-writing:before { content: "\105ac"; }
+.ti-writing-sign:before { content: "\105ad"; }
+.ti-x:before { content: "\105ae"; }
+.ti-yin-yang:before { content: "\105af"; }
+.ti-zodiac-aquarius:before { content: "\105b0"; }
+.ti-zodiac-aries:before { content: "\105b1"; }
+.ti-zodiac-cancer:before { content: "\105b2"; }
+.ti-zodiac-capricorn:before { content: "\105b3"; }
+.ti-zodiac-gemini:before { content: "\105b4"; }
+.ti-zodiac-leo:before { content: "\105b5"; }
+.ti-zodiac-libra:before { content: "\105b6"; }
+.ti-zodiac-pisces:before { content: "\105b7"; }
+.ti-zodiac-sagittarius:before { content: "\105b8"; }
+.ti-zodiac-scorpio:before { content: "\105b9"; }
+.ti-zodiac-taurus:before { content: "\105ba"; }
+.ti-zodiac-virgo:before { content: "\105bb"; }
+.ti-zoom-cancel:before { content: "\105bc"; }
+.ti-zoom-check:before { content: "\105bd"; }
+.ti-zoom-in:before { content: "\105be"; }
+.ti-zoom-money:before { content: "\105bf"; }
+.ti-zoom-out:before { content: "\105c0"; }

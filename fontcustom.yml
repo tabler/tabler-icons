@@ -1,0 +1,33 @@
+font_name: tabler-icons
+css_selector: .ti-{{glyph}}
+no_hash: true
+
+force: true
+debug: true
+
+copyright: Copyright (c) 2020 Pawel Kuna
+
+
+input:
+  vectors: icons-outlined
+#  templates: my/templates
+
+output:
+  fonts: iconfont/fonts
+  css: iconfont
+  preview: iconfont
+
+
+templates:
+- scss
+- css
+- preview
+#- my-custom-template.yml
+
+
+
+font_design_size: 16
+font_em: 512
+font_ascent: 448
+font_descent: 64
+autowidth: false

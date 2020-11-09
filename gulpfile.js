@@ -8,6 +8,7 @@ const gulp = require('gulp'),
 	zip = require('gulp-zip'),
 	puppeteer = require('puppeteer'),
 	outlineStroke = require('svg-outline-stroke'),
+	fontcustom = require('gulp-fontcustom'),
 	iconfont = require('gulp-iconfont'),
 	template = require('lodash.template'),
 	sass = require('node-sass'),
@@ -196,17 +197,10 @@ gulp.task('iconfont-svg-outline', function (cb) {
 	cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/*', async () => {
 		let files = glob.sync("./icons/*.svg");
 
-		let iconfontUnicode = {};
-
-		if (fs.existsSync('./iconfont-unicode.json')) {
-			iconfontUnicode = require('./iconfont-unicode');
-		}
-
 		await asyncForEach(files, async function (file) {
-			const name = path.basename(file, '.svg'),
-				unicode = iconfontUnicode[name];
+			const name = path.basename(file, '.svg');
 
-			await console.log('Stroke for:', file, unicode);
+			await console.log('Stroke for:', file);
 
 			let strokedSVG = fs.readFileSync(file).toString();
 
@@ -222,11 +216,7 @@ gulp.task('iconfont-svg-outline', function (cb) {
 				fixedWidth: true,
 				color: 'black'
 			}).then(outlined => {
-				if (unicode) {
-					fs.writeFileSync(`icons-outlined/u${unicode.toUpperCase()}-${name}.svg`, outlined);
-				} else {
-					fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
-				}
+				fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
 			}).catch(error => console.log(error));
 		});
 
@@ -234,60 +224,10 @@ gulp.task('iconfont-svg-outline', function (cb) {
 	});
 });
 
-gulp.task('iconfont', function () {
-	let maxUnicode = 59905;
-
-	if (fs.existsSync('./iconfont-unicode.json')) {
-		const iconfontUnicode = require('./iconfont-unicode');
-
-		for (const name in iconfontUnicode) {
-			const unicode = parseInt(iconfontUnicode[name], 16);
-
-			maxUnicode = Math.max(maxUnicode, unicode);
-		}
-	}
-
-	maxUnicode = maxUnicode + 1;
-
-	return gulp.src(['icons-outlined/*.svg'])
-		.pipe(iconfont({
-			fontName: 'tabler-icons',
-			prependUnicode: true,
-			formats: ['ttf', 'eot', 'woff', 'woff2'],
-			normalize: true,
-			startUnicode: maxUnicode
-		}))
-		.on('glyphs', function (glyphs, options) {
-			//glyphs json
-			let glyphsObject = {};
-
-			//sort glypht
-			glyphs = glyphs.sort(function (a, b) {
-				return ('' + a.name).localeCompare(b.name)
-			});
-
-			glyphs.forEach(function (glyph) {
-				glyphsObject[glyph.name] = glyph.unicode[0].codePointAt(0).toString(16);
-			});
-
-			fs.writeFileSync(`iconfont-unicode.json`, JSON.stringify(glyphsObject));
-
-			//css
-			options['glyphs'] = glyphs;
-			options['v'] = p.version;
-
-			const compiled = template(fs.readFileSync('.build/iconfont.scss').toString());
-			const result = compiled(options);
-
-			fs.writeFileSync('iconfont/tabler-icons.scss', result);
-
-			//html
-			const compiledHtml = template(fs.readFileSync('.build/iconfont.html').toString());
-			const resultHtml = compiledHtml(options);
-
-			fs.writeFileSync('iconfont/tabler-icons.html', resultHtml);
-		})
-		.pipe(gulp.dest('iconfont/fonts'));
+gulp.task('iconfont', function (cb) {
+	cp.exec('fontcustom compile', function () {
+		cb();
+	});
 });
 
 gulp.task('iconfont-css', function (cb) {
@@ -304,7 +244,7 @@ gulp.task('iconfont-css', function (cb) {
 	});
 });
 
-gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css', 'iconfont-clean'));
+gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css'/*, 'iconfont-clean'*/));
 
 gulp.task('build-zip', function () {
 	const version = p.version;
@@ -626,17 +566,17 @@ const setVersions = function(version, files) {
 
 		if (fs.existsSync(`src/_icons/${file}.svg`)) {
 			let svgFile = fs.readFileSync(`src/_icons/${file}.svg`).toString();
-			
+
 			if(!svgFile.match(/version: ([0-9.]+)/i)) {
 				svgFile = svgFile.replace(/---\n<svg>/i, function(m){
 					return `version: ${version}\n${m}`;
 				});
-				
+
 				fs.writeFileSync(`src/_icons/${file}.svg`, svgFile);
 			} else {
 				console.log(`File ${file} already has version`);
 			}
-			
+
 		} else {
 			console.log(`File ${file} doesn't exists`);
 		}
@@ -652,7 +592,7 @@ gulp.task('update-icons-version', function (cb) {
 		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
 
 			let newIcons = [];
-			
+
 			ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
 				newIcons.push(fileName);
 			});
@@ -674,7 +614,7 @@ gulp.task('import-tags', function(cb) {
 		}))
 		.on('data', (row) => {
 			console.log(row[0], row[1]);
-			
+
 			const filename = `src/_icons/${row[0]}.svg`;
 
 			let data = fs.readFileSync(filename).toString();
@@ -685,7 +625,7 @@ gulp.task('import-tags', function(cb) {
 
 				return headerContent;
 			});
-			
+
 			fs.writeFileSync(filename, data);
 
 		})
