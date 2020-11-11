@@ -1,5 +1,5 @@
 {
-  "name": "tabler-icons",
+  "name": "@tabler/icons",
   "version": "1.35.0",
   "repository": {
     "type": "git",
@@ -9,7 +9,8 @@
   "module": "./icons-react/dist/index.esm.js",
   "browser": "./icons-react/dist/index.umd.js",
   "types": "./icons-react/index.d.ts",
-  "author": "",
+  "sideEffects": false,
+  "author": "codecalm",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
@@ -27,6 +28,9 @@
     "tabler-sprite.svg",
     "tabler-sprite-nostroke.svg"
   ],
+  "publishConfig": {
+    "access": "public"   
+  },
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
@@ -35,7 +39,16 @@
     "optimize": "gulp optimize",
     "release": "release-it"
   },
-  "description": "",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "keywords": [
+    "icons",
+    "svg",
+    "png",
+    "iconfont",
+    "react",
+    "front-end",
+    "web"
+  ],
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@babel/parser": "7.11.5",
