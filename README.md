@@ -11,7 +11,7 @@ A set of over 850 free MIT-licensed high-quality SVG icons for you to use in you
 ## Installation
 
 ```
-npm install tabler-icons --save
+npm install @tabler/icons --save
 ```
 
 or just [download from Github](https://github.com/tabler/tabler-icons/releases).
@@ -78,7 +78,7 @@ Add an icon to be displayed on your page with the following markup (`activity` i
 Import the icon and render it in your component. You can adjust SVG properties through React props:
 
 ```jsx
-import { IconAward } from 'tabler-icons';
+import { IconAward } from '@tabler/icons';
 
 const MyComponent = () => {
   return <IconAward 
@@ -90,7 +90,7 @@ const MyComponent = () => {
 }
 ```
 
-`tabler-icons` exports it's own type declarations for usage with React and Typescript.
+`@tabler/icons` exports it's own type declarations for usage with React and Typescript.
 
 ## Multiple strokes
 
