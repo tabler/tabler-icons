@@ -28,6 +28,9 @@
     "tabler-sprite.svg",
     "tabler-sprite-nostroke.svg"
   ],
+  "publishConfig": {
+    "access": "public"   
+  },
   "homepage": "https://github.com/tabler/tabler-icons#readme",
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
