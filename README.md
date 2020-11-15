@@ -96,9 +96,13 @@ const MyComponent = () => {
 
 All files included in `@tabler/icons` npm package are available over a CDN.
 
+React icons bundle:
+```html
+<script src="https://unpkg.com/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+```
+Iconfont:
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
-<script src="https://unpkg.com/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
 ```
 
 To load a specific version replace `latest` with the desired version number.
