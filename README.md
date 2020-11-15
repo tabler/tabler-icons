@@ -92,6 +92,21 @@ const MyComponent = () => {
 
 `@tabler/icons` exports it's own type declarations for usage with React and Typescript.
 
+### CDN
+
+All files included in `@tabler/icons` npm package are available over a CDN.
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+<script src="https://unpkg.com/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+```
+
+To load a specific version replace `latest` with the desired version number.
+
+```html
+<script src="https://unpkg.com/@tabler/icons@1.36.0/icons-react/dist/index.umd.js"></script>
+```
+
 ## Multiple strokes
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
