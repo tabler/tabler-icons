@@ -96,11 +96,14 @@ const MyComponent = () => {
 
 All files included in `@tabler/icons` npm package are available over a CDN.
 
-React icons bundle:
+#### React icons
+
 ```html
 <script src="https://unpkg.com/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
 ```
-Iconfont:
+
+#### Iconfont
+
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 ```
