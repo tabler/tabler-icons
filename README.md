@@ -1,6 +1,6 @@
 # Tabler Icons
 
-A set of over 850 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
+A set of over 950 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
 
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
@@ -91,6 +91,28 @@ const MyComponent = () => {
 ```
 
 `@tabler/icons` exports it's own type declarations for usage with React and Typescript.
+
+### CDN
+
+All files included in `@tabler/icons` npm package are available over a CDN.
+
+#### React icons
+
+```html
+<script src="https://unpkg.com/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+```
+
+#### Iconfont
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+```
+
+To load a specific version replace `latest` with the desired version number.
+
+```html
+<script src="https://unpkg.com/@tabler/icons@1.36.0/icons-react/dist/index.umd.js"></script>
+```
 
 ## Multiple strokes
 
