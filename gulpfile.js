@@ -4,6 +4,7 @@ const gulp = require('gulp'),
 	fs = require('fs'),
 	path = require('path'),
 	p = require('./package.json'),
+	csv = require('csv-parser'),
 	zip = require('gulp-zip'),
 	puppeteer = require('puppeteer'),
 	outlineStroke = require('svg-outline-stroke'),
@@ -12,6 +13,8 @@ const gulp = require('gulp'),
 	sass = require('node-sass'),
 	cleanCSS = require('clean-css'),
 	argv = require('minimist')(process.argv.slice(2)),
+	svgParse = require('parse-svg-path'),
+	svgpath = require('svgpath'),
 	svgr = require('@svgr/core').default;
 
 async function asyncForEach(array, callback) {
@@ -404,6 +407,17 @@ gulp.task('optimize', function (cb) {
 		return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
 	};
 
+	const optimizePath = function(path) {
+		let transformed = svgpath(path)
+			.rel()
+			.round(3)
+			.toString();
+
+		return svgParse(transformed).map(function(a){
+			return a.join(' ');
+		}).join(' ');
+	};
+
 	glob("src/_icons/*.svg", {}, function (er, files) {
 
 		files.forEach(function (file, i) {
@@ -416,6 +430,11 @@ gulp.task('optimize', function (cb) {
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline|rect)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+				.replace(/<path d="([^"]+)"/g, function(f, r1) {
+					r1 = optimizePath(r1);
+
+					return `<path d="${r1}"`;
+				})
 				.replace(/d="m/g, 'd="M')
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
 				.replace(/\n\n+/g, "\n")
@@ -438,9 +457,6 @@ gulp.task('optimize', function (cb) {
 					return `<path d="${r1}"`;
 				})
 			;
-
-			//  
-			//
 
 			if (svgFile.toString() !== svgFileContent) {
 				fs.writeFileSync(file, svgFileContent);
@@ -610,17 +626,17 @@ const setVersions = function(version, files) {
 
 		if (fs.existsSync(`src/_icons/${file}.svg`)) {
 			let svgFile = fs.readFileSync(`src/_icons/${file}.svg`).toString();
-			
+
 			if(!svgFile.match(/version: ([0-9.]+)/i)) {
 				svgFile = svgFile.replace(/---\n<svg>/i, function(m){
 					return `version: ${version}\n${m}`;
 				});
-				
+
 				fs.writeFileSync(`src/_icons/${file}.svg`, svgFile);
 			} else {
 				console.log(`File ${file} already has version`);
 			}
-			
+
 		} else {
 			console.log(`File ${file} doesn't exists`);
 		}
@@ -636,7 +652,7 @@ gulp.task('update-icons-version', function (cb) {
 		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
 
 			let newIcons = [];
-			
+
 			ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
 				newIcons.push(fileName);
 			});
@@ -647,6 +663,35 @@ gulp.task('update-icons-version', function (cb) {
 		});
 	}
 
+	cb();
+});
+
+gulp.task('import-tags', function(cb) {
+	fs.createReadStream('./_import.csv')
+		.pipe(csv({
+			headers: false,
+			separator: "\t"
+		}))
+		.on('data', (row) => {
+			console.log(row[0], row[1]);
+
+			const filename = `src/_icons/${row[0]}.svg`;
+
+			let data = fs.readFileSync(filename).toString();
+			data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent){
+
+				headerContent = headerContent.replace(/tags: .*\n/, '');
+				headerContent = headerContent.replace(/---/, `---\ntags: [${row[1]}]`);
+
+				return headerContent;
+			});
+
+			fs.writeFileSync(filename, data);
+
+		})
+		.on('end', () => {
+			console.log('CSV file successfully processed');
+		});
 	cb();
 });
 
