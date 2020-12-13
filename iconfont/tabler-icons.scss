@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.37.1 by tabler - https://tabler.io
+ * Tabler Icons 1.38.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -481,6 +481,7 @@ $ti-icon-file-download: '\ea9d';
 $ti-icon-file-export: '\ede9';
 $ti-icon-file-horizontal: '\ebb0';
 $ti-icon-file-import: '\edea';
+$ti-icon-file-info: '\edec';
 $ti-icon-file-invoice: '\eb67';
 $ti-icon-file-like: '\ed2b';
 $ti-icon-file-minus: '\ea9e';
@@ -488,6 +489,7 @@ $ti-icon-file-music: '\ea9f';
 $ti-icon-file-off: '\ecf2';
 $ti-icon-file-phone: '\ecdc';
 $ti-icon-file-plus: '\eaa0';
+$ti-icon-file-report: '\eded';
 $ti-icon-file-search: '\ed5d';
 $ti-icon-file-shredder: '\eaa1';
 $ti-icon-file-symlink: '\ed53';
@@ -495,6 +497,8 @@ $ti-icon-file-text: '\eaa2';
 $ti-icon-file-upload: '\ec91';
 $ti-icon-file-x: '\eaa3';
 $ti-icon-file-zip: '\ed4e';
+$ti-icon-files: '\edef';
+$ti-icon-files-off: '\edee';
 $ti-icon-filter: '\eaa5';
 $ti-icon-filter-off: '\ed2c';
 $ti-icon-fingerprint: '\ebd1';
@@ -711,6 +715,16 @@ $ti-icon-note: '\eb6d';
 $ti-icon-notebook: '\eb96';
 $ti-icon-notes: '\eb6e';
 $ti-icon-notification: '\eafe';
+$ti-icon-number-0: '\edf0';
+$ti-icon-number-1: '\edf1';
+$ti-icon-number-2: '\edf2';
+$ti-icon-number-3: '\edf3';
+$ti-icon-number-4: '\edf4';
+$ti-icon-number-5: '\edf5';
+$ti-icon-number-6: '\edf6';
+$ti-icon-number-7: '\edf7';
+$ti-icon-number-8: '\edf8';
+$ti-icon-number-9: '\edf9';
 $ti-icon-octagon: '\ecbd';
 $ti-icon-omega: '\eb97';
 $ti-icon-outlet: '\ebd7';
@@ -776,6 +790,10 @@ $ti-icon-qrcode: '\eb11';
 $ti-icon-question-mark: '\ec9d';
 $ti-icon-radioactive: '\ecc0';
 $ti-icon-rainbow: '\edbc';
+$ti-icon-receipt: '\edfd';
+$ti-icon-receipt-2: '\edfa';
+$ti-icon-receipt-off: '\edfb';
+$ti-icon-receipt-refund: '\edfc';
 $ti-icon-receipt-tax: '\edbd';
 $ti-icon-record-mail: '\eb12';
 $ti-icon-rectangle: '\ed37';
@@ -1459,6 +1477,7 @@ $ti-icon-zoom-question: '\edeb';
 .#{$ti-icon-prefix}-file-export:before { content: $ti-icon-file-export; }
 .#{$ti-icon-prefix}-file-horizontal:before { content: $ti-icon-file-horizontal; }
 .#{$ti-icon-prefix}-file-import:before { content: $ti-icon-file-import; }
+.#{$ti-icon-prefix}-file-info:before { content: $ti-icon-file-info; }
 .#{$ti-icon-prefix}-file-invoice:before { content: $ti-icon-file-invoice; }
 .#{$ti-icon-prefix}-file-like:before { content: $ti-icon-file-like; }
 .#{$ti-icon-prefix}-file-minus:before { content: $ti-icon-file-minus; }
@@ -1466,6 +1485,7 @@ $ti-icon-zoom-question: '\edeb';
 .#{$ti-icon-prefix}-file-off:before { content: $ti-icon-file-off; }
 .#{$ti-icon-prefix}-file-phone:before { content: $ti-icon-file-phone; }
 .#{$ti-icon-prefix}-file-plus:before { content: $ti-icon-file-plus; }
+.#{$ti-icon-prefix}-file-report:before { content: $ti-icon-file-report; }
 .#{$ti-icon-prefix}-file-search:before { content: $ti-icon-file-search; }
 .#{$ti-icon-prefix}-file-shredder:before { content: $ti-icon-file-shredder; }
 .#{$ti-icon-prefix}-file-symlink:before { content: $ti-icon-file-symlink; }
@@ -1473,6 +1493,8 @@ $ti-icon-zoom-question: '\edeb';
 .#{$ti-icon-prefix}-file-upload:before { content: $ti-icon-file-upload; }
 .#{$ti-icon-prefix}-file-x:before { content: $ti-icon-file-x; }
 .#{$ti-icon-prefix}-file-zip:before { content: $ti-icon-file-zip; }
+.#{$ti-icon-prefix}-files:before { content: $ti-icon-files; }
+.#{$ti-icon-prefix}-files-off:before { content: $ti-icon-files-off; }
 .#{$ti-icon-prefix}-filter:before { content: $ti-icon-filter; }
 .#{$ti-icon-prefix}-filter-off:before { content: $ti-icon-filter-off; }
 .#{$ti-icon-prefix}-fingerprint:before { content: $ti-icon-fingerprint; }
@@ -1689,6 +1711,16 @@ $ti-icon-zoom-question: '\edeb';
 .#{$ti-icon-prefix}-notebook:before { content: $ti-icon-notebook; }
 .#{$ti-icon-prefix}-notes:before { content: $ti-icon-notes; }
 .#{$ti-icon-prefix}-notification:before { content: $ti-icon-notification; }
+.#{$ti-icon-prefix}-number-0:before { content: $ti-icon-number-0; }
+.#{$ti-icon-prefix}-number-1:before { content: $ti-icon-number-1; }
+.#{$ti-icon-prefix}-number-2:before { content: $ti-icon-number-2; }
+.#{$ti-icon-prefix}-number-3:before { content: $ti-icon-number-3; }
+.#{$ti-icon-prefix}-number-4:before { content: $ti-icon-number-4; }
+.#{$ti-icon-prefix}-number-5:before { content: $ti-icon-number-5; }
+.#{$ti-icon-prefix}-number-6:before { content: $ti-icon-number-6; }
+.#{$ti-icon-prefix}-number-7:before { content: $ti-icon-number-7; }
+.#{$ti-icon-prefix}-number-8:before { content: $ti-icon-number-8; }
+.#{$ti-icon-prefix}-number-9:before { content: $ti-icon-number-9; }
 .#{$ti-icon-prefix}-octagon:before { content: $ti-icon-octagon; }
 .#{$ti-icon-prefix}-omega:before { content: $ti-icon-omega; }
 .#{$ti-icon-prefix}-outlet:before { content: $ti-icon-outlet; }
@@ -1754,6 +1786,10 @@ $ti-icon-zoom-question: '\edeb';
 .#{$ti-icon-prefix}-question-mark:before { content: $ti-icon-question-mark; }
 .#{$ti-icon-prefix}-radioactive:before { content: $ti-icon-radioactive; }
 .#{$ti-icon-prefix}-rainbow:before { content: $ti-icon-rainbow; }
+.#{$ti-icon-prefix}-receipt:before { content: $ti-icon-receipt; }
+.#{$ti-icon-prefix}-receipt-2:before { content: $ti-icon-receipt-2; }
+.#{$ti-icon-prefix}-receipt-off:before { content: $ti-icon-receipt-off; }
+.#{$ti-icon-prefix}-receipt-refund:before { content: $ti-icon-receipt-refund; }
 .#{$ti-icon-prefix}-receipt-tax:before { content: $ti-icon-receipt-tax; }
 .#{$ti-icon-prefix}-record-mail:before { content: $ti-icon-record-mail; }
 .#{$ti-icon-prefix}-rectangle:before { content: $ti-icon-rectangle; }
