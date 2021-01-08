@@ -230,7 +230,14 @@ gulp.task('iconfont-svg-outline', function (cb) {
 			}).catch(error => console.log(error));
 		});
 
-		cb();
+		// correct svg outline directions in a child process using fontforge 
+		const generate = cp.spawn("fontforge", ["-lang=py", "-script", "generate.py"], { stdio: 'inherit' });
+		generate.on("close", function (code) {
+			console.log(`Correcting svg outline directions exited with code ${code}`);
+			if (!code) {
+				cb();
+			}
+    	});
 	});
 });
 
