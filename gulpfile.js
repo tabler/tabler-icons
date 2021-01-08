@@ -262,7 +262,9 @@ gulp.task('iconfont', function () {
 			prependUnicode: true,
 			formats: ['ttf', 'eot', 'woff', 'woff2'],
 			normalize: true,
-			startUnicode: maxUnicode
+			startUnicode: maxUnicode,
+			fontHeight: 1000,
+			descent: 100
 		}))
 		.on('glyphs', function (glyphs, options) {
 			//glyphs json
