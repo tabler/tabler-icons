@@ -260,11 +260,12 @@ gulp.task('iconfont', function () {
 		.pipe(iconfont({
 			fontName: 'tabler-icons',
 			prependUnicode: true,
-			formats: ['ttf', 'eot', 'woff', 'woff2'],
+			formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
 			normalize: true,
 			startUnicode: maxUnicode,
 			fontHeight: 1000,
-			descent: 100
+			descent: 100,
+			ascent: 986.5
 		}))
 		.on('glyphs', function (glyphs, options) {
 			//glyphs json

@@ -3,7 +3,7 @@
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
-$ti-font-path: './fonts' !default;
+$ti-font-path: 'fonts' !default;
 $ti-font-display: null !default;
 $ti-icon-prefix: 'ti' !default;
 
@@ -16,7 +16,15 @@ $ti-icon-prefix: 'ti' !default;
   src: url('#{$ti-font-path}/tabler-icons.eot?#iefix') format('embedded-opentype'),
     url('#{$ti-font-path}/tabler-icons.woff2') format('woff2'),
     url('#{$ti-font-path}/tabler-icons.woff') format('woff'),
-    url('#{$ti-font-path}/tabler-icons.ttf') format('truetype');
+    url('#{$ti-font-path}/tabler-icons.ttf') format('truetype'),
+    url("#{$ti-font-path}/tabler-icons.svg\##{$ti-font-family}") format("svg");
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: $ti-font-family;
+    src: url("#{$ti-font-path}/tabler-icons.svg\##{$ti-font-family}") format("svg");
+  }
 }
 
 .#{$ti-icon-prefix} {
