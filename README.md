@@ -4,6 +4,12 @@ A set of over 950 free MIT-licensed high-quality SVG icons for you to use in you
 
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
+## Sponsors
+
+<a href="https://github.com/sponsors/codecalm">
+    <img src='https://cdn.jsdelivr.net/gh/tabler/static/sponsors.svg'>
+  </a>
+
 ## Preview
 
 ![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png)
