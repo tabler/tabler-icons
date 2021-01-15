@@ -14,6 +14,11 @@ A set of over 950 free MIT-licensed high-quality SVG icons for you to use in you
 
 ![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png)
 
+## Sponsor Tabler
+
+<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
+
+
 ## Installation
 
 ```
