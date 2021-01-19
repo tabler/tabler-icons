@@ -230,7 +230,14 @@ gulp.task('iconfont-svg-outline', function (cb) {
 			}).catch(error => console.log(error));
 		});
 
-		cb();
+		// correct svg outline directions in a child process using fontforge 
+		const generate = cp.spawn("fontforge", ["-lang=py", "-script", "generate.py"], { stdio: 'inherit' });
+		generate.on("close", function (code) {
+			console.log(`Correcting svg outline directions exited with code ${code}`);
+			if (!code) {
+				cb();
+			}
+    	});
 	});
 });
 
@@ -253,9 +260,12 @@ gulp.task('iconfont', function () {
 		.pipe(iconfont({
 			fontName: 'tabler-icons',
 			prependUnicode: true,
-			formats: ['ttf', 'eot', 'woff', 'woff2'],
+			formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
 			normalize: true,
-			startUnicode: maxUnicode
+			startUnicode: maxUnicode,
+			fontHeight: 1000,
+			descent: 100,
+			ascent: 986.5
 		}))
 		.on('glyphs', function (glyphs, options) {
 			//glyphs json
