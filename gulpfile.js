@@ -198,8 +198,8 @@ gulp.task('iconfont-svg-outline', function (cb) {
 
 		let iconfontUnicode = {};
 
-		if (fs.existsSync('./iconfont-unicode.json')) {
-			iconfontUnicode = require('./iconfont-unicode');
+		if (fs.existsSync('./.build/iconfont-unicode.json')) {
+			iconfontUnicode = require('./.build/iconfont-unicode');
 		}
 
 		await asyncForEach(files, async function (file) {
@@ -244,8 +244,8 @@ gulp.task('iconfont-svg-outline', function (cb) {
 gulp.task('iconfont', function () {
 	let maxUnicode = 59905;
 
-	if (fs.existsSync('./iconfont-unicode.json')) {
-		const iconfontUnicode = require('./iconfont-unicode');
+	if (fs.existsSync('./.build/iconfont-unicode.json')) {
+		const iconfontUnicode = require('./.build/iconfont-unicode');
 
 		for (const name in iconfontUnicode) {
 			const unicode = parseInt(iconfontUnicode[name], 16);
@@ -280,7 +280,7 @@ gulp.task('iconfont', function () {
 				glyphsObject[glyph.name] = glyph.unicode[0].codePointAt(0).toString(16);
 			});
 
-			fs.writeFileSync(`iconfont-unicode.json`, JSON.stringify(glyphsObject));
+			fs.writeFileSync(`./.build/iconfont-unicode.json`, JSON.stringify(glyphsObject));
 
 			//css
 			options['glyphs'] = glyphs;
@@ -316,7 +316,7 @@ gulp.task('iconfont-css', function (cb) {
 
 gulp.task('update-tags-unicode', function(cb) {
 	let tags = require('./tags.json'),
-		unicodes = require('./iconfont-unicode.json');
+		unicodes = require('./.build/iconfont-unicode.json');
 
 	for(let i in tags) {
 		tags[i] = {
