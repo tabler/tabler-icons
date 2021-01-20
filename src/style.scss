@@ -53,6 +53,7 @@ a {
 
   @media print {
     padding: 0;
+    max-width: 100%;
   }
 }
 
@@ -201,6 +202,20 @@ a {
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  position: relative;
+
+  &.new-icon {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 6px;
+      height: 6px;
+      background: #cc0000;
+      border-radius: 50%;
+    }
+  }
 
   &.active {
     background: #f0f0f0;

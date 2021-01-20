@@ -4,15 +4,22 @@ layout: default
 
 <div class="container">
 	<div class="box">
-		<table class="table">
+		{% assign i = 0 %}
+		<table class="table mb">
 			{% for icon in site.icons %}
 			<tr>
 				<td class="td-1">{% include icon.html name=icon.slug %}</td>
 				<th>{{ icon.slug }}</th>
 				<td>{{ icon.tags | join: ', ' }}</td>
+				<td>{{ icon.category }}</td>
 				<td>{{ icon.version }}</td>
 			</tr>
+			{% if icon.tags.size == 0 %}
+			{% assign i = i | plus: 1 %}
+			{% endif %}
 			{% endfor %}
 		</table>
+
+		<p>Untagged: {{ i }}</p>
 	</div>
 </div>
