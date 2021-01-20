@@ -23,6 +23,6 @@ for file in files("./icons-outlined"):
     glyph.correctDirection()
     glyph.export("./icons-outlined/" + file)
     glyph.clear()
-    
+
 
 print ("Finished fixing svg outline directions!")
