@@ -6,6 +6,7 @@ const gulp = require('gulp'),
 	p = require('./package.json'),
 	csv = require('csv-parser'),
 	zip = require('gulp-zip'),
+	svgo = require('gulp-svgo'),
 	puppeteer = require('puppeteer'),
 	outlineStroke = require('svg-outline-stroke'),
 	iconfont = require('gulp-iconfont'),
@@ -229,15 +230,25 @@ gulp.task('iconfont-svg-outline', function (cb) {
 				}
 			}).catch(error => console.log(error));
 		});
+	});
 
-		// correct svg outline directions in a child process using fontforge
-		const generate = cp.spawn("fontforge", ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
-		generate.on("close", function (code) {
-			console.log(`Correcting svg outline directions exited with code ${code}`);
-			if (!code) {
-				cb();
-			}
-    	});
+	cb();
+});
+
+gulp.task('iconfont-optimize', function() {
+	return gulp.src('icons-outlined/*')
+		.pipe(svgo())
+		.pipe(gulp.dest('icons-outlined'));
+});
+
+gulp.task('iconfont-fix-outline', function(cb) {
+	// correct svg outline directions in a child process using fontforge
+	const generate = cp.spawn("fontforge", ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
+	generate.on("close", function (code) {
+		console.log(`Correcting svg outline directions exited with code ${code}`);
+		if (!code) {
+			cb();
+		}
 	});
 });
 
@@ -332,7 +343,7 @@ gulp.task('update-tags-unicode', function(cb) {
 	cb();
 });
 
-gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css', 'iconfont-clean', 'update-tags-unicode'));
+gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont-fix-outline', 'iconfont-optimize', 'iconfont', 'iconfont-css', 'iconfont-clean', 'update-tags-unicode'));
 
 gulp.task('build-zip', function () {
 	const version = p.version;
