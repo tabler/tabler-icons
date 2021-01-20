@@ -230,9 +230,9 @@ gulp.task('iconfont-svg-outline', function (cb) {
 				}
 			}).catch(error => console.log(error));
 		});
-	});
 
-	cb();
+		cb();
+	});
 });
 
 gulp.task('iconfont-optimize', function() {
