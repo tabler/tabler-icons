@@ -6,7 +6,7 @@ function IconH5({
   stroke = 2,
   ...props
 }) {
-  return <svg className="icon icon-tabler icon-tabler-h-5" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><line x1={3} y1={5} x2={3} y2={19} /><line x1={3} y1={12} x2={12} y2={12} /><line x1={12} y1={5} x2={12} y2={19} /><path d="M16 18.27a3 3 0 1 0 0 -4.537l0 -4.733h5" /></svg>;
+  return <svg className="icon icon-tabler icon-tabler-h-5" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M17 18h2a2 2 0 1 0 0 -4h-2v-4h4" /><path d="M4 6v12" /><path d="M12 6v12" /><path d="M11 18h2" /><path d="M3 18h2" /><path d="M4 12h8" /><path d="M3 6h2" /><path d="M11 6h2" /></svg>;
 }
 
 export default IconH5;

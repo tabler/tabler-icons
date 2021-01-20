@@ -6,7 +6,7 @@ function IconGlass({
   stroke = 2,
   ...props
 }) {
-  return <svg className="icon icon-tabler icon-tabler-glass" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><line x1={8} y1={21} x2={16} y2={21} /><line x1={12} y1={15} x2={12} y2={21} /><path d="M16 4l1 6a5 5 0 0 1 -10 0l1 -6z" /></svg>;
+  return <svg className="icon icon-tabler icon-tabler-glass" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><line x1={8} y1={21} x2={16} y2={21} /><line x1={12} y1={15} x2={12} y2={21} /><path d="M17 3l1 7c0 3.012 -2.686 5 -6 5s-6 -1.988 -6 -5l1 -7h10z" /></svg>;
 }
 
 export default IconGlass;
