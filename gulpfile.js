@@ -230,8 +230,8 @@ gulp.task('iconfont-svg-outline', function (cb) {
 			}).catch(error => console.log(error));
 		});
 
-		// correct svg outline directions in a child process using fontforge 
-		const generate = cp.spawn("fontforge", ["-lang=py", "-script", "generate.py"], { stdio: 'inherit' });
+		// correct svg outline directions in a child process using fontforge
+		const generate = cp.spawn("fontforge", ["-lang=py", "-script", ".build/generate.py"], { stdio: 'inherit' });
 		generate.on("close", function (code) {
 			console.log(`Correcting svg outline directions exited with code ${code}`);
 			if (!code) {
@@ -314,7 +314,25 @@ gulp.task('iconfont-css', function (cb) {
 	});
 });
 
-gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css', 'iconfont-clean'));
+gulp.task('update-tags-unicode', function(cb) {
+	let tags = require('./tags.json'),
+		unicodes = require('./iconfont-unicode.json');
+
+	for(let i in tags) {
+		tags[i] = {
+			...tags[i],
+			unicode: unicodes[i],
+		}
+	}
+
+	console.log('tags', tags);
+
+	fs.writeFileSync(`tags.json`, JSON.stringify(tags, null, 2));
+
+	cb();
+});
+
+gulp.task('build-iconfont', gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont', 'iconfont-css', 'iconfont-clean', 'update-tags-unicode'));
 
 gulp.task('build-zip', function () {
 	const version = p.version;
