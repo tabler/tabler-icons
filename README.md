@@ -127,6 +127,20 @@ To load a specific version replace `latest` with the desired version number.
 <script src="https://unpkg.com/@tabler/icons@1.36.0/icons-react/dist/index.umd.js"></script>
 ```
 
+### Svelte
+
+You can use [`tabler-icons-svelte`](https://github.com/benflap/tabler-icons-svelte) to use icons in your Svelte projects (see [example](https://svelte.dev/repl/e80dc63d7019431692b10a77525e7f99?version=3.31.0)):
+
+```js
+<script>
+    import { CurrencyBitcoin, BrandGithub, CircleX } from "tabler-icons-svelte";
+</script>
+
+<CurrencyBitcoin />
+<BrandGithub size="48" strokeWidth="1" />
+<CircleX />
+```
+
 ## Multiple strokes
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
