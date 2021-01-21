@@ -4,6 +4,8 @@ A set of over 950 free MIT-licensed high-quality SVG icons for you to use in you
 
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
+Icons search: https://tabler-icons.io/
+
 ## Sponsors
 
 <a href="https://github.com/sponsors/codecalm">
