@@ -5,7 +5,7 @@
 $ti-font-family: '<%= fileName %>' !default;
 $ti-font-path: 'fonts' !default;
 $ti-font-display: null !default;
-$ti-icon-prefix: 'ti' !default;
+$ti-prefix: 'ti' !default;
 
 @font-face {
   font-family: $ti-font-family;
@@ -27,7 +27,7 @@ $ti-icon-prefix: 'ti' !default;
   }
 }
 
-.#{$ti-icon-prefix} {
+.#{$ti-prefix} {
   font-family: $ti-font-family !important;
   speak: none;
   font-style: normal;
@@ -45,4 +45,4 @@ $ti-icon-prefix: 'ti' !default;
 $ti-icon-<%= glyph.name %>: '\<%= glyph.unicode[0].codePointAt(0).toString(16) %>';<% }); %>
 
 <% glyphs.forEach(function(glyph) { %>
-.#{$ti-icon-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
+.#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
