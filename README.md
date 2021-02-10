@@ -9,7 +9,7 @@ Icons search: https://tabler-icons.io/
 ## Sponsors
 
 <a href="https://github.com/sponsors/codecalm">
-    <img src='https://cdn.jsdelivr.net/gh/tabler/static/sponsors.svg'>
+    <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
   </a>
 
 ## Preview
