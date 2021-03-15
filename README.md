@@ -141,6 +141,10 @@ You can use [`tabler-icons-svelte`](https://github.com/benflap/tabler-icons-svel
 <CircleX />
 ```
 
+### Jetpack Compose
+
+For Android or Desktop you can use [`compose-icons`](https://github.com/DevSrSouza/compose-icons) to use icons in your projects. (see [docs](https://github.com/DevSrSouza/compose-icons/blob/master/tabler-icons/DOCUMENTATION.md))
+
 ## Multiple strokes
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
