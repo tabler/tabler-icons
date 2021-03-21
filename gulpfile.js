@@ -191,6 +191,7 @@ gulp.task('iconfont-clean', function (cb) {
 		cb();
 	});
 });
+const includeIcons=typeof p.compileFonts=='object'? p.compileFonts.include:[];
 
 gulp.task('iconfont-svg-outline', function (cb) {
 
@@ -204,7 +205,11 @@ gulp.task('iconfont-svg-outline', function (cb) {
 		}
 
 		await asyncForEach(files, async function (file) {
-			const name = path.basename(file, '.svg'),
+			
+			const name = path.basename(file, '.svg');
+			
+			if (!Array.isArray( includeIcons) || includeIcons.length==0 || includeIcons.indexOf(name)>=0) {
+					
 				unicode = iconfontUnicode[name];
 
 			await console.log('Stroke for:', file, unicode);
@@ -214,6 +219,8 @@ gulp.task('iconfont-svg-outline', function (cb) {
 			strokedSVG = strokedSVG
 				.replace('width="24"', 'width="1000"')
 				.replace('height="24"', 'height="1000"');
+				if (typeof p.compileFonts=='object' && typeof p.compileFonts.strokeWidth=="string")
+				   strokedSVG = strokedSVG.replace('stroke-width="2"', `stroke-width="${p.compileFonts.strokeWidth}"`);
 
 			await outlineStroke(strokedSVG, {
 				optCurve: false,
@@ -229,6 +236,8 @@ gulp.task('iconfont-svg-outline', function (cb) {
 					fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
 				}
 			}).catch(error => console.log(error));
+			}
+			
 		});
 
 		cb();
@@ -242,8 +251,12 @@ gulp.task('iconfont-optimize', function() {
 });
 
 gulp.task('iconfont-fix-outline', function(cb) {
+	var fontForge= 'fontforge';
+	if (typeof p.compileFonts=='object' && typeof p.compileFonts.fontForge=='string')
+  	  fontForge=p.compileFonts.fontForge;
+	
 	// correct svg outline directions in a child process using fontforge
-	const generate = cp.spawn("fontforge", ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
+	const generate = cp.spawn(fontForge, ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
 	generate.on("close", function (code) {
 		console.log(`Correcting svg outline directions exited with code ${code}`);
 		if (!code) {

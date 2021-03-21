@@ -127,6 +127,35 @@ To load a specific version replace `latest` with the desired version number.
 <script src="https://unpkg.com/@tabler/icons@1.36.0/icons-react/dist/index.umd.js"></script>
 ```
 
+Compiling fonts:
+
+To compile fonts first install [fontforge](https://fontforge.org/en-US/)
+
+the fontforge executable needs to be in the path or you can set set the path to the downloaded fontforge executable in the package.json. If you installed in on a mac in your application directory it will be:
+```JSON
+  "compileFonts": {
+    "fontForge":"/Applications/FontForge.app/Contents/MacOS/FontForge"
+  }
+```
+To compile the fonts run:
+  npm run build-iconfont
+
+By default the stroke width is 2. You can change the stroke width by setting the package property: 
+
+```JSON
+  "compileFonts": {
+     "strokeWidth":"1.5",
+  }
+```
+
+To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. For example:
+
+```JSON
+  "includeIcons": {
+    "include":["alert-octagon","alert-triangle"]
+  }
+```  
+
 ### Svelte
 
 You can use [`tabler-icons-svelte`](https://github.com/benflap/tabler-icons-svelte) to use icons in your Svelte projects (see [example](https://svelte.dev/repl/e80dc63d7019431692b10a77525e7f99?version=3.31.0)):
