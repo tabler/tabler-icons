@@ -131,28 +131,38 @@ Compiling fonts:
 
 To compile fonts first install [fontforge](https://fontforge.org/en-US/)
 
-the fontforge executable needs to be in the path or you can set set the path to the downloaded fontforge executable in the package.json. If you installed in on a mac in your application directory it will be:
+When compiling the font it will look for a json file compile-options.json in root folder (same folder as the package.json) In this file you can define extra options:
+
+The default settings if you have not defined the file will be:
+{
+  "includeIcons": [],
+  "fontForge": "fontforge",
+  "strokeWidth": 2
+}
+
+The fontforge executable needs to be in the path or you can set set the path to the downloaded fontforge executable in the. If you installed in on a mac in your application directory it will be "/Applications/FontForge.app/Contents/MacOS/FontForge". You can set this value in the compile-options.json file.
+
 ```JSON
-  "compileFonts": {
+  {
     "fontForge":"/Applications/FontForge.app/Contents/MacOS/FontForge"
   }
 ```
 To compile the fonts run:
   npm run build-iconfont
 
-By default the stroke width is 2. You can change the stroke width by setting the package property: 
+By default the stroke width is 2. You can change the stroke width in the compile-options.json 
 
 ```JSON
-  "compileFonts": {
-     "strokeWidth":"1.5",
+  {
+     "strokeWidth": 1.5,
   }
 ```
 
-To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. For example:
+To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. To compile only two icons you can set for example the folowing option in the compile-options.json:
 
 ```JSON
-  "includeIcons": {
-    "include":["alert-octagon","alert-triangle"]
+  {
+    "includeIcons":["alert-octagon","alert-triangle"]
   }
 ```  
 
