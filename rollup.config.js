@@ -68,7 +68,7 @@ export default [
   {
     input,
     output: {
-      file: pkg.browser,
+      file: pkg['umd:main'],
       format: "umd",
       sourcemap: true,
       name: "tablerIcons",
