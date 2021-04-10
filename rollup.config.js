@@ -83,7 +83,7 @@ export default [
   {
     input,
     output: {
-      file: minifyExtension(pkg.browser),
+      file: minifyExtension(pkg['umd:main']),
       format: "umd",
       sourcemap: true,
       name: "tablerIcons",
