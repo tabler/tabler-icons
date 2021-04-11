@@ -18,6 +18,44 @@ const gulp = require('gulp'),
 	svgpath = require('svgpath'),
 	svgr = require('@svgr/core').default;
 
+let compileOptions = {
+	includeIcons: [],
+	strokeWidth: null,
+	fontForge: "fontforge"
+};
+
+if (fs.existsSync('./compile-options.json')) {
+	try {
+		let tempOptions = require('./compile-options');
+		if (typeof tempOptions!="object") {
+			throw "Compile options file does not contain an json object";
+		}
+		 
+		if (typeof tempOptions.includeIcons!="undefined") {
+			if (!Array.isArray(tempOptions.includeIcons)) {
+				throw "property inludeIcons is not an array";
+			}
+			compileOptions.includeIcons= tempOptions.includeIcons;
+		}
+		if (typeof tempOptions.strokeWidth!="undefined") {
+			if (typeof tempOptions.strokeWidth!="string" && typeof tempOptions.strokeWidth!="number") {
+				throw "property strokeWidth is not a string or number";	
+			}
+			compileOptions.strokeWidth=tempOptions.strokeWidth.toString();			
+		}
+		if (typeof tempOptions.fontForge!="undefined") {
+			if (typeof tempOptions.fontForge!="string") {
+				throw "property fontForge is not a string";	
+			} 
+		  	compileOptions.fontForge=tempOptions.fontForge;
+		}
+		
+	} catch (error) {
+		throw `Error reading compile-options.json: ${error}`
+	}
+	
+}	
+
 async function asyncForEach(array, callback) {
 	for (let index = 0; index < array.length; index++) {
 		await callback(array[index], index, array);
@@ -202,33 +240,42 @@ gulp.task('iconfont-svg-outline', function (cb) {
 		if (fs.existsSync('./.build/iconfont-unicode.json')) {
 			iconfontUnicode = require('./.build/iconfont-unicode');
 		}
-
+		
 		await asyncForEach(files, async function (file) {
-			const name = path.basename(file, '.svg'),
+			
+			const name = path.basename(file, '.svg');
+			
+			if (compileOptions.includeIcons.length==0 || compileOptions.includeIcons.indexOf(name)>=0) {
+					
 				unicode = iconfontUnicode[name];
 
-			await console.log('Stroke for:', file, unicode);
+				await console.log('Stroke for:', file, unicode);
 
-			let strokedSVG = fs.readFileSync(file).toString();
+				let strokedSVG = fs.readFileSync(file).toString();
 
-			strokedSVG = strokedSVG
-				.replace('width="24"', 'width="1000"')
-				.replace('height="24"', 'height="1000"');
-
-			await outlineStroke(strokedSVG, {
-				optCurve: false,
-				steps: 4,
-				round: 0,
-				centerHorizontally: true,
-				fixedWidth: true,
-				color: 'black'
-			}).then(outlined => {
-				if (unicode) {
-					fs.writeFileSync(`icons-outlined/u${unicode.toUpperCase()}-${name}.svg`, outlined);
-				} else {
-					fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
+				strokedSVG = strokedSVG
+					.replace('width="24"', 'width="1000"')
+					.replace('height="24"', 'height="1000"');
+				if (compileOptions.strokeWidth) {
+					strokedSVG = strokedSVG.replace('stroke-width="2"', `stroke-width="${compileOptions.strokeWidth}"`);
 				}
-			}).catch(error => console.log(error));
+
+				await outlineStroke(strokedSVG, {
+					optCurve: false,
+					steps: 4,
+					round: 0,
+					centerHorizontally: true,
+					fixedWidth: true,
+					color: 'black'
+				}).then(outlined => {
+					if (unicode) {
+						fs.writeFileSync(`icons-outlined/u${unicode.toUpperCase()}-${name}.svg`, outlined);
+					} else {
+						fs.writeFileSync(`icons-outlined/${name}.svg`, outlined);
+					}
+				}).catch(error => console.log(error));
+			}
+			
 		});
 
 		cb();
@@ -242,8 +289,10 @@ gulp.task('iconfont-optimize', function() {
 });
 
 gulp.task('iconfont-fix-outline', function(cb) {
+	var fontForge= compileOptions.fontForge;
+	
 	// correct svg outline directions in a child process using fontforge
-	const generate = cp.spawn("fontforge", ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
+	const generate = cp.spawn(fontForge, ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
 	generate.on("close", function (code) {
 		console.log(`Correcting svg outline directions exited with code ${code}`);
 		if (!code) {
