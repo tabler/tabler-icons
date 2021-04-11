@@ -27,22 +27,26 @@ let compileOptions = {
 if (fs.existsSync('./compile-options.json')) {
 	try {
 		let tempOptions = require('./compile-options');
-		if (typeof tempOptions!="object") 
-		  throw "Compile options file does not contain an json object";
+		if (typeof tempOptions!="object") {
+			throw "Compile options file does not contain an json object";
+		}
 		 
 		if (typeof tempOptions.includeIcons!="undefined") {
-			if (!Array.isArray(tempOptions.includeIcons)) 
-			  throw "property inludeIcons is not an array";
+			if (!Array.isArray(tempOptions.includeIcons)) {
+				throw "property inludeIcons is not an array";
+			}
 			compileOptions.includeIcons= tempOptions.includeIcons;
 		}
 		if (typeof tempOptions.strokeWidth!="undefined") {
-			if (typeof tempOptions.strokeWidth!="string" && typeof tempOptions.strokeWidth!="number") 
-			  throw "property strokeWidth is not a string or number";	
+			if (typeof tempOptions.strokeWidth!="string" && typeof tempOptions.strokeWidth!="number") {
+				throw "property strokeWidth is not a string or number";	
+			}
 			compileOptions.strokeWidth=tempOptions.strokeWidth.toString();			
 		}
 		if (typeof tempOptions.fontForge!="undefined") {
-			if (typeof tempOptions.fontForge!="string") 
-			  throw "property fontForge is not a string";	
+			if (typeof tempOptions.fontForge!="string") {
+				throw "property fontForge is not a string";	
+			} 
 		  	compileOptions.fontForge=tempOptions.fontForge;
 		}
 		
@@ -252,8 +256,9 @@ gulp.task('iconfont-svg-outline', function (cb) {
 				strokedSVG = strokedSVG
 					.replace('width="24"', 'width="1000"')
 					.replace('height="24"', 'height="1000"');
-					if (compileOptions.strokeWidth)
-					   strokedSVG = strokedSVG.replace('stroke-width="2"', `stroke-width="${compileOptions.strokeWidth}"`);
+				if (compileOptions.strokeWidth) {
+					strokedSVG = strokedSVG.replace('stroke-width="2"', `stroke-width="${compileOptions.strokeWidth}"`);
+				}
 
 				await outlineStroke(strokedSVG, {
 					optCurve: false,

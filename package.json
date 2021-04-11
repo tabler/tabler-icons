@@ -40,8 +40,7 @@
     "optimize": "gulp optimize",
     "release": "release-it",
     "build": "gulp build",
-    "build-iconfont": "gulp build-iconfont",
-    "copy":"cp -r -n -v -f ./iconfont/fonts/* ../WebErgometer/WebApp/html/font"
+    "build-iconfont": "gulp build-iconfont"
   },
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "keywords": [
