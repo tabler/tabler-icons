@@ -10,7 +10,7 @@ layout: default
 		{% assign first-icon = site.icons | reverse | first %}
 		{% assign slug = first-icon.slug %}
 		{% capture first-icon %}
-		{% include icon.html name=slug %}
+		{% include_cached icon.html name=slug %}
 		{% endcapture %}
 
 		<div class="row mb js-icon-manager">
@@ -76,7 +76,7 @@ layout: default
 
 		<div class="mb">
 			{% include toolbar.html
-			toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check|h-1,h-2,h-3,h-4,h-5,h-6,link,photo,table|sort-ascending,sort-descending,sort-ascending-letters,sort-ascending-numbers|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal|bike,run,swimming,walk,pray,fall,karate|repeat,repeat-once,switch,player-record,player-play,player-pause,player-stop,power,player-skip-forward,player-skip-back,player-track-next,player-track-prev'
+			toolbar='arrow-back-up,arrow-forward-up,printer,paint|bold,italic,underline,strikethrough,emphasis|align-left,align-center,align-right,align-justified,line-height|list,list-check,list-numbers|h-1,h-2,h-3,h-4,h-5,h-6,link,photo,table|sort-ascending,sort-descending,sort-ascending-letters,sort-ascending-numbers|indent-increase,indent-decrease|subscript,superscript|minus,omega,chart-area-line,pencil|eraser,settings,typography,letters-case,clear-formatting|parentheses,brackets,braces,terminal|bike,run,swimming,walk,pray,fall,karate|repeat,repeat-once,switch,player-record,player-play,player-pause,player-stop,power,player-skip-forward,player-skip-back,player-track-next,player-track-prev'
 			%}
 		</div>
 
@@ -91,7 +91,7 @@ layout: default
 				{% for icon in new-icons %}
 				{% assign name = icon.slug %}
 				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}"{% unless icon.category %} style="color: #999" {% endunless %}>
-					{% include icon.html name=name %}
+					{% include_cached icon.html name=name %}
 				</a>
 				{% endfor %}
 			</div>
@@ -115,7 +115,7 @@ layout: default
 				{% for icon in category.items %}
 				{% assign name = icon.slug %}
 				<a href="#" class="icons-list-icon js-icon{% unless icon.version %} new-icon{% endunless %}" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name %}
+					{% include_cached icon.html name=name %}
 				</a>
 				{% endfor %}
 			</div>

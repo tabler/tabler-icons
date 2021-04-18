@@ -8,7 +8,7 @@ layout: default
 				{% for icon in site.icons %}
 				{% assign name = icon.slug %}
 				<div class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name %}
+					{% include_cached icon.html name=name %}
 				</div>
 				{% endfor %}
 			</div>
@@ -20,7 +20,7 @@ layout: default
 				{% for icon in site.icons %}
 				{% assign name = icon.slug %}
 				<div class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include icon.html name=name stroke=1.25 %}
+					{% include_cached icon.html name=name stroke=1.25 %}
 				</div>
 				{% endfor %}
 			</div>

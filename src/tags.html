@@ -8,7 +8,7 @@ layout: default
 		<table class="table mb">
 			{% for icon in site.icons %}
 			<tr>
-				<td class="td-1">{% include icon.html name=icon.slug %}</td>
+				<td class="td-1">{% include_cached icon.html name=icon.slug %}</td>
 				<th>{{ icon.slug }}</th>
 				<td>{{ icon.tags | join: ', ' }}</td>
 				<td>{{ icon.category }}</td>
