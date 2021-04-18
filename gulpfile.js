@@ -30,7 +30,7 @@ if (fs.existsSync('./compile-options.json')) {
 		if (typeof tempOptions!="object") {
 			throw "Compile options file does not contain an json object";
 		}
-		 
+
 		if (typeof tempOptions.includeIcons!="undefined") {
 			if (!Array.isArray(tempOptions.includeIcons)) {
 				throw "property inludeIcons is not an array";
@@ -39,22 +39,22 @@ if (fs.existsSync('./compile-options.json')) {
 		}
 		if (typeof tempOptions.strokeWidth!="undefined") {
 			if (typeof tempOptions.strokeWidth!="string" && typeof tempOptions.strokeWidth!="number") {
-				throw "property strokeWidth is not a string or number";	
+				throw "property strokeWidth is not a string or number";
 			}
-			compileOptions.strokeWidth=tempOptions.strokeWidth.toString();			
+			compileOptions.strokeWidth=tempOptions.strokeWidth.toString();
 		}
 		if (typeof tempOptions.fontForge!="undefined") {
 			if (typeof tempOptions.fontForge!="string") {
-				throw "property fontForge is not a string";	
-			} 
+				throw "property fontForge is not a string";
+			}
 		  	compileOptions.fontForge=tempOptions.fontForge;
 		}
-		
+
 	} catch (error) {
 		throw `Error reading compile-options.json: ${error}`
 	}
-	
-}	
+
+}
 
 async function asyncForEach(array, callback) {
 	for (let index = 0; index < array.length; index++) {
@@ -240,13 +240,13 @@ gulp.task('iconfont-svg-outline', function (cb) {
 		if (fs.existsSync('./.build/iconfont-unicode.json')) {
 			iconfontUnicode = require('./.build/iconfont-unicode');
 		}
-		
+
 		await asyncForEach(files, async function (file) {
-			
+
 			const name = path.basename(file, '.svg');
-			
+
 			if (compileOptions.includeIcons.length==0 || compileOptions.includeIcons.indexOf(name)>=0) {
-					
+
 				unicode = iconfontUnicode[name];
 
 				await console.log('Stroke for:', file, unicode);
@@ -275,7 +275,7 @@ gulp.task('iconfont-svg-outline', function (cb) {
 					}
 				}).catch(error => console.log(error));
 			}
-			
+
 		});
 
 		cb();
@@ -290,7 +290,7 @@ gulp.task('iconfont-optimize', function() {
 
 gulp.task('iconfont-fix-outline', function(cb) {
 	var fontForge= compileOptions.fontForge;
-	
+
 	// correct svg outline directions in a child process using fontforge
 	const generate = cp.spawn(fontForge, ["-lang=py", "-script", "./fix-outline.py"], { stdio: 'inherit' });
 	generate.on("close", function (code) {
@@ -717,7 +717,7 @@ const setVersions = function(version, files) {
 
 			if(!svgFile.match(/version: ([0-9.]+)/i)) {
 				svgFile = svgFile.replace(/---\n<svg>/i, function(m){
-					return `version: ${version}\n${m}`;
+					return `version: "${version}\n${m}"`;
 				});
 
 				fs.writeFileSync(`src/_icons/${file}.svg`, svgFile);
