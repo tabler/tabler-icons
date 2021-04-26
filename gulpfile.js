@@ -717,7 +717,7 @@ const setVersions = function(version, files) {
 
 			if(!svgFile.match(/version: ([0-9.]+)/i)) {
 				svgFile = svgFile.replace(/---\n<svg>/i, function(m){
-					return `version: "${version}\n${m}"`;
+					return `version: "${version}"\n${m}`;
 				});
 
 				fs.writeFileSync(`src/_icons/${file}.svg`, svgFile);
