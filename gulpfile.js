@@ -403,8 +403,12 @@ gulp.task('build-zip', function () {
 });
 
 gulp.task('build-jekyll', function (cb) {
-	cp.exec('bundle exec jekyll build', function () {
-		cb();
+	const jekyll = cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: 'inherit' });
+	jekyll.on("close", function (code) {
+		console.log(`Jekyll build exited with code ${code}`);
+		if (!code) {
+			cb();
+		}
 	});
 });
 
