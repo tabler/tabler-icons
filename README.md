@@ -105,6 +105,30 @@ const MyComponent = () => {
 
 `@tabler/icons` exports it's own type declarations for usage with React and Typescript.
 
+### Vue
+
+Vue components available through [`vue-tabler-icons`](https://www.npmjs.com/package/vue-tabler-icons) package.
+Install the package, import the icon component and render it in your component. You can adjust SVG properties by passing regular HTML attributes:
+
+```html
+<script>
+    // MyComponent.vue
+    import { BoldIcon } from 'vue-tabler-icons';
+
+    export default {
+        components: { BoldIcon },
+    };
+</script>
+
+<template>
+    <bold-icon />
+</template>
+```
+
+`vue-tabler-icons` exports it's own type declarations for usage with Typescript.
+
+For more usage documentation refer to [the official documentation](https://github.com/alex-oleshkevich/vue-tabler-icons).
+
 ### CDN
 
 All files included in `@tabler/icons` npm package are available over a CDN.
