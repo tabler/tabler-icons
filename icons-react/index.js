@@ -1294,3 +1294,5 @@ export { default as IconZoomCancel } from './icons-js/zoom-cancel.js';
 export { default as IconZoomCheck } from './icons-js/zoom-check.js';
 export { default as IconZoomIn } from './icons-js/zoom-in.js';
 export { default as IconZoomMoney } from './icons-js/zoom-money.js';
+export { default as IconZoomOut } from './icons-js/zoom-out.js';
+export { default as IconZoomQuestion } from './icons-js/zoom-question.js';
