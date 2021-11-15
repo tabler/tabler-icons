@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.42.0 by tabler - https://tabler.io
+ * Tabler Icons 1.43.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -180,7 +180,10 @@ $ti-icon-at: unicode('ea2b');
 $ti-icon-atom: unicode('eb79');
 $ti-icon-atom-2: unicode('ebdf');
 $ti-icon-award: unicode('ea2c');
+$ti-icon-axis-x: unicode('ef45');
+$ti-icon-axis-y: unicode('ef46');
 $ti-icon-backhoe: unicode('ed86');
+$ti-icon-backpack: unicode('ef47');
 $ti-icon-backspace: unicode('ea2d');
 $ti-icon-ball-american-football: unicode('ee04');
 $ti-icon-ball-basketball: unicode('ec28');
@@ -194,6 +197,7 @@ $ti-icon-ban: unicode('ea2e');
 $ti-icon-bandage: unicode('eb7a');
 $ti-icon-barcode: unicode('ebc6');
 $ti-icon-basket: unicode('ebe1');
+$ti-icon-bath: unicode('ef48');
 $ti-icon-battery: unicode('ea34');
 $ti-icon-battery-1: unicode('ea2f');
 $ti-icon-battery-2: unicode('ea30');
@@ -301,6 +305,7 @@ $ti-icon-brand-javascript: unicode('ef0c');
 $ti-icon-brand-kickstarter: unicode('edce');
 $ti-icon-brand-kotlin: unicode('ed6d');
 $ti-icon-brand-linkedin: unicode('ec8c');
+$ti-icon-brand-mastercard: unicode('ef49');
 $ti-icon-brand-medium: unicode('ec70');
 $ti-icon-brand-messenger: unicode('ec71');
 $ti-icon-brand-netflix: unicode('edcf');
@@ -324,6 +329,7 @@ $ti-icon-brand-slack: unicode('ec72');
 $ti-icon-brand-snapchat: unicode('ec25');
 $ti-icon-brand-soundcloud: unicode('ed6e');
 $ti-icon-brand-spotify: unicode('ed03');
+$ti-icon-brand-stack-ofverflow: unicode('ef4a');
 $ti-icon-brand-steam: unicode('ed6f');
 $ti-icon-brand-stripe: unicode('edd7');
 $ti-icon-brand-tabler: unicode('ec8f');
@@ -541,6 +547,7 @@ $ti-icon-currency-bitcoin: unicode('ebab');
 $ti-icon-currency-cent: unicode('ee53');
 $ti-icon-currency-dinar: unicode('ee54');
 $ti-icon-currency-dirham: unicode('ee55');
+$ti-icon-currency-dogecoin: unicode('ef4b');
 $ti-icon-currency-dollar: unicode('eb84');
 $ti-icon-currency-dollar-australian: unicode('ee56');
 $ti-icon-currency-dollar-canadian: unicode('ee57');
@@ -614,6 +621,9 @@ $ti-icon-discount-2: unicode('ee7c');
 $ti-icon-divide: unicode('ed5c');
 $ti-icon-dna: unicode('ee7d');
 $ti-icon-dog-bowl: unicode('ef29');
+$ti-icon-door: unicode('ef4e');
+$ti-icon-door-enter: unicode('ef4c');
+$ti-icon-door-exit: unicode('ef4d');
 $ti-icon-dots: unicode('ea95');
 $ti-icon-dots-circle-horizontal: unicode('ea91');
 $ti-icon-dots-diagonal: unicode('ea93');
@@ -744,9 +754,11 @@ $ti-icon-h-3: unicode('ec96');
 $ti-icon-h-4: unicode('ec97');
 $ti-icon-h-5: unicode('ec98');
 $ti-icon-h-6: unicode('ec99');
+$ti-icon-hand-click: unicode('ef4f');
 $ti-icon-hand-finger: unicode('ee94');
 $ti-icon-hand-little-finger: unicode('ee95');
 $ti-icon-hand-middle-finger: unicode('ec2d');
+$ti-icon-hand-move: unicode('ef50');
 $ti-icon-hand-off: unicode('ed15');
 $ti-icon-hand-ring-finger: unicode('ee96');
 $ti-icon-hand-rock: unicode('ee97');
@@ -872,6 +884,7 @@ $ti-icon-lock: unicode('eae2');
 $ti-icon-lock-access: unicode('eeaa');
 $ti-icon-lock-off: unicode('ed1e');
 $ti-icon-lock-open: unicode('eae1');
+$ti-icon-lock-square: unicode('ef51');
 $ti-icon-login: unicode('eba7');
 $ti-icon-logout: unicode('eba8');
 $ti-icon-macro: unicode('eeab');
@@ -1005,6 +1018,7 @@ $ti-icon-physotherapist: unicode('eebe');
 $ti-icon-picture-in-picture: unicode('ed35');
 $ti-icon-picture-in-picture-off: unicode('ed43');
 $ti-icon-picture-in-picture-on: unicode('ed44');
+$ti-icon-pig: unicode('ef52');
 $ti-icon-pill: unicode('ec44');
 $ti-icon-pin: unicode('ec9c');
 $ti-icon-pinned: unicode('ed60');
@@ -1095,6 +1109,7 @@ $ti-icon-salt: unicode('ef16');
 $ti-icon-satellite: unicode('eed3');
 $ti-icon-sausage: unicode('ef17');
 $ti-icon-scale: unicode('ebc2');
+$ti-icon-scale-outline: unicode('ef53');
 $ti-icon-scan: unicode('ebc8');
 $ti-icon-school: unicode('ecf7');
 $ti-icon-scissors: unicode('eb1b');
@@ -1157,6 +1172,8 @@ $ti-icon-sort-descending-letters: unicode('ef1a');
 $ti-icon-sort-descending-numbers: unicode('ef1b');
 $ti-icon-soup: unicode('ef2e');
 $ti-icon-space: unicode('ec0c');
+$ti-icon-spacing-horizontal: unicode('ef54');
+$ti-icon-spacing-vertical: unicode('ef55');
 $ti-icon-speakerphone: unicode('ed61');
 $ti-icon-speedboat: unicode('ed93');
 $ti-icon-sport-billard: unicode('eee4');
@@ -1322,6 +1339,7 @@ $ti-icon-volume-2: unicode('eb4f');
 $ti-icon-volume-3: unicode('eb50');
 $ti-icon-walk: unicode('ec87');
 $ti-icon-wallet: unicode('eb75');
+$ti-icon-wallpaper: unicode('ef56');
 $ti-icon-wand: unicode('ebcb');
 $ti-icon-wave-saw-tool: unicode('ecd3');
 $ti-icon-wave-sine: unicode('ecd4');
@@ -1500,7 +1518,10 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-atom:before { content: $ti-icon-atom; }
 .#{$ti-prefix}-atom-2:before { content: $ti-icon-atom-2; }
 .#{$ti-prefix}-award:before { content: $ti-icon-award; }
+.#{$ti-prefix}-axis-x:before { content: $ti-icon-axis-x; }
+.#{$ti-prefix}-axis-y:before { content: $ti-icon-axis-y; }
 .#{$ti-prefix}-backhoe:before { content: $ti-icon-backhoe; }
+.#{$ti-prefix}-backpack:before { content: $ti-icon-backpack; }
 .#{$ti-prefix}-backspace:before { content: $ti-icon-backspace; }
 .#{$ti-prefix}-ball-american-football:before { content: $ti-icon-ball-american-football; }
 .#{$ti-prefix}-ball-basketball:before { content: $ti-icon-ball-basketball; }
@@ -1514,6 +1535,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-bandage:before { content: $ti-icon-bandage; }
 .#{$ti-prefix}-barcode:before { content: $ti-icon-barcode; }
 .#{$ti-prefix}-basket:before { content: $ti-icon-basket; }
+.#{$ti-prefix}-bath:before { content: $ti-icon-bath; }
 .#{$ti-prefix}-battery:before { content: $ti-icon-battery; }
 .#{$ti-prefix}-battery-1:before { content: $ti-icon-battery-1; }
 .#{$ti-prefix}-battery-2:before { content: $ti-icon-battery-2; }
@@ -1621,6 +1643,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-brand-kickstarter:before { content: $ti-icon-brand-kickstarter; }
 .#{$ti-prefix}-brand-kotlin:before { content: $ti-icon-brand-kotlin; }
 .#{$ti-prefix}-brand-linkedin:before { content: $ti-icon-brand-linkedin; }
+.#{$ti-prefix}-brand-mastercard:before { content: $ti-icon-brand-mastercard; }
 .#{$ti-prefix}-brand-medium:before { content: $ti-icon-brand-medium; }
 .#{$ti-prefix}-brand-messenger:before { content: $ti-icon-brand-messenger; }
 .#{$ti-prefix}-brand-netflix:before { content: $ti-icon-brand-netflix; }
@@ -1644,6 +1667,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-brand-snapchat:before { content: $ti-icon-brand-snapchat; }
 .#{$ti-prefix}-brand-soundcloud:before { content: $ti-icon-brand-soundcloud; }
 .#{$ti-prefix}-brand-spotify:before { content: $ti-icon-brand-spotify; }
+.#{$ti-prefix}-brand-stack-ofverflow:before { content: $ti-icon-brand-stack-ofverflow; }
 .#{$ti-prefix}-brand-steam:before { content: $ti-icon-brand-steam; }
 .#{$ti-prefix}-brand-stripe:before { content: $ti-icon-brand-stripe; }
 .#{$ti-prefix}-brand-tabler:before { content: $ti-icon-brand-tabler; }
@@ -1861,6 +1885,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-currency-cent:before { content: $ti-icon-currency-cent; }
 .#{$ti-prefix}-currency-dinar:before { content: $ti-icon-currency-dinar; }
 .#{$ti-prefix}-currency-dirham:before { content: $ti-icon-currency-dirham; }
+.#{$ti-prefix}-currency-dogecoin:before { content: $ti-icon-currency-dogecoin; }
 .#{$ti-prefix}-currency-dollar:before { content: $ti-icon-currency-dollar; }
 .#{$ti-prefix}-currency-dollar-australian:before { content: $ti-icon-currency-dollar-australian; }
 .#{$ti-prefix}-currency-dollar-canadian:before { content: $ti-icon-currency-dollar-canadian; }
@@ -1934,6 +1959,9 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-divide:before { content: $ti-icon-divide; }
 .#{$ti-prefix}-dna:before { content: $ti-icon-dna; }
 .#{$ti-prefix}-dog-bowl:before { content: $ti-icon-dog-bowl; }
+.#{$ti-prefix}-door:before { content: $ti-icon-door; }
+.#{$ti-prefix}-door-enter:before { content: $ti-icon-door-enter; }
+.#{$ti-prefix}-door-exit:before { content: $ti-icon-door-exit; }
 .#{$ti-prefix}-dots:before { content: $ti-icon-dots; }
 .#{$ti-prefix}-dots-circle-horizontal:before { content: $ti-icon-dots-circle-horizontal; }
 .#{$ti-prefix}-dots-diagonal:before { content: $ti-icon-dots-diagonal; }
@@ -2064,9 +2092,11 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-h-4:before { content: $ti-icon-h-4; }
 .#{$ti-prefix}-h-5:before { content: $ti-icon-h-5; }
 .#{$ti-prefix}-h-6:before { content: $ti-icon-h-6; }
+.#{$ti-prefix}-hand-click:before { content: $ti-icon-hand-click; }
 .#{$ti-prefix}-hand-finger:before { content: $ti-icon-hand-finger; }
 .#{$ti-prefix}-hand-little-finger:before { content: $ti-icon-hand-little-finger; }
 .#{$ti-prefix}-hand-middle-finger:before { content: $ti-icon-hand-middle-finger; }
+.#{$ti-prefix}-hand-move:before { content: $ti-icon-hand-move; }
 .#{$ti-prefix}-hand-off:before { content: $ti-icon-hand-off; }
 .#{$ti-prefix}-hand-ring-finger:before { content: $ti-icon-hand-ring-finger; }
 .#{$ti-prefix}-hand-rock:before { content: $ti-icon-hand-rock; }
@@ -2192,6 +2222,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-lock-access:before { content: $ti-icon-lock-access; }
 .#{$ti-prefix}-lock-off:before { content: $ti-icon-lock-off; }
 .#{$ti-prefix}-lock-open:before { content: $ti-icon-lock-open; }
+.#{$ti-prefix}-lock-square:before { content: $ti-icon-lock-square; }
 .#{$ti-prefix}-login:before { content: $ti-icon-login; }
 .#{$ti-prefix}-logout:before { content: $ti-icon-logout; }
 .#{$ti-prefix}-macro:before { content: $ti-icon-macro; }
@@ -2325,6 +2356,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-picture-in-picture:before { content: $ti-icon-picture-in-picture; }
 .#{$ti-prefix}-picture-in-picture-off:before { content: $ti-icon-picture-in-picture-off; }
 .#{$ti-prefix}-picture-in-picture-on:before { content: $ti-icon-picture-in-picture-on; }
+.#{$ti-prefix}-pig:before { content: $ti-icon-pig; }
 .#{$ti-prefix}-pill:before { content: $ti-icon-pill; }
 .#{$ti-prefix}-pin:before { content: $ti-icon-pin; }
 .#{$ti-prefix}-pinned:before { content: $ti-icon-pinned; }
@@ -2415,6 +2447,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-satellite:before { content: $ti-icon-satellite; }
 .#{$ti-prefix}-sausage:before { content: $ti-icon-sausage; }
 .#{$ti-prefix}-scale:before { content: $ti-icon-scale; }
+.#{$ti-prefix}-scale-outline:before { content: $ti-icon-scale-outline; }
 .#{$ti-prefix}-scan:before { content: $ti-icon-scan; }
 .#{$ti-prefix}-school:before { content: $ti-icon-school; }
 .#{$ti-prefix}-scissors:before { content: $ti-icon-scissors; }
@@ -2477,6 +2510,8 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-sort-descending-numbers:before { content: $ti-icon-sort-descending-numbers; }
 .#{$ti-prefix}-soup:before { content: $ti-icon-soup; }
 .#{$ti-prefix}-space:before { content: $ti-icon-space; }
+.#{$ti-prefix}-spacing-horizontal:before { content: $ti-icon-spacing-horizontal; }
+.#{$ti-prefix}-spacing-vertical:before { content: $ti-icon-spacing-vertical; }
 .#{$ti-prefix}-speakerphone:before { content: $ti-icon-speakerphone; }
 .#{$ti-prefix}-speedboat:before { content: $ti-icon-speedboat; }
 .#{$ti-prefix}-sport-billard:before { content: $ti-icon-sport-billard; }
@@ -2642,6 +2677,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-volume-3:before { content: $ti-icon-volume-3; }
 .#{$ti-prefix}-walk:before { content: $ti-icon-walk; }
 .#{$ti-prefix}-wallet:before { content: $ti-icon-wallet; }
+.#{$ti-prefix}-wallpaper:before { content: $ti-icon-wallpaper; }
 .#{$ti-prefix}-wand:before { content: $ti-icon-wand; }
 .#{$ti-prefix}-wave-saw-tool:before { content: $ti-icon-wave-saw-tool; }
 .#{$ti-prefix}-wave-sine:before { content: $ti-icon-wave-sine; }
