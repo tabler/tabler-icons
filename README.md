@@ -1,12 +1,19 @@
-# Tabler Icons
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="640">
+</p>
 
-A set of over 1250 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a `2px` stroke.
+<p align="center">
+    A set of over 1350 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+<p>
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+<p align="center">
+  <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
+</p>
 
-Icons search: https://tabler-icons.io/
 
 ## Sponsors
+
+**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
     <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
