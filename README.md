@@ -16,12 +16,14 @@
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-    <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
-  </a>
+  <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
+</a>
 
 ## Preview
 
-![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png" alt="Tabler Icons preview" width="838">
+</p>
 
 ## Sponsor Tabler
 
