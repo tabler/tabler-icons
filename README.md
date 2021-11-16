@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="640">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
