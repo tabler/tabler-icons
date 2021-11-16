@@ -105,6 +105,47 @@ const MyComponent = () => {
 
 `@tabler/icons` exports it's own type declarations for usage with React and Typescript.
 
+### Angular
+
+Angular components available through [`angular-tabler-icons`](https://www.npmjs.com/package/angular-tabler-icons) package.  
+Install the package, then create icons module:
+
+```ts  
+import { NgModule } from '@angular/core';
+
+import { TablerIconsModule } from 'angular-tabler-icons';
+import { IconCamera, IconHeart, IconBrandGithub } from 'angular-tabler-icons/icons';
+
+// Select some icons (use an object, not an array)
+const icons = {
+  IconCamera,
+  IconHeart,
+  IconBrandGithub
+};
+
+@NgModule({
+  imports: [
+    TablerIconsModule.pick(icons)
+  ],
+  exports: [
+    TablerIconsModule
+  ]
+})
+export class IconsModule { }
+```
+
+After importing the _IconsModule_ in your feature or shared module, use the icons as follows:
+
+```html
+<i-tabler name="camera"></i-tabler>
+<i-tabler name="heart" style="color: red;"></i-tabler>
+<i-tabler name="brand-github" class="someclass"></i-tabler>
+```
+
+`angular-tabler-icons` exports it's own type declarations for usage with Typescript.
+
+For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
+
 ### Vue
 
 Vue components available through [`vue-tabler-icons`](https://www.npmjs.com/package/vue-tabler-icons) package.
