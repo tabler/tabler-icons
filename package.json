@@ -1,7 +1,7 @@
 {
   "name": "@tabler/icons",
-  "version": "1.45.0",
-  "description": "A set of over 1350 free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "version": "1.46.0",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -18,7 +18,7 @@
   "sideEffects": false,
   "author": "codecalm",
   "license": "MIT",
-  "homepage": "https://tabler-icons.io/",
+  "homepage": "https://github.com/tabler/tabler-icons#readme",
   "bugs": {
     "url": "https://github.com/tabler/tabler-icons/issues"
   },
@@ -39,7 +39,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/tabler/tabler-icons#readme",
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "prebuild-react": "rm -rf ./icons-react/dist/",
@@ -49,7 +48,6 @@
     "build": "gulp build",
     "build-iconfont": "gulp build-iconfont"
   },
-  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "keywords": [
     "icons",
     "svg",
