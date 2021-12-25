@@ -170,9 +170,9 @@ const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty =
 	}
 };
 
-const generateIconsPreview = function (files, destFile, cb, columnsCount = 17, paddingOuter = 7) {
+const generateIconsPreview = function (files, destFile, cb, columnsCount = 19, paddingOuter = 7) {
 
-	const padding = 26,
+	const padding = 20,
 		iconSize = 24;
 
 	const iconsCount = files.length,
