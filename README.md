@@ -217,7 +217,7 @@ The default settings if you have not defined the file will be:
 {
   "includeIcons": [],
   "fontForge": "fontforge",
-  "strokeWidth": 2
+  "strokeWidth": null
 }
 ```
 
@@ -225,16 +225,16 @@ The fontforge executable needs to be in the path or you can set the path to the 
 
 ```JSON
 {
-  "fontForge":"/Applications/FontForge.app/Contents/MacOS/FontForge"
+  "fontForge": "/Applications/FontForge.app/Contents/MacOS/FontForge"
 }
 ```
+
 To compile the fonts run:
 ```sh
 npm run build-iconfont
 ```
 
-By default the stroke width is 2. You can change the stroke width in the compile-options.json 
-
+By default the stroke width is 2. You can change the stroke width in the `compile-options.json`
 ```JSON
 {
   "strokeWidth": 1.5,
@@ -245,9 +245,39 @@ To reduce the font file size you can choose to compile a sub set of icons. When 
 
 ```JSON
 {
-  "includeIcons":["alert-octagon","alert-triangle"]
+  "includeIcons": ["alert-octagon", "alert-triangle"]
 }
-```  
+```
+
+Optional property `includeCategories` - an array or string of icon categories to include, category names are case-issensetive.
+```JSON
+{
+  "includeCategories": ["Devices", "System"]
+}
+```
+or
+```JSON
+{
+  "includeCategories": "Devices System"
+}
+```
+
+Optional property `excludeIcons` - an array of icon names using to exclude some category icons:
+```JSON
+{
+  "includeCategories": ["system"],
+  "excludeIcons": ["adjustments"]
+}
+```
+
+Complex solution:
+```JSON
+{
+  "includeIcons": ["alert-octagon", "alert-triangle"],
+  "includeCategories": ["devices", "system"],
+  "excludeIcons": ["adjustments"]
+}
+```
 
 ### Svelte
 
