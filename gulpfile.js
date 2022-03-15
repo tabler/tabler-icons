@@ -18,7 +18,7 @@ const gulp = require('gulp'),
 	svgpath = require('svgpath'),
 	svgr = require('@svgr/core').default;
 
-let compileOptions = {
+const compileOptions = {
 	includeIcons: [],
 	strokeWidth: null,
 	fontForge: "fontforge"
@@ -26,28 +26,57 @@ let compileOptions = {
 
 if (fs.existsSync('./compile-options.json')) {
 	try {
-		let tempOptions = require('./compile-options');
-		if (typeof tempOptions!="object") {
+		const tempOptions = require('./compile-options.json');
+		if (typeof tempOptions !== "object") {
 			throw "Compile options file does not contain an json object";
 		}
 
-		if (typeof tempOptions.includeIcons!="undefined") {
+		if (typeof tempOptions.includeIcons !== "undefined") {
 			if (!Array.isArray(tempOptions.includeIcons)) {
 				throw "property inludeIcons is not an array";
 			}
-			compileOptions.includeIcons= tempOptions.includeIcons;
+			compileOptions.includeIcons = tempOptions.includeIcons;
 		}
-		if (typeof tempOptions.strokeWidth!="undefined") {
-			if (typeof tempOptions.strokeWidth!="string" && typeof tempOptions.strokeWidth!="number") {
+
+		if (typeof tempOptions.includeCategories !== "undefined") {
+			if (typeof tempOptions.includeCategories === "string") {
+				tempOptions.includeCategories = tempOptions.includeCategories.split(' ');
+			}
+            if (!Array.isArray(tempOptions.includeCategories)) {
+				throw "property includeCategories is not an array or string";
+			}
+            const tags = Object.entries(require('./tags.json'));
+        	tempOptions.includeCategories.forEach(function (category) {
+                category = category.charAt(0).toUpperCase() + category.slice(1);
+				for (const [icon, data] of tags) {
+                    if (data.category === category && compileOptions.includeIcons.indexOf(icon) === -1) {
+                        compileOptions.includeIcons.push(icon);
+                    }
+                }
+			});
+		}
+
+		if (typeof tempOptions.excludeIcons !== "undefined") {
+            if (!Array.isArray(tempOptions.excludeIcons)) {
+				throw "property excludeIcons is not an array";
+			}
+            compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
+                return tempOptions.excludeIcons.indexOf(icon) === -1; 
+            });
+        }
+
+		if (typeof tempOptions.strokeWidth !== "undefined") {
+			if (typeof tempOptions.strokeWidth !== "string" && typeof tempOptions.strokeWidth !== "number") {
 				throw "property strokeWidth is not a string or number";
 			}
-			compileOptions.strokeWidth=tempOptions.strokeWidth.toString();
+			compileOptions.strokeWidth = tempOptions.strokeWidth.toString();
 		}
-		if (typeof tempOptions.fontForge!="undefined") {
-			if (typeof tempOptions.fontForge!="string") {
+
+		if (typeof tempOptions.fontForge !== "undefined") {
+			if (typeof tempOptions.fontForge !== "string") {
 				throw "property fontForge is not a string";
 			}
-		  	compileOptions.fontForge=tempOptions.fontForge;
+		  	compileOptions.fontForge = tempOptions.fontForge;
 		}
 
 	} catch (error) {
