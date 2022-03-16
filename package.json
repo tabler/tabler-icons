@@ -106,5 +106,13 @@
   "peerDependencies": {
     "react": "^16.x || 17.x",
     "react-dom": "^16.x || 17.x"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   }
 }
