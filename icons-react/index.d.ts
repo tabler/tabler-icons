@@ -1597,3 +1597,5 @@ export const IconZoomCancel: TablerIcon;
 export const IconZoomCheck: TablerIcon;
 export const IconZoomIn: TablerIcon;
 export const IconZoomMoney: TablerIcon;
+export const IconZoomOut: TablerIcon;
+export const IconZoomQuestion: TablerIcon;

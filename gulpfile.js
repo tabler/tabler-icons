@@ -61,7 +61,7 @@ if (fs.existsSync('./compile-options.json')) {
 				throw "property excludeIcons is not an array";
 			}
             compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
-                return tempOptions.excludeIcons.indexOf(icon) === -1; 
+                return tempOptions.excludeIcons.indexOf(icon) === -1;
             });
         }
 
@@ -724,7 +724,7 @@ gulp.task('svg-to-react', gulp.series('clean-react', async function (cb) {
 			fileName = path.basename(file, '.svg') + '.js',
 			iconComponentName = componentName(file);
 
-		svgr(svgCode, {
+		await svgr(svgCode, {
 			icon: false,
 			svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
 			template: require('./.build/svgr-template')
