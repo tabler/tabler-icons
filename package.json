@@ -46,7 +46,8 @@
     "optimize": "gulp optimize",
     "release": "release-it",
     "build": "gulp build",
-    "build-iconfont": "gulp build-iconfont"
+    "build-iconfont": "gulp build-iconfont",
+    "import": "./_import.sh && gulp optimize"
   },
   "keywords": [
     "icons",
