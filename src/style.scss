@@ -167,8 +167,7 @@ a {
 
 
 .icons-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: table;
   margin: -.25rem;
 }
 
@@ -203,6 +202,7 @@ a {
   justify-content: center;
   border: 1px solid transparent;
   position: relative;
+  page-break-inside: avoid;
 
   &.new-icon {
     &:after {
