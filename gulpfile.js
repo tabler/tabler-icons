@@ -722,11 +722,11 @@ gulp.task('update-icons-version', function (cb) {
 		newVersion = argv['new-version'] || `${p.version}`
 
 	if (version) {
-		cp.exec(`git diff v${version} HEAD --name-status`, function (err, ret) {
+		cp.exec(`grep -RiL "version: " ./src/_icons/*.svg`, function (err, ret) {
 
 			let newIcons = []
 
-			ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
+			ret.replace(/src\/_icons\/([a-z0-9-]+)\.svg/g, function (m, fileName) {
 				newIcons.push(fileName)
 			})
 
