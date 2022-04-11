@@ -54,13 +54,20 @@ if (fs.existsSync('./compile-options.json')) {
 				}
 			})
 		}
-
+		
 		if (typeof tempOptions.excludeIcons !== "undefined") {
 			if (!Array.isArray(tempOptions.excludeIcons)) {
 				throw "property excludeIcons is not an array"
 			}
 			compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
 				return tempOptions.excludeIcons.indexOf(icon) === -1
+			})
+		}
+
+		if (typeof tempOptions.excludeOffIcons !== "undefined" && tempOptions.excludeOffIcons) {
+		    	// Exclude `*-off` icons
+			compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
+				return !icon.endsWith('-off');
 			})
 		}
 
