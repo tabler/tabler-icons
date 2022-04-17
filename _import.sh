@@ -21,7 +21,9 @@ do
   sed -i "" 's/xmlns="http:\/\/www.w3.org\/2000\/svg"//g' ${file}
   sed -i "" 's/<path d="M0 0h24v24H0z"\/>"//g' ${file}
   sed -i "" 's/<path stroke="red" stroke-width=".1" d="M5 1l18 18"\/>//g' ${file}
+  sed -i "" 's/<path stroke="red" stroke-width=".1" d="M5 1l18 18" \/>//g' ${file}
   sed -i "" 's/<path stroke="red" stroke-width=".1" d="M3 3l18 18"\/>//g' ${file}
+  sed -i "" 's/<path stroke="red" stroke-width=".1" d="M3 3l18 18" \/>//g' ${file}
 done
 
 svgo -f ./new/ --pretty --disable mergePaths

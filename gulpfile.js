@@ -54,7 +54,7 @@ if (fs.existsSync('./compile-options.json')) {
 				}
 			})
 		}
-		
+
 		if (typeof tempOptions.excludeIcons !== "undefined") {
 			if (!Array.isArray(tempOptions.excludeIcons)) {
 				throw "property excludeIcons is not an array"
@@ -509,6 +509,7 @@ gulp.task('optimize', function (cb) {
 			svgFileContent = svgFileContent
 				.replace(/><\/(polyline|line|rect|circle|path)>/g, '/>')
 				.replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
+				.replace(/<path stroke="red" stroke-width="\.1"([^>]+)?\/>/g, '')
 				.replace(/\s?\/>/g, ' />')
 				.replace(/\n\s*<(line|circle|path|polyline|rect)/g, "\n  <$1")
 				.replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
@@ -519,7 +520,7 @@ gulp.task('optimize', function (cb) {
 				})
 				.replace(/d="m/g, 'd="M')
 				.replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
-				.replace(/\n\n+/g, "\n")
+				.replace(/\n\s+\n+/g, "\n")
 
 				.replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function (f, r1, r2, r3, r4) {
 					return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
