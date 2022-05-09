@@ -378,6 +378,7 @@ $ti-icon-brackets-off: unicode('f0c0');
 $ti-icon-brand-adobe: unicode('f0dc');
 $ti-icon-brand-airbnb: unicode('ed68');
 $ti-icon-brand-airtable: unicode('ef6a');
+$ti-icon-brand-amazon: unicode('f1df');
 $ti-icon-brand-android: unicode('ec16');
 $ti-icon-brand-angular: unicode('ef6b');
 $ti-icon-brand-apple: unicode('ec17');
@@ -2358,6 +2359,7 @@ $ti-icon-zoom-question: unicode('edeb');
 .#{$ti-prefix}-brand-adobe:before { content: $ti-icon-brand-adobe; }
 .#{$ti-prefix}-brand-airbnb:before { content: $ti-icon-brand-airbnb; }
 .#{$ti-prefix}-brand-airtable:before { content: $ti-icon-brand-airtable; }
+.#{$ti-prefix}-brand-amazon:before { content: $ti-icon-brand-amazon; }
 .#{$ti-prefix}-brand-android:before { content: $ti-icon-brand-android; }
 .#{$ti-prefix}-brand-angular:before { content: $ti-icon-brand-angular; }
 .#{$ti-prefix}-brand-apple:before { content: $ti-icon-brand-apple; }
