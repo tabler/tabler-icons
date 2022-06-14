@@ -6,7 +6,7 @@ function IconDice2({
   stroke = 2,
   ...props
 }) {
-  return <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-dice-2" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><desc>{"Download more icon variants from https://tabler-icons.io/i/dice-2"}</desc><path stroke="none" d="M0 0h24v24H0z" fill="none" /><rect x={4} y={4} width={16} height={16} rx={2} /><circle cx={9.5} cy={9.5} r={0.5} fill="currentColor" /><circle cx={14.5} cy={14.5} r={0.5} fill="currentColor" /></svg>;
+  return <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-dice-2" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><rect x={4} y={4} width={16} height={16} rx={2} /><circle cx={9.5} cy={9.5} r={0.5} fill="currentColor" /><circle cx={14.5} cy={14.5} r={0.5} fill="currentColor" /></svg>;
 }
 
 export default IconDice2;
