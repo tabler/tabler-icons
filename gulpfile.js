@@ -389,7 +389,7 @@ gulp.task('build-zip', function () {
 
 	return gulp.src('{icons/**/*,icons-png/**/*,icons-react/**/*,iconfont/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
 		.pipe(zip(`tabler-icons-${version}.zip`))
-		.pipe(gulp.dest('packages'))
+		.pipe(gulp.dest('packages-zip'))
 })
 
 gulp.task('build-jekyll', function (cb) {
