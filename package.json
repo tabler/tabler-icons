@@ -8,8 +8,11 @@
   },
   "main": "./icons-react/dist/index.cjs.js",
   "exports": {
-    "import": "./icons-react/dist/index.esm.js",
-    "require": "./icons-react/dist/index.cjs.js"
+    ".": {
+      "import": "./icons-react/dist/index.esm.js",
+      "require": "./icons-react/dist/index.cjs.js"
+    },
+    "./*": ["./icons/*", "./icons-png/*"]
   },
   "module": "./icons-react/dist/index.esm.js",
   "unpkg": "./icons-react/dist/index.umd.js",
@@ -104,8 +107,8 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.x || 17.x",
-    "react-dom": "^16.x || 17.x"
+    "react": "^16.x || 17.x || 18.x",
+    "react-dom": "^16.x || 17.x || 18.x"
   },
   "peerDependenciesMeta": {
     "react": {
