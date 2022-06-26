@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "1.71.0",
+  "version": "1.72.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
@@ -12,7 +12,10 @@
       "import": "./icons-react/dist/index.esm.js",
       "require": "./icons-react/dist/index.cjs.js"
     },
-    "./*": ["./icons/*", "./icons-png/*"]
+    "./*": [
+      "./icons/*",
+      "./icons-png/*"
+    ]
   },
   "module": "./icons-react/dist/index.esm.js",
   "unpkg": "./icons-react/dist/index.umd.js",
