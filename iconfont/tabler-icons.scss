@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.76.0 by tabler - https://tabler.io
+ * Tabler Icons 1.77.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -727,6 +727,25 @@ $ti-icon-circle-square: unicode('ece4');
 $ti-icon-circle-triangle: unicode('f011');
 $ti-icon-circle-x: unicode('ea6a');
 $ti-icon-circles: unicode('ece5');
+$ti-icon-circuit-ammeter: unicode('f271');
+$ti-icon-circuit-battery: unicode('f272');
+$ti-icon-circuit-bulb: unicode('f273');
+$ti-icon-circuit-capacitor: unicode('f275');
+$ti-icon-circuit-capacitor-polarized: unicode('f274');
+$ti-icon-circuit-cell: unicode('f277');
+$ti-icon-circuit-cell-plus: unicode('f276');
+$ti-icon-circuit-changeover: unicode('f278');
+$ti-icon-circuit-diode: unicode('f27a');
+$ti-icon-circuit-diode-zener: unicode('f279');
+$ti-icon-circuit-ground: unicode('f27c');
+$ti-icon-circuit-ground-digital: unicode('f27b');
+$ti-icon-circuit-inductor: unicode('f27d');
+$ti-icon-circuit-motor: unicode('f27e');
+$ti-icon-circuit-pushbutton: unicode('f27f');
+$ti-icon-circuit-resistor: unicode('f280');
+$ti-icon-circuit-switch-closed: unicode('f281');
+$ti-icon-circuit-switch-open: unicode('f282');
+$ti-icon-circuit-voltmeter: unicode('f283');
 $ti-icon-clear-all: unicode('ee41');
 $ti-icon-clear-formatting: unicode('ebe5');
 $ti-icon-click: unicode('ebbc');
@@ -1182,7 +1201,6 @@ $ti-icon-grill: unicode('efa9');
 $ti-icon-grill-off: unicode('f13b');
 $ti-icon-grip-horizontal: unicode('ec00');
 $ti-icon-grip-vertical: unicode('ec01');
-$ti-icon-ground: unicode('f23f');
 $ti-icon-growth: unicode('ee93');
 $ti-icon-h-1: unicode('ec94');
 $ti-icon-h-2: unicode('ec95');
@@ -2853,6 +2871,25 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-circle-triangle:before { content: $ti-icon-circle-triangle; }
 .#{$ti-prefix}-circle-x:before { content: $ti-icon-circle-x; }
 .#{$ti-prefix}-circles:before { content: $ti-icon-circles; }
+.#{$ti-prefix}-circuit-ammeter:before { content: $ti-icon-circuit-ammeter; }
+.#{$ti-prefix}-circuit-battery:before { content: $ti-icon-circuit-battery; }
+.#{$ti-prefix}-circuit-bulb:before { content: $ti-icon-circuit-bulb; }
+.#{$ti-prefix}-circuit-capacitor:before { content: $ti-icon-circuit-capacitor; }
+.#{$ti-prefix}-circuit-capacitor-polarized:before { content: $ti-icon-circuit-capacitor-polarized; }
+.#{$ti-prefix}-circuit-cell:before { content: $ti-icon-circuit-cell; }
+.#{$ti-prefix}-circuit-cell-plus:before { content: $ti-icon-circuit-cell-plus; }
+.#{$ti-prefix}-circuit-changeover:before { content: $ti-icon-circuit-changeover; }
+.#{$ti-prefix}-circuit-diode:before { content: $ti-icon-circuit-diode; }
+.#{$ti-prefix}-circuit-diode-zener:before { content: $ti-icon-circuit-diode-zener; }
+.#{$ti-prefix}-circuit-ground:before { content: $ti-icon-circuit-ground; }
+.#{$ti-prefix}-circuit-ground-digital:before { content: $ti-icon-circuit-ground-digital; }
+.#{$ti-prefix}-circuit-inductor:before { content: $ti-icon-circuit-inductor; }
+.#{$ti-prefix}-circuit-motor:before { content: $ti-icon-circuit-motor; }
+.#{$ti-prefix}-circuit-pushbutton:before { content: $ti-icon-circuit-pushbutton; }
+.#{$ti-prefix}-circuit-resistor:before { content: $ti-icon-circuit-resistor; }
+.#{$ti-prefix}-circuit-switch-closed:before { content: $ti-icon-circuit-switch-closed; }
+.#{$ti-prefix}-circuit-switch-open:before { content: $ti-icon-circuit-switch-open; }
+.#{$ti-prefix}-circuit-voltmeter:before { content: $ti-icon-circuit-voltmeter; }
 .#{$ti-prefix}-clear-all:before { content: $ti-icon-clear-all; }
 .#{$ti-prefix}-clear-formatting:before { content: $ti-icon-clear-formatting; }
 .#{$ti-prefix}-click:before { content: $ti-icon-click; }
@@ -3308,7 +3345,6 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-grill-off:before { content: $ti-icon-grill-off; }
 .#{$ti-prefix}-grip-horizontal:before { content: $ti-icon-grip-horizontal; }
 .#{$ti-prefix}-grip-vertical:before { content: $ti-icon-grip-vertical; }
-.#{$ti-prefix}-ground:before { content: $ti-icon-ground; }
 .#{$ti-prefix}-growth:before { content: $ti-icon-growth; }
 .#{$ti-prefix}-h-1:before { content: $ti-icon-h-1; }
 .#{$ti-prefix}-h-2:before { content: $ti-icon-h-2; }
