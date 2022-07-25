@@ -727,10 +727,10 @@ gulp.task('update-icons-version', function(cb) {
 })
 
 gulp.task('import-categories', function(cb) {
-  let files = glob.sync('./src/_icons/*-off.svg')
+  let files = glob.sync('./src/_icons/*-2.svg')
 
   files.forEach(function(file, i) {
-    const fileOriginal = file.replace(/\-off.svg$/, '.svg')
+    const fileOriginal = file.replace(/\-2.svg$/, '.svg')
 
     if (fs.existsSync(fileOriginal)) {
       const dataOriginal = fs.readFileSync(fileOriginal).toString()
