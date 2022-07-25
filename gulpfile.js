@@ -740,8 +740,7 @@ gulp.task('import-categories', function(cb) {
       if(categoryOriginal) {
         console.log('categoryOriginal', categoryOriginal[1])
 
-
-        let data = fs.readFileSync(fileOriginal).toString()
+        let data = fs.readFileSync(file).toString()
         data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent) {
 
           headerContent = headerContent.replace(/category: .*\n/, '')
@@ -750,7 +749,7 @@ gulp.task('import-categories', function(cb) {
           return headerContent
         })
 
-        fs.writeFileSync(fileOriginal, data)
+        fs.writeFileSync(file, data)
       }
     }
   })
