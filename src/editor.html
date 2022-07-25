@@ -105,7 +105,7 @@ layout: default
 			{% for category in icons %}
 
 			{% if category.name %}
-			<h3 class="category-subtitle">{{ category.name }}</h3>
+			<h3 class="category-subtitle">{% if category.name != "" %}{{ category.name }}{% else %}Uncategorized{% endif %} <span class="text-muted">({{ category.items | size }})</span></h3>
 			{% endif %}
 
 			<div class="icons-list">
