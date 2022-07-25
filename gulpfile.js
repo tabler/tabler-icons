@@ -758,7 +758,7 @@ gulp.task('import-categories', function(cb) {
 })
 
 gulp.task('import-tags', function(cb) {
-  fs.createReadStream('./_import.csv').pipe(csv({
+  fs.createReadStream('./_import.tsv').pipe(csv({
     headers: false,
     separator: '\t'
   })).on('data', (row) => {
