@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.78.1 by tabler - https://tabler.io
+ * Tabler Icons 1.79.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -215,6 +215,7 @@ $ti-icon-arrows-diagonal: unicode('ea27');
 $ti-icon-arrows-diagonal-2: unicode('ea26');
 $ti-icon-arrows-diagonal-minimize: unicode('ef39');
 $ti-icon-arrows-diagonal-minimize-2: unicode('ef38');
+$ti-icon-arrows-diff: unicode('f296');
 $ti-icon-arrows-double-ne-sw: unicode('edde');
 $ti-icon-arrows-double-nw-se: unicode('eddf');
 $ti-icon-arrows-double-se-nw: unicode('ede0');
@@ -453,6 +454,7 @@ $ti-icon-brand-gmail: unicode('efa2');
 $ti-icon-brand-google: unicode('ec1f');
 $ti-icon-brand-google-analytics: unicode('edcb');
 $ti-icon-brand-google-drive: unicode('ec1e');
+$ti-icon-brand-google-fit: unicode('f297');
 $ti-icon-brand-google-one: unicode('f232');
 $ti-icon-brand-google-photos: unicode('f20c');
 $ti-icon-brand-google-play: unicode('ed25');
@@ -541,6 +543,7 @@ $ti-icon-brand-walmart: unicode('f211');
 $ti-icon-brand-whatsapp: unicode('ec74');
 $ti-icon-brand-windows: unicode('ecd8');
 $ti-icon-brand-wish: unicode('f212');
+$ti-icon-brand-xbox: unicode('f298');
 $ti-icon-brand-xing: unicode('f21a');
 $ti-icon-brand-yahoo: unicode('ed73');
 $ti-icon-brand-yatse: unicode('f213');
@@ -752,6 +755,7 @@ $ti-icon-clear-formatting: unicode('ebe5');
 $ti-icon-click: unicode('ebbc');
 $ti-icon-clipboard: unicode('ea6f');
 $ti-icon-clipboard-check: unicode('ea6c');
+$ti-icon-clipboard-copy: unicode('f299');
 $ti-icon-clipboard-list: unicode('ea6d');
 $ti-icon-clipboard-off: unicode('f0ce');
 $ti-icon-clipboard-plus: unicode('efb2');
@@ -891,6 +895,7 @@ $ti-icon-currency-taka: unicode('ee69');
 $ti-icon-currency-tugrik: unicode('ee6a');
 $ti-icon-currency-won: unicode('ee6b');
 $ti-icon-currency-yen: unicode('ebae');
+$ti-icon-currency-yuan: unicode('f29a');
 $ti-icon-currency-zloty: unicode('ee6c');
 $ti-icon-current-location: unicode('ecef');
 $ti-icon-current-location-off: unicode('f10e');
@@ -1009,6 +1014,7 @@ $ti-icon-egg: unicode('eb8a');
 $ti-icon-egg-off: unicode('f11f');
 $ti-icon-elevator: unicode('efdf');
 $ti-icon-emergency-bed: unicode('ef5d');
+$ti-icon-empathize: unicode('f29b');
 $ti-icon-emphasis: unicode('ebcf');
 $ti-icon-engine: unicode('ef7e');
 $ti-icon-engine-off: unicode('f120');
@@ -1024,6 +1030,11 @@ $ti-icon-exclamation-mark: unicode('efb4');
 $ti-icon-exclamation-mark-off: unicode('f124');
 $ti-icon-explicit: unicode('f256');
 $ti-icon-exposure: unicode('eb8c');
+$ti-icon-exposure-0: unicode('f29c');
+$ti-icon-exposure-minus-1: unicode('f29d');
+$ti-icon-exposure-minus-2: unicode('f29e');
+$ti-icon-exposure-plus-1: unicode('f29f');
+$ti-icon-exposure-plus-2: unicode('f2a0');
 $ti-icon-external-link: unicode('ea99');
 $ti-icon-external-link-off: unicode('f125');
 $ti-icon-eye: unicode('ea9a');
@@ -1073,6 +1084,7 @@ $ti-icon-file-like: unicode('ed2b');
 $ti-icon-file-minus: unicode('ea9e');
 $ti-icon-file-music: unicode('ea9f');
 $ti-icon-file-off: unicode('ecf2');
+$ti-icon-file-orientation: unicode('f2a1');
 $ti-icon-file-pencil: unicode('f039');
 $ti-icon-file-phone: unicode('ecdc');
 $ti-icon-file-plus: unicode('eaa0');
@@ -1288,6 +1300,7 @@ $ti-icon-indent-increase: unicode('eb92');
 $ti-icon-infinity: unicode('eb69');
 $ti-icon-info-circle: unicode('eac5');
 $ti-icon-info-square: unicode('eac6');
+$ti-icon-input-search: unicode('f2a2');
 $ti-icon-italic: unicode('eb93');
 $ti-icon-jewish-star: unicode('f1d5');
 $ti-icon-jump-rope: unicode('ed8f');
@@ -1492,6 +1505,7 @@ $ti-icon-message-share: unicode('f078');
 $ti-icon-messages: unicode('eb6c');
 $ti-icon-messages-off: unicode('ed42');
 $ti-icon-meteor: unicode('f1fd');
+$ti-icon-mickey: unicode('f2a3');
 $ti-icon-microphone: unicode('eaf0');
 $ti-icon-microphone-2: unicode('ef2c');
 $ti-icon-microphone-off: unicode('ed16');
@@ -2020,8 +2034,11 @@ $ti-icon-text-decrease: unicode('f202');
 $ti-icon-text-direction-ltr: unicode('eefc');
 $ti-icon-text-direction-rtl: unicode('eefd');
 $ti-icon-text-increase: unicode('f203');
+$ti-icon-text-orientation: unicode('f2a4');
+$ti-icon-text-plus: unicode('f2a5');
 $ti-icon-text-recognition: unicode('f204');
 $ti-icon-text-resize: unicode('ef87');
+$ti-icon-text-spellcheck: unicode('f2a6');
 $ti-icon-text-wrap: unicode('ebdd');
 $ti-icon-text-wrap-disabled: unicode('eca7');
 $ti-icon-thermometer: unicode('ef67');
@@ -2203,6 +2220,7 @@ $ti-icon-zoom-out: unicode('eb57');
 $ti-icon-zoom-out-area: unicode('f1dd');
 $ti-icon-zoom-pan: unicode('f1de');
 $ti-icon-zoom-question: unicode('edeb');
+$ti-icon-zoom-replace: unicode('f2a7');
 $ti-icon-zoom-reset: unicode('f295');
 $ti-icon-zzz: unicode('f228');
 
@@ -2377,6 +2395,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-arrows-diagonal-2:before { content: $ti-icon-arrows-diagonal-2; }
 .#{$ti-prefix}-arrows-diagonal-minimize:before { content: $ti-icon-arrows-diagonal-minimize; }
 .#{$ti-prefix}-arrows-diagonal-minimize-2:before { content: $ti-icon-arrows-diagonal-minimize-2; }
+.#{$ti-prefix}-arrows-diff:before { content: $ti-icon-arrows-diff; }
 .#{$ti-prefix}-arrows-double-ne-sw:before { content: $ti-icon-arrows-double-ne-sw; }
 .#{$ti-prefix}-arrows-double-nw-se:before { content: $ti-icon-arrows-double-nw-se; }
 .#{$ti-prefix}-arrows-double-se-nw:before { content: $ti-icon-arrows-double-se-nw; }
@@ -2615,6 +2634,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-brand-google:before { content: $ti-icon-brand-google; }
 .#{$ti-prefix}-brand-google-analytics:before { content: $ti-icon-brand-google-analytics; }
 .#{$ti-prefix}-brand-google-drive:before { content: $ti-icon-brand-google-drive; }
+.#{$ti-prefix}-brand-google-fit:before { content: $ti-icon-brand-google-fit; }
 .#{$ti-prefix}-brand-google-one:before { content: $ti-icon-brand-google-one; }
 .#{$ti-prefix}-brand-google-photos:before { content: $ti-icon-brand-google-photos; }
 .#{$ti-prefix}-brand-google-play:before { content: $ti-icon-brand-google-play; }
@@ -2703,6 +2723,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-brand-whatsapp:before { content: $ti-icon-brand-whatsapp; }
 .#{$ti-prefix}-brand-windows:before { content: $ti-icon-brand-windows; }
 .#{$ti-prefix}-brand-wish:before { content: $ti-icon-brand-wish; }
+.#{$ti-prefix}-brand-xbox:before { content: $ti-icon-brand-xbox; }
 .#{$ti-prefix}-brand-xing:before { content: $ti-icon-brand-xing; }
 .#{$ti-prefix}-brand-yahoo:before { content: $ti-icon-brand-yahoo; }
 .#{$ti-prefix}-brand-yatse:before { content: $ti-icon-brand-yatse; }
@@ -2914,6 +2935,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-click:before { content: $ti-icon-click; }
 .#{$ti-prefix}-clipboard:before { content: $ti-icon-clipboard; }
 .#{$ti-prefix}-clipboard-check:before { content: $ti-icon-clipboard-check; }
+.#{$ti-prefix}-clipboard-copy:before { content: $ti-icon-clipboard-copy; }
 .#{$ti-prefix}-clipboard-list:before { content: $ti-icon-clipboard-list; }
 .#{$ti-prefix}-clipboard-off:before { content: $ti-icon-clipboard-off; }
 .#{$ti-prefix}-clipboard-plus:before { content: $ti-icon-clipboard-plus; }
@@ -3053,6 +3075,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-currency-tugrik:before { content: $ti-icon-currency-tugrik; }
 .#{$ti-prefix}-currency-won:before { content: $ti-icon-currency-won; }
 .#{$ti-prefix}-currency-yen:before { content: $ti-icon-currency-yen; }
+.#{$ti-prefix}-currency-yuan:before { content: $ti-icon-currency-yuan; }
 .#{$ti-prefix}-currency-zloty:before { content: $ti-icon-currency-zloty; }
 .#{$ti-prefix}-current-location:before { content: $ti-icon-current-location; }
 .#{$ti-prefix}-current-location-off:before { content: $ti-icon-current-location-off; }
@@ -3171,6 +3194,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-egg-off:before { content: $ti-icon-egg-off; }
 .#{$ti-prefix}-elevator:before { content: $ti-icon-elevator; }
 .#{$ti-prefix}-emergency-bed:before { content: $ti-icon-emergency-bed; }
+.#{$ti-prefix}-empathize:before { content: $ti-icon-empathize; }
 .#{$ti-prefix}-emphasis:before { content: $ti-icon-emphasis; }
 .#{$ti-prefix}-engine:before { content: $ti-icon-engine; }
 .#{$ti-prefix}-engine-off:before { content: $ti-icon-engine-off; }
@@ -3186,6 +3210,11 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-exclamation-mark-off:before { content: $ti-icon-exclamation-mark-off; }
 .#{$ti-prefix}-explicit:before { content: $ti-icon-explicit; }
 .#{$ti-prefix}-exposure:before { content: $ti-icon-exposure; }
+.#{$ti-prefix}-exposure-0:before { content: $ti-icon-exposure-0; }
+.#{$ti-prefix}-exposure-minus-1:before { content: $ti-icon-exposure-minus-1; }
+.#{$ti-prefix}-exposure-minus-2:before { content: $ti-icon-exposure-minus-2; }
+.#{$ti-prefix}-exposure-plus-1:before { content: $ti-icon-exposure-plus-1; }
+.#{$ti-prefix}-exposure-plus-2:before { content: $ti-icon-exposure-plus-2; }
 .#{$ti-prefix}-external-link:before { content: $ti-icon-external-link; }
 .#{$ti-prefix}-external-link-off:before { content: $ti-icon-external-link-off; }
 .#{$ti-prefix}-eye:before { content: $ti-icon-eye; }
@@ -3235,6 +3264,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-file-minus:before { content: $ti-icon-file-minus; }
 .#{$ti-prefix}-file-music:before { content: $ti-icon-file-music; }
 .#{$ti-prefix}-file-off:before { content: $ti-icon-file-off; }
+.#{$ti-prefix}-file-orientation:before { content: $ti-icon-file-orientation; }
 .#{$ti-prefix}-file-pencil:before { content: $ti-icon-file-pencil; }
 .#{$ti-prefix}-file-phone:before { content: $ti-icon-file-phone; }
 .#{$ti-prefix}-file-plus:before { content: $ti-icon-file-plus; }
@@ -3450,6 +3480,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-infinity:before { content: $ti-icon-infinity; }
 .#{$ti-prefix}-info-circle:before { content: $ti-icon-info-circle; }
 .#{$ti-prefix}-info-square:before { content: $ti-icon-info-square; }
+.#{$ti-prefix}-input-search:before { content: $ti-icon-input-search; }
 .#{$ti-prefix}-italic:before { content: $ti-icon-italic; }
 .#{$ti-prefix}-jewish-star:before { content: $ti-icon-jewish-star; }
 .#{$ti-prefix}-jump-rope:before { content: $ti-icon-jump-rope; }
@@ -3654,6 +3685,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-messages:before { content: $ti-icon-messages; }
 .#{$ti-prefix}-messages-off:before { content: $ti-icon-messages-off; }
 .#{$ti-prefix}-meteor:before { content: $ti-icon-meteor; }
+.#{$ti-prefix}-mickey:before { content: $ti-icon-mickey; }
 .#{$ti-prefix}-microphone:before { content: $ti-icon-microphone; }
 .#{$ti-prefix}-microphone-2:before { content: $ti-icon-microphone-2; }
 .#{$ti-prefix}-microphone-off:before { content: $ti-icon-microphone-off; }
@@ -4182,8 +4214,11 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-text-direction-ltr:before { content: $ti-icon-text-direction-ltr; }
 .#{$ti-prefix}-text-direction-rtl:before { content: $ti-icon-text-direction-rtl; }
 .#{$ti-prefix}-text-increase:before { content: $ti-icon-text-increase; }
+.#{$ti-prefix}-text-orientation:before { content: $ti-icon-text-orientation; }
+.#{$ti-prefix}-text-plus:before { content: $ti-icon-text-plus; }
 .#{$ti-prefix}-text-recognition:before { content: $ti-icon-text-recognition; }
 .#{$ti-prefix}-text-resize:before { content: $ti-icon-text-resize; }
+.#{$ti-prefix}-text-spellcheck:before { content: $ti-icon-text-spellcheck; }
 .#{$ti-prefix}-text-wrap:before { content: $ti-icon-text-wrap; }
 .#{$ti-prefix}-text-wrap-disabled:before { content: $ti-icon-text-wrap-disabled; }
 .#{$ti-prefix}-thermometer:before { content: $ti-icon-thermometer; }
@@ -4365,5 +4400,6 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-zoom-out-area:before { content: $ti-icon-zoom-out-area; }
 .#{$ti-prefix}-zoom-pan:before { content: $ti-icon-zoom-pan; }
 .#{$ti-prefix}-zoom-question:before { content: $ti-icon-zoom-question; }
+.#{$ti-prefix}-zoom-replace:before { content: $ti-icon-zoom-replace; }
 .#{$ti-prefix}-zoom-reset:before { content: $ti-icon-zoom-reset; }
 .#{$ti-prefix}-zzz:before { content: $ti-icon-zzz; }
