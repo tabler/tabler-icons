@@ -206,6 +206,17 @@ To load a specific version replace `latest` with the desired version number.
 <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@1.74.0/icons-react/dist/index.umd.min.js"></script>
 ```
 
+###### HTML
+```html
+<i class="ti ti-brand-tabler"></i>
+```
+
+###### CSS
+```css
+content: 'ec8f';
+```
+
+
 ### Compiling fonts
 
 To compile fonts first install [fontforge](https://fontforge.org/en-US/).
