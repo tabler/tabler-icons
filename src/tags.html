@@ -13,6 +13,7 @@ layout: default
 				<td>{{ icon.tags | join: ', ' }}</td>
 				<td>{{ icon.category }}</td>
 				<td>{{ icon.version }}</td>
+				<td>{{ icon.unicode }}</td>
 			</tr>
 			{% if icon.tags.size == 0 %}
 			{% assign i = i | plus: 1 %}

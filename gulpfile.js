@@ -223,11 +223,7 @@ gulp.task('iconfont-svg-outline', function(cb) {
   cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/*', async () => {
     let files = glob.sync('./icons/*.svg')
 
-    let iconfontUnicode = {}
-
-    if (fs.existsSync('./.build/iconfont-unicode.json')) {
-      iconfontUnicode = require('./.build/iconfont-unicode')
-    }
+    const iconfontUnicode = require('./tags.json')
 
     await asyncForEach(files, async function(file) {
 
@@ -235,8 +231,7 @@ gulp.task('iconfont-svg-outline', function(cb) {
 
       if (compileOptions.includeIcons.length === 0 || compileOptions.includeIcons.indexOf(name) >= 0) {
 
-        unicode = iconfontUnicode[name]
-
+        const unicode = iconfontUnicode[name].unicode
         await console.log('Stroke for:', file, unicode)
 
         let strokedSVG = fs.readFileSync(file).toString()
@@ -262,7 +257,6 @@ gulp.task('iconfont-svg-outline', function(cb) {
           }
         }).catch(error => console.log(error))
       }
-
     })
 
     cb()
@@ -287,43 +281,19 @@ gulp.task('iconfont-fix-outline', function(cb) {
 })
 
 gulp.task('iconfont', function() {
-  let maxUnicode = 59905
-
-  if (fs.existsSync('./.build/iconfont-unicode.json')) {
-    const iconfontUnicode = require('./.build/iconfont-unicode')
-
-    for (const name in iconfontUnicode) {
-      const unicode = parseInt(iconfontUnicode[name], 16)
-
-      maxUnicode = Math.max(maxUnicode, unicode)
-    }
-  }
-
-  maxUnicode = maxUnicode + 1
-
   return gulp.src(['icons-outlined/*.svg']).pipe(iconfont({
     fontName: 'tabler-icons',
     prependUnicode: true,
     formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
     normalize: true,
-    startUnicode: maxUnicode,
     fontHeight: 1000,
     descent: 100,
     ascent: 986.5
   })).on('glyphs', function(glyphs, options) {
-    //glyphs json
-    let glyphsObject = {}
-
     //sort glypht
     glyphs = glyphs.sort(function(a, b) {
       return ('' + a.name).localeCompare(b.name)
     })
-
-    glyphs.forEach(function(glyph) {
-      glyphsObject[glyph.name] = glyph.unicode[0].codePointAt(0).toString(16)
-    })
-
-    fs.writeFileSync(`./.build/iconfont-unicode.json`, JSON.stringify(glyphsObject))
 
     //css
     options['glyphs'] = glyphs
@@ -356,27 +326,58 @@ gulp.task('iconfont-css', function(cb) {
   })
 })
 
-gulp.task('update-tags-unicode', function(cb) {
-  let tags = require('./tags.json'),
-      unicodes = require('./.build/iconfont-unicode.json')
+const getMaxUnicode = () => {
+  const path = 'src/_icons/*.svg'
+  const files = glob.sync(path)
+  let maxUnicode = 0
 
-  for (let i in tags) {
-    tags[i] = {
-      ...tags[i],
-      unicode: unicodes[i]
+  files.forEach(function(file) {
+    const svgFile = fs.readFileSync(file).toString()
+
+    svgFile.replace(/unicode: "([a-f0-9.]+)"/i, function(m, unicode) {
+      const newUnicode = parseInt(unicode, 16)
+
+      if (newUnicode) {
+        maxUnicode = Math.max(maxUnicode, newUnicode)
+      }
+    })
+  })
+
+  return maxUnicode
+}
+
+gulp.task('update-icons-unicode', (cb) => {
+  let maxUnicode = getMaxUnicode()
+
+  glob('./src/_icons/*.svg', {}, function(er, files) {
+    for (const i in files) {
+      const file = files[i]
+
+      let svgFile = fs.readFileSync(file).toString()
+
+      if (!svgFile.match(/\nunicode: "?([a-f0-9.]+)"?/i)) {
+        maxUnicode++
+        const unicode = maxUnicode.toString(16)
+
+        if (unicode) {
+          svgFile = svgFile.replace(/---\n<svg>/i, function(m) {
+            return `unicode: "${unicode}"\n${m}`
+          })
+
+          console.log(`Add unicode "${unicode}" to "${file}"`);
+          fs.writeFileSync(file, svgFile)
+        }
+      } else {
+        console.log(`File ${file} already has unicode`)
+      }
     }
-  }
 
-  console.log('tags', tags)
-
-  fs.writeFileSync(`tags.json`, JSON.stringify(tags, null, 2))
-
-  cb()
+    cb()
+  })
 })
 
 gulp.task('build-iconfont',
-    gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont-fix-outline', 'iconfont-optimize', 'iconfont', 'iconfont-css', 'iconfont-clean',
-        'update-tags-unicode'))
+    gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont-fix-outline', 'iconfont-optimize', 'iconfont', 'iconfont-css', 'iconfont-clean'))
 
 gulp.task('build-zip', function() {
   const version = p.version
@@ -613,7 +614,7 @@ gulp.task('changelog-image', function(cb) {
   }
 })
 
-gulp.task('svg-to-png', gulp.series('build-jekyll', 'clean-png', async (cb) => {
+gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
   let files = glob.sync('./icons/*.svg')
 
   await asyncForEach(files, async function(file, i) {
@@ -737,7 +738,7 @@ gulp.task('import-categories', function(cb) {
 
       const categoryOriginal = dataOriginal.match(/category: ([a-zA-Z-]+)/)
 
-      if(categoryOriginal) {
+      if (categoryOriginal) {
         console.log('categoryOriginal', categoryOriginal[1])
 
         let data = fs.readFileSync(file).toString()
@@ -789,6 +790,4 @@ gulp.task('build-react', function(cb) {
   })
 })
 
-gulp.task('build',
-    gulp.series('optimize', 'update-icons-version', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react', 'icons-preview', 'svg-to-png',
-        'build-iconfont', 'changelog-image', 'build-zip'))
+gulp.task('build', gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'))
