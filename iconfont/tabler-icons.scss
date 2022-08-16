@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.82.0 by tabler - https://tabler.io
+ * Tabler Icons 1.83.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -1546,6 +1546,9 @@ $ti-icon-minimize: unicode('eaf1');
 $ti-icon-minus: unicode('eaf2');
 $ti-icon-minus-vertical: unicode('eeb4');
 $ti-icon-mist: unicode('ec30');
+$ti-icon-mood-angry: unicode('f2de');
+$ti-icon-mood-annoyed: unicode('f2e0');
+$ti-icon-mood-annoyed-2: unicode('f2df');
 $ti-icon-mood-boy: unicode('ed2d');
 $ti-icon-mood-confuzed: unicode('eaf3');
 $ti-icon-mood-crazy-happy: unicode('ed90');
@@ -1555,14 +1558,29 @@ $ti-icon-mood-happy: unicode('eaf4');
 $ti-icon-mood-kid: unicode('ec03');
 $ti-icon-mood-look-left: unicode('f2c5');
 $ti-icon-mood-look-right: unicode('f2c6');
+$ti-icon-mood-nerd: unicode('f2e1');
 $ti-icon-mood-nervous: unicode('ef96');
 $ti-icon-mood-neutral: unicode('eaf5');
 $ti-icon-mood-off: unicode('f161');
 $ti-icon-mood-sad: unicode('eaf6');
+$ti-icon-mood-sad-2: unicode('f2e2');
+$ti-icon-mood-sad-dizzy: unicode('f2e3');
+$ti-icon-mood-sad-squint: unicode('f2e4');
+$ti-icon-mood-sick: unicode('f2e5');
+$ti-icon-mood-silence: unicode('f2e6');
 $ti-icon-mood-sing: unicode('f2c7');
 $ti-icon-mood-smile: unicode('eaf7');
+$ti-icon-mood-smile-beam: unicode('f2e7');
+$ti-icon-mood-smile-dizzy: unicode('f2e8');
 $ti-icon-mood-suprised: unicode('ec04');
 $ti-icon-mood-tongue: unicode('eb95');
+$ti-icon-mood-tongue-wink: unicode('f2ea');
+$ti-icon-mood-tongue-wink-2: unicode('f2e9');
+$ti-icon-mood-unamused: unicode('f2eb');
+$ti-icon-mood-wink: unicode('f2ed');
+$ti-icon-mood-wink-2: unicode('f2ec');
+$ti-icon-mood-wrrr: unicode('f2ee');
+$ti-icon-mood-xd: unicode('f2ef');
 $ti-icon-moon: unicode('eaf8');
 $ti-icon-moon-2: unicode('ece6');
 $ti-icon-moon-off: unicode('f162');
@@ -3780,6 +3798,9 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-minus:before { content: $ti-icon-minus; }
 .#{$ti-prefix}-minus-vertical:before { content: $ti-icon-minus-vertical; }
 .#{$ti-prefix}-mist:before { content: $ti-icon-mist; }
+.#{$ti-prefix}-mood-angry:before { content: $ti-icon-mood-angry; }
+.#{$ti-prefix}-mood-annoyed:before { content: $ti-icon-mood-annoyed; }
+.#{$ti-prefix}-mood-annoyed-2:before { content: $ti-icon-mood-annoyed-2; }
 .#{$ti-prefix}-mood-boy:before { content: $ti-icon-mood-boy; }
 .#{$ti-prefix}-mood-confuzed:before { content: $ti-icon-mood-confuzed; }
 .#{$ti-prefix}-mood-crazy-happy:before { content: $ti-icon-mood-crazy-happy; }
@@ -3789,14 +3810,29 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-mood-kid:before { content: $ti-icon-mood-kid; }
 .#{$ti-prefix}-mood-look-left:before { content: $ti-icon-mood-look-left; }
 .#{$ti-prefix}-mood-look-right:before { content: $ti-icon-mood-look-right; }
+.#{$ti-prefix}-mood-nerd:before { content: $ti-icon-mood-nerd; }
 .#{$ti-prefix}-mood-nervous:before { content: $ti-icon-mood-nervous; }
 .#{$ti-prefix}-mood-neutral:before { content: $ti-icon-mood-neutral; }
 .#{$ti-prefix}-mood-off:before { content: $ti-icon-mood-off; }
 .#{$ti-prefix}-mood-sad:before { content: $ti-icon-mood-sad; }
+.#{$ti-prefix}-mood-sad-2:before { content: $ti-icon-mood-sad-2; }
+.#{$ti-prefix}-mood-sad-dizzy:before { content: $ti-icon-mood-sad-dizzy; }
+.#{$ti-prefix}-mood-sad-squint:before { content: $ti-icon-mood-sad-squint; }
+.#{$ti-prefix}-mood-sick:before { content: $ti-icon-mood-sick; }
+.#{$ti-prefix}-mood-silence:before { content: $ti-icon-mood-silence; }
 .#{$ti-prefix}-mood-sing:before { content: $ti-icon-mood-sing; }
 .#{$ti-prefix}-mood-smile:before { content: $ti-icon-mood-smile; }
+.#{$ti-prefix}-mood-smile-beam:before { content: $ti-icon-mood-smile-beam; }
+.#{$ti-prefix}-mood-smile-dizzy:before { content: $ti-icon-mood-smile-dizzy; }
 .#{$ti-prefix}-mood-suprised:before { content: $ti-icon-mood-suprised; }
 .#{$ti-prefix}-mood-tongue:before { content: $ti-icon-mood-tongue; }
+.#{$ti-prefix}-mood-tongue-wink:before { content: $ti-icon-mood-tongue-wink; }
+.#{$ti-prefix}-mood-tongue-wink-2:before { content: $ti-icon-mood-tongue-wink-2; }
+.#{$ti-prefix}-mood-unamused:before { content: $ti-icon-mood-unamused; }
+.#{$ti-prefix}-mood-wink:before { content: $ti-icon-mood-wink; }
+.#{$ti-prefix}-mood-wink-2:before { content: $ti-icon-mood-wink-2; }
+.#{$ti-prefix}-mood-wrrr:before { content: $ti-icon-mood-wrrr; }
+.#{$ti-prefix}-mood-xd:before { content: $ti-icon-mood-xd; }
 .#{$ti-prefix}-moon:before { content: $ti-icon-moon; }
 .#{$ti-prefix}-moon-2:before { content: $ti-icon-moon-2; }
 .#{$ti-prefix}-moon-off:before { content: $ti-icon-moon-off; }
