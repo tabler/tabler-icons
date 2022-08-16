@@ -5,7 +5,7 @@
 	{% assign buttons = group | split: ',' %}
 	<div class="buttons">
 		{% for button in buttons %}
-		<div class="button js-icon" data-icon="{{ button }}">{% include_cached icon.html name=button %}</div>
+		<div class="button js-icon" data-icon="{{ button }}">{% include icon.html name=button %}</div>
 		{% endfor %}
 	</div>
 	{% endfor %}

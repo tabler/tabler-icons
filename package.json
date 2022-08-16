@@ -46,7 +46,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
+    "_start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
+    "start": "eleventy --serve",
     "prebuild-react": "rm -rf ./icons-react/dist/",
     "build-react": "rollup -c",
     "optimize": "gulp optimize",
@@ -65,6 +66,7 @@
     "web"
   ],
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "@babel/core": "7.11.6",
     "@babel/parser": "7.11.5",
     "@babel/preset-env": "7.11.5",
