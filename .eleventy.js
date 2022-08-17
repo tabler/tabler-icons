@@ -47,6 +47,16 @@ module.exports = function(eleventyConfig) {
     }
   });
 
+  eleventyConfig.addTemplateFormats("json");
+  eleventyConfig.addExtension("json", {
+    outputFileExtension: 'json',
+    compile: async function(inputContent) {
+      return async () => {
+        return inputContent;
+      };
+    }
+  });
+
   eleventyConfig.addCollection('icons', collection => {
     return collection.getFilteredByGlob('./src/icons/*.svg').sort((a, b) => {
       return b.name - a.name

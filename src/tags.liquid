@@ -1,0 +1,11 @@
+---
+permalink: tags.json
+---
+{ {% for icon in collections.icons %}
+{% assign slug-tags = icon.fileSlug | split: '-' %}{% assign tags = slug-tags | concat: icon.data.tags %}  "{{ icon.fileSlug }}": {
+    "category": "{{ icon.data.category }}",
+    "tags": ["{{ tags | join: '", "' }}"],
+    "version": "{{ icon.data.version }}",
+    "unicode": "{{ icon.data.unicode }}"
+  }{% unless forloop.last %}, {% endunless %}{% endfor %}
+}
