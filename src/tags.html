@@ -5,20 +5,19 @@ permalink: tags.html
 
 <div class="container">
 	<div class="box">
-		{{ collections }}
-
 		{% assign i = 0 %}
 		<table class="table mb">
-			{% for icon in icons %}
+			{% for icon in collections.icons %}
 			<tr>
-				<td class="td-1">{% include "icon.html" name=icon.slug %}</td>
-				<th>{{ icon.slug }}</th>
-				<td>{{ icon.tags | join: ', ' }}</td>
-				<td>{{ icon.category }}</td>
-				<td>{{ icon.version }}</td>
-				<td>{{ icon.unicode }}</td>
+				<td class="td-1">{% include "icon.html", name=icon.slug %}</td>
+				<th>{{ icon.fileSlug }}</th>
+				<td>{{ icon.data.tags | join: ', ' }}</td>
+				<td>{{ icon.data.category }}</td>
+				<td>{{ icon.data.version }}</td>
+				<td>{{ icon.data.unicode }}</td>
 			</tr>
-			{% if icon.tags.size == 0 %}
+			{% assign tags-count = icon.data.tags | size %}
+			{% if tags-count == 0 %}
 			{% assign i = i | plus: 1 %}
 			{% endif %}
 			{% endfor %}
