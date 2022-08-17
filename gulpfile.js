@@ -388,7 +388,7 @@ gulp.task('build-zip', function() {
 })
 
 gulp.task('build-jekyll', function(cb) {
-  const jekyll = cp.spawn('bundle', ['exec', 'jekyll', 'build'], { stdio: 'inherit' })
+  const jekyll = cp.spawn('eleventy', [ ], { stdio: 'inherit' })
   jekyll.on('close', function(code) {
     console.log(`Jekyll build exited with code ${code}`)
     if (!code) {
