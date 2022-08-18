@@ -1,14 +1,16 @@
 ---
 layout: default
 ---
+{% import "icon.njk" as m %}
+
 <div class="container">
 	<div class="box">
 		<div class="mb">
 			<div class="icons-list">
 				{% for icon in collections.icons %}
-				{% assign name = icon.fileSlug %}
+				{% set name = icon.fileSlug %}
 				<div class="icons-list-icon js-icon" title="{{ name }}" data-icon="{{ name }}">
-					{% icon name %}
+					{{ m.icon(name) }}
 				</div>
 				{% endfor %}
 			</div>
@@ -18,9 +20,9 @@ layout: default
 		<div class="mb">
 			<div class="icons-list">
 				{% for icon in collections.icons %}
-				{% assign name = icon.fileSlug %}
+				{% set name = icon.fileSlug %}
 				<div class="icons-list-icon js-icon" title="{{ name }}" data-icon="{{ name }}">
-					{% include "icon.html", name="name", stroke="1.25" %}
+					{{ m.icon(name, stroke="1.25") }}
 				</div>
 				{% endfor %}
 			</div>

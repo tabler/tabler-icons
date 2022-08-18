@@ -32,10 +32,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addExtension("svg", {
     outputFileExtension: 'svg',
     compileOptions: {
-      permalink: function(contents, inputPath) {
-        const basename = path.basename(inputPath);
-        return `icons/${basename}`;
-      }
+      permalink: false
+      // permalink: function(contents, inputPath) {
+      //   const basename = path.basename(inputPath);
+      //   return `icons/${basename}`;
+      // }
     },
     compile: async (inputContent, inputPath) => {
 
@@ -47,15 +48,6 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  eleventyConfig.addTemplateFormats("json");
-  eleventyConfig.addExtension("json", {
-    outputFileExtension: 'json',
-    compile: async function(inputContent) {
-      return async () => {
-        return inputContent;
-      };
-    }
-  });
 
   eleventyConfig.addCollection('icons', collection => {
     return collection.getFilteredByGlob('./src/icons/*.svg').sort((a, b) => {
