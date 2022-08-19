@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.83.1 by tabler - https://tabler.io
+ * Tabler Icons 1.84.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -342,6 +342,10 @@ $ti-icon-bike-off: unicode('f0b8');
 $ti-icon-binary: unicode('ee08');
 $ti-icon-biohazard: unicode('ecb8');
 $ti-icon-biohazard-off: unicode('f0b9');
+$ti-icon-bleach: unicode('f2f3');
+$ti-icon-bleach-chlorine: unicode('f2f0');
+$ti-icon-bleach-no-chlorine: unicode('f2f1');
+$ti-icon-bleach-off: unicode('f2f2');
 $ti-icon-blockquote: unicode('ee09');
 $ti-icon-bluetooth: unicode('ea37');
 $ti-icon-bluetooth-connected: unicode('ecea');
@@ -1327,6 +1331,12 @@ $ti-icon-infinity: unicode('eb69');
 $ti-icon-info-circle: unicode('eac5');
 $ti-icon-info-square: unicode('eac6');
 $ti-icon-input-search: unicode('f2a2');
+$ti-icon-ironing-1: unicode('f2f4');
+$ti-icon-ironing-2: unicode('f2f5');
+$ti-icon-ironing-3: unicode('f2f6');
+$ti-icon-ironing-off: unicode('f2f7');
+$ti-icon-ironing-steam: unicode('f2f9');
+$ti-icon-ironing-steam-off: unicode('f2f8');
 $ti-icon-italic: unicode('eb93');
 $ti-icon-jewish-star: unicode('f1d5');
 $ti-icon-jump-rope: unicode('ed8f');
@@ -2227,7 +2237,31 @@ $ti-icon-wallpaper: unicode('ef56');
 $ti-icon-wallpaper-off: unicode('f1c5');
 $ti-icon-wand: unicode('ebcb');
 $ti-icon-wand-off: unicode('f1c6');
+$ti-icon-wash: unicode('f311');
+$ti-icon-wash-dry: unicode('f304');
+$ti-icon-wash-dry-1: unicode('f2fa');
+$ti-icon-wash-dry-2: unicode('f2fb');
+$ti-icon-wash-dry-3: unicode('f2fc');
+$ti-icon-wash-dry-a: unicode('f2fd');
+$ti-icon-wash-dry-dip: unicode('f2fe');
+$ti-icon-wash-dry-f: unicode('f2ff');
+$ti-icon-wash-dry-hang: unicode('f300');
+$ti-icon-wash-dry-off: unicode('f301');
+$ti-icon-wash-dry-p: unicode('f302');
+$ti-icon-wash-dry-shade: unicode('f303');
+$ti-icon-wash-dryclean: unicode('f305');
+$ti-icon-wash-gentle: unicode('f306');
 $ti-icon-wash-machine: unicode('f25e');
+$ti-icon-wash-off: unicode('f307');
+$ti-icon-wash-press: unicode('f308');
+$ti-icon-wash-temperature-1: unicode('f309');
+$ti-icon-wash-temperature-2: unicode('f30a');
+$ti-icon-wash-temperature-3: unicode('f30b');
+$ti-icon-wash-temperature-4: unicode('f30c');
+$ti-icon-wash-temperature-5: unicode('f30d');
+$ti-icon-wash-temperature-6: unicode('f30e');
+$ti-icon-wash-tumble-dry: unicode('f30f');
+$ti-icon-wash-tumble-off: unicode('f310');
 $ti-icon-wave-saw-tool: unicode('ecd3');
 $ti-icon-wave-sine: unicode('ecd4');
 $ti-icon-wave-square: unicode('ecd5');
@@ -2594,6 +2628,10 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-binary:before { content: $ti-icon-binary; }
 .#{$ti-prefix}-biohazard:before { content: $ti-icon-biohazard; }
 .#{$ti-prefix}-biohazard-off:before { content: $ti-icon-biohazard-off; }
+.#{$ti-prefix}-bleach:before { content: $ti-icon-bleach; }
+.#{$ti-prefix}-bleach-chlorine:before { content: $ti-icon-bleach-chlorine; }
+.#{$ti-prefix}-bleach-no-chlorine:before { content: $ti-icon-bleach-no-chlorine; }
+.#{$ti-prefix}-bleach-off:before { content: $ti-icon-bleach-off; }
 .#{$ti-prefix}-blockquote:before { content: $ti-icon-blockquote; }
 .#{$ti-prefix}-bluetooth:before { content: $ti-icon-bluetooth; }
 .#{$ti-prefix}-bluetooth-connected:before { content: $ti-icon-bluetooth-connected; }
@@ -3579,6 +3617,12 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-info-circle:before { content: $ti-icon-info-circle; }
 .#{$ti-prefix}-info-square:before { content: $ti-icon-info-square; }
 .#{$ti-prefix}-input-search:before { content: $ti-icon-input-search; }
+.#{$ti-prefix}-ironing-1:before { content: $ti-icon-ironing-1; }
+.#{$ti-prefix}-ironing-2:before { content: $ti-icon-ironing-2; }
+.#{$ti-prefix}-ironing-3:before { content: $ti-icon-ironing-3; }
+.#{$ti-prefix}-ironing-off:before { content: $ti-icon-ironing-off; }
+.#{$ti-prefix}-ironing-steam:before { content: $ti-icon-ironing-steam; }
+.#{$ti-prefix}-ironing-steam-off:before { content: $ti-icon-ironing-steam-off; }
 .#{$ti-prefix}-italic:before { content: $ti-icon-italic; }
 .#{$ti-prefix}-jewish-star:before { content: $ti-icon-jewish-star; }
 .#{$ti-prefix}-jump-rope:before { content: $ti-icon-jump-rope; }
@@ -4479,7 +4523,31 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-wallpaper-off:before { content: $ti-icon-wallpaper-off; }
 .#{$ti-prefix}-wand:before { content: $ti-icon-wand; }
 .#{$ti-prefix}-wand-off:before { content: $ti-icon-wand-off; }
+.#{$ti-prefix}-wash:before { content: $ti-icon-wash; }
+.#{$ti-prefix}-wash-dry:before { content: $ti-icon-wash-dry; }
+.#{$ti-prefix}-wash-dry-1:before { content: $ti-icon-wash-dry-1; }
+.#{$ti-prefix}-wash-dry-2:before { content: $ti-icon-wash-dry-2; }
+.#{$ti-prefix}-wash-dry-3:before { content: $ti-icon-wash-dry-3; }
+.#{$ti-prefix}-wash-dry-a:before { content: $ti-icon-wash-dry-a; }
+.#{$ti-prefix}-wash-dry-dip:before { content: $ti-icon-wash-dry-dip; }
+.#{$ti-prefix}-wash-dry-f:before { content: $ti-icon-wash-dry-f; }
+.#{$ti-prefix}-wash-dry-hang:before { content: $ti-icon-wash-dry-hang; }
+.#{$ti-prefix}-wash-dry-off:before { content: $ti-icon-wash-dry-off; }
+.#{$ti-prefix}-wash-dry-p:before { content: $ti-icon-wash-dry-p; }
+.#{$ti-prefix}-wash-dry-shade:before { content: $ti-icon-wash-dry-shade; }
+.#{$ti-prefix}-wash-dryclean:before { content: $ti-icon-wash-dryclean; }
+.#{$ti-prefix}-wash-gentle:before { content: $ti-icon-wash-gentle; }
 .#{$ti-prefix}-wash-machine:before { content: $ti-icon-wash-machine; }
+.#{$ti-prefix}-wash-off:before { content: $ti-icon-wash-off; }
+.#{$ti-prefix}-wash-press:before { content: $ti-icon-wash-press; }
+.#{$ti-prefix}-wash-temperature-1:before { content: $ti-icon-wash-temperature-1; }
+.#{$ti-prefix}-wash-temperature-2:before { content: $ti-icon-wash-temperature-2; }
+.#{$ti-prefix}-wash-temperature-3:before { content: $ti-icon-wash-temperature-3; }
+.#{$ti-prefix}-wash-temperature-4:before { content: $ti-icon-wash-temperature-4; }
+.#{$ti-prefix}-wash-temperature-5:before { content: $ti-icon-wash-temperature-5; }
+.#{$ti-prefix}-wash-temperature-6:before { content: $ti-icon-wash-temperature-6; }
+.#{$ti-prefix}-wash-tumble-dry:before { content: $ti-icon-wash-tumble-dry; }
+.#{$ti-prefix}-wash-tumble-off:before { content: $ti-icon-wash-tumble-off; }
 .#{$ti-prefix}-wave-saw-tool:before { content: $ti-icon-wave-saw-tool; }
 .#{$ti-prefix}-wave-sine:before { content: $ti-icon-wave-sine; }
 .#{$ti-prefix}-wave-square:before { content: $ti-icon-wave-square; }
