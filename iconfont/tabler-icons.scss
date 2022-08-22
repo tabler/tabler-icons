@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.84.0 by tabler - https://tabler.io
+ * Tabler Icons 1.85.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -410,6 +410,7 @@ $ti-icon-box-multiple-9: unicode('ee16');
 $ti-icon-box-off: unicode('f102');
 $ti-icon-box-padding: unicode('ee18');
 $ti-icon-braces: unicode('ebcc');
+$ti-icon-braces-asterix: unicode('f312');
 $ti-icon-braces-off: unicode('f0bf');
 $ti-icon-brackets: unicode('ebcd');
 $ti-icon-brackets-contain: unicode('f1e5');
@@ -786,6 +787,18 @@ $ti-icon-clipboard-text: unicode('f089');
 $ti-icon-clipboard-x: unicode('ea6e');
 $ti-icon-clock: unicode('ea70');
 $ti-icon-clock-2: unicode('f099');
+$ti-icon-clock-hour-1: unicode('f313');
+$ti-icon-clock-hour-10: unicode('f314');
+$ti-icon-clock-hour-11: unicode('f315');
+$ti-icon-clock-hour-12: unicode('f316');
+$ti-icon-clock-hour-2: unicode('f317');
+$ti-icon-clock-hour-3: unicode('f318');
+$ti-icon-clock-hour-4: unicode('f319');
+$ti-icon-clock-hour-5: unicode('f31a');
+$ti-icon-clock-hour-6: unicode('f31b');
+$ti-icon-clock-hour-7: unicode('f31c');
+$ti-icon-clock-hour-8: unicode('f31d');
+$ti-icon-clock-hour-9: unicode('f31e');
 $ti-icon-clock-off: unicode('f0cf');
 $ti-icon-clothes-rack: unicode('f285');
 $ti-icon-cloud: unicode('ea76');
@@ -1818,6 +1831,7 @@ $ti-icon-refresh: unicode('eb13');
 $ti-icon-refresh-alert: unicode('ed57');
 $ti-icon-refresh-dot: unicode('efbf');
 $ti-icon-refresh-off: unicode('f18d');
+$ti-icon-regex: unicode('f31f');
 $ti-icon-registered: unicode('eb14');
 $ti-icon-relation-many-to-many: unicode('ed7f');
 $ti-icon-relation-one-to-many: unicode('ed80');
@@ -1906,6 +1920,8 @@ $ti-icon-separator-horizontal: unicode('ec79');
 $ti-icon-separator-vertical: unicode('ec7a');
 $ti-icon-server: unicode('eb1f');
 $ti-icon-server-2: unicode('f07c');
+$ti-icon-server-bolt: unicode('f320');
+$ti-icon-server-cog: unicode('f321');
 $ti-icon-server-off: unicode('f19e');
 $ti-icon-servicemark: unicode('ec09');
 $ti-icon-settings: unicode('eb20');
@@ -2249,7 +2265,9 @@ $ti-icon-wash-dry-hang: unicode('f300');
 $ti-icon-wash-dry-off: unicode('f301');
 $ti-icon-wash-dry-p: unicode('f302');
 $ti-icon-wash-dry-shade: unicode('f303');
+$ti-icon-wash-dry-w: unicode('f322');
 $ti-icon-wash-dryclean: unicode('f305');
+$ti-icon-wash-dryclean-off: unicode('f323');
 $ti-icon-wash-gentle: unicode('f306');
 $ti-icon-wash-machine: unicode('f25e');
 $ti-icon-wash-off: unicode('f307');
@@ -2696,6 +2714,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-box-off:before { content: $ti-icon-box-off; }
 .#{$ti-prefix}-box-padding:before { content: $ti-icon-box-padding; }
 .#{$ti-prefix}-braces:before { content: $ti-icon-braces; }
+.#{$ti-prefix}-braces-asterix:before { content: $ti-icon-braces-asterix; }
 .#{$ti-prefix}-braces-off:before { content: $ti-icon-braces-off; }
 .#{$ti-prefix}-brackets:before { content: $ti-icon-brackets; }
 .#{$ti-prefix}-brackets-contain:before { content: $ti-icon-brackets-contain; }
@@ -3072,6 +3091,18 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-clipboard-x:before { content: $ti-icon-clipboard-x; }
 .#{$ti-prefix}-clock:before { content: $ti-icon-clock; }
 .#{$ti-prefix}-clock-2:before { content: $ti-icon-clock-2; }
+.#{$ti-prefix}-clock-hour-1:before { content: $ti-icon-clock-hour-1; }
+.#{$ti-prefix}-clock-hour-10:before { content: $ti-icon-clock-hour-10; }
+.#{$ti-prefix}-clock-hour-11:before { content: $ti-icon-clock-hour-11; }
+.#{$ti-prefix}-clock-hour-12:before { content: $ti-icon-clock-hour-12; }
+.#{$ti-prefix}-clock-hour-2:before { content: $ti-icon-clock-hour-2; }
+.#{$ti-prefix}-clock-hour-3:before { content: $ti-icon-clock-hour-3; }
+.#{$ti-prefix}-clock-hour-4:before { content: $ti-icon-clock-hour-4; }
+.#{$ti-prefix}-clock-hour-5:before { content: $ti-icon-clock-hour-5; }
+.#{$ti-prefix}-clock-hour-6:before { content: $ti-icon-clock-hour-6; }
+.#{$ti-prefix}-clock-hour-7:before { content: $ti-icon-clock-hour-7; }
+.#{$ti-prefix}-clock-hour-8:before { content: $ti-icon-clock-hour-8; }
+.#{$ti-prefix}-clock-hour-9:before { content: $ti-icon-clock-hour-9; }
 .#{$ti-prefix}-clock-off:before { content: $ti-icon-clock-off; }
 .#{$ti-prefix}-clothes-rack:before { content: $ti-icon-clothes-rack; }
 .#{$ti-prefix}-cloud:before { content: $ti-icon-cloud; }
@@ -4104,6 +4135,7 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-refresh-alert:before { content: $ti-icon-refresh-alert; }
 .#{$ti-prefix}-refresh-dot:before { content: $ti-icon-refresh-dot; }
 .#{$ti-prefix}-refresh-off:before { content: $ti-icon-refresh-off; }
+.#{$ti-prefix}-regex:before { content: $ti-icon-regex; }
 .#{$ti-prefix}-registered:before { content: $ti-icon-registered; }
 .#{$ti-prefix}-relation-many-to-many:before { content: $ti-icon-relation-many-to-many; }
 .#{$ti-prefix}-relation-one-to-many:before { content: $ti-icon-relation-one-to-many; }
@@ -4192,6 +4224,8 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-separator-vertical:before { content: $ti-icon-separator-vertical; }
 .#{$ti-prefix}-server:before { content: $ti-icon-server; }
 .#{$ti-prefix}-server-2:before { content: $ti-icon-server-2; }
+.#{$ti-prefix}-server-bolt:before { content: $ti-icon-server-bolt; }
+.#{$ti-prefix}-server-cog:before { content: $ti-icon-server-cog; }
 .#{$ti-prefix}-server-off:before { content: $ti-icon-server-off; }
 .#{$ti-prefix}-servicemark:before { content: $ti-icon-servicemark; }
 .#{$ti-prefix}-settings:before { content: $ti-icon-settings; }
@@ -4535,7 +4569,9 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-wash-dry-off:before { content: $ti-icon-wash-dry-off; }
 .#{$ti-prefix}-wash-dry-p:before { content: $ti-icon-wash-dry-p; }
 .#{$ti-prefix}-wash-dry-shade:before { content: $ti-icon-wash-dry-shade; }
+.#{$ti-prefix}-wash-dry-w:before { content: $ti-icon-wash-dry-w; }
 .#{$ti-prefix}-wash-dryclean:before { content: $ti-icon-wash-dryclean; }
+.#{$ti-prefix}-wash-dryclean-off:before { content: $ti-icon-wash-dryclean-off; }
 .#{$ti-prefix}-wash-gentle:before { content: $ti-icon-wash-gentle; }
 .#{$ti-prefix}-wash-machine:before { content: $ti-icon-wash-machine; }
 .#{$ti-prefix}-wash-off:before { content: $ti-icon-wash-off; }
