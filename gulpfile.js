@@ -7,6 +7,7 @@ const gulp = require('gulp'),
     csv = require('csv-parser'),
     zip = require('gulp-zip'),
     svgo = require('gulp-svgo'),
+    { optimize } = require('svgo'),
     outlineStroke = require('svg-outline-stroke'),
     iconfont = require('gulp-iconfont'),
     template = require('lodash.template'),
@@ -206,19 +207,19 @@ const generateIconsPreview = function(files, destFile, cb, columnsCount = 19, pa
 
 //*********************************************************************************************
 
-gulp.task('iconfont-prepare', function(cb) {
-  cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/* && mkdir -p && rm -fd ./iconfont/*', function() {
+gulp.task('iconfont-prepare', (cb) => {
+  cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/* && mkdir -p && rm -fd ./iconfont/*', () => {
     cb()
   })
 })
 
-gulp.task('iconfont-clean', function(cb) {
-  cp.exec('rm -rf ./icons-outlined', function() {
+gulp.task('iconfont-clean', (cb) => {
+  cp.exec('rm -rf ./icons-outlined', () => {
     cb()
   })
 })
 
-gulp.task('iconfont-svg-outline', function(cb) {
+gulp.task('iconfont-svg-outline', (cb) => {
 
   cp.exec('mkdir -p icons-outlined/ && rm -fd ./icons-outlined/*', async () => {
     let files = glob.sync('./icons/*.svg')
@@ -263,11 +264,11 @@ gulp.task('iconfont-svg-outline', function(cb) {
   })
 })
 
-gulp.task('iconfont-optimize', function() {
+gulp.task('iconfont-optimize', () => {
   return gulp.src('icons-outlined/*').pipe(svgo()).pipe(gulp.dest('icons-outlined'))
 })
 
-gulp.task('iconfont-fix-outline', function(cb) {
+gulp.task('iconfont-fix-outline', (cb) => {
   var fontForge = compileOptions.fontForge
 
   // correct svg outline directions in a child process using fontforge
@@ -280,7 +281,7 @@ gulp.task('iconfont-fix-outline', function(cb) {
   })
 })
 
-gulp.task('iconfont', function() {
+gulp.task('iconfont', () => {
   return gulp.src(['icons-outlined/*.svg']).pipe(iconfont({
     fontName: 'tabler-icons',
     prependUnicode: true,
@@ -312,7 +313,7 @@ gulp.task('iconfont', function() {
   }).pipe(gulp.dest('iconfont/fonts'))
 })
 
-gulp.task('iconfont-css', function(cb) {
+gulp.task('iconfont-css', (cb) => {
   sass.render({
     file: 'iconfont/tabler-icons.scss',
     outputStyle: 'expanded'
@@ -364,7 +365,7 @@ gulp.task('update-icons-unicode', (cb) => {
             return `unicode: "${unicode}"\n${m}`
           })
 
-          console.log(`Add unicode "${unicode}" to "${file}"`);
+          console.log(`Add unicode "${unicode}" to "${file}"`)
           fs.writeFileSync(file, svgFile)
         }
       } else {
@@ -379,7 +380,7 @@ gulp.task('update-icons-unicode', (cb) => {
 gulp.task('build-iconfont',
     gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont-fix-outline', 'iconfont-optimize', 'iconfont', 'iconfont-css', 'iconfont-clean'))
 
-gulp.task('build-zip', function() {
+gulp.task('build-zip', () => {
   const version = p.version
 
   return gulp.src('{icons/**/*,icons-png/**/*,icons-react/**/*,iconfont/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}').
@@ -387,7 +388,7 @@ gulp.task('build-zip', function() {
       pipe(gulp.dest('packages-zip'))
 })
 
-gulp.task('build-jekyll', function(cb) {
+gulp.task('build-jekyll', (cb) => {
   const jekyll = cp.spawn('bundle', ['exec', 'jekyll', 'build'], { stdio: 'inherit' })
   jekyll.on('close', function(code) {
     console.log(`Jekyll build exited with code ${code}`)
@@ -397,19 +398,19 @@ gulp.task('build-jekyll', function(cb) {
   })
 })
 
-gulp.task('build-copy', function(cb) {
-  cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons && cp ./_site/tags.json .', function() {
+gulp.task('build-copy', (cb) => {
+  cp.exec('mkdir -p icons/ && rm -fd ./icons/* && cp ./_site/icons/* ./icons && cp ./_site/tags.json .', () => {
     cb()
   })
 })
 
-gulp.task('clean-png', function(cb) {
-  cp.exec('rm -fd ./icons-png/*', function() {
+gulp.task('clean-png', (cb) => {
+  cp.exec('rm -fd ./icons-png/*', () => {
     cb()
   })
 })
 
-gulp.task('icons-sprite', function(cb) {
+gulp.task('icons-sprite', (cb) => {
   glob('_site/icons/*.svg', {}, function(er, files) {
 
     let svgContent = ''
@@ -432,13 +433,13 @@ gulp.task('icons-sprite', function(cb) {
   })
 })
 
-gulp.task('icons-preview', function(cb) {
+gulp.task('icons-preview', (cb) => {
   glob('icons/*.svg', {}, function(er, files) {
     generateIconsPreview(files, '.github/icons.svg', cb)
   })
 })
 
-gulp.task('icons-stroke', gulp.series('build-jekyll', function(cb) {
+gulp.task('icons-stroke', gulp.series('build-jekyll', (cb) => {
 
   const icon = 'disabled',
       strokes = ['.5', '1', '1.5', '2', '2.75'],
@@ -473,7 +474,7 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', function(cb) {
   cb()
 }))
 
-gulp.task('optimize', function(cb) {
+gulp.task('optimize', (cb) => {
   const addFloats = function(n1, n2) {
     return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
   }
@@ -529,7 +530,7 @@ gulp.task('optimize', function(cb) {
   })
 })
 
-gulp.task('changelog-commit', function(cb) {
+gulp.task('changelog-commit', (cb) => {
   cp.exec('git status', function(err, ret) {
     let newIcons = [], modifiedIcons = [], renamedIcons = []
 
@@ -555,7 +556,7 @@ gulp.task('changelog-commit', function(cb) {
   })
 })
 
-gulp.task('changelog', function(cb) {
+gulp.task('changelog', (cb) => {
   const version = argv['latest-tag'] || `v${p.version}`
 
   if (version) {
@@ -586,7 +587,7 @@ gulp.task('changelog', function(cb) {
   }
 })
 
-gulp.task('changelog-image', function(cb) {
+gulp.task('changelog-image', (cb) => {
   const version = argv['latest-version'] || `${p.version}`,
       newVersion = argv['new-version'] || `${p.version}`
 
@@ -628,13 +629,13 @@ gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
   cb()
 }))
 
-gulp.task('clean-react', function(cb) {
-  cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', function() {
+gulp.task('clean-react', (cb) => {
+  cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
     cb()
   })
 })
 
-gulp.task('svg-to-react', gulp.series('clean-react', async function(cb) {
+gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
   let files = glob.sync('./icons/*.svg')
 
   const camelize = function(str) {
@@ -704,7 +705,7 @@ const setVersions = function(version, files) {
   }
 }
 
-gulp.task('update-icons-version', function(cb) {
+gulp.task('update-icons-version', (cb) => {
 
   const version = argv['latest-version'] || `${p.version}`,
       newVersion = argv['new-version'] || `${p.version}`
@@ -727,7 +728,7 @@ gulp.task('update-icons-version', function(cb) {
   cb()
 })
 
-gulp.task('import-categories', function(cb) {
+gulp.task('import-categories', (cb) => {
   let files = glob.sync('./src/_icons/*-2.svg')
 
   files.forEach(function(file, i) {
@@ -758,7 +759,7 @@ gulp.task('import-categories', function(cb) {
   cb()
 })
 
-gulp.task('import-tags', function(cb) {
+gulp.task('import-tags', (cb) => {
   fs.createReadStream('./_import.tsv').pipe(csv({
     headers: false,
     separator: '\t'
@@ -784,10 +785,74 @@ gulp.task('import-tags', function(cb) {
   cb()
 })
 
-gulp.task('build-react', function(cb) {
-  cp.exec('npm run build-react', function() {
+gulp.task('build-react', (cb) => {
+  cp.exec('npm run build-react', () => {
     cb()
   })
 })
 
-gulp.task('build', gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react', 'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'))
+gulp.task('build',
+    gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react',
+        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'))
+
+const optimizeSVG = (data) => {
+  return optimize(data, {
+    js2svg: {
+      indent: 2,
+      pretty: true,
+    },
+    plugins: [{
+      name: 'preset-default',
+      params: {
+        overrides: {
+          mergePaths: false,
+        },
+      },
+    },]
+  }).data
+}
+
+gulp.task('import', gulp.series((cb) => {
+  if (fs.existsSync('./new/Artboard.svg')) {
+    fs.unlinkSync('rm ./new/Artboard.svg')
+  }
+
+  const files = glob.sync('./new/*.svg')
+
+  files.forEach(function(file, i) {
+    let fileData = fs.readFileSync(file).toString(),
+        filename = path.basename(file, '.svg')
+
+    console.log(filename);
+
+    fileData = optimizeSVG(fileData);
+
+    fileData = fileData
+      .replace(/---/g, '')
+      .replace(/fill="none"/g, '')
+      .replace(/fill-rule="evenodd"/g, '')
+      .replace(/stroke-linecap="round"/g, '')
+      .replace(/stroke-linejoin="round"/g, '')
+      .replace(/viewBox="0 0 24 24"/g, '')
+      .replace(/stroke="#000000"/g, '')
+      .replace(/stroke="#000"/g, '')
+      .replace(/stroke-width="2"/g, '')
+      .replace(/width="24"/g, '')
+      .replace(/width="24px"/g, '')
+      .replace(/height="24"/g, '')
+      .replace(/height="24px"/g, '')
+      .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
+      .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
+      .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
+      .replace(/<path stroke="red" stroke-width="[^"]+" opacity=".1" d="[^"]+"\s?\/>/g, '')
+
+    fileData = optimizeSVG(fileData);
+
+    fileData = fileData
+      .replace(/<svg>/g, '---\n---\n<svg>')
+
+    fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
+  })
+
+  cb()
+}, 'optimize'))
