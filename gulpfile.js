@@ -101,7 +101,11 @@ async function asyncForEach(array, callback) {
 const svgToPng = async (filePath, destination) => {
   filePath = path.join(__dirname, filePath)
 
-  await cp.exec(`rsvg-convert -h 240 ${filePath} > ${destination}`)
+  await new Promise((resolve, reject) => {
+    cp.exec(`rsvg-convert -h 240 ${filePath} > ${destination}`, (error, stdout, stderr) => {
+      error ? reject() : resolve()
+    })
+  })
 }
 
 const createScreenshot = async (filePath) => {
