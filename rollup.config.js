@@ -4,7 +4,6 @@ import filesize from "rollup-plugin-filesize";
 import babel from "@rollup/plugin-babel";
 import external from "rollup-plugin-peer-deps-external";
 import { terser } from "rollup-plugin-terser";
-import { uglify } from "rollup-plugin-uglify";
 import pkg from "./package.json";
 
 const input = "icons-react/index.js";
@@ -12,27 +11,6 @@ const input = "icons-react/index.js";
 const minifyExtension = (pathToFile) => pathToFile.replace(/\.js$/, ".min.js");
 
 const plugins = [
-  babel({
-    exclude: "node_modules/**",
-  }),
-  external(),
-  resolve(),
-  commonjs(),
-  filesize(),
-];
-
-const minCjsPlugins = [
-  babel({
-    exclude: "node_modules/**",
-  }),
-  external(),
-  resolve(),
-  commonjs(),
-  uglify(),
-  filesize(),
-];
-
-const minUmdEsmPlugins = [
   babel({
     exclude: "node_modules/**",
   }),
@@ -62,7 +40,7 @@ export default [
       format: "cjs",
       sourcemap: true,
     },
-    plugins: minCjsPlugins,
+    plugins
   },
   // UMD (for browser)
   {
@@ -92,7 +70,7 @@ export default [
         "react-dom": "ReactDOM",
       },
     },
-    plugins: minUmdEsmPlugins,
+    plugins
   },
   // ESM (for bundlers)
   {
@@ -114,6 +92,6 @@ export default [
       sourcemap: true,
       exports: "named",
     },
-    plugins: minUmdEsmPlugins,
+    plugins
   },
 ];
