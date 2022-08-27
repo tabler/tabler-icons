@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.89.0 by tabler - https://tabler.io
+ * Tabler Icons 1.90.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -939,28 +939,46 @@ $ti-icon-currency-dirham: unicode('ee55');
 $ti-icon-currency-dogecoin: unicode('ef4b');
 $ti-icon-currency-dollar: unicode('eb84');
 $ti-icon-currency-dollar-australian: unicode('ee56');
+$ti-icon-currency-dollar-brunei: unicode('f36c');
 $ti-icon-currency-dollar-canadian: unicode('ee57');
+$ti-icon-currency-dollar-guyanese: unicode('f36d');
 $ti-icon-currency-dollar-singapore: unicode('ee58');
+$ti-icon-currency-dollar-zimbabwean: unicode('f36e');
+$ti-icon-currency-dong: unicode('f36f');
+$ti-icon-currency-dram: unicode('f370');
 $ti-icon-currency-ethereum: unicode('ee59');
 $ti-icon-currency-euro: unicode('eb85');
 $ti-icon-currency-forint: unicode('ee5a');
 $ti-icon-currency-frank: unicode('ee5b');
+$ti-icon-currency-guarani: unicode('f371');
+$ti-icon-currency-hryvnia: unicode('f372');
+$ti-icon-currency-kip: unicode('f373');
 $ti-icon-currency-krone-czech: unicode('ee5c');
 $ti-icon-currency-krone-danish: unicode('ee5d');
 $ti-icon-currency-krone-swedish: unicode('ee5e');
+$ti-icon-currency-lari: unicode('f374');
 $ti-icon-currency-leu: unicode('ee5f');
 $ti-icon-currency-lira: unicode('ee60');
 $ti-icon-currency-litecoin: unicode('ee61');
+$ti-icon-currency-lyd: unicode('f375');
+$ti-icon-currency-manat: unicode('f376');
+$ti-icon-currency-monero: unicode('f377');
 $ti-icon-currency-naira: unicode('ee62');
+$ti-icon-currency-paanga: unicode('f378');
 $ti-icon-currency-pound: unicode('ebac');
+$ti-icon-currency-quetzal: unicode('f379');
 $ti-icon-currency-real: unicode('ee63');
 $ti-icon-currency-renminbi: unicode('ee64');
 $ti-icon-currency-ripple: unicode('ee65');
 $ti-icon-currency-riyal: unicode('ee66');
 $ti-icon-currency-rubel: unicode('ee67');
+$ti-icon-currency-rufiyaa: unicode('f37a');
 $ti-icon-currency-rupee: unicode('ebad');
+$ti-icon-currency-rupee-nepalese: unicode('f37b');
 $ti-icon-currency-shekel: unicode('ee68');
+$ti-icon-currency-som: unicode('f37c');
 $ti-icon-currency-taka: unicode('ee69');
+$ti-icon-currency-tenge: unicode('f37d');
 $ti-icon-currency-tugrik: unicode('ee6a');
 $ti-icon-currency-won: unicode('ee6b');
 $ti-icon-currency-yen: unicode('ebae');
@@ -3315,28 +3333,46 @@ $ti-icon-zzz: unicode('f228');
 .#{$ti-prefix}-currency-dogecoin:before { content: $ti-icon-currency-dogecoin; }
 .#{$ti-prefix}-currency-dollar:before { content: $ti-icon-currency-dollar; }
 .#{$ti-prefix}-currency-dollar-australian:before { content: $ti-icon-currency-dollar-australian; }
+.#{$ti-prefix}-currency-dollar-brunei:before { content: $ti-icon-currency-dollar-brunei; }
 .#{$ti-prefix}-currency-dollar-canadian:before { content: $ti-icon-currency-dollar-canadian; }
+.#{$ti-prefix}-currency-dollar-guyanese:before { content: $ti-icon-currency-dollar-guyanese; }
 .#{$ti-prefix}-currency-dollar-singapore:before { content: $ti-icon-currency-dollar-singapore; }
+.#{$ti-prefix}-currency-dollar-zimbabwean:before { content: $ti-icon-currency-dollar-zimbabwean; }
+.#{$ti-prefix}-currency-dong:before { content: $ti-icon-currency-dong; }
+.#{$ti-prefix}-currency-dram:before { content: $ti-icon-currency-dram; }
 .#{$ti-prefix}-currency-ethereum:before { content: $ti-icon-currency-ethereum; }
 .#{$ti-prefix}-currency-euro:before { content: $ti-icon-currency-euro; }
 .#{$ti-prefix}-currency-forint:before { content: $ti-icon-currency-forint; }
 .#{$ti-prefix}-currency-frank:before { content: $ti-icon-currency-frank; }
+.#{$ti-prefix}-currency-guarani:before { content: $ti-icon-currency-guarani; }
+.#{$ti-prefix}-currency-hryvnia:before { content: $ti-icon-currency-hryvnia; }
+.#{$ti-prefix}-currency-kip:before { content: $ti-icon-currency-kip; }
 .#{$ti-prefix}-currency-krone-czech:before { content: $ti-icon-currency-krone-czech; }
 .#{$ti-prefix}-currency-krone-danish:before { content: $ti-icon-currency-krone-danish; }
 .#{$ti-prefix}-currency-krone-swedish:before { content: $ti-icon-currency-krone-swedish; }
+.#{$ti-prefix}-currency-lari:before { content: $ti-icon-currency-lari; }
 .#{$ti-prefix}-currency-leu:before { content: $ti-icon-currency-leu; }
 .#{$ti-prefix}-currency-lira:before { content: $ti-icon-currency-lira; }
 .#{$ti-prefix}-currency-litecoin:before { content: $ti-icon-currency-litecoin; }
+.#{$ti-prefix}-currency-lyd:before { content: $ti-icon-currency-lyd; }
+.#{$ti-prefix}-currency-manat:before { content: $ti-icon-currency-manat; }
+.#{$ti-prefix}-currency-monero:before { content: $ti-icon-currency-monero; }
 .#{$ti-prefix}-currency-naira:before { content: $ti-icon-currency-naira; }
+.#{$ti-prefix}-currency-paanga:before { content: $ti-icon-currency-paanga; }
 .#{$ti-prefix}-currency-pound:before { content: $ti-icon-currency-pound; }
+.#{$ti-prefix}-currency-quetzal:before { content: $ti-icon-currency-quetzal; }
 .#{$ti-prefix}-currency-real:before { content: $ti-icon-currency-real; }
 .#{$ti-prefix}-currency-renminbi:before { content: $ti-icon-currency-renminbi; }
 .#{$ti-prefix}-currency-ripple:before { content: $ti-icon-currency-ripple; }
 .#{$ti-prefix}-currency-riyal:before { content: $ti-icon-currency-riyal; }
 .#{$ti-prefix}-currency-rubel:before { content: $ti-icon-currency-rubel; }
+.#{$ti-prefix}-currency-rufiyaa:before { content: $ti-icon-currency-rufiyaa; }
 .#{$ti-prefix}-currency-rupee:before { content: $ti-icon-currency-rupee; }
+.#{$ti-prefix}-currency-rupee-nepalese:before { content: $ti-icon-currency-rupee-nepalese; }
 .#{$ti-prefix}-currency-shekel:before { content: $ti-icon-currency-shekel; }
+.#{$ti-prefix}-currency-som:before { content: $ti-icon-currency-som; }
 .#{$ti-prefix}-currency-taka:before { content: $ti-icon-currency-taka; }
+.#{$ti-prefix}-currency-tenge:before { content: $ti-icon-currency-tenge; }
 .#{$ti-prefix}-currency-tugrik:before { content: $ti-icon-currency-tugrik; }
 .#{$ti-prefix}-currency-won:before { content: $ti-icon-currency-won; }
 .#{$ti-prefix}-currency-yen:before { content: $ti-icon-currency-yen; }
