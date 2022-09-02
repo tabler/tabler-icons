@@ -834,6 +834,7 @@ gulp.task('import', gulp.series((cb) => {
     fileData = fileData
       .replace(/---/g, '')
       .replace(/fill="none"/g, '')
+      .replace(/fill="#D8D8D8"/gi, '')
       .replace(/fill-rule="evenodd"/g, '')
       .replace(/stroke-linecap="round"/g, '')
       .replace(/stroke-linejoin="round"/g, '')
