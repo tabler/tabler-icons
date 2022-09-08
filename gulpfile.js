@@ -789,6 +789,17 @@ gulp.task('import-tags', (cb) => {
   cb()
 })
 
+gulp.task('update-readme', (cb) => {
+  let fileData = fs.readFileSync('README.md').toString(),
+      count = glob.sync('./icons/*.svg').length
+
+  fileData = fileData.replace(/<!--icons-count-->(.*?)<!--\/icons-count-->/, `<!--icons-count-->${count}<!--/icons-count-->`);
+
+  fs.writeFileSync('README.md', fileData)
+
+  cb()
+})
+
 gulp.task('build-react', (cb) => {
   cp.exec('npm run build-react', () => {
     cb()
@@ -797,7 +808,7 @@ gulp.task('build-react', (cb) => {
 
 gulp.task('build',
     gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react',
-        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'))
+        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip', 'update-readme'))
 
 const optimizeSVG = (data) => {
   return optimize(data, {
