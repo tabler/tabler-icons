@@ -407,7 +407,7 @@ export const IconBrackets: TablerIcon;
 export const IconBrandAdobe: TablerIcon;
 export const IconBrandAirbnb: TablerIcon;
 export const IconBrandAirtable: TablerIcon;
-export const IconBrandAlbolia: TablerIcon;
+export const IconBrandAlgolia: TablerIcon;
 export const IconBrandAlpineJs: TablerIcon;
 export const IconBrandAmazon: TablerIcon;
 export const IconBrandAmongus: TablerIcon;

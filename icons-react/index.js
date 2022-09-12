@@ -401,7 +401,7 @@ export { default as IconBrackets } from './icons-js/brackets.js';
 export { default as IconBrandAdobe } from './icons-js/brand-adobe.js';
 export { default as IconBrandAirbnb } from './icons-js/brand-airbnb.js';
 export { default as IconBrandAirtable } from './icons-js/brand-airtable.js';
-export { default as IconBrandAlbolia } from './icons-js/brand-albolia.js';
+export { default as IconBrandAlgolia } from './icons-js/brand-algolia.js';
 export { default as IconBrandAlpineJs } from './icons-js/brand-alpine-js.js';
 export { default as IconBrandAmazon } from './icons-js/brand-amazon.js';
 export { default as IconBrandAmongus } from './icons-js/brand-amongus.js';
