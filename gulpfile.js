@@ -842,6 +842,10 @@ gulp.task('import', gulp.series((cb) => {
 
     fileData = optimizeSVG(fileData);
 
+    if(fileData.match(/transform="/)) {
+      throw new Error(`File ${file} has \`transform\` in code!!`);
+    }
+
     fileData = fileData
       .replace(/---/g, '')
       .replace(/fill="none"/g, '')
@@ -868,6 +872,15 @@ gulp.task('import', gulp.series((cb) => {
 
     fileData = fileData
       .replace(/<svg>/g, '---\n---\n<svg>')
+
+    if(fs.existsSync(`./src/_icons/${filename}.svg`)) {
+      const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString();
+      const m = newFileData.match(/(---.*---)/gms)
+
+      if(m) {
+        fileData = fileData.replace('---\n---', m[0])
+      }
+    }
 
     fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
   })
