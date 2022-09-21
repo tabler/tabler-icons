@@ -1,6 +1,10 @@
 import { FC, SVGAttributes } from 'react';
 
-interface TablerIconProps extends SVGAttributes<SVGElement> { color?: string; size?: string | number; stroke?: string | number; }
+type TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {
+  color?: SVGAttributes<SVGElement>['stroke'];
+  size?: SVGAttributes<SVGElement>['width'];
+  stroke?: SVGAttributes<SVGElement>['strokeWidth'];
+}
 
 type TablerIcon = FC<TablerIconProps>;
 

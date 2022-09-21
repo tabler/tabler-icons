@@ -682,7 +682,7 @@ gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
   }
 
   let indexCode = '',
-      indexDCode = `import { FC, SVGAttributes } from 'react';\n\ninterface TablerIconProps extends SVGAttributes<SVGElement> { color?: string; size?: string | number; stroke?: string | number; }\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
+      indexDCode = `import { FC, SVGAttributes } from 'react';\n\ntype TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {\n  color?: SVGAttributes<SVGElement>['stroke'];\n  size?: SVGAttributes<SVGElement>['width'];\n  stroke?: SVGAttributes<SVGElement>['strokeWidth'];\n}\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
 
   await asyncForEach(files, async function(file) {
     const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
