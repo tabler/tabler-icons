@@ -185,10 +185,10 @@ const generateIconsPreview = function(files, destFile, cb, columnsCount = 19, pa
     let svgFile = fs.readFileSync(file),
         svgFileContent = svgFile.toString()
 
-    svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`).
-        replace(' width="24" height="24"', '').
-        replace('</svg>', '</symbol>').
-        replace(/\n\s+/g, '')
+    svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
+        .replace(' width="24" height="24"', '')
+        .replace('</svg>', '</symbol>')
+        .replace(/\n\s+/g, '')
 
     svgContentSymbols += `\t${svgFileContent}\n`
     svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`
@@ -387,13 +387,19 @@ gulp.task('build-iconfont',
 gulp.task('build-zip', () => {
   const version = p.version
 
-  return gulp.src('{icons/**/*,icons-png/**/*,icons-react/**/*,iconfont/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}').
-      pipe(zip(`tabler-icons-${version}.zip`)).
-      pipe(gulp.dest('packages-zip'))
+  return gulp.src('{icons/**/*,icons-png/**/*,icons-react/**/*,iconfont/**/*,tabler-sprite.svg,tabler-sprite-nostroke.svg}')
+      .pipe(zip(`tabler-icons-${version}.zip`))
+      .pipe(gulp.dest('packages-zip'))
 })
 
 gulp.task('build-jekyll', (cb) => {
-  const jekyll = cp.spawn('bundle', ['exec', 'jekyll', 'build'], { stdio: 'inherit' })
+  const jekyll = cp.spawn('bundle', ['exec', 'jekyll', 'build'], {
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      JEKYLL_ENV: 'production'
+    }
+  })
   jekyll.on('close', function(code) {
     console.log(`Jekyll build exited with code ${code}`)
     if (!code) {
@@ -459,11 +465,11 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', (cb) => {
       x = paddingOuter
 
   strokes.forEach(function(stroke) {
-    let svgFileContentStroked = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`).
-        replace(' width="24" height="24"', '').
-        replace(' stroke-width="2"', ` stroke-width="${stroke}"`).
-        replace('</svg>', '</symbol>').
-        replace(/\n\s+/g, '')
+    let svgFileContentStroked = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
+        .replace(' width="24" height="24"', '')
+        .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
+        .replace('</svg>', '</symbol>')
+        .replace(/\n\s+/g, '')
 
     svgContentSymbols += `\t${svgFileContentStroked}\n`
     svgContentIcons += `\t<use xlink:href="#icon-${stroke}" x="${x}" y="${paddingOuter}" width="${iconSize}" height="${iconSize}" />\n`
@@ -497,29 +503,43 @@ gulp.task('optimize', (cb) => {
       let svgFile = fs.readFileSync(file),
           svgFileContent = svgFile.toString()
 
-      svgFileContent = svgFileContent.replace(/><\/(polyline|line|rect|circle|path)>/g, '/>').
-          replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"').
-          replace(/<path stroke="red" stroke-width="\.1"([^>]+)?\/>/g, '').
-          replace(/\s?\/>/g, ' />').
-          replace(/\n\s*<(line|circle|path|polyline|rect)/g, '\n  <$1').
-          replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"').
-          replace(/<path d="([^"]+)"/g, function(f, r1) {
+      svgFileContent = svgFileContent.replace(/><\/(polyline|line|rect|circle|path|ellipse)>/g, '/>')
+          .replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
+          .replace(/<path stroke="red" stroke-width="\.1"([^>]+)?\/>/g, '')
+          .replace(/\s?\/>/g, ' />')
+          .replace(/\n\s*<(line|circle|path|polyline|rect|ellipse)/g, '\n  <$1')
+          .replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
+          .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
+            return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
+          })
+          .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
+            return `<path d="M ${cx} ${cy}m -${r}, 0a ${r},${r} 0 1,0 ${r * 2},0a ${r},${r} 0 1,0 ${r * -2},0" />`
+          })
+          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, rx, cx, ry, cy) {
+            return `<path d="M ${cx - rx} ${cy}a${rx}, ${ry} 0 1,0 ${rx * 2},0a ${rx},${ry} 0 1,0 -${rx * 2},0" />`
+          })
+          .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
+            return `M`
+          })
+          .replace(/<path d="([^"]+)"/g, function(f, r1) {
             r1 = optimizePath(r1)
 
             return `<path d="${r1}"`
-          }).
-          replace(/d="m/g, 'd="M').
-          replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8').
-          replace(/\n\s+\n+/g, '\n').
-          replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
-            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
-          }).
-          replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-            return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
-          }).
-          replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
-          }).
+          })
+          .replace(/d="m/g, 'd="M')
+          .replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
+          .replace(/\n\s+\n+/g, '\n')
+          .
+
+          // replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
+          //   return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
+          // }).
+          // replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
+          //   return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
+          // }).
+          // replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
+          //   return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
+          // }).
           replace(/<path d="([^"]+)"/g, function(f, r1) {
             r1 = r1.replace(/ -0\./g, ' -.').replace(/ 0\./g, ' .').replace(/\s([a-z])/gi, '$1').replace(/([a-z])\s/gi, '$1')
             return `<path d="${r1}"`
@@ -793,7 +813,7 @@ gulp.task('update-readme', (cb) => {
   let fileData = fs.readFileSync('README.md').toString(),
       count = glob.sync('./icons/*.svg').length
 
-  fileData = fileData.replace(/<!--icons-count-->(.*?)<!--\/icons-count-->/, `<!--icons-count-->${count}<!--/icons-count-->`);
+  fileData = fileData.replace(/<!--icons-count-->(.*?)<!--\/icons-count-->/, `<!--icons-count-->${count}<!--/icons-count-->`)
 
   fs.writeFileSync('README.md', fileData)
 
@@ -814,16 +834,17 @@ const optimizeSVG = (data) => {
   return optimize(data, {
     js2svg: {
       indent: 2,
-      pretty: true,
+      pretty: true
     },
-    plugins: [{
-      name: 'preset-default',
-      params: {
-        overrides: {
-          mergePaths: false,
-        },
-      },
-    },]
+    plugins: [
+      {
+        name: 'preset-default',
+        params: {
+          overrides: {
+            mergePaths: true
+          }
+        }
+      }]
   }).data
 }
 
@@ -838,46 +859,44 @@ gulp.task('import', gulp.series((cb) => {
     let fileData = fs.readFileSync(file).toString(),
         filename = path.basename(file, '.svg')
 
-    console.log(filename);
+    console.log(filename)
 
-    fileData = optimizeSVG(fileData);
+    fileData = optimizeSVG(fileData)
 
-    if(fileData.match(/transform="/)) {
-      throw new Error(`File ${file} has \`transform\` in code!!`);
+    if (fileData.match(/transform="/)) {
+      throw new Error(`File ${file} has \`transform\` in code!!`)
     }
 
-    fileData = fileData
-      .replace(/---/g, '')
-      .replace(/fill="none"/g, '')
-      .replace(/fill="#D8D8D8"/gi, '')
-      .replace(/fill-rule="evenodd"/g, '')
-      .replace(/stroke-linecap="round"/g, '')
-      .replace(/stroke-linejoin="round"/g, '')
-      .replace(/viewBox="0 0 24 24"/g, '')
-      .replace(/stroke="#000000"/g, '')
-      .replace(/stroke="#000"/g, '')
-      .replace(/stroke-width="2"/g, '')
-      .replace(/width="24"/g, '')
-      .replace(/width="24px"/g, '')
-      .replace(/height="24"/g, '')
-      .replace(/height="24px"/g, '')
-      .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
-      .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
-      .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
-      .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
-      .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
-      .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
+    fileData = fileData.replace(/---/g, '')
+        .replace(/fill="none"/g, '')
+        .replace(/fill="#D8D8D8"/gi, '')
+        .replace(/fill-rule="evenodd"/g, '')
+        .replace(/stroke-linecap="round"/g, '')
+        .replace(/stroke-linejoin="round"/g, '')
+        .replace(/viewBox="0 0 24 24"/g, '')
+        .replace(/stroke="#000000"/g, '')
+        .replace(/stroke="#000"/g, '')
+        .replace(/stroke-width="2"/g, '')
+        .replace(/width="24"/g, '')
+        .replace(/width="24px"/g, '')
+        .replace(/height="24"/g, '')
+        .replace(/height="24px"/g, '')
+        .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
+        .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
+        .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
+        .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
+        .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
+        .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
 
-    fileData = optimizeSVG(fileData);
+    fileData = optimizeSVG(fileData)
 
-    fileData = fileData
-      .replace(/<svg>/g, '---\n---\n<svg>')
+    fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
-    if(fs.existsSync(`./src/_icons/${filename}.svg`)) {
-      const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString();
+    if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
+      const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString()
       const m = newFileData.match(/(---.*---)/gms)
 
-      if(m) {
+      if (m) {
         fileData = fileData.replace('---\n---', m[0])
       }
     }
