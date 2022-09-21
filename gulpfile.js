@@ -509,18 +509,18 @@ gulp.task('optimize', (cb) => {
           .replace(/\s?\/>/g, ' />')
           .replace(/\n\s*<(line|circle|path|polyline|rect|ellipse)/g, '\n  <$1')
           .replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
-          .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
-            return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
-          })
-          .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
-            return `<path d="M ${cx} ${cy}m -${r}, 0a ${r},${r} 0 1,0 ${r * 2},0a ${r},${r} 0 1,0 ${r * -2},0" />`
-          })
-          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, rx, cx, ry, cy) {
-            return `<path d="M ${cx - rx} ${cy}a${rx}, ${ry} 0 1,0 ${rx * 2},0a ${rx},${ry} 0 1,0 -${rx * 2},0" />`
-          })
-          .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
-            return `M`
-          })
+          // .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
+          //   return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
+          // })
+          // .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
+          //   return `<path d="M ${cx} ${cy}m -${r}, 0a ${r},${r} 0 1,0 ${r * 2},0a ${r},${r} 0 1,0 ${r * -2},0" />`
+          // })
+          // .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, rx, cx, ry, cy) {
+          //   return `<path d="M ${cx - rx} ${cy}a${rx}, ${ry} 0 1,0 ${rx * 2},0a ${rx},${ry} 0 1,0 -${rx * 2},0" />`
+          // })
+          // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
+          //   return `M`
+          // })
           .replace(/<path d="([^"]+)"/g, function(f, r1) {
             r1 = optimizePath(r1)
 
@@ -529,18 +529,16 @@ gulp.task('optimize', (cb) => {
           .replace(/d="m/g, 'd="M')
           .replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
           .replace(/\n\s+\n+/g, '\n')
-          .
-
-          // replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
-          //   return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
-          // }).
-          // replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-          //   return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
-          // }).
-          // replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-          //   return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
-          // }).
-          replace(/<path d="([^"]+)"/g, function(f, r1) {
+          .replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
+            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
+          })
+          .replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
+            return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
+          })
+          .replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
+            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
+          })
+          .replace(/<path d="([^"]+)"/g, function(f, r1) {
             r1 = r1.replace(/ -0\./g, ' -.').replace(/ 0\./g, ' .').replace(/\s([a-z])/gi, '$1').replace(/([a-z])\s/gi, '$1')
             return `<path d="${r1}"`
           })
@@ -841,7 +839,7 @@ const optimizeSVG = (data) => {
         name: 'preset-default',
         params: {
           overrides: {
-            mergePaths: true
+            mergePaths: false
           }
         }
       }]
