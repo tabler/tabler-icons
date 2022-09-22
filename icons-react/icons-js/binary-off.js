@@ -6,7 +6,7 @@ function IconBinaryOff({
   stroke = 2,
   ...props
 }) {
-  return <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-binary-off" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><g transform="translate(10 5)"><path d="M1 2v-2h-1m8 14v-1" /><rect x={5} width={3} height={5} rx={0.5} /><rect y={9} width={3} height={5} rx={0.5} /></g><path d="M6 10v.01" /><path d="M6 19v.01" /><path d="M3 3l18 18" /></svg>;
+  return <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-binary-off" width={size} height={size} viewBox="0 0 24 24" strokeWidth={stroke} stroke={color} fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 7v-2h-1" /><path d="M18 19v-1" /><path d="M15.5 5h2a0.5 .5 0 0 1 .5 .5v4a0.5 .5 0 0 1 -.5 .5h-2a0.5 .5 0 0 1 -.5 -.5v-4a0.5 .5 0 0 1 .5 -.5z" /><path d="M10.5 14h2a0.5 .5 0 0 1 .5 .5v4a0.5 .5 0 0 1 -.5 .5h-2a0.5 .5 0 0 1 -.5 -.5v-4a0.5 .5 0 0 1 .5 -.5z" /><path d="M6 10v.01" /><path d="M6 19v.01" /><path d="M3 3l18 18" /></svg>;
 }
 
 export default IconBinaryOff;

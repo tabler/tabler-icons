@@ -156,6 +156,12 @@
     "version": "1.39",
     "unicode": "edff"
   }, 
+  "air-balloon": {
+    "category": "Vehicles",
+    "tags": ["air", "balloon", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4a6"
+  }, 
   "air-conditioning": {
     "category": "",
     "tags": ["air", "conditioning", "icon", "stroke", "outline"],
@@ -642,30 +648,6 @@
     "version": "1.52",
     "unicode": "efef"
   }, 
-  "arrow-bottom-bar": {
-    "category": "Arrows",
-    "tags": ["arrow", "bottom", "bar", "drag", "move", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "ed98"
-  }, 
-  "arrow-bottom-circle": {
-    "category": "Arrows",
-    "tags": ["arrow", "bottom", "circle", "drag", "move", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "ed99"
-  }, 
-  "arrow-bottom-square": {
-    "category": "Arrows",
-    "tags": ["arrow", "bottom", "square", "drag", "move", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "ed9a"
-  }, 
-  "arrow-bottom-tail": {
-    "category": "Arrows",
-    "tags": ["arrow", "bottom", "tail", "drag", "move", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "ed9b"
-  }, 
   "arrow-bounce": {
     "category": "Arrows",
     "tags": ["arrow", "bounce", "icon", "stroke", "outline"],
@@ -683,6 +665,12 @@
     "tags": ["arrow", "curve", "right", "direction", "north", "icon", "stroke", "outline"],
     "version": "1.57",
     "unicode": "f049"
+  }, 
+  "arrow-down-bar": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "bar", "drag", "move", "icon", "stroke", "outline"],
+    "version": "1.35",
+    "unicode": "ed98"
   }, 
   "arrow-down-circle": {
     "category": "Arrows",
@@ -713,6 +701,18 @@
     "tags": ["arrow", "down", "right", "corner", "bottom", "point", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "ea15"
+  }, 
+  "arrow-down-square": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "square", "drag", "move", "icon", "stroke", "outline"],
+    "version": "1.35",
+    "unicode": "ed9a"
+  }, 
+  "arrow-down-tail": {
+    "category": "Arrows",
+    "tags": ["arrow", "down", "tail", "drag", "move", "icon", "stroke", "outline"],
+    "version": "1.35",
+    "unicode": "ed9b"
   }, 
   "arrow-down": {
     "category": "Arrows",
@@ -1008,29 +1008,11 @@
     "version": "1.57",
     "unicode": "f05b"
   }, 
-  "arrow-top-bar": {
+  "arrow-up-bar": {
     "category": "Arrows",
-    "tags": ["arrow", "top", "bar", "direction", "north", "icon", "stroke", "outline"],
+    "tags": ["arrow", "up", "bar", "direction", "north", "icon", "stroke", "outline"],
     "version": "1.35",
     "unicode": "eda4"
-  }, 
-  "arrow-top-circle": {
-    "category": "Arrows",
-    "tags": ["arrow", "top", "circle", "direction", "north", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "eda5"
-  }, 
-  "arrow-top-square": {
-    "category": "Arrows",
-    "tags": ["arrow", "top", "square", "direction", "north", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "eda6"
-  }, 
-  "arrow-top-tail": {
-    "category": "Arrows",
-    "tags": ["arrow", "top", "tail", "direction", "north", "icon", "stroke", "outline"],
-    "version": "1.35",
-    "unicode": "eda7"
   }, 
   "arrow-up-circle": {
     "category": "Arrows",
@@ -1062,6 +1044,18 @@
     "version": "1.0",
     "unicode": "ea24"
   }, 
+  "arrow-up-square": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "square", "direction", "north", "icon", "stroke", "outline"],
+    "version": "1.35",
+    "unicode": "eda6"
+  }, 
+  "arrow-up-tail": {
+    "category": "Arrows",
+    "tags": ["arrow", "up", "tail", "direction", "north", "icon", "stroke", "outline"],
+    "version": "1.35",
+    "unicode": "eda7"
+  }, 
   "arrow-up": {
     "category": "Arrows",
     "tags": ["arrow", "up", "top", "point", "icon", "stroke", "outline"],
@@ -1091,6 +1085,12 @@
     "tags": ["arrow", "wave", "right", "up", "direction", "north", "icon", "stroke", "outline"],
     "version": "1.35",
     "unicode": "edab"
+  }, 
+  "arrow-zig-zag": {
+    "category": "Arrows",
+    "tags": ["arrow", "zig", "zag", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4a7"
   }, 
   "arrows-cross": {
     "category": "Arrows",
@@ -2436,9 +2436,9 @@
     "version": "1.45",
     "unicode": "ef6a"
   }, 
-  "brand-albolia": {
+  "brand-algolia": {
     "category": "Brand",
-    "tags": ["brand", "albolia", "icon", "stroke", "outline"],
+    "tags": ["brand", "algolia", "icon", "stroke", "outline"],
     "version": "1.92",
     "unicode": "f390"
   }, 
@@ -2831,6 +2831,12 @@
     "tags": ["brand", "git", "programming", "coding", "software", "perl", "boume shell", "icon", "stroke", "outline"],
     "version": "1.45",
     "unicode": "ef6f"
+  }, 
+  "brand-github-copilot": {
+    "category": "Brand",
+    "tags": ["brand", "github", "copilot", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4a8"
   }, 
   "brand-github": {
     "category": "Brand",
@@ -4686,95 +4692,35 @@
     "version": "1.33",
     "unicode": "ed78"
   }, 
-  "circle-0": {
-    "category": "Numbers",
-    "tags": ["circle", "0", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee34"
+  "circle-caret-down": {
+    "category": "Arrows",
+    "tags": ["circle", "caret", "down", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4a9"
   }, 
-  "circle-1": {
-    "category": "Numbers",
-    "tags": ["circle", "1", "one", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee35"
+  "circle-caret-left": {
+    "category": "Arrows",
+    "tags": ["circle", "caret", "left", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4aa"
   }, 
-  "circle-2": {
-    "category": "Numbers",
-    "tags": ["circle", "2", "two", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee36"
+  "circle-caret-right": {
+    "category": "Arrows",
+    "tags": ["circle", "caret", "right", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4ab"
   }, 
-  "circle-3": {
-    "category": "Numbers",
-    "tags": ["circle", "3", "three", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee37"
-  }, 
-  "circle-4": {
-    "category": "Numbers",
-    "tags": ["circle", "4", "four", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee38"
-  }, 
-  "circle-5": {
-    "category": "Numbers",
-    "tags": ["circle", "5", "five", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee39"
-  }, 
-  "circle-6": {
-    "category": "Numbers",
-    "tags": ["circle", "6", "six", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee3a"
-  }, 
-  "circle-7": {
-    "category": "Numbers",
-    "tags": ["circle", "7", "seven", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee3b"
-  }, 
-  "circle-8": {
-    "category": "Numbers",
-    "tags": ["circle", "8", "eight", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee3c"
-  }, 
-  "circle-9": {
-    "category": "Numbers",
-    "tags": ["circle", "9", "nine", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "ee3d"
-  }, 
-  "circle-a": {
-    "category": "Letters",
-    "tags": ["circle", "a", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f441"
-  }, 
-  "circle-b": {
-    "category": "Letters",
-    "tags": ["circle", "b", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f442"
-  }, 
-  "circle-c": {
-    "category": "Letters",
-    "tags": ["circle", "c", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f443"
+  "circle-caret-up": {
+    "category": "Arrows",
+    "tags": ["circle", "caret", "up", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4ac"
   }, 
   "circle-check": {
     "category": "",
     "tags": ["circle", "check", "accept", "true", "tick", "done", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "ea67"
-  }, 
-  "circle-d": {
-    "category": "Letters",
-    "tags": ["circle", "d", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f444"
   }, 
   "circle-dashed": {
     "category": "",
@@ -4794,30 +4740,6 @@
     "version": "1.26",
     "unicode": "ed28"
   }, 
-  "circle-e": {
-    "category": "Letters",
-    "tags": ["circle", "e", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f445"
-  }, 
-  "circle-f": {
-    "category": "Letters",
-    "tags": ["circle", "f", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f446"
-  }, 
-  "circle-g": {
-    "category": "Letters",
-    "tags": ["circle", "g", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f447"
-  }, 
-  "circle-h": {
-    "category": "Letters",
-    "tags": ["circle", "h", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f448"
-  }, 
   "circle-half-2": {
     "category": "Design",
     "tags": ["circle", "half", "2", "shape", "split", "slash", "icon", "stroke", "outline"],
@@ -4836,35 +4758,161 @@
     "version": "1.39",
     "unicode": "ee3f"
   }, 
-  "circle-i": {
+  "circle-letter-a": {
     "category": "Letters",
-    "tags": ["circle", "i", "icon", "stroke", "outline"],
+    "tags": ["circle", "letter", "a", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f441"
+  }, 
+  "circle-letter-b": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "b", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f442"
+  }, 
+  "circle-letter-c": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "c", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f443"
+  }, 
+  "circle-letter-d": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "d", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f444"
+  }, 
+  "circle-letter-e": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "e", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f445"
+  }, 
+  "circle-letter-f": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "f", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f446"
+  }, 
+  "circle-letter-g": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "g", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f447"
+  }, 
+  "circle-letter-h": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "h", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f448"
+  }, 
+  "circle-letter-i": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "i", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f449"
   }, 
-  "circle-j": {
+  "circle-letter-j": {
     "category": "Letters",
-    "tags": ["circle", "j", "icon", "stroke", "outline"],
+    "tags": ["circle", "letter", "j", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f44a"
   }, 
-  "circle-k": {
+  "circle-letter-k": {
     "category": "Letters",
-    "tags": ["circle", "k", "icon", "stroke", "outline"],
+    "tags": ["circle", "letter", "k", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f44b"
   }, 
-  "circle-l": {
+  "circle-letter-l": {
     "category": "Letters",
-    "tags": ["circle", "l", "icon", "stroke", "outline"],
+    "tags": ["circle", "letter", "l", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f44c"
   }, 
-  "circle-m": {
+  "circle-letter-m": {
     "category": "Letters",
-    "tags": ["circle", "m", "icon", "stroke", "outline"],
+    "tags": ["circle", "letter", "m", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f44d"
+  }, 
+  "circle-letter-n": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "n", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f44e"
+  }, 
+  "circle-letter-o": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "o", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f44f"
+  }, 
+  "circle-letter-p": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "p", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f450"
+  }, 
+  "circle-letter-q": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "q", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f451"
+  }, 
+  "circle-letter-r": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "r", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f452"
+  }, 
+  "circle-letter-s": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "s", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f453"
+  }, 
+  "circle-letter-t": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "t", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f454"
+  }, 
+  "circle-letter-u": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "u", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f455"
+  }, 
+  "circle-letter-v": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "v", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4ad"
+  }, 
+  "circle-letter-w": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "w", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f456"
+  }, 
+  "circle-letter-x": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "x", "cancel", "no", "icon", "stroke", "outline"],
+    "version": "1.0",
+    "unicode": "f4ae"
+  }, 
+  "circle-letter-y": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "y", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f457"
+  }, 
+  "circle-letter-z": {
+    "category": "Letters",
+    "tags": ["circle", "letter", "z", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f458"
   }, 
   "circle-minus": {
     "category": "",
@@ -4872,17 +4920,65 @@
     "version": "1.0",
     "unicode": "ea68"
   }, 
-  "circle-n": {
-    "category": "Letters",
-    "tags": ["circle", "n", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f44e"
+  "circle-number-0": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "0", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee34"
   }, 
-  "circle-o": {
-    "category": "Letters",
-    "tags": ["circle", "o", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f44f"
+  "circle-number-1": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "1", "one", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee35"
+  }, 
+  "circle-number-2": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "2", "two", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee36"
+  }, 
+  "circle-number-3": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "3", "three", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee37"
+  }, 
+  "circle-number-4": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "4", "four", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee38"
+  }, 
+  "circle-number-5": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "5", "five", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee39"
+  }, 
+  "circle-number-6": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "6", "six", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee3a"
+  }, 
+  "circle-number-7": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "7", "seven", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee3b"
+  }, 
+  "circle-number-8": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "8", "eight", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee3c"
+  }, 
+  "circle-number-9": {
+    "category": "Numbers",
+    "tags": ["circle", "number", "9", "nine", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "ee3d"
   }, 
   "circle-off": {
     "category": "Shapes",
@@ -4890,29 +4986,11 @@
     "version": "1.39",
     "unicode": "ee40"
   }, 
-  "circle-p": {
-    "category": "Letters",
-    "tags": ["circle", "p", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f450"
-  }, 
   "circle-plus": {
     "category": "",
     "tags": ["circle", "plus", "add", "create", "new", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "ea69"
-  }, 
-  "circle-q": {
-    "category": "Letters",
-    "tags": ["circle", "q", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f451"
-  }, 
-  "circle-r": {
-    "category": "Letters",
-    "tags": ["circle", "r", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f452"
   }, 
   "circle-rectangle-off": {
     "category": "",
@@ -4926,23 +5004,11 @@
     "version": "1.54",
     "unicode": "f010"
   }, 
-  "circle-s": {
-    "category": "Letters",
-    "tags": ["circle", "s", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f453"
-  }, 
   "circle-square": {
     "category": "Shapes",
     "tags": ["circle", "square", "shape", "spot", "math", "icon", "stroke", "outline"],
     "version": "1.21",
     "unicode": "ece4"
-  }, 
-  "circle-t": {
-    "category": "Letters",
-    "tags": ["circle", "t", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f454"
   }, 
   "circle-triangle": {
     "category": "",
@@ -4950,35 +5016,11 @@
     "version": "1.54",
     "unicode": "f011"
   }, 
-  "circle-u": {
-    "category": "Letters",
-    "tags": ["circle", "u", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f455"
-  }, 
-  "circle-w": {
-    "category": "Letters",
-    "tags": ["circle", "w", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f456"
-  }, 
   "circle-x": {
-    "category": "Letters",
+    "category": "",
     "tags": ["circle", "x", "cancel", "no", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "ea6a"
-  }, 
-  "circle-y": {
-    "category": "Letters",
-    "tags": ["circle", "y", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f457"
-  }, 
-  "circle-z": {
-    "category": "Letters",
-    "tags": ["circle", "z", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f458"
   }, 
   "circle": {
     "category": "Shapes",
@@ -6541,10 +6583,34 @@
     "unicode": "f026"
   }, 
   "device-sd-card": {
-    "category": "",
+    "category": "Devices",
     "tags": ["device", "sd", "card", "icon", "stroke", "outline"],
     "version": "1.91",
     "unicode": "f384"
+  }, 
+  "device-sim-1": {
+    "category": "Devices",
+    "tags": ["device", "sim", "1", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4af"
+  }, 
+  "device-sim-2": {
+    "category": "Devices",
+    "tags": ["device", "sim", "2", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b0"
+  }, 
+  "device-sim-3": {
+    "category": "Devices",
+    "tags": ["device", "sim", "3", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b1"
+  }, 
+  "device-sim": {
+    "category": "Devices",
+    "tags": ["device", "sim", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b2"
   }, 
   "device-speaker-off": {
     "category": "Devices",
@@ -8825,6 +8891,12 @@
     "tags": ["hexagon", "l", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f46e"
+  }, 
+  "hexagon-letter-v": {
+    "category": "Letters",
+    "tags": ["hexagon", "letter", "v", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b3"
   }, 
   "hexagon-m": {
     "category": "Letters",
@@ -12444,6 +12516,18 @@
     "version": "1.76",
     "unicode": "f26a"
   }, 
+  "razor-electric": {
+    "category": "",
+    "tags": ["razor", "electric", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b4"
+  }, 
+  "razor": {
+    "category": "",
+    "tags": ["razor", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b5"
+  }, 
   "receipt-2": {
     "category": "Document",
     "tags": ["receipt", "2", "bill", "restaurant", "shop", "price", "pay", "money", "total", "tax", "icon", "stroke", "outline"],
@@ -12767,6 +12851,12 @@
     "tags": ["rotate", "refresh", "synchronization", "reload", "restart", "spinner", "loader", "ajax", "update", "arrows", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb16"
+  }, 
+  "route-2": {
+    "category": "",
+    "tags": ["route", "2", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b6"
   }, 
   "route-off": {
     "category": "Map",
@@ -13692,71 +13782,29 @@
     "version": "1.72",
     "unicode": "f227"
   }, 
-  "square-0": {
-    "category": "Numbers",
-    "tags": ["square", "0", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eee5"
+  "square-arrow-down": {
+    "category": "Arrows",
+    "tags": ["square", "arrow", "down", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b7"
   }, 
-  "square-1": {
-    "category": "Numbers",
-    "tags": ["square", "1", "one", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eee6"
+  "square-arrow-left": {
+    "category": "Arrows",
+    "tags": ["square", "arrow", "left", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b8"
   }, 
-  "square-2": {
-    "category": "Shapes",
-    "tags": ["square", "2", "two", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eee7"
+  "square-arrow-right": {
+    "category": "Arrows",
+    "tags": ["square", "arrow", "right", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4b9"
   }, 
-  "square-3": {
-    "category": "Numbers",
-    "tags": ["square", "3", "three", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eee8"
-  }, 
-  "square-4": {
-    "category": "Numbers",
-    "tags": ["square", "4", "four", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eee9"
-  }, 
-  "square-5": {
-    "category": "Numbers",
-    "tags": ["square", "5", "five", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eeea"
-  }, 
-  "square-6": {
-    "category": "Numbers",
-    "tags": ["square", "6", "six", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eeeb"
-  }, 
-  "square-7": {
-    "category": "Numbers",
-    "tags": ["square", "7", "seven", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eeec"
-  }, 
-  "square-8": {
-    "category": "Numbers",
-    "tags": ["square", "8", "eight", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eeed"
-  }, 
-  "square-9": {
-    "category": "Numbers",
-    "tags": ["square", "9", "nine", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
-    "version": "1.39",
-    "unicode": "eeee"
-  }, 
-  "square-a": {
-    "category": "Letters",
-    "tags": ["square", "a", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f47c"
+  "square-arrow-up": {
+    "category": "Arrows",
+    "tags": ["square", "arrow", "up", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4ba"
   }, 
   "square-asterisk": {
     "category": "",
@@ -13764,47 +13812,17 @@
     "version": "1.54",
     "unicode": "f01a"
   }, 
-  "square-b": {
-    "category": "Letters",
-    "tags": ["square", "b", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f47d"
-  }, 
-  "square-c": {
-    "category": "Letters",
-    "tags": ["square", "c", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f47e"
-  }, 
   "square-check": {
     "category": "",
     "tags": ["square", "check", "checkbox", "yes", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb28"
   }, 
-  "square-d": {
-    "category": "Letters",
-    "tags": ["square", "d", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f47f"
-  }, 
   "square-dot": {
     "category": "",
     "tags": ["square", "dot", "corner", "shape", "element", "point", "icon", "stroke", "outline"],
     "version": "1.30",
     "unicode": "ed59"
-  }, 
-  "square-e": {
-    "category": "Letters",
-    "tags": ["square", "e", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f480"
-  }, 
-  "square-f": {
-    "category": "Letters",
-    "tags": ["square", "f", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f481"
   }, 
   "square-forbid-2": {
     "category": "",
@@ -13818,53 +13836,167 @@
     "version": "1.30",
     "unicode": "ed5b"
   }, 
-  "square-g": {
-    "category": "Letters",
-    "tags": ["square", "g", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f482"
-  }, 
-  "square-h": {
-    "category": "Letters",
-    "tags": ["square", "h", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f483"
-  }, 
   "square-half": {
     "category": "Design",
     "tags": ["square", "half", "shapes", "pattern", "geometric", "highlight", "geometry", "icon", "stroke", "outline"],
     "version": "1.52",
     "unicode": "effb"
   }, 
-  "square-i": {
+  "square-letter-a": {
     "category": "Letters",
-    "tags": ["square", "i", "icon", "stroke", "outline"],
+    "tags": ["square", "letter", "a", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f47c"
+  }, 
+  "square-letter-b": {
+    "category": "Letters",
+    "tags": ["square", "letter", "b", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f47d"
+  }, 
+  "square-letter-c": {
+    "category": "Letters",
+    "tags": ["square", "letter", "c", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f47e"
+  }, 
+  "square-letter-d": {
+    "category": "Letters",
+    "tags": ["square", "letter", "d", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f47f"
+  }, 
+  "square-letter-e": {
+    "category": "Letters",
+    "tags": ["square", "letter", "e", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f480"
+  }, 
+  "square-letter-f": {
+    "category": "Letters",
+    "tags": ["square", "letter", "f", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f481"
+  }, 
+  "square-letter-g": {
+    "category": "Letters",
+    "tags": ["square", "letter", "g", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f482"
+  }, 
+  "square-letter-h": {
+    "category": "Letters",
+    "tags": ["square", "letter", "h", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f483"
+  }, 
+  "square-letter-i": {
+    "category": "Letters",
+    "tags": ["square", "letter", "i", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f484"
   }, 
-  "square-j": {
+  "square-letter-j": {
     "category": "Letters",
-    "tags": ["square", "j", "icon", "stroke", "outline"],
+    "tags": ["square", "letter", "j", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f485"
   }, 
-  "square-k": {
+  "square-letter-k": {
     "category": "Letters",
-    "tags": ["square", "k", "icon", "stroke", "outline"],
+    "tags": ["square", "letter", "k", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f486"
   }, 
-  "square-l": {
+  "square-letter-l": {
     "category": "Letters",
-    "tags": ["square", "l", "icon", "stroke", "outline"],
+    "tags": ["square", "letter", "l", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f487"
   }, 
-  "square-m": {
+  "square-letter-m": {
     "category": "Letters",
-    "tags": ["square", "m", "icon", "stroke", "outline"],
+    "tags": ["square", "letter", "m", "icon", "stroke", "outline"],
     "version": "1.95",
     "unicode": "f488"
+  }, 
+  "square-letter-n": {
+    "category": "Letters",
+    "tags": ["square", "letter", "n", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f489"
+  }, 
+  "square-letter-o": {
+    "category": "Letters",
+    "tags": ["square", "letter", "o", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48a"
+  }, 
+  "square-letter-p": {
+    "category": "Letters",
+    "tags": ["square", "letter", "p", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48b"
+  }, 
+  "square-letter-q": {
+    "category": "Letters",
+    "tags": ["square", "letter", "q", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48c"
+  }, 
+  "square-letter-r": {
+    "category": "Letters",
+    "tags": ["square", "letter", "r", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48d"
+  }, 
+  "square-letter-s": {
+    "category": "Letters",
+    "tags": ["square", "letter", "s", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48e"
+  }, 
+  "square-letter-t": {
+    "category": "Letters",
+    "tags": ["square", "letter", "t", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f48f"
+  }, 
+  "square-letter-u": {
+    "category": "Letters",
+    "tags": ["square", "letter", "u", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f490"
+  }, 
+  "square-letter-v": {
+    "category": "Letters",
+    "tags": ["square", "letter", "v", "icon", "stroke", "outline"],
+    "version": "1.97",
+    "unicode": "f4bb"
+  }, 
+  "square-letter-w": {
+    "category": "Letters",
+    "tags": ["square", "letter", "w", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f491"
+  }, 
+  "square-letter-x": {
+    "category": "Letters",
+    "tags": ["square", "letter", "x", "cancel", "close", "delete", "remove", "times", "clear", "no", "icon", "stroke", "outline"],
+    "version": "1.0",
+    "unicode": "f4bc"
+  }, 
+  "square-letter-y": {
+    "category": "Letters",
+    "tags": ["square", "letter", "y", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f492"
+  }, 
+  "square-letter-z": {
+    "category": "Letters",
+    "tags": ["square", "letter", "z", "icon", "stroke", "outline"],
+    "version": "1.95",
+    "unicode": "f493"
   }, 
   "square-minus": {
     "category": "",
@@ -13872,17 +14004,65 @@
     "version": "1.0",
     "unicode": "eb29"
   }, 
-  "square-n": {
-    "category": "Letters",
-    "tags": ["square", "n", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f489"
+  "square-number-0": {
+    "category": "Numbers",
+    "tags": ["square", "number", "0", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eee5"
   }, 
-  "square-o": {
-    "category": "Letters",
-    "tags": ["square", "o", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48a"
+  "square-number-1": {
+    "category": "Numbers",
+    "tags": ["square", "number", "1", "one", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eee6"
+  }, 
+  "square-number-2": {
+    "category": "Shapes",
+    "tags": ["square", "number", "2", "two", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eee7"
+  }, 
+  "square-number-3": {
+    "category": "Numbers",
+    "tags": ["square", "number", "3", "three", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eee8"
+  }, 
+  "square-number-4": {
+    "category": "Numbers",
+    "tags": ["square", "number", "4", "four", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eee9"
+  }, 
+  "square-number-5": {
+    "category": "Numbers",
+    "tags": ["square", "number", "5", "five", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eeea"
+  }, 
+  "square-number-6": {
+    "category": "Numbers",
+    "tags": ["square", "number", "6", "six", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eeeb"
+  }, 
+  "square-number-7": {
+    "category": "Numbers",
+    "tags": ["square", "number", "7", "seven", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eeec"
+  }, 
+  "square-number-8": {
+    "category": "Numbers",
+    "tags": ["square", "number", "8", "eight", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eeed"
+  }, 
+  "square-number-9": {
+    "category": "Numbers",
+    "tags": ["square", "number", "9", "nine", "zero", "number", "digit", "quantity", "amount", "order", "maths", "sum", "total", "icon", "stroke", "outline"],
+    "version": "1.39",
+    "unicode": "eeee"
   }, 
   "square-off": {
     "category": "Shapes",
@@ -13890,29 +14070,11 @@
     "version": "1.39",
     "unicode": "eeef"
   }, 
-  "square-p": {
-    "category": "Letters",
-    "tags": ["square", "p", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48b"
-  }, 
   "square-plus": {
     "category": "",
     "tags": ["square", "plus", "add", "create", "new", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb2a"
-  }, 
-  "square-q": {
-    "category": "Letters",
-    "tags": ["square", "q", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48c"
-  }, 
-  "square-r": {
-    "category": "Letters",
-    "tags": ["square", "r", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48d"
   }, 
   "square-root-2": {
     "category": "Math",
@@ -13950,18 +14112,6 @@
     "version": "1.20",
     "unicode": "ecdf"
   }, 
-  "square-s": {
-    "category": "Letters",
-    "tags": ["square", "s", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48e"
-  }, 
-  "square-t": {
-    "category": "Letters",
-    "tags": ["square", "t", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f48f"
-  }, 
   "square-toggle-horizontal": {
     "category": "Design",
     "tags": ["square", "toggle", "horizontal", "box", "clone", "move", "icon", "stroke", "outline"],
@@ -13974,35 +14124,11 @@
     "version": "1.39",
     "unicode": "eef4"
   }, 
-  "square-u": {
-    "category": "Letters",
-    "tags": ["square", "u", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f490"
-  }, 
-  "square-w": {
-    "category": "Letters",
-    "tags": ["square", "w", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f491"
-  }, 
   "square-x": {
-    "category": "Letters",
+    "category": "",
     "tags": ["square", "x", "cancel", "close", "delete", "remove", "times", "clear", "no", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb2b"
-  }, 
-  "square-y": {
-    "category": "Letters",
-    "tags": ["square", "y", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f492"
-  }, 
-  "square-z": {
-    "category": "Letters",
-    "tags": ["square", "z", "icon", "stroke", "outline"],
-    "version": "1.95",
-    "unicode": "f493"
   }, 
   "square": {
     "category": "Shapes",
@@ -15866,7 +15992,7 @@
   }, 
   "x": {
     "category": "",
-    "tags": ["x", "cancel", "remove", "delete", "empty", "icon", "stroke", "outline"],
+    "tags": ["x", "cancel", "remove", "delete", "empty", "close", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb55"
   }, 
