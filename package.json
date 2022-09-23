@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "1.99.0",
+  "version": "1.100.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
@@ -50,7 +50,7 @@
     "prebuild-react": "rm -rf ./icons-react/dist/",
     "build-react": "rollup -c",
     "optimize": "gulp optimize",
-    "release": "release-it",
+    "release": "git pull && release-it",
     "build": "gulp build",
     "build-iconfont": "gulp build-iconfont",
     "import": "./_import.sh && gulp optimize"
