@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.99.0 by tabler - https://tabler.io
+ * Tabler Icons 1.100.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -1266,6 +1266,7 @@ $ti-icon-emphasis: unicode('ebcf');
 $ti-icon-engine: unicode('ef7e');
 $ti-icon-engine-off: unicode('f120');
 $ti-icon-equal: unicode('ee87');
+$ti-icon-equal-double: unicode('f4e1');
 $ti-icon-equal-not: unicode('ee86');
 $ti-icon-eraser: unicode('eb8b');
 $ti-icon-eraser-off: unicode('f121');
@@ -1825,13 +1826,36 @@ $ti-icon-masks-theater: unicode('f263');
 $ti-icon-masks-theater-off: unicode('f408');
 $ti-icon-massage: unicode('eeb1');
 $ti-icon-math: unicode('ebeb');
+$ti-icon-math-1-divide-2: unicode('f4e2');
+$ti-icon-math-1-divide-3: unicode('f4e3');
 $ti-icon-math-avg: unicode('f0f4');
+$ti-icon-math-equal-greater: unicode('f4e4');
+$ti-icon-math-equal-lower: unicode('f4e5');
 $ti-icon-math-function: unicode('eeb2');
 $ti-icon-math-function-off: unicode('f15e');
+$ti-icon-math-function-y: unicode('f4e6');
+$ti-icon-math-greater: unicode('f4e7');
+$ti-icon-math-integral: unicode('f4e9');
+$ti-icon-math-integral-x: unicode('f4e8');
+$ti-icon-math-integrals: unicode('f4ea');
+$ti-icon-math-lower: unicode('f4eb');
 $ti-icon-math-max: unicode('f0f5');
 $ti-icon-math-min: unicode('f0f6');
+$ti-icon-math-not: unicode('f4ec');
 $ti-icon-math-off: unicode('f409');
+$ti-icon-math-pi: unicode('f4ee');
+$ti-icon-math-pi-divide-2: unicode('f4ed');
 $ti-icon-math-symbols: unicode('eeb3');
+$ti-icon-math-x-divide-2: unicode('f4ef');
+$ti-icon-math-x-divide-y: unicode('f4f1');
+$ti-icon-math-x-divide-y-2: unicode('f4f0');
+$ti-icon-math-x-minus-x: unicode('f4f2');
+$ti-icon-math-x-minus-y: unicode('f4f3');
+$ti-icon-math-x-plus-x: unicode('f4f4');
+$ti-icon-math-x-plus-y: unicode('f4f5');
+$ti-icon-math-xy: unicode('f4f6');
+$ti-icon-math-y-minus-y: unicode('f4f7');
+$ti-icon-math-y-plus-y: unicode('f4f8');
 $ti-icon-maximize: unicode('eaea');
 $ti-icon-maximize-off: unicode('f15f');
 $ti-icon-meat: unicode('ef12');
@@ -2332,6 +2356,7 @@ $ti-icon-sitemap-off: unicode('f1a6');
 $ti-icon-skateboard: unicode('ecc2');
 $ti-icon-skateboard-off: unicode('f42b');
 $ti-icon-skull: unicode('f292');
+$ti-icon-slash: unicode('f4f9');
 $ti-icon-sleigh: unicode('ef9c');
 $ti-icon-slice: unicode('ebdb');
 $ti-icon-slideshow: unicode('ebc9');
@@ -4006,6 +4031,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-engine:before { content: $ti-icon-engine; }
 .#{$ti-prefix}-engine-off:before { content: $ti-icon-engine-off; }
 .#{$ti-prefix}-equal:before { content: $ti-icon-equal; }
+.#{$ti-prefix}-equal-double:before { content: $ti-icon-equal-double; }
 .#{$ti-prefix}-equal-not:before { content: $ti-icon-equal-not; }
 .#{$ti-prefix}-eraser:before { content: $ti-icon-eraser; }
 .#{$ti-prefix}-eraser-off:before { content: $ti-icon-eraser-off; }
@@ -4565,13 +4591,36 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-masks-theater-off:before { content: $ti-icon-masks-theater-off; }
 .#{$ti-prefix}-massage:before { content: $ti-icon-massage; }
 .#{$ti-prefix}-math:before { content: $ti-icon-math; }
+.#{$ti-prefix}-math-1-divide-2:before { content: $ti-icon-math-1-divide-2; }
+.#{$ti-prefix}-math-1-divide-3:before { content: $ti-icon-math-1-divide-3; }
 .#{$ti-prefix}-math-avg:before { content: $ti-icon-math-avg; }
+.#{$ti-prefix}-math-equal-greater:before { content: $ti-icon-math-equal-greater; }
+.#{$ti-prefix}-math-equal-lower:before { content: $ti-icon-math-equal-lower; }
 .#{$ti-prefix}-math-function:before { content: $ti-icon-math-function; }
 .#{$ti-prefix}-math-function-off:before { content: $ti-icon-math-function-off; }
+.#{$ti-prefix}-math-function-y:before { content: $ti-icon-math-function-y; }
+.#{$ti-prefix}-math-greater:before { content: $ti-icon-math-greater; }
+.#{$ti-prefix}-math-integral:before { content: $ti-icon-math-integral; }
+.#{$ti-prefix}-math-integral-x:before { content: $ti-icon-math-integral-x; }
+.#{$ti-prefix}-math-integrals:before { content: $ti-icon-math-integrals; }
+.#{$ti-prefix}-math-lower:before { content: $ti-icon-math-lower; }
 .#{$ti-prefix}-math-max:before { content: $ti-icon-math-max; }
 .#{$ti-prefix}-math-min:before { content: $ti-icon-math-min; }
+.#{$ti-prefix}-math-not:before { content: $ti-icon-math-not; }
 .#{$ti-prefix}-math-off:before { content: $ti-icon-math-off; }
+.#{$ti-prefix}-math-pi:before { content: $ti-icon-math-pi; }
+.#{$ti-prefix}-math-pi-divide-2:before { content: $ti-icon-math-pi-divide-2; }
 .#{$ti-prefix}-math-symbols:before { content: $ti-icon-math-symbols; }
+.#{$ti-prefix}-math-x-divide-2:before { content: $ti-icon-math-x-divide-2; }
+.#{$ti-prefix}-math-x-divide-y:before { content: $ti-icon-math-x-divide-y; }
+.#{$ti-prefix}-math-x-divide-y-2:before { content: $ti-icon-math-x-divide-y-2; }
+.#{$ti-prefix}-math-x-minus-x:before { content: $ti-icon-math-x-minus-x; }
+.#{$ti-prefix}-math-x-minus-y:before { content: $ti-icon-math-x-minus-y; }
+.#{$ti-prefix}-math-x-plus-x:before { content: $ti-icon-math-x-plus-x; }
+.#{$ti-prefix}-math-x-plus-y:before { content: $ti-icon-math-x-plus-y; }
+.#{$ti-prefix}-math-xy:before { content: $ti-icon-math-xy; }
+.#{$ti-prefix}-math-y-minus-y:before { content: $ti-icon-math-y-minus-y; }
+.#{$ti-prefix}-math-y-plus-y:before { content: $ti-icon-math-y-plus-y; }
 .#{$ti-prefix}-maximize:before { content: $ti-icon-maximize; }
 .#{$ti-prefix}-maximize-off:before { content: $ti-icon-maximize-off; }
 .#{$ti-prefix}-meat:before { content: $ti-icon-meat; }
@@ -5072,6 +5121,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-skateboard:before { content: $ti-icon-skateboard; }
 .#{$ti-prefix}-skateboard-off:before { content: $ti-icon-skateboard-off; }
 .#{$ti-prefix}-skull:before { content: $ti-icon-skull; }
+.#{$ti-prefix}-slash:before { content: $ti-icon-slash; }
 .#{$ti-prefix}-sleigh:before { content: $ti-icon-sleigh; }
 .#{$ti-prefix}-slice:before { content: $ti-icon-slice; }
 .#{$ti-prefix}-slideshow:before { content: $ti-icon-slideshow; }
