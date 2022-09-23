@@ -865,6 +865,10 @@ gulp.task('import', gulp.series((cb) => {
       throw new Error(`File ${file} has \`transform\` in code!!`)
     }
 
+    if (filename.match(/\s/)) {
+      throw new Error(`File ${file} has space in name!!`)
+    }
+
     fileData = fileData.replace(/---/g, '')
         .replace(/fill="none"/g, '')
         .replace(/fill="#D8D8D8"/gi, '')
