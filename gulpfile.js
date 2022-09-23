@@ -164,7 +164,11 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = 
   }
 }
 
-const generateIconsPreview = function(files, destFile, cb, columnsCount = 19, paddingOuter = 7) {
+const generateIconsPreview = function(files, destFile, cb, {
+  columnsCount = 19,
+  paddingOuter = 7,
+  color = '#354052'
+} = {}) {
 
   const padding = 20,
       iconSize = 24
@@ -201,7 +205,7 @@ const generateIconsPreview = function(files, destFile, cb, columnsCount = 19, pa
     }
   })
 
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
   fs.writeFileSync(destFile, svgContent)
   createScreenshot(destFile)
@@ -446,6 +450,9 @@ gulp.task('icons-sprite', (cb) => {
 gulp.task('icons-preview', (cb) => {
   glob('icons/*.svg', {}, function(er, files) {
     generateIconsPreview(files, '.github/icons.svg', cb)
+    generateIconsPreview(files, '.github/icons-dark.svg', cb, {
+      color: '#ffffff'
+    })
   })
 })
 
@@ -627,7 +634,10 @@ gulp.task('changelog-image', (cb) => {
       })
 
       if (newIcons.length > 0) {
-        generateIconsPreview(newIcons, `.github/tabler-icons-${newVersion}.svg`, cb, 6, 24)
+        generateIconsPreview(newIcons, `.github/tabler-icons-${newVersion}.svg`, cb, {
+          columnsCount: 6,
+          paddingOuter: 24
+        })
       } else {
         cb()
       }
