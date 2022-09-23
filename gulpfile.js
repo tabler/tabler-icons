@@ -167,7 +167,8 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = 
 const generateIconsPreview = function(files, destFile, cb, {
   columnsCount = 19,
   paddingOuter = 7,
-  color = '#354052'
+  color = '#354052',
+  background = '#fff'
 } = {}) {
 
   const padding = 20,
@@ -205,7 +206,7 @@ const generateIconsPreview = function(files, destFile, cb, {
     }
   })
 
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
   fs.writeFileSync(destFile, svgContent)
   createScreenshot(destFile)
@@ -451,7 +452,8 @@ gulp.task('icons-preview', (cb) => {
   glob('icons/*.svg', {}, function(er, files) {
     generateIconsPreview(files, '.github/icons.svg', cb)
     generateIconsPreview(files, '.github/icons-dark.svg', cb, {
-      color: '#ffffff'
+      color: '#ffffff',
+      background: 'transparent'
     })
   })
 })
