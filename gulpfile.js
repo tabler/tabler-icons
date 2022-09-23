@@ -458,7 +458,7 @@ gulp.task('icons-preview', (cb) => {
   })
 })
 
-gulp.task('icons-stroke', gulp.series('build-jekyll', (cb) => {
+gulp.task('icons-stroke', gulp.series((cb) => {
 
   const icon = 'disabled',
       strokes = ['.5', '1', '1.5', '2', '2.75'],
@@ -487,9 +487,12 @@ gulp.task('icons-stroke', gulp.series('build-jekyll', (cb) => {
   })
 
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
+  const svgContentDark = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #ffffff"><rect x="0" y="0" width="${width}" height="${height}" fill="transparent"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
   fs.writeFileSync('.github/icons-stroke.svg', svgContent)
+  fs.writeFileSync('.github/icons-stroke-dark.svg', svgContentDark)
   createScreenshot('.github/icons-stroke.svg')
+  createScreenshot('.github/icons-stroke-dark.svg')
   cb()
 }))
 
