@@ -27,7 +27,11 @@
 ## Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png" alt="Tabler Icons preview" width="838">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png" alt="Tabler Icons preview" width="838">
+  </picture>
 </p>
 
 ## Sponsor Tabler
