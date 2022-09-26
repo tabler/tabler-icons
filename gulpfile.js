@@ -591,7 +591,7 @@ gulp.task('changelog-commit', (cb) => {
 })
 
 gulp.task('changelog', (cb) => {
-  const version = argv['latest-tag'] || `v${p.version}`
+  const version = `v${p.version}`
 
   if (version) {
     cp.exec(`git diff ${version} HEAD --name-status`, function(err, ret) {
