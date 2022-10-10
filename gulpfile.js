@@ -801,20 +801,22 @@ gulp.task('import-tags', (cb) => {
     headers: false,
     separator: '\t'
   })).on('data', (row) => {
-    console.log(row[0], row[1])
+    console.log(row[1], row[2])
 
-    const filename = `src/_icons/${row[0]}.svg`
+    const filename = `src/_icons/${row[1]}.svg`
 
-    let data = fs.readFileSync(filename).toString()
-    data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent) {
+    if(row[2].length) {
+      let data = fs.readFileSync(filename).toString()
+      data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent) {
 
-      headerContent = headerContent.replace(/tags: .*\n/, '')
-      headerContent = headerContent.replace(/---/, `---\ntags: [${row[1]}]`)
+        headerContent = headerContent.replace(/tags: .*\n/, '')
+        headerContent = headerContent.replace(/---/, `---\ntags: [${row[2]}]`)
 
-      return headerContent
-    })
+        return headerContent
+      })
 
-    fs.writeFileSync(filename, data)
+      fs.writeFileSync(filename, data)
+    }
 
   }).on('end', () => {
     console.log('CSV file successfully processed')
