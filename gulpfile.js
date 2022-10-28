@@ -917,8 +917,6 @@ gulp.task('import', gulp.series((cb) => {
 
     fileData = optimizeSVG(fileData)
 
-    console.log('fileData', fileData);
-
     fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
     if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
