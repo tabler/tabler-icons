@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 1.109.0 by tabler - https://tabler.io
+ * Tabler Icons 1.111.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -2623,6 +2623,42 @@ $ti-icon-square-rotated-forbid: unicode('f01c');
 $ti-icon-square-rotated-forbid-2: unicode('f01b');
 $ti-icon-square-rotated-off: unicode('eef2');
 $ti-icon-square-rounded: unicode('f59a');
+$ti-icon-square-rounded-letter-a: unicode('f5ae');
+$ti-icon-square-rounded-letter-b: unicode('f5af');
+$ti-icon-square-rounded-letter-c: unicode('f5b0');
+$ti-icon-square-rounded-letter-d: unicode('f5b1');
+$ti-icon-square-rounded-letter-e: unicode('f5b2');
+$ti-icon-square-rounded-letter-f: unicode('f5b3');
+$ti-icon-square-rounded-letter-g: unicode('f5b4');
+$ti-icon-square-rounded-letter-h: unicode('f5b5');
+$ti-icon-square-rounded-letter-i: unicode('f5b6');
+$ti-icon-square-rounded-letter-j: unicode('f5b7');
+$ti-icon-square-rounded-letter-k: unicode('f5b8');
+$ti-icon-square-rounded-letter-l: unicode('f5b9');
+$ti-icon-square-rounded-letter-m: unicode('f5ba');
+$ti-icon-square-rounded-letter-n: unicode('f5bb');
+$ti-icon-square-rounded-letter-o: unicode('f5bc');
+$ti-icon-square-rounded-letter-p: unicode('f5bd');
+$ti-icon-square-rounded-letter-q: unicode('f5be');
+$ti-icon-square-rounded-letter-r: unicode('f5bf');
+$ti-icon-square-rounded-letter-s: unicode('f5c0');
+$ti-icon-square-rounded-letter-t: unicode('f5c1');
+$ti-icon-square-rounded-letter-u: unicode('f5c2');
+$ti-icon-square-rounded-letter-v: unicode('f5c3');
+$ti-icon-square-rounded-letter-w: unicode('f5c4');
+$ti-icon-square-rounded-letter-x: unicode('f5c5');
+$ti-icon-square-rounded-letter-y: unicode('f5c6');
+$ti-icon-square-rounded-letter-z: unicode('f5c7');
+$ti-icon-square-rounded-number-0: unicode('f5c8');
+$ti-icon-square-rounded-number-1: unicode('f5c9');
+$ti-icon-square-rounded-number-2: unicode('f5ca');
+$ti-icon-square-rounded-number-3: unicode('f5cb');
+$ti-icon-square-rounded-number-4: unicode('f5cc');
+$ti-icon-square-rounded-number-5: unicode('f5cd');
+$ti-icon-square-rounded-number-6: unicode('f5ce');
+$ti-icon-square-rounded-number-7: unicode('f5cf');
+$ti-icon-square-rounded-number-8: unicode('f5d0');
+$ti-icon-square-rounded-number-9: unicode('f5d1');
 $ti-icon-square-toggle: unicode('eef4');
 $ti-icon-square-toggle-horizontal: unicode('eef3');
 $ti-icon-square-x: unicode('eb2b');
@@ -5568,6 +5604,42 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-square-rotated-forbid-2:before { content: $ti-icon-square-rotated-forbid-2; }
 .#{$ti-prefix}-square-rotated-off:before { content: $ti-icon-square-rotated-off; }
 .#{$ti-prefix}-square-rounded:before { content: $ti-icon-square-rounded; }
+.#{$ti-prefix}-square-rounded-letter-a:before { content: $ti-icon-square-rounded-letter-a; }
+.#{$ti-prefix}-square-rounded-letter-b:before { content: $ti-icon-square-rounded-letter-b; }
+.#{$ti-prefix}-square-rounded-letter-c:before { content: $ti-icon-square-rounded-letter-c; }
+.#{$ti-prefix}-square-rounded-letter-d:before { content: $ti-icon-square-rounded-letter-d; }
+.#{$ti-prefix}-square-rounded-letter-e:before { content: $ti-icon-square-rounded-letter-e; }
+.#{$ti-prefix}-square-rounded-letter-f:before { content: $ti-icon-square-rounded-letter-f; }
+.#{$ti-prefix}-square-rounded-letter-g:before { content: $ti-icon-square-rounded-letter-g; }
+.#{$ti-prefix}-square-rounded-letter-h:before { content: $ti-icon-square-rounded-letter-h; }
+.#{$ti-prefix}-square-rounded-letter-i:before { content: $ti-icon-square-rounded-letter-i; }
+.#{$ti-prefix}-square-rounded-letter-j:before { content: $ti-icon-square-rounded-letter-j; }
+.#{$ti-prefix}-square-rounded-letter-k:before { content: $ti-icon-square-rounded-letter-k; }
+.#{$ti-prefix}-square-rounded-letter-l:before { content: $ti-icon-square-rounded-letter-l; }
+.#{$ti-prefix}-square-rounded-letter-m:before { content: $ti-icon-square-rounded-letter-m; }
+.#{$ti-prefix}-square-rounded-letter-n:before { content: $ti-icon-square-rounded-letter-n; }
+.#{$ti-prefix}-square-rounded-letter-o:before { content: $ti-icon-square-rounded-letter-o; }
+.#{$ti-prefix}-square-rounded-letter-p:before { content: $ti-icon-square-rounded-letter-p; }
+.#{$ti-prefix}-square-rounded-letter-q:before { content: $ti-icon-square-rounded-letter-q; }
+.#{$ti-prefix}-square-rounded-letter-r:before { content: $ti-icon-square-rounded-letter-r; }
+.#{$ti-prefix}-square-rounded-letter-s:before { content: $ti-icon-square-rounded-letter-s; }
+.#{$ti-prefix}-square-rounded-letter-t:before { content: $ti-icon-square-rounded-letter-t; }
+.#{$ti-prefix}-square-rounded-letter-u:before { content: $ti-icon-square-rounded-letter-u; }
+.#{$ti-prefix}-square-rounded-letter-v:before { content: $ti-icon-square-rounded-letter-v; }
+.#{$ti-prefix}-square-rounded-letter-w:before { content: $ti-icon-square-rounded-letter-w; }
+.#{$ti-prefix}-square-rounded-letter-x:before { content: $ti-icon-square-rounded-letter-x; }
+.#{$ti-prefix}-square-rounded-letter-y:before { content: $ti-icon-square-rounded-letter-y; }
+.#{$ti-prefix}-square-rounded-letter-z:before { content: $ti-icon-square-rounded-letter-z; }
+.#{$ti-prefix}-square-rounded-number-0:before { content: $ti-icon-square-rounded-number-0; }
+.#{$ti-prefix}-square-rounded-number-1:before { content: $ti-icon-square-rounded-number-1; }
+.#{$ti-prefix}-square-rounded-number-2:before { content: $ti-icon-square-rounded-number-2; }
+.#{$ti-prefix}-square-rounded-number-3:before { content: $ti-icon-square-rounded-number-3; }
+.#{$ti-prefix}-square-rounded-number-4:before { content: $ti-icon-square-rounded-number-4; }
+.#{$ti-prefix}-square-rounded-number-5:before { content: $ti-icon-square-rounded-number-5; }
+.#{$ti-prefix}-square-rounded-number-6:before { content: $ti-icon-square-rounded-number-6; }
+.#{$ti-prefix}-square-rounded-number-7:before { content: $ti-icon-square-rounded-number-7; }
+.#{$ti-prefix}-square-rounded-number-8:before { content: $ti-icon-square-rounded-number-8; }
+.#{$ti-prefix}-square-rounded-number-9:before { content: $ti-icon-square-rounded-number-9; }
 .#{$ti-prefix}-square-toggle:before { content: $ti-icon-square-toggle; }
 .#{$ti-prefix}-square-toggle-horizontal:before { content: $ti-icon-square-toggle-horizontal; }
 .#{$ti-prefix}-square-x:before { content: $ti-icon-square-x; }
