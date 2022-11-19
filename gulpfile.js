@@ -533,6 +533,9 @@ gulp.task('optimize', (cb) => {
           .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, x, y, width, height, rx) {
             return `<path d="M ${x} ${y}m 0 ${rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}Z" />`
           })
+          .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, width, height) {
+            return `<path d="M ${x} ${y}h${width}v${height}h${-width}Z" />`
+          })
           // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
           //   return `M`
           // })
@@ -542,7 +545,7 @@ gulp.task('optimize', (cb) => {
             return `<path d="${r1}"`
           })
           .replace(/d="m/g, 'd="M')
-          .replace(/([Aa])\s?([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s?([0-1])\s?([0-1])\s?(-?[0-9.]+)\s?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
+          .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
           .replace(/\n\s+\n+/g, '\n')
           .replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
             return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
