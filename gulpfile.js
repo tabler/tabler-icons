@@ -530,6 +530,12 @@ gulp.task('optimize', (cb) => {
           .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, cx, cy, rx, ry) {
             return `<path d="M${cx} ${cy}m -${rx} 0a${rx} ${ry} 0 1 0 ${rx * 2} 0a ${rx} ${ry} 0 1 0 -${rx * 2} 0" />`
           })
+          .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, width, height, x, y, rx) {
+            return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
+          })
+          .replace(/<rect x="([^"]+)" y="([^"]+)" rx="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, rx, width, height) {
+            return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
+          })
           .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, x, y, width, height, rx) {
             return `<path d="M ${x} ${y}m 0 ${rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}Z" />`
           })
