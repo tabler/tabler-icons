@@ -542,6 +542,13 @@ gulp.task('optimize', (cb) => {
           .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, width, height) {
             return `<path d="M ${x} ${y}h${width}v${height}h${-width}Z" />`
           })
+          .replace(/<polyline points="([^"]+)"\s+\/>/g, function(f, points) {
+            const path = points.split(' ').reduce(
+                (accumulator, currentValue, currentIndex) => `${accumulator}${currentIndex % 2 === 0 ? (currentIndex === 0 ? 'M' : 'L'): ''}${currentValue} `,
+                ''
+            )
+            return `<path d="${path}" />`
+          })
           // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
           //   return `M`
           // })
