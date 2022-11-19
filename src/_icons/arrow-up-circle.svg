@@ -5,8 +5,8 @@ version: "1.0"
 unicode: "ea20"
 ---
 <svg>
-  <circle cx="12" cy="12" r="9" />
-  <line x1="12" y1="8" x2="8" y2="12" />
-  <line x1="12" y1="8" x2="12" y2="16" />
-  <line x1="16" y1="12" x2="12" y2="8" />
+  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+  <path d="M12 8l-4 4" />
+  <path d="M12 8l0 8" />
+  <path d="M16 12l-4 -4" />
 </svg>

@@ -6,6 +6,6 @@ unicode: "ec20"
 ---
 <svg>
   <rect x="4" y="4" width="16" height="16" rx="4" />
-  <circle cx="12" cy="12" r="3" />
-  <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M16.5 7.5l0 .001" />
 </svg>

@@ -5,7 +5,7 @@ version: "1.99"
 ---
 <svg>
   <rect x="2" y="5" width="20" height="14" rx="1.999" />
-  <circle cx="12" cy="12" r="3" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
   <path d="M9 12h-7" />
   <path d="M15 12h7" />
 </svg>
