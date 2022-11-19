@@ -525,10 +525,10 @@ gulp.task('optimize', (cb) => {
             return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
           })
           .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
-            return `<path d="M ${cx} ${cy}m -${r}, 0a ${r},${r} 0 1,0 ${r * 2},0a ${r},${r} 0 1,0 ${r * -2},0" />`
+            return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
           })
-          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, rx, cx, ry, cy) {
-            return `<path d="M ${cx - rx} ${cy}a${rx} ${ry} 0 1,0 ${rx * 2},0a ${rx},${ry} 0 1,0 -${rx * 2},0" />`
+          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, cx, cy, rx, ry) {
+            return `<path d="M${cx} ${cy}m -${rx} 0a${rx} ${ry} 0 1 0 ${rx * 2} 0a ${rx} ${ry} 0 1 0 -${rx * 2} 0" />`
           })
           .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, x, y, width, height, rx) {
             return `<path d="M ${x} ${y-rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}Z" />`
@@ -559,7 +559,7 @@ gulp.task('optimize', (cb) => {
           })
 
       if (svgFile.toString() !== svgFileContent) {
-        //fs.writeFileSync(file, svgFileContent)
+        fs.writeFileSync(file, svgFileContent)
       }
     })
 
