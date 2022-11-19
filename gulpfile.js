@@ -524,7 +524,7 @@ gulp.task('optimize', (cb) => {
           .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
             return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
           })
-          .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
+          .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"( fill="currentColor")?\s+\/>/g, function(f, cx, cy, r) {
             return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
           })
           .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, cx, cy, rx) {
