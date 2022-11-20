@@ -555,11 +555,12 @@ gulp.task('optimize', (cb) => {
           .replace(/<path\s+d="([^"]+)"/g, function(f, d) {
 
             const d2 = d
-                .replace(/([0-9]+)+\.00[1-3]/g, (f, m) => `${m}`)
-                .replace(/-\.00[1-3]/g, (f, m) => `0`)
-                .replace(/\.00[1-3]/g, (f, m) => `0`)
+                .replace(/([0-9]+)+\.00[1-4]/g, (f, m) => `${m}`)
+                .replace(/([0-9]+)+\.99[6-9]/g, (f, m) => `${parseInt(m)+1}`)
+                .replace(/\.99[6-9]/g, (f, m) => `1`)
+                .replace(/-\.00[1-4]/g, (f, m) => `0`)
+                .replace(/\.00[1-4]/g, (f, m) => `0`)
                 .replace(/m0 0/g, (f, m) => ``)
-
 
             return `<path d="${d2}"`
           })
