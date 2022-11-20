@@ -552,8 +552,16 @@ gulp.task('optimize', (cb) => {
             )
             return `<path d="${path}" />`
           })
-          .replace(/<path\s+d="([^"]+)"/g, function(f, r1) {
-            return `<path d="${r1}"`
+          .replace(/<path\s+d="([^"]+)"/g, function(f, d) {
+
+            const d2 = d
+                .replace(/([0-9]+)+\.00[1-3]/g, (f, m) => `${m}`)
+                .replace(/-\.00[1-3]/g, (f, m) => `0`)
+                .replace(/\.00[1-3]/g, (f, m) => `0`)
+                .replace(/m0 0/g, (f, m) => ``)
+
+
+            return `<path d="${d2}"`
           })
           .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
             return `M`
