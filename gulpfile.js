@@ -545,16 +545,19 @@ gulp.task('optimize', (cb) => {
           .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, width, height) {
             return `<path d="M ${x} ${y}h${width}v${height}h${-width}Z" />`
           })
-          .replace(/<polyline points="([^"]+)"\s+\/>/g, function(f, points) {
+          .replace(/<polyline points="([^"]+)\s?"\s+\/>/g, function(f, points) {
             const path = points.split(' ').reduce(
                 (accumulator, currentValue, currentIndex) => `${accumulator}${currentIndex % 2 === 0 ? (currentIndex === 0 ? 'M' : 'L'): ''}${currentValue} `,
                 ''
             )
             return `<path d="${path}" />`
           })
-          // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
-          //   return `M`
-          // })
+          .replace(/<path\s+d="([^"]+)"/g, function(f, r1) {
+            return `<path d="${r1}"`
+          })
+          .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
+            return `M`
+          })
           .replace(/<path d="([^"]+)"/g, function(f, r1) {
             r1 = optimizePath(r1)
 
@@ -576,6 +579,10 @@ gulp.task('optimize', (cb) => {
             r1 = r1.replace(/ -0\./g, ' -.').replace(/ 0\./g, ' .').replace(/\s([a-z])/gi, '$1').replace(/([a-z])\s/gi, '$1')
             return `<path d="${r1}"`
           })
+
+      if(!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)" \/>[\n\t\s]*<\/svg>/)) {
+        console.log(`Fix ${file}!`);
+      }
 
       if (svgFile.toString() !== svgFileContent) {
         fs.writeFileSync(file, svgFileContent)
