@@ -1,0 +1,32 @@
+{
+  "name": "@tabler/icons-preact",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-preact"
+  },
+  "main": "dist/cjs/tabler-icons-preact.js",
+  "main:umd": "dist/umd/tabler-icons-preact.js",
+  "module": "dist/esm/tabler-icons-preact.js",
+  "unpkg": "dist/umd/tabler-icons-preact.min.js",
+  "typings": "dist/tabler-icons-preact.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn copy:license && yarn build:icons && yarn build:es && yarn build:bundles",
+    "build:icons": "node build-icons.mjs",
+    "build:es": "babel src -d dist/esm",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js"
+  },
+  "peerDependencies": {
+    "preact": "^10.5.13"
+  }
+}
