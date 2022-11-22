@@ -4,7 +4,6 @@ import { getCurrentDirPath, getSvgName, readSvg, readSvgDirectory, toCamelCase, 
 import { parseSync, stringify } from 'svgson';
 import prettier from 'prettier';
 
-import pkg from '../packages/icons-vue/package.json' assert { type: "json" }
 import { babel } from '@rollup/plugin-babel'
 import bundleSize from '@atomico/rollup-plugin-sizes'
 import { terser } from 'rollup-plugin-terser'
@@ -93,7 +92,7 @@ export const buildIcons = ({
  * @param globals
  * @returns {FlatArray<{output: {file: string, sourcemap: boolean, globals: *, name: string, format: *}, input: *, external: [string], plugins: *}[][], 1>[]}
  */
-export const getRollupConfig = ({ name, globals, external, pluginSvelte }) => {
+export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) => {
   const packageName = `@tabler/${name}`
   const outputFileName = `tabler-${name}`
   const outputDir = 'dist'
@@ -161,7 +160,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte }) => {
               format,
               sourcemap: true,
               globals
-            }
+            },
           }))
       )
       .flat()

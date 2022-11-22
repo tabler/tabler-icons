@@ -1,4 +1,5 @@
 import { getRollupConfig } from '../../.build/build-icons.mjs'
+import pkg from './package.json' assert { type: "json" }
 
 export default getRollupConfig({
   name: 'icons-react',
@@ -7,4 +8,5 @@ export default getRollupConfig({
     'prop-types': 'PropTypes'
   },
   external: ['react', 'prop-types'],
+  pkg
 })
