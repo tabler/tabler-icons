@@ -49,7 +49,13 @@ export const buildIcons = ({
         svgContent = readSvg(svgFile, SOURCE_DIR),
         content = parseSync(svgContent)
 
-    const children = content.children.map(({ name, attributes }) => [name, attributes])
+    const children = content.children.map(({
+      name,
+      attributes
+    }, i) => {
+      attributes.key = `svg-${i}`
+      return [name, attributes]
+    })
 
     process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgName.padEnd(42)}\r`)
 

@@ -24,7 +24,16 @@
     "build:es": "babel src -d dist/esm",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.js"
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.6",
+    "babel-preset-react-app": "^10.0.0",
+    "jest": "^26.6.3",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
