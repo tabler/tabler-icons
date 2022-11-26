@@ -1,8 +1,8 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { getCurrentDirPath, getSvgName, readSvg, readSvgDirectory, toCamelCase, toPascalCase } from './helpers.mjs'
-import { parseSync, stringify } from 'svgson';
-import prettier from 'prettier';
+import { parseSync, stringify } from 'svgson'
+import prettier from 'prettier'
 
 import { babel } from '@rollup/plugin-babel'
 import bundleSize from '@atomico/rollup-plugin-sizes'
@@ -12,9 +12,8 @@ import license from 'rollup-plugin-license'
 import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
 import commonJS from '@rollup/plugin-commonjs'
-import svelte from 'rollup-plugin-svelte';
-import preprocess from 'svelte-preprocess';
-
+import svelte from 'rollup-plugin-svelte'
+import preprocess from 'svelte-preprocess'
 
 /**
  * Build icons
@@ -34,7 +33,8 @@ export const buildIcons = ({
   typeDefinitionsTemplate,
   indexTypeTemplate,
   extension = 'js',
-  pretty = true
+  pretty = true,
+  key = true
 }) => {
   const SOURCE_DIR = path.resolve(getCurrentDirPath(import.meta.url), '../icons'),
       DIST_DIR = path.resolve(getCurrentDirPath(import.meta.url), `../packages/${name}`),
@@ -49,13 +49,21 @@ export const buildIcons = ({
         svgContent = readSvg(svgFile, SOURCE_DIR),
         content = parseSync(svgContent)
 
-    const children = content.children.map(({
-      name,
-      attributes
-    }, i) => {
-      attributes.key = `svg-${i}`
-      return [name, attributes]
-    })
+    const children = content.children
+        .map(({
+          name,
+          attributes
+        }, i) => {
+          if (key) {
+            attributes.key = `svg-${i}`
+          }
+
+          return [name, attributes]
+        })
+        .filter((i) => {
+          const [ name, attributes ] = i
+          return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
+        })
 
     process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgName.padEnd(42)}\r`)
 
@@ -69,7 +77,7 @@ export const buildIcons = ({
     const output = pretty ? prettier.format(component, {
       singleQuote: true,
       trailingComma: 'all',
-      parser: 'babel',
+      parser: 'babel'
     }) : component
 
     let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgName}.${extension}`)
@@ -77,12 +85,12 @@ export const buildIcons = ({
 
     index.push(indexItemTemplate({
       name: svgName,
-      namePascal: svgNamePascal,
+      namePascal: svgNamePascal
     }))
 
     typings.push(indexTypeTemplate({
       name: svgName,
-      namePascal: svgNamePascal,
+      namePascal: svgNamePascal
     }))
   })
 
@@ -127,9 +135,9 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
         pluginSvelte && svelte({
           preprocess,
           compilerOptions: {
-            dev: false,
+            dev: false
           },
-          emitCss: false,
+          emitCss: false
         }),
         replace({
           'icons = {}': 'icons = allIcons',
@@ -166,7 +174,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
               format,
               sourcemap: true,
               globals
-            },
+            }
           }))
       )
       .flat()
