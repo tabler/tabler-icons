@@ -5,9 +5,5 @@ version: "1.1"
 unicode: "ea52"
 ---
 <svg>
-  <rect x="4" y="5" width="16" height="16" rx="2" />
-  <line x1="16" y1="3" x2="16" y2="7" />
-  <line x1="8" y1="3" x2="8" y2="7" />
-  <line x1="4" y1="11" x2="20" y2="11" />
-  <rect x="8" y="15" width="2" height="2" />
+  <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2zm12 -4l0 4m-8 -4l0 4m-4 4l16 0m-12 4h2v2h-2z" />
 </svg>
