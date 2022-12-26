@@ -1,6 +1,19 @@
 import fs from 'fs'
-import path from 'path'
+import path, { resolve } from 'path'
 import { fileURLToPath } from 'url'
+import svgParse from 'parse-svg-path'
+import svgpath from 'svgpath'
+
+export const getCurrentDirPath = (currentPath) => {
+  return path.dirname(fileURLToPath(currentPath));
+}
+
+export const ICONS_SRC_DIR = resolve(getCurrentDirPath(import.meta.url), '../src/_icons')
+
+export const ICONS_DIR = resolve(getCurrentDirPath(import.meta.url), '../icons')
+
+export const HOME_DIR = resolve(getCurrentDirPath(import.meta.url), '..')
+
 
 /**
  * Reads SVGs from directory
@@ -47,6 +60,16 @@ export const toPascalCase = (string) => {
   return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 }
 
-export const getCurrentDirPath = (currentPath) => {
-  return path.dirname(fileURLToPath(currentPath));
+
+
+export const addFloats = function(n1, n2) {
+  return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
+}
+
+export const optimizePath = function(path) {
+  let transformed = svgpath(path).rel().round(3).toString()
+
+  return svgParse(transformed).map(function(a) {
+    return a.join(' ')
+  }).join(' ')
 }

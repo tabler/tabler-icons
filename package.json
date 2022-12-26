@@ -1,7 +1,4 @@
 {
-  "name": "@tabler/icons",
-  "version": "1.118.0",
-  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -29,14 +26,6 @@
   "umd:main": "./icons-react/dist/index.umd.js",
   "types": "./icons-react/index.d.ts",
   "sideEffects": false,
-  "homepage": "https://tabler-icons.io",
-  "bugs": {
-    "url": "https://github.com/tabler/tabler-icons/issues"
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/codecalm"
-  },
   "files": [
     "tags.json",
     "icons/*",
@@ -52,24 +41,16 @@
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "prebuild-react": "rm -rf ./icons-react/dist/",
-    "build-react": "rollup -c",
-    "optimize": "gulp optimize",
+    "_prebuild-react": "rm -rf ./icons-react/dist/",
+    "_build-react": "rollup -c",
+    "optimize": "node ./.build/optimize.mjs",
+    "import-tags": "node ./.build/import-tags.mjs",
+    "import-categories": "node ./.build/import-categories.mjs",
     "release": "git pull && release-it",
     "build": "gulp build",
-    "build-iconfont": "gulp build-iconfont",
-    "import": "./_import.sh && gulp optimize",
-    "test": " yarn workspaces run"
+    "_build-iconfont": "gulp build-iconfont",
+    "test": "yarn workspaces run"
   },
-  "keywords": [
-    "icons",
-    "svg",
-    "png",
-    "iconfont",
-    "react",
-    "front-end",
-    "web"
-  ],
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "7.11.6",
@@ -134,5 +115,6 @@
   "dependencies": {
     "@vue/babel-plugin-jsx": "^1.1.1",
     "fs-extra": "^10.1.0"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }

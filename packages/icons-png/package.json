@@ -1,0 +1,27 @@
+{
+  "name": "@tabler/icons-png",
+  "version": "2.0.0-alpha",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "scripts": {
+    "build": "yarn clean && yarn copy:license && yarn build:icons && yarn build:es && yarn build:bundles",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "test": "echo 'ok'"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "png",
+    "iconfont",
+    "react",
+    "front-end",
+    "web"
+  ]
+}
