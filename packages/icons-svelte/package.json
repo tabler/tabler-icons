@@ -27,6 +27,9 @@
     "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
     "test": "echo 'ok'"
   },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
   "devDependencies": {
     "@testing-library/svelte": "^3.2.2",
     "babel-preset-preact": "^2.0.0",

@@ -7,9 +7,9 @@ const componentTemplate = ({
   namePascal,
   children
 }) => `\
+import { ${namePascal} as _Icon } from '@tabler/icons';
 import createPreactComponent from '../createPreactComponent';
-const ${namePascal} = createPreactComponent('${name}', ${JSON.stringify(children)});
-export default ${namePascal};`;
+export default createPreactComponent(_Icon.name, _Icon.node);`;
 
 const indexItemTemplate = ({
   name,

@@ -27,6 +27,9 @@
     "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
     "test": "echo 'ok'"
   },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
   "peerDependencies": {
     "preact": "^10.5.13"
   },

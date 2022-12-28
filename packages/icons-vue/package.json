@@ -27,6 +27,9 @@
     "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
     "test": "jest"
   },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
   "peerDependencies": {
     "vue": ">=3.0.1"
   },

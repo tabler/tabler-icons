@@ -27,6 +27,9 @@
     "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
     "test": "jest"
   },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
   "devDependencies": {
     "@testing-library/react": "^11.2.6",
     "babel-preset-react-app": "^10.0.0",

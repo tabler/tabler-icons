@@ -7,9 +7,9 @@ const componentTemplate = ({
   namePascal,
   children
 }) => `\
+import { ${namePascal} as _Icon } from '@tabler/icons';
 import createReactComponent from '../createReactComponent';
-const ${namePascal} = createReactComponent('${name}', ${JSON.stringify(children)});
-export default ${namePascal};`;
+export default createReactComponent(_Icon.name, _Icon.node);`;
 
 const indexItemTemplate = ({
   name,
