@@ -596,58 +596,58 @@ gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
   cb()
 }))
 
-gulp.task('clean-react', (cb) => {
-  cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
-    cb()
-  })
-})
+// gulp.task('clean-react', (cb) => {
+//   cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
+//     cb()
+//   })
+// })
 
-gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
-  let files = glob.sync('./icons/*.svg')
-
-  const camelize = function(str) {
-    str = str.replace(/-/g, ' ')
-
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
-      return word.toUpperCase()
-    }).replace(/\s+/g, '')
-  }
-
-  const componentName = function(file) {
-    file = path.basename(file, '.svg')
-    file = camelize(`Icon ${file}`)
-
-    return file
-  }
-
-  const optimizeSvgCode = function(svgCode) {
-    return svgCode.replace('<path stroke="none" d="M0 0h24v24H0z"/>', '')
-  }
-
-  let indexCode = '',
-      indexDCode = `import { FC, SVGAttributes } from 'react';\n\ntype TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {\n  color?: SVGAttributes<SVGElement>['stroke'];\n  size?: SVGAttributes<SVGElement>['width'];\n  stroke?: SVGAttributes<SVGElement>['strokeWidth'];\n}\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
-
-  await asyncForEach(files, async function(file) {
-    const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
-        fileName = path.basename(file, '.svg') + '.js',
-        iconComponentName = componentName(file)
-
-    await svgr(svgCode, {
-      icon: false,
-      svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
-      template: require('./.build/svgr-template')
-    }, { componentName: iconComponentName }).then(jsCode => {
-      fs.writeFileSync('icons-react/icons-js/' + fileName, jsCode)
-      indexCode += `export { default as ${iconComponentName} } from './icons-js/${fileName}';\n`
-      indexDCode += `export const ${iconComponentName}: TablerIcon;\n`
-    })
-
-    fs.writeFileSync('icons-react/index.js', indexCode)
-    fs.writeFileSync('icons-react/index.d.ts', indexDCode)
-  })
-
-  cb()
-}))
+// gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
+//   let files = glob.sync('./icons/*.svg')
+//
+//   const camelize = function(str) {
+//     str = str.replace(/-/g, ' ')
+//
+//     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+//       return word.toUpperCase()
+//     }).replace(/\s+/g, '')
+//   }
+//
+//   const componentName = function(file) {
+//     file = path.basename(file, '.svg')
+//     file = camelize(`Icon ${file}`)
+//
+//     return file
+//   }
+//
+//   const optimizeSvgCode = function(svgCode) {
+//     return svgCode.replace('<path stroke="none" d="M0 0h24v24H0z"/>', '')
+//   }
+//
+//   let indexCode = '',
+//       indexDCode = `import { FC, SVGAttributes } from 'react';\n\ntype TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {\n  color?: SVGAttributes<SVGElement>['stroke'];\n  size?: SVGAttributes<SVGElement>['width'];\n  stroke?: SVGAttributes<SVGElement>['strokeWidth'];\n}\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
+//
+//   await asyncForEach(files, async function(file) {
+//     const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
+//         fileName = path.basename(file, '.svg') + '.js',
+//         iconComponentName = componentName(file)
+//
+//     await svgr(svgCode, {
+//       icon: false,
+//       svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
+//       template: require('./.build/svgr-template')
+//     }, { componentName: iconComponentName }).then(jsCode => {
+//       fs.writeFileSync('icons-react/icons-js/' + fileName, jsCode)
+//       indexCode += `export { default as ${iconComponentName} } from './icons-js/${fileName}';\n`
+//       indexDCode += `export const ${iconComponentName}: TablerIcon;\n`
+//     })
+//
+//     fs.writeFileSync('icons-react/index.js', indexCode)
+//     fs.writeFileSync('icons-react/index.d.ts', indexDCode)
+//   })
+//
+//   cb()
+// }))
 
 const setVersions = function(version, files) {
   for (const i in files) {
@@ -707,14 +707,14 @@ gulp.task('update-readme', (cb) => {
   cb()
 })
 
-gulp.task('build-react', (cb) => {
-  cp.exec('npm run build-react', () => {
-    cb()
-  })
-})
+// gulp.task('build-react', (cb) => {
+//   cp.exec('npm run build-react', () => {
+//     cb()
+//   })
+// })
 
 gulp.task('build',
-    gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react',
+    gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', /*'svg-to-react', 'build-react',*/
         'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip', 'update-readme'))
 
 const optimizeSVG = (data) => {
