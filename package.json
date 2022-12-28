@@ -1,4 +1,5 @@
 {
+  "version": "2.0.0-alpha",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -41,15 +42,17 @@
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "_prebuild-react": "rm -rf ./icons-react/dist/",
-    "_build-react": "rollup -c",
+    "build": "yarn optimize && yarn update && yarn build:jekyll && yarn build:icons-json && yarn build:sprite",
+    "update": "yarn update:icons-version && yarn update:icons-unicode",
+    "update:icons-version": "node ./.build/update-icons-version.mjs",
+    "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
     "optimize": "node ./.build/optimize.mjs",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
     "release": "git pull && release-it",
-    "build": "yarn build:icons-json && yarn build:sprite",
     "build:sprite": "node ./.build/build-sprite.mjs",
     "build:icons-json": "node ./.build/build-icons-json.mjs",
+    "build:jekyll": "bundle exec jekyll build",
     "_build": "gulp build",
     "_build-iconfont": "gulp build-iconfont",
     "test": "yarn workspaces run"
@@ -103,18 +106,6 @@
     },
     "github": {
       "release": true
-    }
-  },
-  "peerDependencies": {
-    "react": "^16.x || 17.x || 18.x",
-    "react-dom": "^16.x || 17.x || 18.x"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
     }
   },
   "dependencies": {
