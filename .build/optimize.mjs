@@ -93,8 +93,7 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
     }
 
     if (svgFile.toString() !== svgFileContent) {
-      console.log('file', file, svgFileContent);
-      //writeFileSync(file, svgFileContent)
+      writeFileSync(file, svgFileContent)
     }
   })
 })
