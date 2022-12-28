@@ -5,8 +5,9 @@ export default getRollupConfig({
   name: 'icons-preact',
   globals: {
     preact: 'preact',
-    'prop-types': 'PropTypes'
+    'prop-types': 'PropTypes',
+    '@tabler/icons': 'icons'
   },
-  external: ['preact', 'prop-types'],
+  external: ['preact', 'prop-types', '@tabler/icons'],
   pkg
 })

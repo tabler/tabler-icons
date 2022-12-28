@@ -146,7 +146,8 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
         }),
         resolve(),
         commonJS({
-          include: 'node_modules/**'
+          include: 'node_modules/**',
+          sourceMap: false
         }),
         babel({
           babelHelpers: 'bundled'
@@ -157,7 +158,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
         }),
         bundleSize(),
         visualizer({
-          sourcemap: true,
+          sourcemap: false,
           filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
         })
       ].filter(Boolean)
@@ -172,7 +173,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
               name: packageName,
               file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
               format,
-              sourcemap: true,
+              sourcemap: false,
               globals
             }
           }))

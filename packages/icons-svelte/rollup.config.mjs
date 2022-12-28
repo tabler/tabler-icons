@@ -6,7 +6,8 @@ export default getRollupConfig({
   pluginSvelte: true,
   globals: {
     svelte: 'svelte',
+    '@tabler/icons': 'icons'
   },
-  external: ['svelte'],
+  external: ['svelte', '@tabler/icons'],
   pkg
 })

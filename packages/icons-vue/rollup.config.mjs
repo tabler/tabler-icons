@@ -5,7 +5,7 @@ export default getRollupConfig({
   name: 'icons-vue',
   globals: {
     vue: 'vue',
-    icons: '@tabler/icons'
+    '@tabler/icons': icons
   },
   external: ['vue', '@tabler/icons'],
   pkg
