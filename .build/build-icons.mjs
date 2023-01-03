@@ -36,8 +36,8 @@ export const buildIcons = ({
   pretty = true,
   key = true
 }) => {
-  const SOURCE_DIR = path.resolve(getCurrentDirPath(import.meta.url), '../icons'),
-      DIST_DIR = path.resolve(getCurrentDirPath(import.meta.url), `../packages/${name}`),
+  const SOURCE_DIR = path.resolve(getCurrentDirPath(), '../icons'),
+      DIST_DIR = path.resolve(getCurrentDirPath(), `../packages/${name}`),
       svgFiles = readSvgDirectory(SOURCE_DIR)
 
   let index = []

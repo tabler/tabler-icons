@@ -11,8 +11,10 @@
     "url": "https://github.com/sponsors/codecalm"
   },
   "scripts": {
-    "build": "yarn clean && yarn copy:license && yarn build:icons && yarn build:es && yarn build:bundles",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
+    "build:icons": "node ./build.mjs",
+    "clean": "rm -rf icons && mkdir icons",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
     "test": "echo 'ok'"
   },
   "keywords": [

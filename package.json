@@ -5,27 +5,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git"
   },
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "main": "./icons-react/dist/index.cjs.js",
-  "exports": {
-    ".": {
-      "import": "./icons-react/dist/index.esm.js",
-      "require": "./icons-react/dist/index.cjs.js"
-    },
-    "./iconfont/*": "./iconfont/*",
-    "./*": [
-      "./icons/*",
-      "./icons-png/*"
-    ]
-  },
-  "module": "./icons-react/dist/index.esm.js",
-  "unpkg": "./icons-react/dist/index.umd.js",
-  "umd:main": "./icons-react/dist/index.umd.js",
-  "types": "./icons-react/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
   "sideEffects": false,
   "files": [
     "tags.json",
@@ -42,29 +24,32 @@
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "build": "yarn optimize && yarn update && yarn build:jekyll && yarn build:icons-json && yarn build:sprite && yarn build:icons && yarn build:react && yarn build:preact && yarn build:solidjs && yarn build:svelte && yarn build:vue",
-    "update": "yarn update:icons-version && yarn update:icons-unicode",
+    "build": "pnpm optimize && pnpm update && pnpm build:jekyll && pnpm build:icons-json && pnpm build:sprite && pnpm build:icons && pnpm build:react && pnpm build:preact && pnpm build:solidjs && pnpm build:svelte && pnpm build:vue && pnpm build:png && pnpm build:pdf  && pnpm update-readme",
+    "update": "pnpm update:icons-version && pnpm update:icons-unicode",
     "update:icons-version": "node ./.build/update-icons-version.mjs",
     "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
     "optimize": "node ./.build/optimize.mjs",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
-    "release": "git pull && release-it",
+    "_release": "git pull && release-it",
     "build:jekyll": "bundle exec jekyll build",
     "build:sprite": "echo 'ok' || node ./.build/build-sprite.mjs",
     "build:icons-json": "node ./.build/build-icons-json.mjs",
-    "build:icons": "yarn workspace @tabler/icons build",
-    "build:react": "yarn workspace @tabler/icons-react build",
-    "build:preact": "yarn workspace @tabler/icons-preact build",
-    "build:solidjs": "yarn workspace @tabler/icons-solidjs build",
-    "build:svelte": "yarn workspace @tabler/icons-svelte build",
-    "build:vue": "yarn workspace @tabler/icons-vue build",
+    "build:icons": "pnpm run build --filter @tabler/icons",
+    "build:react": "pnpm run build --filter @tabler/icons-react",
+    "build:preact": "pnpm run build --filter=@tabler/icons-preact",
+    "build:solidjs": "pnpm run build --filter=@tabler/icons-solidjs",
+    "build:svelte": "pnpm run build --filter=@tabler/icons-svelte",
+    "build:vue": "pnpm run build --filter=@tabler/icons-vue",
+    "build:png": "pnpm run build --filter=@tabler/icons-pdf",
+    "build:pdf": "pnpm --filter=@tabler/icons-pdf",
+    "update-readme": "node ./.build/update-readme.mjs",
     "_build": "gulp build",
     "_build-iconfont": "gulp build-iconfont",
-    "test": "yarn workspaces run"
+    "test": "pnpm workspaces run"
   },
   "devDependencies": {
-    "@babel/cli": "^7.19.3",
+    "@babel/cli": "^7.20.7",
     "@babel/core": "7.11.6",
     "@babel/parser": "7.11.5",
     "@babel/plugin-transform-runtime": "^7.19.6",
@@ -75,9 +60,11 @@
     "@rollup/plugin-node-resolve": "9.0.0",
     "@svgr/babel-plugin-replace-jsx-attribute-value": "5.0.1",
     "@svgr/core": "5.4.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
     "cheerio": "^1.0.0-rc.12",
     "clean-css": "4.2.3",
     "csv-parser": "^3.0.0",
+    "fs-extra": "^10.1.0",
     "glob": "7.1.6",
     "gulp": "4.0.2",
     "gulp-iconfont": "11.0.1",
@@ -88,7 +75,7 @@
     "minimist": "1.2.6",
     "node-sass": "8.0.0",
     "parse-svg-path": "^0.1.2",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.1",
     "release-it": "14.12.5",
     "rollup": "2.78.1",
     "rollup-plugin-filesize": "9.1.2",
@@ -114,9 +101,5 @@
       "release": true
     }
   },
-  "dependencies": {
-    "@vue/babel-plugin-jsx": "^1.1.1",
-    "fs-extra": "^10.1.0"
-  },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "pnpm@7.17.0"
 }

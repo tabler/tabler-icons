@@ -90,21 +90,7 @@ if (fs.existsSync('./compile-options.json')) {
 
 }
 
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
 
-const svgToPng = async (filePath, destination) => {
-  filePath = path.join(__dirname, filePath)
-
-  await new Promise((resolve, reject) => {
-    cp.exec(`rsvg-convert -h 240 ${filePath} > ${destination}`, (error, stdout, stderr) => {
-      error ? reject() : resolve()
-    })
-  })
-}
 
 const createScreenshot = async (filePath) => {
   await cp.exec(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`)
@@ -534,19 +520,19 @@ gulp.task('changelog-image', (cb) => {
   }
 })
 
-gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
-  let files = glob.sync('./icons/*.svg')
-
-  await asyncForEach(files, async function(file, i) {
-    let name = path.basename(file, '.svg')
-
-    console.log('name', name)
-
-    await svgToPng(file, `icons-png/${name}.png`)
-  })
-
-  cb()
-}))
+// gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
+//   let files = glob.sync('./icons/*.svg')
+//
+//   await asyncForEach(files, async function(file, i) {
+//     let name = path.basename(file, '.svg')
+//
+//     console.log('name', name)
+//
+//     await svgToPng(file, `icons-png/${name}.png`)
+//   })
+//
+//   cb()
+// }))
 
 // gulp.task('clean-react', (cb) => {
 //   cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
@@ -611,16 +597,6 @@ gulp.task('update-icons-version', (cb) => {
 })
 
 
-gulp.task('update-readme', (cb) => {
-  let fileData = fs.readFileSync('README.md').toString(),
-      count = glob.sync('./icons/*.svg').length
-
-  fileData = fileData.replace(/<!--icons-count-->(.*?)<!--\/icons-count-->/, `<!--icons-count-->${count}<!--/icons-count-->`)
-
-  fs.writeFileSync('README.md', fileData)
-
-  cb()
-})
 
 // gulp.task('build-react', (cb) => {
 //   cp.exec('npm run build-react', () => {
@@ -630,7 +606,7 @@ gulp.task('update-readme', (cb) => {
 
 gulp.task('build',
     gulp.series(/*'optsetVersionsimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll',*/ 'build-copy', 'icons-sprite', /*'svg-to-react', 'build-react',*/
-        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip', 'update-readme'))
+        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'/*, 'update-readme'*/))
 
 const optimizeSVG = (data) => {
   return optimize(data, {

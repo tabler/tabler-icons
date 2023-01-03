@@ -6,16 +6,15 @@ import svgpath from 'svgpath'
 
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
+import cp from 'child_process'
 
-export const getCurrentDirPath = (currentPath) => {
-  return path.dirname(fileURLToPath(currentPath));
+export const getCurrentDirPath = () => {
+  return path.dirname(fileURLToPath(import.meta.url));
 }
 
-export const ICONS_SRC_DIR = resolve(getCurrentDirPath(import.meta.url), '../src/_icons')
-
-export const ICONS_DIR = resolve(getCurrentDirPath(import.meta.url), '../icons')
-
-export const HOME_DIR = resolve(getCurrentDirPath(import.meta.url), '..')
+export const ICONS_SRC_DIR = resolve(getCurrentDirPath(), '../src/_icons')
+export const ICONS_DIR = resolve(getCurrentDirPath(), '../icons')
+export const HOME_DIR = resolve(getCurrentDirPath(), '..')
 
 
 /**
@@ -95,4 +94,10 @@ export function buildIconsObject(svgFiles, getSvg) {
 function getSvgContents(svg) {
   const $ = cheerio.load(svg);
   return minify($('svg').html(), { collapseWhitespace: true });
+}
+
+export const asyncForEach = async (array, callback) => {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array)
+  }
 }

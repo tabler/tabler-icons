@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn copy:license && yarn build:icons && yarn build:es && yarn build:bundles",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:es && pnpm run build:bundles",
     "build:icons": "node build-icons.mjs",
     "build:es": "babel src -d dist/esm",
     "build:bundles": "rollup -c ./rollup.config.mjs",
