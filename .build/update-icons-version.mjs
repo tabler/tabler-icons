@@ -1,9 +1,10 @@
-import p from '../package.json' assert { type: "json" }
 import minimist from 'minimist'
 import cp from 'child_process'
 import fs from 'fs'
-import { join } from 'path'
-import { ICONS_SRC_DIR } from './helpers.mjs'
+import { join, resolve } from 'path'
+import { HOME_DIR, ICONS_SRC_DIR } from './helpers.mjs'
+
+const p = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'package.json'), 'utf-8'))
 
 const argv = minimist(process.argv.slice(2))
 const version = argv['latest-version'] || `${p.version}`,

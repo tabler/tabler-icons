@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "build": "pnpm optimize && pnpm update && pnpm build:jekyll && pnpm build:icons-json && pnpm build:sprite && pnpm build:icons && pnpm build:react && pnpm build:preact && pnpm build:solidjs && pnpm build:svelte && pnpm build:vue && pnpm build:png && pnpm build:pdf  && pnpm update-readme",
+    "build": "pnpm optimize && pnpm update && pnpm build:jekyll && pnpm build:json && pnpm build:sprite && pnpm build:icons && pnpm build:react && pnpm build:preact && pnpm build:solidjs && pnpm build:svelte && pnpm build:vue && pnpm build:png && pnpm build:pdf  && pnpm update-readme",
     "update": "pnpm update:icons-version && pnpm update:icons-unicode",
     "update:icons-version": "node ./.build/update-icons-version.mjs",
     "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
@@ -34,7 +34,7 @@
     "_release": "git pull && release-it",
     "build:jekyll": "bundle exec jekyll build",
     "build:sprite": "echo 'ok' || node ./.build/build-sprite.mjs",
-    "build:icons-json": "node ./.build/build-icons-json.mjs",
+    "build:json": "node ./.build/build-icons-json.mjs",
     "build:icons": "pnpm run build --filter @tabler/icons",
     "build:react": "pnpm run build --filter @tabler/icons-react",
     "build:preact": "pnpm run build --filter=@tabler/icons-preact",
