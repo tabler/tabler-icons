@@ -1,12 +1,11 @@
 import fs from 'fs'
-import path, { resolve } from 'path'
+import path, { resolve, basename } from 'path'
 import { fileURLToPath } from 'url'
 import svgParse from 'parse-svg-path'
 import svgpath from 'svgpath'
 
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
-import cp from 'child_process'
 
 export const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +24,22 @@ export const HOME_DIR = resolve(getCurrentDirPath(), '..')
  */
 export const readSvgDirectory = (directory) => {
   return fs.readdirSync(directory).filter((file) => path.extname(file) === '.svg')
+}
+
+export const readSvgs = () => {
+  const svgFiles = readSvgDirectory(ICONS_DIR)
+
+  return svgFiles.map(svgFile => {
+    const name = basename(svgFile, '.svg');
+    const contents = readSvg(svgFile, ICONS_DIR);
+    const path = resolve(ICONS_DIR, svgFile);
+
+    return {
+      name,
+      contents,
+      path
+    };
+  });
 }
 
 /**
