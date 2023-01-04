@@ -17,18 +17,18 @@ const buildSprite = () => {
 }
 
 const buildJS = () => {
-  createDirectory('./lib')
-  createDirectory('./lib/icons')
+  createDirectory('./src')
+  createDirectory('./src/icons')
 
   let indexContent = ''
   svgFiles.forEach((file) => {
     indexContent += `export { default as ${file.namePascal}} from './icons/${file.name}.js';\n`;
 
     const exportString = `export default \`${file.contents}\`;\n`;
-    fs.writeFileSync(`./lib/icons/${file.name}.js`, exportString);
+    fs.writeFileSync(`./src/icons/${file.name}.js`, exportString);
   });
 
-  fs.writeFileSync(`./lib/index.js`, indexContent);
+  fs.writeFileSync(`./src/tabler-icons.js`, indexContent);
 }
 
 const buildNodes = () => {
