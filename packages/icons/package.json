@@ -9,10 +9,13 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons"
   },
-  "main": "lib/index.js",
+  "main": "./dist/cjs/tabler-icons.js",
+  "module": "./dist/esm/tabler-icons.js",
+  "unpkg": "./dist/umd/tabler-icons.js",
+  "umd:main": "./dist/umd/tabler-icons.js",
   "sideEffects": false,
   "files": [
-    "dist",
+    "dist/*",
     "tags.json",
     "tabler-nodes.json",
     "icons/*",

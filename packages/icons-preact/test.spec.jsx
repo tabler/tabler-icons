@@ -1,8 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { IconActivity } from "@tabler/icons-react";
+import { describe, it, expect } from 'vitest'
+import Preact from 'preact'
+import { render } from "@testing-library/preact"
+import { IconActivity } from "@tabler/icons-preact"
 
-describe("React Icon component", () => {
+describe("Preact Icon component", () => {
   it("should render an component", () => {
     const { container } = render(<IconActivity />);
 

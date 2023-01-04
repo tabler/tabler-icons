@@ -17,6 +17,14 @@
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "test": "echo 'ok'"
   },
+  "files": [
+    "icons/*.eps"
+  ],
+  "exports": {
+    "./*": [
+      "./icons/*"
+    ]
+  },
   "dependencies": {
     "@tabler/icons": "2.0.0-alpha"
   },

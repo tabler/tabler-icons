@@ -98,7 +98,11 @@ export const buildIcons = ({
  *
  * @param name
  * @param globals
- * @returns {FlatArray<{output: {file: string, sourcemap: boolean, globals: *, name: string, format: *}, input: *, external: [string], plugins: *}[][], 1>[]}
+ * @param external
+ * @param pluginSvelte
+ * @param pkg
+ * @param svelteConfig
+ * @returns {FlatArray<*[], 1>[]}
  */
 export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, svelteConfig }) => {
   const packageName = `@tabler/${name}`
@@ -106,11 +110,6 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
   const outputDir = 'dist'
   const inputs = [`src/tabler-${name}.js`]
   const bundles = [
-    {
-      format: 'es',
-      inputs,
-      outputDir
-    },
     {
       format: 'esm',
       inputs,
@@ -131,11 +130,6 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
       inputs,
       outputDir,
       minify: true
-    },
-    {
-      format: 'umd',
-      inputs,
-      outputDir
     }]
   ]
 

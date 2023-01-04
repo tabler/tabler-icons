@@ -13,9 +13,17 @@
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rm -rf icons && mkdir icons",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "test": "echo 'ok'"
+  },
+  "files": [
+    "icons/*.pdf"
+  ],
+  "exports": {
+    "./*": [
+      "./icons/*"
+    ]
   },
   "dependencies": {
     "@tabler/icons": "2.0.0-alpha"
