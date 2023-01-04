@@ -81,8 +81,23 @@ importers:
   packages/icons:
     specifiers: {}
 
+  packages/icons-eps:
+    specifiers:
+      '@tabler/icons': 2.0.0-alpha
+    dependencies:
+      '@tabler/icons': link:../icons
+
+  packages/icons-pdf:
+    specifiers:
+      '@tabler/icons': 2.0.0-alpha
+    dependencies:
+      '@tabler/icons': link:../icons
+
   packages/icons-png:
-    specifiers: {}
+    specifiers:
+      '@tabler/icons': 2.0.0-alpha
+    dependencies:
+      '@tabler/icons': link:../icons
 
   packages/icons-preact:
     specifiers:
