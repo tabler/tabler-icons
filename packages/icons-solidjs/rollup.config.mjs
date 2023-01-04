@@ -1,5 +1,6 @@
 import { getRollupConfig } from '../../.build/build-icons.mjs'
-import pkg from './package.json' assert { type: "json" }
+import fs from 'fs'
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 export default getRollupConfig({
   name: 'icons-solidjs',

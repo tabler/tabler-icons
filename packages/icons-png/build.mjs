@@ -3,15 +3,15 @@ import { basename, resolve } from 'path'
 import { exec } from 'child_process'
 import { asyncForEach, HOME_DIR } from '../../.build/helpers.mjs'
 
-let files = glob.sync(resolve(HOME_DIR, './icons/*.svg'))
+let svgFiles = glob.sync(resolve(HOME_DIR, './icons/*.svg'))
 
-await asyncForEach(files, async function(file, i) {
-  let name = basename(file, '.svg')
+await asyncForEach(svgFiles, async function(file, i) {
+  let svgName = basename(file, '.svg')
 
   const filePath = resolve(HOME_DIR, file),
-      distPath = `./icons/${name}.png`
+      distPath = `./dist/${svgName}.png`
 
-  console.log('name', name, filePath, distPath)
+  process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgName.padEnd(42)}\r`)
 
   await new Promise((resolve, reject) => {
     exec(`rsvg-convert -h 240 ${filePath} > ${distPath}`, (error, stdout, stderr) => {
