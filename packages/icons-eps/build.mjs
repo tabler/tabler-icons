@@ -4,7 +4,7 @@ import { asyncForEach, readSvgs } from '../../.build/helpers.mjs'
 let svgFiles = readSvgs()
 
 await asyncForEach(svgFiles, async function(file, i) {
-  const distPath = `./dist/${file.name}.eps`
+  const distPath = `./icons/${file.name}.eps`
 
   process.stdout.write(`Building ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`)
 

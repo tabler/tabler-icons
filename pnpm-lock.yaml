@@ -16,6 +16,7 @@ importers:
       '@svgr/babel-plugin-replace-jsx-attribute-value': 5.0.1
       '@svgr/core': 5.4.0
       '@vue/babel-plugin-jsx': ^1.1.1
+      adm-zip: ^0.5.10
       cheerio: ^1.0.0-rc.12
       clean-css: 4.2.3
       csv-parser: ^3.0.0
@@ -52,6 +53,7 @@ importers:
       '@svgr/babel-plugin-replace-jsx-attribute-value': 5.0.1
       '@svgr/core': 5.4.0
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.11.6
+      adm-zip: 0.5.10
       cheerio: 1.0.0-rc.12
       clean-css: 4.2.3
       csv-parser: 3.0.0
@@ -4371,6 +4373,11 @@ packages:
     resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: true
+
+  /adm-zip/0.5.10:
+    resolution: {integrity: sha512-x0HvcHqVJNTPk/Bw8JbLWlWoo6Wwnsug0fnYYro1HBrjxZ3G7/AZk7Ahv8JwDe1uIcz8eBqvu86FuF1POiG7vQ==}
+    engines: {node: '>=6.0'}
     dev: true
 
   /agent-base/6.0.2:
