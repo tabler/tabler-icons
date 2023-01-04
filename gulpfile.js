@@ -589,13 +589,6 @@ gulp.task('changelog-image', (cb) => {
 
 
 
-gulp.task('update-icons-version', (cb) => {
-
-
-
-  cb()
-})
-
 
 
 // gulp.task('build-react', (cb) => {
@@ -608,83 +601,10 @@ gulp.task('build',
     gulp.series(/*'optsetVersionsimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll',*/ 'build-copy', 'icons-sprite', /*'svg-to-react', 'build-react',*/
         'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'/*, 'update-readme'*/))
 
-const optimizeSVG = (data) => {
-  return optimize(data, {
-    js2svg: {
-      indent: 2,
-      pretty: true
-    },
-    plugins: [
-      {
-        name: 'preset-default',
-        params: {
-          overrides: {
-            mergePaths: false
-          }
-        }
-      }]
-  }).data
-}
+
 
 gulp.task('import', gulp.series((cb) => {
-  if (fs.existsSync('./new/Artboard.svg')) {
-    fs.unlinkSync('rm ./new/Artboard.svg')
-  }
 
-  const files = glob.sync('./new/*.svg')
-
-  files.forEach(function(file, i) {
-    let fileData = fs.readFileSync(file).toString(),
-        filename = path.basename(file, '.svg')
-
-    console.log(filename)
-
-    fileData = optimizeSVG(fileData)
-
-    if (fileData.match(/transform="/)) {
-      throw new Error(`File ${file} has \`transform\` in code!!`)
-    }
-
-    if (filename.match(/\s/)) {
-      throw new Error(`File ${file} has space in name!!`)
-    }
-
-    fileData = fileData.replace(/---/g, '')
-        .replace(/fill="none"/g, '')
-        .replace(/fill="#D8D8D8"/gi, '')
-        .replace(/fill-rule="evenodd"/g, '')
-        .replace(/stroke-linecap="round"/g, '')
-        .replace(/stroke-linejoin="round"/g, '')
-        .replace(/viewBox="0 0 24 24"/g, '')
-        .replace(/stroke="#000000"/g, '')
-        .replace(/stroke="#000"/g, '')
-        .replace(/stroke-width="2"/g, '')
-        .replace(/width="24"/g, '')
-        .replace(/width="24px"/g, '')
-        .replace(/height="24"/g, '')
-        .replace(/height="24px"/g, '')
-        .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
-        .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
-        .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
-        .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
-        .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
-        .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
-
-    fileData = optimizeSVG(fileData)
-
-    fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
-
-    if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
-      const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString()
-      const m = newFileData.match(/(---.*---)/gms)
-
-      if (m) {
-        fileData = fileData.replace('---\n---', m[0])
-      }
-    }
-
-    fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
-  })
 
   cb()
 }, 'optimize'))

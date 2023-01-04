@@ -7,6 +7,7 @@ import svgpath from 'svgpath'
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
 import { parseSync } from 'svgson'
+import { optimize } from 'svgo'
 
 const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
@@ -98,6 +99,23 @@ export const optimizePath = function(path) {
   }).join(' ')
 }
 
+export const optimizeSVG = (data) => {
+  return optimize(data, {
+    js2svg: {
+      indent: 2,
+      pretty: true
+    },
+    plugins: [
+      {
+        name: 'preset-default',
+        params: {
+          overrides: {
+            mergePaths: false
+          }
+        }
+      }]
+  }).data
+}
 
 export function buildIconsObject(svgFiles, getSvg) {
   return svgFiles
