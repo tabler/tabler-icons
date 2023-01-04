@@ -397,7 +397,7 @@ gulp.task('icons-preview', (cb) => {
 gulp.task('icons-stroke', gulp.series((cb) => {
 
   const icon = 'disabled',
-      strokes = ['.5', '1', '1.5', '2', '2.75'],
+      strokes = ['.5', '1', '1.5', '2', '2.5'],
       svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
       padding = 16,
       paddingOuter = 3,
