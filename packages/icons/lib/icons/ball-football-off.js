@@ -1,0 +1,4 @@
+export default `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ball-football-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20.041 16.046a9 9 0 0 0 -12.084 -12.09m-2.323 1.683a9 9 0 0 0 12.726 12.73m-6.36 -11.369l4.755 3.455l-.566 1.743l-.98 3.014l-.209 .788h-6l-1.755 -5.545l1.86 -1.351l2.313 -1.681zv-4m3 13l2.5 3m-.745 -8.545l3.745 -1.455m-11.439 7.045l-2.561 2.955m.745 -8.545l-3.745 -1.455m-.5 -6l18 18" />
+</svg>`;

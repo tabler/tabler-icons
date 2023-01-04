@@ -1,0 +1,4 @@
+export default `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-baby-carriage" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M8 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0m12 0m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0m-14 -14h2.5l1.632 4.897a6 6 0 0 0 5.693 4.103h2.675a5.5 5.5 0 0 0 0 -11h-.5v6m-8 0h14m-11 8l1 -3m6 0l1 3" />
+</svg>`;

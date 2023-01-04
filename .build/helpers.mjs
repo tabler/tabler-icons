@@ -37,9 +37,9 @@ export const readSvgs = () => {
   return svgFiles.map(svgFile => {
     const name = basename(svgFile, '.svg'),
         namePascal = toPascalCase(`icon ${name}`),
-        contents = readSvg(svgFile, ICONS_DIR),
+        contents = readSvg(svgFile, ICONS_DIR).trim(),
         path = resolve(ICONS_DIR, svgFile),
-        obj = parseSync(contents);
+        obj = parseSync(contents.replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', ''));
 
     return {
       name,
@@ -61,6 +61,16 @@ export const readSvgs = () => {
 export const readSvg = (fileName, directory) => {
   return fs.readFileSync(path.join(directory, fileName), 'utf-8')
 }
+
+/**
+ * Create directory if not exists
+ * @param dir
+ */
+export const createDirectory = (dir) => {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+};
 
 /**
  * Get SVG name
