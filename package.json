@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "build": "pnpm run optimize && pnpm run update && pnpm run build:jekyll && pnpm run build:icons && pnpm run build:packages && pnpm run update-readme",
+    "build": "pnpm run optimize && pnpm run update && pnpm run build:jekyll && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run update-readme",
     "update": "pnpm run update:icons-version && pnpm run update:icons-unicode",
     "update:icons-version": "node ./.build/update-icons-version.mjs",
     "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
@@ -32,6 +32,9 @@
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
+    "preview": "pnpm run preview-icons && pnpm run preview-stroke",
+    "preview-icons": "node ./.build/preview-icons.mjs",
+    "preview-stroke": "node ./.build/preview-stroke.mjs",
     "_release": "git pull && release-it",
     "build:jekyll": "bundle exec jekyll build && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:icons": "pnpm --filter @tabler/icons build",

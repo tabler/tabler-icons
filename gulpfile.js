@@ -92,10 +92,7 @@ if (fs.existsSync('./compile-options.json')) {
 
 
 
-const createScreenshot = async (filePath) => {
-  await cp.exec(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`)
-  await cp.exec(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
-}
+
 
 const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = false) {
   if (newIcons.length > 0) {
@@ -148,55 +145,6 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = 
   }
 }
 
-const generateIconsPreview = function(files, destFile, cb, {
-  columnsCount = 19,
-  paddingOuter = 7,
-  color = '#354052',
-  background = '#fff'
-} = {}) {
-
-  const padding = 20,
-      iconSize = 24
-
-  const iconsCount = files.length,
-      rowsCount = Math.ceil(iconsCount / columnsCount),
-      width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
-      height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding
-
-  let svgContentSymbols = '',
-      svgContentIcons = '',
-      x = paddingOuter,
-      y = paddingOuter
-
-  files.forEach(function(file, i) {
-    let name = path.basename(file, '.svg')
-
-    let svgFile = fs.readFileSync(file),
-        svgFileContent = svgFile.toString()
-
-    svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
-        .replace(' width="24" height="24"', '')
-        .replace('</svg>', '</symbol>')
-        .replace(/\n\s+/g, '')
-
-    svgContentSymbols += `\t${svgFileContent}\n`
-    svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`
-
-    x += padding + iconSize
-
-    if (i % columnsCount === columnsCount - 1) {
-      x = paddingOuter
-      y += padding + iconSize
-    }
-  })
-
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-
-  fs.writeFileSync(destFile, svgContent)
-  createScreenshot(destFile)
-
-  cb()
-}
 
 //*********************************************************************************************
 
@@ -361,74 +309,13 @@ gulp.task('clean-png', (cb) => {
   })
 })
 
-gulp.task('icons-sprite', (cb) => {
-  glob('_site/icons/*.svg', {}, function(er, files) {
-
-    let svgContent = ''
-
-    files.forEach(function(file, i) {
-      let name = path.basename(file, '.svg'),
-          svgFile = fs.readFileSync(file),
-          svgFileContent = svgFile.toString()
-
-      svgFileContent = svgFileContent.replace(/<svg[^>]+>/g, '').replace(/<\/svg>/g, '').replace(/\n+/g, '').replace(/>\s+</g, '><').trim()
-
-      svgContent += `<symbol id="tabler-${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
-    })
-
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`
-
-    fs.writeFileSync('tabler-sprite.svg', svg)
-    fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
-    cb()
-  })
-})
-
 gulp.task('icons-preview', (cb) => {
-  glob('icons/*.svg', {}, function(er, files) {
-    generateIconsPreview(files, '.github/icons.svg', cb)
-    generateIconsPreview(files, '.github/icons-dark.svg', cb, {
-      color: '#ffffff',
-      background: 'transparent'
-    })
-  })
+
 })
 
 gulp.task('icons-stroke', gulp.series((cb) => {
 
-  const icon = 'disabled',
-      strokes = ['.5', '1', '1.5', '2', '2.5'],
-      svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
-      padding = 16,
-      paddingOuter = 3,
-      iconSize = 32,
-      width = 914,
-      height = iconSize + paddingOuter * 2
 
-  let svgContentSymbols = '',
-      svgContentIcons = '',
-      x = paddingOuter
-
-  strokes.forEach(function(stroke) {
-    let svgFileContentStroked = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
-        .replace(' width="24" height="24"', '')
-        .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
-        .replace('</svg>', '</symbol>')
-        .replace(/\n\s+/g, '')
-
-    svgContentSymbols += `\t${svgFileContentStroked}\n`
-    svgContentIcons += `\t<use xlink:href="#icon-${stroke}" x="${x}" y="${paddingOuter}" width="${iconSize}" height="${iconSize}" />\n`
-
-    x += padding + iconSize
-  })
-
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-  const svgContentDark = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #ffffff"><rect x="0" y="0" width="${width}" height="${height}" fill="transparent"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-
-  fs.writeFileSync('.github/icons-stroke.svg', svgContent)
-  fs.writeFileSync('.github/icons-stroke-dark.svg', svgContentDark)
-  createScreenshot('.github/icons-stroke.svg')
-  createScreenshot('.github/icons-stroke-dark.svg')
   cb()
 }))
 
