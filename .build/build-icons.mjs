@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { getCurrentDirPath, getSvgName, readSvg, readSvgDirectory, toCamelCase, toPascalCase } from './helpers.mjs'
-import { parseSync, stringify } from 'svgson'
+import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
+import { stringify } from 'svgson'
 import prettier from 'prettier'
 
 import { babel } from '@rollup/plugin-babel'
@@ -36,20 +36,14 @@ export const buildIcons = ({
   pretty = true,
   key = true
 }) => {
-  const SOURCE_DIR = path.resolve(getCurrentDirPath(), '../icons'),
-      DIST_DIR = path.resolve(getCurrentDirPath(), `../packages/${name}`),
-      svgFiles = readSvgDirectory(SOURCE_DIR)
+  const DIST_DIR = path.resolve(PACKAGES_DIR, name),
+      svgFiles = readSvgs()
 
   let index = []
   let typings = []
 
   svgFiles.forEach((svgFile, i) => {
-    const svgName = getSvgName(svgFile),
-        svgNamePascal = toPascalCase(`icon ${svgName}`),
-        svgContent = readSvg(svgFile, SOURCE_DIR),
-        content = parseSync(svgContent)
-
-    const children = content.children
+    const children = svgFile.obj.children
         .map(({
           name,
           attributes
@@ -65,11 +59,11 @@ export const buildIcons = ({
           return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
         })
 
-    process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgName.padEnd(42)}\r`)
+    process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
 
     let component = componentTemplate({
-      name: svgName,
-      namePascal: svgNamePascal,
+      name: svgFile.name,
+      namePascal: svgFile.namePascal,
       children,
       stringify
     })
@@ -80,17 +74,17 @@ export const buildIcons = ({
       parser: 'babel'
     }) : component
 
-    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgName}.${extension}`)
+    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.name}.${extension}`)
     fs.writeFileSync(filePath, output, 'utf-8')
 
     index.push(indexItemTemplate({
-      name: svgName,
-      namePascal: svgNamePascal
+      name: svgFile.name,
+      namePascal: svgFile.namePascal
     }))
 
     typings.push(indexTypeTemplate({
-      name: svgName,
-      namePascal: svgNamePascal
+      name: svgFile.name,
+      namePascal: svgFile.namePascal
     }))
   })
 

@@ -1,8 +1,7 @@
-import svgParse from 'parse-svg-path'
 import glob from 'glob'
 import { readFileSync, writeFileSync } from 'fs'
-import { resolve, join, basename } from 'path'
-import { getCurrentDirPath, optimizePath, ICONS_SRC_DIR } from './helpers.mjs'
+import { join, basename } from 'path'
+import { optimizePath, ICONS_SRC_DIR } from './helpers.mjs'
 
 
 glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {

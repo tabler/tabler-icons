@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs'
 import glob from 'glob'
 import { resolve } from 'path'
-import { getCurrentDirPath, HOME_DIR } from './helpers.mjs'
+import { HOME_DIR } from './helpers.mjs'
 
 let fileData = readFileSync(resolve(HOME_DIR, 'README.md')).toString(),
     count = glob.sync(resolve(HOME_DIR, 'icons/*.svg')).length

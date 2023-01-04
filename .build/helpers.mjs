@@ -6,14 +6,17 @@ import svgpath from 'svgpath'
 
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
+import { parseSync } from 'svgson'
 
-export const getCurrentDirPath = () => {
+const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
 }
 
-export const ICONS_SRC_DIR = resolve(getCurrentDirPath(), '../src/_icons')
-export const ICONS_DIR = resolve(getCurrentDirPath(), '../icons')
 export const HOME_DIR = resolve(getCurrentDirPath(), '..')
+
+export const ICONS_SRC_DIR = resolve(HOME_DIR, 'src/_icons')
+export const ICONS_DIR = resolve(HOME_DIR, 'icons')
+export const PACKAGES_DIR = resolve(HOME_DIR, '../packages')
 
 
 /**
@@ -30,13 +33,17 @@ export const readSvgs = () => {
   const svgFiles = readSvgDirectory(ICONS_DIR)
 
   return svgFiles.map(svgFile => {
-    const name = basename(svgFile, '.svg');
-    const contents = readSvg(svgFile, ICONS_DIR);
-    const path = resolve(ICONS_DIR, svgFile);
+    const name = basename(svgFile, '.svg'),
+        namePascal = toPascalCase(`icon ${name}`),
+        contents = readSvg(svgFile, ICONS_DIR),
+        path = resolve(ICONS_DIR, svgFile),
+        obj = parseSync(contents);
 
     return {
       name,
+      namePascal,
       contents,
+      obj,
       path
     };
   });
