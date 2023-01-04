@@ -50,6 +50,7 @@
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "prebuild-react": "rm -rf ./icons-react/dist/",
     "build-react": "rollup -c",
+    "build:jekyll": "gulp build-jekyll",
     "optimize": "gulp optimize",
     "release": "git pull && release-it",
     "build": "gulp build",
