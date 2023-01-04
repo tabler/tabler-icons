@@ -6,9 +6,8 @@ export default getRollupConfig({
   name: 'icons-react',
   globals: {
     react: 'react',
-    'prop-types': 'PropTypes',
-    '@tabler/icons': 'icons'
+    'prop-types': 'PropTypes'
   },
-  external: ['react', 'prop-types', '@tabler/icons'],
+  external: ['react', 'prop-types'],
   pkg
 })

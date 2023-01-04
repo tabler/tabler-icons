@@ -5,9 +5,8 @@ const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 export default getRollupConfig({
   name: 'icons-vue',
   globals: {
-    vue: 'vue',
-    '@tabler/icons': 'icons'
+    vue: 'vue'
   },
-  external: ['vue', '@tabler/icons'],
+  external: ['vue'],
   pkg
 })

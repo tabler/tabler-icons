@@ -6,9 +6,8 @@ export default getRollupConfig({
   name: 'icons-solidjs',
   globals: {
     'solid-js': 'solid-js',
-    'solid-js/h': 'solid-js/h',
-    '@tabler/icons': 'icons'
+    'solid-js/h': 'solid-js/h'
   },
-  external: ['solid-js', 'solid-js/h', '@tabler/icons'],
+  external: ['solid-js', 'solid-js/h'],
   pkg
 })

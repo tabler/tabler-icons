@@ -19,10 +19,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:es && pnpm run build:bundles",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles && pnpm build:strip",
     "build:icons": "node build.mjs",
-    "build:es": "babel src -d dist/esm",
     "build:bundles": "rollup -c ./rollup.config.mjs",
+    "build:strip": "svelte-strip strip src/ dist/svelte",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && rm -rf ./src/icons/*.svelte",
     "test": "echo 'ok'"
@@ -37,6 +37,7 @@
     "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.1",
+    "svelte-strip": "^1.0.3",
     "svelte2tsx": "^0.4.12"
   },
   "peerDependencies": {

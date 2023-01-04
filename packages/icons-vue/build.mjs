@@ -7,9 +7,8 @@ const componentTemplate = ({
   namePascal,
   children
 }) => `\
-import { ${namePascal} as _Icon } from '@tabler/icons';
 import createVueComponent from '../createVueComponent';
-export default createVueComponent(_Icon.name, _Icon.node);`;
+export default createVueComponent('${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

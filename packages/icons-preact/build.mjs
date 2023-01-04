@@ -4,10 +4,10 @@ import { buildIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
   namePascal,
+  children
 }) => `\
-import { ${namePascal} as _Icon } from '@tabler/icons';
 import createPreactComponent from '../createPreactComponent';
-export default createPreactComponent(_Icon.name, _Icon.node);`;
+export default createPreactComponent('${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

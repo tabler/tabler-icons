@@ -55,7 +55,7 @@ export const buildIcons = ({
           return [name, attributes]
         })
         .filter((i) => {
-          const [ name, attributes ] = i
+          const [name, attributes] = i
           return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
         })
 
@@ -100,13 +100,33 @@ export const buildIcons = ({
  * @param globals
  * @returns {FlatArray<{output: {file: string, sourcemap: boolean, globals: *, name: string, format: *}, input: *, external: [string], plugins: *}[][], 1>[]}
  */
-export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) => {
+export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, svelteConfig }) => {
   const packageName = `@tabler/${name}`
   const outputFileName = `tabler-${name}`
   const outputDir = 'dist'
   const inputs = [`src/tabler-${name}.js`]
   const bundles = [
     {
+      format: 'es',
+      inputs,
+      outputDir
+    },
+    {
+      format: 'esm',
+      inputs,
+      outputDir,
+      preserveModules: true
+    },
+    ...pluginSvelte ? [{
+      format: 'svelte',
+      inputs,
+      outputDir,
+      preserveModules: true
+    }] : [{
+      format: 'cjs',
+      inputs,
+      outputDir
+    }, {
       format: 'umd',
       inputs,
       outputDir,
@@ -116,20 +136,18 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
       format: 'umd',
       inputs,
       outputDir
-    },
-    {
-      format: 'cjs',
-      inputs,
-      outputDir
-    }
+    }]
   ]
 
   const plugins = (pkg, minify) =>
       [
         pluginSvelte && svelte({
-          preprocess,
+          ...svelteConfig,
+          include: 'src/**/*.svelte',
           compilerOptions: {
-            dev: false
+            dev: false,
+            css: false,
+            hydratable: true
           },
           emitCss: false
         }),
@@ -138,7 +156,11 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
           delimiters: ['', ''],
           preventAssignment: false
         }),
-        resolve(),
+        pluginSvelte ? resolve({
+          browser: true,
+          exportConditions: ['svelte'],
+          extensions: ['.svelte']
+        }) : resolve(),
         commonJS({
           include: 'node_modules/**',
           sourceMap: false
@@ -158,15 +180,21 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg }) 
       ].filter(Boolean)
 
   return bundles
-      .map(({ inputs, outputDir, format, minify }) =>
+      .map(({ inputs, outputDir, format, minify, preserveModules }) =>
           inputs.map(input => ({
             input,
             plugins: plugins(pkg, minify),
-            external,
+            external: format === 'svelte' ? [/\.svelte/] : external,
             output: {
               name: packageName,
-              file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
-              format,
+              ...(preserveModules
+                  ? {
+                    dir: `${outputDir}/${format}`
+                  }
+                  : {
+                    file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`
+                  }),
+              format: format === 'svelte' ? 'esm' : format,
               sourcemap: false,
               globals
             }

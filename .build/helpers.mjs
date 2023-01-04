@@ -18,7 +18,7 @@ export const HOME_DIR = resolve(getCurrentDirPath(), '..')
 
 export const ICONS_SRC_DIR = resolve(HOME_DIR, 'src/_icons')
 export const ICONS_DIR = resolve(HOME_DIR, 'icons')
-export const PACKAGES_DIR = resolve(HOME_DIR, '../packages')
+export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
 
 
 /**
