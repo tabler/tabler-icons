@@ -1,0 +1,47 @@
+{
+  "name": "@tabler/icons-svelte",
+  "version": "2.0.0-alpha",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-svelte"
+  },
+  "main": "dist/cjs/tabler-icons-svelte.js",
+  "main:umd": "dist/umd/tabler-icons-svelte.js",
+  "module": "dist/esm/tabler-icons-svelte.js",
+  "unpkg": "dist/umd/tabler-icons-svelte.min.js",
+  "typings": "dist/tabler-icons-svelte.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles && pnpm build:strip",
+    "build:icons": "node build.mjs",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "build:strip": "svelte-strip strip src/ dist/svelte",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.svelte",
+    "test": "echo 'ok'"
+  },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
+  "devDependencies": {
+    "@testing-library/svelte": "^3.2.2",
+    "babel-preset-preact": "^2.0.0",
+    "jest": "^28.1.3",
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte": "^3.49.0",
+    "svelte-preprocess": "^4.10.1",
+    "svelte-strip": "^1.0.3",
+    "svelte2tsx": "^0.4.12"
+  },
+  "peerDependencies": {
+    "svelte": "^3.49.0",
+    "svelte2tsx": "^0.4.12"
+  }
+}

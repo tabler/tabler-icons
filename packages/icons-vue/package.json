@@ -1,0 +1,43 @@
+{
+  "name": "@tabler/icons-vue",
+  "version": "2.0.0-alpha",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-vue"
+  },
+  "main": "dist/cjs/tabler-icons-vue.js",
+  "main:umd": "dist/umd/tabler-icons-vue.js",
+  "module": "dist/esm/tabler-icons-vue.js",
+  "unpkg": "dist/umd/tabler-icons-vue.min.js",
+  "typings": "dist/tabler-icons-vue.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:es && pnpm run build:bundles",
+    "build:icons": "node build.mjs",
+    "build:es": "babel src -d dist/esm",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/vue": "^6.6.1",
+    "@vue/compiler-sfc": "^3.2.45",
+    "@vue/test-utils": "^2.2.4",
+    "vue": "^3.2.45",
+    "vue-jest": "^5.0.0-alpha.10"
+  }
+}

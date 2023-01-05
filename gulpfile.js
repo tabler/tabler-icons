@@ -1,22 +1,20 @@
-const gulp = require('gulp'),
-    cp = require('child_process'),
-    glob = require('glob'),
-    fs = require('fs'),
-    path = require('path'),
-    p = require('./package.json'),
-    csv = require('csv-parser'),
-    zip = require('gulp-zip'),
-    svgo = require('gulp-svgo'),
-    { optimize } = require('svgo'),
-    outlineStroke = require('svg-outline-stroke'),
-    iconfont = require('gulp-iconfont'),
-    template = require('lodash.template'),
-    sass = require('node-sass'),
-    cleanCSS = require('clean-css'),
-    argv = require('minimist')(process.argv.slice(2)),
-    svgParse = require('parse-svg-path'),
-    svgpath = require('svgpath'),
-    svgr = require('@svgr/core').default
+// const gulp = require('gulp'),
+//     cp = require('child_process'),
+//     glob = require('glob'),
+//     fs = require('fs'),
+//     path = require('path'),
+//     p = require('./package.json'),
+//     csv = require('csv-parser'),
+//     zip = require('gulp-zip'),
+//     svgo = require('gulp-svgo'),
+//     { optimize } = require('svgo'),
+//     outlineStroke = require('svg-outline-stroke'),
+//     iconfont = require('gulp-iconfont'),
+//     template = require('lodash.template'),
+//     sass = require('node-sass'),
+//     cleanCSS = require('clean-css'),
+//     argv = require('minimist')(process.argv.slice(2)),
+//     svgr = require('@svgr/core').default
 
 const compileOptions = {
   includeIcons: [],
@@ -92,26 +90,9 @@ if (fs.existsSync('./compile-options.json')) {
 
 }
 
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
 
-const svgToPng = async (filePath, destination) => {
-  filePath = path.join(__dirname, filePath)
 
-  await new Promise((resolve, reject) => {
-    cp.exec(`rsvg-convert -h 240 ${filePath} > ${destination}`, (error, stdout, stderr) => {
-      error ? reject() : resolve()
-    })
-  })
-}
 
-const createScreenshot = async (filePath) => {
-  await cp.exec(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`)
-  await cp.exec(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
-}
 
 const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = false) {
   if (newIcons.length > 0) {
@@ -164,55 +145,6 @@ const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = 
   }
 }
 
-const generateIconsPreview = function(files, destFile, cb, {
-  columnsCount = 19,
-  paddingOuter = 7,
-  color = '#354052',
-  background = '#fff'
-} = {}) {
-
-  const padding = 20,
-      iconSize = 24
-
-  const iconsCount = files.length,
-      rowsCount = Math.ceil(iconsCount / columnsCount),
-      width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
-      height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding
-
-  let svgContentSymbols = '',
-      svgContentIcons = '',
-      x = paddingOuter,
-      y = paddingOuter
-
-  files.forEach(function(file, i) {
-    let name = path.basename(file, '.svg')
-
-    let svgFile = fs.readFileSync(file),
-        svgFileContent = svgFile.toString()
-
-    svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
-        .replace(' width="24" height="24"', '')
-        .replace('</svg>', '</symbol>')
-        .replace(/\n\s+/g, '')
-
-    svgContentSymbols += `\t${svgFileContent}\n`
-    svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`
-
-    x += padding + iconSize
-
-    if (i % columnsCount === columnsCount - 1) {
-      x = paddingOuter
-      y += padding + iconSize
-    }
-  })
-
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-
-  fs.writeFileSync(destFile, svgContent)
-  createScreenshot(destFile)
-
-  cb()
-}
 
 //*********************************************************************************************
 
@@ -336,55 +268,7 @@ gulp.task('iconfont-css', (cb) => {
   })
 })
 
-const getMaxUnicode = () => {
-  const path = 'src/_icons/*.svg'
-  const files = glob.sync(path)
-  let maxUnicode = 0
 
-  files.forEach(function(file) {
-    const svgFile = fs.readFileSync(file).toString()
-
-    svgFile.replace(/unicode: "([a-f0-9.]+)"/i, function(m, unicode) {
-      const newUnicode = parseInt(unicode, 16)
-
-      if (newUnicode) {
-        maxUnicode = Math.max(maxUnicode, newUnicode)
-      }
-    })
-  })
-
-  return maxUnicode
-}
-
-gulp.task('update-icons-unicode', (cb) => {
-  let maxUnicode = getMaxUnicode()
-
-  glob('./src/_icons/*.svg', {}, function(er, files) {
-    for (const i in files) {
-      const file = files[i]
-
-      let svgFile = fs.readFileSync(file).toString()
-
-      if (!svgFile.match(/\nunicode: "?([a-f0-9.]+)"?/i)) {
-        maxUnicode++
-        const unicode = maxUnicode.toString(16)
-
-        if (unicode) {
-          svgFile = svgFile.replace(/---\n<svg>/i, function(m) {
-            return `unicode: "${unicode}"\n${m}`
-          })
-
-          console.log(`Add unicode "${unicode}" to "${file}"`)
-          fs.writeFileSync(file, svgFile)
-        }
-      } else {
-        console.log(`File ${file} already has unicode`)
-      }
-    }
-
-    cb()
-  })
-})
 
 gulp.task('build-iconfont',
     gulp.series('iconfont-prepare', 'iconfont-svg-outline', 'iconfont-fix-outline', 'iconfont-optimize', 'iconfont', 'iconfont-css', 'iconfont-clean'))
@@ -425,182 +309,15 @@ gulp.task('clean-png', (cb) => {
   })
 })
 
-gulp.task('icons-sprite', (cb) => {
-  glob('_site/icons/*.svg', {}, function(er, files) {
-
-    let svgContent = ''
-
-    files.forEach(function(file, i) {
-      let name = path.basename(file, '.svg'),
-          svgFile = fs.readFileSync(file),
-          svgFileContent = svgFile.toString()
-
-      svgFileContent = svgFileContent.replace(/<svg[^>]+>/g, '').replace(/<\/svg>/g, '').replace(/\n+/g, '').replace(/>\s+</g, '><').trim()
-
-      svgContent += `<symbol id="tabler-${name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
-    })
-
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`
-
-    fs.writeFileSync('tabler-sprite.svg', svg)
-    fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
-    cb()
-  })
-})
-
 gulp.task('icons-preview', (cb) => {
-  glob('icons/*.svg', {}, function(er, files) {
-    generateIconsPreview(files, '.github/icons.svg', cb)
-    generateIconsPreview(files, '.github/icons-dark.svg', cb, {
-      color: '#ffffff',
-      background: 'transparent'
-    })
-  })
+
 })
 
 gulp.task('icons-stroke', gulp.series((cb) => {
 
-  const icon = 'disabled',
-      strokes = ['.5', '1', '1.5', '2', '2.75'],
-      svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
-      padding = 16,
-      paddingOuter = 3,
-      iconSize = 32,
-      width = 914,
-      height = iconSize + paddingOuter * 2
 
-  let svgContentSymbols = '',
-      svgContentIcons = '',
-      x = paddingOuter
-
-  strokes.forEach(function(stroke) {
-    let svgFileContentStroked = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
-        .replace(' width="24" height="24"', '')
-        .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
-        .replace('</svg>', '</symbol>')
-        .replace(/\n\s+/g, '')
-
-    svgContentSymbols += `\t${svgFileContentStroked}\n`
-    svgContentIcons += `\t<use xlink:href="#icon-${stroke}" x="${x}" y="${paddingOuter}" width="${iconSize}" height="${iconSize}" />\n`
-
-    x += padding + iconSize
-  })
-
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #354052"><rect x="0" y="0" width="${width}" height="${height}" fill="#fff"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-  const svgContentDark = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: #ffffff"><rect x="0" y="0" width="${width}" height="${height}" fill="transparent"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
-
-  fs.writeFileSync('.github/icons-stroke.svg', svgContent)
-  fs.writeFileSync('.github/icons-stroke-dark.svg', svgContentDark)
-  createScreenshot('.github/icons-stroke.svg')
-  createScreenshot('.github/icons-stroke-dark.svg')
   cb()
 }))
-
-gulp.task('optimize', (cb) => {
-  const addFloats = function(n1, n2) {
-    return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
-  }
-
-  const optimizePath = function(path) {
-    let transformed = svgpath(path).rel().round(3).toString()
-
-    return svgParse(transformed).map(function(a) {
-      return a.join(' ')
-    }).join(' ')
-  }
-
-  glob('src/_icons/*.svg', {}, function(er, files) {
-
-    files.forEach(function(file, i) {
-      let svgFile = fs.readFileSync(file),
-          svgFileContent = svgFile.toString()
-
-      svgFileContent = svgFileContent.replace(/><\/(polyline|line|rect|circle|path|ellipse)>/g, '/>')
-          .replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
-          .replace(/<path stroke="red" stroke-width="\.1"([^>]+)?\/>/g, '')
-          .replace(/\s?\/>/g, ' />')
-          .replace(/\n\s*<(line|circle|path|polyline|rect|ellipse)/g, '\n  <$1')
-          // .replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
-          .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
-            return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
-          })
-          .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"( fill="currentColor")?\s+\/>/g, function(f, cx, cy, r) {
-            return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
-          })
-          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, cx, cy, rx) {
-            return `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${rx}" />`
-          })
-          .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function(f, cx, cy, rx, ry) {
-            return `<path d="M${cx} ${cy}m -${rx} 0a${rx} ${ry} 0 1 0 ${rx * 2} 0a ${rx} ${ry} 0 1 0 -${rx * 2} 0" />`
-          })
-          .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, width, height, x, y, rx) {
-            return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
-          })
-          .replace(/<rect x="([^"]+)" y="([^"]+)" rx="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, rx, width, height) {
-            return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
-          })
-          .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, x, y, width, height, rx) {
-            return `<path d="M ${x} ${y}m 0 ${rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}Z" />`
-          })
-          .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function(f, x, y, width, height) {
-            return `<path d="M ${x} ${y}h${width}v${height}h${-width}Z" />`
-          })
-          .replace(/<polyline points="([^"]+)\s?"\s+\/>/g, function(f, points) {
-            const path = points.split(' ').reduce(
-                (accumulator, currentValue, currentIndex) => `${accumulator}${currentIndex % 2 === 0 ? (currentIndex === 0 ? 'M' : 'L'): ''}${currentValue} `,
-                ''
-            )
-            return `<path d="${path}" />`
-          })
-          .replace(/<path\s+d="([^"]+)"/g, function(f, d) {
-
-            const d2 = d
-                .replace(/([0-9]+)+\.00[1-6]/g, (f, m) => `${m}`)
-                .replace(/([0-9]+)+\.99[4-9]/g, (f, m) => `${parseInt(m)+1}`)
-                .replace(/\.99[4-9]/g, (f, m) => `1`)
-                .replace(/-\.00[1-6]/g, (f, m) => `0`)
-                .replace(/\.00[1-6]/g, (f, m) => `0`)
-                .replace(/m0 0/g, (f, m) => ``)
-
-            return `<path d="${d2}"`
-          })
-          .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
-            return `M`
-          })
-          .replace(/<path d="([^"]+)"/g, function(f, r1) {
-            r1 = optimizePath(r1)
-
-            return `<path d="${r1}"`
-          })
-          .replace(/d="m/g, 'd="M')
-          .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
-          .replace(/\n\s+\n+/g, '\n')
-          .replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
-            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
-          })
-          .replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-            return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
-          })
-          .replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-            return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
-          })
-          .replace(/<path d="([^"]+)"/g, function(f, r1) {
-            r1 = r1.replace(/ -0\./g, ' -.').replace(/ 0\./g, ' .').replace(/\s([a-z])/gi, '$1').replace(/([a-z])\s/gi, '$1')
-            return `<path d="${r1}"`
-          })
-
-      if(!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)" \/>[\n\t\s]*<\/svg>/)) {
-        console.log(`Fix ${file}!`);
-      }
-
-      if (svgFile.toString() !== svgFileContent) {
-        fs.writeFileSync(file, svgFileContent)
-      }
-    })
-
-    cb()
-  })
-})
 
 gulp.task('changelog-commit', (cb) => {
   cp.exec('git status', function(err, ret) {
@@ -690,284 +407,91 @@ gulp.task('changelog-image', (cb) => {
   }
 })
 
-gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
-  let files = glob.sync('./icons/*.svg')
+// gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {
+//   let files = glob.sync('./icons/*.svg')
+//
+//   await asyncForEach(files, async function(file, i) {
+//     let name = path.basename(file, '.svg')
+//
+//     console.log('name', name)
+//
+//     await svgToPng(file, `icons-png/${name}.png`)
+//   })
+//
+//   cb()
+// }))
 
-  await asyncForEach(files, async function(file, i) {
-    let name = path.basename(file, '.svg')
+// gulp.task('clean-react', (cb) => {
+//   cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
+//     cb()
+//   })
+// })
 
-    console.log('name', name)
+// gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
+//   let files = glob.sync('./icons/*.svg')
+//
+//   const camelize = function(str) {
+//     str = str.replace(/-/g, ' ')
+//
+//     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+//       return word.toUpperCase()
+//     }).replace(/\s+/g, '')
+//   }
+//
+//   const componentName = function(file) {
+//     file = path.basename(file, '.svg')
+//     file = camelize(`Icon ${file}`)
+//
+//     return file
+//   }
+//
+//   const optimizeSvgCode = function(svgCode) {
+//     return svgCode.replace('<path stroke="none" d="M0 0h24v24H0z"/>', '')
+//   }
+//
+//   let indexCode = '',
+//       indexDCode = `import { FC, SVGAttributes } from 'react';\n\ntype TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {\n  color?: SVGAttributes<SVGElement>['stroke'];\n  size?: SVGAttributes<SVGElement>['width'];\n  stroke?: SVGAttributes<SVGElement>['strokeWidth'];\n}\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
+//
+//   await asyncForEach(files, async function(file) {
+//     const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
+//         fileName = path.basename(file, '.svg') + '.js',
+//         iconComponentName = componentName(file)
+//
+//     await svgr(svgCode, {
+//       icon: false,
+//       svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
+//       template: require('./.build/svgr-template')
+//     }, { componentName: iconComponentName }).then(jsCode => {
+//       fs.writeFileSync('icons-react/icons-js/' + fileName, jsCode)
+//       indexCode += `export { default as ${iconComponentName} } from './icons-js/${fileName}';\n`
+//       indexDCode += `export const ${iconComponentName}: TablerIcon;\n`
+//     })
+//
+//     fs.writeFileSync('icons-react/index.js', indexCode)
+//     fs.writeFileSync('icons-react/index.d.ts', indexDCode)
+//   })
+//
+//   cb()
+// }))
 
-    await svgToPng(file, `icons-png/${name}.png`)
-  })
 
-  cb()
-}))
 
-gulp.task('clean-react', (cb) => {
-  cp.exec('rm -fd ./icons-react/* && mkdir icons-react/icons-js', () => {
-    cb()
-  })
-})
 
-gulp.task('svg-to-react', gulp.series('clean-react', async (cb) => {
-  let files = glob.sync('./icons/*.svg')
 
-  const camelize = function(str) {
-    str = str.replace(/-/g, ' ')
-
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
-      return word.toUpperCase()
-    }).replace(/\s+/g, '')
-  }
-
-  const componentName = function(file) {
-    file = path.basename(file, '.svg')
-    file = camelize(`Icon ${file}`)
-
-    return file
-  }
-
-  const optimizeSvgCode = function(svgCode) {
-    return svgCode.replace('<path stroke="none" d="M0 0h24v24H0z"/>', '')
-  }
-
-  let indexCode = '',
-      indexDCode = `import { FC, SVGAttributes } from 'react';\n\ntype TablerIconProps = Omit<SVGAttributes<SVGElement>, 'color' | 'stroke'> & {\n  color?: SVGAttributes<SVGElement>['stroke'];\n  size?: SVGAttributes<SVGElement>['width'];\n  stroke?: SVGAttributes<SVGElement>['strokeWidth'];\n}\n\ntype TablerIcon = FC<TablerIconProps>;\n\n`
-
-  await asyncForEach(files, async function(file) {
-    const svgCode = optimizeSvgCode(fs.readFileSync(file).toString()),
-        fileName = path.basename(file, '.svg') + '.js',
-        iconComponentName = componentName(file)
-
-    await svgr(svgCode, {
-      icon: false,
-      svgProps: { width: '{size}', height: '{size}', strokeWidth: '{stroke}', stroke: '{color}' },
-      template: require('./.build/svgr-template')
-    }, { componentName: iconComponentName }).then(jsCode => {
-      fs.writeFileSync('icons-react/icons-js/' + fileName, jsCode)
-      indexCode += `export { default as ${iconComponentName} } from './icons-js/${fileName}';\n`
-      indexDCode += `export const ${iconComponentName}: TablerIcon;\n`
-    })
-
-    fs.writeFileSync('icons-react/index.js', indexCode)
-    fs.writeFileSync('icons-react/index.d.ts', indexDCode)
-  })
-
-  cb()
-}))
-
-const setVersions = function(version, files) {
-  for (const i in files) {
-    const file = files[i]
-
-    if (fs.existsSync(`src/_icons/${file}.svg`)) {
-      let svgFile = fs.readFileSync(`src/_icons/${file}.svg`).toString()
-
-      if (!svgFile.match(/version: ([0-9.]+)/i)) {
-        svgFile = svgFile.replace(/---\n<svg>/i, function(m) {
-          return `version: "${version}"\n${m}`
-        })
-
-        fs.writeFileSync(`src/_icons/${file}.svg`, svgFile)
-      } else {
-        console.log(`File ${file} already has version`)
-      }
-
-    } else {
-      console.log(`File ${file} doesn't exists`)
-    }
-  }
-}
-
-gulp.task('update-icons-version', (cb) => {
-
-  const version = argv['latest-version'] || `${p.version}`,
-      newVersion = argv['new-version'] || `${p.version}`
-
-  if (version) {
-    cp.exec(`grep -RiL "version: " ./src/_icons/*.svg`, function(err, ret) {
-
-      let newIcons = []
-
-      ret.replace(/src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-        newIcons.push(fileName)
-      })
-
-      if (newIcons.length) {
-        setVersions(newVersion.replace(/\.0$/, ''), newIcons)
-      }
-    })
-  }
-
-  cb()
-})
-
-gulp.task('import-categories', (cb) => {
-  let files = glob.sync('./src/_icons/*-off.svg')
-
-  files.forEach(function(file, i) {
-    const fileOriginal = file.replace(/\-off.svg$/, '.svg')
-
-    if (fs.existsSync(fileOriginal)) {
-      const dataOriginal = fs.readFileSync(fileOriginal).toString()
-
-      const categoryOriginal = dataOriginal.match(/category: ([a-zA-Z-]+)/),
-          tagsOriginal = dataOriginal.match(/tags: (\[.*?\])/)
-
-      if (categoryOriginal || tagsOriginal) {
-
-        let data = fs.readFileSync(file).toString()
-        data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent) {
-          console.log('categoryOriginal', fileOriginal, categoryOriginal && categoryOriginal[1], tagsOriginal && tagsOriginal[1])
-
-          if (categoryOriginal) {
-            headerContent = headerContent.replace(/category: .*\n/, '')
-            headerContent = headerContent.replace(/---/, `---\ncategory: ${categoryOriginal[1]}`)
-          }
-
-          if (tagsOriginal) {
-            headerContent = headerContent.replace(/tags: .*\n/, '')
-            headerContent = headerContent.replace(/---/, `---\ntags: ${tagsOriginal[1]}`)
-          }
-
-          return headerContent
-        })
-
-        fs.writeFileSync(file, data)
-      }
-    }
-  })
-
-  cb()
-})
-
-gulp.task('import-tags', (cb) => {
-  fs.createReadStream('./_import.tsv').pipe(csv({
-    headers: false,
-    separator: '\t'
-  })).on('data', (row) => {
-    console.log(row[1], row[2])
-
-    const filename = `src/_icons/${row[1]}.svg`
-
-    if(row[2].length) {
-      let data = fs.readFileSync(filename).toString()
-      data = data.replace(/(---[\s\S]+?---)/, function(m, headerContent) {
-
-        headerContent = headerContent.replace(/tags: .*\n/, '')
-        headerContent = headerContent.replace(/---/, `---\ntags: [${row[2]}]`)
-
-        return headerContent
-      })
-
-      fs.writeFileSync(filename, data)
-    }
-
-  }).on('end', () => {
-    console.log('CSV file successfully processed')
-  })
-  cb()
-})
-
-gulp.task('update-readme', (cb) => {
-  let fileData = fs.readFileSync('README.md').toString(),
-      count = glob.sync('./icons/*.svg').length
-
-  fileData = fileData.replace(/<!--icons-count-->(.*?)<!--\/icons-count-->/, `<!--icons-count-->${count}<!--/icons-count-->`)
-
-  fs.writeFileSync('README.md', fileData)
-
-  cb()
-})
-
-gulp.task('build-react', (cb) => {
-  cp.exec('npm run build-react', () => {
-    cb()
-  })
-})
+// gulp.task('build-react', (cb) => {
+//   cp.exec('npm run build-react', () => {
+//     cb()
+//   })
+// })
 
 gulp.task('build',
-    gulp.series('optimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll', 'build-copy', 'icons-sprite', 'svg-to-react', 'build-react',
-        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip', 'update-readme'))
+    gulp.series(/*'optsetVersionsimize', 'update-icons-version', 'update-icons-unicode', 'build-jekyll',*/ 'build-copy', 'icons-sprite', /*'svg-to-react', 'build-react',*/
+        'icons-preview', 'svg-to-png', 'build-iconfont', 'changelog-image', 'build-zip'/*, 'update-readme'*/))
 
-const optimizeSVG = (data) => {
-  return optimize(data, {
-    js2svg: {
-      indent: 2,
-      pretty: true
-    },
-    plugins: [
-      {
-        name: 'preset-default',
-        params: {
-          overrides: {
-            mergePaths: false
-          }
-        }
-      }]
-  }).data
-}
+
 
 gulp.task('import', gulp.series((cb) => {
-  if (fs.existsSync('./new/Artboard.svg')) {
-    fs.unlinkSync('rm ./new/Artboard.svg')
-  }
 
-  const files = glob.sync('./new/*.svg')
-
-  files.forEach(function(file, i) {
-    let fileData = fs.readFileSync(file).toString(),
-        filename = path.basename(file, '.svg')
-
-    console.log(filename)
-
-    fileData = optimizeSVG(fileData)
-
-    if (fileData.match(/transform="/)) {
-      throw new Error(`File ${file} has \`transform\` in code!!`)
-    }
-
-    if (filename.match(/\s/)) {
-      throw new Error(`File ${file} has space in name!!`)
-    }
-
-    fileData = fileData.replace(/---/g, '')
-        .replace(/fill="none"/g, '')
-        .replace(/fill="#D8D8D8"/gi, '')
-        .replace(/fill-rule="evenodd"/g, '')
-        .replace(/stroke-linecap="round"/g, '')
-        .replace(/stroke-linejoin="round"/g, '')
-        .replace(/viewBox="0 0 24 24"/g, '')
-        .replace(/stroke="#000000"/g, '')
-        .replace(/stroke="#000"/g, '')
-        .replace(/stroke-width="2"/g, '')
-        .replace(/width="24"/g, '')
-        .replace(/width="24px"/g, '')
-        .replace(/height="24"/g, '')
-        .replace(/height="24px"/g, '')
-        .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
-        .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
-        .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
-        .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
-        .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
-        .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
-
-    fileData = optimizeSVG(fileData)
-
-    fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
-
-    if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
-      const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString()
-      const m = newFileData.match(/(---.*---)/gms)
-
-      if (m) {
-        fileData = fileData.replace('---\n---', m[0])
-      }
-    }
-
-    fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
-  })
 
   cb()
 }, 'optimize'))

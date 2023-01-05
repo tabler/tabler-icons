@@ -1,10 +1,9 @@
-.idea/*
-_site/
-node_modules/
+.idea
+_site
+node_modules
 .jekyll-cache/
 package-lock.json
 Gemfile.lock
-packages/*
 packages-zip/*
 .DS_Store
 icons-outlined/
@@ -23,3 +22,9 @@ dist/
 _import.tsv
 .yarn
 .yarnrc.yml
+
+packages/**/src/icons/*
+packages/**/src/tabler-icons*.js
+packages/**/LICENSE
+packages/**/stats/*
+packages/**/icons/*

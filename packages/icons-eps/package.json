@@ -1,0 +1,42 @@
+{
+  "name": "@tabler/icons-eps",
+  "version": "2.0.0-alpha",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
+    "build:icons": "node build.mjs",
+    "clean": "rm -rf dist && mkdir dist",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "test": "echo 'ok'"
+  },
+  "files": [
+    "icons/*.eps"
+  ],
+  "exports": {
+    "./*": [
+      "./icons/*"
+    ]
+  },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-alpha"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "png",
+    "iconfont",
+    "react",
+    "front-end",
+    "web",
+    "eps",
+    "vector"
+  ]
+}
