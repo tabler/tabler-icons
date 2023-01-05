@@ -21,7 +21,7 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
         .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function(f, x1, y1, x2, y2) {
           return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
         })
-        .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"( fill="currentColor")?\s+\/>/g, function(f, cx, cy, r) {
+        .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function(f, cx, cy, r) {
           return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
         })
         .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)"\s+\/>/g, function(f, cx, cy, rx) {
@@ -62,9 +62,9 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
 
           return `<path d="${d2}"`
         })
-        .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
-          return `M`
-        })
+        // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
+        //   return `M`
+        // })
         .replace(/<path d="([^"]+)"/g, function(f, r1) {
           r1 = optimizePath(r1)
 
