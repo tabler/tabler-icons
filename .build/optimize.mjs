@@ -87,7 +87,7 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
           return `<path d="${r1}"`
         })
 
-    if (!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)" \/>[\n\t\s]*<\/svg>/)) {
+    if (!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)"( fill="currentColor")? \/>[\n\t\s]*<\/svg>/)) {
       console.log(`Fix ${file}!`);
     }
 
