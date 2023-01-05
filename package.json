@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "1.108.0",
+  "version": "1.119.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
     "icons-png/*",
     "icons-react/index.d.ts",
     "icons-react/dist/*",
-    "iconfont/*",
+    "iconfont/**/*",
     "tabler-sprite.svg",
     "tabler-sprite-nostroke.svg"
   ],
@@ -50,6 +50,7 @@
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "prebuild-react": "rm -rf ./icons-react/dist/",
     "build-react": "rollup -c",
+    "build:jekyll": "gulp build-jekyll",
     "optimize": "gulp optimize",
     "release": "git pull && release-it",
     "build": "gulp build",
@@ -84,7 +85,7 @@
     "gulp-zip": "5.1.0",
     "lodash.template": "4.5.0",
     "minimist": "1.2.6",
-    "node-sass": "7.0.1",
+    "node-sass": "8.0.0",
     "parse-svg-path": "^0.1.2",
     "release-it": "14.12.5",
     "rollup": "2.78.1",
