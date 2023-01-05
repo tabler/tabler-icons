@@ -256,7 +256,7 @@ By default the stroke width is 2. You can change the stroke width in the `compil
 }
 ```
 
-To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. To compile only two icons you can set for example the folowing option in the `compile-options.json`:
+To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. To compile only two icons you can set for example the following option in the `compile-options.json`:
 
 ```JSON
 {
@@ -264,7 +264,7 @@ To reduce the font file size you can choose to compile a sub set of icons. When 
 }
 ```
 
-Optional property `includeCategories` - an array or string of icon categories to include, category names are case-issensetive.
+Optional property `includeCategories` - an array or string of icon categories to include, category names are case-insensitive.
 ```JSON
 {
   "includeCategories": ["Devices", "System"]
