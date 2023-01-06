@@ -114,17 +114,21 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
       format: 'esm',
       inputs,
       outputDir,
+      minify: true,
       preserveModules: true
     },
     ...pluginSvelte ? [{
       format: 'svelte',
       inputs,
       outputDir,
+      minify: true,
       preserveModules: true
     }] : [{
       format: 'cjs',
       inputs,
-      outputDir
+      outputDir,
+      minify: true,
+      preserveModules: true
     }, {
       format: 'umd',
       inputs,
@@ -190,7 +194,12 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
                   }),
               format: format === 'svelte' ? 'esm' : format,
               sourcemap: false,
-              globals
+              globals,
+              preserveModules,
+              ...(preserveModules
+                  && {
+                exports: 'auto'
+              })
             }
           }))
       )
