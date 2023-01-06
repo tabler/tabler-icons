@@ -13,7 +13,7 @@ import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
 import commonJS from '@rollup/plugin-commonjs'
 import svelte from 'rollup-plugin-svelte'
-import preprocess from 'svelte-preprocess'
+import rename from 'rollup-plugin-rename'
 
 /**
  * Build icons
@@ -110,13 +110,6 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
   const outputDir = 'dist'
   const inputs = [`src/tabler-${name}.js`]
   const bundles = [
-    {
-      format: 'esm',
-      inputs,
-      outputDir,
-      minify: true,
-      preserveModules: true
-    },
     ...pluginSvelte ? [{
       format: 'svelte',
       inputs,
@@ -124,6 +117,12 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
       minify: true,
       preserveModules: true
     }] : [{
+      format: 'esm',
+      inputs,
+      outputDir,
+      minify: true,
+      preserveModules: true
+    }, {
       format: 'cjs',
       inputs,
       outputDir,
@@ -137,28 +136,14 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
     }]
   ]
 
-  const plugins = (pkg, minify) =>
+  const plugins = (pkg, minify, format) =>
       [
-        pluginSvelte && svelte({
-          ...svelteConfig,
-          include: 'src/**/*.svelte',
-          compilerOptions: {
-            dev: false,
-            css: false,
-            hydratable: true
-          },
-          emitCss: false
-        }),
         replace({
           'icons = {}': 'icons = allIcons',
           delimiters: ['', ''],
           preventAssignment: false
         }),
-        pluginSvelte ? resolve({
-          browser: true,
-          exportConditions: ['svelte'],
-          extensions: ['.svelte']
-        }) : resolve(),
+        resolve(),
         commonJS({
           include: 'node_modules/**',
           sourceMap: false
@@ -177,31 +162,57 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
         })
       ].filter(Boolean)
 
-  return bundles
-      .map(({ inputs, outputDir, format, minify, preserveModules }) =>
-          inputs.map(input => ({
-            input,
-            plugins: plugins(pkg, minify),
-            external: format === 'svelte' ? [/\.svelte/] : external,
-            output: {
-              name: packageName,
-              ...(preserveModules
-                  ? {
-                    dir: `${outputDir}/${format}`
-                  }
-                  : {
-                    file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`
+  const b = bundles
+      .map(({ inputs, outputDir, format, minify, preserveModules }) => {
+        console.log(`${outputDir}/${format}`)
+
+        return inputs.map(input => ({
+              input,
+              plugins: [
+                ...(pluginSvelte && (format !== 'svelte' ? [
+                  svelte({
+                    ...svelteConfig,
+                    include: 'src/**/*.svelte',
+                    compilerOptions: {
+                      dev: false,
+                      css: false,
+                      hydratable: true,
+                    },
+                    emitCss: false,
                   }),
-              format: format === 'svelte' ? 'esm' : format,
-              sourcemap: false,
-              globals,
-              preserveModules,
-              ...(preserveModules
-                  && {
-                exports: 'auto'
-              })
-            }
-          }))
+                  resolve({
+                    browser: true,
+                    exportConditions: ['svelte'],
+                    extensions: ['.svelte']
+                  }),
+                ] : [])),
+                ...plugins(pkg, minify, format)
+              ],
+              external: format === 'svelte' ? [/\.svelte/] : external,
+              output: {
+                name: packageName,
+                ...(preserveModules
+                    ? {
+                      dir: `${outputDir}/${format}`
+                    }
+                    : {
+                      file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`
+                    }),
+                format: format === 'svelte' ? 'esm' : format,
+                sourcemap: false,
+                globals,
+                preserveModules,
+                ...(preserveModules
+                    && {
+                      exports: 'auto'
+                    })
+              }
+            }))
+          }
       )
       .flat()
+
+  console.log(b);
+
+  return b
 }

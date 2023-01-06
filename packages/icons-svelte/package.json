@@ -9,10 +9,8 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-svelte"
   },
-  "main": "dist/cjs/tabler-icons-svelte.js",
-  "main:umd": "dist/umd/tabler-icons-svelte.js",
-  "module": "dist/esm/tabler-icons-svelte.js",
-  "unpkg": "dist/umd/tabler-icons-svelte.min.js",
+  "main": "dist/svelte/tabler-icons-svelte.js",
+  "svelte": "dist/svelte/tabler-icons-svelte.js",
   "typings": "dist/tabler-icons-svelte.d.ts",
   "sideEffects": false,
   "files": [
@@ -34,6 +32,7 @@
     "@testing-library/svelte": "^3.2.2",
     "babel-preset-preact": "^2.0.0",
     "jest": "^28.1.3",
+    "rollup-plugin-rename": "^1.0.1",
     "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.1",

@@ -10,8 +10,9 @@
     "directory": "packages/icons"
   },
   "main": "./dist/cjs/tabler-icons.js",
+  "main:umd": "dist/umd/tabler-icons.min.js",
   "module": "./dist/esm/tabler-icons.js",
-  "unpkg": "./dist/umd/tabler-icons.js",
+  "unpkg": "./dist/umd/tabler-icons.min.js",
   "umd:main": "./dist/umd/tabler-icons.js",
   "sideEffects": false,
   "files": [
