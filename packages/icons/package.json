@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0-alpha2",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -50,5 +50,8 @@
     "react",
     "front-end",
     "web"
-  ]
+  ],
+  "dependencies": {
+    "@tabler/icons": "workspace:2.0.0-alpha2"
+  }
 }
