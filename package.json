@@ -94,12 +94,12 @@
       "@release-it-plugins/workspaces": true
     },
     "hooks": {
-      "after:bump": "build --latest-version ${latestVersion} --new-version ${version} --verbose",
-      "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
+      "after:bump": "pnpmm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
       "addUntrackedFiles": true,
-      "changelog": "gulp changelog --silent --latest-tag ${latestTag}",
+      "changelog": "pnpm run changelog --silent --latest-version ${latestTag}",
       "tagName": "v${version}",
       "_requireBranch": "master",
       "requireCommits": true,

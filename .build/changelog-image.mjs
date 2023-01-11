@@ -4,11 +4,11 @@ import { generateIconsPreview, getArgvs, getPackageJson } from './helpers.mjs'
 const argv = getArgvs(),
     p = getPackageJson()
 
-const version = argv['latest-version'] || `${p.version}`,
+const version = argv['latest-version'] || `v${p.version}`,
     newVersion = argv['new-version'] || `${p.version}`
 
 if (version) {
-  cp.exec(`git diff v${version} HEAD --name-status --diff-filter=A src/_icons`, function(err, ret) {
+  cp.exec(`git diff ${version} HEAD --name-status --diff-filter=A src/_icons`, function(err, ret) {
 
     let newIcons = []
 
