@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "2.0.0-alpha2",
+  "version": "2.0.0-alpha3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -26,7 +26,7 @@
     "preview": "pnpm run preview-icons && pnpm run preview-stroke",
     "preview-icons": "node ./.build/preview-icons.mjs",
     "preview-stroke": "node ./.build/preview-stroke.mjs",
-    "release": "git pull && release-it",
+    "release": "git pull && release-it --verbose",
     "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
     "build:jekyll": "bundle exec jekyll build",
     "build:copy": "cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
@@ -93,8 +93,9 @@
     "plugins": {
       "@release-it-plugins/workspaces": true
     },
+    "npm": false,
     "hooks": {
-      "after:bump": "pnpmm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
+      "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
