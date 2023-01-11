@@ -3,12 +3,12 @@ import path, { resolve, basename } from 'path'
 import { fileURLToPath } from 'url'
 import svgParse from 'parse-svg-path'
 import svgpath from 'svgpath'
-
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
 import { parseSync } from 'svgson'
 import { optimize } from 'svgo'
 import cp from 'child_process'
+import minimist from 'minimist'
 
 const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
@@ -20,6 +20,17 @@ export const ICONS_SRC_DIR = resolve(HOME_DIR, 'src/_icons')
 export const ICONS_DIR = resolve(HOME_DIR, 'icons')
 export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
 
+export const getArgvs = () => {
+  return minimist(process.argv.slice(2))
+}
+
+/**
+ * Return project package.json
+ * @returns {any}
+ */
+export const getPackageJson = () => {
+  return JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'package.json'), 'utf-8'))
+}
 
 /**
  * Reads SVGs from directory
@@ -204,4 +215,56 @@ export const generateIconsPreview = async function(files, destFile, {
 
   fs.writeFileSync(destFile, svgContent)
   await createScreenshot(destFile)
+}
+
+
+export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = false) {
+  if (newIcons.length > 0) {
+    if (pretty) {
+      console.log(`### ${newIcons.length} new icons:`)
+
+      newIcons.forEach(function(icon, i) {
+        console.log(`- \`${icon}\``)
+      })
+    } else {
+      let str = ''
+      str += `${newIcons.length} new icons: `
+
+      newIcons.forEach(function(icon, i) {
+        str += `\`${icon}\``
+
+        if ((i + 1) <= newIcons.length - 1) {
+          str += ', '
+        }
+      })
+
+      console.log(str)
+    }
+
+    console.log('')
+  }
+
+  if (modifiedIcons.length > 0) {
+    let str = ''
+    str += `Fixed icons: `
+
+    modifiedIcons.forEach(function(icon, i) {
+      str += `\`${icon}\``
+
+      if ((i + 1) <= modifiedIcons.length - 1) {
+        str += ', '
+      }
+    })
+
+    console.log(str)
+    console.log('')
+  }
+
+  if (renamedIcons.length > 0) {
+    console.log(`Renamed icons: `)
+
+    renamedIcons.forEach(function(icon, i) {
+      console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``)
+    })
+  }
 }

@@ -169,7 +169,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
         return inputs.map(input => ({
               input,
               plugins: [
-                ...(pluginSvelte && (format !== 'svelte' ? [
+                ...(pluginSvelte ? (format !== 'svelte' ? [
                   svelte({
                     ...svelteConfig,
                     include: 'src/**/*.svelte',
@@ -185,7 +185,7 @@ export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, sv
                     exportConditions: ['svelte'],
                     extensions: ['.svelte']
                   }),
-                ] : [])),
+                ] : []) : []),
                 ...plugins(pkg, minify, format)
               ],
               external: format === 'svelte' ? [/\.svelte/] : external,

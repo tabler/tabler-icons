@@ -1,19 +1,18 @@
-import minimist from 'minimist'
 import cp from 'child_process'
 import fs from 'fs'
-import { join, resolve } from 'path'
-import { HOME_DIR, ICONS_SRC_DIR } from './helpers.mjs'
+import path from 'path'
+import { getArgvs, getPackageJson, ICONS_SRC_DIR } from './helpers.mjs'
 
-const p = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'package.json'), 'utf-8'))
+const p = getPackageJson()
 
-const argv = minimist(process.argv.slice(2))
-const version = argv['latest-version'] || `${p.version}`,
+const argv = getArgvs(),
+    version = argv['latest-version'] || `${p.version}`,
     newVersion = argv['new-version'] || `${p.version}`
 
 const setVersions = function(version, files) {
   for (const i in files) {
     const file = files[i],
-        filePath = join(ICONS_SRC_DIR, `${file}.svg`)
+        filePath = path.join(ICONS_SRC_DIR, `${file}.svg`)
 
     if (fs.existsSync(filePath)) {
       let svgFile = fs.readFileSync(filePath).toString()

@@ -1,10 +1,10 @@
 import glob from 'glob'
 import fs from 'fs'
-import { join } from 'path'
+import path from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
 const getMaxUnicode = () => {
-  const files = glob.sync(join(ICONS_SRC_DIR, '*.svg'))
+  const files = glob.sync(path.join(ICONS_SRC_DIR, '*.svg'))
   let maxUnicode = 0
 
   files.forEach(function(file) {
@@ -24,7 +24,7 @@ const getMaxUnicode = () => {
 
 let maxUnicode = getMaxUnicode()
 
-glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
+glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
   for (const i in files) {
     const file = files[i]
 

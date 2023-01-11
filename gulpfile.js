@@ -94,56 +94,6 @@ if (fs.existsSync('./compile-options.json')) {
 
 
 
-const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = false) {
-  if (newIcons.length > 0) {
-    if (pretty) {
-      console.log(`### ${newIcons.length} new icons:`)
-
-      newIcons.forEach(function(icon, i) {
-        console.log(`- \`${icon}\``)
-      })
-    } else {
-      let str = ''
-      str += `${newIcons.length} new icons: `
-
-      newIcons.forEach(function(icon, i) {
-        str += `\`${icon}\``
-
-        if ((i + 1) <= newIcons.length - 1) {
-          str += ', '
-        }
-      })
-
-      console.log(str)
-    }
-
-    console.log('')
-  }
-
-  if (modifiedIcons.length > 0) {
-    let str = ''
-    str += `Fixed icons: `
-
-    modifiedIcons.forEach(function(icon, i) {
-      str += `\`${icon}\``
-
-      if ((i + 1) <= modifiedIcons.length - 1) {
-        str += ', '
-      }
-    })
-
-    console.log(str)
-    console.log('')
-  }
-
-  if (renamedIcons.length > 0) {
-    console.log(`Renamed icons: `)
-
-    renamedIcons.forEach(function(icon, i) {
-      console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``)
-    })
-  }
-}
 
 
 //*********************************************************************************************
@@ -320,91 +270,15 @@ gulp.task('icons-stroke', gulp.series((cb) => {
 }))
 
 gulp.task('changelog-commit', (cb) => {
-  cp.exec('git status', function(err, ret) {
-    let newIcons = [], modifiedIcons = [], renamedIcons = []
 
-    ret.replace(/new file:\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-      newIcons.push(fileName)
-    })
-
-    ret.replace(/modified:\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-      modifiedIcons.push(fileName)
-    })
-
-    ret.replace(/renamed:\s+src\/_icons\/([a-z0-9-]+).svg -> src\/_icons\/([a-z0-9-]+).svg/g, function(m, fileNameBefore, fileNameAfter) {
-      renamedIcons.push([fileNameBefore, fileNameAfter])
-    })
-
-    modifiedIcons = modifiedIcons.filter(function(el) {
-      return newIcons.indexOf(el) < 0
-    })
-
-    printChangelog(newIcons, modifiedIcons, renamedIcons)
-
-    cb()
-  })
 })
 
 gulp.task('changelog', (cb) => {
-  const version = `v${p.version}`
 
-  if (version) {
-    cp.exec(`git diff ${version} HEAD --name-status`, function(err, ret) {
-
-      let newIcons = [], modifiedIcons = [], renamedIcons = []
-
-      ret.replace(/A\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-        newIcons.push(fileName)
-      })
-
-      ret.replace(/M\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-        modifiedIcons.push(fileName)
-      })
-
-      ret.replace(/R[0-9]+\s+src\/_icons\/([a-z0-9-]+)\.svg\s+src\/_icons\/([a-z0-9-]+).svg/g, function(m, fileNameBefore, fileNameAfter) {
-        renamedIcons.push([fileNameBefore, fileNameAfter])
-      })
-
-      modifiedIcons = modifiedIcons.filter(function(el) {
-        return newIcons.indexOf(el) < 0
-      })
-
-      printChangelog(newIcons, modifiedIcons, renamedIcons, true)
-
-      cb()
-    })
-  }
 })
 
 gulp.task('changelog-image', (cb) => {
-  const version = argv['latest-version'] || `${p.version}`,
-      newVersion = argv['new-version'] || `${p.version}`
 
-  if (version) {
-    cp.exec(`git diff v${version} HEAD --name-status`, function(err, ret) {
-
-      let newIcons = []
-
-      ret.replace(/[A]\s+src\/_icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
-        newIcons.push(fileName)
-      })
-
-      newIcons = newIcons.map(function(icon) {
-        return `./icons/${icon}.svg`
-      })
-
-      if (newIcons.length > 0) {
-        generateIconsPreview(newIcons, `.github/tabler-icons-${newVersion}.svg`, cb, {
-          columnsCount: 6,
-          paddingOuter: 24
-        })
-      } else {
-        cb()
-      }
-    })
-  } else {
-    cb()
-  }
 })
 
 // gulp.task('svg-to-png', gulp.series('clean-png', async (cb) => {

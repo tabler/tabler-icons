@@ -1,20 +1,21 @@
 {
+  "name": "tabler-icons",
   "version": "2.0.0-alpha2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
   },
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run zip && pnpm run update-readme",
+    "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "changelog": "node ./.build/changelog.mjs",
+    "changelog-commit": "node ./.build/changelog-commit.mjs",
+    "changelog-image": "node ./.build/changelog-image.mjs",
     "update": "pnpm run update:icons-version && pnpm run update:icons-unicode",
     "update:icons-version": "node ./.build/update-icons-version.mjs",
     "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
@@ -25,7 +26,7 @@
     "preview": "pnpm run preview-icons && pnpm run preview-stroke",
     "preview-icons": "node ./.build/preview-icons.mjs",
     "preview-stroke": "node ./.build/preview-stroke.mjs",
-    "_release": "git pull && release-it",
+    "release": "git pull && release-it",
     "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
     "build:jekyll": "bundle exec jekyll build",
     "build:copy": "cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
@@ -52,6 +53,7 @@
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
+    "@release-it-plugins/workspaces": "^3.2.0",
     "@rollup/plugin-babel": "5.2.1",
     "@rollup/plugin-commonjs": "15.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
@@ -69,12 +71,13 @@
     "gulp-svgo": "^2.2.1",
     "gulp-zip": "5.1.0",
     "html-minifier": "^4.0.0",
+    "lerna": "^6.4.0",
     "lodash.template": "4.5.0",
     "minimist": "1.2.6",
     "node-sass": "8.0.0",
     "parse-svg-path": "^0.1.2",
     "prettier": "^2.8.1",
-    "release-it": "14.12.5",
+    "release-it": "15.6.0",
     "rollup": "2.78.1",
     "rollup-plugin-filesize": "9.1.2",
     "rollup-plugin-peer-deps-external": "2.2.4",
@@ -87,16 +90,20 @@
     "svgson": "^5.2.1"
   },
   "release-it": {
+    "plugins": {
+      "@release-it-plugins/workspaces": true
+    },
     "hooks": {
-      "after:bump": "gulp build --latest-version ${latestVersion} --new-version ${version} --verbose",
+      "after:bump": "build --latest-version ${latestVersion} --new-version ${version} --verbose",
       "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
     },
     "git": {
       "addUntrackedFiles": true,
       "changelog": "gulp changelog --silent --latest-tag ${latestTag}",
       "tagName": "v${version}",
-      "requireBranch": "master",
-      "requireCommits": true
+      "_requireBranch": "master",
+      "requireCommits": true,
+      "requireCleanWorkingDir": false
     },
     "github": {
       "release": true
