@@ -9,7 +9,7 @@
   "main": "./icons-react/dist/index.cjs.js",
   "exports": {
     ".": {
-      "import": "./icons-react/dist/index.esm.js",
+      "import": "./icons-react/dist/index.esm.mjs",
       "require": "./icons-react/dist/index.cjs.js"
     },
     "./iconfont/*": "./iconfont/*",
@@ -18,7 +18,7 @@
       "./icons-png/*"
     ]
   },
-  "module": "./icons-react/dist/index.esm.js",
+  "module": "./icons-react/dist/index.esm.mjs",
   "unpkg": "./icons-react/dist/index.umd.js",
   "umd:main": "./icons-react/dist/index.umd.js",
   "types": "./icons-react/index.d.ts",
