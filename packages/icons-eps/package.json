@@ -14,8 +14,7 @@
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",
     "clean": "rm -rf dist && mkdir dist",
-    "copy:license": "cp ../../LICENSE ./LICENSE",
-    "test": "echo 'ok'"
+    "copy:license": "cp ../../LICENSE ./LICENSE"
   },
   "files": [
     "icons/*.eps"

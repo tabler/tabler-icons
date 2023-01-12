@@ -1,5 +1,7 @@
 import fs from 'fs'
 import { createDirectory, readSvgs } from '../../.build/helpers.mjs'
+import { buildIcons } from '../../.build/build-icons.mjs'
+import { stringify } from 'svgson'
 
 const svgFiles = readSvgs()
 
@@ -16,21 +18,6 @@ const buildSprite = () => {
   fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
 }
 
-const buildJS = () => {
-  createDirectory('./src')
-  createDirectory('./src/icons')
-
-  let indexContent = ''
-  svgFiles.forEach((file) => {
-    indexContent += `export { default as ${file.namePascal}} from './icons/${file.name}.js';\n`;
-
-    const exportString = `export default \`${file.contents}\`;\n`;
-    fs.writeFileSync(`./src/icons/${file.name}.js`, exportString);
-  });
-
-  fs.writeFileSync(`./src/tabler-icons.js`, indexContent);
-}
-
 const buildNodes = () => {
   const iconNodes = svgFiles.reduce((acc, { name, obj }) => {
     acc[name] = obj.children.map(({ name, attributes }) => [name, attributes]);
@@ -43,6 +30,32 @@ const buildNodes = () => {
   fs.writeFileSync(`./tabler-nodes.json`, iconNodesStringified);
 }
 
+const componentTemplate = ({
+  namePascal,
+  svg
+}) => `\
+export default ${namePascal} => \`${svg.contents}\`;`;
+
+const indexItemTemplate = ({
+  name,
+  namePascal
+}) => `export { default as ${namePascal} } from './icons/${name}';`
+
+const typeDefinitionsTemplate = () => `// Generated icons`
+
+const indexTypeTemplate = ({
+  namePascal
+}) => `export declare const ${namePascal}: string;`
+
+
+
 buildSprite()
-buildJS()
 buildNodes()
+buildIcons({
+  name: 'icons',
+  componentTemplate,
+  indexItemTemplate,
+  typeDefinitionsTemplate,
+  indexTypeTemplate,
+  pretty: false
+})

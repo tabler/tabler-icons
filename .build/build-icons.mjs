@@ -4,16 +4,11 @@ import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
 import { stringify } from 'svgson'
 import prettier from 'prettier'
 
-import { babel } from '@rollup/plugin-babel'
 import bundleSize from '@atomico/rollup-plugin-sizes'
-import { terser } from 'rollup-plugin-terser'
 import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
-import replace from '@rollup/plugin-replace'
-import resolve from '@rollup/plugin-node-resolve'
-import commonJS from '@rollup/plugin-commonjs'
-import svelte from 'rollup-plugin-svelte'
-import rename from 'rollup-plugin-rename'
+import esbuild from 'rollup-plugin-esbuild';
+
 
 /**
  * Build icons
@@ -59,13 +54,14 @@ export const buildIcons = ({
           return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
         })
 
-    process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
+    // process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
 
     let component = componentTemplate({
       name: svgFile.name,
       namePascal: svgFile.namePascal,
       children,
-      stringify
+      stringify,
+      svg: svgFile
     })
 
     const output = pretty ? prettier.format(component, {
@@ -88,131 +84,24 @@ export const buildIcons = ({
     }))
   })
 
-  fs.writeFileSync(path.resolve(DIST_DIR, `./src/tabler-${name}.js`), index.join('\n'), 'utf-8')
+  fs.writeFileSync(path.resolve(DIST_DIR, `./src/icons.js`), index.join('\n'), 'utf-8')
 
   fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
   fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')
 }
 
-/**
- *
- * @param name
- * @param globals
- * @param external
- * @param pluginSvelte
- * @param pkg
- * @param svelteConfig
- * @returns {FlatArray<*[], 1>[]}
- */
-export const getRollupConfig = ({ name, globals, external, pluginSvelte, pkg, svelteConfig }) => {
-  const packageName = `@tabler/${name}`
-  const outputFileName = `tabler-${name}`
-  const outputDir = 'dist'
-  const inputs = [`src/tabler-${name}.js`]
-  const bundles = [
-    ...pluginSvelte ? [{
-      format: 'svelte',
-      inputs,
-      outputDir,
-      minify: true,
-      //preserveModules: true
-    }] : [{
-      format: 'esm',
-      inputs,
-      outputDir,
-      minify: true,
-      // preserveModules: true
-    }, {
-      format: 'cjs',
-      inputs,
-      outputDir,
-      minify: true,
-      //preserveModules: true
-    }, {
-      format: 'umd',
-      inputs,
-      outputDir,
-      minify: true
-    }]
-  ]
-
-  const plugins = (pkg, minify, format) =>
-      [
-        replace({
-          'icons = {}': 'icons = allIcons',
-          delimiters: ['', ''],
-          preventAssignment: false
-        }),
-        resolve(),
-        commonJS({
-          include: 'node_modules/**',
-          sourceMap: false
-        }),
-        babel({
-          babelHelpers: 'bundled'
-        }),
-        minify && terser(),
-        license({
-          banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
-        }),
-        bundleSize(),
-        visualizer({
-          sourcemap: false,
-          filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
-        })
-      ].filter(Boolean)
-
-  const b = bundles
-      .map(({ inputs, outputDir, format, minify, preserveModules }) => {
-        console.log(`${outputDir}/${format}`)
-
-        return inputs.map(input => ({
-              input,
-              plugins: [
-                ...(pluginSvelte ? (format !== 'svelte' ? [
-                  svelte({
-                    ...svelteConfig,
-                    include: 'src/**/*.svelte',
-                    compilerOptions: {
-                      dev: false,
-                      css: false,
-                      hydratable: true,
-                    },
-                    emitCss: false,
-                  }),
-                  resolve({
-                    browser: true,
-                    exportConditions: ['svelte'],
-                    extensions: ['.svelte']
-                  }),
-                ] : []) : []),
-                ...plugins(pkg, minify, format)
-              ],
-              external: format === 'svelte' ? [/\.svelte/] : external,
-              output: {
-                name: packageName,
-                ...(preserveModules
-                    ? {
-                      dir: `${outputDir}/${format}`
-                    }
-                    : {
-                      file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`
-                    }),
-                format: format === 'svelte' ? 'esm' : format,
-                sourcemap: false,
-                globals,
-                preserveModules,
-                ...(preserveModules
-                    && {
-                      exports: 'auto'
-                    })
-              }
-            }))
-          }
-      )
-      .flat()
-
-  console.log(b);
-
-  return b
+export const getRollupPlugins = (pkg, minify) => {
+  return [
+    esbuild({
+      minify,
+    }),
+    license({
+      banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
+    }),
+    bundleSize(),
+    visualizer({
+      sourcemap: false,
+      filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
+    })
+  ].filter(Boolean)
 }

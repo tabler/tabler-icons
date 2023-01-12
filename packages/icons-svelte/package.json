@@ -9,7 +9,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-svelte"
   },
-  "main": "dist/svelte/tabler-icons-svelte.js",
+  "type": "module",
+  "main": "dist/esm/tabler-icons-svelte.js",
+  "module": "dist/esm/tabler-icons-svelte.js",
   "svelte": "dist/svelte/tabler-icons-svelte.js",
   "typings": "dist/tabler-icons-svelte.d.ts",
   "sideEffects": false,
@@ -26,21 +28,22 @@
     "test": "echo 'ok'"
   },
   "dependencies": {
-    "@tabler/icons": "2.0.0-alpha3"
+    "@tabler/icons": "workspace:*"
   },
   "devDependencies": {
-    "@testing-library/svelte": "^3.2.2",
-    "babel-preset-preact": "^2.0.0",
     "jest": "^28.1.3",
-    "rollup-plugin-rename": "^1.0.1",
     "rollup-plugin-svelte": "^7.1.0",
-    "svelte": "^3.49.0",
-    "svelte-preprocess": "^4.10.1",
+    "@tsconfig/svelte": "^3.0.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/svelte": "^3.0.3",
+    "jsdom": "^20.0.3",
+    "svelte": "^3.53.1",
+    "svelte-check": "^2.9.2",
+    "svelte-preprocess": "^4.10.7",
     "svelte-strip": "^1.0.3",
-    "svelte2tsx": "^0.4.12"
+    "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "svelte": "^3.49.0",
-    "svelte2tsx": "^0.4.12"
+    "svelte": "^3.49.0"
   }
 }

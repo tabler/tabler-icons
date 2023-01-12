@@ -23,8 +23,11 @@ _import.tsv
 .yarn
 .yarnrc.yml
 
-packages/**/src/icons/*
-packages/**/src/tabler-icons*.js
-packages/**/LICENSE
-packages/**/stats/*
-packages/**/icons/*
+packages/icons*/icons/*
+packages/icons*/src/icons/*
+packages/icons*/src/icons.js
+packages/icons*/LICENSE
+packages/icons*/stats/*
+packages/icons*/icons/*
+
+.turbo

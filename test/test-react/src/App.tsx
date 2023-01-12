@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import { IconHeart, IconHeartFilled, IconMoodSmile } from '@tabler/icons-react'
-import { HomeIcon } from 'lucide-react'
 
 function App() {
   const [active, setActive] = useState(false)
@@ -12,7 +11,6 @@ function App() {
         {active ? <IconHeartFilled size={48} /> : <IconHeart size={48} />}
       </a>
       <IconMoodSmile size={48} strokeWidth={1} />
-      <HomeIcon />
     </div>
   )
 }

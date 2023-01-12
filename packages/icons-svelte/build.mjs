@@ -7,14 +7,12 @@ const componentTemplate = ({
   children,
   stringify
 }) => {
-  const iconChildNodes = children.map(([name, attributes]) => ({ name, attributes, children: [] }));
-  const iconChildrenHTML = iconChildNodes.map(stringify).join('\n  ');
   return `\
-<script>
+<script lang="ts">
 import Icon from '../Icon.svelte';
+const iconNode = ${JSON.stringify(children)};
 </script>
-<Icon name="${name}" {...$$props} >
-  ${iconChildrenHTML}
+<Icon name="${name}" {...$$props} iconNode={iconNode}>
   <slot/>
 </Icon>
 `;
@@ -56,5 +54,6 @@ buildIcons({
   typeDefinitionsTemplate,
   indexTypeTemplate,
   extension: 'svelte',
-  pretty: false
+  pretty: false,
+  key: false
 })
