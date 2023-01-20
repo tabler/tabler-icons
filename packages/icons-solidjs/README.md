@@ -1,11 +1,11 @@
-# Tabler Icons for Vue
+# Tabler Icons for SolidJS
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
-    Implementation of the Tabler Icons library for Vue 3 applications.
+Implementation of the Tabler Icons library for SolidJS applications.
 <p>
 
 <p align="center">
@@ -32,54 +32,48 @@
 ## Installation
 
 ```
-yarn add @tabler/icons-vue
+yarn add @tabler/icons-solidjs
 ```
 
 or
 
 ```
-npm install @tabler/icons-vue
+npm install @tabler/icons-solidjs
 ```
 
 or
 
 ```
-pnpm install @tabler/icons-vue
+pnpm install @tabler/icons-solidjs
 ```
 
 or just [download from Github](https://github.com/tabler/tabler-icons/releases).
 
 ## How to use
 
-All icons are Svelte components that contain SVG elements. So any icon can be imported and used as a component. It also helps to use threeshaking, so you only import the icons you use.
+It's build with ESmodules so it's completely tree-shakable. Each icon can be imported as a component.
 
+```js
+import { IconArrowRight } from '@tabler/icons-solidjs';
 
-```vue
-<template>
-  <IconHome />
-</template>
-
-<script>
-// Returns Vue component
-import { IconHome } from '@tabler/icons-vue';
-
-export default {
-  components: { IconHome }
+const App = () => {
+  return <IconArrowRight />;
 };
-</script>
+
+export default App;
 ```
 
 You can pass additional props to adjust the icon.
 
-```html
-<IconHome color="red" :size="48" stroke-width="1" />
+```js
+<IconArrowRight color="red" size={48} />
 ```
 
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-vue/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-solidjs/README.md)
 
 ## License
 

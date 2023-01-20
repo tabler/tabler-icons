@@ -1,11 +1,11 @@
-# Tabler Icons for Vue
+# Tabler Icons PDF
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
-    Implementation of the Tabler Icons library for Vue 3 applications.
+    A set of <!--icons-count-->3128<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -32,54 +32,30 @@
 ## Installation
 
 ```
-yarn add @tabler/icons-vue
+yarn add @tabler/icons-pdf
 ```
 
 or
 
 ```
-npm install @tabler/icons-vue
+npm install @tabler/icons-pdf
 ```
 
 or
 
 ```
-pnpm install @tabler/icons-vue
+pnpm install @tabler/icons-pdf
 ```
 
 or just [download from Github](https://github.com/tabler/tabler-icons/releases).
 
-## How to use
-
-All icons are Svelte components that contain SVG elements. So any icon can be imported and used as a component. It also helps to use threeshaking, so you only import the icons you use.
-
-
-```vue
-<template>
-  <IconHome />
-</template>
-
-<script>
-// Returns Vue component
-import { IconHome } from '@tabler/icons-vue';
-
-export default {
-  components: { IconHome }
-};
-</script>
-```
-
-You can pass additional props to adjust the icon.
-
-```html
-<IconHome color="red" :size="48" stroke-width="1" />
-```
+All PDF files are stored in `icons` subdirectory.
 
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-vue/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-pdf/README.md)
 
 ## License
 
