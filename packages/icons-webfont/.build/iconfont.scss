@@ -1,0 +1,44 @@
+/*!
+ * Tabler Icons <%= v %> by tabler - https://tabler.io
+ * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
+ */
+$ti-font-family: '<%= fileName %>' !default;
+$ti-font-path: './fonts' !default;
+$ti-font-display: null !default;
+$ti-prefix: 'ti' !default;
+
+@font-face {
+  font-family: $ti-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-display: $ti-font-display;
+  src: url('#{$ti-font-path}/<%= fileName %>.eot?v<%= v %>');
+  src: url('#{$ti-font-path}/<%= fileName %>.eot?#iefix-v<%= v %>') format('embedded-opentype'),
+    url('#{$ti-font-path}/<%= fileName %>.woff2?v<%= v %>') format('woff2'),
+    url('#{$ti-font-path}/<%= fileName %>.woff?') format('woff'),
+    url('#{$ti-font-path}/<%= fileName %>.ttf?v<%= v %>') format('truetype');
+}
+
+.#{$ti-prefix} {
+  font-family: $ti-font-family !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+}
+
+<% glyphs.forEach(function(glyph) { %>
+$ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicode[0].codePointAt(0).toString(16) %>');<% }); %>
+
+<% glyphs.forEach(function(glyph) { %>
+.#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>

@@ -1,0 +1,44 @@
+{
+  "name": "@tabler/icons-preact",
+  "version": "2.0.0-beta.2",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-preact"
+  },
+  "main": "dist/cjs/tabler-icons-preact.js",
+  "main:umd": "dist/umd/tabler-icons-preact.js",
+  "module": "dist/esm/tabler-icons-preact.js",
+  "unpkg": "dist/umd/tabler-icons-preact.min.js",
+  "typings": "dist/tabler-icons-preact.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles",
+    "build:icons": "node build.mjs",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "test": "echo 'ok'"
+  },
+  "dependencies": {
+    "@tabler/icons": "2.0.0-beta.2"
+  },
+  "peerDependencies": {
+    "preact": "^10.5.13"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/preact": "^3.2.2",
+    "babel-preset-preact": "^2.0.0",
+    "jest": "^29.3.1",
+    "preact": "^10.11.3",
+    "vitest": "^0.26.3"
+  }
+}
