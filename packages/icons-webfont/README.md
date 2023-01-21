@@ -72,3 +72,13 @@ content: 'ec8f';
 ```scss
 content: $ti-icon-brand-tabler;
 ```
+
+## Contributing
+
+For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
+
+Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-vue/README.md)
+
+## License
+
+Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
