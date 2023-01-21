@@ -10,7 +10,7 @@ import { optimize } from 'svgo'
 import cp from 'child_process'
 import minimist from 'minimist'
 
-const getCurrentDirPath = () => {
+export const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
 }
 
@@ -22,6 +22,10 @@ export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
 
 export const getArgvs = () => {
   return minimist(process.argv.slice(2))
+}
+
+export const getPackageDir = (packageName) => {
+  return `${PACKAGES_DIR}/${packageName}`
 }
 
 /**
@@ -267,4 +271,83 @@ export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pr
       console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``)
     })
   }
+}
+
+
+export const getCompileOptions = () => {
+  const compileOptions = {
+    includeIcons: [],
+    strokeWidth: null,
+    fontForge: 'fontforge'
+  }
+
+  if (fs.existsSync('../compile-options.json')) {
+    try {
+      const tempOptions = require('../compile-options.json')
+
+      if (typeof tempOptions !== 'object') {
+        throw 'Compile options file does not contain an json object'
+      }
+
+      if (typeof tempOptions.includeIcons !== 'undefined') {
+        if (!Array.isArray(tempOptions.includeIcons)) {
+          throw 'property inludeIcons is not an array'
+        }
+        compileOptions.includeIcons = tempOptions.includeIcons
+      }
+
+      if (typeof tempOptions.includeCategories !== 'undefined') {
+        if (typeof tempOptions.includeCategories === 'string') {
+          tempOptions.includeCategories = tempOptions.includeCategories.split(' ')
+        }
+        if (!Array.isArray(tempOptions.includeCategories)) {
+          throw 'property includeCategories is not an array or string'
+        }
+        const tags = Object.entries(require('./tags.json'))
+        tempOptions.includeCategories.forEach(function(category) {
+          category = category.charAt(0).toUpperCase() + category.slice(1)
+          for (const [icon, data] of tags) {
+            if (data.category === category && compileOptions.includeIcons.indexOf(icon) === -1) {
+              compileOptions.includeIcons.push(icon)
+            }
+          }
+        })
+      }
+
+      if (typeof tempOptions.excludeIcons !== 'undefined') {
+        if (!Array.isArray(tempOptions.excludeIcons)) {
+          throw 'property excludeIcons is not an array'
+        }
+        compileOptions.includeIcons = compileOptions.includeIcons.filter(function(icon) {
+          return tempOptions.excludeIcons.indexOf(icon) === -1
+        })
+      }
+
+      if (typeof tempOptions.excludeOffIcons !== 'undefined' && tempOptions.excludeOffIcons) {
+        // Exclude `*-off` icons
+        compileOptions.includeIcons = compileOptions.includeIcons.filter(function(icon) {
+          return !icon.endsWith('-off')
+        })
+      }
+
+      if (typeof tempOptions.strokeWidth !== 'undefined') {
+        if (typeof tempOptions.strokeWidth !== 'string' && typeof tempOptions.strokeWidth !== 'number') {
+          throw 'property strokeWidth is not a string or number'
+        }
+        compileOptions.strokeWidth = tempOptions.strokeWidth.toString()
+      }
+
+      if (typeof tempOptions.fontForge !== 'undefined') {
+        if (typeof tempOptions.fontForge !== 'string') {
+          throw 'property fontForge is not a string'
+        }
+        compileOptions.fontForge = tempOptions.fontForge
+      }
+
+    } catch (error) {
+      throw `Error reading compile-options.json: ${error}`
+    }
+  }
+
+  return compileOptions
 }

@@ -31,7 +31,7 @@
     "release": "git pull && release-it --verbose",
     "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
     "build:jekyll": "bundle exec jekyll build",
-    "build:copy": "cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
+    "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:icons": "pnpm --filter @tabler/icons build",
     "build:packages": "pnpm run build:react && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:svelte && pnpm run build:vue && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp",
     "build:react": "pnpm --filter @tabler/icons-react build",

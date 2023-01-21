@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Tabler Icons - version <%= v %></title>
+
+	<link rel="preconnect" href="https://rsms.me/">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+	<link rel="stylesheet" href="./<%= fileName %>.css">
+
+	<style>
+		* { margin: 0; border: 0; outline: 0; box-sizing: border-box; }
+
+		body {
+			font-family: 'Inter', sans-serif;
+			background: #fafbfc;
+			font-size: 1rem;
+			padding: 1rem;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		code {
+			font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+			background: #fafafa;
+			border: 1px solid #f0f0f0;
+			color: #666;
+			padding: 2px 4px;
+			margin-bottom: 2px;
+		}
+
+		.container {
+			max-width: 73rem;
+			margin: 0 auto;
+		}
+
+		.box {
+			padding: 1rem;
+			background: #fff;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+			border-radius: 3px;
+			border-top-right-radius: 0;
+			border-top-left-radius: 0;
+		}
+
+		.tabler-icons {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.tabler-icon {
+			width: 10rem;
+			font-size: 12px;
+			text-align: center;
+			padding: .5rem .25rem 2rem;
+		}
+
+		.tabler-icon i {
+			display: block;
+			align-items: center;
+			font-size: 32px;
+			height: 1em;
+			margin-bottom: 1rem;
+		}
+
+		.tabler-icon code {
+			font-size: 10px;
+		}
+
+		.tabler-icon strong {
+			display: block;
+			margin-bottom: .5rem;
+			font-weight: 600;
+		}
+
+		.tabler-icon-codes {
+			line-height: 2em;
+		}
+
+		.text-muted {
+			color: #999;
+		}
+
+		.header {
+			text-align: center;
+			margin: 2rem 0 3rem;
+		}
+
+		.search-bar {
+			padding: 0.75rem 1.5rem;
+			background: #fff;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+			border-radius: 3px;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+
+		.search-bar input[name=search] {
+			padding: 0.5rem;
+			background: #fafbfc;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+			width: 100%;
+			font: inherit;
+		}
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<header class="header">
+		<h1>
+			Tabler Icons
+		</h1>
+		<p class="text-muted">version <%= v %></p>
+	</header>
+
+	<div class="search-bar">
+		<input type="text" name="search" placeholder="type to search" />
+	</div>
+
+	<div class="box">
+		<div class="tabler-icons">
+			<% glyphs.forEach(function(glyph) { %>
+			<div class="tabler-icon">
+				<i class="ti ti-<%= glyph.name %>"></i>
+				<strong><%= glyph.name %></strong>
+				<div class="tabler-icon-codes">
+					<code>ti ti-<%= glyph.name %></code><br>
+					<code>\<%= glyph.unicode[0].codePointAt(0).toString(16) %></code>
+				</div>
+			</div>
+			<% }) %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  const input = document.querySelector('div.search-bar input')
+  const iconContainer = document.querySelector('div.box div.tabler-icons')
+  let icons = []
+
+  document.querySelectorAll('div.tabler-icon').forEach(icon => icons.push({
+    el: icon,
+    name: icon.querySelector('strong').innerHTML
+  }))
+
+  input.addEventListener('input', search)
+
+  function search(evt) {
+    let searchValue = evt.target.value
+    let iconsToShow = searchValue.length ? icons.filter(icon => icon.name.includes(searchValue)) : icons
+    iconContainer.innerHTML = ''
+    iconsToShow.forEach(icon => iconContainer.appendChild(icon.el))
+  }
+</script>
+
+</body>
+</html>
