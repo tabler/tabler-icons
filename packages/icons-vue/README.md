@@ -1,7 +1,7 @@
 # Tabler Icons for Vue
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og-package-vue.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
