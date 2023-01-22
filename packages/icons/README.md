@@ -1,7 +1,7 @@
 # Tabler Icons
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-core.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
@@ -24,10 +24,6 @@
 <a href="https://github.com/sponsors/codecalm">
   <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
 </a>
-
-### Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
 
 ## Installation
 
@@ -115,3 +111,7 @@ Caught a mistake or want to contribute to the documentation? [Edit this page on 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+
+## Sponsor Tabler
+
+<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
