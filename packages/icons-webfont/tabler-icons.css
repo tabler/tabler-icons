@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.0.0-beta.2 by tabler - https://tabler.io
+ * Tabler Icons 2.0.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.0.0-beta.2");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.0.0-beta.2") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.0.0-beta.2") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.0.0-beta.2") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.0.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.0.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.0.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.0.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2010,6 +2010,10 @@
   content: "\f4cf";
 }
 
+.ti-brand-c-sharp:before {
+  content: "\f003";
+}
+
 .ti-brand-campaignmonitor:before {
   content: "\f328";
 }
@@ -3252,10 +3256,6 @@
 
 .ti-butterfly:before {
   content: "\efd9";
-}
-
-.ti-c-sharp:before {
-  content: "\f003";
 }
 
 .ti-cactus:before {
@@ -12122,12 +12122,12 @@
   content: "\f1ba";
 }
 
-.ti-uf-off:before {
-  content: "\f26e";
-}
-
 .ti-ufo:before {
   content: "\f26f";
+}
+
+.ti-ufo-off:before {
+  content: "\f26e";
 }
 
 .ti-umbrella:before {

@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 2.0.0-beta.2 by tabler - https://tabler.io
+ * Tabler Icons 2.0.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -12,11 +12,11 @@ $ti-prefix: 'ti' !default;
   font-style: normal;
   font-weight: 400;
   font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/tabler-icons.eot?v2.0.0-beta.2');
-  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.0.0-beta.2') format('embedded-opentype'),
-    url('#{$ti-font-path}/tabler-icons.woff2?v2.0.0-beta.2') format('woff2'),
+  src: url('#{$ti-font-path}/tabler-icons.eot?v2.0.0');
+  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.0.0') format('embedded-opentype'),
+    url('#{$ti-font-path}/tabler-icons.woff2?v2.0.0') format('woff2'),
     url('#{$ti-font-path}/tabler-icons.woff?') format('woff'),
-    url('#{$ti-font-path}/tabler-icons.ttf?v2.0.0-beta.2') format('truetype');
+    url('#{$ti-font-path}/tabler-icons.ttf?v2.0.0') format('truetype');
 }
 
 .#{$ti-prefix} {
@@ -535,6 +535,7 @@ $ti-icon-brand-bootstrap: unicode('ef3e');
 $ti-icon-brand-bulma: unicode('f327');
 $ti-icon-brand-bumble: unicode('f5fb');
 $ti-icon-brand-bunpo: unicode('f4cf');
+$ti-icon-brand-c-sharp: unicode('f003');
 $ti-icon-brand-campaignmonitor: unicode('f328');
 $ti-icon-brand-carbon: unicode('f348');
 $ti-icon-brand-cashapp: unicode('f391');
@@ -846,7 +847,6 @@ $ti-icon-bus-off: unicode('f3ce');
 $ti-icon-bus-stop: unicode('f2d4');
 $ti-icon-businessplan: unicode('ee1e');
 $ti-icon-butterfly: unicode('efd9');
-$ti-icon-c-sharp: unicode('f003');
 $ti-icon-cactus: unicode('f21b');
 $ti-icon-cactus-off: unicode('f3cf');
 $ti-icon-cake: unicode('f00f');
@@ -3063,8 +3063,8 @@ $ti-icon-truck-return: unicode('ec4c');
 $ti-icon-txt: unicode('f3b1');
 $ti-icon-typography: unicode('ebc5');
 $ti-icon-typography-off: unicode('f1ba');
-$ti-icon-uf-off: unicode('f26e');
 $ti-icon-ufo: unicode('f26f');
+$ti-icon-ufo-off: unicode('f26e');
 $ti-icon-umbrella: unicode('ebf1');
 $ti-icon-umbrella-filled: unicode('f6b0');
 $ti-icon-umbrella-off: unicode('f1bb');
@@ -3741,6 +3741,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-brand-bulma:before { content: $ti-icon-brand-bulma; }
 .#{$ti-prefix}-brand-bumble:before { content: $ti-icon-brand-bumble; }
 .#{$ti-prefix}-brand-bunpo:before { content: $ti-icon-brand-bunpo; }
+.#{$ti-prefix}-brand-c-sharp:before { content: $ti-icon-brand-c-sharp; }
 .#{$ti-prefix}-brand-campaignmonitor:before { content: $ti-icon-brand-campaignmonitor; }
 .#{$ti-prefix}-brand-carbon:before { content: $ti-icon-brand-carbon; }
 .#{$ti-prefix}-brand-cashapp:before { content: $ti-icon-brand-cashapp; }
@@ -4052,7 +4053,6 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-bus-stop:before { content: $ti-icon-bus-stop; }
 .#{$ti-prefix}-businessplan:before { content: $ti-icon-businessplan; }
 .#{$ti-prefix}-butterfly:before { content: $ti-icon-butterfly; }
-.#{$ti-prefix}-c-sharp:before { content: $ti-icon-c-sharp; }
 .#{$ti-prefix}-cactus:before { content: $ti-icon-cactus; }
 .#{$ti-prefix}-cactus-off:before { content: $ti-icon-cactus-off; }
 .#{$ti-prefix}-cake:before { content: $ti-icon-cake; }
@@ -6269,8 +6269,8 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-txt:before { content: $ti-icon-txt; }
 .#{$ti-prefix}-typography:before { content: $ti-icon-typography; }
 .#{$ti-prefix}-typography-off:before { content: $ti-icon-typography-off; }
-.#{$ti-prefix}-uf-off:before { content: $ti-icon-uf-off; }
 .#{$ti-prefix}-ufo:before { content: $ti-icon-ufo; }
+.#{$ti-prefix}-ufo-off:before { content: $ti-icon-ufo-off; }
 .#{$ti-prefix}-umbrella:before { content: $ti-icon-umbrella; }
 .#{$ti-prefix}-umbrella-filled:before { content: $ti-icon-umbrella-filled; }
 .#{$ti-prefix}-umbrella-off:before { content: $ti-icon-umbrella-off; }
