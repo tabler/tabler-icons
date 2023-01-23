@@ -8,7 +8,7 @@ const componentTemplate = ({
   children
 }) => `\
 import createSolidComponent from '../createSolidComponent';
-export default createSolidComponent('${namePascal}', ${JSON.stringify(children)});`;
+export default createSolidComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

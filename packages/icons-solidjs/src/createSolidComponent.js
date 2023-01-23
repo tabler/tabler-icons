@@ -2,7 +2,7 @@ import defaultAttributes from './defaultAttributes'
 import { splitProps } from "solid-js"
 import h from "solid-js/h";
 
-const createSolidComponent = (iconName, iconNode) => {
+const createSolidComponent = (iconName, iconNamePascal, iconNode) => {
   const Component = props => {
     const [localProps, rest] = splitProps(props, [
       'color',
@@ -28,7 +28,7 @@ const createSolidComponent = (iconName, iconNode) => {
     );
   };
 
-  Component.displayName = `${iconName}`;
+  Component.displayName = `${iconNamePascal}`;
   return Component;
 }
 

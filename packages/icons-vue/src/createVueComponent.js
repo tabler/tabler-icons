@@ -1,7 +1,7 @@
 import { h } from 'vue';
 import defaultAttributes from './defaultAttributes';
 
-const createVueComponent = (iconName, iconNode) => (
+const createVueComponent = (iconName, iconNamePascal, iconNode) => (
     { size, color, ...props },
     { attrs, slots }
 ) => {

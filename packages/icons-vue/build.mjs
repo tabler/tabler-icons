@@ -8,7 +8,7 @@ const componentTemplate = ({
   children
 }) => `\
 import createVueComponent from '../createVueComponent';
-export default createVueComponent('${namePascal}', ${JSON.stringify(children)});`;
+export default createVueComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

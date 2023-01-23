@@ -8,7 +8,7 @@ const componentTemplate = ({
   children
 }) => `\
 import createReactComponent from '../createReactComponent';
-export default createReactComponent('${namePascal}', ${JSON.stringify(children)});`;
+export default createReactComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

@@ -3,11 +3,12 @@
 import { buildIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  name,
   namePascal,
   children
 }) => `\
 import createPreactComponent from '../createPreactComponent';
-export default createPreactComponent('${namePascal}', ${JSON.stringify(children)});`;
+export default createPreactComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,

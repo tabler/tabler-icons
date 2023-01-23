@@ -1,7 +1,7 @@
 import { h, toChildArray } from 'preact';
 import defaultAttributes from './defaultAttributes';
 
-export default (iconName, iconNode) => {
+export default (iconName, iconNamePascal, iconNode) => {
   const Component = ({ color = 'currentColor', size = 24, strokeWidth = 2, children, ...rest }) =>
       h(
           'svg',
@@ -17,7 +17,7 @@ export default (iconName, iconNode) => {
           [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
       );
 
-  Component.displayName = `${iconName}`;
+  Component.displayName = `${iconNamePascal}`;
 
   return Component;
 };

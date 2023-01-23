@@ -2,7 +2,7 @@ import { forwardRef, createElement } from 'react';
 import PropTypes from 'prop-types';
 import defaultAttributes from './defaultAttributes';
 
-export default (iconName, iconNode) => {
+export default (iconName, iconNamePascal, iconNode) => {
   const Component = forwardRef(
       ({ color = 'currentColor', size = 24, strokeWidth = 2, children, ...rest }, ref) =>
           createElement(
@@ -27,7 +27,7 @@ export default (iconName, iconNode) => {
     strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
-  Component.displayName = `${iconName}`;
+  Component.displayName = `${iconNamePascal}`;
 
   return Component;
 };
