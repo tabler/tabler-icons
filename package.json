@@ -44,9 +44,7 @@
     "build:esp": "pnpm --filter @tabler/icons-esp build",
     "build:webfont": "pnpm --filter @tabler/icons-webfont build",
     "update-readme": "node ./.build/update-readme.mjs",
-    "zip": "node ./.build/zip-files.mjs",
-    "_build": "gulp build",
-    "_build-iconfont": "gulp build-iconfont"
+    "zip": "node ./.build/zip-files.mjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
@@ -64,16 +62,10 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "adm-zip": "^0.5.10",
     "cheerio": "^1.0.0-rc.12",
-    "clean-css": "4.2.3",
     "csv-parser": "^3.0.0",
     "fs-extra": "^10.1.0",
     "glob": "7.1.6",
-    "gulp": "4.0.2",
-    "gulp-iconfont": "11.0.1",
-    "gulp-svgo": "^2.2.1",
-    "gulp-zip": "5.1.0",
     "html-minifier": "^4.0.0",
-    "lerna": "^6.4.0",
     "lodash.template": "4.5.0",
     "minimist": "1.2.6",
     "node-sass": "8.0.0",
