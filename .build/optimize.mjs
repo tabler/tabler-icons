@@ -62,9 +62,9 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
 
           return `<path d="${d2}"`
         })
-        // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M/g, function() {
-        //   return `M`
-        // })
+        .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M(?=([^"]+)"\s+\/>)/g, function() {
+           return `M`
+        })
         .replace(/<path d="([^"]+)"/g, function(f, r1) {
           r1 = optimizePath(r1)
 
