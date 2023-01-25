@@ -5,11 +5,11 @@ version: "1.27"
 unicode: "f1a3"
 ---
 <svg>
-  <rect x="3" y="3" width="4" height="4" rx="1" />
-  <rect x="17" y="17" width="4" height="4" rx="1" />
-  <line x1="7" y1="5" x2="14" y2="5" />
-  <line x1="10" y1="19" x2="17" y2="19" />
-  <circle cx="9" cy="19" r="1" />
-  <circle cx="15" cy="5" r="1" />
+  <path d="M3 3m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+  <path d="M17 17m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+  <path d="M7 5l7 0" />
+  <path d="M10 19l7 0" />
+  <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
   <path d="M7 5.5a5 6.5 0 0 1 5 6.5a5 6.5 0 0 0 5 6.5" />
 </svg>

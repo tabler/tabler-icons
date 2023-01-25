@@ -5,8 +5,8 @@ version: "1.0"
 unicode: "eaf0"
 ---
 <svg>
-  <rect x="9" y="2" width="6" height="11" rx="3" />
+  <path d="M9 2m0 3a3 3 0 0 1 3 -3h0a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3h0a3 3 0 0 1 -3 -3z" />
   <path d="M5 10a7 7 0 0 0 14 0" />
-  <line x1="8" y1="21" x2="16" y2="21" />
-  <line x1="12" y1="17" x2="12" y2="21" />
+  <path d="M8 21l8 0" />
+  <path d="M12 17l0 4" />
 </svg>

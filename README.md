@@ -1,18 +1,13 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/og.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-core.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
-    A set of over 2200 free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->3204<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
   <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
-</p>
-
-<p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
 </p>
 
 
@@ -27,12 +22,12 @@
 ## Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png" alt="Tabler Icons preview" width="838">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons.png" alt="Tabler Icons preview" width="838">
+  </picture>
 </p>
-
-## Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
 
 
 ## Installation
@@ -252,7 +247,7 @@ By default the stroke width is 2. You can change the stroke width in the `compil
 }
 ```
 
-To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. To compile only two icons you can set for example the folowing option in the `compile-options.json`:
+To reduce the font file size you can choose to compile a sub set of icons. When you leave the array empty it will compile all the fonts. To compile only two icons you can set for example the following option in the `compile-options.json`:
 
 ```JSON
 {
@@ -260,7 +255,7 @@ To reduce the font file size you can choose to compile a sub set of icons. When 
 }
 ```
 
-Optional property `includeCategories` - an array or string of icon categories to include, category names are case-issensetive.
+Optional property `includeCategories` - an array or string of icon categories to include, category names are case-insensitive.
 ```JSON
 {
   "includeCategories": ["Devices", "System"]
@@ -312,8 +307,17 @@ For Android or Desktop you can use [`compose-icons`](https://github.com/DevSrSou
 
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
-![](https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
+</picture>
 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+
+
+## Sponsor Tabler
+
+<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>

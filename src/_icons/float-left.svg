@@ -5,9 +5,9 @@ version: "1.4"
 unicode: "ebb2"
 ---
 <svg>
-  <rect width="6" height="6" x="4" y="5" rx="1" />
-  <line x1="14" y1="7" x2="20" y2="7" />
-  <line x1="14" y1="11" x2="20" y2="11" />
-  <line x1="4" y1="15" x2="20" y2="15" />
-  <line x1="4" y1="19" x2="20" y2="19" />
+  <path d="M4 5m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M14 7l6 0" />
+  <path d="M14 11l6 0" />
+  <path d="M4 15l16 0" />
+  <path d="M4 19l16 0" />
 </svg>

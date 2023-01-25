@@ -5,11 +5,11 @@ version: "1.39"
 unicode: "eedb"
 ---
 <svg>
-  <circle cx="6" cy="19" r="2" />
-  <circle cx="17" cy="19" r="2" />
+  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   <path d="M17 17h-11v-14h-2" />
   <path d="M20 6l-1 7h-13" />
   <path d="M10 10l6 -6" />
-  <circle cx="10.5" cy="4.5" r=".5" />
-  <circle cx="15.5" cy="9.5" r=".5" />
+  <path d="M10.5 4.5m-.5 0a0.5 .5 0 1 0 1 0a0.5 .5 0 1 0 -1 0" />
+  <path d="M15.5 9.5m-.5 0a0.5 .5 0 1 0 1 0a0.5 .5 0 1 0 -1 0" />
 </svg>

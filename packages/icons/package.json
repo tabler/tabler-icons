@@ -1,0 +1,54 @@
+{
+  "name": "@tabler/icons",
+  "version": "2.0.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git"
+  },
+  "main": "dist/cjs/tabler-icons.js",
+  "main:umd": "dist/umd/tabler-icons.js",
+  "module": "dist/esm/tabler-icons.js",
+  "unpkg": "dist/umd/tabler-icons.min.js",
+  "typings": "dist/tabler-icons.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist/*",
+    "tags.json",
+    "tabler-nodes.json",
+    "icons/*",
+    "tabler-sprite.svg",
+    "tabler-sprite-nostroke.svg"
+  ],
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons && pnpm run build:es && pnpm run build:bundles",
+    "build:icons": "node build.mjs",
+    "build:es": "babel src -d dist/esm",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "copy": "pnpm run copy:license && pnpm run copy:icons && pnpm run copy:tags",
+    "copy:icons": "mkdir -p ./icons && cp ../../icons/*.svg ./icons/",
+    "copy:tags": "cp ../../tags.json tags.json",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && rm -rf icons",
+    "test": "echo 'ok'"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "png",
+    "iconfont",
+    "react",
+    "front-end",
+    "web"
+  ]
+}

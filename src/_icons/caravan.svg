@@ -5,8 +5,8 @@ version: "1.14"
 unicode: "ec7c"
 ---
 <svg>
-  <circle cx="11" cy="17" r="2" />
-  <line x1="21" y1="17" x2="13" y2="17" />
+  <path d="M11 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M21 17l-8 0" />
   <path d="M9 17h-5a1 1 0 0 1 -1 -1v-9a2 2 0 0 1 2 -2h10l4 4v8" />
-  <rect x="6" y="8" width="6" height="4" rx="1" />
+  <path d="M6 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
 </svg>

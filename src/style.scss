@@ -318,14 +318,14 @@ Components
     width: 1.25rem;
     height: 1.25rem;
     position: absolute;
-    top: ($btn-form-height - 1.25rem) / 2;
-    right: ($btn-form-height - 1.25rem) / 2;
+    top: ($btn-form-height - 1.25rem) * .5;
+    right: ($btn-form-height - 1.25rem) * .5;
     stroke-width: 1.75;
   }
 
   &.icon-left {
     .icon {
-      left: ($btn-form-height - 1.25rem) / 2;
+      left: ($btn-form-height - 1.25rem) * .5;
       right: auto;
     }
 

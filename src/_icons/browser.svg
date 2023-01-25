@@ -5,7 +5,7 @@ version: "1.5"
 unicode: "ebb7"
 ---
 <svg>
-  <rect x="4" y="4" width="16" height="16" rx="1" />
-  <line x1="4" y1="8" x2="20" y2="8" />
-  <line x1="8" y1="4" x2="8" y2="8" />
+  <path d="M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z" />
+  <path d="M4 8l16 0" />
+  <path d="M8 4l0 4" />
 </svg>

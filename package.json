@@ -1,124 +1,110 @@
 {
-  "name": "@tabler/icons",
-  "version": "1.82.0",
-  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "name": "tabler-icons",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
   },
-  "main": "./icons-react/dist/index.cjs.js",
-  "exports": {
-    ".": {
-      "import": "./icons-react/dist/index.esm.js",
-      "require": "./icons-react/dist/index.cjs.js"
-    },
-    "./*": [
-      "./icons/*",
-      "./icons-png/*"
-    ]
-  },
-  "module": "./icons-react/dist/index.esm.js",
-  "unpkg": "./icons-react/dist/index.umd.js",
-  "umd:main": "./icons-react/dist/index.umd.js",
-  "types": "./icons-react/index.d.ts",
+  "private": true,
   "sideEffects": false,
-  "author": "codecalm",
-  "license": "MIT",
-  "homepage": "https://tabler-icons.io",
-  "bugs": {
-    "url": "https://github.com/tabler/tabler-icons/issues"
-  },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/codecalm"
-  },
-  "files": [
-    "tags.json",
-    "icons/*",
-    "icons-png/*",
-    "icons-react/index.d.ts",
-    "icons-react/dist/*",
-    "iconfont/*",
-    "tabler-sprite.svg",
-    "tabler-sprite-nostroke.svg"
-  ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "prebuild-react": "rm -rf ./icons-react/dist/",
-    "build-react": "rollup -c",
-    "optimize": "gulp optimize",
-    "release": "release-it",
-    "build": "gulp build",
-    "build-iconfont": "gulp build-iconfont",
-    "import": "./_import.sh && gulp optimize"
+    "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "clean": "turbo run clean",
+    "test": "turbo run test",
+    "changelog": "node ./.build/changelog.mjs",
+    "changelog-commit": "node ./.build/changelog-commit.mjs",
+    "changelog-image": "node ./.build/changelog-image.mjs",
+    "update": "pnpm run update:icons-version && pnpm run update:icons-unicode",
+    "update:icons-version": "node ./.build/update-icons-version.mjs",
+    "update:icons-unicode": "node ./.build/update-icons-unicode.mjs",
+    "optimize": "node ./.build/optimize.mjs",
+    "import": "node ./.build/import.mjs && pnpm run optimize",
+    "import-tags": "node ./.build/import-tags.mjs",
+    "import-categories": "node ./.build/import-categories.mjs",
+    "preview": "pnpm run preview-icons && pnpm run preview-stroke",
+    "preview-icons": "node ./.build/preview-icons.mjs",
+    "preview-stroke": "node ./.build/preview-stroke.mjs",
+    "release": "git pull && release-it --verbose",
+    "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
+    "build:jekyll": "bundle exec jekyll build",
+    "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
+    "build:icons": "pnpm --filter @tabler/icons build",
+    "build:packages": "pnpm run build:react && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:svelte && pnpm run build:vue && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
+    "build:react": "pnpm --filter @tabler/icons-react build",
+    "build:preact": "pnpm --filter @tabler/icons-preact build",
+    "build:solidjs": "pnpm --filter @tabler/icons-solidjs build",
+    "build:svelte": "pnpm --filter @tabler/icons-svelte build",
+    "build:vue": "pnpm --filter @tabler/icons-vue build",
+    "build:png": "pnpm --filter @tabler/icons-png build",
+    "build:pdf": "pnpm --filter @tabler/icons-pdf build",
+    "build:esp": "pnpm --filter @tabler/icons-esp build",
+    "build:webfont": "pnpm --filter @tabler/icons-webfont build",
+    "update-readme": "node ./.build/update-readme.mjs",
+    "zip": "node ./.build/zip-files.mjs"
   },
-  "keywords": [
-    "icons",
-    "svg",
-    "png",
-    "iconfont",
-    "react",
-    "front-end",
-    "web"
-  ],
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
     "@babel/core": "7.11.6",
     "@babel/parser": "7.11.5",
+    "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
+    "@release-it-plugins/workspaces": "^3.2.0",
     "@rollup/plugin-babel": "5.2.1",
     "@rollup/plugin-commonjs": "15.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@svgr/babel-plugin-replace-jsx-attribute-value": "5.0.1",
     "@svgr/core": "5.4.0",
-    "clean-css": "4.2.3",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "adm-zip": "^0.5.10",
+    "cheerio": "^1.0.0-rc.12",
     "csv-parser": "^3.0.0",
+    "fs-extra": "^10.1.0",
     "glob": "7.1.6",
-    "gulp": "4.0.2",
-    "gulp-iconfont": "10.0.3",
-    "gulp-svgo": "^2.2.1",
-    "gulp-zip": "5.0.2",
+    "html-minifier": "^4.0.0",
     "lodash.template": "4.5.0",
     "minimist": "1.2.6",
-    "node-sass": "7.0.1",
+    "node-sass": "8.0.0",
     "parse-svg-path": "^0.1.2",
-    "release-it": "14.12.5",
-    "rollup": "2.70.1",
+    "prettier": "^2.8.1",
+    "release-it": "15.6.0",
+    "rollup": "2.78.1",
     "rollup-plugin-filesize": "9.1.2",
     "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-rename": "^1.0.1",
     "rollup-plugin-terser": "7.0.2",
-    "rollup-plugin-uglify": "6.0.4",
-    "svg-outline-stroke": "1.3.1"
+    "rollup-plugin-esbuild": "^4.10.2",
+    "rollup-plugin-license": "^3.0.1",
+    "rollup-plugin-visualizer": "^5.8.3",
+    "svg-outline-stroke": "1.3.1",
+    "svgo": "^2.8.0",
+    "svgpath": "^2.6.0",
+    "svgson": "^5.2.1"
   },
   "release-it": {
+    "plugins": {
+      "@release-it-plugins/workspaces": true
+    },
+    "npm": false,
     "hooks": {
-      "after:bump": "gulp build --latest-version ${latestVersion} --new-version ${version} --verbose",
-      "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
+      "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
       "addUntrackedFiles": true,
-      "changelog": "gulp changelog --silent --latest-tag ${latestTag}",
+      "changelog": "pnpm run changelog --silent --latest-version ${latestTag}",
       "tagName": "v${version}",
-      "requireBranch": "master",
-      "requireCommits": true
+      "_requireBranch": "master",
+      "requireCommits": true,
+      "requireCleanWorkingDir": false
     },
     "github": {
       "release": true
     }
   },
-  "peerDependencies": {
-    "react": "^16.x || 17.x || 18.x",
-    "react-dom": "^16.x || 17.x || 18.x"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
-  }
+  "packageManager": "pnpm@7.17.0"
 }

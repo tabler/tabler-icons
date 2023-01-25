@@ -5,8 +5,8 @@ version: "1.0"
 unicode: "eafc"
 ---
 <svg>
-  <circle cx="6" cy="17" r="3" />
-  <circle cx="16" cy="17" r="3" />
-  <polyline points="9 17 9 4 19 4 19 17" />
-  <line x1="9" y1="8" x2="19" y2="8" />
+  <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M16 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M9 17l0 -13l10 0l0 13" />
+  <path d="M9 8l10 0" />
 </svg>
