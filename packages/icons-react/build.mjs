@@ -22,7 +22,8 @@ declare module '@tabler/icons-react'
 
 // Create interface extending SVGProps
 export interface TablerIconsProps extends Partial<React.SVGProps<SVGSVGElement>> {
-    size?: string | number
+    size?: string | number,
+    stroke?: string | number
 }
 
 export declare const createReactComponent: (iconName: string, iconNamePascal: string, iconNode: any[]) => (props: TablerIconsProps) => JSX.Element;

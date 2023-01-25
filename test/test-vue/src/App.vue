@@ -10,6 +10,8 @@ const active = ref(false)
     <IconHeartFilled v-if="active" size="48" />
     <IconHeart v-else size="48" />
   </a>
-  <IconMoodSmile size="48" stroke-width="1" />
+  <IconMoodSmile size="48" stroke="1" />
+  <IconMoodSmile size="48" stroke="1.5" />
+  <IconMoodSmile size="48" stroke="2" />
 </template>
 

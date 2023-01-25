@@ -30,7 +30,7 @@ import { SvelteComponentTyped } from "svelte";
 interface IconProps extends Partial<svelte.JSX.SVGProps<SVGSVGElement>> {
   color?: string
   size?: number,
-  strokeWidth?: number,
+  stroke?: number,
   class?: string
 }
 

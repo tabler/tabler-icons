@@ -4,7 +4,7 @@ import defaultAttributes from './defaultAttributes';
 
 export default (iconName, iconNamePascal, iconNode) => {
   const Component = forwardRef(
-      ({ color = 'currentColor', size = 24, strokeWidth = 2, children, ...rest }, ref) =>
+      ({ color = 'currentColor', size = 24, stroke = 2, children, ...rest }, ref) =>
           createElement(
               'svg',
               {
@@ -13,7 +13,7 @@ export default (iconName, iconNamePascal, iconNode) => {
                 width: size,
                 height: size,
                 stroke: color,
-                strokeWidth,
+                strokeWidth: stroke,
                 className: `tabler-icon tabler-icon-${iconName}`,
                 ...rest,
               },
@@ -24,7 +24,7 @@ export default (iconName, iconNamePascal, iconNode) => {
   Component.propTypes = {
     color: PropTypes.string,
     size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   Component.displayName = `${iconNamePascal}`;

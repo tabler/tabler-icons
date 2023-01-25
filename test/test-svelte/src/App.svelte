@@ -11,6 +11,8 @@ let active = false;
       <IconHeart size={48} />
     {/if}
   </a>
-  <IconMoodSmile size={48} strokeWidth={1} />
+  <IconMoodSmile size={48} stroke={1} />
+  <IconMoodSmile size={48} stroke={1.5} />
+  <IconMoodSmile size={48} stroke={2} />
 </main>
 

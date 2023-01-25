@@ -2,7 +2,7 @@ import { h, toChildArray } from 'preact';
 import defaultAttributes from './defaultAttributes';
 
 export default (iconName, iconNamePascal, iconNode) => {
-  const Component = ({ color = 'currentColor', size = 24, strokeWidth = 2, children, ...rest }) =>
+  const Component = ({ color = 'currentColor', size = 24, stroke = 2, children, ...rest }) =>
       h(
           'svg',
           {
@@ -10,7 +10,7 @@ export default (iconName, iconNamePascal, iconNode) => {
             width: size,
             height: size,
             stroke: color,
-            'stroke-width': strokeWidth,
+            'stroke-width': stroke,
             class: `tabler-icon tabler-icon-${iconName}`,
             ...rest,
           },
