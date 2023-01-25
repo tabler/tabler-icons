@@ -21,7 +21,7 @@ const iconNode = ${JSON.stringify(children)};
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}.svelte';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}.svelte';`
 
 const typeDefinitionsTemplate = () => `/// <reference types="svelte" />
 /// <reference types="svelte2tsx/svelte-jsx" />

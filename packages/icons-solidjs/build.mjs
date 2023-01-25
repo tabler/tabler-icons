@@ -13,7 +13,7 @@ export default createSolidComponent('${name}', '${namePascal}', ${JSON.stringify
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
 
 const typeDefinitionsTemplate = () => `/// <reference types="solid-js" />
 import { JSX } from 'solid-js'

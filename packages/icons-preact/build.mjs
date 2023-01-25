@@ -13,7 +13,7 @@ export default createPreactComponent('${name}', '${namePascal}', ${JSON.stringif
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
 
 const typeDefinitionsTemplate = () => `/// <reference types="preact" />
 import { JSX, RefObject } from 'preact'

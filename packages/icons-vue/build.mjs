@@ -13,7 +13,7 @@ export default createVueComponent('${name}', '${namePascal}', ${JSON.stringify(c
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
 
 const typeDefinitionsTemplate = () => `import { SVGAttributes, FunctionalComponent } from 'vue';
 declare module '@tabler/icons-vue'
