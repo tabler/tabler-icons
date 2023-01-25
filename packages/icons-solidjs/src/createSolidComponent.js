@@ -7,7 +7,7 @@ const createSolidComponent = (iconName, iconNamePascal, iconNode) => {
     const [localProps, rest] = splitProps(props, [
       'color',
       'size',
-      'strokeWidth',
+      'stroke',
       'children',
       'class',
     ]);
@@ -17,7 +17,7 @@ const createSolidComponent = (iconName, iconNamePascal, iconNode) => {
       width: () => (localProps.size != null ? localProps.size : defaultAttributes.width),
       height: () => (localProps.size != null ? localProps.size : defaultAttributes.height),
       stroke: () => (localProps.color != null ? localProps.color : defaultAttributes.stroke),
-      'stroke-width': () => localProps.strokeWidth != null ? localProps.strokeWidth : defaultAttributes['stroke-width'],
+      'stroke-width': () => localProps.stroke != null ? localProps.stroke : defaultAttributes['stroke-width'],
       class: () => `tabler-icon tabler-icon-${iconName} ${localProps.class != null ? localProps.class : ''}`,
     };
 

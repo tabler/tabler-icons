@@ -3,7 +3,7 @@
   export let name
   export let color = 'currentColor'
   export let size = 24
-  export let strokeWidth = 2
+  export let stroke = 2
   export let iconNode
 </script>
 
@@ -13,7 +13,7 @@
   width={size}
   height={size}
   stroke={color}
-  stroke-width={strokeWidth}
+  stroke-width={stroke}
   class={`tabler-icon tabler-icon-${name} ${$$props.class ?? ''}`}
 >
   {#each iconNode as [tag, attrs]}

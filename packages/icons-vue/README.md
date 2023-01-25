@@ -71,6 +71,14 @@ You can pass additional props to adjust the icon.
 <IconHome color="red" :size="48" stroke-width="1" />
 ```
 
+### Props
+
+| name          | type     | default      |
+| ------------- | -------- | ------------ |
+| `size`        | _Number_ | 24           |
+| `color`       | _String_ | currentColor |
+| `stroke`      | _Number_ | 2            |
+
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).

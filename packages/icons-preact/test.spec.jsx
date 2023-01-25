@@ -18,8 +18,8 @@ describe("Preact Icon component", () => {
       <IconActivity
         data-testid={testId}
         size={48}
-        stroke="red"
-        strokeWidth={4}
+        color="red"
+        stroke={4}
         className={"icon-class"}
       />
     );
