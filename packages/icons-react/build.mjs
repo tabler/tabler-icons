@@ -13,7 +13,7 @@ export default createReactComponent('${name}', '${namePascal}', ${JSON.stringify
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
 
 const typeDefinitionsTemplate = () => `/// <reference types="react" />
 import { SVGAttributes } from 'react'
@@ -25,7 +25,7 @@ export interface TablerIconsProps extends Partial<React.SVGProps<SVGSVGElement>>
     size?: string | number
 }
 
-export declare const createReactComponent: (iconName: string, iconNode: any[]) => (props: TablerIconsProps) => JSX.Element;
+export declare const createReactComponent: (iconName: string, iconNamePascal: string, iconNode: any[]) => (props: TablerIconsProps) => JSX.Element;
 
 export type Icon = React.FC<TablerIconsProps>;
 

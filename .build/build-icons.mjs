@@ -70,7 +70,7 @@ export const buildIcons = ({
       parser: 'babel'
     }) : component
 
-    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.name}.${extension}`)
+    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.namePascal}.${extension}`)
     fs.writeFileSync(filePath, output, 'utf-8')
 
     index.push(indexItemTemplate({
