@@ -10,6 +10,11 @@
     "type": "github",
     "url": "https://github.com/sponsors/codecalm"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-pdf"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",

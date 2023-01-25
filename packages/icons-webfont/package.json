@@ -10,6 +10,11 @@
     "type": "github",
     "url": "https://github.com/sponsors/codecalm"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-webfont"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy && pnpm run build:prepare && pnpm run build:outline &&  pnpm run build:optimize && pnpm run build:fix-outline && pnpm run build:webfont && pnpm run build:css && pnpm run build:clean",
     "build:prepare": "mkdir -p icons-outlined fonts && rm -fd icons-outlined/* fonts/*",
