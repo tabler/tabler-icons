@@ -15,8 +15,6 @@ glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
     if (matches[1]) {
       const unicode = matches[1]
 
-      console.log('unicode', unicode, unicodes.indexOf(unicode));
-
       if (unicode && unicodes.indexOf(unicode) === -1) {
         unicodes.push(unicode)
       } else {
@@ -26,9 +24,6 @@ glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
       throw new Error(`Icon ${file} don't have a unicode!`)
     }
   }
-
-
-  console.log('unicodes', unicodes);
 })
 
 
