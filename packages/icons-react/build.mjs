@@ -21,7 +21,7 @@ import { SVGAttributes } from 'react'
 declare module '@tabler/icons-react'
 
 // Create interface extending SVGProps
-export interface TablerIconsProps extends Partial<React.SVGProps<SVGSVGElement>> {
+export interface TablerIconsProps extends Partial<Omit<React.SVGProps<SVGSVGElement>, 'stroke'>> {
     size?: string | number,
     stroke?: string | number
 }
