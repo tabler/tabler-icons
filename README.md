@@ -97,10 +97,10 @@ Add an icon to be displayed on your page with the following markup (`activity` i
 
 ### React
 
-Import the icon and render it in your component. You can adjust SVG properties through React props:
+React components available through [`@tabler/icons-react`](https://www.npmjs.com/package/@tabler/icons-react) package.
 
 ```jsx
-import { IconAward } from '@tabler/icons';
+import { IconAward } from '@tabler/icons-react';
 
 const MyComponent = () => {
   return <IconAward 
@@ -112,7 +112,31 @@ const MyComponent = () => {
 }
 ```
 
-`@tabler/icons` exports it's own type declarations for usage with React and Typescript.
+`@tabler/icons-react` exports it's own type declarations for usage with React and Typescript.
+
+For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-react).
+
+### Vue
+
+Vue components available through [`@tabler/icons-vue`](https://www.npmjs.com/package/@tabler/icons-vue) package.
+
+```vue
+<template>
+  <IconHome />
+</template>
+
+<script>
+// Returns Vue component
+import { IconHome } from '@tabler/icons-vue';
+
+export default {
+  components: { IconHome }
+};
+</script>
+```
+
+For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-vue).
+
 
 ### Angular
 
@@ -155,31 +179,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
-### Vue
-
-Vue components available through [`vue-tabler-icons`](https://www.npmjs.com/package/vue-tabler-icons) package.
-Install the package, import the icon component and render it in your component. You can adjust SVG properties by passing regular HTML attributes:
-
-```html
-<script>
-    // MyComponent.vue
-    import { BoldIcon } from 'vue-tabler-icons';
-
-    export default {
-        components: { BoldIcon },
-    };
-</script>
-
-<template>
-    <bold-icon />
-</template>
-```
-
-`vue-tabler-icons` exports it's own type declarations for usage with Typescript.
-
-For more usage documentation refer to [the official documentation](https://github.com/alex-oleshkevich/vue-tabler-icons).
-
-### CDN
+## CDN
 
 All files included in `@tabler/icons` npm package are available over a CDN.
 
