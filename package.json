@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -93,7 +93,8 @@
     "npm": false,
     "hooks": {
       "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
-      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
+      "before:git:init": "pnpm install"
     },
     "git": {
       "addUntrackedFiles": true,
