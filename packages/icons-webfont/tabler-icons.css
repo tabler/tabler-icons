@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.0.0 by tabler - https://tabler.io
+ * Tabler Icons 2.1.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.0.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.0.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.0.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.0.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.1.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.1.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.1.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.1.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -514,48 +514,96 @@
   content: "\edda";
 }
 
+.ti-arrow-big-down-filled:before {
+  content: "\f6c6";
+}
+
 .ti-arrow-big-down-line:before {
   content: "\efe8";
+}
+
+.ti-arrow-big-down-line-filled:before {
+  content: "\f6c7";
 }
 
 .ti-arrow-big-down-lines:before {
   content: "\efe9";
 }
 
+.ti-arrow-big-down-lines-filled:before {
+  content: "\f6c8";
+}
+
 .ti-arrow-big-left:before {
   content: "\eddb";
+}
+
+.ti-arrow-big-left-filled:before {
+  content: "\f6c9";
 }
 
 .ti-arrow-big-left-line:before {
   content: "\efea";
 }
 
+.ti-arrow-big-left-line-filled:before {
+  content: "\f6ca";
+}
+
 .ti-arrow-big-left-lines:before {
   content: "\efeb";
+}
+
+.ti-arrow-big-left-lines-filled:before {
+  content: "\f6cb";
 }
 
 .ti-arrow-big-right:before {
   content: "\eddc";
 }
 
+.ti-arrow-big-right-filled:before {
+  content: "\f6cc";
+}
+
 .ti-arrow-big-right-line:before {
   content: "\efec";
+}
+
+.ti-arrow-big-right-line-filled:before {
+  content: "\f6cd";
 }
 
 .ti-arrow-big-right-lines:before {
   content: "\efed";
 }
 
-.ti-arrow-big-top:before {
+.ti-arrow-big-right-lines-filled:before {
+  content: "\f6ce";
+}
+
+.ti-arrow-big-up:before {
   content: "\eddd";
+}
+
+.ti-arrow-big-up-filled:before {
+  content: "\f6cf";
 }
 
 .ti-arrow-big-up-line:before {
   content: "\efee";
 }
 
+.ti-arrow-big-up-line-filled:before {
+  content: "\f6d0";
+}
+
 .ti-arrow-big-up-lines:before {
   content: "\efef";
+}
+
+.ti-arrow-big-up-lines-filled:before {
+  content: "\f6d1";
 }
 
 .ti-arrow-bounce:before {
@@ -1966,6 +2014,10 @@
   content: "\ec6e";
 }
 
+.ti-brand-bilibili:before {
+  content: "\f6d2";
+}
+
 .ti-brand-binance:before {
   content: "\f5a0";
 }
@@ -2748,6 +2800,10 @@
 
 .ti-brand-sublime-text:before {
   content: "\ef74";
+}
+
+.ti-brand-supabase:before {
+  content: "\f6d3";
 }
 
 .ti-brand-superhuman:before {
@@ -4510,6 +4566,18 @@
   content: "\eb83";
 }
 
+.ti-columns-1:before {
+  content: "\f6d4";
+}
+
+.ti-columns-2:before {
+  content: "\f6d5";
+}
+
+.ti-columns-3:before {
+  content: "\f6d6";
+}
+
 .ti-columns-off:before {
   content: "\f0d4";
 }
@@ -5567,7 +5635,7 @@
 }
 
 .ti-droplet-filled:before {
-  content: "\f677";
+  content: "\ee80";
 }
 
 .ti-droplet-filled-2:before {
@@ -5583,7 +5651,7 @@
 }
 
 .ti-droplet-half-filled:before {
-  content: "\ee80";
+  content: "\f6c5";
 }
 
 .ti-droplet-off:before {
@@ -10692,6 +10760,10 @@
 
 .ti-spade-filled:before {
   content: "\f6a3";
+}
+
+.ti-sparkles:before {
+  content: "\f6d7";
 }
 
 .ti-speakerphone:before {
