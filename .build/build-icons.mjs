@@ -18,7 +18,7 @@ import esbuild from 'rollup-plugin-esbuild';
  * @param indexIconTemplate
  * @param typeDefinitionsTemplate
  * @param indexTypeTemplate
- * @param ext
+ * @param extension
  * @param pretty
  */
 export const buildIcons = ({

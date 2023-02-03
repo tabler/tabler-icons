@@ -39,7 +39,7 @@ export default ${namePascal} => \`${svg.contents}\`;`;
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${name}';`
+}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
 
 const typeDefinitionsTemplate = () => `// Generated icons`
 
