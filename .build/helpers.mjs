@@ -122,7 +122,7 @@ export const optimizePath = function(path) {
 
   return svgParse(transformed).map(function(a) {
     return a.join(' ')
-  }).join(' ')
+  }).join('')
 }
 
 export const optimizeSVG = (data) => {

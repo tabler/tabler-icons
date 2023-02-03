@@ -49,43 +49,25 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
           )
           return `<path d="${path}" />`
         })
-        .replace(/<path\s+d="([^"]+)"/g, function(f, d) {
-
-          const d2 = d
-              .replace(/([0-9]+)+\.00[1-6]/g, (f, m) => `${m}`)
-              .replace(/([0-9]+)+\.99[4-9]/g, (f, m) => `${parseInt(m) + 1}`)
-              .replace(/\.99[4-9]/g, (f, m) => `1`)
-              .replace(/-\.00[1-6]/g, (f, m) => `0`)
-              .replace(/\.00[1-6]/g, (f, m) => `0`)
-              .replace(/m0 0/g, (f, m) => ``)
-
-          return `<path d="${d2}"`
-        })
         .replace(/<path d="([^"]+)"/g, function(f, r1) {
           r1 = optimizePath(r1)
 
           return `<path d="${r1}"`
         })
+        .replace(/<path\s+d="([^"]+)"/g, function(f, d) {
+
+          const d2 = d
+              .replace(/m0 0/g, (f, m) => ``)
+              .replace(/ 0\./g, ' .')
+              .replace(/ -0\./g, ' -.')
+              .replace(/([amcvhslAMCVHLS]) /g, '$1')
+
+          return `<path d="${d2}"`
+        })
         .replace(/d="m/g, 'd="M')
         .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
         .replace(/\n\s+\n+/g, '\n')
-        .replace(/<path d="M([0-9.]*) ([0-9.]*)l\s?([-0-9.]*) ([-0-9.]*)"/g, function(f, r1, r2, r3, r4) {
-          return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${addFloats(r2, r4)}"`
-        })
-        .replace(/<path d="M([0-9.]*) ([0-9.]*)v\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-          return `<line x1="${r1}" y1="${r2}" x2="${r1}" y2="${addFloats(r2, r3)}"`
-        })
-        .replace(/<path d="M([0-9.]*) ([0-9.]*)h\s?([-0-9.]*)"/g, function(f, r1, r2, r3) {
-          return `<line x1="${r1}" y1="${r2}" x2="${addFloats(r1, r3)}" y2="${r2}"`
-        })
-        .replace(/<path d="([^"]+)"/g, function(f, r1) {
-          r1 = r1.replace(/ -0\./g, ' -.').replace(/ 0\./g, ' .').replace(/\s([a-z])/gi, '$1').replace(/([a-z])\s/gi, '$1')
-          return `<path d="${r1}"`
-        })
 
-    // if (!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)"( fill="currentColor")? \/>[\n\t\s]*<\/svg>/)) {
-    //   console.log(`Fix ${file}!`);
-    // }
 
     if (svgFile.toString() !== svgFileContent) {
       writeFileSync(file, svgFileContent)
