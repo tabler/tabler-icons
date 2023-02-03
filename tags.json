@@ -2260,17 +2260,17 @@
     "version": "1.10",
     "unicode": "ec2b"
   }, 
-  "ballon-off": {
-    "name": "ballon-off",
+  "balloon-off": {
+    "name": "balloon-off",
     "category": "",
-    "tags": ["ballon", "off", "party", "birthday", "decoration", "icon", "stroke", "outline"],
+    "tags": ["balloon", "off", "party", "birthday", "decoration", "icon", "stroke", "outline"],
     "version": "1.65",
     "unicode": "f0fd"
   }, 
-  "ballon": {
-    "name": "ballon",
+  "balloon": {
+    "name": "balloon",
     "category": "",
-    "tags": ["ballon", "party", "birthday", "decoration", "icon", "stroke", "outline"],
+    "tags": ["balloon", "party", "birthday", "decoration", "icon", "stroke", "outline"],
     "version": "1.42",
     "unicode": "ef3a"
   }, 
@@ -3275,10 +3275,10 @@
     "version": "1.6",
     "unicode": "ebcd"
   }, 
-  "braile": {
-    "name": "braile",
+  "braille": {
+    "name": "braille",
     "category": "",
-    "tags": ["braile", "blind", "alphabet", "disability", "letters", "read", "icon", "stroke", "outline"],
+    "tags": ["braille", "blind", "alphabet", "disability", "letters", "read", "icon", "stroke", "outline"],
     "version": "1.105",
     "unicode": "f545"
   }, 
@@ -3366,10 +3366,10 @@
     "version": "1.114",
     "unicode": "f5f9"
   }, 
-  "brand-amongus": {
-    "name": "brand-amongus",
+  "brand-among-us": {
+    "name": "brand-among-us",
     "category": "Brand",
-    "tags": ["brand", "amongus", "game", "crewmate", "impostor", "icon", "stroke", "outline"],
+    "tags": ["brand", "among", "us", "game", "crewmate", "impostor", "icon", "stroke", "outline"],
     "version": "1.71",
     "unicode": "f205"
   }, 
@@ -3513,10 +3513,10 @@
     "version": "1.36",
     "unicode": "edc7"
   }, 
-  "brand-blackbery": {
-    "name": "brand-blackbery",
+  "brand-blackberry": {
+    "name": "brand-blackberry",
     "category": "Brand",
-    "tags": ["brand", "blackbery", "phone", "mobile", "system", "operating", "os", "electronics", "icon", "stroke", "outline"],
+    "tags": ["brand", "blackberry", "phone", "mobile", "system", "operating", "os", "electronics", "icon", "stroke", "outline"],
     "version": "1.107",
     "unicode": "f568"
   }, 
@@ -11433,7 +11433,7 @@
   "gif": {
     "name": "gif",
     "category": "",
-    "tags": ["gif", "file", "format", "animation", "image", "extension", "icon", "stroke", "outline"],
+    "tags": ["gif", "file", "format", "animation", "image", "extension", "filetype", "icon", "stroke", "outline"],
     "version": "1.75",
     "unicode": "f257"
   }, 
@@ -12809,12 +12809,26 @@
     "version": "1.2",
     "unicode": "eb69"
   }, 
+  "info-circle-filled": {
+    "name": "info-circle-filled",
+    "category": "Filled",
+    "tags": ["info", "circle", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6d8"
+  }, 
   "info-circle": {
     "name": "info-circle",
     "category": "",
     "tags": ["info", "circle", "information", "advice", "news", "tip", "sign", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eac5"
+  }, 
+  "info-square-rounded-filled": {
+    "name": "info-square-rounded-filled",
+    "category": "Filled",
+    "tags": ["info", "square", "rounded", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6d9"
   }, 
   "info-square-rounded": {
     "name": "info-square-rounded",
@@ -12973,7 +12987,7 @@
   "jpg": {
     "name": "jpg",
     "category": "",
-    "tags": ["jpg", "file", "format", "type", "document", "icon", "stroke", "outline"],
+    "tags": ["jpg", "file", "format", "type", "document", "filetype", "icon", "stroke", "outline"],
     "version": "1.93",
     "unicode": "f3ac"
   }, 
@@ -13935,6 +13949,13 @@
     "tags": ["lock", "open", "security", "password", "secure", "unprotected", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eae1"
+  }, 
+  "lock-square-rounded-filled": {
+    "name": "lock-square-rounded-filled",
+    "category": "Filled",
+    "tags": ["lock", "square", "rounded", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6da"
   }, 
   "lock-square-rounded": {
     "name": "lock-square-rounded",
@@ -15707,6 +15728,20 @@
     "version": "1.39",
     "unicode": "eebb"
   }, 
+  "package-export": {
+    "name": "package-export",
+    "category": "",
+    "tags": ["package", "export", "npm", "box", "container", "delivery", "logistic", "icon", "stroke", "outline"],
+    "version": "1.59",
+    "unicode": "f07a"
+  }, 
+  "package-import": {
+    "name": "package-import",
+    "category": "",
+    "tags": ["package", "import", "npm", "box", "container", "delivery", "shipping", "courier", "icon", "stroke", "outline"],
+    "version": "1.59",
+    "unicode": "f07b"
+  }, 
   "package-off": {
     "name": "package-off",
     "category": "E-commerce",
@@ -15727,20 +15762,6 @@
     "tags": ["packages", "delivery", "boxes", "storage", "icon", "stroke", "outline"],
     "version": "1.81",
     "unicode": "f2c9"
-  }, 
-  "packge-export": {
-    "name": "packge-export",
-    "category": "",
-    "tags": ["packge", "export", "npm", "box", "container", "delivery", "logistic", "icon", "stroke", "outline"],
-    "version": "1.59",
-    "unicode": "f07a"
-  }, 
-  "packge-import": {
-    "name": "packge-import",
-    "category": "",
-    "tags": ["packge", "import", "npm", "box", "container", "delivery", "shipping", "courier", "icon", "stroke", "outline"],
-    "version": "1.59",
-    "unicode": "f07b"
   }, 
   "pacman": {
     "name": "pacman",
@@ -16683,7 +16704,7 @@
   "png": {
     "name": "png",
     "category": "",
-    "tags": ["png", "file", "format", "type", "document", "icon", "stroke", "outline"],
+    "tags": ["png", "file", "format", "type", "document", "filetype", "icon", "stroke", "outline"],
     "version": "1.93",
     "unicode": "f3ad"
   }, 
@@ -19389,12 +19410,26 @@
     "version": "1.20",
     "unicode": "ecdf"
   }, 
+  "square-rounded-arrow-down-filled": {
+    "name": "square-rounded-arrow-down-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "arrow", "down", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6db"
+  }, 
   "square-rounded-arrow-down": {
     "name": "square-rounded-arrow-down",
     "category": "",
     "tags": ["square", "rounded", "arrow", "down", "icon", "stroke", "outline"],
     "version": "1.117",
     "unicode": "f639"
+  }, 
+  "square-rounded-arrow-left-filled": {
+    "name": "square-rounded-arrow-left-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "arrow", "left", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6dc"
   }, 
   "square-rounded-arrow-left": {
     "name": "square-rounded-arrow-left",
@@ -19403,12 +19438,26 @@
     "version": "1.117",
     "unicode": "f63a"
   }, 
+  "square-rounded-arrow-right-filled": {
+    "name": "square-rounded-arrow-right-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "arrow", "right", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6dd"
+  }, 
   "square-rounded-arrow-right": {
     "name": "square-rounded-arrow-right",
     "category": "",
     "tags": ["square", "rounded", "arrow", "right", "icon", "stroke", "outline"],
     "version": "1.117",
     "unicode": "f63b"
+  }, 
+  "square-rounded-arrow-up-filled": {
+    "name": "square-rounded-arrow-up-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "arrow", "up", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6de"
   }, 
   "square-rounded-arrow-up": {
     "name": "square-rounded-arrow-up",
@@ -19417,12 +19466,26 @@
     "version": "1.117",
     "unicode": "f63c"
   }, 
+  "square-rounded-check-filled": {
+    "name": "square-rounded-check-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "check", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6df"
+  }, 
   "square-rounded-check": {
     "name": "square-rounded-check",
     "category": "",
     "tags": ["square", "rounded", "check", "icon", "stroke", "outline"],
     "version": "1.117",
     "unicode": "f63d"
+  }, 
+  "square-rounded-chevron-down-filled": {
+    "name": "square-rounded-chevron-down-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevron", "down", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e0"
   }, 
   "square-rounded-chevron-down": {
     "name": "square-rounded-chevron-down",
@@ -19431,12 +19494,26 @@
     "version": "1.116",
     "unicode": "f62b"
   }, 
+  "square-rounded-chevron-left-filled": {
+    "name": "square-rounded-chevron-left-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevron", "left", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e1"
+  }, 
   "square-rounded-chevron-left": {
     "name": "square-rounded-chevron-left",
     "category": "Arrows",
     "tags": ["square", "rounded", "chevron", "left", "icon", "stroke", "outline"],
     "version": "1.116",
     "unicode": "f62c"
+  }, 
+  "square-rounded-chevron-right-filled": {
+    "name": "square-rounded-chevron-right-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevron", "right", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e2"
   }, 
   "square-rounded-chevron-right": {
     "name": "square-rounded-chevron-right",
@@ -19445,12 +19522,26 @@
     "version": "1.116",
     "unicode": "f62d"
   }, 
+  "square-rounded-chevron-up-filled": {
+    "name": "square-rounded-chevron-up-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevron", "up", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e3"
+  }, 
   "square-rounded-chevron-up": {
     "name": "square-rounded-chevron-up",
     "category": "Arrows",
     "tags": ["square", "rounded", "chevron", "up", "icon", "stroke", "outline"],
     "version": "1.116",
     "unicode": "f62e"
+  }, 
+  "square-rounded-chevrons-down-filled": {
+    "name": "square-rounded-chevrons-down-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevrons", "down", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e4"
   }, 
   "square-rounded-chevrons-down": {
     "name": "square-rounded-chevrons-down",
@@ -19459,6 +19550,13 @@
     "version": "1.118",
     "unicode": "f64f"
   }, 
+  "square-rounded-chevrons-left-filled": {
+    "name": "square-rounded-chevrons-left-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevrons", "left", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e5"
+  }, 
   "square-rounded-chevrons-left": {
     "name": "square-rounded-chevrons-left",
     "category": "Arrows",
@@ -19466,12 +19564,26 @@
     "version": "1.118",
     "unicode": "f650"
   }, 
+  "square-rounded-chevrons-right-filled": {
+    "name": "square-rounded-chevrons-right-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevrons", "right", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e6"
+  }, 
   "square-rounded-chevrons-right": {
     "name": "square-rounded-chevrons-right",
     "category": "Arrows",
     "tags": ["square", "rounded", "chevrons", "right", "icon", "stroke", "outline"],
     "version": "1.118",
     "unicode": "f651"
+  }, 
+  "square-rounded-chevrons-up-filled": {
+    "name": "square-rounded-chevrons-up-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "chevrons", "up", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e7"
   }, 
   "square-rounded-chevrons-up": {
     "name": "square-rounded-chevrons-up",
@@ -19746,12 +19858,26 @@
     "version": "1.111",
     "unicode": "f5d1"
   }, 
+  "square-rounded-plus-filled": {
+    "name": "square-rounded-plus-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "plus", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e8"
+  }, 
   "square-rounded-plus": {
     "name": "square-rounded-plus",
     "category": "",
     "tags": ["square", "rounded", "plus", "icon", "stroke", "outline"],
     "version": "1.117",
     "unicode": "f63f"
+  }, 
+  "square-rounded-x-filled": {
+    "name": "square-rounded-x-filled",
+    "category": "Filled",
+    "tags": ["square", "rounded", "x", "filled", "icon", "stroke", "outline"],
+    "version": "2.2",
+    "unicode": "f6e9"
   }, 
   "square-rounded-x": {
     "name": "square-rounded-x",
@@ -20141,7 +20267,7 @@
   "svg": {
     "name": "svg",
     "category": "",
-    "tags": ["svg", "file", "format", "extension", "graphic", "icon", "stroke", "outline"],
+    "tags": ["svg", "file", "format", "extension", "graphic", "filetype", "icon", "stroke", "outline"],
     "version": "1.75",
     "unicode": "f25a"
   }, 
@@ -20484,7 +20610,7 @@
   "tex": {
     "name": "tex",
     "category": "Text",
-    "tags": ["tex", "file", "document", "type", "format", "icon", "stroke", "outline"],
+    "tags": ["tex", "file", "document", "type", "format", "filetype", "icon", "stroke", "outline"],
     "version": "1.99",
     "unicode": "f4e0"
   }, 
@@ -21282,7 +21408,7 @@
   "txt": {
     "name": "txt",
     "category": "",
-    "tags": ["txt", "file", "format", "type", "document", "icon", "stroke", "outline"],
+    "tags": ["txt", "file", "format", "type", "document", "filetype", "icon", "stroke", "outline"],
     "version": "1.93",
     "unicode": "f3b1"
   }, 
@@ -22360,7 +22486,7 @@
   "zip": {
     "name": "zip",
     "category": "",
-    "tags": ["zip", "file", "document", "folder", "compress", "archive", "icon", "stroke", "outline"],
+    "tags": ["zip", "file", "document", "folder", "compress", "archive", "filetype", "icon", "stroke", "outline"],
     "version": "1.93",
     "unicode": "f3b4"
   }, 

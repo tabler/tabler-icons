@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.1.2 by tabler - https://tabler.io
+ * Tabler Icons 2.2.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.1.2");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.1.2") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.1.2") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.1.2") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.2.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.2.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.2.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.2.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -1314,11 +1314,11 @@
   content: "\ec2b";
 }
 
-.ti-ballon:before {
+.ti-balloon:before {
   content: "\ef3a";
 }
 
-.ti-ballon-off:before {
+.ti-balloon-off:before {
   content: "\f0fd";
 }
 
@@ -1894,7 +1894,7 @@
   content: "\f0c0";
 }
 
-.ti-braile:before {
+.ti-braille:before {
   content: "\f545";
 }
 
@@ -1946,7 +1946,7 @@
   content: "\f5f9";
 }
 
-.ti-brand-amongus:before {
+.ti-brand-among-us:before {
   content: "\f205";
 }
 
@@ -2030,7 +2030,7 @@
   content: "\edc7";
 }
 
-.ti-brand-blackbery:before {
+.ti-brand-blackberry:before {
   content: "\f568";
 }
 
@@ -7346,12 +7346,20 @@
   content: "\eac5";
 }
 
+.ti-info-circle-filled:before {
+  content: "\f6d8";
+}
+
 .ti-info-square:before {
   content: "\eac6";
 }
 
 .ti-info-square-rounded:before {
   content: "\f635";
+}
+
+.ti-info-square-rounded-filled:before {
+  content: "\f6d9";
 }
 
 .ti-inner-shadow-bottom:before {
@@ -7996,6 +8004,10 @@
 
 .ti-lock-square-rounded:before {
   content: "\f636";
+}
+
+.ti-lock-square-rounded-filled:before {
+  content: "\f6da";
 }
 
 .ti-logic-and:before {
@@ -9002,20 +9014,20 @@
   content: "\eaff";
 }
 
+.ti-package-export:before {
+  content: "\f07a";
+}
+
+.ti-package-import:before {
+  content: "\f07b";
+}
+
 .ti-package-off:before {
   content: "\f16c";
 }
 
 .ti-packages:before {
   content: "\f2c9";
-}
-
-.ti-packge-export:before {
-  content: "\f07a";
-}
-
-.ti-packge-import:before {
-  content: "\f07b";
 }
 
 .ti-pacman:before {
@@ -11114,52 +11126,104 @@
   content: "\f639";
 }
 
+.ti-square-rounded-arrow-down-filled:before {
+  content: "\f6db";
+}
+
 .ti-square-rounded-arrow-left:before {
   content: "\f63a";
+}
+
+.ti-square-rounded-arrow-left-filled:before {
+  content: "\f6dc";
 }
 
 .ti-square-rounded-arrow-right:before {
   content: "\f63b";
 }
 
+.ti-square-rounded-arrow-right-filled:before {
+  content: "\f6dd";
+}
+
 .ti-square-rounded-arrow-up:before {
   content: "\f63c";
+}
+
+.ti-square-rounded-arrow-up-filled:before {
+  content: "\f6de";
 }
 
 .ti-square-rounded-check:before {
   content: "\f63d";
 }
 
+.ti-square-rounded-check-filled:before {
+  content: "\f6df";
+}
+
 .ti-square-rounded-chevron-down:before {
   content: "\f62b";
+}
+
+.ti-square-rounded-chevron-down-filled:before {
+  content: "\f6e0";
 }
 
 .ti-square-rounded-chevron-left:before {
   content: "\f62c";
 }
 
+.ti-square-rounded-chevron-left-filled:before {
+  content: "\f6e1";
+}
+
 .ti-square-rounded-chevron-right:before {
   content: "\f62d";
+}
+
+.ti-square-rounded-chevron-right-filled:before {
+  content: "\f6e2";
 }
 
 .ti-square-rounded-chevron-up:before {
   content: "\f62e";
 }
 
+.ti-square-rounded-chevron-up-filled:before {
+  content: "\f6e3";
+}
+
 .ti-square-rounded-chevrons-down:before {
   content: "\f64f";
+}
+
+.ti-square-rounded-chevrons-down-filled:before {
+  content: "\f6e4";
 }
 
 .ti-square-rounded-chevrons-left:before {
   content: "\f650";
 }
 
+.ti-square-rounded-chevrons-left-filled:before {
+  content: "\f6e5";
+}
+
 .ti-square-rounded-chevrons-right:before {
   content: "\f651";
 }
 
+.ti-square-rounded-chevrons-right-filled:before {
+  content: "\f6e6";
+}
+
 .ti-square-rounded-chevrons-up:before {
   content: "\f652";
+}
+
+.ti-square-rounded-chevrons-up-filled:before {
+  content: "\f6e7";
 }
 
 .ti-square-rounded-filled:before {
@@ -11318,8 +11382,16 @@
   content: "\f63f";
 }
 
+.ti-square-rounded-plus-filled:before {
+  content: "\f6e8";
+}
+
 .ti-square-rounded-x:before {
   content: "\f640";
+}
+
+.ti-square-rounded-x-filled:before {
+  content: "\f6e9";
 }
 
 .ti-square-toggle:before {
