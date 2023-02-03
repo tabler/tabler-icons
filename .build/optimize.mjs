@@ -61,9 +61,6 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
 
           return `<path d="${d2}"`
         })
-        // .replace(/(?<=M[^"]+)"\s+\/>[\n\s\t]+<path d="M(?=([^"]+)"\s+\/>)/g, function() {
-        //    return `M`
-        // })
         .replace(/<path d="([^"]+)"/g, function(f, r1) {
           r1 = optimizePath(r1)
 
@@ -86,9 +83,9 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
           return `<path d="${r1}"`
         })
 
-    if (!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)"( fill="currentColor")? \/>[\n\t\s]*<\/svg>/)) {
-      console.log(`Fix ${file}!`);
-    }
+    // if (!svgFileContent.match(/<svg>[\n\t\s]*<path d="([^"]+)"( fill="currentColor")? \/>[\n\t\s]*<\/svg>/)) {
+    //   console.log(`Fix ${file}!`);
+    // }
 
     if (svgFile.toString() !== svgFileContent) {
       writeFileSync(file, svgFileContent)
