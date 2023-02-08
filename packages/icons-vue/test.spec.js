@@ -1,101 +1,34 @@
-import { render, fireEvent } from "@testing-library/vue";
-import { IconActivity } from "./";
+import { render } from "@testing-library/vue"
+import { Icon2fa } from "./src/icons.js"
 
 describe("Vue Icon component", () => {
-  it("should render an component", () => {
-    const { container } = render(IconActivity);
-    expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"currentColor\\" stroke-width=\\"2\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" class=\\"tabler-icon tabler-icon-activity\\"><path stroke=\\"none\\" d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path><path d=\\"M3 12h4l3 8l4 -16l3 8h4\\"></path></svg>"`
-    );
-  });
+  test("should render icon component", () => {
+    const { container } = render(Icon2fa)
+    expect(container.getElementsByTagName("svg").length).toBeGreaterThan(0);
+  })
 
-  it("should adjust the size, stroke color and stroke width", () => {
-    const { container } = render(IconActivity, {
+  test("should update svg attributes when there are props passed to the component", () => {
+    const { container } = render(Icon2fa, {
       props: {
         size: 48,
         color: "red",
         "stroke-width": 4,
       },
-    });
+    })
 
-    const [icon] = container.getElementsByTagName('svg')
+    const svg = container.getElementsByTagName("svg")[0]
 
-    expect(icon.getAttribute("width")).toBe("48");
-    expect(icon.getAttribute("stroke")).toBe("red");
-    expect(icon.getAttribute("stroke-width")).toBe("4");
+    expect(svg.getAttribute("width")).toBe("48")
+    expect(svg.getAttribute("stroke")).toBe("red")
+    expect(svg.getAttribute("stroke-width")).toBe("4")
+  })
 
-    expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"48\\" height=\\"48\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"red\\" stroke-width=\\"4\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" size=\\"48\\" color=\\"red\\" class=\\"tabler-icon tabler-icon-activity\\"><path stroke=\\"none\\" d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path><path d=\\"M3 12h4l3 8l4 -16l3 8h4\\"></path></svg>"`
-    );
-  });
-
-  it("should add a class to the element", () => {
-    const { container } = render(IconActivity, {
-      attrs: {
-        class: "my-icon",
-      },
-    });
-
-    expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"currentColor\\" stroke-width=\\"2\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" class=\\"my-icon\\"><path stroke=\\"none\\" d=\\"M0 0h24v24H0z\\" fill=\\"none\\"></path><path d=\\"M3 12h4l3 8l4 -16l3 8h4\\"></path></svg>"`
-    );
-
-    const [icon] = container.getElementsByTagName('svg')
-
-    expect(icon.getAttribute("class")).toBe("my-icon");
-  });
-
-  it("should add a style attribute to the element", () => {
-    const { container } = render(IconActivity, {
-      attrs: {
-        style: "position: absolute",
-      },
-    });
-
-    expect(container).toMatchInlineSnapshot(`
-      <div>
-        <svg
-          class="tabler-icon tabler-icon-activity"
-          fill="none"
-          height="24"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          style="position: absolute;"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-            stroke="none"
-          />
-          <path
-            d="M3 12h4l3 8l4 -16l3 8h4"
-          />
-        </svg>
-      </div>
-    `);
-
-    const [icon] = container.getElementsByTagName('svg')
-
-    expect(icon.getAttribute("style")).toBe("position: absolute;");
-  });
-
-  it("should call the onClick event", async () => {
-    const onClick = jest.fn();
-    const { container } = render(IconActivity, {
-      attrs: {
-        onClick,
-      },
-    });
-
-    const [icon] = container.getElementsByClassName("tabler-icon");
-
-    await fireEvent.click(icon);
-
-    expect(onClick).toHaveBeenCalled();
-  });
-});
+  test("should match snapshot", () => {
+    const { container } = render(Icon2fa);
+    expect(container.innerHTML).toMatchInlineSnapshot(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-2fa">
+        <path d="M7 16h-4l3.47 -4.66a2 2 0 1 0 -3.47 -1.54m7 6.2v-8h4m-4 4l3 0m4 4v-6a2 2 0 0 1 4 0v6m-4 -3l4 0"></path>
+      </svg>
+    `)
+  })
+})

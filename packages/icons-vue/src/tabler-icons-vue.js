@@ -1,2 +1,2 @@
 export * from './icons';
-export { default as createReactComponent } from './createVueComponent';
+export { default as createVueComponent } from './createVueComponent';
