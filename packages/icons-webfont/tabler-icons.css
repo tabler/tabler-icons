@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.2.0 by tabler - https://tabler.io
+ * Tabler Icons 2.3.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.2.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.2.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.2.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.2.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.3.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.3.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.3.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.3.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -94,6 +94,10 @@
   content: "\f0a7";
 }
 
+.ti-accessible-off-filled:before {
+  content: "\f6ea";
+}
+
 .ti-activity:before {
   content: "\ed23";
 }
@@ -108,6 +112,10 @@
 
 .ti-ad-2:before {
   content: "\ef1f";
+}
+
+.ti-ad-filled:before {
+  content: "\f6eb";
 }
 
 .ti-ad-off:before {
@@ -130,6 +138,10 @@
   content: "\ec37";
 }
 
+.ti-adjustments-filled:before {
+  content: "\f6ec";
+}
+
 .ti-adjustments-horizontal:before {
   content: "\ec38";
 }
@@ -144,6 +156,10 @@
 
 .ti-affiliate:before {
   content: "\edff";
+}
+
+.ti-affiliate-filled:before {
+  content: "\f6ed";
 }
 
 .ti-air-balloon:before {
@@ -190,12 +206,24 @@
   content: "\ea05";
 }
 
+.ti-alert-circle-filled:before {
+  content: "\f6ee";
+}
+
 .ti-alert-octagon:before {
   content: "\ecc6";
 }
 
+.ti-alert-octagon-filled:before {
+  content: "\f6ef";
+}
+
 .ti-alert-triangle:before {
   content: "\ea06";
+}
+
+.ti-alert-triangle-filled:before {
+  content: "\f6f0";
 }
 
 .ti-alien:before {
@@ -382,6 +410,10 @@
   content: "\ebb6";
 }
 
+.ti-apps-filled:before {
+  content: "\f6f1";
+}
+
 .ti-apps-off:before {
   content: "\f0ac";
 }
@@ -412,6 +444,10 @@
 
 .ti-arrow-autofit-content:before {
   content: "\ef31";
+}
+
+.ti-arrow-autofit-content-filled:before {
+  content: "\f6f2";
 }
 
 .ti-arrow-autofit-down:before {
@@ -860,6 +896,10 @@
 
 .ti-arrow-sharp-turn-right:before {
   content: "\f05b";
+}
+
+.ti-arrow-top-circle:before {
+  content: "\f6f3";
 }
 
 .ti-arrow-up:before {
@@ -3886,6 +3926,70 @@
   content: "\ea6b";
 }
 
+.ti-circle-arrow-down:before {
+  content: "\f6f9";
+}
+
+.ti-circle-arrow-down-filled:before {
+  content: "\f6f4";
+}
+
+.ti-circle-arrow-down-left:before {
+  content: "\f6f6";
+}
+
+.ti-circle-arrow-down-left-filled:before {
+  content: "\f6f5";
+}
+
+.ti-circle-arrow-down-right:before {
+  content: "\f6f8";
+}
+
+.ti-circle-arrow-down-right-filled:before {
+  content: "\f6f7";
+}
+
+.ti-circle-arrow-left:before {
+  content: "\f6fb";
+}
+
+.ti-circle-arrow-left-filled:before {
+  content: "\f6fa";
+}
+
+.ti-circle-arrow-right:before {
+  content: "\f6fd";
+}
+
+.ti-circle-arrow-right-filled:before {
+  content: "\f6fc";
+}
+
+.ti-circle-arrow-up:before {
+  content: "\f703";
+}
+
+.ti-circle-arrow-up-filled:before {
+  content: "\f6fe";
+}
+
+.ti-circle-arrow-up-left:before {
+  content: "\f700";
+}
+
+.ti-circle-arrow-up-left-filled:before {
+  content: "\f6ff";
+}
+
+.ti-circle-arrow-up-right:before {
+  content: "\f702";
+}
+
+.ti-circle-arrow-up-right-filled:before {
+  content: "\f701";
+}
+
 .ti-circle-caret-down:before {
   content: "\f4a9";
 }
@@ -3904,6 +4008,10 @@
 
 .ti-circle-check:before {
   content: "\ea67";
+}
+
+.ti-circle-check-filled:before {
+  content: "\f704";
 }
 
 .ti-circle-chevron-down:before {
@@ -3946,6 +4054,10 @@
   content: "\efb1";
 }
 
+.ti-circle-dot-filled:before {
+  content: "\f705";
+}
+
 .ti-circle-dotted:before {
   content: "\ed28";
 }
@@ -3968,6 +4080,10 @@
 
 .ti-circle-key:before {
   content: "\f633";
+}
+
+.ti-circle-key-filled:before {
+  content: "\f706";
 }
 
 .ti-circle-letter-a:before {
@@ -6246,12 +6362,20 @@
   content: "\ee8c";
 }
 
+.ti-flag-2-filled:before {
+  content: "\f707";
+}
+
 .ti-flag-2-off:before {
   content: "\f12c";
 }
 
 .ti-flag-3:before {
   content: "\ee8d";
+}
+
+.ti-flag-3-filled:before {
+  content: "\f708";
 }
 
 .ti-flag-filled:before {

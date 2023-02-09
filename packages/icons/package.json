@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -11,7 +11,9 @@
   "main": "dist/cjs/tabler-icons.js",
   "main:umd": "dist/umd/tabler-icons.js",
   "exports": {
-    "./*": ["./icons/*"]
+    "./*": [
+      "./icons/*"
+    ]
   },
   "module": "dist/esm/tabler-icons.js",
   "unpkg": "dist/umd/tabler-icons.min.js",
