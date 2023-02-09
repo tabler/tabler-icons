@@ -45,6 +45,13 @@ files.forEach(function(file, i) {
 
   fileData = optimizeSVG(fileData)
 
+  if (filename.match(/\-filled$/)) {
+    fileData = fileData
+        .replace(/\/>/g, ' stroke-width="0" />')
+
+    console.log('fileData', fileData)
+  }
+
   fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
   if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
