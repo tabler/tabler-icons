@@ -45,12 +45,13 @@ files.forEach(function(file, i) {
 
   fileData = optimizeSVG(fileData)
 
+  fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
+
   if (filename.match(/\-filled$/)) {
     fileData = fileData
         .replace(/\/>/g, ' stroke-width="0" fill="currentColor" />')
+        .replace(/---\n---/g, '---\ncategory: Filled\n---\n<svg>')
   }
-
-  fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
   if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
     const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString()
