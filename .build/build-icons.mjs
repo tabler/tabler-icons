@@ -7,8 +7,7 @@ import prettier from 'prettier'
 import bundleSize from '@atomico/rollup-plugin-sizes'
 import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
-import esbuild from 'rollup-plugin-esbuild';
-
+import esbuild from 'rollup-plugin-esbuild'
 
 /**
  * Build icons
@@ -29,7 +28,8 @@ export const buildIcons = ({
   indexTypeTemplate,
   extension = 'js',
   pretty = true,
-  key = true
+  key = true,
+  pascalCase = false
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name),
       svgFiles = readSvgs()
@@ -45,6 +45,11 @@ export const buildIcons = ({
         }, i) => {
           if (key) {
             attributes.key = `svg-${i}`
+          }
+
+          if(pascalCase) {
+            attributes.strokeWidth = attributes['stroke-width']
+            delete attributes['stroke-width']
           }
 
           return [name, attributes]
@@ -93,7 +98,7 @@ export const buildIcons = ({
 export const getRollupPlugins = (pkg, minify) => {
   return [
     esbuild({
-      minify,
+      minify
     }),
     license({
       banner: `${pkg.name} v${pkg.version} - ${pkg.license}`

@@ -37,5 +37,6 @@ buildIcons({
   componentTemplate,
   indexItemTemplate,
   typeDefinitionsTemplate,
-  indexTypeTemplate
+  indexTypeTemplate,
+  pascalCase: true
 })
