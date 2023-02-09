@@ -4,8 +4,8 @@ import { resolve, join, basename } from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
 
-glob.sync(join(ICONS_SRC_DIR, '*-off.svg')).forEach(function(file, i) {
-  const fileOriginal = file.replace(/\-off.svg$/, '.svg')
+glob.sync(join(ICONS_SRC_DIR, '*-filled.svg')).forEach(function(file, i) {
+  const fileOriginal = file.replace(/\-filled.svg$/, '.svg')
 
   if (fs.existsSync(fileOriginal)) {
     const dataOriginal = fs.readFileSync(fileOriginal).toString()
