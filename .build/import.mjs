@@ -47,9 +47,7 @@ files.forEach(function(file, i) {
 
   if (filename.match(/\-filled$/)) {
     fileData = fileData
-        .replace(/\/>/g, ' stroke-width="0" />')
-
-    console.log('fileData', fileData)
+        .replace(/\/>/g, ' stroke-width="0" fill="currentColor" />')
   }
 
   fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
