@@ -62,7 +62,7 @@ import { IconHeart } from '@tabler/icons-svelte';
 You can pass additional props to adjust the icon.
 
 ```html
-<IconHeart size={48} strokeWidth={1} />
+<IconHeart size={48} stroke={1} />
 ```
 
 ### Props
@@ -72,6 +72,7 @@ You can pass additional props to adjust the icon.
 | `size`        | _Number_ | 24           |
 | `color`       | _String_ | currentColor |
 | `stroke`      | _Number_ | 2            |
+| `class`       | _String_ |              |
 
 ## Contributing
 
