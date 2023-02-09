@@ -1,36 +1,27 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { IconActivity } from "@tabler/icons-react";
+import { render } from "@testing-library/react"
+import { Icon2fa } from "./src/icons.js"
+import React from "react"
+import renderer from 'react-test-renderer'
 
 describe("React Icon component", () => {
-  it("should render an component", () => {
-    const { container } = render(<IconActivity />);
+  test("should render icon component", () => {
+    const { container } = render(<Icon2fa/>)
+    expect(container.getElementsByTagName("svg").length).toBeGreaterThan(0)
+  })
 
-    expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"24\\" height=\\"24\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"currentColor\\" stroke-width=\\"2\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" class=\\"tabler-icon tabler-icon-IconActivity\\"><path d=\\"M3 12h4l3 8l4 -16l3 8h4\\"></path></svg>"`
-    );
-  });
+  test("should update svg attributes when there are props passed to the component", () => {
+    const { container } = render(<Icon2fa size={48} color={"red"} strokeWidth={4}/>)
 
-  it("should adjust the size, stroke color and stroke width", () => {
-    const testId = "icon";
-    const { container, getByTestId } = render(
-      <IconActivity
-        data-testid={testId}
-        size={48}
-        stroke="red"
-        strokeWidth={4}
-        className={"icon-class"}
-      />
-    );
+    const svg = container.getElementsByTagName("svg")[0]
 
-    const { attributes } = getByTestId(testId);
-    expect(attributes.stroke.value).toBe("red");
-    expect(attributes.width.value).toBe("48");
-    expect(attributes.height.value).toBe("48");
-    expect(attributes["stroke-width"].value).toBe("4");
+    expect(svg.getAttribute("width")).toBe("48")
+    expect(svg.getAttribute("stroke")).toBe("red")
+    expect(svg.getAttribute("stroke-width")).toBe("4")
+  })
 
-    expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"48\\" height=\\"48\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" stroke=\\"red\\" stroke-width=\\"4\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" class=\\"icon-class\\" data-testid=\\"icon\\"><path d=\\"M3 12h4l3 8l4 -16l3 8h4\\"></path></svg>"`
-    );
-  });
-});
+  // Jest creates separate file to store snapshots
+  test("should match snapshot", () => {
+    const icon = renderer.create(<Icon2fa/>).toJSON()
+    expect(icon).toMatchSnapshot()
+  })
+})
