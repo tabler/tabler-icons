@@ -36,22 +36,23 @@ files.forEach(function(file, i) {
       .replace(/width="24px"/g, '')
       .replace(/height="24"/g, '')
       .replace(/height="24px"/g, '')
+      .replace(/clip-rule="evenodd"/g, '')
       .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
       .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
       .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
       .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
+      .replace(/<svg\s+>/gs, '<svg>')
 
   fileData = optimizeSVG(fileData)
-
-  fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
   if (filename.match(/\-filled$/)) {
     fileData = fileData
         .replace(/\/>/g, ' stroke-width="0" fill="currentColor" />')
-        .replace(/---\n---/g, '---\ncategory: Filled\n---\n<svg>')
   }
+
+  fileData = fileData.replace(/<svg>/g, '---\n---\n<svg>')
 
   if (fs.existsSync(`./src/_icons/${filename}.svg`)) {
     const newFileData = fs.readFileSync(`./src/_icons/${filename}.svg`).toString()
@@ -60,6 +61,9 @@ files.forEach(function(file, i) {
     if (m) {
       fileData = fileData.replace('---\n---', m[0])
     }
+  } else if (filename.match(/\-filled$/)) {
+    fileData = fileData
+        .replace(/---\n---/g, '---\ncategory: Filled\n---\n<svg>')
   }
 
   fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
