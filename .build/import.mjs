@@ -47,8 +47,6 @@ files.forEach(function(file, i) {
 
   fileData = optimizeSVG(fileData)
 
-  console.log('fileData', fileData);
-
   if (filename.match(/\-filled$/)) {
     fileData = fileData
         .replace(/\/>/g, ' stroke-width="0" fill="currentColor" />')
@@ -65,7 +63,7 @@ files.forEach(function(file, i) {
     }
   } else if (filename.match(/\-filled$/)) {
     fileData = fileData
-        .replace(/---\n---/g, '---\ncategory: Filled\n---\n')
+        .replace(/---\n---/g, '---\ncategory: Filled\n---')
   }
 
   fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
