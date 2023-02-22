@@ -64,6 +64,9 @@ files.forEach(function(file, i) {
   } else if (filename.match(/\-filled$/)) {
     fileData = fileData
         .replace(/---\n---/g, '---\ncategory: Filled\n---')
+  } else if (filename.match(/brand\-/)) {
+    fileData = fileData
+        .replace(/---\n---/g, '---\ncategory: Brand\n---')
   }
 
   fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
