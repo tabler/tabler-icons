@@ -28,11 +28,11 @@ const buildOutline = async () => {
         }
 
         await outlineStroke(contents, {
-          optCurve: false,
+          optCurve: true,
           steps: 4,
           round: 0,
           centerHorizontally: true,
-          fixedWidth: true,
+          fixedWidth: false,
           color: 'black'
         }).then(outlined => {
           if (unicode) {

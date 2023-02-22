@@ -16,8 +16,8 @@ webfont({
   normalize: true,
   fontHeight,
   descent: 100,
-  ascent: 986.5,
-  fixedWidth: true
+  ascent: 900,
+  fixedWidth: false
 })
     .then((result) => {
       formats.forEach(format => {
