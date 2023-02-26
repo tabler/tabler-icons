@@ -10,15 +10,6 @@ exclude:
   - .idea
   - package.json
 
-defaults:
-  - scope:
-      type: "icons"
-    values:
-      layout: icon
-      in-bg: true
-      tags: []
-      permalink: 'icons/:slug'
-
 collections:
   icons:
-    output: true
+    output: false
