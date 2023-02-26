@@ -13,8 +13,8 @@
   "type": "module",
   "scripts": {
     "predev": "pnpm run dev:import-icons",
-    "dev": "cd .build/app && next dev",
-    "dev:import-icons": "node ./.build/app/import-icons.mjs",
+    "dev": "cd .build/editor && next dev",
+    "dev:import-icons": "node ./.build/editor/import-icons.mjs",
     "build": "cd .build/app && next build",
     "_start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
     "_build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",

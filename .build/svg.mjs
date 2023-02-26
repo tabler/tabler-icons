@@ -1,6 +1,7 @@
 import glob from 'glob'
 import matter from 'gray-matter'
-import { getCurrentDirPath } from './helpers.mjs'
+
+const currentDirPath = path.dirname(fileURLToPath(import.meta.url))
 
 const getRawIconData = (content) => {
   return content
@@ -11,7 +12,7 @@ const getRawIconData = (content) => {
 }
 
 export const getIcons = () => {
-  return glob.sync(path.join(getCurrentDirPath(), '../src/*.svg')).map(icon => {
+  return glob.sync(path.join(currentDirPath, '../src/*.svg')).map(icon => {
     const svg = fs.readFileSync(icon, 'utf-8'),
         name = path.basename(icon, '.svg')
 
