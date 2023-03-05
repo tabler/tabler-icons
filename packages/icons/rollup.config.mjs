@@ -1,5 +1,10 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import bundleSize from '@atomico/rollup-plugin-sizes'
+import { visualizer } from 'rollup-plugin-visualizer'
+import license from 'rollup-plugin-license'
+import esbuild from 'rollup-plugin-esbuild'
+import json from '@rollup/plugin-json'
+import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
@@ -41,7 +46,21 @@ const configs = bundles
     .map(({ inputs, outputDir, format, minify, preserveModules }) =>
         inputs.map(input => ({
           input,
-          plugins: getRollupPlugins(pkg, minify),
+          plugins: [
+            // dts(),
+            esbuild({
+              minify
+            }),
+            license({
+              banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
+            }),
+            bundleSize(),
+            visualizer({
+              sourcemap: false,
+              filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
+            }),
+            json()
+          ].filter(Boolean),
           output: {
             name: packageName,
             ...(preserveModules

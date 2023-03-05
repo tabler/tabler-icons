@@ -7,12 +7,16 @@
   },
   "private": true,
   "sideEffects": false,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],  
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888",
-    "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
     "clean": "turbo run clean",
     "test": "turbo run test",
     "changelog": "node ./.build/changelog.mjs",
