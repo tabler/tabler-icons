@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.7.0 by tabler - https://tabler.io
+ * Tabler Icons 2.8.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.7.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.7.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.7.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.7.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.8.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.8.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.8.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.8.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -4682,12 +4682,28 @@
   content: "\f546";
 }
 
+.ti-clock-check:before {
+  content: "\f7c1";
+}
+
+.ti-clock-cog:before {
+  content: "\f7c2";
+}
+
+.ti-clock-down:before {
+  content: "\f7c3";
+}
+
 .ti-clock-edit:before {
   content: "\f547";
 }
 
 .ti-clock-filled:before {
   content: "\f73a";
+}
+
+.ti-clock-heart:before {
+  content: "\f7c4";
 }
 
 .ti-clock-hour-1:before {
@@ -4750,12 +4766,40 @@
   content: "\f549";
 }
 
+.ti-clock-plus:before {
+  content: "\f7c5";
+}
+
+.ti-clock-question:before {
+  content: "\f7c6";
+}
+
 .ti-clock-record:before {
   content: "\f54a";
 }
 
+.ti-clock-search:before {
+  content: "\f7c7";
+}
+
+.ti-clock-shield:before {
+  content: "\f7c8";
+}
+
+.ti-clock-star:before {
+  content: "\f7c9";
+}
+
 .ti-clock-stop:before {
   content: "\f54b";
+}
+
+.ti-clock-up:before {
+  content: "\f7ca";
+}
+
+.ti-clock-x:before {
+  content: "\f7cb";
 }
 
 .ti-clothes-rack:before {
@@ -13150,8 +13194,16 @@
   content: "\ef68";
 }
 
+.ti-user-edit:before {
+  content: "\f7cc";
+}
+
 .ti-user-exclamation:before {
   content: "\ec12";
+}
+
+.ti-user-heart:before {
+  content: "\f7cd";
 }
 
 .ti-user-minus:before {
@@ -13162,12 +13214,32 @@
   content: "\ecf9";
 }
 
+.ti-user-pin:before {
+  content: "\f7ce";
+}
+
 .ti-user-plus:before {
   content: "\eb4b";
 }
 
+.ti-user-question:before {
+  content: "\f7cf";
+}
+
 .ti-user-search:before {
   content: "\ef89";
+}
+
+.ti-user-shield:before {
+  content: "\f7d0";
+}
+
+.ti-user-star:before {
+  content: "\f7d1";
+}
+
+.ti-user-up:before {
+  content: "\f7d2";
 }
 
 .ti-user-x:before {
