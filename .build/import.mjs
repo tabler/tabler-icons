@@ -42,6 +42,7 @@ files.forEach(function(file, i) {
       .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
       .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
+      .replace(/<path[^>]*fill="red"[^>]*\/>/gs, '')
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
       .replace(/<svg\s+>/gs, '<svg>')
 
