@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.8.0 by tabler - https://tabler.io
+ * Tabler Icons 2.9.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.8.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.8.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.8.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.8.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.9.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.9.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.9.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.9.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -116,6 +116,10 @@
 
 .ti-ad-circle:before {
   content: "\f79e";
+}
+
+.ti-ad-circle-filled:before {
+  content: "\f7d3";
 }
 
 .ti-ad-circle-off:before {
@@ -286,6 +290,10 @@
   content: "\f79f";
 }
 
+.ti-align-box-center-middle-filled:before {
+  content: "\f7d4";
+}
+
 .ti-align-box-left-bottom:before {
   content: "\f533";
 }
@@ -320,6 +328,10 @@
 
 .ti-align-box-right-middle:before {
   content: "\f537";
+}
+
+.ti-align-box-right-middle-filled:before {
+  content: "\f7d5";
 }
 
 .ti-align-box-right-top:before {
@@ -570,16 +582,32 @@
   content: "\f60b";
 }
 
+.ti-arrow-badge-down-filled:before {
+  content: "\f7d6";
+}
+
 .ti-arrow-badge-left:before {
   content: "\f60c";
+}
+
+.ti-arrow-badge-left-filled:before {
+  content: "\f7d7";
 }
 
 .ti-arrow-badge-right:before {
   content: "\f60d";
 }
 
+.ti-arrow-badge-right-filled:before {
+  content: "\f7d8";
+}
+
 .ti-arrow-badge-up:before {
   content: "\f60e";
+}
+
+.ti-arrow-badge-up-filled:before {
+  content: "\f7d9";
 }
 
 .ti-arrow-bar-down:before {
@@ -982,10 +1010,6 @@
   content: "\f05b";
 }
 
-.ti-arrow-top-circle:before {
-  content: "\f6f3";
-}
-
 .ti-arrow-up:before {
   content: "\ea25";
 }
@@ -1222,12 +1246,20 @@
   content: "\f1e2";
 }
 
+.ti-article-filled-filled:before {
+  content: "\f7da";
+}
+
 .ti-article-off:before {
   content: "\f3bf";
 }
 
 .ti-aspect-ratio:before {
   content: "\ed30";
+}
+
+.ti-aspect-ratio-filled:before {
+  content: "\f7db";
 }
 
 .ti-aspect-ratio-off:before {
@@ -1338,6 +1370,10 @@
   content: "\ea2d";
 }
 
+.ti-backspace-filled:before {
+  content: "\f7dc";
+}
+
 .ti-badge:before {
   content: "\efc2";
 }
@@ -1400,6 +1436,10 @@
 
 .ti-badges:before {
   content: "\efc3";
+}
+
+.ti-badges-filled:before {
+  content: "\f7dd";
 }
 
 .ti-badges-off:before {
@@ -1470,6 +1510,10 @@
   content: "\eb7a";
 }
 
+.ti-bandage-filled:before {
+  content: "\f7de";
+}
+
 .ti-bandage-off:before {
   content: "\f3c4";
 }
@@ -1512,6 +1556,10 @@
 
 .ti-basket:before {
   content: "\ebe1";
+}
+
+.ti-basket-filled:before {
+  content: "\f7df";
 }
 
 .ti-basket-off:before {
@@ -1606,12 +1654,20 @@
   content: "\eb5c";
 }
 
+.ti-bed-filled:before {
+  content: "\f7e0";
+}
+
 .ti-bed-off:before {
   content: "\f100";
 }
 
 .ti-beer:before {
   content: "\efa1";
+}
+
+.ti-beer-filled:before {
+  content: "\f7e1";
 }
 
 .ti-beer-off:before {
@@ -1724,6 +1780,10 @@
 
 .ti-blade:before {
   content: "\f4bd";
+}
+
+.ti-blade-filled:before {
+  content: "\f7e2";
 }
 
 .ti-bleach:before {
@@ -2322,6 +2382,10 @@
   content: "\f5fe";
 }
 
+.ti-brand-crunchbase:before {
+  content: "\f7e3";
+}
+
 .ti-brand-css3:before {
   content: "\ed6b";
 }
@@ -2386,6 +2450,10 @@
   content: "\ece3";
 }
 
+.ti-brand-discord-filled:before {
+  content: "\f7e4";
+}
+
 .ti-brand-disney:before {
   content: "\f20a";
 }
@@ -2416,6 +2484,10 @@
 
 .ti-brand-dribbble:before {
   content: "\ec19";
+}
+
+.ti-brand-dribbble-filled:before {
+  content: "\f7e5";
 }
 
 .ti-brand-drops:before {
@@ -2452,6 +2524,10 @@
 
 .ti-brand-facebook:before {
   content: "\ec1a";
+}
+
+.ti-brand-facebook-filled:before {
+  content: "\f7e6";
 }
 
 .ti-brand-figma:before {
@@ -2524,6 +2600,10 @@
 
 .ti-brand-github-copilot:before {
   content: "\f4a8";
+}
+
+.ti-brand-github-filled:before {
+  content: "\f7e7";
 }
 
 .ti-brand-gitlab:before {
@@ -2652,6 +2732,10 @@
 
 .ti-brand-lastfm:before {
   content: "\f001";
+}
+
+.ti-brand-line:before {
+  content: "\f7e8";
 }
 
 .ti-brand-linkedin:before {
@@ -2828,6 +2912,10 @@
 
 .ti-brand-paypal:before {
   content: "\ec22";
+}
+
+.ti-brand-paypal-filled:before {
+  content: "\f7e9";
 }
 
 .ti-brand-paypay:before {
@@ -3090,6 +3178,10 @@
   content: "\ed70";
 }
 
+.ti-brand-tikto-filled:before {
+  content: "\f7ea";
+}
+
 .ti-brand-tiktok:before {
   content: "\ec73";
 }
@@ -3132,6 +3224,10 @@
 
 .ti-brand-twitter:before {
   content: "\ec27";
+}
+
+.ti-brand-twitter-filled:before {
+  content: "\f7eb";
 }
 
 .ti-brand-typescript:before {
@@ -6358,8 +6454,28 @@
   content: "\ee88";
 }
 
+.ti-eye-closed:before {
+  content: "\f7ec";
+}
+
+.ti-eye-cog:before {
+  content: "\f7ed";
+}
+
+.ti-eye-edit:before {
+  content: "\f7ee";
+}
+
+.ti-eye-exclamation:before {
+  content: "\f7ef";
+}
+
 .ti-eye-filled:before {
   content: "\f679";
+}
+
+.ti-eye-heart:before {
+  content: "\f7f0";
 }
 
 .ti-eye-off:before {
@@ -6368,6 +6484,10 @@
 
 .ti-eye-table:before {
   content: "\ef5e";
+}
+
+.ti-eye-x:before {
+  content: "\f7f1";
 }
 
 .ti-eyeglass:before {
@@ -9222,6 +9342,10 @@
   content: "\eaf3";
 }
 
+.ti-mood-confuzed-filled:before {
+  content: "\f7f2";
+}
+
 .ti-mood-crazy-happy:before {
   content: "\ed90";
 }
@@ -9238,8 +9362,16 @@
   content: "\eeb5";
 }
 
+.ti-mood-empty-filled:before {
+  content: "\f7f3";
+}
+
 .ti-mood-happy:before {
   content: "\eaf4";
+}
+
+.ti-mood-happy-filled:before {
+  content: "\f7f4";
 }
 
 .ti-mood-heart:before {
@@ -9248,6 +9380,10 @@
 
 .ti-mood-kid:before {
   content: "\ec03";
+}
+
+.ti-mood-kid-filled:before {
+  content: "\f7f5";
 }
 
 .ti-mood-look-left:before {
@@ -9274,6 +9410,10 @@
   content: "\eaf5";
 }
 
+.ti-mood-neutral-filled:before {
+  content: "\f7f6";
+}
+
 .ti-mood-off:before {
   content: "\f161";
 }
@@ -9296,6 +9436,10 @@
 
 .ti-mood-sad-dizzy:before {
   content: "\f2e3";
+}
+
+.ti-mood-sad-filled:before {
+  content: "\f7f7";
 }
 
 .ti-mood-sad-squint:before {
@@ -9328,6 +9472,10 @@
 
 .ti-mood-smile-dizzy:before {
   content: "\f2e8";
+}
+
+.ti-mood-smile-filled:before {
+  content: "\f7f8";
 }
 
 .ti-mood-suprised:before {
@@ -9460,6 +9608,10 @@
 
 .ti-mushroom:before {
   content: "\ef14";
+}
+
+.ti-mushroom-filled:before {
+  content: "\f7f9";
 }
 
 .ti-mushroom-off:before {
@@ -11564,6 +11716,10 @@
 
 .ti-square-1-filled:before {
   content: "\f765";
+}
+
+.ti-square-2-filled:before {
+  content: "\f7fa";
 }
 
 .ti-square-3-filled:before {
