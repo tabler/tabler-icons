@@ -40,6 +40,7 @@ files.forEach(function(file, i) {
       .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
       .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
       .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
+      .replace(/<path[^>]*fill-opacity=".1"[^>]*\/>/g, '')
       .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<path[^>]*fill="red"[^>]*\/>/gs, '')
