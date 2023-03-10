@@ -15,6 +15,7 @@ glob(join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
     svgFileContent = svgFileContent.replace(/><\/(polyline|line|rect|circle|path|ellipse)>/g, '/>')
         .replace(/rx="([^"]+)"\s+ry="\1"/g, 'rx="$1"')
         .replace(/<path stroke="red" stroke-width="\.1"([^>]+)?\/>/g, '')
+        .replace(/<path[^>]+d="M0 0h24v24h-24z"[^>]+\/>/g, '')
         .replace(/\s?\/>/g, ' />')
         .replace(/\n\s*<(line|circle|path|polyline|rect|ellipse)/g, '\n  <$1')
         // .replace(/polyline points="([0-9.]+)\s([0-9.]+)\s([0-9.]+)\s([0-9.]+)"/g, 'line x1="$1" y1="$2" x2="$3" y2="$4"')
