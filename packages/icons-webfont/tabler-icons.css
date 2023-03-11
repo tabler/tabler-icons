@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.9.0 by tabler - https://tabler.io
+ * Tabler Icons 2.10.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.9.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.9.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.9.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.9.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.10.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.10.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.10.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.10.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -150,16 +150,92 @@
   content: "\ec37";
 }
 
+.ti-adjustments-bolt:before {
+  content: "\f7fb";
+}
+
+.ti-adjustments-cancel:before {
+  content: "\f7fc";
+}
+
+.ti-adjustments-check:before {
+  content: "\f7fd";
+}
+
+.ti-adjustments-code:before {
+  content: "\f7fe";
+}
+
+.ti-adjustments-cog:before {
+  content: "\f7ff";
+}
+
+.ti-adjustments-dollar:before {
+  content: "\f800";
+}
+
+.ti-adjustments-down:before {
+  content: "\f801";
+}
+
+.ti-adjustments-exclamation:before {
+  content: "\f802";
+}
+
 .ti-adjustments-filled:before {
   content: "\f6ec";
+}
+
+.ti-adjustments-heart:before {
+  content: "\f803";
 }
 
 .ti-adjustments-horizontal:before {
   content: "\ec38";
 }
 
+.ti-adjustments-minus:before {
+  content: "\f804";
+}
+
 .ti-adjustments-off:before {
   content: "\f0a8";
+}
+
+.ti-adjustments-pause:before {
+  content: "\f805";
+}
+
+.ti-adjustments-pin:before {
+  content: "\f806";
+}
+
+.ti-adjustments-plus:before {
+  content: "\f807";
+}
+
+.ti-adjustments-question:before {
+  content: "\f808";
+}
+
+.ti-adjustments-search:before {
+  content: "\f809";
+}
+
+.ti-adjustments-share:before {
+  content: "\f80a";
+}
+
+.ti-adjustments-star:before {
+  content: "\f80b";
+}
+
+.ti-adjustments-up:before {
+  content: "\f80c";
+}
+
+.ti-adjustments-x:before {
+  content: "\f80d";
 }
 
 .ti-aerial-lift:before {
@@ -238,12 +314,28 @@
   content: "\f6ee";
 }
 
+.ti-alert-hexagon:before {
+  content: "\f80e";
+}
+
 .ti-alert-octagon:before {
   content: "\ecc6";
 }
 
 .ti-alert-octagon-filled:before {
   content: "\f6ef";
+}
+
+.ti-alert-small:before {
+  content: "\f80f";
+}
+
+.ti-alert-square:before {
+  content: "\f811";
+}
+
+.ti-alert-square-rounded:before {
+  content: "\f810";
 }
 
 .ti-alert-triangle:before {
@@ -1678,8 +1770,44 @@
   content: "\ea35";
 }
 
+.ti-bell-bolt:before {
+  content: "\f812";
+}
+
+.ti-bell-cancel:before {
+  content: "\f813";
+}
+
+.ti-bell-check:before {
+  content: "\f814";
+}
+
+.ti-bell-code:before {
+  content: "\f815";
+}
+
+.ti-bell-cog:before {
+  content: "\f816";
+}
+
+.ti-bell-dollar:before {
+  content: "\f817";
+}
+
+.ti-bell-down:before {
+  content: "\f818";
+}
+
+.ti-bell-exclamation:before {
+  content: "\f819";
+}
+
 .ti-bell-filled:before {
   content: "\f669";
+}
+
+.ti-bell-heart:before {
+  content: "\f81a";
 }
 
 .ti-bell-minus:before {
@@ -1694,12 +1822,24 @@
   content: "\ece9";
 }
 
+.ti-bell-pause:before {
+  content: "\f81b";
+}
+
+.ti-bell-pin:before {
+  content: "\f81c";
+}
+
 .ti-bell-plus:before {
   content: "\ede3";
 }
 
 .ti-bell-plus-filled:before {
   content: "\f723";
+}
+
+.ti-bell-question:before {
+  content: "\f81d";
 }
 
 .ti-bell-ringing:before {
@@ -1720,6 +1860,22 @@
 
 .ti-bell-school:before {
   content: "\f05e";
+}
+
+.ti-bell-search:before {
+  content: "\f81e";
+}
+
+.ti-bell-share:before {
+  content: "\f81f";
+}
+
+.ti-bell-star:before {
+  content: "\f820";
+}
+
+.ti-bell-up:before {
+  content: "\f821";
 }
 
 .ti-bell-x:before {
@@ -3670,12 +3826,48 @@
   content: "\ea53";
 }
 
+.ti-calendar-bolt:before {
+  content: "\f822";
+}
+
+.ti-calendar-cancel:before {
+  content: "\f823";
+}
+
+.ti-calendar-check:before {
+  content: "\f824";
+}
+
+.ti-calendar-code:before {
+  content: "\f825";
+}
+
+.ti-calendar-cog:before {
+  content: "\f826";
+}
+
+.ti-calendar-dollar:before {
+  content: "\f827";
+}
+
+.ti-calendar-down:before {
+  content: "\f828";
+}
+
 .ti-calendar-due:before {
   content: "\f621";
 }
 
 .ti-calendar-event:before {
   content: "\ea52";
+}
+
+.ti-calendar-exclamation:before {
+  content: "\f829";
+}
+
+.ti-calendar-heart:before {
+  content: "\f82a";
 }
 
 .ti-calendar-minus:before {
@@ -3686,8 +3878,32 @@
   content: "\ee1f";
 }
 
+.ti-calendar-pause:before {
+  content: "\f82b";
+}
+
+.ti-calendar-pin:before {
+  content: "\f82c";
+}
+
 .ti-calendar-plus:before {
   content: "\ebba";
+}
+
+.ti-calendar-question:before {
+  content: "\f82d";
+}
+
+.ti-calendar-search:before {
+  content: "\f82e";
+}
+
+.ti-calendar-share:before {
+  content: "\f82f";
+}
+
+.ti-calendar-star:before {
+  content: "\f830";
 }
 
 .ti-calendar-stats:before {
@@ -3698,8 +3914,52 @@
   content: "\ee21";
 }
 
+.ti-calendar-up:before {
+  content: "\f831";
+}
+
+.ti-calendar-x:before {
+  content: "\f832";
+}
+
 .ti-camera:before {
   content: "\ea54";
+}
+
+.ti-camera-bolt:before {
+  content: "\f833";
+}
+
+.ti-camera-cancel:before {
+  content: "\f834";
+}
+
+.ti-camera-check:before {
+  content: "\f835";
+}
+
+.ti-camera-code:before {
+  content: "\f836";
+}
+
+.ti-camera-cog:before {
+  content: "\f837";
+}
+
+.ti-camera-dollar:before {
+  content: "\f838";
+}
+
+.ti-camera-down:before {
+  content: "\f839";
+}
+
+.ti-camera-exclamation:before {
+  content: "\f83a";
+}
+
+.ti-camera-heart:before {
+  content: "\f83b";
 }
 
 .ti-camera-minus:before {
@@ -3710,16 +3970,48 @@
   content: "\ecee";
 }
 
+.ti-camera-pause:before {
+  content: "\f83c";
+}
+
+.ti-camera-pin:before {
+  content: "\f83d";
+}
+
 .ti-camera-plus:before {
   content: "\ec3b";
+}
+
+.ti-camera-question:before {
+  content: "\f83e";
 }
 
 .ti-camera-rotate:before {
   content: "\ee22";
 }
 
+.ti-camera-search:before {
+  content: "\f83f";
+}
+
 .ti-camera-selfie:before {
   content: "\ee23";
+}
+
+.ti-camera-share:before {
+  content: "\f840";
+}
+
+.ti-camera-star:before {
+  content: "\f841";
+}
+
+.ti-camera-up:before {
+  content: "\f842";
+}
+
+.ti-camera-x:before {
+  content: "\f843";
 }
 
 .ti-campfire:before {
@@ -4774,6 +5066,10 @@
   content: "\f099";
 }
 
+.ti-clock-bolt:before {
+  content: "\f844";
+}
+
 .ti-clock-cancel:before {
   content: "\f546";
 }
@@ -4782,8 +5078,16 @@
   content: "\f7c1";
 }
 
+.ti-clock-code:before {
+  content: "\f845";
+}
+
 .ti-clock-cog:before {
   content: "\f7c2";
+}
+
+.ti-clock-dollar:before {
+  content: "\f846";
 }
 
 .ti-clock-down:before {
@@ -4792,6 +5096,10 @@
 
 .ti-clock-edit:before {
   content: "\f547";
+}
+
+.ti-clock-exclamation:before {
+  content: "\f847";
 }
 
 .ti-clock-filled:before {
@@ -4850,12 +5158,20 @@
   content: "\f31e";
 }
 
+.ti-clock-minus:before {
+  content: "\f848";
+}
+
 .ti-clock-off:before {
   content: "\f0cf";
 }
 
 .ti-clock-pause:before {
   content: "\f548";
+}
+
+.ti-clock-pin:before {
+  content: "\f849";
 }
 
 .ti-clock-play:before {
@@ -4876,6 +5192,10 @@
 
 .ti-clock-search:before {
   content: "\f7c7";
+}
+
+.ti-clock-share:before {
+  content: "\f84a";
 }
 
 .ti-clock-shield:before {
@@ -4910,6 +5230,26 @@
   content: "\ea76";
 }
 
+.ti-cloud-bolt:before {
+  content: "\f84b";
+}
+
+.ti-cloud-cancel:before {
+  content: "\f84c";
+}
+
+.ti-cloud-check:before {
+  content: "\f84d";
+}
+
+.ti-cloud-code:before {
+  content: "\f84e";
+}
+
+.ti-cloud-cog:before {
+  content: "\f84f";
+}
+
 .ti-cloud-computing:before {
   content: "\f1d0";
 }
@@ -4918,8 +5258,20 @@
   content: "\f1d1";
 }
 
+.ti-cloud-dollar:before {
+  content: "\f850";
+}
+
+.ti-cloud-down:before {
+  content: "\f851";
+}
+
 .ti-cloud-download:before {
   content: "\ea71";
+}
+
+.ti-cloud-exclamation:before {
+  content: "\f852";
 }
 
 .ti-cloud-filled:before {
@@ -4930,6 +5282,10 @@
   content: "\ecd9";
 }
 
+.ti-cloud-heart:before {
+  content: "\f853";
+}
+
 .ti-cloud-lock:before {
   content: "\efdb";
 }
@@ -4938,24 +5294,64 @@
   content: "\efda";
 }
 
+.ti-cloud-minus:before {
+  content: "\f854";
+}
+
 .ti-cloud-off:before {
   content: "\ed3e";
+}
+
+.ti-cloud-pause:before {
+  content: "\f855";
+}
+
+.ti-cloud-pin:before {
+  content: "\f856";
+}
+
+.ti-cloud-plus:before {
+  content: "\f857";
+}
+
+.ti-cloud-question:before {
+  content: "\f858";
 }
 
 .ti-cloud-rain:before {
   content: "\ea72";
 }
 
+.ti-cloud-search:before {
+  content: "\f859";
+}
+
+.ti-cloud-share:before {
+  content: "\f85a";
+}
+
 .ti-cloud-snow:before {
   content: "\ea73";
+}
+
+.ti-cloud-star:before {
+  content: "\f85b";
 }
 
 .ti-cloud-storm:before {
   content: "\ea74";
 }
 
+.ti-cloud-up:before {
+  content: "\f85c";
+}
+
 .ti-cloud-upload:before {
   content: "\ea75";
+}
+
+.ti-cloud-x:before {
+  content: "\f85d";
 }
 
 .ti-clover:before {
@@ -5798,8 +6194,84 @@
   content: "\ee77";
 }
 
+.ti-device-desktop-bolt:before {
+  content: "\f85e";
+}
+
+.ti-device-desktop-cancel:before {
+  content: "\f85f";
+}
+
+.ti-device-desktop-check:before {
+  content: "\f860";
+}
+
+.ti-device-desktop-code:before {
+  content: "\f861";
+}
+
+.ti-device-desktop-cog:before {
+  content: "\f862";
+}
+
+.ti-device-desktop-dollar:before {
+  content: "\f863";
+}
+
+.ti-device-desktop-down:before {
+  content: "\f864";
+}
+
+.ti-device-desktop-exclamation:before {
+  content: "\f865";
+}
+
+.ti-device-desktop-heart:before {
+  content: "\f866";
+}
+
+.ti-device-desktop-minus:before {
+  content: "\f867";
+}
+
 .ti-device-desktop-off:before {
   content: "\ee78";
+}
+
+.ti-device-desktop-pause:before {
+  content: "\f868";
+}
+
+.ti-device-desktop-pin:before {
+  content: "\f869";
+}
+
+.ti-device-desktop-plus:before {
+  content: "\f86a";
+}
+
+.ti-device-desktop-question:before {
+  content: "\f86b";
+}
+
+.ti-device-desktop-search:before {
+  content: "\f86c";
+}
+
+.ti-device-desktop-share:before {
+  content: "\f86d";
+}
+
+.ti-device-desktop-star:before {
+  content: "\f86e";
+}
+
+.ti-device-desktop-up:before {
+  content: "\f86f";
+}
+
+.ti-device-desktop-x:before {
+  content: "\f870";
 }
 
 .ti-device-floppy:before {
@@ -5822,12 +6294,252 @@
   content: "\f7a7";
 }
 
+.ti-device-imac-bolt:before {
+  content: "\f871";
+}
+
+.ti-device-imac-cancel:before {
+  content: "\f872";
+}
+
+.ti-device-imac-check:before {
+  content: "\f873";
+}
+
+.ti-device-imac-code:before {
+  content: "\f874";
+}
+
+.ti-device-imac-cog:before {
+  content: "\f875";
+}
+
+.ti-device-imac-dollar:before {
+  content: "\f876";
+}
+
+.ti-device-imac-down:before {
+  content: "\f877";
+}
+
+.ti-device-imac-exclamation:before {
+  content: "\f878";
+}
+
+.ti-device-imac-heart:before {
+  content: "\f879";
+}
+
+.ti-device-imac-minus:before {
+  content: "\f87a";
+}
+
+.ti-device-imac-off:before {
+  content: "\f87b";
+}
+
+.ti-device-imac-pause:before {
+  content: "\f87c";
+}
+
+.ti-device-imac-pin:before {
+  content: "\f87d";
+}
+
+.ti-device-imac-plus:before {
+  content: "\f87e";
+}
+
+.ti-device-imac-question:before {
+  content: "\f87f";
+}
+
+.ti-device-imac-search:before {
+  content: "\f880";
+}
+
+.ti-device-imac-share:before {
+  content: "\f881";
+}
+
+.ti-device-imac-star:before {
+  content: "\f882";
+}
+
+.ti-device-imac-up:before {
+  content: "\f883";
+}
+
+.ti-device-imac-x:before {
+  content: "\f884";
+}
+
 .ti-device-ipad:before {
   content: "\f648";
 }
 
+.ti-device-ipad-bolt:before {
+  content: "\f885";
+}
+
+.ti-device-ipad-cancel:before {
+  content: "\f886";
+}
+
+.ti-device-ipad-check:before {
+  content: "\f887";
+}
+
+.ti-device-ipad-code:before {
+  content: "\f888";
+}
+
+.ti-device-ipad-cog:before {
+  content: "\f889";
+}
+
+.ti-device-ipad-dollar:before {
+  content: "\f88a";
+}
+
+.ti-device-ipad-down:before {
+  content: "\f88b";
+}
+
+.ti-device-ipad-exclamation:before {
+  content: "\f88c";
+}
+
+.ti-device-ipad-heart:before {
+  content: "\f88d";
+}
+
 .ti-device-ipad-horizontal:before {
   content: "\f647";
+}
+
+.ti-device-ipad-horizontal-bolt:before {
+  content: "\f88e";
+}
+
+.ti-device-ipad-horizontal-cancel:before {
+  content: "\f88f";
+}
+
+.ti-device-ipad-horizontal-check:before {
+  content: "\f890";
+}
+
+.ti-device-ipad-horizontal-code:before {
+  content: "\f891";
+}
+
+.ti-device-ipad-horizontal-cog:before {
+  content: "\f892";
+}
+
+.ti-device-ipad-horizontal-dollar:before {
+  content: "\f893";
+}
+
+.ti-device-ipad-horizontal-down:before {
+  content: "\f894";
+}
+
+.ti-device-ipad-horizontal-exclamation:before {
+  content: "\f895";
+}
+
+.ti-device-ipad-horizontal-heart:before {
+  content: "\f896";
+}
+
+.ti-device-ipad-horizontal-minus:before {
+  content: "\f897";
+}
+
+.ti-device-ipad-horizontal-off:before {
+  content: "\f898";
+}
+
+.ti-device-ipad-horizontal-pause:before {
+  content: "\f899";
+}
+
+.ti-device-ipad-horizontal-pin:before {
+  content: "\f89a";
+}
+
+.ti-device-ipad-horizontal-plus:before {
+  content: "\f89b";
+}
+
+.ti-device-ipad-horizontal-question:before {
+  content: "\f89c";
+}
+
+.ti-device-ipad-horizontal-search:before {
+  content: "\f89d";
+}
+
+.ti-device-ipad-horizontal-share:before {
+  content: "\f89e";
+}
+
+.ti-device-ipad-horizontal-star:before {
+  content: "\f89f";
+}
+
+.ti-device-ipad-horizontal-up:before {
+  content: "\f8a0";
+}
+
+.ti-device-ipad-horizontal-x:before {
+  content: "\f8a1";
+}
+
+.ti-device-ipad-minus:before {
+  content: "\f8a2";
+}
+
+.ti-device-ipad-off:before {
+  content: "\f8a3";
+}
+
+.ti-device-ipad-pause:before {
+  content: "\f8a4";
+}
+
+.ti-device-ipad-pin:before {
+  content: "\f8a5";
+}
+
+.ti-device-ipad-plus:before {
+  content: "\f8a6";
+}
+
+.ti-device-ipad-question:before {
+  content: "\f8a7";
+}
+
+.ti-device-ipad-search:before {
+  content: "\f8a8";
+}
+
+.ti-device-ipad-share:before {
+  content: "\f8a9";
+}
+
+.ti-device-ipad-star:before {
+  content: "\f8aa";
+}
+
+.ti-device-ipad-up:before {
+  content: "\f8ab";
+}
+
+.ti-device-ipad-x:before {
+  content: "\f8ac";
 }
 
 .ti-device-landline-phone:before {
@@ -5846,24 +6558,100 @@
   content: "\ea8a";
 }
 
+.ti-device-mobile-bolt:before {
+  content: "\f8ad";
+}
+
+.ti-device-mobile-cancel:before {
+  content: "\f8ae";
+}
+
 .ti-device-mobile-charging:before {
   content: "\f224";
+}
+
+.ti-device-mobile-check:before {
+  content: "\f8af";
+}
+
+.ti-device-mobile-code:before {
+  content: "\f8b0";
+}
+
+.ti-device-mobile-cog:before {
+  content: "\f8b1";
+}
+
+.ti-device-mobile-dollar:before {
+  content: "\f8b2";
+}
+
+.ti-device-mobile-down:before {
+  content: "\f8b3";
+}
+
+.ti-device-mobile-exclamation:before {
+  content: "\f8b4";
+}
+
+.ti-device-mobile-heart:before {
+  content: "\f8b5";
 }
 
 .ti-device-mobile-message:before {
   content: "\ee79";
 }
 
+.ti-device-mobile-minus:before {
+  content: "\f8b6";
+}
+
 .ti-device-mobile-off:before {
   content: "\f062";
+}
+
+.ti-device-mobile-pause:before {
+  content: "\f8b7";
+}
+
+.ti-device-mobile-pin:before {
+  content: "\f8b8";
+}
+
+.ti-device-mobile-plus:before {
+  content: "\f8b9";
+}
+
+.ti-device-mobile-question:before {
+  content: "\f8ba";
 }
 
 .ti-device-mobile-rotated:before {
   content: "\ecdb";
 }
 
+.ti-device-mobile-search:before {
+  content: "\f8bb";
+}
+
+.ti-device-mobile-share:before {
+  content: "\f8bc";
+}
+
+.ti-device-mobile-star:before {
+  content: "\f8bd";
+}
+
+.ti-device-mobile-up:before {
+  content: "\f8be";
+}
+
 .ti-device-mobile-vibration:before {
   content: "\eb86";
+}
+
+.ti-device-mobile-x:before {
+  content: "\f8bf";
 }
 
 .ti-device-nintendo:before {
@@ -5910,8 +6698,84 @@
   content: "\ea8c";
 }
 
+.ti-device-tablet-bolt:before {
+  content: "\f8c0";
+}
+
+.ti-device-tablet-cancel:before {
+  content: "\f8c1";
+}
+
+.ti-device-tablet-check:before {
+  content: "\f8c2";
+}
+
+.ti-device-tablet-code:before {
+  content: "\f8c3";
+}
+
+.ti-device-tablet-cog:before {
+  content: "\f8c4";
+}
+
+.ti-device-tablet-dollar:before {
+  content: "\f8c5";
+}
+
+.ti-device-tablet-down:before {
+  content: "\f8c6";
+}
+
+.ti-device-tablet-exclamation:before {
+  content: "\f8c7";
+}
+
+.ti-device-tablet-heart:before {
+  content: "\f8c8";
+}
+
+.ti-device-tablet-minus:before {
+  content: "\f8c9";
+}
+
 .ti-device-tablet-off:before {
   content: "\f063";
+}
+
+.ti-device-tablet-pause:before {
+  content: "\f8ca";
+}
+
+.ti-device-tablet-pin:before {
+  content: "\f8cb";
+}
+
+.ti-device-tablet-plus:before {
+  content: "\f8cc";
+}
+
+.ti-device-tablet-question:before {
+  content: "\f8cd";
+}
+
+.ti-device-tablet-search:before {
+  content: "\f8ce";
+}
+
+.ti-device-tablet-share:before {
+  content: "\f8cf";
+}
+
+.ti-device-tablet-star:before {
+  content: "\f8d0";
+}
+
+.ti-device-tablet-up:before {
+  content: "\f8d1";
+}
+
+.ti-device-tablet-x:before {
+  content: "\f8d2";
 }
 
 .ti-device-tv:before {
@@ -5930,8 +6794,76 @@
   content: "\ebf9";
 }
 
+.ti-device-watch-bolt:before {
+  content: "\f8d3";
+}
+
+.ti-device-watch-cancel:before {
+  content: "\f8d4";
+}
+
+.ti-device-watch-check:before {
+  content: "\f8d5";
+}
+
+.ti-device-watch-code:before {
+  content: "\f8d6";
+}
+
+.ti-device-watch-cog:before {
+  content: "\f8d7";
+}
+
+.ti-device-watch-dollar:before {
+  content: "\f8d8";
+}
+
+.ti-device-watch-down:before {
+  content: "\f8d9";
+}
+
+.ti-device-watch-exclamation:before {
+  content: "\f8da";
+}
+
+.ti-device-watch-heart:before {
+  content: "\f8db";
+}
+
+.ti-device-watch-minus:before {
+  content: "\f8dc";
+}
+
 .ti-device-watch-off:before {
   content: "\f065";
+}
+
+.ti-device-watch-pause:before {
+  content: "\f8dd";
+}
+
+.ti-device-watch-pin:before {
+  content: "\f8de";
+}
+
+.ti-device-watch-plus:before {
+  content: "\f8df";
+}
+
+.ti-device-watch-question:before {
+  content: "\f8e0";
+}
+
+.ti-device-watch-search:before {
+  content: "\f8e1";
+}
+
+.ti-device-watch-share:before {
+  content: "\f8e2";
+}
+
+.ti-device-watch-star:before {
+  content: "\f8e3";
 }
 
 .ti-device-watch-stats:before {
@@ -5942,6 +6874,14 @@
   content: "\ef7c";
 }
 
+.ti-device-watch-up:before {
+  content: "\f8e4";
+}
+
+.ti-device-watch-x:before {
+  content: "\f8e5";
+}
+
 .ti-devices:before {
   content: "\eb87";
 }
@@ -5950,8 +6890,52 @@
   content: "\ed29";
 }
 
+.ti-devices-bolt:before {
+  content: "\f8e6";
+}
+
+.ti-devices-cancel:before {
+  content: "\f8e7";
+}
+
+.ti-devices-check:before {
+  content: "\f8e8";
+}
+
+.ti-devices-code:before {
+  content: "\f8e9";
+}
+
+.ti-devices-cog:before {
+  content: "\f8ea";
+}
+
+.ti-devices-dollar:before {
+  content: "\f8eb";
+}
+
+.ti-devices-down:before {
+  content: "\f8ec";
+}
+
+.ti-devices-exclamation:before {
+  content: "\f8ed";
+}
+
+.ti-devices-heart:before {
+  content: "\f8ee";
+}
+
+.ti-devices-minus:before {
+  content: "\f8ef";
+}
+
 .ti-devices-off:before {
   content: "\f3e4";
+}
+
+.ti-devices-pause:before {
+  content: "\f8f0";
 }
 
 .ti-devices-pc:before {
@@ -5960,6 +6944,38 @@
 
 .ti-devices-pc-off:before {
   content: "\f113";
+}
+
+.ti-devices-pin:before {
+  content: "\f8f1";
+}
+
+.ti-devices-plus:before {
+  content: "\f8f2";
+}
+
+.ti-devices-question:before {
+  content: "\f8f3";
+}
+
+.ti-devices-search:before {
+  content: "\f8f4";
+}
+
+.ti-devices-share:before {
+  content: "\f8f5";
+}
+
+.ti-devices-star:before {
+  content: "\f8f6";
+}
+
+.ti-devices-up:before {
+  content: "\f8f7";
+}
+
+.ti-devices-x:before {
+  content: "\f8f8";
 }
 
 .ti-dialpad:before {
@@ -6222,6 +7238,38 @@
   content: "\ea97";
 }
 
+.ti-droplet-bolt:before {
+  content: "\f8f9";
+}
+
+.ti-droplet-cancel:before {
+  content: "\f8fa";
+}
+
+.ti-droplet-check:before {
+  content: "\f8fb";
+}
+
+.ti-droplet-code:before {
+  content: "\f8fc";
+}
+
+.ti-droplet-cog:before {
+  content: "\f8fd";
+}
+
+.ti-droplet-dollar:before {
+  content: "\f8fe";
+}
+
+.ti-droplet-down:before {
+  content: "\f8ff";
+}
+
+.ti-droplet-exclamation:before {
+  content: "\f900";
+}
+
 .ti-droplet-filled:before {
   content: "\ee80";
 }
@@ -6242,8 +7290,52 @@
   content: "\f6c5";
 }
 
+.ti-droplet-heart:before {
+  content: "\f901";
+}
+
+.ti-droplet-minus:before {
+  content: "\f902";
+}
+
 .ti-droplet-off:before {
   content: "\ee83";
+}
+
+.ti-droplet-pause:before {
+  content: "\f903";
+}
+
+.ti-droplet-pin:before {
+  content: "\f904";
+}
+
+.ti-droplet-plus:before {
+  content: "\f905";
+}
+
+.ti-droplet-question:before {
+  content: "\f906";
+}
+
+.ti-droplet-search:before {
+  content: "\f907";
+}
+
+.ti-droplet-share:before {
+  content: "\f908";
+}
+
+.ti-droplet-star:before {
+  content: "\f909";
+}
+
+.ti-droplet-up:before {
+  content: "\f90a";
+}
+
+.ti-droplet-x:before {
+  content: "\f90b";
 }
 
 .ti-e-passport:before {
@@ -6986,8 +8078,44 @@
   content: "\eaad";
 }
 
+.ti-folder-bolt:before {
+  content: "\f90c";
+}
+
+.ti-folder-cancel:before {
+  content: "\f90d";
+}
+
+.ti-folder-check:before {
+  content: "\f90e";
+}
+
+.ti-folder-code:before {
+  content: "\f90f";
+}
+
+.ti-folder-cog:before {
+  content: "\f910";
+}
+
+.ti-folder-dollar:before {
+  content: "\f911";
+}
+
+.ti-folder-down:before {
+  content: "\f912";
+}
+
+.ti-folder-exclamation:before {
+  content: "\f913";
+}
+
 .ti-folder-filled:before {
   content: "\f749";
+}
+
+.ti-folder-heart:before {
+  content: "\f914";
 }
 
 .ti-folder-minus:before {
@@ -6998,8 +8126,40 @@
   content: "\ed14";
 }
 
+.ti-folder-pause:before {
+  content: "\f915";
+}
+
+.ti-folder-pin:before {
+  content: "\f916";
+}
+
 .ti-folder-plus:before {
   content: "\eaab";
+}
+
+.ti-folder-question:before {
+  content: "\f917";
+}
+
+.ti-folder-search:before {
+  content: "\f918";
+}
+
+.ti-folder-share:before {
+  content: "\f919";
+}
+
+.ti-folder-star:before {
+  content: "\f91a";
+}
+
+.ti-folder-symlink:before {
+  content: "\f91b";
+}
+
+.ti-folder-up:before {
+  content: "\f91c";
 }
 
 .ti-folder-x:before {
@@ -7562,6 +8722,10 @@
   content: "\eabf";
 }
 
+.ti-help-circle:before {
+  content: "\f91d";
+}
+
 .ti-help-hexagon:before {
   content: "\f7a8";
 }
@@ -7572,6 +8736,22 @@
 
 .ti-help-off:before {
   content: "\f3f8";
+}
+
+.ti-help-small:before {
+  content: "\f91e";
+}
+
+.ti-help-square:before {
+  content: "\f920";
+}
+
+.ti-help-square-rounded:before {
+  content: "\f91f";
+}
+
+.ti-help-triangle:before {
+  content: "\f921";
 }
 
 .ti-hexagon:before {
@@ -8058,6 +9238,10 @@
   content: "\f7ab";
 }
 
+.ti-info-small:before {
+  content: "\f922";
+}
+
 .ti-info-square:before {
   content: "\eac6";
 }
@@ -8068,6 +9252,10 @@
 
 .ti-info-square-rounded-filled:before {
   content: "\f6d9";
+}
+
+.ti-info-triangle:before {
+  content: "\f923";
 }
 
 .ti-inner-shadow-bottom:before {
@@ -8734,6 +9922,46 @@
   content: "\f404";
 }
 
+.ti-lock-bolt:before {
+  content: "\f924";
+}
+
+.ti-lock-cancel:before {
+  content: "\f925";
+}
+
+.ti-lock-check:before {
+  content: "\f926";
+}
+
+.ti-lock-code:before {
+  content: "\f927";
+}
+
+.ti-lock-cog:before {
+  content: "\f928";
+}
+
+.ti-lock-dollar:before {
+  content: "\f929";
+}
+
+.ti-lock-down:before {
+  content: "\f92a";
+}
+
+.ti-lock-exclamation:before {
+  content: "\f92b";
+}
+
+.ti-lock-heart:before {
+  content: "\f92c";
+}
+
+.ti-lock-minus:before {
+  content: "\f92d";
+}
+
 .ti-lock-off:before {
   content: "\ed1e";
 }
@@ -8746,6 +9974,30 @@
   content: "\f156";
 }
 
+.ti-lock-pause:before {
+  content: "\f92e";
+}
+
+.ti-lock-pin:before {
+  content: "\f92f";
+}
+
+.ti-lock-plus:before {
+  content: "\f930";
+}
+
+.ti-lock-question:before {
+  content: "\f931";
+}
+
+.ti-lock-search:before {
+  content: "\f932";
+}
+
+.ti-lock-share:before {
+  content: "\f933";
+}
+
 .ti-lock-square:before {
   content: "\ef51";
 }
@@ -8756,6 +10008,18 @@
 
 .ti-lock-square-rounded-filled:before {
   content: "\f6da";
+}
+
+.ti-lock-star:before {
+  content: "\f934";
+}
+
+.ti-lock-up:before {
+  content: "\f935";
+}
+
+.ti-lock-x:before {
+  content: "\f936";
 }
 
 .ti-logic-and:before {
@@ -8842,6 +10106,38 @@
   content: "\eae5";
 }
 
+.ti-mail-bolt:before {
+  content: "\f937";
+}
+
+.ti-mail-cancel:before {
+  content: "\f938";
+}
+
+.ti-mail-check:before {
+  content: "\f939";
+}
+
+.ti-mail-code:before {
+  content: "\f93a";
+}
+
+.ti-mail-cog:before {
+  content: "\f93b";
+}
+
+.ti-mail-dollar:before {
+  content: "\f93c";
+}
+
+.ti-mail-down:before {
+  content: "\f93d";
+}
+
+.ti-mail-exclamation:before {
+  content: "\f93e";
+}
+
 .ti-mail-fast:before {
   content: "\f069";
 }
@@ -8850,12 +10146,56 @@
   content: "\eeac";
 }
 
+.ti-mail-heart:before {
+  content: "\f93f";
+}
+
+.ti-mail-minus:before {
+  content: "\f940";
+}
+
 .ti-mail-off:before {
   content: "\f15a";
 }
 
 .ti-mail-opened:before {
   content: "\eae4";
+}
+
+.ti-mail-pause:before {
+  content: "\f941";
+}
+
+.ti-mail-pin:before {
+  content: "\f942";
+}
+
+.ti-mail-plus:before {
+  content: "\f943";
+}
+
+.ti-mail-question:before {
+  content: "\f944";
+}
+
+.ti-mail-search:before {
+  content: "\f945";
+}
+
+.ti-mail-share:before {
+  content: "\f946";
+}
+
+.ti-mail-star:before {
+  content: "\f947";
+}
+
+.ti-mail-up:before {
+  content: "\f948";
+}
+
+.ti-mail-x:before {
+  content: "\f949";
 }
 
 .ti-mailbox:before {
@@ -8890,16 +10230,88 @@
   content: "\eae8";
 }
 
+.ti-map-pin-bolt:before {
+  content: "\f94a";
+}
+
+.ti-map-pin-cancel:before {
+  content: "\f94b";
+}
+
+.ti-map-pin-check:before {
+  content: "\f94c";
+}
+
+.ti-map-pin-code:before {
+  content: "\f94d";
+}
+
+.ti-map-pin-cog:before {
+  content: "\f94e";
+}
+
+.ti-map-pin-dollar:before {
+  content: "\f94f";
+}
+
+.ti-map-pin-down:before {
+  content: "\f950";
+}
+
+.ti-map-pin-exclamation:before {
+  content: "\f951";
+}
+
 .ti-map-pin-filled:before {
   content: "\f680";
+}
+
+.ti-map-pin-heart:before {
+  content: "\f952";
+}
+
+.ti-map-pin-minus:before {
+  content: "\f953";
 }
 
 .ti-map-pin-off:before {
   content: "\ecf3";
 }
 
+.ti-map-pin-pause:before {
+  content: "\f954";
+}
+
+.ti-map-pin-pin:before {
+  content: "\f955";
+}
+
+.ti-map-pin-plus:before {
+  content: "\f956";
+}
+
+.ti-map-pin-question:before {
+  content: "\f957";
+}
+
+.ti-map-pin-search:before {
+  content: "\f958";
+}
+
 .ti-map-pin-share:before {
   content: "\f795";
+}
+
+.ti-map-pin-star:before {
+  content: "\f959";
+}
+
+.ti-map-pin-up:before {
+  content: "\f95a";
+}
+
+.ti-map-pin-x:before {
+  content: "\f95b";
 }
 
 .ti-map-pins:before {
@@ -9150,20 +10562,100 @@
   content: "\eaec";
 }
 
+.ti-message-2-bolt:before {
+  content: "\f95c";
+}
+
+.ti-message-2-cancel:before {
+  content: "\f95d";
+}
+
+.ti-message-2-check:before {
+  content: "\f95e";
+}
+
 .ti-message-2-code:before {
   content: "\f012";
+}
+
+.ti-message-2-cog:before {
+  content: "\f95f";
+}
+
+.ti-message-2-dollar:before {
+  content: "\f960";
+}
+
+.ti-message-2-down:before {
+  content: "\f961";
+}
+
+.ti-message-2-exclamation:before {
+  content: "\f962";
+}
+
+.ti-message-2-heart:before {
+  content: "\f963";
+}
+
+.ti-message-2-minus:before {
+  content: "\f964";
 }
 
 .ti-message-2-off:before {
   content: "\f40b";
 }
 
+.ti-message-2-pause:before {
+  content: "\f965";
+}
+
+.ti-message-2-pin:before {
+  content: "\f966";
+}
+
+.ti-message-2-plus:before {
+  content: "\f967";
+}
+
+.ti-message-2-question:before {
+  content: "\f968";
+}
+
+.ti-message-2-search:before {
+  content: "\f969";
+}
+
 .ti-message-2-share:before {
   content: "\f077";
 }
 
+.ti-message-2-star:before {
+  content: "\f96a";
+}
+
+.ti-message-2-up:before {
+  content: "\f96b";
+}
+
+.ti-message-2-x:before {
+  content: "\f96c";
+}
+
+.ti-message-bolt:before {
+  content: "\f96d";
+}
+
+.ti-message-cancel:before {
+  content: "\f96e";
+}
+
 .ti-message-chatbot:before {
   content: "\f38a";
+}
+
+.ti-message-check:before {
+  content: "\f96f";
 }
 
 .ti-message-circle:before {
@@ -9178,40 +10670,168 @@
   content: "\f682";
 }
 
+.ti-message-circle-bolt:before {
+  content: "\f970";
+}
+
+.ti-message-circle-cancel:before {
+  content: "\f971";
+}
+
+.ti-message-circle-check:before {
+  content: "\f972";
+}
+
+.ti-message-circle-code:before {
+  content: "\f973";
+}
+
+.ti-message-circle-cog:before {
+  content: "\f974";
+}
+
+.ti-message-circle-dollar:before {
+  content: "\f975";
+}
+
+.ti-message-circle-down:before {
+  content: "\f976";
+}
+
+.ti-message-circle-exclamation:before {
+  content: "\f977";
+}
+
+.ti-message-circle-heart:before {
+  content: "\f978";
+}
+
+.ti-message-circle-minus:before {
+  content: "\f979";
+}
+
 .ti-message-circle-off:before {
   content: "\ed40";
+}
+
+.ti-message-circle-pause:before {
+  content: "\f97a";
+}
+
+.ti-message-circle-pin:before {
+  content: "\f97b";
+}
+
+.ti-message-circle-plus:before {
+  content: "\f97c";
+}
+
+.ti-message-circle-question:before {
+  content: "\f97d";
+}
+
+.ti-message-circle-search:before {
+  content: "\f97e";
+}
+
+.ti-message-circle-share:before {
+  content: "\f97f";
+}
+
+.ti-message-circle-star:before {
+  content: "\f980";
+}
+
+.ti-message-circle-up:before {
+  content: "\f981";
+}
+
+.ti-message-circle-x:before {
+  content: "\f982";
 }
 
 .ti-message-code:before {
   content: "\f013";
 }
 
+.ti-message-cog:before {
+  content: "\f983";
+}
+
+.ti-message-dollar:before {
+  content: "\f984";
+}
+
 .ti-message-dots:before {
   content: "\eaee";
+}
+
+.ti-message-down:before {
+  content: "\f985";
+}
+
+.ti-message-exclamation:before {
+  content: "\f986";
 }
 
 .ti-message-forward:before {
   content: "\f28f";
 }
 
+.ti-message-heart:before {
+  content: "\f987";
+}
+
 .ti-message-language:before {
   content: "\efae";
+}
+
+.ti-message-minus:before {
+  content: "\f988";
 }
 
 .ti-message-off:before {
   content: "\ed41";
 }
 
+.ti-message-pause:before {
+  content: "\f989";
+}
+
+.ti-message-pin:before {
+  content: "\f98a";
+}
+
 .ti-message-plus:before {
   content: "\ec9a";
+}
+
+.ti-message-question:before {
+  content: "\f98b";
 }
 
 .ti-message-report:before {
   content: "\ec9b";
 }
 
+.ti-message-search:before {
+  content: "\f98c";
+}
+
 .ti-message-share:before {
   content: "\f078";
+}
+
+.ti-message-star:before {
+  content: "\f98d";
+}
+
+.ti-message-up:before {
+  content: "\f98e";
+}
+
+.ti-message-x:before {
+  content: "\f98f";
 }
 
 .ti-messages:before {
@@ -10078,6 +11698,10 @@
   content: "\eb0a";
 }
 
+.ti-photo-bolt:before {
+  content: "\f990";
+}
+
 .ti-photo-cancel:before {
   content: "\f35d";
 }
@@ -10086,12 +11710,28 @@
   content: "\f35e";
 }
 
+.ti-photo-code:before {
+  content: "\f991";
+}
+
+.ti-photo-cog:before {
+  content: "\f992";
+}
+
+.ti-photo-dollar:before {
+  content: "\f993";
+}
+
 .ti-photo-down:before {
   content: "\f35f";
 }
 
 .ti-photo-edit:before {
   content: "\f360";
+}
+
+.ti-photo-exclamation:before {
+  content: "\f994";
 }
 
 .ti-photo-heart:before {
@@ -10106,8 +11746,20 @@
   content: "\ecf6";
 }
 
+.ti-photo-pause:before {
+  content: "\f995";
+}
+
+.ti-photo-pin:before {
+  content: "\f996";
+}
+
 .ti-photo-plus:before {
   content: "\f363";
+}
+
+.ti-photo-question:before {
+  content: "\f997";
 }
 
 .ti-photo-search:before {
@@ -10124,6 +11776,10 @@
 
 .ti-photo-sensor-3:before {
   content: "\f797";
+}
+
+.ti-photo-share:before {
+  content: "\f998";
 }
 
 .ti-photo-shield:before {
@@ -10446,6 +12102,86 @@
   content: "\f265";
 }
 
+.ti-pointer-bolt:before {
+  content: "\f999";
+}
+
+.ti-pointer-cancel:before {
+  content: "\f99a";
+}
+
+.ti-pointer-check:before {
+  content: "\f99b";
+}
+
+.ti-pointer-code:before {
+  content: "\f99c";
+}
+
+.ti-pointer-cog:before {
+  content: "\f99d";
+}
+
+.ti-pointer-dollar:before {
+  content: "\f99e";
+}
+
+.ti-pointer-down:before {
+  content: "\f99f";
+}
+
+.ti-pointer-exclamation:before {
+  content: "\f9a0";
+}
+
+.ti-pointer-heart:before {
+  content: "\f9a1";
+}
+
+.ti-pointer-minus:before {
+  content: "\f9a2";
+}
+
+.ti-pointer-off:before {
+  content: "\f9a3";
+}
+
+.ti-pointer-pause:before {
+  content: "\f9a4";
+}
+
+.ti-pointer-pin:before {
+  content: "\f9a5";
+}
+
+.ti-pointer-plus:before {
+  content: "\f9a6";
+}
+
+.ti-pointer-question:before {
+  content: "\f9a7";
+}
+
+.ti-pointer-search:before {
+  content: "\f9a8";
+}
+
+.ti-pointer-share:before {
+  content: "\f9a9";
+}
+
+.ti-pointer-star:before {
+  content: "\f9aa";
+}
+
+.ti-pointer-up:before {
+  content: "\f9ab";
+}
+
+.ti-pointer-x:before {
+  content: "\f9ac";
+}
+
 .ti-pokeball:before {
   content: "\eec1";
 }
@@ -10568,10 +12304,6 @@
 
 .ti-qrcode-off:before {
   content: "\f41e";
-}
-
-.ti-question-circle:before {
-  content: "\f637";
 }
 
 .ti-question-mark:before {
@@ -11266,12 +12998,88 @@
   content: "\eed6";
 }
 
+.ti-settings-bolt:before {
+  content: "\f9ad";
+}
+
+.ti-settings-cancel:before {
+  content: "\f9ae";
+}
+
+.ti-settings-check:before {
+  content: "\f9af";
+}
+
+.ti-settings-code:before {
+  content: "\f9b0";
+}
+
+.ti-settings-cog:before {
+  content: "\f9b1";
+}
+
+.ti-settings-dollar:before {
+  content: "\f9b2";
+}
+
+.ti-settings-down:before {
+  content: "\f9b3";
+}
+
+.ti-settings-exclamation:before {
+  content: "\f9b4";
+}
+
 .ti-settings-filled:before {
   content: "\f69e";
 }
 
+.ti-settings-heart:before {
+  content: "\f9b5";
+}
+
+.ti-settings-minus:before {
+  content: "\f9b6";
+}
+
 .ti-settings-off:before {
   content: "\f19f";
+}
+
+.ti-settings-pause:before {
+  content: "\f9b7";
+}
+
+.ti-settings-pin:before {
+  content: "\f9b8";
+}
+
+.ti-settings-plus:before {
+  content: "\f9b9";
+}
+
+.ti-settings-question:before {
+  content: "\f9ba";
+}
+
+.ti-settings-search:before {
+  content: "\f9bb";
+}
+
+.ti-settings-share:before {
+  content: "\f9bc";
+}
+
+.ti-settings-star:before {
+  content: "\f9bd";
+}
+
+.ti-settings-up:before {
+  content: "\f9be";
+}
+
+.ti-settings-x:before {
+  content: "\f9bf";
 }
 
 .ti-shadow:before {
@@ -11318,6 +13126,14 @@
   content: "\eb24";
 }
 
+.ti-shield-bolt:before {
+  content: "\f9c0";
+}
+
+.ti-shield-cancel:before {
+  content: "\f9c1";
+}
+
 .ti-shield-check:before {
   content: "\eb22";
 }
@@ -11338,6 +13154,26 @@
   content: "\ef9b";
 }
 
+.ti-shield-code:before {
+  content: "\f9c2";
+}
+
+.ti-shield-cog:before {
+  content: "\f9c3";
+}
+
+.ti-shield-dollar:before {
+  content: "\f9c4";
+}
+
+.ti-shield-down:before {
+  content: "\f9c5";
+}
+
+.ti-shield-exclamation:before {
+  content: "\f9c6";
+}
+
 .ti-shield-filled:before {
   content: "\f69f";
 }
@@ -11350,6 +13186,10 @@
   content: "\f357";
 }
 
+.ti-shield-heart:before {
+  content: "\f9c7";
+}
+
 .ti-shield-lock:before {
   content: "\ed58";
 }
@@ -11358,8 +13198,44 @@
   content: "\f763";
 }
 
+.ti-shield-minus:before {
+  content: "\f9c8";
+}
+
 .ti-shield-off:before {
   content: "\ecf8";
+}
+
+.ti-shield-pause:before {
+  content: "\f9c9";
+}
+
+.ti-shield-pin:before {
+  content: "\f9ca";
+}
+
+.ti-shield-plus:before {
+  content: "\f9cb";
+}
+
+.ti-shield-question:before {
+  content: "\f9cc";
+}
+
+.ti-shield-search:before {
+  content: "\f9cd";
+}
+
+.ti-shield-share:before {
+  content: "\f9ce";
+}
+
+.ti-shield-star:before {
+  content: "\f9cf";
+}
+
+.ti-shield-up:before {
+  content: "\f9d0";
 }
 
 .ti-shield-x:before {
@@ -13342,12 +15218,36 @@
   content: "\eb4d";
 }
 
+.ti-user-bolt:before {
+  content: "\f9d1";
+}
+
+.ti-user-cancel:before {
+  content: "\f9d2";
+}
+
 .ti-user-check:before {
   content: "\eb49";
 }
 
 .ti-user-circle:before {
   content: "\ef68";
+}
+
+.ti-user-code:before {
+  content: "\f9d3";
+}
+
+.ti-user-cog:before {
+  content: "\f9d4";
+}
+
+.ti-user-dollar:before {
+  content: "\f9d5";
+}
+
+.ti-user-down:before {
+  content: "\f9d6";
 }
 
 .ti-user-edit:before {
@@ -13370,6 +15270,10 @@
   content: "\ecf9";
 }
 
+.ti-user-pause:before {
+  content: "\f9d7";
+}
+
 .ti-user-pin:before {
   content: "\f7ce";
 }
@@ -13384,6 +15288,10 @@
 
 .ti-user-search:before {
   content: "\ef89";
+}
+
+.ti-user-share:before {
+  content: "\f9d8";
 }
 
 .ti-user-shield:before {
@@ -13854,8 +15762,44 @@
   content: "\eb54";
 }
 
+.ti-world-bolt:before {
+  content: "\f9d9";
+}
+
+.ti-world-cancel:before {
+  content: "\f9da";
+}
+
+.ti-world-check:before {
+  content: "\f9db";
+}
+
+.ti-world-code:before {
+  content: "\f9dc";
+}
+
+.ti-world-cog:before {
+  content: "\f9dd";
+}
+
+.ti-world-dollar:before {
+  content: "\f9de";
+}
+
+.ti-world-down:before {
+  content: "\f9df";
+}
+
 .ti-world-download:before {
   content: "\ef8a";
+}
+
+.ti-world-exclamation:before {
+  content: "\f9e0";
+}
+
+.ti-world-heart:before {
+  content: "\f9e1";
 }
 
 .ti-world-latitude:before {
@@ -13866,8 +15810,44 @@
   content: "\ed2f";
 }
 
+.ti-world-minus:before {
+  content: "\f9e2";
+}
+
 .ti-world-off:before {
   content: "\f1ca";
+}
+
+.ti-world-pause:before {
+  content: "\f9e3";
+}
+
+.ti-world-pin:before {
+  content: "\f9e4";
+}
+
+.ti-world-plus:before {
+  content: "\f9e5";
+}
+
+.ti-world-question:before {
+  content: "\f9e6";
+}
+
+.ti-world-search:before {
+  content: "\f9e7";
+}
+
+.ti-world-share:before {
+  content: "\f9e8";
+}
+
+.ti-world-star:before {
+  content: "\f9e9";
+}
+
+.ti-world-up:before {
+  content: "\f9ea";
 }
 
 .ti-world-upload:before {
@@ -13876,6 +15856,10 @@
 
 .ti-world-www:before {
   content: "\f38f";
+}
+
+.ti-world-x:before {
+  content: "\f9eb";
 }
 
 .ti-wrecking-ball:before {
