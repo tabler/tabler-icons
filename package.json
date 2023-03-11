@@ -100,7 +100,7 @@
     },
     "git": {
       "addUntrackedFiles": true,
-      "changelog": "pnpm run changelog --silent --latest-version ${latestTag}",
+      "changelog": "pnpm run --silent changelog --latest-version ${latestTag}",
       "tagName": "v${version}",
       "_requireBranch": "master",
       "requireCommits": true,
