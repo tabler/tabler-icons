@@ -108,6 +108,7 @@ importers:
   packages/icons:
     specifiers:
       '@atomico/rollup-plugin-sizes': ^1.1.4
+      '@rollup/plugin-json': ^6.0.0
       '@rollup/plugin-typescript': 8.3.3
       '@types/node': ^18.6.5
       babel-jest: ^29.4.1
@@ -122,6 +123,7 @@ importers:
       typescript: ^4.9.5
     devDependencies:
       '@atomico/rollup-plugin-sizes': 1.1.4_rollup@2.78.1
+      '@rollup/plugin-json': 6.0.0_rollup@2.78.1
       '@rollup/plugin-typescript': 8.3.3_4oxn4kkd532fbh3a5t6trtlwbi
       '@types/node': 18.14.6
       babel-jest: 29.4.3
@@ -3725,6 +3727,19 @@ packages:
       rollup: 2.78.1
     dev: true
 
+  /@rollup/plugin-json/6.0.0_rollup@2.78.1:
+    resolution: {integrity: sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@2.78.1
+      rollup: 2.78.1
+    dev: true
+
   /@rollup/plugin-node-resolve/9.0.0_rollup@2.78.1:
     resolution: {integrity: sha512-gPz+utFHLRrd41WMP13Jq5mqqzHL3OXrfj3/MkSyB6UBIcuNt9j60GCbarzMzdf1VHFpOxfQh/ez7wyadLMqkg==}
     engines: {node: '>= 10.0.0'}
@@ -3776,6 +3791,21 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /@rollup/pluginutils/5.0.2_rollup@2.78.1:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.0
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 2.78.1
     dev: true
 
   /@sinclair/typebox/0.25.24:

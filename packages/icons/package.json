@@ -16,10 +16,10 @@
   "files": [
     "dist/*",
     "tags.json",
-    "tabler-nodes.json",
-    "icons/*",
-    "tabler-sprite.svg",
-    "tabler-sprite-nostroke.svg"
+    "src/tabler-nodes.json",
+    "svg/*",
+    "src/tabler-sprite.svg",
+    "src/tabler-sprite-nostroke.svg"
   ],
   "types": "dist/index.d.ts",
   "homepage": "https://tabler-icons.io",
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "rm -rf dist && rollup -c ./rollup.config.mjs",
+    "build": "rm -rf dist && node build.mjs && rollup -c ./rollup.config.mjs",
     "test": "jest --env=jsdom"
   },
   "keywords": [
@@ -46,6 +46,7 @@
   ],
   "devDependencies": {
     "@atomico/rollup-plugin-sizes": "^1.1.4",
+    "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-typescript": "8.3.3",
     "@types/node": "^18.6.5",
     "babel-jest": "^29.4.1",

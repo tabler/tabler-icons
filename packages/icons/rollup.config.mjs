@@ -5,6 +5,7 @@ import esbuild from 'rollup-plugin-esbuild'
 import dts from "rollup-plugin-dts";
 import pkg from "./package.json" assert { type: "json" }
 import typescript from "@rollup/plugin-typescript";
+import json from '@rollup/plugin-json';
 
 // const packageName = '@tabler/icons';
 // const outputFileName = 'tabler-icons';
@@ -102,11 +103,12 @@ export default [
         filename: `stats/${pkg.name}.html`
       }),
       typescript({ tsconfig: "./tsconfig.json" }),
+      json()
     ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    plugins: [dts(), json()],
   },
 ];

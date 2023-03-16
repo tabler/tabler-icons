@@ -1,61 +1,47 @@
 import fs from 'fs'
-import { createDirectory, readSvgs } from '../../.build/helpers.mjs'
-import { buildIcons } from '../../.build/build-icons.mjs'
-import { stringify } from 'svgson'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const svgFiles = readSvgs()
+const svgFiles = fs.readdirSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), './svg'))
+  .filter((file) => path.extname(file) === '.svg')
+  .map(svgFile => {
+    const name = path.basename(svgFile, '.svg'),
+        contents = fs.readFileSync(path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), './svg'), svgFile), 'utf-8').trim().replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', '')
 
-const buildSprite = () => {
+    return {
+      name,
+      contents
+    };
+  });
+
+// Build sprites
+(() => {
   let svgContent = ''
   svgFiles.forEach(function(file, i) {
     const svgFileContent = file.contents.replace(/<svg[^>]+>/g, '').replace(/<\/svg>/g, '').replace(/\n+/g, '').replace(/>\s+</g, '><').trim()
     svgContent += `<symbol id="tabler-${file.name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
   })
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>` 
 
-  fs.writeFileSync('tabler-sprite.svg', svg)
-  fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
-}
+  fs.writeFileSync('./src/tabler-sprite.svg', svg)
+  fs.writeFileSync('./src/tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
+})();
 
-const buildNodes = () => {
-  const iconNodes = svgFiles.reduce((acc, { name, obj }) => {
-    acc[name] = obj.children.map(({ name, attributes }) => [name, attributes]);
+// Buiuld nodes
+(() => {
+  const iconNodes = svgFiles.reduce((acc, { name, contents }) => {
+    var lines = contents.split('\n');
+    lines.splice(0,1);
+    var trimmedContent = lines.join('\n').replace('</svg>', '').replace(/(\r\n|\n|\r)/gm, '').replace(/(\s){2,}/g, '');
+
+    acc[name] = trimmedContent;
 
     return acc;
   }, {});
 
-  const iconNodesStringified = JSON.stringify(iconNodes, null, 2);
+  const iconNodesStringified = JSON.stringify(iconNodes, null, 2);   
 
-  fs.writeFileSync(`./tabler-nodes.json`, iconNodesStringified);
-}
+  fs.writeFileSync(`./src/tabler-nodes.json`, iconNodesStringified);
+})();
 
-const componentTemplate = ({
-  namePascal,
-  svg
-}) => `\
-export default ${namePascal} => \`${svg.contents}\`;`;
-
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
-
-const typeDefinitionsTemplate = () => `// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: string;`
-
-
-
-buildSprite()
-buildNodes()
-buildIcons({
-  name: 'icons',
-  componentTemplate,
-  indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  pretty: false
-})

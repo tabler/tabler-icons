@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.json"],
   "compilerOptions": {
     "rootDir": "src",
     "allowJs": true,
@@ -9,6 +9,7 @@
     "declarationMap": true,
     "declarationDir": "types",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
   }
 }
