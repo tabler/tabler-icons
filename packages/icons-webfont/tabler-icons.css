@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.10.0 by tabler - https://tabler.io
+ * Tabler Icons 2.11.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.10.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.10.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.10.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.10.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.11.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.11.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.11.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.11.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -670,6 +670,10 @@
   content: "\eb77";
 }
 
+.ti-arrow-back-up-double:before {
+  content: "\f9ec";
+}
+
 .ti-arrow-badge-down:before {
   content: "\f60b";
 }
@@ -898,6 +902,14 @@
   content: "\ed9b";
 }
 
+.ti-arrow-elbow-left:before {
+  content: "\f9ed";
+}
+
+.ti-arrow-elbow-right:before {
+  content: "\f9ee";
+}
+
 .ti-arrow-fork:before {
   content: "\f04a";
 }
@@ -908,6 +920,10 @@
 
 .ti-arrow-forward-up:before {
   content: "\eb78";
+}
+
+.ti-arrow-forward-up-double:before {
+  content: "\f9ef";
 }
 
 .ti-arrow-guide:before {
@@ -1644,6 +1660,18 @@
 
 .ti-baseline:before {
   content: "\f024";
+}
+
+.ti-baseline-density-large:before {
+  content: "\f9f0";
+}
+
+.ti-baseline-density-medium:before {
+  content: "\f9f1";
+}
+
+.ti-baseline-density-small:before {
+  content: "\f9f2";
 }
 
 .ti-basket:before {
@@ -6140,6 +6168,10 @@
 
 .ti-dental-off:before {
   content: "\f110";
+}
+
+.ti-deselect:before {
+  content: "\f9f3";
 }
 
 .ti-details:before {
@@ -10930,6 +10962,14 @@
   content: "\f410";
 }
 
+.ti-mobiledata:before {
+  content: "\f9f5";
+}
+
+.ti-mobiledata-off:before {
+  content: "\f9f4";
+}
+
 .ti-moneybag:before {
   content: "\f506";
 }
@@ -12550,6 +12590,10 @@
   content: "\ef84";
 }
 
+.ti-reserved-line:before {
+  content: "\f9f6";
+}
+
 .ti-resize:before {
   content: "\eecf";
 }
@@ -12932,6 +12976,10 @@
 
 .ti-select:before {
   content: "\ec9e";
+}
+
+.ti-select-all:before {
+  content: "\f9f7";
 }
 
 .ti-selector:before {
@@ -13340,6 +13388,30 @@
 
 .ti-signal-5g:before {
   content: "\f1f0";
+}
+
+.ti-signal-6g:before {
+  content: "\f9f8";
+}
+
+.ti-signal-e:before {
+  content: "\f9f9";
+}
+
+.ti-signal-g:before {
+  content: "\f9fa";
+}
+
+.ti-signal-h:before {
+  content: "\f9fc";
+}
+
+.ti-signal-h-plus:before {
+  content: "\f9fb";
+}
+
+.ti-signal-lte:before {
+  content: "\f9fd";
 }
 
 .ti-signature:before {
