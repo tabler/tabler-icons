@@ -9,7 +9,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git"
   },
   "main": "dist/cjs/index.js",
+  "main:es": "dist/es/index.js",
   "main:umd": "dist/umd/index.js",
+  "main:umd:min": "dist/umd/index.min.js",
   "module": "dist/esm/index.js",
   "unpkg": "dist/umd/index.min.js",
   "sideEffects": false,
