@@ -13372,7 +13372,7 @@
   "fidget-spinner": {
     "name": "fidget-spinner",
     "category": "",
-    "tags": ["fidget", "spinner", "toy", "spinning", "gadget", "kids", "children", "icon", "stroke", "outline"],
+    "tags": ["fidget", "spinner", "toy", "spinning", "gadget", "kids", "children", "loader", "loading", "icon", "stroke", "outline"],
     "version": "1.58",
     "unicode": "f068"
   }, 
@@ -13824,12 +13824,61 @@
     "version": "1.38",
     "unicode": "edef"
   }, 
+  "filter-cog": {
+    "name": "filter-cog",
+    "category": "",
+    "tags": ["filter", "cog", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "f9fe"
+  }, 
+  "filter-dollar": {
+    "name": "filter-dollar",
+    "category": "",
+    "tags": ["filter", "dollar", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "f9ff"
+  }, 
+  "filter-edit": {
+    "name": "filter-edit",
+    "category": "",
+    "tags": ["filter", "edit", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa00"
+  }, 
+  "filter-minus": {
+    "name": "filter-minus",
+    "category": "",
+    "tags": ["filter", "minus", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa01"
+  }, 
   "filter-off": {
     "name": "filter-off",
     "category": "System",
     "tags": ["filter", "off", "funnel", "hopper", "filtration", "icon", "stroke", "outline"],
     "version": "1.26",
     "unicode": "ed2c"
+  }, 
+  "filter-plus": {
+    "name": "filter-plus",
+    "category": "",
+    "tags": ["filter", "plus", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa02"
+  }, 
+  "filter-star": {
+    "name": "filter-star",
+    "category": "",
+    "tags": ["filter", "star", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa03"
+  }, 
+  "filter-x": {
+    "name": "filter-x",
+    "category": "",
+    "tags": ["filter", "x", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa04"
   }, 
   "filter": {
     "name": "filter",
@@ -17306,28 +17355,28 @@
   "loader-2": {
     "name": "loader-2",
     "category": "System",
-    "tags": ["loader", "2", "process", "download", "upload", "icon", "stroke", "outline"],
+    "tags": ["loader", "2", "process", "download", "upload", "loader", "loading", "icon", "stroke", "outline"],
     "version": "1.72",
     "unicode": "f226"
   }, 
   "loader-3": {
     "name": "loader-3",
     "category": "",
-    "tags": ["loader", "3", "process", "download", "upload", "icon", "stroke", "outline"],
+    "tags": ["loader", "3", "process", "download", "upload", "loader", "loading", "icon", "stroke", "outline"],
     "version": "1.102",
     "unicode": "f513"
   }, 
   "loader-quarter": {
     "name": "loader-quarter",
     "category": "System",
-    "tags": ["loader", "quarter", "process", "download", "upload", "icon", "stroke", "outline"],
+    "tags": ["loader", "quarter", "process", "download", "upload", "loader", "loading", "icon", "stroke", "outline"],
     "version": "1.17",
     "unicode": "eca2"
   }, 
   "loader": {
     "name": "loader",
     "category": "System",
-    "tags": ["loader", "process", "download", "upload", "icon", "stroke", "outline"],
+    "tags": ["loader", "process", "download", "upload", "loader", "loading", "icon", "stroke", "outline"],
     "version": "1.17",
     "unicode": "eca3"
   }, 
@@ -19242,6 +19291,13 @@
     "version": "2.7",
     "unicode": "f7b5"
   }, 
+  "mood-edit": {
+    "name": "mood-edit",
+    "category": "",
+    "tags": ["mood", "edit", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa05"
+  }, 
   "mood-empty-filled": {
     "name": "mood-empty-filled",
     "category": "Filled",
@@ -19402,6 +19458,13 @@
     "tags": ["mood", "search", "emotion", "feeling", "happy", "face", "find", "explore", "icon", "stroke", "outline"],
     "version": "2.7",
     "unicode": "f7ba"
+  }, 
+  "mood-share": {
+    "name": "mood-share",
+    "category": "",
+    "tags": ["mood", "share", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa06"
   }, 
   "mood-sick": {
     "name": "mood-sick",
@@ -21481,6 +21544,55 @@
     "tags": ["prison", "jail", "policeman", "police", "cop", "handcuff", "arrest", "prisoner", "thief", "icon", "stroke", "outline"],
     "version": "1.45",
     "unicode": "ef79"
+  }, 
+  "progress-alert": {
+    "name": "progress-alert",
+    "category": "",
+    "tags": ["progress", "alert", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa07"
+  }, 
+  "progress-bolt": {
+    "name": "progress-bolt",
+    "category": "",
+    "tags": ["progress", "bolt", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa08"
+  }, 
+  "progress-check": {
+    "name": "progress-check",
+    "category": "",
+    "tags": ["progress", "check", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa09"
+  }, 
+  "progress-down": {
+    "name": "progress-down",
+    "category": "",
+    "tags": ["progress", "down", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0a"
+  }, 
+  "progress-help": {
+    "name": "progress-help",
+    "category": "",
+    "tags": ["progress", "help", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0b"
+  }, 
+  "progress-x": {
+    "name": "progress-x",
+    "category": "",
+    "tags": ["progress", "x", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0c"
+  }, 
+  "progress": {
+    "name": "progress",
+    "category": "",
+    "tags": ["progress", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0d"
   }, 
   "prompt": {
     "name": "prompt",
@@ -26878,6 +26990,20 @@
     "tags": ["user", "person", "account", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb4d"
+  }, 
+  "users-minus": {
+    "name": "users-minus",
+    "category": "",
+    "tags": ["users", "minus", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0e"
+  }, 
+  "users-plus": {
+    "name": "users-plus",
+    "category": "",
+    "tags": ["users", "plus", "icon", "stroke", "outline"],
+    "version": "2.12",
+    "unicode": "fa0f"
   }, 
   "users": {
     "name": "users",

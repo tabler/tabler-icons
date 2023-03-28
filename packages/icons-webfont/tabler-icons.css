@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.11.0 by tabler - https://tabler.io
+ * Tabler Icons 2.12.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.11.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.11.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.11.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.11.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.12.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.12.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.12.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.12.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -7926,8 +7926,36 @@
   content: "\eaa5";
 }
 
+.ti-filter-cog:before {
+  content: "\f9fe";
+}
+
+.ti-filter-dollar:before {
+  content: "\f9ff";
+}
+
+.ti-filter-edit:before {
+  content: "\fa00";
+}
+
+.ti-filter-minus:before {
+  content: "\fa01";
+}
+
 .ti-filter-off:before {
   content: "\ed2c";
+}
+
+.ti-filter-plus:before {
+  content: "\fa02";
+}
+
+.ti-filter-star:before {
+  content: "\fa03";
+}
+
+.ti-filter-x:before {
+  content: "\fa04";
 }
 
 .ti-filters:before {
@@ -11018,6 +11046,10 @@
   content: "\f7b5";
 }
 
+.ti-mood-edit:before {
+  content: "\fa05";
+}
+
 .ti-mood-empty:before {
   content: "\eeb5";
 }
@@ -11108,6 +11140,10 @@
 
 .ti-mood-search:before {
   content: "\f7ba";
+}
+
+.ti-mood-share:before {
+  content: "\fa06";
 }
 
 .ti-mood-sick:before {
@@ -12296,6 +12332,34 @@
 
 .ti-prison:before {
   content: "\ef79";
+}
+
+.ti-progress:before {
+  content: "\fa0d";
+}
+
+.ti-progress-alert:before {
+  content: "\fa07";
+}
+
+.ti-progress-bolt:before {
+  content: "\fa08";
+}
+
+.ti-progress-check:before {
+  content: "\fa09";
+}
+
+.ti-progress-down:before {
+  content: "\fa0a";
+}
+
+.ti-progress-help:before {
+  content: "\fa0b";
+}
+
+.ti-progress-x:before {
+  content: "\fa0c";
 }
 
 .ti-prompt:before {
@@ -15384,6 +15448,14 @@
 
 .ti-users:before {
   content: "\ebf2";
+}
+
+.ti-users-minus:before {
+  content: "\fa0e";
+}
+
+.ti-users-plus:before {
+  content: "\fa0f";
 }
 
 .ti-uv-index:before {
