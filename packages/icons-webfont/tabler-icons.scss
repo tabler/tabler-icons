@@ -1,5 +1,5 @@
 /*!
- * Tabler Icons 2.12.0 by tabler - https://tabler.io
+ * Tabler Icons 2.13.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -12,11 +12,11 @@ $ti-prefix: 'ti' !default;
   font-style: normal;
   font-weight: 400;
   font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/tabler-icons.eot?v2.12.0');
-  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.12.0') format('embedded-opentype'),
-    url('#{$ti-font-path}/tabler-icons.woff2?v2.12.0') format('woff2'),
+  src: url('#{$ti-font-path}/tabler-icons.eot?v2.13.0');
+  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.13.0') format('embedded-opentype'),
+    url('#{$ti-font-path}/tabler-icons.woff2?v2.13.0') format('woff2'),
     url('#{$ti-font-path}/tabler-icons.woff?') format('woff'),
-    url('#{$ti-font-path}/tabler-icons.ttf?v2.12.0') format('truetype');
+    url('#{$ti-font-path}/tabler-icons.ttf?v2.13.0') format('truetype');
 }
 
 .#{$ti-prefix} {
@@ -1567,9 +1567,21 @@ $ti-icon-cylinder: unicode('f54c');
 $ti-icon-dashboard: unicode('ea87');
 $ti-icon-dashboard-off: unicode('f3e1');
 $ti-icon-database: unicode('ea88');
+$ti-icon-database-cog: unicode('fa10');
+$ti-icon-database-dollar: unicode('fa11');
+$ti-icon-database-edit: unicode('fa12');
+$ti-icon-database-exclamation: unicode('fa13');
 $ti-icon-database-export: unicode('ee6e');
+$ti-icon-database-heart: unicode('fa14');
 $ti-icon-database-import: unicode('ee6f');
+$ti-icon-database-leak: unicode('fa15');
+$ti-icon-database-minus: unicode('fa16');
 $ti-icon-database-off: unicode('ee70');
+$ti-icon-database-plus: unicode('fa17');
+$ti-icon-database-search: unicode('fa18');
+$ti-icon-database-share: unicode('fa19');
+$ti-icon-database-star: unicode('fa1a');
+$ti-icon-database-x: unicode('fa1b');
 $ti-icon-deer: unicode('f4c5');
 $ti-icon-delta: unicode('f53c');
 $ti-icon-dental: unicode('f025');
@@ -3703,11 +3715,16 @@ $ti-icon-sword-off: unicode('f434');
 $ti-icon-swords: unicode('f132');
 $ti-icon-table: unicode('eba1');
 $ti-icon-table-alias: unicode('f25b');
+$ti-icon-table-down: unicode('fa1c');
 $ti-icon-table-export: unicode('eef8');
 $ti-icon-table-filled: unicode('f782');
+$ti-icon-table-heart: unicode('fa1d');
 $ti-icon-table-import: unicode('eef9');
+$ti-icon-table-minus: unicode('fa1e');
 $ti-icon-table-off: unicode('eefa');
 $ti-icon-table-options: unicode('f25c');
+$ti-icon-table-plus: unicode('fa1f');
+$ti-icon-table-share: unicode('fa20');
 $ti-icon-table-shortcut: unicode('f25d');
 $ti-icon-tag: unicode('eb34');
 $ti-icon-tag-off: unicode('efc0');
@@ -3895,6 +3912,7 @@ $ti-icon-user-star: unicode('f7d1');
 $ti-icon-user-up: unicode('f7d2');
 $ti-icon-user-x: unicode('eb4c');
 $ti-icon-users: unicode('ebf2');
+$ti-icon-users-group: unicode('fa21');
 $ti-icon-users-minus: unicode('fa0e');
 $ti-icon-users-plus: unicode('fa0f');
 $ti-icon-uv-index: unicode('f3b2');
@@ -5613,9 +5631,21 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-dashboard:before { content: $ti-icon-dashboard; }
 .#{$ti-prefix}-dashboard-off:before { content: $ti-icon-dashboard-off; }
 .#{$ti-prefix}-database:before { content: $ti-icon-database; }
+.#{$ti-prefix}-database-cog:before { content: $ti-icon-database-cog; }
+.#{$ti-prefix}-database-dollar:before { content: $ti-icon-database-dollar; }
+.#{$ti-prefix}-database-edit:before { content: $ti-icon-database-edit; }
+.#{$ti-prefix}-database-exclamation:before { content: $ti-icon-database-exclamation; }
 .#{$ti-prefix}-database-export:before { content: $ti-icon-database-export; }
+.#{$ti-prefix}-database-heart:before { content: $ti-icon-database-heart; }
 .#{$ti-prefix}-database-import:before { content: $ti-icon-database-import; }
+.#{$ti-prefix}-database-leak:before { content: $ti-icon-database-leak; }
+.#{$ti-prefix}-database-minus:before { content: $ti-icon-database-minus; }
 .#{$ti-prefix}-database-off:before { content: $ti-icon-database-off; }
+.#{$ti-prefix}-database-plus:before { content: $ti-icon-database-plus; }
+.#{$ti-prefix}-database-search:before { content: $ti-icon-database-search; }
+.#{$ti-prefix}-database-share:before { content: $ti-icon-database-share; }
+.#{$ti-prefix}-database-star:before { content: $ti-icon-database-star; }
+.#{$ti-prefix}-database-x:before { content: $ti-icon-database-x; }
 .#{$ti-prefix}-deer:before { content: $ti-icon-deer; }
 .#{$ti-prefix}-delta:before { content: $ti-icon-delta; }
 .#{$ti-prefix}-dental:before { content: $ti-icon-dental; }
@@ -7749,11 +7779,16 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-swords:before { content: $ti-icon-swords; }
 .#{$ti-prefix}-table:before { content: $ti-icon-table; }
 .#{$ti-prefix}-table-alias:before { content: $ti-icon-table-alias; }
+.#{$ti-prefix}-table-down:before { content: $ti-icon-table-down; }
 .#{$ti-prefix}-table-export:before { content: $ti-icon-table-export; }
 .#{$ti-prefix}-table-filled:before { content: $ti-icon-table-filled; }
+.#{$ti-prefix}-table-heart:before { content: $ti-icon-table-heart; }
 .#{$ti-prefix}-table-import:before { content: $ti-icon-table-import; }
+.#{$ti-prefix}-table-minus:before { content: $ti-icon-table-minus; }
 .#{$ti-prefix}-table-off:before { content: $ti-icon-table-off; }
 .#{$ti-prefix}-table-options:before { content: $ti-icon-table-options; }
+.#{$ti-prefix}-table-plus:before { content: $ti-icon-table-plus; }
+.#{$ti-prefix}-table-share:before { content: $ti-icon-table-share; }
 .#{$ti-prefix}-table-shortcut:before { content: $ti-icon-table-shortcut; }
 .#{$ti-prefix}-tag:before { content: $ti-icon-tag; }
 .#{$ti-prefix}-tag-off:before { content: $ti-icon-tag-off; }
@@ -7941,6 +7976,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-user-up:before { content: $ti-icon-user-up; }
 .#{$ti-prefix}-user-x:before { content: $ti-icon-user-x; }
 .#{$ti-prefix}-users:before { content: $ti-icon-users; }
+.#{$ti-prefix}-users-group:before { content: $ti-icon-users-group; }
 .#{$ti-prefix}-users-minus:before { content: $ti-icon-users-minus; }
 .#{$ti-prefix}-users-plus:before { content: $ti-icon-users-plus; }
 .#{$ti-prefix}-uv-index:before { content: $ti-icon-uv-index; }

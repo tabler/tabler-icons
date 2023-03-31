@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.12.0 by tabler - https://tabler.io
+ * Tabler Icons 2.13.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.12.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.12.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.12.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.12.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.13.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.13.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.13.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.13.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -6138,16 +6138,64 @@
   content: "\ea88";
 }
 
+.ti-database-cog:before {
+  content: "\fa10";
+}
+
+.ti-database-dollar:before {
+  content: "\fa11";
+}
+
+.ti-database-edit:before {
+  content: "\fa12";
+}
+
+.ti-database-exclamation:before {
+  content: "\fa13";
+}
+
 .ti-database-export:before {
   content: "\ee6e";
+}
+
+.ti-database-heart:before {
+  content: "\fa14";
 }
 
 .ti-database-import:before {
   content: "\ee6f";
 }
 
+.ti-database-leak:before {
+  content: "\fa15";
+}
+
+.ti-database-minus:before {
+  content: "\fa16";
+}
+
 .ti-database-off:before {
   content: "\ee70";
+}
+
+.ti-database-plus:before {
+  content: "\fa17";
+}
+
+.ti-database-search:before {
+  content: "\fa18";
+}
+
+.ti-database-share:before {
+  content: "\fa19";
+}
+
+.ti-database-star:before {
+  content: "\fa1a";
+}
+
+.ti-database-x:before {
+  content: "\fa1b";
 }
 
 .ti-deer:before {
@@ -14682,6 +14730,10 @@
   content: "\f25b";
 }
 
+.ti-table-down:before {
+  content: "\fa1c";
+}
+
 .ti-table-export:before {
   content: "\eef8";
 }
@@ -14690,8 +14742,16 @@
   content: "\f782";
 }
 
+.ti-table-heart:before {
+  content: "\fa1d";
+}
+
 .ti-table-import:before {
   content: "\eef9";
+}
+
+.ti-table-minus:before {
+  content: "\fa1e";
 }
 
 .ti-table-off:before {
@@ -14700,6 +14760,14 @@
 
 .ti-table-options:before {
   content: "\f25c";
+}
+
+.ti-table-plus:before {
+  content: "\fa1f";
+}
+
+.ti-table-share:before {
+  content: "\fa20";
 }
 
 .ti-table-shortcut:before {
@@ -15448,6 +15516,10 @@
 
 .ti-users:before {
   content: "\ebf2";
+}
+
+.ti-users-group:before {
+  content: "\fa21";
 }
 
 .ti-users-minus:before {
