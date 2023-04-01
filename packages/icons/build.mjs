@@ -1,13 +1,12 @@
 import fs from 'fs'
-import { createDirectory, readSvgs } from '../../.build/helpers.mjs'
+import {  readSvgs, HOME_DIR } from '../../.build/helpers.mjs'
 import { buildIcons } from '../../.build/build-icons.mjs'
-import { stringify } from 'svgson'
 
 const svgFiles = readSvgs()
 
 const buildSprite = () => {
   let svgContent = ''
-  svgFiles.forEach(function(file, i) {
+  svgFiles.forEach(function (file, i) {
     const svgFileContent = file.contents.replace(/<svg[^>]+>/g, '').replace(/<\/svg>/g, '').replace(/\n+/g, '').replace(/>\s+</g, '><').trim()
     svgContent += `<symbol id="tabler-${file.name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
   })
@@ -28,6 +27,38 @@ const buildNodes = () => {
   const iconNodesStringified = JSON.stringify(iconNodes, null, 2);
 
   fs.writeFileSync(`./tabler-nodes.json`, iconNodesStringified);
+}
+
+const buildCategories = () => {
+  const icons = JSON.parse(fs.readFileSync(`${HOME_DIR}/tags.json`))
+
+  if(fs.existsSync(`./categories`)) {
+    fs.rmSync(`./categories`, { recursive: true })
+  } 
+    
+  fs.mkdirSync(`./categories`)
+
+
+  Object
+    .entries(icons)
+    .forEach(([name, content]) => {
+      const categories = [(content.category || 'other')
+        .toLowerCase()
+        .replace(/ /g, '-')]
+        .flat()
+
+      categories.forEach(category => {
+        if (!fs.existsSync(`./categories/${category}`)) {
+          fs.mkdirSync(`./categories/${category}`)
+        }
+
+        if (fs.existsSync(`./icons/${name}.svg`)) {
+          fs.copyFileSync(`./icons/${name}.svg`, `./categories/${category}/${name}.svg`)
+        }
+      })
+
+      console.log(`Move ${name} icon to ${categories.join(', ')} category`)
+    })
 }
 
 const componentTemplate = ({
@@ -51,6 +82,7 @@ const indexTypeTemplate = ({
 
 buildSprite()
 buildNodes()
+buildCategories()
 buildIcons({
   name: 'icons',
   componentTemplate,
