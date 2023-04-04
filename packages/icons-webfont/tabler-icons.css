@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.13.2 by tabler - https://tabler.io
+ * Tabler Icons 2.14.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.13.2");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.13.2") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.13.2") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.13.2") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.14.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.14.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.14.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.14.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2894,12 +2894,20 @@
   content: "\f1cf";
 }
 
+.ti-brand-itch:before {
+  content: "\fa22";
+}
+
 .ti-brand-javascript:before {
   content: "\ef0c";
 }
 
 .ti-brand-juejin:before {
   content: "\f7b0";
+}
+
+.ti-brand-kick:before {
+  content: "\fa23";
 }
 
 .ti-brand-kickstarter:before {
@@ -2916,6 +2924,10 @@
 
 .ti-brand-lastfm:before {
   content: "\f001";
+}
+
+.ti-brand-letterboxd:before {
+  content: "\fa24";
 }
 
 .ti-brand-line:before {
@@ -4040,6 +4052,10 @@
 
 .ti-camera-x:before {
   content: "\f843";
+}
+
+.ti-camper:before {
+  content: "\fa25";
 }
 
 .ti-campfire:before {
@@ -6198,6 +6214,10 @@
   content: "\fa1b";
 }
 
+.ti-decimal:before {
+  content: "\fa26";
+}
+
 .ti-deer:before {
   content: "\f4c5";
 }
@@ -7930,6 +7950,10 @@
   content: "\eaa2";
 }
 
+.ti-file-text-ai:before {
+  content: "\fa27";
+}
+
 .ti-file-time:before {
   content: "\f040";
 }
@@ -9262,6 +9286,42 @@
   content: "\f7b1";
 }
 
+.ti-http-connect:before {
+  content: "\fa28";
+}
+
+.ti-http-delete:before {
+  content: "\fa29";
+}
+
+.ti-http-get:before {
+  content: "\fa2a";
+}
+
+.ti-http-head:before {
+  content: "\fa2b";
+}
+
+.ti-http-options:before {
+  content: "\fa2c";
+}
+
+.ti-http-path:before {
+  content: "\fa2d";
+}
+
+.ti-http-post:before {
+  content: "\fa2e";
+}
+
+.ti-http-put:before {
+  content: "\fa2f";
+}
+
+.ti-http-trace:before {
+  content: "\fa30";
+}
+
 .ti-ice-cream:before {
   content: "\eac2";
 }
@@ -10212,6 +10272,10 @@
 
 .ti-mail:before {
   content: "\eae5";
+}
+
+.ti-mail-ai:before {
+  content: "\fa31";
 }
 
 .ti-mail-bolt:before {
@@ -11820,6 +11884,10 @@
 
 .ti-photo:before {
   content: "\eb0a";
+}
+
+.ti-photo-ai:before {
+  content: "\fa32";
 }
 
 .ti-photo-bolt:before {
@@ -16116,6 +16184,10 @@
 
 .ti-xbox-y:before {
   content: "\f2b9";
+}
+
+.ti-xd:before {
+  content: "\fa33";
 }
 
 .ti-yin-yang:before {
