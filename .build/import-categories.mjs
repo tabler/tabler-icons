@@ -3,7 +3,7 @@ import fs from 'fs'
 import { resolve, join, basename } from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
-const extensions = ['heart', 'star', 'off', 'bolt', 'cancel', 'check', 'cog', 'dollar', 'dot', 'eco', 'edit', 'x', 'plus', 'minus', 'shield', 'up', 'down', 'move', 'link', 'ribbon', 'question', 'exclamation', '2', '3', 'code', 'pause', 'pin', 'search', 'share', 'hand', 'infinity']
+const extensions = ['heart', 'star', 'off', 'bolt', 'cancel', 'check', 'cog', 'dollar', 'dot', 'eco', 'edit', 'x', 'plus', 'minus', 'shield', 'up', 'down', 'move', 'link', 'ribbon', 'question', 'exclamation', '2', '3', 'code', 'pause', 'pin', 'search', 'share', 'hand', 'infinity', 'ai']
 
 extensions.forEach(function (extension) {
 
