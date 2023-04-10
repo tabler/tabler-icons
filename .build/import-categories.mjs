@@ -3,7 +3,8 @@ import fs from 'fs'
 import { resolve, join, basename } from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
-const extensions = ['heart', 'star', 'off', 'bolt', 'cancel', 'check', 'cog', 'dollar', 'dot', 'eco', 'edit', 'x', 'plus', 'minus', 'shield', 'up', 'down', 'move', 'link', 'ribbon', 'question', 'exclamation', '2', '3', 'code', 'pause', 'pin', 'search', 'share', 'hand', 'infinity', 'ai']
+// const extensions = ['heart', 'star', 'off', 'bolt', 'cancel', 'check', 'cog', 'dollar', 'dot', 'eco', 'edit', 'x', 'plus', 'minus', 'shield', 'up', 'down', 'move', 'link', 'ribbon', 'question', 'exclamation', '2', '3', 'code', 'pause', 'pin', 'search', 'share', 'hand', 'infinity', 'ai']
+const extensions = ['filled']
 
 extensions.forEach(function (extension) {
 
@@ -22,15 +23,15 @@ extensions.forEach(function (extension) {
         data = data.replace(/(---[\s\S]+?---)/, function (m, headerContent) {
           console.log('categoryOriginal', fileOriginal, categoryOriginal && categoryOriginal[1], tagsOriginal && tagsOriginal[1])
 
-          if (categoryOriginal) {
-            headerContent = headerContent.replace(/category: .*\n/, '')
-            headerContent = headerContent.replace(/---/, `---\ncategory: ${categoryOriginal[1]}`)
-          }
-
-          // if (tagsOriginal) {
-          //   headerContent = headerContent.replace(/tags: .*\n/, '')
-          //   headerContent = headerContent.replace(/---/, `---\ntags: ${tagsOriginal[1]}`)
+          // if (categoryOriginal) {
+          //   headerContent = headerContent.replace(/category: .*\n/, '')
+          //   headerContent = headerContent.replace(/---/, `---\ncategory: ${categoryOriginal[1]}`)
           // }
+
+          if (tagsOriginal) {
+            headerContent = headerContent.replace(/tags: .*\n/, '')
+            headerContent = headerContent.replace(/---/, `---\ntags: ${tagsOriginal[1]}`)
+          }
 
           return headerContent
         })
