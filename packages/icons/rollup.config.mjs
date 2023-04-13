@@ -1,40 +1,40 @@
-import fs from "fs";
-import { getRollupPlugins } from "../../.build/build-icons.mjs";
+import fs from 'fs';
+import { getRollupPlugins } from '../../.build/build-icons.mjs';
 
-const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
-const packageName = "@tabler/icons";
-const outputFileName = "tabler-icons";
-const outputDir = "dist";
-const inputs = ["./src/tabler-icons.js"];
+const packageName = '@tabler/icons';
+const outputFileName = 'tabler-icons';
+const outputDir = 'dist';
+const inputs = ['./src/tabler-icons.js'];
 const bundles = [
   {
-    format: "umd",
+    format: 'umd',
     inputs,
     outputDir,
     minify: true,
   },
   {
-    format: "umd",
+    format: 'umd',
     inputs,
     outputDir,
   },
   {
-    format: "cjs",
+    format: 'cjs',
     inputs,
     outputDir,
   },
   {
-    format: "es",
+    format: 'es',
     inputs,
     outputDir,
   },
   {
-    format: "esm",
+    format: 'esm',
     inputs,
     outputDir,
     preserveModules: true,
-    extension: "mjs",
+    extension: 'mjs',
   },
 ];
 
@@ -46,7 +46,7 @@ const configs = bundles
       format,
       minify,
       preserveModules,
-      extension = "js",
+      extension = 'js',
     }) =>
       inputs.map((input) => ({
         input,
@@ -60,7 +60,7 @@ const configs = bundles
               }
             : {
                 file: `${outputDir}/${format}/${outputFileName}${
-                  minify ? ".min" : ""
+                  minify ? '.min' : ''
                 }.${extension}`,
               }),
           format,

@@ -1,39 +1,39 @@
-import fs from "fs";
-import { getRollupPlugins } from "../../.build/build-icons.mjs";
+import fs from 'fs';
+import { getRollupPlugins } from '../../.build/build-icons.mjs';
 
-const pkg = JSON.parse(fs.readFileSync("package.json", "utf-8"));
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
-const packageName = "@tabler/icons-react";
-const outputFileName = "tabler-icons-react";
-const outputDir = "dist";
-const inputs = ["./src/tabler-icons-react.js"];
+const packageName = '@tabler/icons-react';
+const outputFileName = 'tabler-icons-react';
+const outputDir = 'dist';
+const inputs = ['./src/tabler-icons-react.js'];
 const bundles = [
   {
-    format: "umd",
+    format: 'umd',
     inputs,
     outputDir,
     minify: true,
   },
   {
-    format: "umd",
+    format: 'umd',
     inputs,
     outputDir,
   },
   {
-    format: "cjs",
+    format: 'cjs',
     inputs,
     outputDir,
   },
   {
-    format: "es",
+    format: 'es',
     inputs,
     outputDir,
   },
   {
-    format: "esm",
+    format: 'esm',
     inputs,
     outputDir,
-    extension: "mjs",
+    extension: 'mjs',
     preserveModules: true,
   },
 ];
@@ -46,12 +46,12 @@ const configs = bundles
       format,
       minify,
       preserveModules,
-      extension = "js",
+      extension = 'js',
     }) =>
       inputs.map((input) => ({
         input,
         plugins: getRollupPlugins(pkg, minify),
-        external: ["react", "prop-types"],
+        external: ['react', 'prop-types'],
         output: {
           name: packageName,
           ...(preserveModules
@@ -61,15 +61,15 @@ const configs = bundles
               }
             : {
                 file: `${outputDir}/${format}/${outputFileName}${
-                  minify ? ".min" : ""
+                  minify ? '.min' : ''
                 }.${extension}`,
               }),
           format,
           sourcemap: true,
           preserveModules,
           globals: {
-            react: "react",
-            "prop-types": "PropTypes",
+            react: 'react',
+            'prop-types': 'PropTypes',
           },
         },
       }))
