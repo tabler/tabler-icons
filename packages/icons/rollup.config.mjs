@@ -39,27 +39,35 @@ const bundles = [
 ];
 
 const configs = bundles
-  .map(({ inputs, outputDir, format, minify, preserveModules }) =>
-    inputs.map((input) => ({
-      input,
-      plugins: getRollupPlugins(pkg, minify),
-      output: {
-        name: packageName,
-        ...(preserveModules
-          ? {
-              dir: `${outputDir}/${format}`,
-              entryFileNames: `[name].${extension}`,
-            }
-          : {
-              file: `${outputDir}/${format}/${outputFileName}${
-                minify ? ".min" : ""
-              }.${extension}`,
-            }),
-        format,
-        preserveModules,
-        sourcemap: true,
-      },
-    }))
+  .map(
+    ({
+      inputs,
+      outputDir,
+      format,
+      minify,
+      preserveModules,
+      extension = "js",
+    }) =>
+      inputs.map((input) => ({
+        input,
+        plugins: getRollupPlugins(pkg, minify),
+        output: {
+          name: packageName,
+          ...(preserveModules
+            ? {
+                dir: `${outputDir}/${format}`,
+                entryFileNames: `[name].${extension}`,
+              }
+            : {
+                file: `${outputDir}/${format}/${outputFileName}${
+                  minify ? ".min" : ""
+                }.${extension}`,
+              }),
+          format,
+          preserveModules,
+          sourcemap: true,
+        },
+      }))
   )
   .flat();
 
