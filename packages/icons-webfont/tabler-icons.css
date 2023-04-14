@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.15.0 by tabler - https://tabler.io
+ * Tabler Icons 2.16.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.15.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.15.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.15.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.15.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.16.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.16.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.16.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.16.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2430,6 +2430,14 @@
   content: "\edc5";
 }
 
+.ti-brand-aws:before {
+  content: "\fa4c";
+}
+
+.ti-brand-azure:before {
+  content: "\fa4d";
+}
+
 .ti-brand-backbone:before {
   content: "\f325";
 }
@@ -2536,6 +2544,10 @@
 
 .ti-brand-citymapper:before {
   content: "\f5fc";
+}
+
+.ti-brand-cloudflare:before {
+  content: "\fa4e";
 }
 
 .ti-brand-codecov:before {
@@ -2838,6 +2850,10 @@
   content: "\f601";
 }
 
+.ti-brand-google-maps:before {
+  content: "\fa4f";
+}
+
 .ti-brand-google-one:before {
   content: "\f232";
 }
@@ -2884,6 +2900,10 @@
 
 .ti-brand-headlessui:before {
   content: "\f32d";
+}
+
+.ti-brand-hexo:before {
+  content: "\fa50";
 }
 
 .ti-brand-hipchat:before {
@@ -2936,6 +2956,10 @@
 
 .ti-brand-lastfm:before {
   content: "\f001";
+}
+
+.ti-brand-leetcode:before {
+  content: "\fa51";
 }
 
 .ti-brand-letterboxd:before {
@@ -3076,6 +3100,10 @@
 
 .ti-brand-nytimes:before {
   content: "\ef8d";
+}
+
+.ti-brand-oauth:before {
+  content: "\fa52";
 }
 
 .ti-brand-office:before {
@@ -3222,6 +3250,10 @@
   content: "\f4da";
 }
 
+.ti-brand-rust:before {
+  content: "\fa53";
+}
+
 .ti-brand-safari:before {
   content: "\ec23";
 }
@@ -3306,6 +3338,10 @@
   content: "\ed6f";
 }
 
+.ti-brand-storj:before {
+  content: "\fa54";
+}
+
 .ti-brand-storybook:before {
   content: "\f332";
 }
@@ -3350,6 +3386,10 @@
   content: "\f0df";
 }
 
+.ti-brand-swift:before {
+  content: "\fa55";
+}
+
 .ti-brand-symfony:before {
   content: "\f616";
 }
@@ -3372,6 +3412,10 @@
 
 .ti-brand-telegram:before {
   content: "\ec26";
+}
+
+.ti-brand-terraform:before {
+  content: "\fa56";
 }
 
 .ti-brand-tether:before {
@@ -3784,6 +3828,10 @@
 
 .ti-building-monument:before {
   content: "\ed26";
+}
+
+.ti-building-mosque:before {
+  content: "\fa57";
 }
 
 .ti-building-pavilion:before {
@@ -5982,6 +6030,10 @@
   content: "\f372";
 }
 
+.ti-currency-iranian-rial:before {
+  content: "\fa58";
+}
+
 .ti-currency-kip:before {
   content: "\f373";
 }
@@ -7470,6 +7522,10 @@
   content: "\f90b";
 }
 
+.ti-dual-screen:before {
+  content: "\fa59";
+}
+
 .ti-e-passport:before {
   content: "\f4df";
 }
@@ -7816,6 +7872,10 @@
 
 .ti-file-code-2:before {
   content: "\ede8";
+}
+
+.ti-file-cv:before {
+  content: "\fa5a";
 }
 
 .ti-file-database:before {
@@ -9366,7 +9426,7 @@
   content: "\fa2c";
 }
 
-.ti-http-path:before {
+.ti-http-patch:before {
   content: "\fa2d";
 }
 
@@ -9376,6 +9436,10 @@
 
 .ti-http-put:before {
   content: "\fa2f";
+}
+
+.ti-http-que:before {
+  content: "\fa5b";
 }
 
 .ti-http-trace:before {
@@ -10120,6 +10184,10 @@
 
 .ti-live-view:before {
   content: "\ec6b";
+}
+
+.ti-load-balancer:before {
+  content: "\fa5c";
 }
 
 .ti-loader:before {
@@ -15232,6 +15300,10 @@
 
 .ti-toilet-paper-off:before {
   content: "\f1b4";
+}
+
+.ti-toml:before {
+  content: "\fa5d";
 }
 
 .ti-tool:before {
