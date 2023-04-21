@@ -32,11 +32,8 @@
     "fonts/*",
     "tabler-icons.*"
   ],
-  "exports": {
-    "./*": [
-      "./icons/*"
-    ]
-  },
+  "sass": "./tabler-icons.scss",
+  "style": "./tabler-icons.min.css",
   "dependencies": {
     "@tabler/icons": "2.16.0"
   },
