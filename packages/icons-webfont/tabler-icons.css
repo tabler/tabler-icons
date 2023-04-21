@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.16.0 by tabler - https://tabler.io
+ * Tabler Icons 2.17.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.16.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.16.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.16.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.16.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.17.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.17.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.17.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.17.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2090,8 +2090,24 @@
   content: "\ea3a";
 }
 
+.ti-bookmark-edit:before {
+  content: "\fa5e";
+}
+
+.ti-bookmark-minus:before {
+  content: "\fa5f";
+}
+
 .ti-bookmark-off:before {
   content: "\eced";
+}
+
+.ti-bookmark-plus:before {
+  content: "\fa60";
+}
+
+.ti-bookmark-question:before {
+  content: "\fa61";
 }
 
 .ti-bookmarks:before {
@@ -8282,6 +8298,10 @@
   content: "\ebd3";
 }
 
+.ti-focus-auto:before {
+  content: "\fa62";
+}
+
 .ti-focus-centered:before {
   content: "\f02a";
 }
@@ -8432,6 +8452,18 @@
 
 .ti-free-rights:before {
   content: "\efb6";
+}
+
+.ti-freeze-column:before {
+  content: "\fa63";
+}
+
+.ti-freeze-row:before {
+  content: "\fa65";
+}
+
+.ti-freeze-row-column:before {
+  content: "\fa64";
 }
 
 .ti-fridge:before {
@@ -12282,12 +12314,28 @@
   content: "\f17d";
 }
 
+.ti-play-basketball:before {
+  content: "\fa66";
+}
+
 .ti-play-card:before {
   content: "\eebf";
 }
 
 .ti-play-card-off:before {
   content: "\f17e";
+}
+
+.ti-play-football:before {
+  content: "\fa67";
+}
+
+.ti-play-handball:before {
+  content: "\fa68";
+}
+
+.ti-play-volleyball:before {
+  content: "\fa69";
 }
 
 .ti-player-eject:before {
@@ -12946,6 +12994,10 @@
   content: "\f58e";
 }
 
+.ti-rings:before {
+  content: "\fa6a";
+}
+
 .ti-ripple:before {
   content: "\ed82";
 }
@@ -13246,6 +13298,10 @@
   content: "\ecc1";
 }
 
+.ti-scoreboard:before {
+  content: "\fa6b";
+}
+
 .ti-screen-share:before {
   content: "\ed18";
 }
@@ -13512,6 +13568,10 @@
 
 .ti-share-off:before {
   content: "\f1a1";
+}
+
+.ti-shi-jumping:before {
+  content: "\fa6c";
 }
 
 .ti-shield:before {
@@ -14838,6 +14898,10 @@
   content: "\f2db";
 }
 
+.ti-stretching-2:before {
+  content: "\fa6d";
+}
+
 .ti-strikethrough:before {
   content: "\eb9e";
 }
@@ -15494,6 +15558,10 @@
   content: "\f784";
 }
 
+.ti-treadmill:before {
+  content: "\fa6e";
+}
+
 .ti-tree:before {
   content: "\ef01";
 }
@@ -16096,6 +16164,10 @@
 
 .ti-wash-tumble-off:before {
   content: "\f310";
+}
+
+.ti-waterpolo:before {
+  content: "\fa6f";
 }
 
 .ti-wave-saw-tool:before {
