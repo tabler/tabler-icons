@@ -1,13 +1,13 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
-import { stringify } from 'svgson'
 import prettier from 'prettier'
+import { stringify } from 'svgson'
+import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
 
 import bundleSize from '@atomico/rollup-plugin-sizes'
-import { visualizer } from 'rollup-plugin-visualizer'
-import license from 'rollup-plugin-license'
 import esbuild from 'rollup-plugin-esbuild'
+import license from 'rollup-plugin-license'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 /**
  * Build icons
@@ -76,6 +76,9 @@ export const buildIcons = ({
     }) : component
 
     let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.namePascal}.${extension}`)
+    if (!fs.existsSync(path.dirname(filePath))) {
+        fs.mkdirSync(path.dirname(filePath))
+    }
     fs.writeFileSync(filePath, output, 'utf-8')
 
     index.push(indexItemTemplate({
