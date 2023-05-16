@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.18.0 by tabler - https://tabler.io
+ * Tabler Icons 2.19.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.18.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.18.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.18.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.18.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.19.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.19.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.19.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.19.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -620,6 +620,10 @@
 
 .ti-archive:before {
   content: "\ea0b";
+}
+
+.ti-archive-filled:before {
+  content: "\fa82";
 }
 
 .ti-archive-off:before {
@@ -1358,6 +1362,10 @@
   content: "\ea2a";
 }
 
+.ti-artboard-filled:before {
+  content: "\fa83";
+}
+
 .ti-artboard-off:before {
   content: "\f0ae";
 }
@@ -1610,12 +1618,20 @@
   content: "\ef3a";
 }
 
+.ti-balloon-filled:before {
+  content: "\fa84";
+}
+
 .ti-balloon-off:before {
   content: "\f0fd";
 }
 
 .ti-ballpen:before {
   content: "\f06e";
+}
+
+.ti-ballpen-filled:before {
+  content: "\fa85";
 }
 
 .ti-ballpen-off:before {
@@ -2050,6 +2066,10 @@
   content: "\f59c";
 }
 
+.ti-bomb-filled:before {
+  content: "\fa86";
+}
+
 .ti-bone:before {
   content: "\edb8";
 }
@@ -2078,6 +2098,10 @@
   content: "\f070";
 }
 
+.ti-book-filled:before {
+  content: "\fa87";
+}
+
 .ti-book-off:before {
   content: "\f0bc";
 }
@@ -2092,6 +2116,10 @@
 
 .ti-bookmark-edit:before {
   content: "\fa5e";
+}
+
+.ti-bookmark-filled:before {
+  content: "\fa88";
 }
 
 .ti-bookmark-minus:before {
@@ -2190,6 +2218,10 @@
   content: "\ef0b";
 }
 
+.ti-bottle-filled:before {
+  content: "\fa89";
+}
+
 .ti-bottle-off:before {
   content: "\f3c8";
 }
@@ -2218,32 +2250,64 @@
   content: "\f2a8";
 }
 
+.ti-box-align-bottom-filled:before {
+  content: "\fa8a";
+}
+
 .ti-box-align-bottom-left:before {
   content: "\f2ce";
+}
+
+.ti-box-align-bottom-left-filled:before {
+  content: "\fa8b";
 }
 
 .ti-box-align-bottom-right:before {
   content: "\f2cf";
 }
 
+.ti-box-align-bottom-right-filled:before {
+  content: "\fa8c";
+}
+
 .ti-box-align-left:before {
   content: "\f2a9";
+}
+
+.ti-box-align-left-filled:before {
+  content: "\fa8d";
 }
 
 .ti-box-align-right:before {
   content: "\f2aa";
 }
 
+.ti-box-align-right-filled:before {
+  content: "\fa8e";
+}
+
 .ti-box-align-top:before {
   content: "\f2ab";
+}
+
+.ti-box-align-top-filled:before {
+  content: "\fa8f";
 }
 
 .ti-box-align-top-left:before {
   content: "\f2d0";
 }
 
+.ti-box-align-top-left-filled:before {
+  content: "\fa90";
+}
+
 .ti-box-align-top-right:before {
   content: "\f2d1";
+}
+
+.ti-box-align-top-right-filled:before {
+  content: "\fa91";
 }
 
 .ti-box-margin:before {
@@ -4270,8 +4334,16 @@
   content: "\f659";
 }
 
+.ti-carousel-horizontal-filled:before {
+  content: "\fa92";
+}
+
 .ti-carousel-vertical:before {
   content: "\f65a";
+}
+
+.ti-carousel-vertical-filled:before {
+  content: "\fa93";
 }
 
 .ti-carrot:before {
