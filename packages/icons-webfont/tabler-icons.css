@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.19.0 by tabler - https://tabler.io
+ * Tabler Icons 2.20.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.19.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.19.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.19.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.19.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.20.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.20.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.20.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.20.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -5782,6 +5782,10 @@
   content: "\f3d8";
 }
 
+.ti-cone-plus:before {
+  content: "\fa94";
+}
+
 .ti-confetti:before {
   content: "\ee46";
 }
@@ -6032,6 +6036,18 @@
 
 .ti-csv:before {
   content: "\f791";
+}
+
+.ti-cube:before {
+  content: "\fa97";
+}
+
+.ti-cube-off:before {
+  content: "\fa95";
+}
+
+.ti-cube-plus:before {
+  content: "\fa96";
 }
 
 .ti-cube-send:before {
@@ -6340,6 +6356,14 @@
 
 .ti-cylinder:before {
   content: "\f54c";
+}
+
+.ti-cylinder-off:before {
+  content: "\fa98";
+}
+
+.ti-cylinder-plus:before {
+  content: "\fa99";
 }
 
 .ti-dashboard:before {
@@ -7288,6 +7312,18 @@
 
 .ti-devices-x:before {
   content: "\f8f8";
+}
+
+.ti-diabolo:before {
+  content: "\fa9c";
+}
+
+.ti-diabolo-off:before {
+  content: "\fa9a";
+}
+
+.ti-diabolo-plus:before {
+  content: "\fa9b";
 }
 
 .ti-dialpad:before {
@@ -8598,6 +8634,18 @@
   content: "\f136";
 }
 
+.ti-frustum:before {
+  content: "\fa9f";
+}
+
+.ti-frustum-off:before {
+  content: "\fa9d";
+}
+
+.ti-frustum-plus:before {
+  content: "\fa9e";
+}
+
 .ti-function:before {
   content: "\f225";
 }
@@ -9158,6 +9206,18 @@
   content: "\fa42";
 }
 
+.ti-hemisphere:before {
+  content: "\faa2";
+}
+
+.ti-hemisphere-off:before {
+  content: "\faa0";
+}
+
+.ti-hemisphere-plus:before {
+  content: "\faa1";
+}
+
 .ti-hexagon:before {
   content: "\ec02";
 }
@@ -9356,6 +9416,30 @@
 
 .ti-hexagon-off:before {
   content: "\ee9c";
+}
+
+.ti-hexagonal-prism:before {
+  content: "\faa5";
+}
+
+.ti-hexagonal-prism-off:before {
+  content: "\faa3";
+}
+
+.ti-hexagonal-prism-plus:before {
+  content: "\faa4";
+}
+
+.ti-hexagonal-pyramid:before {
+  content: "\faa8";
+}
+
+.ti-hexagonal-pyramid-off:before {
+  content: "\faa6";
+}
+
+.ti-hexagonal-pyramid-plus:before {
+  content: "\faa7";
 }
 
 .ti-hexagons:before {
@@ -9812,6 +9896,18 @@
 
 .ti-ironing-steam-off:before {
   content: "\f2f8";
+}
+
+.ti-irregular-polyhedron:before {
+  content: "\faab";
+}
+
+.ti-irregular-polyhedron-off:before {
+  content: "\faa9";
+}
+
+.ti-irregular-polyhedron-plus:before {
+  content: "\faaa";
 }
 
 .ti-italic:before {
@@ -11910,6 +12006,18 @@
   content: "\eeb8";
 }
 
+.ti-octahedron:before {
+  content: "\faae";
+}
+
+.ti-octahedron-off:before {
+  content: "\faac";
+}
+
+.ti-octahedron-plus:before {
+  content: "\faad";
+}
+
 .ti-old:before {
   content: "\eeb9";
 }
@@ -12790,6 +12898,18 @@
   content: "\f184";
 }
 
+.ti-prism:before {
+  content: "\fab1";
+}
+
+.ti-prism-off:before {
+  content: "\faaf";
+}
+
+.ti-prism-plus:before {
+  content: "\fab0";
+}
+
 .ti-prison:before {
   content: "\ef79";
 }
@@ -12860,6 +12980,10 @@
 
 .ti-pyramid-off:before {
   content: "\f187";
+}
+
+.ti-pyramid-plus:before {
+  content: "\fab2";
 }
 
 .ti-qrcode:before {
@@ -13012,6 +13136,18 @@
 
 .ti-rectangle-vertical-filled:before {
   content: "\f69b";
+}
+
+.ti-rectangular-prism:before {
+  content: "\fab5";
+}
+
+.ti-rectangular-prism-off:before {
+  content: "\fab3";
+}
+
+.ti-rectangular-prism-plus:before {
+  content: "\fab4";
 }
 
 .ti-recycle:before {
@@ -14156,6 +14292,18 @@
 
 .ti-speedboat:before {
   content: "\ed93";
+}
+
+.ti-sphere:before {
+  content: "\fab8";
+}
+
+.ti-sphere-off:before {
+  content: "\fab6";
+}
+
+.ti-sphere-plus:before {
+  content: "\fab7";
 }
 
 .ti-spider:before {
