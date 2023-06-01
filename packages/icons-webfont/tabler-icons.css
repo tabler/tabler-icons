@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.20.0 by tabler - https://tabler.io
+ * Tabler Icons 2.21.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.20.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.20.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.20.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.20.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.21.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.21.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.21.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.21.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -1492,6 +1492,10 @@
 
 .ti-backpack-off:before {
   content: "\f3c2";
+}
+
+.ti-backslash:before {
+  content: "\fab9";
 }
 
 .ti-backspace:before {
@@ -13258,6 +13262,70 @@
   content: "\eecf";
 }
 
+.ti-rewind-backward-10:before {
+  content: "\faba";
+}
+
+.ti-rewind-backward-15:before {
+  content: "\fabb";
+}
+
+.ti-rewind-backward-20:before {
+  content: "\fabc";
+}
+
+.ti-rewind-backward-30:before {
+  content: "\fabd";
+}
+
+.ti-rewind-backward-40:before {
+  content: "\fabe";
+}
+
+.ti-rewind-backward-5:before {
+  content: "\fabf";
+}
+
+.ti-rewind-backward-50:before {
+  content: "\fac0";
+}
+
+.ti-rewind-backward-60:before {
+  content: "\fac1";
+}
+
+.ti-rewind-forward-10:before {
+  content: "\fac2";
+}
+
+.ti-rewind-forward-15:before {
+  content: "\fac3";
+}
+
+.ti-rewind-forward-20:before {
+  content: "\fac4";
+}
+
+.ti-rewind-forward-30:before {
+  content: "\fac5";
+}
+
+.ti-rewind-forward-40:before {
+  content: "\fac6";
+}
+
+.ti-rewind-forward-5:before {
+  content: "\fac7";
+}
+
+.ti-rewind-forward-50:before {
+  content: "\fac8";
+}
+
+.ti-rewind-forward-60:before {
+  content: "\fac9";
+}
+
 .ti-ribbon-health:before {
   content: "\f58e";
 }
@@ -14108,6 +14176,10 @@
 
 .ti-skateboard-off:before {
   content: "\f42b";
+}
+
+.ti-skateboarding:before {
+  content: "\faca";
 }
 
 .ti-skull:before {
