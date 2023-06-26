@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.22.0 by tabler - https://tabler.io
+ * Tabler Icons 2.23.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.22.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.22.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.22.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.22.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.23.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.23.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.23.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.23.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -742,6 +742,10 @@
   content: "\f7d9";
 }
 
+.ti-arrow-bar-both:before {
+  content: "\fadd";
+}
+
 .ti-arrow-bar-down:before {
   content: "\ea0d";
 }
@@ -888,6 +892,10 @@
 
 .ti-arrow-bounce:before {
   content: "\f3a4";
+}
+
+.ti-arrow-capsule:before {
+  content: "\fade";
 }
 
 .ti-arrow-curve-left:before {
@@ -3162,6 +3170,10 @@
   content: "\efb0";
 }
 
+.ti-brand-microsoft-teams:before {
+  content: "\fadf";
+}
+
 .ti-brand-miniprogram:before {
   content: "\f602";
 }
@@ -3216,6 +3228,10 @@
 
 .ti-brand-nextjs:before {
   content: "\f0dd";
+}
+
+.ti-brand-nodejs:before {
+  content: "\fae0";
 }
 
 .ti-brand-nord-vpn:before {
@@ -3770,6 +3786,10 @@
   content: "\ed73";
 }
 
+.ti-brand-yandex:before {
+  content: "\fae1";
+}
+
 .ti-brand-yatse:before {
   content: "\f213";
 }
@@ -4306,6 +4326,14 @@
   content: "\f4c1";
 }
 
+.ti-capsule:before {
+  content: "\fae3";
+}
+
+.ti-capsule-horizontal:before {
+  content: "\fae2";
+}
+
 .ti-capture:before {
   content: "\ec3c";
 }
@@ -4746,8 +4774,16 @@
   content: "\ea60";
 }
 
+.ti-chevron-left-pipe:before {
+  content: "\fae4";
+}
+
 .ti-chevron-right:before {
   content: "\ea61";
+}
+
+.ti-chevron-right-pipe:before {
+  content: "\fae5";
 }
 
 .ti-chevron-up:before {
@@ -6518,6 +6554,10 @@
   content: "\f646";
 }
 
+.ti-device-airtag:before {
+  content: "\fae6";
+}
+
 .ti-device-analytics:before {
   content: "\ee72";
 }
@@ -7160,6 +7200,10 @@
 
 .ti-device-tv-old:before {
   content: "\f1d3";
+}
+
+.ti-device-vision-pro:before {
+  content: "\fae7";
 }
 
 .ti-device-watch:before {
@@ -11142,6 +11186,10 @@
   content: "\ec2f";
 }
 
+.ti-medical-cross-circle:before {
+  content: "\fae8";
+}
+
 .ti-medical-cross-filled:before {
   content: "\f681";
 }
@@ -11468,6 +11516,18 @@
 
 .ti-meteor-off:before {
   content: "\f40c";
+}
+
+.ti-michelin-bib-gourmand:before {
+  content: "\fae9";
+}
+
+.ti-michelin-star:before {
+  content: "\faeb";
+}
+
+.ti-michelin-star-green:before {
+  content: "\faea";
 }
 
 .ti-mickey:before {
@@ -11888,6 +11948,10 @@
 
 .ti-navigation-filled:before {
   content: "\f685";
+}
+
+.ti-navigation-north:before {
+  content: "\faec";
 }
 
 .ti-navigation-off:before {
@@ -13168,6 +13232,14 @@
 
 .ti-rectangle-filled:before {
   content: "\f69a";
+}
+
+.ti-rectangle-rounded-bottom:before {
+  content: "\faed";
+}
+
+.ti-rectangle-rounded-top:before {
+  content: "\faee";
 }
 
 .ti-rectangle-vertical:before {
