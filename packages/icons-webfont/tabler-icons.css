@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.26.0 by tabler - https://tabler.io
+ * Tabler Icons 2.27.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.26.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.26.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.26.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.26.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.27.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.27.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.27.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.27.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -14822,20 +14822,40 @@
   content: "\f4b7";
 }
 
+.ti-square-arrow-down-filled:before {
+  content: "\fb31";
+}
+
 .ti-square-arrow-left:before {
   content: "\f4b8";
+}
+
+.ti-square-arrow-left-filled:before {
+  content: "\fb32";
 }
 
 .ti-square-arrow-right:before {
   content: "\f4b9";
 }
 
+.ti-square-arrow-right-filled:before {
+  content: "\fb33";
+}
+
 .ti-square-arrow-up:before {
   content: "\f4ba";
 }
 
+.ti-square-arrow-up-filled:before {
+  content: "\fb34";
+}
+
 .ti-square-asterisk:before {
   content: "\f01a";
+}
+
+.ti-square-asterisk-filled:before {
+  content: "\fb35";
 }
 
 .ti-square-check:before {
@@ -14850,36 +14870,72 @@
   content: "\f627";
 }
 
+.ti-square-chevron-down-filled:before {
+  content: "\fb36";
+}
+
 .ti-square-chevron-left:before {
   content: "\f628";
+}
+
+.ti-square-chevron-left-filled:before {
+  content: "\fb37";
 }
 
 .ti-square-chevron-right:before {
   content: "\f629";
 }
 
+.ti-square-chevron-right-filled:before {
+  content: "\fb38";
+}
+
 .ti-square-chevron-up:before {
   content: "\f62a";
+}
+
+.ti-square-chevron-up-filled:before {
+  content: "\fb39";
 }
 
 .ti-square-chevrons-down:before {
   content: "\f64b";
 }
 
+.ti-square-chevrons-down-filled:before {
+  content: "\fb3a";
+}
+
 .ti-square-chevrons-left:before {
   content: "\f64c";
+}
+
+.ti-square-chevrons-left-filled:before {
+  content: "\fb3b";
 }
 
 .ti-square-chevrons-right:before {
   content: "\f64d";
 }
 
+.ti-square-chevrons-right-filled:before {
+  content: "\fb3c";
+}
+
 .ti-square-chevrons-up:before {
   content: "\f64e";
 }
 
+.ti-square-chevrons-up-filled:before {
+  content: "\fb3d";
+}
+
 .ti-square-dot:before {
   content: "\ed59";
+}
+
+.ti-square-dot-filled:before {
+  content: "\fb3e";
 }
 
 .ti-square-f0:before {
@@ -15084,6 +15140,10 @@
 
 .ti-square-minus:before {
   content: "\eb29";
+}
+
+.ti-square-minus-filled:before {
+  content: "\fb3f";
 }
 
 .ti-square-number-0:before {
@@ -15382,6 +15442,10 @@
   content: "\f63e";
 }
 
+.ti-square-rounded-minus-filled:before {
+  content: "\fb40";
+}
+
 .ti-square-rounded-number-0:before {
   content: "\f5c8";
 }
@@ -15488,6 +15552,10 @@
 
 .ti-square-x:before {
   content: "\eb2b";
+}
+
+.ti-square-x-filled:before {
+  content: "\fb41";
 }
 
 .ti-squares-diagonal:before {
@@ -16380,6 +16448,10 @@
 
 .ti-triangle-square-circle:before {
   content: "\ece8";
+}
+
+.ti-triangle-square-circle-filled:before {
+  content: "\fb42";
 }
 
 .ti-triangles:before {
