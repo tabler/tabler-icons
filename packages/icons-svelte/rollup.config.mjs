@@ -12,11 +12,6 @@ const outputDir = 'dist';
 const inputs = ['./src/tabler-icons-svelte.js'];
 const bundles = [
   {
-    format: 'es',
-    inputs,
-    outputDir,
-  },
-  {
     format: 'esm',
     inputs,
     outputDir,
