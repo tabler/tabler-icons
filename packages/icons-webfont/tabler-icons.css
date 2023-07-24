@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.28.0 by tabler - https://tabler.io
+ * Tabler Icons 2.29.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.28.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.28.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.28.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.28.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.29.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.29.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.29.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.29.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -3878,12 +3878,20 @@
   content: "\f2d3";
 }
 
+.ti-brand-x:before {
+  content: "\fc0f";
+}
+
 .ti-brand-xamarin:before {
   content: "\fa7a";
 }
 
 .ti-brand-xbox:before {
   content: "\f298";
+}
+
+.ti-brand-xdeep:before {
+  content: "\fc10";
 }
 
 .ti-brand-xing:before {
@@ -7338,6 +7346,10 @@
   content: "\f111";
 }
 
+.ti-device-projector:before {
+  content: "\fc11";
+}
+
 .ti-device-remote:before {
   content: "\f792";
 }
@@ -8036,6 +8048,10 @@
 
 .ti-droplet-x:before {
   content: "\f90b";
+}
+
+.ti-droplets:before {
+  content: "\fc12";
 }
 
 .ti-dual-screen:before {
@@ -9426,6 +9442,10 @@
   content: "\f74a";
 }
 
+.ti-ghost-3:before {
+  content: "\fc13";
+}
+
 .ti-ghost-filled:before {
   content: "\f74b";
 }
@@ -10732,6 +10752,10 @@
 
 .ti-ladder-off:before {
   content: "\f14c";
+}
+
+.ti-ladle:before {
+  content: "\fc14";
 }
 
 .ti-lambda:before {
@@ -14374,6 +14398,10 @@
   content: "\f3ae";
 }
 
+.ti-reorder:before {
+  content: "\fc15";
+}
+
 .ti-repeat:before {
   content: "\eb72";
 }
@@ -15240,6 +15268,38 @@
 
 .ti-shopping-bag:before {
   content: "\f5f8";
+}
+
+.ti-shopping-bag-check:before {
+  content: "\fc16";
+}
+
+.ti-shopping-bag-discount:before {
+  content: "\fc17";
+}
+
+.ti-shopping-bag-edit:before {
+  content: "\fc18";
+}
+
+.ti-shopping-bag-exclamation:before {
+  content: "\fc19";
+}
+
+.ti-shopping-bag-minus:before {
+  content: "\fc1a";
+}
+
+.ti-shopping-bag-plus:before {
+  content: "\fc1b";
+}
+
+.ti-shopping-bag-search:before {
+  content: "\fc1c";
+}
+
+.ti-shopping-bag-x:before {
+  content: "\fc1d";
 }
 
 .ti-shopping-cart:before {
@@ -17146,12 +17206,20 @@
   content: "\ed96";
 }
 
+.ti-transfer:before {
+  content: "\fc1f";
+}
+
 .ti-transfer-in:before {
   content: "\ef2f";
 }
 
 .ti-transfer-out:before {
   content: "\ef30";
+}
+
+.ti-transfer-vertical:before {
+  content: "\fc1e";
 }
 
 .ti-transform:before {
@@ -18084,6 +18152,10 @@
 
 .ti-xd:before {
   content: "\fa33";
+}
+
+.ti-xxx:before {
+  content: "\fc20";
 }
 
 .ti-yin-yang:before {
