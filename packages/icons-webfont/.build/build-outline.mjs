@@ -7,7 +7,7 @@ const DIR = getPackageDir('icons-webfont')
 
 const buildOutline = async () => {
   let files = readSvgs()
-  const compileOptions = getCompileOptions()
+  const compileOptions = await getCompileOptions()
 
   const iconfontUnicode = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'tags.json'), 'utf-8'))
 

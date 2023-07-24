@@ -274,16 +274,21 @@ export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pr
 }
 
 
-export const getCompileOptions = () => {
+export const getCompileOptions = async () => {
   const compileOptions = {
     includeIcons: [],
     strokeWidth: null,
     fontForge: 'fontforge'
   }
 
-  if (fs.existsSync('../compile-options.json')) {
+  // Check if the `compile-options.json` file exists,
+  // `fs.existsSync` uses the current working directory for relative paths,
+  // therefore we first need to resolve the absolute path using our parent directory.
+  // (Otherwise `import` and `fs.existsSync` could use different paths)
+  const absolutePath = path.resolve(__dirname, '../compile-options.json')
+  if (fs.existsSync(absolutePath)) {
     try {
-      const tempOptions = require('../compile-options.json')
+      const tempOptions = await import('../compile-options.json')
 
       if (typeof tempOptions !== 'object') {
         throw 'Compile options file does not contain an json object'

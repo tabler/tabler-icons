@@ -253,13 +253,13 @@ The fontforge executable needs to be in the path or you can set the path to the 
 
 To compile the fonts run:
 ```sh
-npm run build-iconfont
+npm run build:webfont
 ```
 
 By default the stroke width is 2. You can change the stroke width in the `compile-options.json`
 ```JSON
 {
-  "strokeWidth": 1.5,
+  "strokeWidth": 1.5
 }
 ```
 
