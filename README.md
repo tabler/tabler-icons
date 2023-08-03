@@ -36,7 +36,7 @@
 npm install @tabler/icons --save
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
