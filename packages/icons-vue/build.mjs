@@ -1,39 +1,50 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import path from 'path'
+import tablerIcons from '@tabler/icons'
+import fs from 'fs-extra'
+import { toPascalCase } from '../../.build/helpers.mjs'
 
-const componentTemplate = ({
+// Build vue icons
+(() => {
+const icons = Object.keys(tablerIcons).map(name => ({
   name,
-  namePascal,
-  children
-}) => `\
-import createVueComponent from '../createVueComponent';
-export default createVueComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
+  namePascal: toPascalCase(`icon ${name}`)
+}))
 
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
-
-const typeDefinitionsTemplate = () => `import { SVGAttributes, FunctionalComponent } from 'vue';
+const index = []
+const typings = [`
+import { SVGAttributes, FunctionalComponent } from 'vue';
 declare module '@tabler/icons-vue'
 
-// Create interface extending SVGAttributes
 export interface SVGProps extends Partial<SVGAttributes> {
-  size?: 24 | number
+  size?: number
 }
+`]
 
-// Generated icons`
+icons.map(icon => {
+  const svgNodes = tablerIcons[icon.name].nodes.map((node, i) => {
+    node[1].key = `svg-${i}`
+    return node
+  })
+  .filter((i) => {
+    const [name, attributes] = i
+    return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
+  })
+  const svgAttrs = tablerIcons[icon.name].attrs
+  const component = `\
+import createVueComponent from '../createVueComponent';
+export default createVueComponent(${JSON.stringify(svgNodes)}, ${JSON.stringify(svgAttrs)});`
 
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: (props: SVGProps) => FunctionalComponent<SVGProps>;`
+  const filepath = `./src/icons/${icon.namePascal}.ts`
 
+  fs.ensureDirSync(path.dirname(filepath))
+  fs.writeFileSync(filepath, component, 'utf8')
 
-buildIcons({
-  name: 'icons-vue',
-  componentTemplate,
-  indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate
+  index.push(`export { default as ${icon.namePascal} } from './icons/${icon.namePascal}'`)
+  typings.push(`export declare const ${icon.namePascal}: (props: SVGProps) => FunctionalComponent<SVGProps>;`)
 })
+
+fs.outputFile('./src/index.ts', index.join('\n\n') , 'utf8')
+fs.outputFile('./dist/index.d.ts', typings.join('\n\n') , 'utf8')
+})();

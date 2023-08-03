@@ -1,6 +1,7 @@
 type Name = string
 type Attrs = Record<string, string | number>
 type Content = string
+type Nodes = Array<Array<string | Record<string, string>>>
 
 const DEFAULT_ATTRS = {
   xmlns: "http://www.w3.org/2000/svg",
@@ -18,10 +19,12 @@ class TablerIcon {
   name: Name;
   content: Content;
   attrs: Attrs;
+  nodes: Nodes;
 
-  constructor(name: Name, contents: Content) {
+  constructor(name: Name, contents: Content, nodes: Nodes) {
     this.name = name;
     this.content = contents;
+    this.nodes = nodes;
     this.attrs = {
       ...DEFAULT_ATTRS,
       ...{ class: `icon icon-tabler icon-tabler-${name}` },

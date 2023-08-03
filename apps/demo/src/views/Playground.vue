@@ -27,8 +27,9 @@
       <td>Arguments can be passed to toSvg() function of TablerIcon</td>
       <td><span v-html="tablerIcons.abc.toSvg({style: 'color: red'})"/></td>
     </tr>    
-
-  </table>  
+    <IconAccessible size="32"/>
+  </table>
+  <Icon360 color="blue" :size="100"/>
 </template>
 
 <script lang="ts">
@@ -40,11 +41,14 @@ export default {
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import tablerIcons from '@tabler/icons'
+import { Icon360 } from '@tabler/icons-vue'
 import code from "@tabler/icons/svg/code.svg"
 
 onMounted(() => {
   console.log('tablerIcons.activity.toSvg(): ', tablerIcons.activity.toSvg())
   console.log('tablerIcons.activity: ', tablerIcons.activity)
+  console.log('tablerIcons.activity: ', JSON.stringify(tablerIcons.activity.nodes))
+  console.log('test ', Icon360)
 })
 </script>
 

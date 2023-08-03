@@ -1,0 +1,16 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "rootDir": "src",
+    "allowJs": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    // declarations are created by build script
+    // "declaration": true,
+    // "emitDeclarationOnly": true,    
+    // "declarationMap": true,
+    // "declarationDir": "types",
+  }
+}

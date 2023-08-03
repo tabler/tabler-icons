@@ -1,66 +1,88 @@
-import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import bundleSize from '@atomico/rollup-plugin-sizes'
+import { visualizer } from 'rollup-plugin-visualizer'
+import license from 'rollup-plugin-license'
+import esbuild from 'rollup-plugin-esbuild'
+// import dts from "rollup-plugin-dts";
+import pkg from "./package.json" assert { type: "json" }
+import typescript from "@rollup/plugin-typescript";
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+ const sharedOutput = {
+  name: '@tabler/icons-vue',
+  sourcemap: true,
+  globals: {
+    vue: 'vue',
+  }  
+ }
 
-const packageName = '@tabler/icons-vue';
-const outputFileName = 'tabler-icons-vue';
-const outputDir = 'dist';
-const inputs = ['./src/tabler-icons-vue.js'];
-const bundles = [
+const sharedPlugins = [
+  license({
+    banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
+  }),
+  bundleSize(),
+  visualizer({
+    sourcemap: false,
+    filename: `stats/${pkg.name}.html`
+  }),
+  typescript({ tsconfig: "./tsconfig.json" })
+]
+
+export default [
   {
-    format: 'umd',
-    inputs,
-    outputDir,
-    minify: true,
+    input: "src/index.ts",
+    output: [
+      {
+        ...sharedOutput,
+        file: pkg.main,
+        format: "cjs",
+      },
+      {
+        ...sharedOutput,
+        file: pkg.module,
+        format: "esm",
+      },
+      {
+        file: pkg['main:es'],
+        format: "es",
+        ...sharedOutput,
+      },      
+      {
+        file: pkg['main:umd'],
+        format: "umd",
+        ...sharedOutput,
+      }       
+    ],
+    plugins: [
+      ...sharedPlugins,
+      esbuild()
+    ]
   },
   {
-    format: 'umd',
-    inputs,
-    outputDir,
-  },
-  {
-    format: 'cjs',
-    inputs,
-    outputDir,
-  },
-  {
-    format: 'es',
-    inputs,
-    outputDir,
-  },
-  {
-    format: 'esm',
-    inputs,
-    outputDir,
-    preserveModules: true,
-  },
+    input: "src/index.ts",
+    output: [    
+      {
+        ...sharedOutput,
+        file: pkg['main:umd:min'],
+        format: 'umd',
+      },      
+    ],
+    plugins: [
+      ...sharedPlugins,
+      esbuild({
+        minify: true     
+      })
+    ]
+  },  
+  // {
+  //   input: "dist/esm/types/index.d.ts",
+  //   output: [
+  //     { 
+  //       file: "dist/index.d.ts",
+  //       format: "esm" 
+  //     }
+  //   ],
+  //   plugins: [
+  //     dts()
+  //   ]
+  // },
 ];
 
-const configs = bundles
-    .map(({ inputs, outputDir, format, minify, preserveModules }) =>
-        inputs.map(input => ({
-          input,
-          plugins: getRollupPlugins(pkg, minify),
-          external: ['vue'],
-          output: {
-            name: packageName,
-            ...(preserveModules
-                ? {
-                  dir: `${outputDir}/${format}`,
-                }
-                : {
-                  file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
-                }),
-            format,
-            preserveModules,
-            sourcemap: true,
-            globals: {
-              vue: 'vue',
-            },
-          },
-        })),
-    )
-    .flat();
-
-export default configs;
