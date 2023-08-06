@@ -208,7 +208,7 @@ All files included in `@tabler/icons` npm package are available over a CDN.
 #### Iconfont
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 ```
 
 To load a specific version replace `latest` with the desired version number.
