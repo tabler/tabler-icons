@@ -112,7 +112,7 @@ const MyComponent = () => {
 }
 ```
 
-`@tabler/icons-react` exports it's own type declarations for usage with React and Typescript.
+`@tabler/icons-react` exports its own type declarations for usage with React and Typescript.
 
 For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-react).
 
@@ -175,7 +175,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 <i-tabler name="brand-github" class="someclass"></i-tabler>
 ```
 
-`angular-tabler-icons` exports it's own type declarations for usage with Typescript.
+`angular-tabler-icons` exports its own type declarations for usage with Typescript.
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
