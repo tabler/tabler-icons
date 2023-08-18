@@ -283,7 +283,7 @@ export const getCompileOptions = () => {
 
   if (fs.existsSync('../compile-options.json')) {
     try {
-      const tempOptions = require('../compile-options.json')
+      const tempOptions = JSON.parse(fs.readFileSync('../compile-options.json').toString())
 
       if (typeof tempOptions !== 'object') {
         throw 'Compile options file does not contain an json object'

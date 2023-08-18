@@ -36,7 +36,7 @@
 npm install @tabler/icons --save
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
@@ -112,7 +112,7 @@ const MyComponent = () => {
 }
 ```
 
-`@tabler/icons-react` exports it's own type declarations for usage with React and Typescript.
+`@tabler/icons-react` exports its own type declarations for usage with React and Typescript.
 
 For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-react).
 
@@ -175,7 +175,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 <i-tabler name="brand-github" class="someclass"></i-tabler>
 ```
 
-`angular-tabler-icons` exports it's own type declarations for usage with Typescript.
+`angular-tabler-icons` exports its own type declarations for usage with Typescript.
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
@@ -208,7 +208,7 @@ All files included in `@tabler/icons` npm package are available over a CDN.
 #### Iconfont
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 ```
 
 To load a specific version replace `latest` with the desired version number.
