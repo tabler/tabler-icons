@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.30.0 by tabler - https://tabler.io
+ * Tabler Icons 2.31.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.30.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.30.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.30.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.30.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.31.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.31.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.31.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.31.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2842,6 +2842,10 @@
   content: "\f24e";
 }
 
+.ti-brand-databricks:before {
+  content: "\fc41";
+}
+
 .ti-brand-days-counter:before {
   content: "\f4d2";
 }
@@ -3270,10 +3274,6 @@
   content: "\efb0";
 }
 
-.ti-brand-microsoft-teams:before {
-  content: "\fadf";
-}
-
 .ti-brand-minecraft:before {
   content: "\faef";
 }
@@ -3396,6 +3396,10 @@
 
 .ti-brand-pagekit:before {
   content: "\edd1";
+}
+
+.ti-brand-parsinta:before {
+  content: "\fc42";
 }
 
 .ti-brand-patreon:before {
@@ -3670,6 +3674,10 @@
   content: "\f5ef";
 }
 
+.ti-brand-teams:before {
+  content: "\fadf";
+}
+
 .ti-brand-ted:before {
   content: "\f658";
 }
@@ -3698,12 +3706,12 @@
   content: "\ed70";
 }
 
-.ti-brand-tikto-filled:before {
-  content: "\f7ea";
-}
-
 .ti-brand-tiktok:before {
   content: "\ec73";
+}
+
+.ti-brand-tiktok-filled:before {
+  content: "\f7ea";
 }
 
 .ti-brand-tinder:before {
@@ -4566,6 +4574,10 @@
   content: "\fb2b";
 }
 
+.ti-caret-left-right:before {
+  content: "\fc43";
+}
+
 .ti-caret-right:before {
   content: "\eb5f";
 }
@@ -4576,6 +4588,10 @@
 
 .ti-caret-up:before {
   content: "\eb60";
+}
+
+.ti-caret-up-down:before {
+  content: "\fc44";
 }
 
 .ti-caret-up-filled:before {
@@ -10142,6 +10158,10 @@
   content: "\ee9c";
 }
 
+.ti-hexagon-plus:before {
+  content: "\fc45";
+}
+
 .ti-hexagonal-prism:before {
   content: "\faa5";
 }
@@ -10328,6 +10348,10 @@
 
 .ti-home-x:before {
   content: "\f347";
+}
+
+.ti-horse:before {
+  content: "\fc46";
 }
 
 .ti-horse-toy:before {
@@ -11214,6 +11238,10 @@
   content: "\ef40";
 }
 
+.ti-list-letters:before {
+  content: "\fc47";
+}
+
 .ti-list-numbers:before {
   content: "\ef11";
 }
@@ -11736,6 +11764,10 @@
 
 .ti-map-pin:before {
   content: "\eae8";
+}
+
+.ti-map-pin-2:before {
+  content: "\fc48";
 }
 
 .ti-map-pin-bolt:before {
@@ -13446,6 +13478,10 @@
   content: "\f41a";
 }
 
+.ti-pentagon-plus:before {
+  content: "\fc49";
+}
+
 .ti-pentagram:before {
   content: "\f586";
 }
@@ -13538,6 +13574,10 @@
   content: "\f35e";
 }
 
+.ti-photo-circle:before {
+  content: "\fc4a";
+}
+
 .ti-photo-code:before {
   content: "\f991";
 }
@@ -13570,6 +13610,10 @@
   content: "\f361";
 }
 
+.ti-photo-hexagon:before {
+  content: "\fc4b";
+}
+
 .ti-photo-minus:before {
   content: "\f362";
 }
@@ -13580,6 +13624,10 @@
 
 .ti-photo-pause:before {
   content: "\f995";
+}
+
+.ti-photo-pentagon:before {
+  content: "\fc4c";
 }
 
 .ti-photo-pin:before {
@@ -13616,6 +13664,10 @@
 
 .ti-photo-shield:before {
   content: "\f365";
+}
+
+.ti-photo-square-rounded:before {
+  content: "\fc4d";
 }
 
 .ti-photo-star:before {
@@ -17598,6 +17650,10 @@
   content: "\f7cd";
 }
 
+.ti-user-hexagon:before {
+  content: "\fc4e";
+}
+
 .ti-user-minus:before {
   content: "\eb4a";
 }
@@ -17608,6 +17664,10 @@
 
 .ti-user-pause:before {
   content: "\f9d7";
+}
+
+.ti-user-pentagon:before {
+  content: "\fc4f";
 }
 
 .ti-user-pin:before {
@@ -17632,6 +17692,14 @@
 
 .ti-user-shield:before {
   content: "\f7d0";
+}
+
+.ti-user-square:before {
+  content: "\fc51";
+}
+
+.ti-user-square-rounded:before {
+  content: "\fc50";
 }
 
 .ti-user-star:before {
@@ -17848,6 +17916,10 @@
 
 .ti-volume-off:before {
   content: "\f1c3";
+}
+
+.ti-vs:before {
+  content: "\fc52";
 }
 
 .ti-walk:before {
