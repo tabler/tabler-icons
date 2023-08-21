@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.31.0 by tabler - https://tabler.io
+ * Tabler Icons 2.32.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.31.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.31.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.31.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.31.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.32.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.32.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.32.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.32.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -20,6 +20,10 @@
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.ti-12-hours:before {
+  content: "\fc53";
 }
 
 .ti-123:before {
@@ -526,6 +530,10 @@
   content: "\f1e1";
 }
 
+.ti-alt:before {
+  content: "\fc54";
+}
+
 .ti-ambulance:before {
   content: "\ebf5";
 }
@@ -640,6 +648,10 @@
 
 .ti-apps-off:before {
   content: "\f0ac";
+}
+
+.ti-archery-arrow:before {
+  content: "\fc55";
 }
 
 .ti-archive:before {
@@ -5598,8 +5610,16 @@
   content: "\ea70";
 }
 
+.ti-clock-12:before {
+  content: "\fc56";
+}
+
 .ti-clock-2:before {
   content: "\f099";
+}
+
+.ti-clock-24:before {
+  content: "\fc57";
 }
 
 .ti-clock-bolt:before {
@@ -6910,6 +6930,10 @@
   content: "\eb62";
 }
 
+.ti-device-game-pad:before {
+  content: "\fc58";
+}
+
 .ti-device-gamepad:before {
   content: "\eb63";
 }
@@ -7436,6 +7460,10 @@
 
 .ti-device-tv-old:before {
   content: "\f1d3";
+}
+
+.ti-device-usb:before {
+  content: "\fc59";
 }
 
 .ti-device-vision-pro:before {
@@ -10614,8 +10642,20 @@
   content: "\f75e";
 }
 
+.ti-input-ai:before {
+  content: "\fc5a";
+}
+
+.ti-input-check:before {
+  content: "\fc5b";
+}
+
 .ti-input-search:before {
   content: "\f2a2";
+}
+
+.ti-input-x:before {
+  content: "\fc5c";
 }
 
 .ti-ironing:before {
@@ -11742,6 +11782,10 @@
   content: "\fbca";
 }
 
+.ti-map-east:before {
+  content: "\fc5d";
+}
+
 .ti-map-exclamation:before {
   content: "\fbcb";
 }
@@ -11752,6 +11796,10 @@
 
 .ti-map-minus:before {
   content: "\fbcd";
+}
+
+.ti-map-north:before {
+  content: "\fc5e";
 }
 
 .ti-map-off:before {
@@ -11874,12 +11922,20 @@
   content: "\fbd1";
 }
 
+.ti-map-south:before {
+  content: "\fc5f";
+}
+
 .ti-map-star:before {
   content: "\fbd2";
 }
 
 .ti-map-up:before {
   content: "\fbd3";
+}
+
+.ti-map-west:before {
+  content: "\fc60";
 }
 
 .ti-map-x:before {
@@ -13162,6 +13218,10 @@
   content: "\ef65";
 }
 
+.ti-nut:before {
+  content: "\fc61";
+}
+
 .ti-octagon:before {
   content: "\ecbd";
 }
@@ -13576,6 +13636,14 @@
 
 .ti-photo-circle:before {
   content: "\fc4a";
+}
+
+.ti-photo-circle-minus:before {
+  content: "\fc62";
+}
+
+.ti-photo-circle-plus:before {
+  content: "\fc63";
 }
 
 .ti-photo-code:before {
@@ -18104,6 +18172,10 @@
 
 .ti-weight:before {
   content: "\f589";
+}
+
+.ti-wheel:before {
+  content: "\fc64";
 }
 
 .ti-wheelchair:before {
