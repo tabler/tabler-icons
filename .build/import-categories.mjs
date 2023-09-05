@@ -23,10 +23,10 @@ extensions.forEach(function (extension) {
         data = data.replace(/(---[\s\S]+?---)/, function (m, headerContent) {
           console.log('categoryOriginal', fileOriginal, categoryOriginal && categoryOriginal[1], tagsOriginal && tagsOriginal[1])
 
-          // if (categoryOriginal) {
-          //   headerContent = headerContent.replace(/category: .*\n/, '')
-          //   headerContent = headerContent.replace(/---/, `---\ncategory: ${categoryOriginal[1]}`)
-          // }
+          if (categoryOriginal) {
+            headerContent = headerContent.replace(/category: .*\n/, '')
+            headerContent = headerContent.replace(/---/, `---\ncategory: ${categoryOriginal[1]}`)
+          }
 
           if (tagsOriginal) {
             headerContent = headerContent.replace(/tags: .*\n/, '')
