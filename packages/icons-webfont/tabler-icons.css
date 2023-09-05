@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.32.0 by tabler - https://tabler.io
+ * Tabler Icons 2.33.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.32.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.32.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.32.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.32.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.33.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.33.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.33.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.33.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -322,12 +322,20 @@
   content: "\f6ee";
 }
 
+.ti-alert-circle-off:before {
+  content: "\fc65";
+}
+
 .ti-alert-hexagon:before {
   content: "\f80e";
 }
 
 .ti-alert-hexagon-filled:before {
   content: "\fa34";
+}
+
+.ti-alert-hexagon-off:before {
+  content: "\fc66";
 }
 
 .ti-alert-octagon:before {
@@ -340,6 +348,10 @@
 
 .ti-alert-small:before {
   content: "\f80f";
+}
+
+.ti-alert-small-off:before {
+  content: "\fc67";
 }
 
 .ti-alert-square:before {
@@ -358,12 +370,20 @@
   content: "\fa36";
 }
 
+.ti-alert-square-rounded-off:before {
+  content: "\fc68";
+}
+
 .ti-alert-triangle:before {
   content: "\ea06";
 }
 
 .ti-alert-triangle-filled:before {
   content: "\f6f0";
+}
+
+.ti-alert-triangle-off:before {
+  content: "\fc69";
 }
 
 .ti-alien:before {
@@ -3274,6 +3294,10 @@
   content: "\ec70";
 }
 
+.ti-brand-meetup:before {
+  content: "\fc6a";
+}
+
 .ti-brand-mercedes:before {
   content: "\f072";
 }
@@ -5244,6 +5268,50 @@
 
 .ti-circle-dashed:before {
   content: "\ed27";
+}
+
+.ti-circle-dashed-number-0:before {
+  content: "\fc6b";
+}
+
+.ti-circle-dashed-number-1:before {
+  content: "\fc6c";
+}
+
+.ti-circle-dashed-number-2:before {
+  content: "\fc6d";
+}
+
+.ti-circle-dashed-number-3:before {
+  content: "\fc6e";
+}
+
+.ti-circle-dashed-number-4:before {
+  content: "\fc6f";
+}
+
+.ti-circle-dashed-number-5:before {
+  content: "\fc70";
+}
+
+.ti-circle-dashed-number-6:before {
+  content: "\fc71";
+}
+
+.ti-circle-dashed-number-7:before {
+  content: "\fc72";
+}
+
+.ti-circle-dashed-number-8:before {
+  content: "\fc73";
+}
+
+.ti-circle-dashed-number-9:before {
+  content: "\fc74";
+}
+
+.ti-circle-dashed-x:before {
+  content: "\fc75";
 }
 
 .ti-circle-dot:before {
@@ -11568,6 +11636,10 @@
 
 .ti-login:before {
   content: "\eba7";
+}
+
+.ti-login-2:before {
+  content: "\fc76";
 }
 
 .ti-logout:before {
