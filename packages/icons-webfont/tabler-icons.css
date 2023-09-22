@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.34.0 by tabler - https://tabler.io
+ * Tabler Icons 2.35.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.34.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.34.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.34.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.34.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.35.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.35.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.35.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.35.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -1514,6 +1514,10 @@
   content: "\f3c1";
 }
 
+.ti-automatic-gearbox:before {
+  content: "\fc89";
+}
+
 .ti-award:before {
   content: "\ea2c";
 }
@@ -2260,6 +2264,10 @@
 
 .ti-bookmark:before {
   content: "\ea3a";
+}
+
+.ti-bookmark-ai:before {
+  content: "\fc8a";
 }
 
 .ti-bookmark-edit:before {
@@ -4574,6 +4582,10 @@
   content: "\f0c7";
 }
 
+.ti-car-suv:before {
+  content: "\fc8b";
+}
+
 .ti-car-turbine:before {
   content: "\f4fd";
 }
@@ -5462,6 +5474,10 @@
   content: "\ea68";
 }
 
+.ti-circle-minus-2:before {
+  content: "\fc8c";
+}
+
 .ti-circle-number-0:before {
   content: "\ee34";
 }
@@ -5508,6 +5524,10 @@
 
 .ti-circle-plus:before {
   content: "\ea69";
+}
+
+.ti-circle-plus-2:before {
+  content: "\fc8d";
 }
 
 .ti-circle-rectangle:before {
@@ -10218,6 +10238,14 @@
   content: "\f47b";
 }
 
+.ti-hexagon-minus:before {
+  content: "\fc8f";
+}
+
+.ti-hexagon-minus-2:before {
+  content: "\fc8e";
+}
+
 .ti-hexagon-number-0:before {
   content: "\f459";
 }
@@ -10264,6 +10292,10 @@
 
 .ti-hexagon-plus:before {
   content: "\fc45";
+}
+
+.ti-hexagon-plus-2:before {
+  content: "\fc90";
 }
 
 .ti-hexagonal-prism:before {
@@ -13318,8 +13350,24 @@
   content: "\f686";
 }
 
+.ti-octagon-minus:before {
+  content: "\fc92";
+}
+
+.ti-octagon-minus-2:before {
+  content: "\fc91";
+}
+
 .ti-octagon-off:before {
   content: "\eeb8";
+}
+
+.ti-octagon-plus:before {
+  content: "\fc94";
+}
+
+.ti-octagon-plus-2:before {
+  content: "\fc93";
 }
 
 .ti-octahedron:before {
@@ -13888,6 +13936,10 @@
 
 .ti-photo-up:before {
   content: "\f38b";
+}
+
+.ti-photo-video:before {
+  content: "\fc95";
 }
 
 .ti-photo-x:before {
@@ -16446,6 +16498,10 @@
   content: "\eb2a";
 }
 
+.ti-square-plus-2:before {
+  content: "\fc96";
+}
+
 .ti-square-root:before {
   content: "\eef1";
 }
@@ -16694,6 +16750,10 @@
   content: "\f63e";
 }
 
+.ti-square-rounded-minus-2:before {
+  content: "\fc97";
+}
+
 .ti-square-rounded-minus-filled:before {
   content: "\fb40";
 }
@@ -16780,6 +16840,10 @@
 
 .ti-square-rounded-plus:before {
   content: "\f63f";
+}
+
+.ti-square-rounded-plus-2:before {
+  content: "\fc98";
 }
 
 .ti-square-rounded-plus-filled:before {
@@ -17120,6 +17184,10 @@
 
 .ti-tag-off:before {
   content: "\efc0";
+}
+
+.ti-tag-starred:before {
+  content: "\fc99";
 }
 
 .ti-tags:before {
@@ -17702,8 +17770,24 @@
   content: "\f6ae";
 }
 
+.ti-triangle-minus:before {
+  content: "\fc9b";
+}
+
+.ti-triangle-minus-2:before {
+  content: "\fc9a";
+}
+
 .ti-triangle-off:before {
   content: "\ef02";
+}
+
+.ti-triangle-plus:before {
+  content: "\fc9d";
+}
+
+.ti-triangle-plus-2:before {
+  content: "\fc9c";
 }
 
 .ti-triangle-square-circle:before {
