@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-eps",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rm -rf icons && mkdir icons",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
   "files": [
@@ -25,7 +25,7 @@
     ]
   },
   "dependencies": {
-    "@tabler/icons": "2.34.0"
+    "@tabler/icons": "2.35.0"
   },
   "keywords": [
     "icons",

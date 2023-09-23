@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-webfont",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -35,7 +35,7 @@
   "sass": "./tabler-icons.scss",
   "style": "./tabler-icons.min.css",
   "dependencies": {
-    "@tabler/icons": "2.34.0"
+    "@tabler/icons": "2.35.0"
   },
   "keywords": [
     "icons",
@@ -47,6 +47,7 @@
     "web"
   ],
   "devDependencies": {
+    "sass": "^1.68.0",
     "webfont": "^11.2.26"
   }
 }
