@@ -17,7 +17,7 @@ def files(path):
 
 font = fontforge.font()
 for file in files("./icons-outlined"):
-    print (f"Correcting outline for {file}")
+    print ("Correcting outline for {file}")
     glyph = font.createChar(123, file)
     glyph.importOutlines("./icons-outlined/" + file)
     glyph.round()

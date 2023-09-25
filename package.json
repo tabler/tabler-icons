@@ -44,6 +44,7 @@
     "build:pdf": "pnpm --filter @tabler/icons-pdf build",
     "build:esp": "pnpm --filter @tabler/icons-esp build",
     "build:webfont": "pnpm --filter @tabler/icons-webfont build",
+    "build:symplicity": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && cp ./packages/icons/tabler-sprite-nostroke.svg ./ && cp ./packages/icons/tabler-sprite.svg ./",
     "update-readme": "node ./.build/update-readme.mjs",
     "zip": "node ./.build/zip-files.mjs"
   },
