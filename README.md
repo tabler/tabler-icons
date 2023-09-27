@@ -122,7 +122,19 @@ Vue components available through [`@tabler/icons-vue`](https://www.npmjs.com/pac
 
 ```vue
 <template>
+  <!-- basic usage -->
   <IconHome />
+
+  <!-- set `stroke` color -->
+  <IconHome color="red"/>
+  <IconHome stroke="red"/>
+
+  <!-- set custom `width` and `height` -->
+  <IconHome size="36"/>
+
+  <!-- set `stroke-width` -->
+  <IconHome strokeWidth="2"/>
+  <IconHome stroke-width="2"/>
 </template>
 
 <script>
@@ -133,6 +145,19 @@ export default {
   components: { IconHome }
 };
 </script>
+```
+
+or with `<script setup>`
+
+```vue
+<script setup>
+// Import Vue component
+import { IconHome } from '@tabler/icons-vue';
+</script>
+
+<template>
+  <IconHome color="red" size="36" strokeWidth="2"/>
+</template>
 ```
 
 For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-vue).

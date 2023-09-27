@@ -52,7 +52,19 @@ All icons are Vue components that contain SVG elements. So any icon can be impor
 
 ```vue
 <template>
+  <!-- basic usage -->
   <IconHome />
+
+  <!-- set `stroke` color -->
+  <IconHome color="red"/>
+  <IconHome stroke="red"/>
+
+  <!-- set custom `width` and `height` -->
+  <IconHome size="36"/>
+
+  <!-- set `stroke-width` -->
+  <IconHome strokeWidth="2"/>
+  <IconHome stroke-width="2"/>
 </template>
 
 <script>
@@ -65,10 +77,23 @@ export default {
 </script>
 ```
 
-You can pass additional props to adjust the icon.
+or with `<script setup>`
+
+```vue
+<script setup>
+// Import Vue component
+import { IconHome } from '@tabler/icons-vue';
+</script>
+
+<template>
+  <IconHome color="red" size="36" strokeWidth="2"/>
+</template>
+```
+
+You can pass additional attribute `stroke-width="1"` alongside the props to adjust the icon.
 
 ```html
-<IconHome color="red" :size="48" stroke-width="1" />
+<IconHome color="red" size="48" stroke-width="1" />
 ```
 
 ### Props
@@ -77,7 +102,7 @@ You can pass additional props to adjust the icon.
 | ------------- | -------- | ------------ |
 | `size`        | _Number_ | 24           |
 | `color`       | _String_ | currentColor |
-| `stroke`      | _Number_ | 2            |
+| `strokeWidth` | _Number_ | 2            |
 
 ## Contributing
 
