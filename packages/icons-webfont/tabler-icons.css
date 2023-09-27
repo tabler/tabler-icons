@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.35.0 by tabler - https://tabler.io
+ * Tabler Icons 2.36.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.35.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.35.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.35.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.35.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.36.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.36.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.36.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.36.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -272,6 +272,10 @@
 
 .ti-alarm:before {
   content: "\ea04";
+}
+
+.ti-alarm-average:before {
+  content: "\fc9e";
 }
 
 .ti-alarm-filled:before {
@@ -1060,6 +1064,14 @@
 
 .ti-arrow-merge:before {
   content: "\f04e";
+}
+
+.ti-arrow-merge-alt-left:before {
+  content: "\fc9f";
+}
+
+.ti-arrow-merge-alt-right:before {
+  content: "\fca0";
 }
 
 .ti-arrow-merge-both:before {
@@ -1958,6 +1970,10 @@
   content: "\f7e0";
 }
 
+.ti-bed-flat:before {
+  content: "\fca1";
+}
+
 .ti-bed-off:before {
   content: "\f100";
 }
@@ -2166,6 +2182,10 @@
   content: "\f2f2";
 }
 
+.ti-blender:before {
+  content: "\fca2";
+}
+
 .ti-blockquote:before {
   content: "\ee09";
 }
@@ -2196,6 +2216,10 @@
 
 .ti-bmp:before {
   content: "\f3a6";
+}
+
+.ti-body-scan:before {
+  content: "\fca3";
 }
 
 .ti-bold:before {
@@ -7026,16 +7050,16 @@
   content: "\eb62";
 }
 
-.ti-device-game-pad:before {
-  content: "\fc58";
-}
-
 .ti-device-gamepad:before {
   content: "\eb63";
 }
 
 .ti-device-gamepad-2:before {
   content: "\f1d2";
+}
+
+.ti-device-gamepad-3:before {
+  content: "\fc58";
 }
 
 .ti-device-heart-monitor:before {
@@ -9690,12 +9714,28 @@
   content: "\f57f";
 }
 
+.ti-grid-3x3:before {
+  content: "\fca4";
+}
+
+.ti-grid-4x4:before {
+  content: "\fca5";
+}
+
 .ti-grid-dots:before {
   content: "\eaba";
 }
 
+.ti-grid-goldenratio:before {
+  content: "\fca6";
+}
+
 .ti-grid-pattern:before {
   content: "\efc9";
+}
+
+.ti-grid-scan:before {
+  content: "\fca7";
 }
 
 .ti-grill:before {
@@ -13902,6 +13942,10 @@
   content: "\f997";
 }
 
+.ti-photo-scan:before {
+  content: "\fca8";
+}
+
 .ti-photo-search:before {
   content: "\f364";
 }
@@ -15018,8 +15062,32 @@
   content: "\f4b6";
 }
 
+.ti-route-alt-left:before {
+  content: "\fca9";
+}
+
+.ti-route-alt-right:before {
+  content: "\fcaa";
+}
+
 .ti-route-off:before {
   content: "\f194";
+}
+
+.ti-route-square:before {
+  content: "\fcac";
+}
+
+.ti-route-square-2:before {
+  content: "\fcab";
+}
+
+.ti-route-x:before {
+  content: "\fcae";
+}
+
+.ti-route-x-2:before {
+  content: "\fcad";
 }
 
 .ti-router:before {
@@ -17978,6 +18046,10 @@
   content: "\f7cf";
 }
 
+.ti-user-scan:before {
+  content: "\fcaf";
+}
+
 .ti-user-search:before {
   content: "\ef89";
 }
@@ -18788,6 +18860,10 @@
 
 .ti-zoom-reset:before {
   content: "\f295";
+}
+
+.ti-zoom-scan:before {
+  content: "\fcb0";
 }
 
 .ti-zzz:before {

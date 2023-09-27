@@ -433,6 +433,13 @@
     "version": "2.25",
     "unicode": "fb01"
   }, 
+  "alarm-average": {
+    "name": "alarm-average",
+    "category": "System",
+    "tags": ["alarm", "average", "notification", "metric", "ringing", "mean", "alertness", "time", "clockwork", "signal", "bell", "chime", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fc9e"
+  }, 
   "alarm-filled": {
     "name": "alarm-filled",
     "category": "Filled",
@@ -926,7 +933,7 @@
   "alt": {
     "name": "alt",
     "category": "",
-    "tags": ["alt", "icon", "stroke", "outline"],
+    "tags": ["alt", "alternative", "substitute", "replacement", "variant", "different", "alternate", "variation", "stand-in", "option", "choice", "icon", "stroke", "outline"],
     "version": "2.32",
     "unicode": "fc54"
   }, 
@@ -1136,7 +1143,7 @@
   "archery-arrow": {
     "name": "archery-arrow",
     "category": "",
-    "tags": ["archery", "arrow", "icon", "stroke", "outline"],
+    "tags": ["archery", "arrow", "bow", "target", "shoot", "sports", "archer", "hunting", "bullseye", "flight", "quiver", "precision", "icon", "stroke", "outline"],
     "version": "2.32",
     "unicode": "fc55"
   }, 
@@ -1811,6 +1818,20 @@
     "tags": ["arrow", "loop", "right", "drag", "move", "turn", "icon", "stroke", "outline"],
     "version": "1.35",
     "unicode": "eda0"
+  }, 
+  "arrow-merge-alt-left": {
+    "name": "arrow-merge-alt-left",
+    "category": "Arrows",
+    "tags": ["arrow", "merge", "alt", "left", "merge-left", "shift-left", "combine-left", "direction-left", "join-left", "move-left", "alt-left-arrow", "leftward", "left-shift", "left-merge", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fc9f"
+  }, 
+  "arrow-merge-alt-right": {
+    "name": "arrow-merge-alt-right",
+    "category": "Arrows",
+    "tags": ["arrow", "merge", "alt", "right", "merge-right", "shift-right", "combine-right", "direction-right", "join-right", "move-right", "alt-right-arrow", "rightward", "right-shift", "right-merge", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca0"
   }, 
   "arrow-merge-both": {
     "name": "arrow-merge-both",
@@ -3040,21 +3061,21 @@
   "baseline-density-large": {
     "name": "baseline-density-large",
     "category": "Text",
-    "tags": ["baseline", "density", "large", "icon", "stroke", "outline"],
+    "tags": ["baseline", "density", "large", "large", "sizeable", "oversized", "big", "bulky", "massive", "huge", "gigantic", "substantial", "enormous", "icon", "stroke", "outline"],
     "version": "2.11",
     "unicode": "f9f0"
   }, 
   "baseline-density-medium": {
     "name": "baseline-density-medium",
     "category": "Text",
-    "tags": ["baseline", "density", "medium", "icon", "stroke", "outline"],
+    "tags": ["baseline", "density", "medium", "medium", "average", "moderate", "middle", "intermediate", "standard", "midsize", "usual", "typical", "regular", "icon", "stroke", "outline"],
     "version": "2.11",
     "unicode": "f9f1"
   }, 
   "baseline-density-small": {
     "name": "baseline-density-small",
     "category": "Text",
-    "tags": ["baseline", "density", "small", "icon", "stroke", "outline"],
+    "tags": ["baseline", "density", "small", "small", "tiny", "little", "miniature", "compact", "petite", "mini", "micro", "diminutive", "wee", "icon", "stroke", "outline"],
     "version": "2.11",
     "unicode": "f9f2"
   }, 
@@ -3380,6 +3401,13 @@
     "version": "2.9",
     "unicode": "f7e0"
   }, 
+  "bed-flat": {
+    "name": "bed-flat",
+    "category": "",
+    "tags": ["bed", "flat", "mattress", "sofa", "couch", "futon", "sleeping", "restful", "horizontal", "recline", "lying", "horizontal-bed", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca1"
+  }, 
   "bed-off": {
     "name": "bed-off",
     "category": "Map",
@@ -3390,7 +3418,7 @@
   "bed": {
     "name": "bed",
     "category": "Map",
-    "tags": ["bed", "sleep", "night", "bedroom", "rest", "icon", "stroke", "outline"],
+    "tags": ["bed", "furniture", "sleeping", "comfortable", "bedroom", "mattress", "resting", "relax", "sleep", "futon", "cozy", "icon", "stroke", "outline"],
     "version": "1.2",
     "unicode": "eb5c"
   }, 
@@ -3751,6 +3779,13 @@
     "version": "1.84",
     "unicode": "f2f3"
   }, 
+  "blender": {
+    "name": "blender",
+    "category": "",
+    "tags": ["blender", "mixer", "kitchen", "appliance", "blend", "food", "smoothie", "processing", "mixing", "grind", "blending", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca2"
+  }, 
   "blockquote": {
     "name": "blockquote",
     "category": "Text",
@@ -3806,6 +3841,13 @@
     "tags": ["bmp", "format", "filetype", "file", "document", "icon", "stroke", "outline"],
     "version": "1.93",
     "unicode": "f3a6"
+  }, 
+  "body-scan": {
+    "name": "body-scan",
+    "category": "System",
+    "tags": ["body", "scan", "medical", "health", "biometric", "wellness", "check-up", "diagnostic", "physical", "anatomy", "examination", "body-health", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca3"
   }, 
   "bold-off": {
     "name": "bold-off",
@@ -4671,7 +4713,7 @@
   "brand-azure": {
     "name": "brand-azure",
     "category": "Brand",
-    "tags": ["brand", "azure", "icon", "stroke", "outline"],
+    "tags": ["brand", "azure", "microsoft", "azure", "cloud", "computing", "technology", "services", "software", "platform", "it", "digital", "icon", "stroke", "outline"],
     "version": "2.16",
     "unicode": "fa4d"
   }, 
@@ -4874,7 +4916,7 @@
   "brand-cloudflare": {
     "name": "brand-cloudflare",
     "category": "Brand",
-    "tags": ["brand", "cloudflare", "icon", "stroke", "outline"],
+    "tags": ["brand", "cloudflare", "cloudflare", "web", "security", "content", "delivery", "ddos", "protection", "network", "internet", "performance", "firewall", "cdn", "website", "icon", "stroke", "outline"],
     "version": "2.16",
     "unicode": "fa4e"
   }, 
@@ -5007,7 +5049,7 @@
   "brand-databricks": {
     "name": "brand-databricks",
     "category": "Brand",
-    "tags": ["brand", "databricks", "icon", "stroke", "outline"],
+    "tags": ["brand", "databricks", "databricks", "data", "analytics", "big", "science", "machine", "learning", "platform", "engineering", "processing", "ai", "icon", "stroke", "outline"],
     "version": "2.31",
     "unicode": "fc41"
   }, 
@@ -5238,7 +5280,7 @@
   "brand-feedly": {
     "name": "brand-feedly",
     "category": "Brand",
-    "tags": ["brand", "feedly", "icon", "stroke", "outline"],
+    "tags": ["brand", "feedly", "feedly", "rss", "reader", "news", "aggregator", "content", "discovery", "information", "consumption", "feed", "newsfeed", "app", "icon", "stroke", "outline"],
     "version": "2.18",
     "unicode": "fa75"
   }, 
@@ -7961,7 +8003,7 @@
   "car-garage": {
     "name": "car-garage",
     "category": "",
-    "tags": ["car", "garage", "icon", "stroke", "outline"],
+    "tags": ["car", "garage", "auto-shop", "vehicle-repair", "automobile-maintenance", "parking-garage", "car-storage", "automotive", "garage-service", "car-park", "vehicle-maintenance", "car-repair", "icon", "stroke", "outline"],
     "version": "2.34",
     "unicode": "fc77"
   }, 
@@ -7975,7 +8017,7 @@
   "car-suv": {
     "name": "car-suv",
     "category": "Vehicles",
-    "tags": ["car", "suv", "icon", "stroke", "outline"],
+    "tags": ["car", "suv", "sport-utility", "crossover", "automobile", "suv", "off-road", "four-wheel-drive", "vehicle", "transportation", "auto", "truck", "icon", "stroke", "outline"],
     "version": "2.35",
     "unicode": "fc8b"
   }, 
@@ -8052,7 +8094,7 @@
   "caret-left-right": {
     "name": "caret-left-right",
     "category": "",
-    "tags": ["caret", "left", "right", "icon", "stroke", "outline"],
+    "tags": ["caret", "left", "right", "arrow-horizontal", "double-arrow", "side-arrow", "left-right", "horizontal-pointer", "directional", "horizontal-caret", "bidirectional", "opposite", "horizontal-arrow", "icon", "stroke", "outline"],
     "version": "2.31",
     "unicode": "fc43"
   }, 
@@ -9935,7 +9977,7 @@
   "clock-12": {
     "name": "clock-12",
     "category": "System",
-    "tags": ["clock", "12", "icon", "stroke", "outline"],
+    "tags": ["clock", "12", "time", "hour", "watch", "timepiece", "twelve-hour", "am/pm", "noon", "midday", "daytime", "clock-face", "icon", "stroke", "outline"],
     "version": "2.32",
     "unicode": "fc56"
   }, 
@@ -9949,7 +9991,7 @@
   "clock-24": {
     "name": "clock-24",
     "category": "System",
-    "tags": ["clock", "24", "icon", "stroke", "outline"],
+    "tags": ["clock", "24", "time", "hour", "watch", "timepiece", "twenty-four-hour", "24-hour", "military", "clock-face", "round-clock", "day-night", "icon", "stroke", "outline"],
     "version": "2.32",
     "unicode": "fc57"
   }, 
@@ -10649,7 +10691,7 @@
   "color-filter": {
     "name": "color-filter",
     "category": "Design",
-    "tags": ["color", "filter", "hue", "brightness", "effects", "sorting", "tools", "icon", "stroke", "outline", "circles"],
+    "tags": ["color", "filter", "hue", "brightness", "effects", "sotring", "tools", "icon", "stroke", "outline"],
     "version": "1.110",
     "unicode": "f5a8"
   }, 
@@ -11965,7 +12007,7 @@
   "decimal": {
     "name": "decimal",
     "category": "Math",
-    "tags": ["decimal", "icon", "stroke", "outline"],
+    "tags": ["decimal", "point", "fraction", "numeric", "number", "mathematics", "decimal-point", "decimal-system", "fractional", "math", "dot", "icon", "stroke", "outline"],
     "version": "2.14",
     "unicode": "fa26"
   }, 
@@ -12007,7 +12049,7 @@
   "deselect": {
     "name": "deselect",
     "category": "",
-    "tags": ["deselect", "icon", "stroke", "outline"],
+    "tags": ["deselect", "unselect", "clear-selection", "deselection", "unpick", "uncheck", "deactivate", "unmark", "remove-selection", "untag", "unchoose", "icon", "stroke", "outline"],
     "version": "2.11",
     "unicode": "f9f3"
   }, 
@@ -12256,24 +12298,24 @@
     "version": "1.2",
     "unicode": "eb62"
   }, 
-  "device-game-pad": {
-    "name": "device-game-pad",
-    "category": "Devices",
-    "tags": ["device", "game", "pad", "icon", "stroke", "outline"],
-    "version": "2.32",
-    "unicode": "fc58"
-  }, 
   "device-gamepad-2": {
     "name": "device-gamepad-2",
     "category": "Devices",
-    "tags": ["device", "gamepad", "2", "play", "entertainment", "console", "joystick", "joypad", "controller", "icon", "stroke", "outline"],
+    "tags": ["device", "gamepad", "2", "game", "play", "entertainment", "console", "joystick", "joypad", "controller", "icon", "stroke", "outline"],
     "version": "1.68",
     "unicode": "f1d2"
+  }, 
+  "device-gamepad-3": {
+    "name": "device-gamepad-3",
+    "category": "Devices",
+    "tags": ["device", "gamepad", "3", "icon", "stroke", "outline"],
+    "version": "2.32",
+    "unicode": "fc58"
   }, 
   "device-gamepad": {
     "name": "device-gamepad",
     "category": "Devices",
-    "tags": ["device", "gamepad", "play", "entertainment", "console", "joystick", "joypad", "controller", "icon", "stroke", "outline"],
+    "tags": ["device", "gamepad", "game", "play", "entertainment", "console", "joystick", "joypad", "controller", "icon", "stroke", "outline"],
     "version": "1.2",
     "unicode": "eb63"
   }, 
@@ -14478,7 +14520,7 @@
   "exclamation-circle": {
     "name": "exclamation-circle",
     "category": "",
-    "tags": ["exclamation", "circle", "warring", "error", "shape", "caution", "alert", "icon", "stroke", "outline"],
+    "tags": ["exclamation", "circle", "warning", "error", "shape", "caution", "alert", "icon", "stroke", "outline"],
     "version": "1.117",
     "unicode": "f634"
   }, 
@@ -16347,14 +16389,14 @@
   "frame-off": {
     "name": "frame-off",
     "category": "Design",
-    "tags": ["frame", "off", "crop", "icon", "stroke", "outline"],
+    "tags": ["frame", "off", "borderless", "outlineless", "no-border", "unframed", "unbordered", "bare", "naked", "borderless-frame", "no-outline", "remove-frame", "crop", "icon", "stroke", "outline"],
     "version": "1.66",
     "unicode": "f135"
   }, 
   "frame": {
     "name": "frame",
     "category": "Design",
-    "tags": ["frame", "crop", "icon", "stroke", "outline"],
+    "tags": ["frame", "border", "outline", "enclosure", "surround", "edge", "boundary", "perimeter", "framework", "structure", "container", "crop", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eaaf"
   }, 
@@ -16918,6 +16960,20 @@
     "version": "1.108",
     "unicode": "f580"
   }, 
+  "grid-3x3": {
+    "name": "grid-3x3",
+    "category": "Design",
+    "tags": ["grid", "3x3", "layout", "pattern", "matrix", "arrangement", "gridlines", "cell", "structure", "block", "squares", "grid-pattern", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca4"
+  }, 
+  "grid-4x4": {
+    "name": "grid-4x4",
+    "category": "Design",
+    "tags": ["grid", "4x4", "layout", "matrix", "pattern", "gridlines", "arrangement", "structure", "block", "squares", "four-by-four", "grid-pattern", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca5"
+  }, 
   "grid-dots": {
     "name": "grid-dots",
     "category": "System",
@@ -16925,12 +16981,26 @@
     "version": "1.0",
     "unicode": "eaba"
   }, 
+  "grid-goldenratio": {
+    "name": "grid-goldenratio",
+    "category": "Design",
+    "tags": ["grid", "goldenratio", "layout", "pattern", "matrix", "arrangement", "golden-ratio", "cell", "structure", "ratio", "gridlines", "grid-structure", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca6"
+  }, 
   "grid-pattern": {
     "name": "grid-pattern",
     "category": "",
     "tags": ["grid", "pattern", "grid", "mesh", "net", "line", "icon", "stroke", "outline"],
     "version": "1.50",
     "unicode": "efc9"
+  }, 
+  "grid-scan": {
+    "name": "grid-scan",
+    "category": "System",
+    "tags": ["grid", "scan", "data", "matrix", "layout", "pattern", "dimension", "analysis", "structure", "mapping", "inspection", "grid-data", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca7"
   }, 
   "grill-fork": {
     "name": "grill-fork",
@@ -18321,7 +18391,7 @@
   "horse": {
     "name": "horse",
     "category": "",
-    "tags": ["horse", "icon", "stroke", "outline"],
+    "tags": ["horse", "equine", "equestrian", "stallion", "mare", "pony", "steed", "riding", "hoofed-animal", "horseback", "thoroughbred", "icon", "stroke", "outline"],
     "version": "2.31",
     "unicode": "fc46"
   }, 
@@ -19168,7 +19238,7 @@
   "layers-difference": {
     "name": "layers-difference",
     "category": "Design",
-    "tags": ["layers", "difference", "stack", "icon", "stroke", "outline"],
+    "tags": ["layers", "difference", "layered-difference", "layer-intersect", "intersecting-layers", "layer-subtract", "difference", "overlap", "comparison", "layer-blend", "merge-layers", "layer-comparison", "stack", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eac8"
   }, 
@@ -19182,7 +19252,7 @@
   "layers-intersect": {
     "name": "layers-intersect",
     "category": "Design",
-    "tags": ["layers", "intersect", "stack", "icon", "stroke", "outline"],
+    "tags": ["layers", "intersect", "layered-intersection", "layer-difference", "intersecting", "layer-overlap", "intersection", "intersecting-layers", "layer-interaction", "layer-cross", "layers-crossing", "layer-junction", "stack", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eac9"
   }, 
@@ -19203,7 +19273,7 @@
   "layers-subtract": {
     "name": "layers-subtract",
     "category": "Design",
-    "tags": ["layers", "subtract", "stack", "icon", "stroke", "outline"],
+    "tags": ["layers", "subtract", "layered-subtraction", "layer-removal", "remove-layer", "subtract-layers", "subtracting", "layer-reduction", "layer-elimination", "layer-reduce", "layer-removing", "remove", "stack", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eaca"
   }, 
@@ -24282,6 +24352,13 @@
     "version": "2.10",
     "unicode": "f997"
   }, 
+  "photo-scan": {
+    "name": "photo-scan",
+    "category": "System",
+    "tags": ["photo", "scan", "image", "capture", "photograph", "picture", "snapshot", "scan-image", "photogrammetry", "visual-scan", "picture-analysis", "photo-analysis", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca8"
+  }, 
   "photo-search": {
     "name": "photo-search",
     "category": "Media",
@@ -26231,9 +26308,23 @@
   "route-2": {
     "name": "route-2",
     "category": "Map",
-    "tags": ["route", "2", "path", "navigation", "map", "icon", "stroke", "outline"],
+    "tags": ["route", "2", "path", "journey", "direction", "trail", "navigate", "travel", "way", "road", "route-two", "2-direction", "icon", "stroke", "outline"],
     "version": "1.97",
     "unicode": "f4b6"
+  }, 
+  "route-alt-left": {
+    "name": "route-alt-left",
+    "category": "Maps",
+    "tags": ["route", "alt", "left", "alternate-left", "alternate-route", "left-path", "alternate-way", "left-trail", "alt-left-road", "leftward-route", "shift-left", "change-left", "left-road", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fca9"
+  }, 
+  "route-alt-right": {
+    "name": "route-alt-right",
+    "category": "Maps",
+    "tags": ["route", "alt", "right", "alternate-right", "alternate-route", "right-path", "alternate-way", "right-trail", "alt-right-road", "rightward-route", "shift-right", "change-right", "right-road", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcaa"
   }, 
   "route-off": {
     "name": "route-off",
@@ -26242,10 +26333,38 @@
     "version": "1.66",
     "unicode": "f194"
   }, 
+  "route-square-2": {
+    "name": "route-square-2",
+    "category": "Maps",
+    "tags": ["route", "square", "2", "square-route", "route-square", "path", "journey", "direction", "trail", "navigate", "travel", "way", "square-direction", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcab"
+  }, 
+  "route-square": {
+    "name": "route-square",
+    "category": "Maps",
+    "tags": ["route", "square", "path", "journey", "direction", "trail", "navigate", "travel", "way", "square", "geometric-route", "square-path", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcac"
+  }, 
+  "route-x-2": {
+    "name": "route-x-2",
+    "category": "Maps",
+    "tags": ["route", "x", "2", "x-route", "route-x", "path", "journey", "direction", "trail", "navigate", "travel", "way", "crossing", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcad"
+  }, 
+  "route-x": {
+    "name": "route-x",
+    "category": "Maps",
+    "tags": ["route", "x", "path", "journey", "direction", "trail", "navigate", "travel", "way", "cross", "x-cross", "cross-path", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcae"
+  }, 
   "route": {
     "name": "route",
     "category": "Map",
-    "tags": ["route", "path", "navigation", "map", "icon", "stroke", "outline"],
+    "tags": ["route", "path", "journey", "direction", "trail", "navigate", "travel", "way", "road", "travel-route", "route-way", "icon", "stroke", "outline"],
     "version": "1.0",
     "unicode": "eb17"
   }, 
@@ -31415,6 +31534,13 @@
     "version": "2.8",
     "unicode": "f7cf"
   }, 
+  "user-scan": {
+    "name": "user-scan",
+    "category": "System",
+    "tags": ["user", "scan", "identity", "biometric", "authentication", "recognition", "profile", "verification", "user-data", "user-profile", "scan-identity", "identity-verification", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcaf"
+  }, 
   "user-search": {
     "name": "user-search",
     "category": "System",
@@ -32842,6 +32968,13 @@
     "tags": ["zoom", "reset", "refresh", "default", "settings", "vision", "icon", "stroke", "outline"],
     "version": "1.78",
     "unicode": "f295"
+  }, 
+  "zoom-scan": {
+    "name": "zoom-scan",
+    "category": "System",
+    "tags": ["zoom", "scan", "magnify", "enlarge", "analyze", "focus", "enhance", "view", "magnification", "zoom-in", "scan-zoom", "magnify-scan", "icon", "stroke", "outline"],
+    "version": "2.36",
+    "unicode": "fcb0"
   }, 
   "zzz-off": {
     "name": "zzz-off",
