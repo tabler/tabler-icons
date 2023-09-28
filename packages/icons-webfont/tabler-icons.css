@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.36.0 by tabler - https://tabler.io
+ * Tabler Icons 2.37.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.36.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.36.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.36.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.36.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.37.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.37.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.37.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.37.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2594,6 +2594,14 @@
   content: "\ebcd";
 }
 
+.ti-brackets-angle:before {
+  content: "\fcb2";
+}
+
+.ti-brackets-angle-off:before {
+  content: "\fcb1";
+}
+
 .ti-brackets-contain:before {
   content: "\f1e5";
 }
@@ -2708,6 +2716,10 @@
 
 .ti-brand-asana:before {
   content: "\edc5";
+}
+
+.ti-brand-auth0:before {
+  content: "\fcb3";
 }
 
 .ti-brand-aws:before {
@@ -4264,6 +4276,10 @@
 
 .ti-bulldozer:before {
   content: "\ee1d";
+}
+
+.ti-burger:before {
+  content: "\fcb4";
 }
 
 .ti-bus:before {
@@ -8994,6 +9010,10 @@
   content: "\f12a";
 }
 
+.ti-fingerprint-scan:before {
+  content: "\fcb5";
+}
+
 .ti-fire-extinguisher:before {
   content: "\faf6";
 }
@@ -9448,6 +9468,10 @@
 
 .ti-function-off:before {
   content: "\f3f0";
+}
+
+.ti-galaxy:before {
+  content: "\fcb6";
 }
 
 .ti-garden-cart:before {
@@ -10534,6 +10558,10 @@
   content: "\f28a";
 }
 
+.ti-horseshoe:before {
+  content: "\fcb7";
+}
+
 .ti-hotel-service:before {
   content: "\ef80";
 }
@@ -11406,6 +11434,10 @@
   content: "\eb94";
 }
 
+.ti-line-scan:before {
+  content: "\fcb8";
+}
+
 .ti-link:before {
   content: "\eade";
 }
@@ -11768,6 +11800,10 @@
 
 .ti-magnet-off:before {
   content: "\f159";
+}
+
+.ti-magnetic:before {
+  content: "\fcb9";
 }
 
 .ti-mail:before {
@@ -13182,6 +13218,10 @@
   content: "\fbf0";
 }
 
+.ti-navigation-east:before {
+  content: "\fcba";
+}
+
 .ti-navigation-exclamation:before {
   content: "\fbf1";
 }
@@ -13199,7 +13239,7 @@
 }
 
 .ti-navigation-north:before {
-  content: "\faec";
+  content: "\fcbb";
 }
 
 .ti-navigation-off:before {
@@ -13230,12 +13270,24 @@
   content: "\fbf9";
 }
 
+.ti-navigation-south:before {
+  content: "\fcbc";
+}
+
 .ti-navigation-star:before {
   content: "\fbfa";
 }
 
+.ti-navigation-top:before {
+  content: "\faec";
+}
+
 .ti-navigation-up:before {
   content: "\fbfb";
+}
+
+.ti-navigation-west:before {
+  content: "\fcbd";
 }
 
 .ti-navigation-x:before {
@@ -14954,6 +15006,10 @@
   content: "\f00b";
 }
 
+.ti-robot-face:before {
+  content: "\fcbe";
+}
+
 .ti-robot-off:before {
   content: "\f192";
 }
@@ -15074,6 +15130,10 @@
   content: "\f194";
 }
 
+.ti-route-scan:before {
+  content: "\fcbf";
+}
+
 .ti-route-square:before {
   content: "\fcac";
 }
@@ -15148,6 +15208,10 @@
 
 .ti-run:before {
   content: "\ec82";
+}
+
+.ti-rv-truck:before {
+  content: "\fcc0";
 }
 
 .ti-s-turn-down:before {
@@ -15988,6 +16052,10 @@
 
 .ti-sofa-off:before {
   content: "\f42c";
+}
+
+.ti-solar-electricity:before {
+  content: "\fcc1";
 }
 
 .ti-solar-panel:before {
@@ -17098,6 +17166,10 @@
   content: "\eb30";
 }
 
+.ti-sun-electricity:before {
+  content: "\fcc2";
+}
+
 .ti-sun-filled:before {
   content: "\f6a9";
 }
@@ -17416,6 +17488,10 @@
 
 .ti-text-resize:before {
   content: "\ef87";
+}
+
+.ti-text-scan-2:before {
+  content: "\fcc3";
 }
 
 .ti-text-size:before {
@@ -17950,6 +18026,10 @@
   content: "\eba2";
 }
 
+.ti-universe:before {
+  content: "\fcc4";
+}
+
 .ti-unlink:before {
   content: "\eb46";
 }
@@ -18462,6 +18542,10 @@
   content: "\ecd5";
 }
 
+.ti-waves-electricity:before {
+  content: "\fcc5";
+}
+
 .ti-webhook:before {
   content: "\f01e";
 }
@@ -18512,6 +18596,10 @@
 
 .ti-wind:before {
   content: "\ec34";
+}
+
+.ti-wind-electricity:before {
+  content: "\fcc6";
 }
 
 .ti-wind-off:before {
