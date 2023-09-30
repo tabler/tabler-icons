@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.37.0 by tabler - https://tabler.io
+ * Tabler Icons 2.38.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.37.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.37.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.37.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.37.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.38.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.38.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.38.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.38.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -11278,12 +11278,24 @@
   content: "\ec50";
 }
 
+.ti-letter-a-small:before {
+  content: "\fcc7";
+}
+
 .ti-letter-b:before {
   content: "\ec51";
 }
 
+.ti-letter-b-small:before {
+  content: "\fcc8";
+}
+
 .ti-letter-c:before {
   content: "\ec52";
+}
+
+.ti-letter-c-small:before {
+  content: "\fcc9";
 }
 
 .ti-letter-case:before {
@@ -11306,64 +11318,128 @@
   content: "\ec53";
 }
 
+.ti-letter-d-small:before {
+  content: "\fcca";
+}
+
 .ti-letter-e:before {
   content: "\ec54";
+}
+
+.ti-letter-e-small:before {
+  content: "\fccb";
 }
 
 .ti-letter-f:before {
   content: "\ec55";
 }
 
+.ti-letter-f-small:before {
+  content: "\fccc";
+}
+
 .ti-letter-g:before {
   content: "\ec56";
+}
+
+.ti-letter-g-small:before {
+  content: "\fccd";
 }
 
 .ti-letter-h:before {
   content: "\ec57";
 }
 
+.ti-letter-h-small:before {
+  content: "\fcce";
+}
+
 .ti-letter-i:before {
   content: "\ec58";
+}
+
+.ti-letter-i-small:before {
+  content: "\fccf";
 }
 
 .ti-letter-j:before {
   content: "\ec59";
 }
 
+.ti-letter-j-small:before {
+  content: "\fcd0";
+}
+
 .ti-letter-k:before {
   content: "\ec5a";
+}
+
+.ti-letter-k-small:before {
+  content: "\fcd1";
 }
 
 .ti-letter-l:before {
   content: "\ec5b";
 }
 
+.ti-letter-l-small:before {
+  content: "\fcd2";
+}
+
 .ti-letter-m:before {
   content: "\ec5c";
+}
+
+.ti-letter-m-small:before {
+  content: "\fcd3";
 }
 
 .ti-letter-n:before {
   content: "\ec5d";
 }
 
+.ti-letter-n-small:before {
+  content: "\fcd4";
+}
+
 .ti-letter-o:before {
   content: "\ec5e";
+}
+
+.ti-letter-o-small:before {
+  content: "\fcd5";
 }
 
 .ti-letter-p:before {
   content: "\ec5f";
 }
 
+.ti-letter-p-small:before {
+  content: "\fcd6";
+}
+
 .ti-letter-q:before {
   content: "\ec60";
+}
+
+.ti-letter-q-small:before {
+  content: "\fcd7";
 }
 
 .ti-letter-r:before {
   content: "\ec61";
 }
 
+.ti-letter-r-small:before {
+  content: "\fcd8";
+}
+
 .ti-letter-s:before {
   content: "\ec62";
+}
+
+.ti-letter-s-small:before {
+  content: "\fcd9";
 }
 
 .ti-letter-spacing:before {
@@ -11374,28 +11450,56 @@
   content: "\ec63";
 }
 
+.ti-letter-t-small:before {
+  content: "\fcda";
+}
+
 .ti-letter-u:before {
   content: "\ec64";
+}
+
+.ti-letter-u-small:before {
+  content: "\fcdb";
 }
 
 .ti-letter-v:before {
   content: "\ec65";
 }
 
+.ti-letter-v-small:before {
+  content: "\fcdc";
+}
+
 .ti-letter-w:before {
   content: "\ec66";
+}
+
+.ti-letter-w-small:before {
+  content: "\fcdd";
 }
 
 .ti-letter-x:before {
   content: "\ec67";
 }
 
+.ti-letter-x-small:before {
+  content: "\fcde";
+}
+
 .ti-letter-y:before {
   content: "\ec68";
 }
 
+.ti-letter-y-small:before {
+  content: "\fcdf";
+}
+
 .ti-letter-z:before {
   content: "\ec69";
+}
+
+.ti-letter-z-small:before {
+  content: "\fce0";
 }
 
 .ti-license:before {
@@ -13386,40 +13490,160 @@
   content: "\edf0";
 }
 
+.ti-number-0-small:before {
+  content: "\fce1";
+}
+
 .ti-number-1:before {
   content: "\edf1";
+}
+
+.ti-number-1-small:before {
+  content: "\fce2";
+}
+
+.ti-number-10-small:before {
+  content: "\fce3";
+}
+
+.ti-number-11-small:before {
+  content: "\fce4";
+}
+
+.ti-number-12-small:before {
+  content: "\fce5";
+}
+
+.ti-number-13-small:before {
+  content: "\fce6";
+}
+
+.ti-number-14-small:before {
+  content: "\fce7";
+}
+
+.ti-number-15-small:before {
+  content: "\fce8";
+}
+
+.ti-number-16-small:before {
+  content: "\fce9";
+}
+
+.ti-number-17-small:before {
+  content: "\fcea";
+}
+
+.ti-number-18-small:before {
+  content: "\fceb";
+}
+
+.ti-number-19-small:before {
+  content: "\fcec";
 }
 
 .ti-number-2:before {
   content: "\edf2";
 }
 
+.ti-number-2-small:before {
+  content: "\fced";
+}
+
+.ti-number-20-small:before {
+  content: "\fcee";
+}
+
+.ti-number-21-small:before {
+  content: "\fcef";
+}
+
+.ti-number-22-small:before {
+  content: "\fcf0";
+}
+
+.ti-number-23-small:before {
+  content: "\fcf1";
+}
+
+.ti-number-24-small:before {
+  content: "\fcf2";
+}
+
+.ti-number-25-small:before {
+  content: "\fcf3";
+}
+
+.ti-number-26-small:before {
+  content: "\fcf4";
+}
+
+.ti-number-27-small:before {
+  content: "\fcf5";
+}
+
+.ti-number-28-small:before {
+  content: "\fcf6";
+}
+
+.ti-number-29-small:before {
+  content: "\fcf7";
+}
+
 .ti-number-3:before {
   content: "\edf3";
+}
+
+.ti-number-3-small:before {
+  content: "\fcf8";
 }
 
 .ti-number-4:before {
   content: "\edf4";
 }
 
+.ti-number-4-small:before {
+  content: "\fcf9";
+}
+
 .ti-number-5:before {
   content: "\edf5";
+}
+
+.ti-number-5-small:before {
+  content: "\fcfa";
 }
 
 .ti-number-6:before {
   content: "\edf6";
 }
 
+.ti-number-6-small:before {
+  content: "\fcfb";
+}
+
 .ti-number-7:before {
   content: "\edf7";
+}
+
+.ti-number-7-small:before {
+  content: "\fcfc";
 }
 
 .ti-number-8:before {
   content: "\edf8";
 }
 
+.ti-number-8-small:before {
+  content: "\fcfd";
+}
+
 .ti-number-9:before {
   content: "\edf9";
+}
+
+.ti-number-9-small:before {
+  content: "\fcfe";
 }
 
 .ti-numbers:before {
