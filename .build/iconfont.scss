@@ -50,3 +50,5 @@ $ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicode[0].codePointAt(0).toStrin
 
 <% glyphs.forEach(function(glyph) { %>
 .#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
+
+/*! Force SASS to include charset:  */
