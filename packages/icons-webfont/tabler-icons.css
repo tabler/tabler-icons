@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.38.0 by tabler - https://tabler.io
+ * Tabler Icons 2.39.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.38.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.38.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.38.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.38.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.39.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.39.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.39.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.39.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -3486,6 +3486,10 @@
   content: "\edd2";
 }
 
+.ti-brand-patreon-filled:before {
+  content: "\fcff";
+}
+
 .ti-brand-paypal:before {
   content: "\ec22";
 }
@@ -4062,6 +4066,10 @@
   content: "\fb03";
 }
 
+.ti-briefcase-filled:before {
+  content: "\fd00";
+}
+
 .ti-briefcase-off:before {
   content: "\f3cc";
 }
@@ -4148,6 +4156,10 @@
 
 .ti-bug:before {
   content: "\ea48";
+}
+
+.ti-bug-filled:before {
+  content: "\fd01";
 }
 
 .ti-bug-off:before {
@@ -4670,6 +4682,10 @@
   content: "\fc43";
 }
 
+.ti-caret-left-right-filled:before {
+  content: "\fd02";
+}
+
 .ti-caret-right:before {
   content: "\eb5f";
 }
@@ -4684,6 +4700,10 @@
 
 .ti-caret-up-down:before {
   content: "\fc44";
+}
+
+.ti-caret-up-down-filled:before {
+  content: "\fd03";
 }
 
 .ti-caret-up-filled:before {
@@ -4914,8 +4934,16 @@
   content: "\f098";
 }
 
+.ti-chart-dots-filled:before {
+  content: "\fd04";
+}
+
 .ti-chart-grid-dots:before {
   content: "\f4c2";
+}
+
+.ti-chart-grid-dots-filled:before {
+  content: "\fd05";
 }
 
 .ti-chart-histogram:before {
@@ -6114,12 +6142,28 @@
   content: "\f2be";
 }
 
+.ti-coin-bitcoin-filled:before {
+  content: "\fd06";
+}
+
 .ti-coin-euro:before {
   content: "\f2bf";
 }
 
+.ti-coin-euro-filled:before {
+  content: "\fd07";
+}
+
+.ti-coin-filled:before {
+  content: "\fd08";
+}
+
 .ti-coin-monero:before {
   content: "\f4a0";
+}
+
+.ti-coin-monero-filled:before {
+  content: "\fd09";
 }
 
 .ti-coin-off:before {
@@ -6130,16 +6174,40 @@
   content: "\f2c0";
 }
 
+.ti-coin-pound-filled:before {
+  content: "\fd0a";
+}
+
 .ti-coin-rupee:before {
   content: "\f2c1";
+}
+
+.ti-coin-rupee-filled:before {
+  content: "\fd0b";
+}
+
+.ti-coin-taka:before {
+  content: "\fd0d";
+}
+
+.ti-coin-taka-filled:before {
+  content: "\fd0c";
 }
 
 .ti-coin-yen:before {
   content: "\f2c2";
 }
 
+.ti-coin-yen-filled:before {
+  content: "\fd0e";
+}
+
 .ti-coin-yuan:before {
   content: "\f2c3";
+}
+
+.ti-coin-yuan-filled:before {
+  content: "\fd0f";
 }
 
 .ti-coins:before {
@@ -6212,6 +6280,10 @@
 
 .ti-compass:before {
   content: "\ea79";
+}
+
+.ti-compass-filled:before {
+  content: "\fd10";
 }
 
 .ti-compass-off:before {
@@ -6440,6 +6512,10 @@
 
 .ti-credit-card:before {
   content: "\ea84";
+}
+
+.ti-credit-card-filled:before {
+  content: "\fd11";
 }
 
 .ti-credit-card-off:before {
@@ -9194,8 +9270,16 @@
   content: "\ef60";
 }
 
+.ti-flask-2-filled:before {
+  content: "\fd12";
+}
+
 .ti-flask-2-off:before {
   content: "\f12f";
+}
+
+.ti-flask-filled:before {
+  content: "\fd13";
 }
 
 .ti-flask-off:before {
@@ -9622,6 +9706,10 @@
   content: "\fc2d";
 }
 
+.ti-gift-filled:before {
+  content: "\fd14";
+}
+
 .ti-gift-off:before {
   content: "\f3f3";
 }
@@ -9724,6 +9812,10 @@
 
 .ti-graph:before {
   content: "\f288";
+}
+
+.ti-graph-filled:before {
+  content: "\fd15";
 }
 
 .ti-graph-off:before {
@@ -11546,8 +11638,16 @@
   content: "\eade";
 }
 
+.ti-link-minus:before {
+  content: "\fd16";
+}
+
 .ti-link-off:before {
   content: "\f402";
+}
+
+.ti-link-plus:before {
+  content: "\fd17";
 }
 
 .ti-list:before {
@@ -17846,6 +17946,10 @@
   content: "\f662";
 }
 
+.ti-timeline-event-filled:before {
+  content: "\fd18";
+}
+
 .ti-timeline-event-minus:before {
   content: "\f663";
 }
@@ -18312,6 +18416,10 @@
 
 .ti-user-exclamation:before {
   content: "\ec12";
+}
+
+.ti-user-filled:before {
+  content: "\fd19";
 }
 
 .ti-user-heart:before {
