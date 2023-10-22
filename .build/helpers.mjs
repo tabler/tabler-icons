@@ -281,9 +281,9 @@ export const getCompileOptions = () => {
     fontForge: 'fontforge'
   }
 
-  if (fs.existsSync('../compile-options.json')) {
+  if (fs.existsSync('../../compile-options.json')) {
     try {
-      const tempOptions = JSON.parse(fs.readFileSync('../compile-options.json').toString())
+      const tempOptions = JSON.parse(fs.readFileSync('../../compile-options.json').toString())
 
       if (typeof tempOptions !== 'object') {
         throw 'Compile options file does not contain an json object'

@@ -263,23 +263,26 @@ The default settings if you have not defined the file will be:
 ```JSON
 {
   "includeIcons": [],
-  "fontForge": "fontforge",
   "strokeWidth": null
 }
 ```
 
-The fontforge executable needs to be in the path or you can set the path to the downloaded fontforge executable in the configuration file. If you installed in on a mac in your application directory it will be `/Applications/FontForge.app/Contents/MacOS/FontForge`. You can set this value in the `compile-options.json` file.
+The fontforge executable needs to be in the path or you can set the path to the downloaded fontforge executable in the configuration file. If you installed in on a mac in your application directory it will be `/Applications/FontForge.app/Contents/MacOS/FontForge`. You change  this value in the packages/icons-webfont/package.json. For example
 
 ```JSON
 {
-  "fontForge": "/Applications/FontForge.app/Contents/MacOS/FontForge"
+ "build:fix-outline": "/Applications/FontForge.app/Contents/MacOS/FontForge -lang=py -script .build/fix-outline.py",
 }
 ```
 
 To compile the fonts run:
 ```sh
-npm run build-iconfont
+npm run build:webfont
 ```
+
+After compiling the result files will be located in 
+`packages/icons-webfont`
+
 
 By default the stroke width is 2. You can change the stroke width in the `compile-options.json`
 ```JSON
