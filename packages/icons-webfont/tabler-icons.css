@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.39.0 by tabler - https://tabler.io
+ * Tabler Icons 2.40.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.39.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.39.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.39.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.39.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.40.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.40.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.40.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.40.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -3162,6 +3162,10 @@
   content: "\ec1e";
 }
 
+.ti-brand-google-filled:before {
+  content: "\fd1a";
+}
+
 .ti-brand-google-fit:before {
   content: "\f297";
 }
@@ -3538,6 +3542,10 @@
   content: "\f5ed";
 }
 
+.ti-brand-printables:before {
+  content: "\fd1b";
+}
+
 .ti-brand-prisma:before {
   content: "\f499";
 }
@@ -3776,6 +3784,10 @@
 
 .ti-brand-tether:before {
   content: "\f5a3";
+}
+
+.ti-brand-thingiverse:before {
+  content: "\fd1c";
 }
 
 .ti-brand-threads:before {
@@ -4426,12 +4438,20 @@
   content: "\fad2";
 }
 
+.ti-calendar-sad:before {
+  content: "\fd1d";
+}
+
 .ti-calendar-search:before {
   content: "\f82e";
 }
 
 .ti-calendar-share:before {
   content: "\f82f";
+}
+
+.ti-calendar-smile:before {
+  content: "\fd1e";
 }
 
 .ti-calendar-star:before {
@@ -4448,6 +4468,10 @@
 
 .ti-calendar-up:before {
   content: "\f831";
+}
+
+.ti-calendar-user:before {
+  content: "\fd1f";
 }
 
 .ti-calendar-x:before {
@@ -4772,6 +4796,14 @@
 
 .ti-category-filled:before {
   content: "\fb2e";
+}
+
+.ti-category-minus:before {
+  content: "\fd20";
+}
+
+.ti-category-plus:before {
+  content: "\fd21";
 }
 
 .ti-ce:before {
@@ -8766,6 +8798,10 @@
   content: "\ea9f";
 }
 
+.ti-file-neutral:before {
+  content: "\fd22";
+}
+
 .ti-file-off:before {
   content: "\ecf2";
 }
@@ -8802,6 +8838,10 @@
   content: "\f03b";
 }
 
+.ti-file-sad:before {
+  content: "\fd23";
+}
+
 .ti-file-scissors:before {
   content: "\f03c";
 }
@@ -8820,6 +8860,10 @@
 
 .ti-file-signal:before {
   content: "\f03d";
+}
+
+.ti-file-smile:before {
+  content: "\fd24";
 }
 
 .ti-file-spreadsheet:before {
@@ -12876,6 +12920,10 @@
 
 .ti-meteor-off:before {
   content: "\f40c";
+}
+
+.ti-metronome:before {
+  content: "\fd25";
 }
 
 .ti-michelin-bib-gourmand:before {
@@ -17354,6 +17402,26 @@
   content: "\ef9d";
 }
 
+.ti-stack-back:before {
+  content: "\fd26";
+}
+
+.ti-stack-backward:before {
+  content: "\fd27";
+}
+
+.ti-stack-forward:before {
+  content: "\fd28";
+}
+
+.ti-stack-front:before {
+  content: "\fd29";
+}
+
+.ti-stack-middle:before {
+  content: "\fd2a";
+}
+
 .ti-stack-pop:before {
   content: "\f234";
 }
@@ -18008,6 +18076,10 @@
 
 .ti-tools-kitchen-2-off:before {
   content: "\f1b5";
+}
+
+.ti-tools-kitchen-3:before {
+  content: "\fd2b";
 }
 
 .ti-tools-kitchen-off:before {
