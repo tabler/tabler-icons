@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.41.0 by tabler - https://tabler.io
+ * Tabler Icons 2.42.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.41.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.41.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.41.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.41.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.42.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.42.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.42.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.42.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -4398,6 +4398,10 @@
   content: "\f827";
 }
 
+.ti-calendar-dot:before {
+  content: "\fd3e";
+}
+
 .ti-calendar-down:before {
   content: "\f828";
 }
@@ -6426,8 +6430,24 @@
   content: "\ea7a";
 }
 
+.ti-copy-check:before {
+  content: "\fd3f";
+}
+
+.ti-copy-minus:before {
+  content: "\fd40";
+}
+
 .ti-copy-off:before {
   content: "\f0d8";
+}
+
+.ti-copy-plus:before {
+  content: "\fd41";
+}
+
+.ti-copy-x:before {
+  content: "\fd42";
 }
 
 .ti-copyleft:before {
@@ -9510,6 +9530,10 @@
   content: "\f917";
 }
 
+.ti-folder-root:before {
+  content: "\fd43";
+}
+
 .ti-folder-search:before {
   content: "\f918";
 }
@@ -9976,6 +10000,10 @@
 
 .ti-guitar-pick-filled:before {
   content: "\f67b";
+}
+
+.ti-gymnastics:before {
+  content: "\fd44";
 }
 
 .ti-h-1:before {
@@ -11314,6 +11342,10 @@
   content: "\fc37";
 }
 
+.ti-layout-bottombar-inactive:before {
+  content: "\fd45";
+}
+
 .ti-layout-cards:before {
   content: "\ec13";
 }
@@ -11382,6 +11414,10 @@
   content: "\fc3a";
 }
 
+.ti-layout-navbar-inactive:before {
+  content: "\fd46";
+}
+
 .ti-layout-off:before {
   content: "\f151";
 }
@@ -11392,6 +11428,10 @@
 
 .ti-layout-sidebar:before {
   content: "\eada";
+}
+
+.ti-layout-sidebar-inactive:before {
+  content: "\fd47";
 }
 
 .ti-layout-sidebar-left-collapse:before {
@@ -11428,6 +11468,10 @@
 
 .ti-layout-sidebar-right-expand-filled:before {
   content: "\fc3e";
+}
+
+.ti-layout-sidebar-right-inactive:before {
+  content: "\fd48";
 }
 
 .ti-leaf:before {
@@ -11680,6 +11724,22 @@
 
 .ti-letter-z-small:before {
   content: "\fce0";
+}
+
+.ti-library:before {
+  content: "\fd4c";
+}
+
+.ti-library-minus:before {
+  content: "\fd49";
+}
+
+.ti-library-photo:before {
+  content: "\fd4a";
+}
+
+.ti-library-plus:before {
+  content: "\fd4b";
 }
 
 .ti-license:before {
@@ -12924,6 +12984,10 @@
 
 .ti-message-question:before {
   content: "\f98b";
+}
+
+.ti-message-reply:before {
+  content: "\fd4d";
 }
 
 .ti-message-report:before {
@@ -15790,6 +15854,10 @@
   content: "\f2d9";
 }
 
+.ti-scuba-diving:before {
+  content: "\fd4e";
+}
+
 .ti-scuba-mask:before {
   content: "\eed4";
 }
@@ -16456,6 +16524,10 @@
 
 .ti-smoking-no:before {
   content: "\ecc3";
+}
+
+.ti-snowboarding:before {
+  content: "\fd4f";
 }
 
 .ti-snowflake:before {
