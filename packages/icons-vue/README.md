@@ -43,7 +43,7 @@ or
 pnpm install @tabler/icons-vue
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## How to use
 
@@ -108,7 +108,7 @@ You can pass additional attribute `stroke-width="1"` alongside the props to adju
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-vue/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-vue/README.md)
 
 ## License
 
