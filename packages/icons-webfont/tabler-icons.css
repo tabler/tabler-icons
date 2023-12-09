@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.42.0 by tabler - https://tabler.io
+ * Tabler Icons 2.43.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.42.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.42.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.42.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.42.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.43.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.43.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.43.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.43.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -6614,6 +6614,34 @@
   content: "\ea85";
 }
 
+.ti-crop-1-1:before {
+  content: "\fd50";
+}
+
+.ti-crop-16-9:before {
+  content: "\fd51";
+}
+
+.ti-crop-3-2:before {
+  content: "\fd52";
+}
+
+.ti-crop-5-4:before {
+  content: "\fd53";
+}
+
+.ti-crop-7-5:before {
+  content: "\fd54";
+}
+
+.ti-crop-landscape:before {
+  content: "\fd55";
+}
+
+.ti-crop-portrait:before {
+  content: "\fd56";
+}
+
 .ti-cross:before {
   content: "\ef8f";
 }
@@ -8360,6 +8388,10 @@
 
 .ti-ear-off:before {
   content: "\ee84";
+}
+
+.ti-ear-scan:before {
+  content: "\fd57";
 }
 
 .ti-ease-in:before {
@@ -10768,6 +10800,14 @@
 
 .ti-horseshoe:before {
   content: "\fcb7";
+}
+
+.ti-hospital:before {
+  content: "\fd59";
+}
+
+.ti-hospital-circle:before {
+  content: "\fd58";
 }
 
 .ti-hotel-service:before {
@@ -14110,6 +14150,10 @@
   content: "\eb03";
 }
 
+.ti-parking-circle:before {
+  content: "\fd5a";
+}
+
 .ti-parking-off:before {
   content: "\f172";
 }
@@ -14594,8 +14638,16 @@
   content: "\ec9c";
 }
 
+.ti-pin-end:before {
+  content: "\fd5b";
+}
+
 .ti-pin-filled:before {
   content: "\f68d";
+}
+
+.ti-pin-invoke:before {
+  content: "\fd5c";
 }
 
 .ti-ping-pong:before {
@@ -15908,6 +15960,10 @@
 
 .ti-send:before {
   content: "\eb1e";
+}
+
+.ti-send-2:before {
+  content: "\fd5d";
 }
 
 .ti-send-off:before {
@@ -17760,6 +17816,22 @@
 
 .ti-swipe:before {
   content: "\f551";
+}
+
+.ti-swipe-down:before {
+  content: "\fd5e";
+}
+
+.ti-swipe-left:before {
+  content: "\fd5f";
+}
+
+.ti-swipe-right:before {
+  content: "\fd60";
+}
+
+.ti-swipe-up:before {
+  content: "\fd61";
 }
 
 .ti-switch:before {
