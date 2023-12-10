@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons 2.43.0 by tabler - https://tabler.io
+ * Tabler Icons 2.44.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 $ti-font-family: 'tabler-icons' !default;
@@ -13,11 +13,11 @@ $ti-prefix: 'ti' !default;
   font-style: normal;
   font-weight: 400;
   font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/tabler-icons.eot?v2.43.0');
-  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.43.0') format('embedded-opentype'),
-    url('#{$ti-font-path}/tabler-icons.woff2?v2.43.0') format('woff2'),
+  src: url('#{$ti-font-path}/tabler-icons.eot?v2.44.0');
+  src: url('#{$ti-font-path}/tabler-icons.eot?#iefix-v2.44.0') format('embedded-opentype'),
+    url('#{$ti-font-path}/tabler-icons.woff2?v2.44.0') format('woff2'),
     url('#{$ti-font-path}/tabler-icons.woff?') format('woff'),
-    url('#{$ti-font-path}/tabler-icons.ttf?v2.43.0') format('truetype');
+    url('#{$ti-font-path}/tabler-icons.ttf?v2.44.0') format('truetype');
 }
 
 .#{$ti-prefix} {
@@ -621,6 +621,9 @@ $ti-icon-books: unicode('eff2');
 $ti-icon-books-off: unicode('f0be');
 $ti-icon-border-all: unicode('ea3b');
 $ti-icon-border-bottom: unicode('ea3c');
+$ti-icon-border-corner-pill: unicode('fd62');
+$ti-icon-border-corner-rounded: unicode('fd63');
+$ti-icon-border-corner-square: unicode('fd64');
 $ti-icon-border-corners: unicode('f7a0');
 $ti-icon-border-horizontal: unicode('ea3d');
 $ti-icon-border-inner: unicode('ea3e');
@@ -2216,6 +2219,7 @@ $ti-icon-face-id-error: unicode('efa7');
 $ti-icon-face-mask: unicode('efb5');
 $ti-icon-face-mask-off: unicode('f127');
 $ti-icon-fall: unicode('ecb9');
+$ti-icon-favicon: unicode('fd65');
 $ti-icon-feather: unicode('ee8b');
 $ti-icon-feather-off: unicode('f128');
 $ti-icon-fence: unicode('ef2a');
@@ -3853,9 +3857,15 @@ $ti-icon-razor: unicode('f4b5');
 $ti-icon-razor-electric: unicode('f4b4');
 $ti-icon-receipt: unicode('edfd');
 $ti-icon-receipt-2: unicode('edfa');
+$ti-icon-receipt-bitcoin: unicode('fd66');
+$ti-icon-receipt-dollar: unicode('fd67');
+$ti-icon-receipt-euro: unicode('fd68');
 $ti-icon-receipt-off: unicode('edfb');
+$ti-icon-receipt-pound: unicode('fd69');
 $ti-icon-receipt-refund: unicode('edfc');
 $ti-icon-receipt-tax: unicode('edbd');
+$ti-icon-receipt-yen: unicode('fd6a');
+$ti-icon-receipt-yuan: unicode('fd6b');
 $ti-icon-recharging: unicode('eeca');
 $ti-icon-record-mail: unicode('eb12');
 $ti-icon-record-mail-off: unicode('f18b');
@@ -3982,6 +3992,7 @@ $ti-icon-sailboat-2: unicode('f5f7');
 $ti-icon-sailboat-off: unicode('f425');
 $ti-icon-salad: unicode('f50a');
 $ti-icon-salt: unicode('ef16');
+$ti-icon-sandbox: unicode('fd6c');
 $ti-icon-satellite: unicode('eed3');
 $ti-icon-satellite-off: unicode('f197');
 $ti-icon-sausage: unicode('ef17');
@@ -4553,6 +4564,7 @@ $ti-icon-text-color: unicode('f2dc');
 $ti-icon-text-decrease: unicode('f202');
 $ti-icon-text-direction-ltr: unicode('eefc');
 $ti-icon-text-direction-rtl: unicode('eefd');
+$ti-icon-text-grammar: unicode('fd6d');
 $ti-icon-text-increase: unicode('f203');
 $ti-icon-text-orientation: unicode('f2a4');
 $ti-icon-text-plus: unicode('f2a5');
@@ -4637,6 +4649,12 @@ $ti-icon-traffic-cone-off: unicode('f1b8');
 $ti-icon-traffic-lights: unicode('ed39');
 $ti-icon-traffic-lights-off: unicode('f1b9');
 $ti-icon-train: unicode('ed96');
+$ti-icon-transaction-bitcoin: unicode('fd6e');
+$ti-icon-transaction-dollar: unicode('fd6f');
+$ti-icon-transaction-euro: unicode('fd70');
+$ti-icon-transaction-pound: unicode('fd71');
+$ti-icon-transaction-yen: unicode('fd72');
+$ti-icon-transaction-yuan: unicode('fd73');
 $ti-icon-transfer: unicode('fc1f');
 $ti-icon-transfer-in: unicode('ef2f');
 $ti-icon-transfer-out: unicode('ef30');
@@ -5513,6 +5531,9 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-books-off:before { content: $ti-icon-books-off; }
 .#{$ti-prefix}-border-all:before { content: $ti-icon-border-all; }
 .#{$ti-prefix}-border-bottom:before { content: $ti-icon-border-bottom; }
+.#{$ti-prefix}-border-corner-pill:before { content: $ti-icon-border-corner-pill; }
+.#{$ti-prefix}-border-corner-rounded:before { content: $ti-icon-border-corner-rounded; }
+.#{$ti-prefix}-border-corner-square:before { content: $ti-icon-border-corner-square; }
 .#{$ti-prefix}-border-corners:before { content: $ti-icon-border-corners; }
 .#{$ti-prefix}-border-horizontal:before { content: $ti-icon-border-horizontal; }
 .#{$ti-prefix}-border-inner:before { content: $ti-icon-border-inner; }
@@ -7108,6 +7129,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-face-mask:before { content: $ti-icon-face-mask; }
 .#{$ti-prefix}-face-mask-off:before { content: $ti-icon-face-mask-off; }
 .#{$ti-prefix}-fall:before { content: $ti-icon-fall; }
+.#{$ti-prefix}-favicon:before { content: $ti-icon-favicon; }
 .#{$ti-prefix}-feather:before { content: $ti-icon-feather; }
 .#{$ti-prefix}-feather-off:before { content: $ti-icon-feather-off; }
 .#{$ti-prefix}-fence:before { content: $ti-icon-fence; }
@@ -8745,9 +8767,15 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-razor-electric:before { content: $ti-icon-razor-electric; }
 .#{$ti-prefix}-receipt:before { content: $ti-icon-receipt; }
 .#{$ti-prefix}-receipt-2:before { content: $ti-icon-receipt-2; }
+.#{$ti-prefix}-receipt-bitcoin:before { content: $ti-icon-receipt-bitcoin; }
+.#{$ti-prefix}-receipt-dollar:before { content: $ti-icon-receipt-dollar; }
+.#{$ti-prefix}-receipt-euro:before { content: $ti-icon-receipt-euro; }
 .#{$ti-prefix}-receipt-off:before { content: $ti-icon-receipt-off; }
+.#{$ti-prefix}-receipt-pound:before { content: $ti-icon-receipt-pound; }
 .#{$ti-prefix}-receipt-refund:before { content: $ti-icon-receipt-refund; }
 .#{$ti-prefix}-receipt-tax:before { content: $ti-icon-receipt-tax; }
+.#{$ti-prefix}-receipt-yen:before { content: $ti-icon-receipt-yen; }
+.#{$ti-prefix}-receipt-yuan:before { content: $ti-icon-receipt-yuan; }
 .#{$ti-prefix}-recharging:before { content: $ti-icon-recharging; }
 .#{$ti-prefix}-record-mail:before { content: $ti-icon-record-mail; }
 .#{$ti-prefix}-record-mail-off:before { content: $ti-icon-record-mail-off; }
@@ -8874,6 +8902,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-sailboat-off:before { content: $ti-icon-sailboat-off; }
 .#{$ti-prefix}-salad:before { content: $ti-icon-salad; }
 .#{$ti-prefix}-salt:before { content: $ti-icon-salt; }
+.#{$ti-prefix}-sandbox:before { content: $ti-icon-sandbox; }
 .#{$ti-prefix}-satellite:before { content: $ti-icon-satellite; }
 .#{$ti-prefix}-satellite-off:before { content: $ti-icon-satellite-off; }
 .#{$ti-prefix}-sausage:before { content: $ti-icon-sausage; }
@@ -9445,6 +9474,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-text-decrease:before { content: $ti-icon-text-decrease; }
 .#{$ti-prefix}-text-direction-ltr:before { content: $ti-icon-text-direction-ltr; }
 .#{$ti-prefix}-text-direction-rtl:before { content: $ti-icon-text-direction-rtl; }
+.#{$ti-prefix}-text-grammar:before { content: $ti-icon-text-grammar; }
 .#{$ti-prefix}-text-increase:before { content: $ti-icon-text-increase; }
 .#{$ti-prefix}-text-orientation:before { content: $ti-icon-text-orientation; }
 .#{$ti-prefix}-text-plus:before { content: $ti-icon-text-plus; }
@@ -9529,6 +9559,12 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-traffic-lights:before { content: $ti-icon-traffic-lights; }
 .#{$ti-prefix}-traffic-lights-off:before { content: $ti-icon-traffic-lights-off; }
 .#{$ti-prefix}-train:before { content: $ti-icon-train; }
+.#{$ti-prefix}-transaction-bitcoin:before { content: $ti-icon-transaction-bitcoin; }
+.#{$ti-prefix}-transaction-dollar:before { content: $ti-icon-transaction-dollar; }
+.#{$ti-prefix}-transaction-euro:before { content: $ti-icon-transaction-euro; }
+.#{$ti-prefix}-transaction-pound:before { content: $ti-icon-transaction-pound; }
+.#{$ti-prefix}-transaction-yen:before { content: $ti-icon-transaction-yen; }
+.#{$ti-prefix}-transaction-yuan:before { content: $ti-icon-transaction-yuan; }
 .#{$ti-prefix}-transfer:before { content: $ti-icon-transfer; }
 .#{$ti-prefix}-transfer-in:before { content: $ti-icon-transfer-in; }
 .#{$ti-prefix}-transfer-out:before { content: $ti-icon-transfer-out; }

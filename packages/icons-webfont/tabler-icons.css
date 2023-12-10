@@ -1,13 +1,13 @@
 /*!
- * Tabler Icons 2.43.0 by tabler - https://tabler.io
+ * Tabler Icons 2.44.0 by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
 @font-face {
   font-family: "tabler-icons";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/tabler-icons.eot?v2.43.0");
-  src: url("./fonts/tabler-icons.eot?#iefix-v2.43.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.43.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.43.0") format("truetype");
+  src: url("./fonts/tabler-icons.eot?v2.44.0");
+  src: url("./fonts/tabler-icons.eot?#iefix-v2.44.0") format("embedded-opentype"), url("./fonts/tabler-icons.woff2?v2.44.0") format("woff2"), url("./fonts/tabler-icons.woff?") format("woff"), url("./fonts/tabler-icons.ttf?v2.44.0") format("truetype");
 }
 .ti {
   font-family: "tabler-icons" !important;
@@ -2348,6 +2348,18 @@
 
 .ti-border-bottom:before {
   content: "\ea3c";
+}
+
+.ti-border-corner-pill:before {
+  content: "\fd62";
+}
+
+.ti-border-corner-rounded:before {
+  content: "\fd63";
+}
+
+.ti-border-corner-square:before {
+  content: "\fd64";
 }
 
 .ti-border-corners:before {
@@ -8728,6 +8740,10 @@
 
 .ti-fall:before {
   content: "\ecb9";
+}
+
+.ti-favicon:before {
+  content: "\fd65";
 }
 
 .ti-feather:before {
@@ -15278,8 +15294,24 @@
   content: "\edfa";
 }
 
+.ti-receipt-bitcoin:before {
+  content: "\fd66";
+}
+
+.ti-receipt-dollar:before {
+  content: "\fd67";
+}
+
+.ti-receipt-euro:before {
+  content: "\fd68";
+}
+
 .ti-receipt-off:before {
   content: "\edfb";
+}
+
+.ti-receipt-pound:before {
+  content: "\fd69";
 }
 
 .ti-receipt-refund:before {
@@ -15288,6 +15320,14 @@
 
 .ti-receipt-tax:before {
   content: "\edbd";
+}
+
+.ti-receipt-yen:before {
+  content: "\fd6a";
+}
+
+.ti-receipt-yuan:before {
+  content: "\fd6b";
 }
 
 .ti-recharging:before {
@@ -15792,6 +15832,10 @@
 
 .ti-salt:before {
   content: "\ef16";
+}
+
+.ti-sandbox:before {
+  content: "\fd6c";
 }
 
 .ti-satellite:before {
@@ -18078,6 +18122,10 @@
   content: "\eefd";
 }
 
+.ti-text-grammar:before {
+  content: "\fd6d";
+}
+
 .ti-text-increase:before {
   content: "\f203";
 }
@@ -18412,6 +18460,30 @@
 
 .ti-train:before {
   content: "\ed96";
+}
+
+.ti-transaction-bitcoin:before {
+  content: "\fd6e";
+}
+
+.ti-transaction-dollar:before {
+  content: "\fd6f";
+}
+
+.ti-transaction-euro:before {
+  content: "\fd70";
+}
+
+.ti-transaction-pound:before {
+  content: "\fd71";
+}
+
+.ti-transaction-yen:before {
+  content: "\fd72";
+}
+
+.ti-transaction-yuan:before {
+  content: "\fd73";
 }
 
 .ti-transfer:before {
