@@ -26,6 +26,14 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-svelte.d.ts",
+      "svelte": "./dist/svelte/tabler-icons-svelte.js"
+    },
+    "./dist/svelte/Icon.svelte": "./dist/svelte/Icon.svelte",
+    "./dist/svelte/icons/*.svelte": "./dist/svelte/icons/*.svelte"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles && pnpm build:strip",
     "build:icons": "node build.mjs",
