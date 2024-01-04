@@ -29,35 +29,41 @@ export const buildIcons = ({
   extension = 'js',
   pretty = true,
   key = true,
-  pascalCase = false
+  pascalCase = false,
+  pascalName = true,
+  indexFile = 'icons.js'
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name),
-      svgFiles = readSvgs()
+    svgFiles = readSvgs()
 
   let index = []
   let typings = []
 
   svgFiles.forEach((svgFile, i) => {
+    if (i > 100) {
+      return;
+    }
+
     const children = svgFile.obj.children
-        .map(({
-          name,
-          attributes
-        }, i) => {
-          if (key) {
-            attributes.key = `svg-${i}`
-          }
+      .map(({
+        name,
+        attributes
+      }, i) => {
+        if (key) {
+          attributes.key = `svg-${i}`
+        }
 
-          if(pascalCase) {
-            attributes.strokeWidth = attributes['stroke-width']
-            delete attributes['stroke-width']
-          }
+        if (pascalCase) {
+          attributes.strokeWidth = attributes['stroke-width']
+          delete attributes['stroke-width']
+        }
 
-          return [name, attributes]
-        })
-        .filter((i) => {
-          const [name, attributes] = i
-          return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
-        })
+        return [name, attributes]
+      })
+      .filter((i) => {
+        const [name, attributes] = i
+        return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
+      })
 
     // process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
 
@@ -75,7 +81,7 @@ export const buildIcons = ({
       parser: 'babel'
     }) : component
 
-    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.namePascal}.${extension}`)
+    let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? svgFile.namePascal : svgFile.name}.${extension}`)
     fs.writeFileSync(filePath, output, 'utf-8')
 
     index.push(indexItemTemplate({
@@ -83,16 +89,20 @@ export const buildIcons = ({
       namePascal: svgFile.namePascal
     }))
 
-    typings.push(indexTypeTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal
-    }))
+    if (indexTypeTemplate) {
+      typings.push(indexTypeTemplate({
+        name: svgFile.name,
+        namePascal: svgFile.namePascal
+      }))
+    }
   })
 
-  fs.writeFileSync(path.resolve(DIST_DIR, `./src/icons.js`), index.join('\n'), 'utf-8')
+  fs.writeFileSync(path.resolve(DIST_DIR, `./src/${indexFile}`), index.join('\n'), 'utf-8')
 
-  fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
-  fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')
+  if (typeDefinitionsTemplate) {
+    fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
+    fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')
+  }
 }
 
 export const getRollupPlugins = (pkg, minify) => {
