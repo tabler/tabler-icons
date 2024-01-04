@@ -68,4 +68,5 @@ export default [
     }],
     plugins: [dts()],
   },
-  ...configs];
+  ...configs
+];

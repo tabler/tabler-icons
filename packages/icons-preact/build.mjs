@@ -13,30 +13,18 @@ export default createPreactComponent('${name}', '${namePascal}', ${JSON.stringif
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
+}) => `export { default as ${namePascal} } from './${namePascal}';`
 
-const typeDefinitionsTemplate = () => `/// <reference types="preact" />
-import { JSX, RefObject } from 'preact'
-
-interface TablerIconsProps extends Partial<Omit<JSX.SVGAttributes, "ref" | "size">> {
-  key?: string | number;
-  ref?: string | ((component: any) => any) | RefObject<any>;
-  color?: string
-  size?: string | number
-}
-
-// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: (props: TablerIconsProps) => JSX.Element;`
-
+const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
 buildIcons({
   name: 'icons-preact',
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  pascalCase: true
+  // typeDefinitionsTemplate,
+  // indexTypeTemplate,
+  aliasTemplate,
+  pascalCase: true,
+  indexFile: 'icons/index.ts',
+  extension: 'ts'
 })

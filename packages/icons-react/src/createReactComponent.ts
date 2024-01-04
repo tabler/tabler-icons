@@ -3,7 +3,7 @@ import {
   createElement,
 } from 'react';
 import defaultAttributes from './defaultAttributes';
-import { IconNode, IconProps } from './types';
+import type { IconNode, IconProps } from './types';
 
 const createReactComponent = (iconName: string, iconNamePascal: string, iconNode: IconNode) => {
   const Component = forwardRef<SVGSVGElement, IconProps>(
