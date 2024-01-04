@@ -18,7 +18,8 @@
     "directory": "packages/icons-svelte"
   },
   "type": "module",
-  "main": "dist/tabler-icons-svelte.js",
+  "main": "./dist/tabler-icons-svelte.js",
+  "svelte": "./dist/tabler-icons-svelte.js",
   "exports": {
     ".": {
       "types": "./dist/tabler-icons-svelte.d.ts",
