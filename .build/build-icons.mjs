@@ -40,10 +40,6 @@ export const buildIcons = ({
   let typings = []
 
   svgFiles.forEach((svgFile, i) => {
-    if (i > 100) {
-      return;
-    }
-
     const children = svgFile.obj.children
       .map(({
         name,
