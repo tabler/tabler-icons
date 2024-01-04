@@ -66,6 +66,21 @@ export const readSvgs = () => {
   });
 }
 
+export const readAliases = () => {
+  const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8')),
+  svgFilesList = readSvgDirectory(ICONS_DIR).map(name => name.replace('.svg', ''));
+  
+  let aliases = [];
+
+  for (const [key, value] of Object.entries(allAliases)) {
+    if (svgFilesList.includes(value)) {
+      aliases[key] = value;
+    }
+  }
+
+  return aliases
+}
+
 /**
  * Read SVG
  *

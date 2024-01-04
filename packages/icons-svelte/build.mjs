@@ -22,6 +22,8 @@ const iconNode: IconNode = ${JSON.stringify(children)};
 `;
 };
 
+const aliasTemplate = ({ fromPascal, to }) => `export { default as Icon${fromPascal} } from './icons/${to}.svelte';\n`
+
 const indexItemTemplate = ({
   name,
   namePascal
@@ -31,6 +33,7 @@ buildIcons({
   name: 'icons-svelte',
   componentTemplate,
   indexItemTemplate,
+  aliasTemplate,
   extension: 'svelte',
   pretty: false,
   key: false,

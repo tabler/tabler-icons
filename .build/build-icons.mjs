@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
+import { PACKAGES_DIR, readSvgs, readAliases, toPascalCase } from './helpers.mjs'
 import { stringify } from 'svgson'
 import prettier from 'prettier'
 
@@ -8,6 +8,9 @@ import bundleSize from '@atomico/rollup-plugin-sizes'
 import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
 import esbuild from 'rollup-plugin-esbuild'
+
+const svgFiles = readSvgs(),
+  aliases = readAliases()
 
 /**
  * Build icons
@@ -26,6 +29,7 @@ export const buildIcons = ({
   indexItemTemplate,
   typeDefinitionsTemplate,
   indexTypeTemplate,
+  aliasTemplate,
   extension = 'js',
   pretty = true,
   key = true,
@@ -33,8 +37,7 @@ export const buildIcons = ({
   pascalName = true,
   indexFile = 'icons.js'
 }) => {
-  const DIST_DIR = path.resolve(PACKAGES_DIR, name),
-    svgFiles = readSvgs()
+  const DIST_DIR = path.resolve(PACKAGES_DIR, name);
 
   let index = []
   let typings = []
@@ -61,8 +64,6 @@ export const buildIcons = ({
         return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
       })
 
-    // process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
-
     let component = componentTemplate({
       name: svgFile.name,
       namePascal: svgFile.namePascal,
@@ -71,11 +72,13 @@ export const buildIcons = ({
       svg: svgFile
     })
 
+    // Format component
     const output = pretty ? prettier.format(component, {
       singleQuote: true,
       trailingComma: 'all',
       parser: 'babel'
     }) : component
+
 
     let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? svgFile.namePascal : svgFile.name}.${extension}`)
     fs.writeFileSync(filePath, output, 'utf-8')
@@ -93,8 +96,27 @@ export const buildIcons = ({
     }
   })
 
+  // Write aliases
+  if (aliases && aliasTemplate) {
+    let aliasesStr = '';
+
+    Object.entries(aliases).forEach(([from, to]) => {
+      aliasesStr += aliasTemplate({
+        from, to,
+        fromPascal: toPascalCase(from),
+        toPascal: toPascalCase(to)
+      })
+    })
+
+    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr, 'utf-8')
+  } else {
+    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), `export {};`, 'utf-8')
+  }
+
+  // Write index file
   fs.writeFileSync(path.resolve(DIST_DIR, `./src/${indexFile}`), index.join('\n'), 'utf-8')
 
+  // Write type definitions
   if (typeDefinitionsTemplate) {
     fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
     fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')

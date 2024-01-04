@@ -13,35 +13,16 @@ export default createReactComponent('${name}', '${namePascal}', ${JSON.stringify
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
+}) => `export { default as ${namePascal} } from './${namePascal}';`
 
-const typeDefinitionsTemplate = () => `/// <reference types="react" />
-import { SVGAttributes } from 'react'
-
-declare module '@tabler/icons-react'
-
-// Create interface extending SVGProps
-export interface TablerIconsProps extends Partial<Omit<React.SVGProps<SVGSVGElement>, 'stroke'>> {
-    size?: string | number,
-    stroke?: string | number
-}
-
-export declare const createReactComponent: (iconName: string, iconNamePascal: string, iconNode: any[]) => (props: TablerIconsProps) => JSX.Element;
-
-export type Icon = React.FC<TablerIconsProps>;
-
-// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: (props: TablerIconsProps) => JSX.Element;`
-
+const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
 buildIcons({
   name: 'icons-react',
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  pascalCase: true
+  aliasTemplate,
+  indexFile: 'icons/index.ts',
+  pascalCase: true,
+  extension: 'ts'
 })
