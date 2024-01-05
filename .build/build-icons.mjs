@@ -9,9 +9,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
 import esbuild from 'rollup-plugin-esbuild'
 
-const svgFiles = readSvgs(),
-  aliases = readAliases()
-
 /**
  * Build icons
  *
@@ -38,6 +35,8 @@ export const buildIcons = ({
   indexFile = 'icons.js'
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
+  const svgFiles = readSvgs(),
+    aliases = readAliases()
 
   let index = []
   let typings = []
@@ -97,7 +96,7 @@ export const buildIcons = ({
   })
 
   // Write aliases
-  if (aliases && aliasTemplate) {
+  if (aliases.length && aliasTemplate) {
     let aliasesStr = '';
 
     Object.entries(aliases).forEach(([from, to]) => {

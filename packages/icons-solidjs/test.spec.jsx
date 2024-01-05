@@ -35,7 +35,7 @@ describe("Solidjs Icon component", () => {
 
     const svg = container.getElementsByTagName("svg")[0]
 
-    expect(svg).toHaveStyle('color: red')
+    expect(svg).toHaveStyle('color: rgb(255, 0, 0)')
   })
 
   test("should match snapshot", () => {

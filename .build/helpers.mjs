@@ -49,27 +49,29 @@ export const readSvgDirectory = (directory) => {
 export const readSvgs = () => {
   const svgFiles = readSvgDirectory(ICONS_DIR)
 
-  return svgFiles.map(svgFile => {
-    const name = basename(svgFile, '.svg'),
+  return svgFiles
+    // .slice(0, 100)
+    .map(svgFile => {
+      const name = basename(svgFile, '.svg'),
         namePascal = toPascalCase(`icon ${name}`),
         contents = readSvg(svgFile, ICONS_DIR).trim(),
         path = resolve(ICONS_DIR, svgFile),
         obj = parseSync(contents.replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', ''));
 
-    return {
-      name,
-      namePascal,
-      contents,
-      obj,
-      path
-    };
-  });
+      return {
+        name,
+        namePascal,
+        contents,
+        obj,
+        path
+      };
+    });
 }
 
 export const readAliases = () => {
   const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8')),
-  svgFilesList = readSvgDirectory(ICONS_DIR).map(name => name.replace('.svg', ''));
-  
+    svgFilesList = readSvgs().map(icon => icon.name);
+
   let aliases = [];
 
   for (const [key, value] of Object.entries(allAliases)) {
@@ -128,14 +130,14 @@ export const toPascalCase = (string) => {
 
 
 
-export const addFloats = function(n1, n2) {
+export const addFloats = function (n1, n2) {
   return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
 }
 
-export const optimizePath = function(path) {
+export const optimizePath = function (path) {
   let transformed = svgpath(path).rel().round(3).toString()
 
-  return svgParse(transformed).map(function(a) {
+  return svgParse(transformed).map(function (a) {
     return a.join(' ')
   }).join('')
 }
@@ -160,16 +162,16 @@ export const optimizeSVG = (data) => {
 
 export function buildIconsObject(svgFiles, getSvg) {
   return svgFiles
-      .map(svgFile => {
-        const name = path.basename(svgFile, '.svg');
-        const svg = getSvg(svgFile);
-        const contents = getSvgContents(svg);
-        return { name, contents };
-      })
-      .reduce((icons, icon) => {
-        icons[icon.name] = icon.contents;
-        return icons;
-      }, {});
+    .map(svgFile => {
+      const name = path.basename(svgFile, '.svg');
+      const svg = getSvg(svgFile);
+      const contents = getSvgContents(svg);
+      return { name, contents };
+    })
+    .reduce((icons, icon) => {
+      icons[icon.name] = icon.contents;
+      return icons;
+    }, {});
 }
 
 function getSvgContents(svg) {
@@ -188,7 +190,7 @@ export const createScreenshot = async (filePath) => {
   await cp.exec(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
 }
 
-export const generateIconsPreview = async function(files, destFile, {
+export const generateIconsPreview = async function (files, destFile, {
   columnsCount = 19,
   paddingOuter = 7,
   color = '#354052',
@@ -197,28 +199,28 @@ export const generateIconsPreview = async function(files, destFile, {
 } = {}) {
 
   const padding = 20,
-      iconSize = 24
+    iconSize = 24
 
   const iconsCount = files.length,
-      rowsCount = Math.ceil(iconsCount / columnsCount),
-      width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
-      height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding
+    rowsCount = Math.ceil(iconsCount / columnsCount),
+    width = columnsCount * (iconSize + padding) + 2 * paddingOuter - padding,
+    height = rowsCount * (iconSize + padding) + 2 * paddingOuter - padding
 
   let svgContentSymbols = '',
-      svgContentIcons = '',
-      x = paddingOuter,
-      y = paddingOuter
+    svgContentIcons = '',
+    x = paddingOuter,
+    y = paddingOuter
 
-  files.forEach(function(file, i) {
+  files.forEach(function (file, i) {
     let name = path.basename(file, '.svg')
 
     let svgFile = fs.readFileSync(file),
-        svgFileContent = svgFile.toString()
+      svgFileContent = svgFile.toString()
 
     svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
-        .replace(' width="24" height="24"', '')
-        .replace('</svg>', '</symbol>')
-        .replace(/\n\s+/g, '')
+      .replace(' width="24" height="24"', '')
+      .replace('</svg>', '</symbol>')
+      .replace(/\n\s+/g, '')
 
     svgContentSymbols += `\t${svgFileContent}\n`
     svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`
@@ -234,26 +236,26 @@ export const generateIconsPreview = async function(files, destFile, {
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
   fs.writeFileSync(destFile, svgContent)
-  
+
   if (png) {
     await createScreenshot(destFile)
   }
 }
 
 
-export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pretty = false) {
+export const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty = false) {
   if (newIcons.length > 0) {
     if (pretty) {
       console.log(`### ${newIcons.length} new icons:\n`)
 
-      newIcons.forEach(function(icon, i) {
+      newIcons.forEach(function (icon, i) {
         console.log(`- \`${icon}\``)
       })
     } else {
       let str = ''
       str += `${newIcons.length} new icons: `
 
-      newIcons.forEach(function(icon, i) {
+      newIcons.forEach(function (icon, i) {
         str += `\`${icon}\``
 
         if ((i + 1) <= newIcons.length - 1) {
@@ -271,7 +273,7 @@ export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pr
     let str = ''
     str += `Fixed icons: `
 
-    modifiedIcons.forEach(function(icon, i) {
+    modifiedIcons.forEach(function (icon, i) {
       str += `\`${icon}\``
 
       if ((i + 1) <= modifiedIcons.length - 1) {
@@ -286,7 +288,7 @@ export const printChangelog = function(newIcons, modifiedIcons, renamedIcons, pr
   if (renamedIcons.length > 0) {
     console.log(`Renamed icons: `)
 
-    renamedIcons.forEach(function(icon, i) {
+    renamedIcons.forEach(function (icon, i) {
       console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``)
     })
   }
@@ -323,7 +325,7 @@ export const getCompileOptions = () => {
           throw 'property includeCategories is not an array or string'
         }
         const tags = Object.entries(require('./tags.json'))
-        tempOptions.includeCategories.forEach(function(category) {
+        tempOptions.includeCategories.forEach(function (category) {
           category = category.charAt(0).toUpperCase() + category.slice(1)
           for (const [icon, data] of tags) {
             if (data.category === category && compileOptions.includeIcons.indexOf(icon) === -1) {
@@ -337,14 +339,14 @@ export const getCompileOptions = () => {
         if (!Array.isArray(tempOptions.excludeIcons)) {
           throw 'property excludeIcons is not an array'
         }
-        compileOptions.includeIcons = compileOptions.includeIcons.filter(function(icon) {
+        compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
           return tempOptions.excludeIcons.indexOf(icon) === -1
         })
       }
 
       if (typeof tempOptions.excludeOffIcons !== 'undefined' && tempOptions.excludeOffIcons) {
         // Exclude `*-off` icons
-        compileOptions.includeIcons = compileOptions.includeIcons.filter(function(icon) {
+        compileOptions.includeIcons = compileOptions.includeIcons.filter(function (icon) {
           return !icon.endsWith('-off')
         })
       }

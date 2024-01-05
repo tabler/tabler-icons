@@ -61,6 +61,7 @@
     "@rollup/plugin-node-resolve": "9.0.0",
     "@svgr/babel-plugin-replace-jsx-attribute-value": "5.0.1",
     "@svgr/core": "5.4.0",
+    "@testing-library/jest-dom": "^6.1.6",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "adm-zip": "^0.5.10",
     "cheerio": "^1.0.0-rc.12",
@@ -69,6 +70,8 @@
     "fs-extra": "^10.1.0",
     "glob": "7.1.6",
     "html-minifier": "^4.0.0",
+    "jest-serializer-html": "^7.1.0",
+    "jsdom": "^23.0.1",
     "lodash.template": "4.5.0",
     "minimist": "1.2.6",
     "node-sass": "8.0.0",
@@ -89,9 +92,7 @@
     "svgpath": "^2.6.0",
     "svgson": "^5.2.1",
     "typescript": "^5.1.6",
-    "vitest": "^1.1.2",
-    "@testing-library/jest-dom": "^6.1.6",
-    "jest-serializer-html": "^7.1.0"
+    "vitest": "^1.1.2"
   },
   "release-it": {
     "plugins": {

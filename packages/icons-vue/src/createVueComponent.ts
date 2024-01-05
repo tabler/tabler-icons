@@ -1,15 +1,6 @@
 import { h } from 'vue';
-import type { SVGAttributes, FunctionalComponent } from 'vue';
 import defaultAttributes from './defaultAttributes';
-
-export interface SVGProps extends Partial<SVGAttributes> {
-  size?: 24 | number;
-  strokeWidth?: number | string;
-}
-
-export type IconNode = [elementName: string, attrs: Record<string, string>][];
-export type Icon = FunctionalComponent<SVGProps>;
-
+import { Icon, IconNode } from './types';
 
 const createVueComponent =
   (iconName: string, iconNamePascal: string, iconNode: IconNode): Icon =>

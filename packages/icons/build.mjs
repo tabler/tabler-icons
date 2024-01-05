@@ -34,8 +34,8 @@ const buildCategories = () => {
 
   if(fs.existsSync(`./categories`)) {
     fs.rmSync(`./categories`, { recursive: true })
-  } 
-    
+  }
+
   fs.mkdirSync(`./categories`)
 
 
@@ -70,14 +70,7 @@ export default ${namePascal} => \`${svg.contents}\`;`;
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
-
-const typeDefinitionsTemplate = () => `// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: string;`
-
+}) => `export { default as ${namePascal} } from './${namePascal}';`
 
 
 buildSprite()
@@ -87,7 +80,7 @@ buildIcons({
   name: 'icons',
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  pretty: false
+  pretty: false,
+  extension: 'ts',
+  indexFile: 'icons/index.ts',
 })
