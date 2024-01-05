@@ -5,7 +5,6 @@ import defaultAttributes from './defaultAttributes';
 export interface SVGProps extends Partial<SVGAttributes> {
   size?: 24 | number;
   strokeWidth?: number | string;
-  absoluteStrokeWidth?: boolean;
 }
 
 export type IconNode = [elementName: string, attrs: Record<string, string>][];
@@ -14,7 +13,7 @@ export type Icon = FunctionalComponent<SVGProps>;
 
 const createVueComponent =
   (iconName: string, iconNamePascal: string, iconNode: IconNode): Icon =>
-  ({ size, color, strokeWidth, ...props }, { attrs, slots }) => {
+  ({ size, color, class: classes, strokeWidth, ...props }, { attrs, slots }) => {
     return h(
       'svg',
       {
@@ -24,7 +23,7 @@ const createVueComponent =
         stroke: color || defaultAttributes.stroke,
         'stroke-width': strokeWidth || defaultAttributes['stroke-width'],
         ...attrs,
-        class: ['tabler-icon', `tabler-icon-${iconName}`, attrs?.class || ''],
+        class: ['tabler-icon', `tabler-icon-${iconName}`],
         ...props,
       },
       [...iconNode.map((child) => h(...child)), ...(slots.default ? [slots.default()] : [])]

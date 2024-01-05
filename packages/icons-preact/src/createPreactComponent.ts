@@ -10,9 +10,10 @@ const createPreactComponent = (
   const Component = ({
     color = 'currentColor',
     size = 24,
-    strokeWidth = 2,
+    stroke = 2,
     children,
-    class: classes = '',
+    className = '',
+    style,
     ...rest
   }: IconProps) =>
     h(
@@ -22,10 +23,12 @@ const createPreactComponent = (
         width: String(size),
         height: size,
         stroke: color,
-        strokeWidth: strokeWidth,
-        class: [`tabler-icon`, `tabler-icon-${iconName}`, classes].join(' '),
+        'stroke-width': stroke,
+        class: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+        style,
       },
-      [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)]
+      [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
+      ...[rest]
     );
 
   Component.displayName = `${iconNamePascal}`;

@@ -40,7 +40,7 @@
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && rm -rf ./src/icons/*.js && rm -rf ./src/icons/*.ts",
-    "test": "echo 'TODO'",
+    "test": "vitest run",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -53,6 +53,7 @@
     "rollup-preset-solid": "^2.0.1",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
+    "vite-plugin-solid": "^2.8.0",
     "solid-js": "^1.8.7"
   },
   "peerDependencies": {
