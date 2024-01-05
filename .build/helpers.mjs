@@ -9,6 +9,7 @@ import { parseSync } from 'svgson'
 import { optimize } from 'svgo'
 import cp from 'child_process'
 import minimist from 'minimist'
+import { exit } from 'process'
 
 export const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
@@ -48,9 +49,10 @@ export const readSvgDirectory = (directory) => {
 
 export const readSvgs = () => {
   const svgFiles = readSvgDirectory(ICONS_DIR)
+  const limit = process.env['ICONS_LIMIT'] || Infinity;
 
   return svgFiles
-    // .slice(0, 100)
+    .slice(0, limit)
     .map(svgFile => {
       const name = basename(svgFile, '.svg'),
         namePascal = toPascalCase(`icon ${name}`),

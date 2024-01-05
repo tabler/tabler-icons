@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs'
-import glob from 'glob'
+import { glob } from 'glob'
 import { resolve } from 'path'
 import { HOME_DIR } from './helpers.mjs'
 

@@ -1,4 +1,4 @@
-import glob from 'glob'
+import { glob } from 'glob'
 import { readFileSync, writeFileSync } from 'fs'
 import { join, basename } from 'path'
 import { optimizePath, ICONS_SRC_DIR } from './helpers.mjs'

@@ -2,7 +2,7 @@ import fs from 'fs-extra'
 import path from 'path'
 import { PACKAGES_DIR, readSvgs, readAliases, toPascalCase } from './helpers.mjs'
 import { stringify } from 'svgson'
-import prettier from 'prettier'
+import prettier from "@prettier/sync"
 
 import bundleSize from '@atomico/rollup-plugin-sizes'
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -78,7 +78,6 @@ export const buildIcons = ({
       parser: 'babel'
     }) : component
 
-
     let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? svgFile.namePascal : svgFile.name}.${extension}`)
     fs.writeFileSync(filePath, output, 'utf-8')
 
@@ -107,7 +106,7 @@ export const buildIcons = ({
       })
     })
 
-    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr, 'utf-8')
+    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8')
   } else {
     fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), `export {};`, 'utf-8')
   }

@@ -1,11 +1,11 @@
-import glob from 'glob'
+import { glob } from 'glob'
 import fs from 'fs'
 import path from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
 let unicodes = []
 
-glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
+glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function (er, files) {
   for (const i in files) {
     const file = files[i]
 

@@ -1,4 +1,4 @@
-import glob from 'glob'
+import { glob } from 'glob'
 import fs from 'fs'
 import { resolve, join, basename } from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
