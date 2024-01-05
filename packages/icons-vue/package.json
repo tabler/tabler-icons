@@ -49,20 +49,5 @@
     "@vue/test-utils": "2.4.3",
     "babel-jest": "^29.4.1",
     "vue": "^3.2.45"
-  },
-  "jest": {
-    "testEnvironmentOptions": {
-      "customExportConditions": [
-        "node",
-        "node-addons"
-      ]
-    },
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.vue$": "vue-jest"
-    }
   }
 }

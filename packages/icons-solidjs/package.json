@@ -47,19 +47,14 @@
     "@tabler/icons": "2.45.0"
   },
   "devDependencies": {
-    "@solidjs/testing-library": "^0.6.1",
+    "@solidjs/testing-library": "^0.8.5",
     "babel-jest": "^29.4.1",
     "babel-preset-solid": "^1.5.4",
     "rollup-preset-solid": "^2.0.1",
-    "jest": "^29.4.1",
-    "jest-environment-jsdom": "^29.4.1",
     "vite-plugin-solid": "^2.8.0",
     "solid-js": "^1.8.7"
   },
   "peerDependencies": {
     "solid-js": "^1.4.7"
-  },
-  "transform": {
-    "^.+\\.js$": "babel-jest"
   }
 }

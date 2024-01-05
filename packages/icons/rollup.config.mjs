@@ -25,11 +25,6 @@ const bundles = [
     outputDir,
   },
   {
-    format: 'es',
-    inputs,
-    outputDir,
-  },
-  {
     format: 'esm',
     inputs,
     outputDir,

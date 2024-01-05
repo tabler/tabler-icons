@@ -56,21 +56,5 @@
     "react",
     "front-end",
     "web"
-  ],
-  "devDependencies": {
-    "babel-jest": "^29.4.1",
-    "jest": "^29.4.1",
-    "jest-environment-jsdom": "^29.4.1"
-  },
-  "jest": {
-    "testEnvironmentOptions": {
-      "customExportConditions": [
-        "node",
-        "node-addons"
-      ]
-    },
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
-  }
+  ]
 }
