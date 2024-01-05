@@ -1,12 +1,14 @@
 import { webfont } from "webfont";
 import * as fs from 'fs'
 import template from 'lodash.template'
-import { getPackageDir, getPackageJson, PACKAGES_DIR } from '../../../.build/helpers.mjs'
+import { getPackageDir, getPackageJson, PACKAGES_DIR, readAliases } from '../../../.build/helpers.mjs'
 
 const formats = ['ttf', 'eot', 'woff', 'woff2']
 const p = getPackageJson()
 const DIR = getPackageDir('icons-webfont')
 const fontHeight = 1000
+
+const aliases = readAliases()
 
 webfont({
   files: 'icons-outlined/*.svg',
@@ -33,7 +35,8 @@ webfont({
       let options = {
         fileName: 'tabler-icons',
         glyphs,
-        v: p.version
+        v: p.version,
+        aliases
       }
 
       //scss

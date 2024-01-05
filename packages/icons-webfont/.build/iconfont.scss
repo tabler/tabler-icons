@@ -43,3 +43,7 @@ $ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicode[0].codePointAt(0).toStrin
 
 <% glyphs.forEach(function(glyph) { %>
 .#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
+
+// Aliases
+<% Object.entries(aliases).forEach(function([from, to]) { %>.#{$ti-prefix}-<%= from %>:before { content: $ti-icon-<%= to %>; }
+<% }); %>

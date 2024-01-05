@@ -9893,3 +9893,9 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-zoom-scan:before { content: $ti-icon-zoom-scan; }
 .#{$ti-prefix}-zzz:before { content: $ti-icon-zzz; }
 .#{$ti-prefix}-zzz-off:before { content: $ti-icon-zzz-off; }
+
+// Aliases
+.#{$ti-prefix}-aaa:before { content: $ti-icon-circle; }
+.#{$ti-prefix}-bbb:before { content: $ti-icon-square; }
+.#{$ti-prefix}-ccc:before { content: $ti-icon-square; }
+

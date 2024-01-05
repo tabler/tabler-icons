@@ -96,7 +96,7 @@ export const buildIcons = ({
   })
 
   // Write aliases
-  if (aliases.length && aliasTemplate) {
+  if (aliases && aliasTemplate) {
     let aliasesStr = '';
 
     Object.entries(aliases).forEach(([from, to]) => {
