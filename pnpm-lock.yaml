@@ -128,6 +128,9 @@ importers:
       svgson:
         specifier: ^5.2.1
         version: 5.2.1
+      typescript:
+        specifier: ^5.1.6
+        version: 5.3.3
 
   packages/icons:
     devDependencies:
@@ -192,9 +195,6 @@ importers:
       preact:
         specifier: ^10.5.13
         version: 10.11.3
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
 
   packages/icons-react:
     dependencies:
@@ -235,9 +235,6 @@ importers:
       react-test-renderer:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
-      typescript:
-        specifier: ^4.9.5
-        version: 4.9.5
 
   packages/icons-solidjs:
     dependencies:
@@ -247,7 +244,7 @@ importers:
     devDependencies:
       '@solidjs/testing-library':
         specifier: ^0.6.1
-        version: 0.6.1(solid-js@1.6.6)
+        version: 0.6.1(solid-js@1.8.7)
       babel-jest:
         specifier: ^29.4.1
         version: 29.4.2(@babel/core@7.11.6)
@@ -261,8 +258,8 @@ importers:
         specifier: ^29.4.1
         version: 29.4.2
       solid-js:
-        specifier: ^1.4.7
-        version: 1.6.6
+        specifier: ^1.8.7
+        version: 1.8.7
 
   packages/icons-svelte:
     dependencies:
@@ -272,7 +269,7 @@ importers:
     devDependencies:
       '@sveltejs/package':
         specifier: ^2.2.5
-        version: 2.2.5(svelte@4.0.1)(typescript@5.1.6)
+        version: 2.2.5(svelte@4.0.1)(typescript@5.3.3)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^2.4.2
         version: 2.4.2(svelte@4.0.1)(vite@4.0.4)
@@ -299,10 +296,7 @@ importers:
         version: 3.4.4(@babel/core@7.11.6)(svelte@4.0.1)
       svelte-preprocess:
         specifier: ^5.0.4
-        version: 5.0.4(@babel/core@7.11.6)(svelte@4.0.1)(typescript@5.1.6)
-      typescript:
-        specifier: ^5.1.6
-        version: 5.1.6
+        version: 5.0.4(@babel/core@7.11.6)(svelte@4.0.1)(typescript@5.3.3)
 
   packages/icons-vue:
     dependencies:
@@ -4451,17 +4445,17 @@ packages:
       '@sinonjs/commons': 2.0.0
     dev: true
 
-  /@solidjs/testing-library@0.6.1(solid-js@1.6.6):
+  /@solidjs/testing-library@0.6.1(solid-js@1.8.7):
     resolution: {integrity: sha512-cS91EDopZhpVa+F55vLxbT+xrQEtc6jIYhXEleu7aCtPRKuBAhKGYQoiOAWrxRd2cXu678dhR8kuwp7ZS2gkNQ==}
     engines: {node: '>= 14'}
     peerDependencies:
       solid-js: '>=1.0.0'
     dependencies:
       '@testing-library/dom': 8.20.0
-      solid-js: 1.6.6
+      solid-js: 1.8.7
     dev: true
 
-  /@sveltejs/package@2.2.5(svelte@4.0.1)(typescript@5.1.6):
+  /@sveltejs/package@2.2.5(svelte@4.0.1)(typescript@5.3.3):
     resolution: {integrity: sha512-H0dFDrp7b/tr4zrUzOfqPKHG8y6ceNlGKPfSpp4ym1kTPWP79Mea5rvDlcmsbOS26FmHN/vttubalBdOCGA6qA==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
@@ -4473,7 +4467,7 @@ packages:
       sade: 1.8.1
       semver: 7.5.4
       svelte: 4.0.1
-      svelte2tsx: 0.6.27(svelte@4.0.1)(typescript@5.1.6)
+      svelte2tsx: 0.6.27(svelte@4.0.1)(typescript@5.3.3)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -11310,6 +11304,11 @@ packages:
       randombytes: 2.1.0
     dev: true
 
+  /seroval@0.15.1:
+    resolution: {integrity: sha512-OPVtf0qmeC7RW+ScVX+7aOS+xoIM7pWcZ0jOWg2aTZigCydgRB04adfteBRbecZnnrO1WuGQ+C3tLeBBzX2zSQ==}
+    engines: {node: '>=10'}
+    dev: true
+
   /set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
     dev: true
@@ -11458,10 +11457,11 @@ packages:
       smart-buffer: 4.2.0
     dev: true
 
-  /solid-js@1.6.6:
-    resolution: {integrity: sha512-5x33mEbPI8QLuywvFjQP4krjWDr8xiYFgZx9KCBH7b0ZzypQCHaUubob7bK6i+1u6nhaAqhWtvXS587Kb8DShA==}
+  /solid-js@1.8.7:
+    resolution: {integrity: sha512-9dzrSVieh2zj3SnJ02II6xZkonR6c+j/91b7XZUNcC6xSaldlqjjGh98F1fk5cRJ8ZTkzqF5fPIWDxEOs6QZXA==}
     dependencies:
       csstype: 3.1.1
+      seroval: 0.15.1
     dev: true
 
   /sorcery@0.11.0:
@@ -11871,54 +11871,6 @@ packages:
       svelte: 4.2.8
     dev: true
 
-  /svelte-preprocess@5.0.4(@babel/core@7.11.6)(svelte@4.0.1)(typescript@5.1.6):
-    resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
-    engines: {node: '>= 14.10.0'}
-    requiresBuild: true
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3 || ^4.0.0
-      postcss: ^7 || ^8
-      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: ^0.55.0
-      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
-      svelte: ^3.23.0 || ^4.0.0-next.0 || ^4.0.0
-      typescript: '>=3.9.5 || ^4.0.0 || ^5.0.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@babel/core': 7.11.6
-      '@types/pug': 2.0.6
-      detect-indent: 6.1.0
-      magic-string: 0.27.0
-      sorcery: 0.11.0
-      strip-indent: 3.0.0
-      svelte: 4.0.1
-      typescript: 5.1.6
-    dev: true
-
   /svelte-preprocess@5.0.4(@babel/core@7.11.6)(svelte@4.0.1)(typescript@5.3.3):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
@@ -12015,7 +11967,7 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /svelte2tsx@0.6.27(svelte@4.0.1)(typescript@5.1.6):
+  /svelte2tsx@0.6.27(svelte@4.0.1)(typescript@5.3.3):
     resolution: {integrity: sha512-E1uPW1o6VsbRz+nUk3fznZ2lSmCITAJoNu8AYefWSvIwE2pSB01i5sId4RMbWNzfcwCQl1DcgGShCPcldl4rvg==}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
@@ -12024,7 +11976,7 @@ packages:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 4.0.1
-      typescript: 5.1.6
+      typescript: 5.3.3
     dev: true
 
   /svelte@4.0.1:
@@ -12377,18 +12329,6 @@ packages:
   /typescript@4.9.4:
     resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
-
-  /typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
-
-  /typescript@5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
-    engines: {node: '>=14.17'}
     hasBin: true
     dev: true
 

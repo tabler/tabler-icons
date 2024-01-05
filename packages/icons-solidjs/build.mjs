@@ -13,7 +13,7 @@ export default createSolidComponent('${name}', '${namePascal}', ${JSON.stringify
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
+}) => `export { default as ${namePascal} } from './${namePascal}';`
 
 const typeDefinitionsTemplate = () => `/// <reference types="solid-js" />
 import { JSX } from 'solid-js'
@@ -31,12 +31,16 @@ const indexTypeTemplate = ({
   namePascal
 }) => `export declare const ${namePascal}: (props: TablerIconsProps) => JSX.Element;`
 
+const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
 buildIcons({
   name: 'icons-solidjs',
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  key: false
+  aliasTemplate,
+  // typeDefinitionsTemplate,
+  // indexTypeTemplate,
+  key: false,
+  extension: 'ts',
+  indexFile: 'icons/index.ts'
 })
