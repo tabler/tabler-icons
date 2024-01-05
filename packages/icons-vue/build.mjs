@@ -13,28 +13,15 @@ export default createVueComponent('${name}', '${namePascal}', ${JSON.stringify(c
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
+}) => `export { default as ${namePascal} } from './${namePascal}';`
 
-const typeDefinitionsTemplate = () => `import { SVGAttributes, FunctionalComponent } from 'vue';
-declare module '@tabler/icons-vue'
-
-// Create interface extending SVGAttributes
-export interface SVGProps extends Partial<SVGAttributes> {
-  size?: 24 | number
-  strokeWidth?: number | string
-}
-
-// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: (props: SVGProps) => FunctionalComponent<SVGProps>;`
-
+const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
 buildIcons({
   name: 'icons-vue',
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate
+  aliasTemplate,
+  extension: 'ts',
+  indexFile: 'icons/index.ts',
 })

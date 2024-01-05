@@ -31,7 +31,7 @@
     "build:icons": "node build.mjs",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
+    "clean": "rm -rf dist && rm -rf ./src/icons/*.js && rm -rf ./src/icons/*.ts",
     "test": "pnpm run clean && pnpm run build:icons && jest --env=jsdom"
   },
   "dependencies": {
