@@ -11,7 +11,7 @@
     "access": "public"
   },
   "scripts": {
-    "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888 --profile",
+    "dev": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888 --profile",
     "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
