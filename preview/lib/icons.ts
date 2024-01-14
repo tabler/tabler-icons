@@ -16,6 +16,7 @@ export async function getAllIcons() {
 
       let svgs: IconSvgsType = {
         outline: content.body,
+        solid: null,
       };
 
       const iconSolid = icon.replace('outline', 'solid');

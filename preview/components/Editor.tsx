@@ -1,7 +1,6 @@
 'use client';
 
-import { Icon } from '@/components/Icon';
-
+import { Icon, iconSvg } from '@/components/Icon';
 import { IconType } from '@/types';
 import { useState } from 'react';
 
@@ -35,7 +34,7 @@ export function Editor({ icons }: { icons: IconType[] }) {
           <div className="buttons" key={i}>
             {group.map((icon, j) => (
               <a className="button" key={j} onClick={() => icon && setCurrentIcon(icon)}>
-                {icon ? <Icon {...icon} /> : ''}
+                {icon ? <Icon icon={icon} /> : ''}
               </a>
             ))}
           </div>
@@ -51,7 +50,7 @@ export function Editor({ icons }: { icons: IconType[] }) {
           <div className="col">
             <div className="icon-preview-wrap">
               <div className="icon-preview">
-                <Icon {...currentIcon} />
+                <Icon icon={currentIcon} />
               </div>
             </div>
           </div>
@@ -60,49 +59,49 @@ export function Editor({ icons }: { icons: IconType[] }) {
 
             <div className="mb">
               <button className="btn">
-                <Icon {...currentIcon} /> Button
-              </button>
+                <Icon icon={currentIcon} /> Button
+              </button>{' '}
               <button className="btn btn-icon">
-                <Icon {...currentIcon} />
-              </button>
+                <Icon icon={currentIcon} />
+              </button>{' '}
               <button className="btn btn-link">
-                <Icon {...currentIcon} /> Button
+                <Icon icon={currentIcon} /> Button
               </button>
             </div>
 
             <div className="input-icon mb">
               <input type="text" className="input" defaultValue="Input value" />
-              <Icon {...currentIcon} />
+              <Icon icon={currentIcon} />
             </div>
 
             <div className="input-icon icon-left mb">
-              <Icon {...currentIcon} />
+              <Icon icon={currentIcon} />
               <input type="text" className="input" placeholder="Input placeholder" />
             </div>
 
             <div className="mb">
               <div className="avatar">
-                <Icon {...currentIcon} />
+                <Icon icon={currentIcon} />
               </div>
               <div className="avatar avatar-sm">
-                <Icon {...currentIcon} />
+                <Icon icon={currentIcon} />
               </div>
 
               <a href="#">
-                <Icon {...currentIcon} /> Link
+                <Icon icon={currentIcon} /> Link
               </a>
             </div>
 
             <div className="tabs mb">
               <a className="tab active">
-                <Icon {...currentIcon} /> Tab 1
+                <Icon icon={currentIcon} /> Tab 1
               </a>
               <a className="tab">Tab 2</a>
               <a className="tab">Tab 3</a>
             </div>
 
             <div className="mb">
-              <textarea rows={10} className="input" value={'sdf'}/>
+              <textarea rows={10} className="input" defaultValue={iconSvg({ icon: currentIcon })} />
             </div>
 
             <div className="mt-auto">
@@ -135,7 +134,7 @@ export function Editor({ icons }: { icons: IconType[] }) {
                 style={{ color: '#999' }}
                 onClick={() => setCurrentIcon(icon)}
               >
-                <Icon {...icon} />
+                <Icon icon={icon} />
               </a>
             ))}
           </div>
@@ -161,7 +160,7 @@ export function Editor({ icons }: { icons: IconType[] }) {
                   title={icon.slug}
                   onClick={() => setCurrentIcon(icon)}
                 >
-                  <Icon {...icon} />
+                  <Icon icon={icon} />
                 </a>
               ))}
             </div>

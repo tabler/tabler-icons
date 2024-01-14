@@ -13,7 +13,7 @@ export default async function TagsPage() {
               {icons.map((icon) => (
                 <tr key={icon.slug}>
                   <td className="td-1">
-                    <Icon {...icon} />
+                    <Icon icon={icon} />
                   </td>
                   <th>{icon.slug}</th>
                   <td>{(icon.data.tags || []).join(', ')}</td>

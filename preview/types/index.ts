@@ -1,6 +1,6 @@
 export type IconSvgsType = {
   outline: string;
-  solid?: string;
+  solid: string | null;
 };
 
 export type IconType = {

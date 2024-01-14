@@ -16,7 +16,7 @@ export default async function IndexPage() {
                 data-icon="{{ name }}"
                 key={icon.slug}
               >
-                <Icon {...icon} />
+                <Icon icon={icon} />
               </div>
             ))}
           </div>
@@ -34,7 +34,7 @@ export default async function IndexPage() {
                     data-icon="{{ icon.slug }}"
                     key={icon.slug}
                   >
-                    <Icon {...icon} stroke={1.5} />
+                    <Icon icon={icon} stroke={1.5} />
                   </div>
                 ))}
               </div>
@@ -50,7 +50,7 @@ export default async function IndexPage() {
                     data-icon="{{ name }}"
                     key={icon.slug}
                   >
-                    <Icon {...icon} stroke={1} />
+                    <Icon icon={icon} stroke={1} />
                   </div>
                 ))}
               </div>
