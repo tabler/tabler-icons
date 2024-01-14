@@ -1,6 +1,3 @@
----
----
-
 $breakpoint: 50rem;
 $primary: #206bc4;
 $border: #eeeeee;
@@ -347,9 +344,14 @@ Components
   border-radius: 50%;
   vertical-align: bottom;
 
-  .icon {
+  .svg {
     height: 60%;
     width: 60%;
+  }
+
+  .icon {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -442,6 +444,7 @@ $border-color: #e0e0e0;
 }
 
 .button {
+  cursor: pointer;
   display: inline-flex;
   width: 2rem;
   height: 2rem;
