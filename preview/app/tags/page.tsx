@@ -14,6 +14,7 @@ export default async function TagsPage() {
                 <tr key={icon.slug}>
                   <td className="td-1">
                     <Icon icon={icon} />
+                    {icon.svgs.solid && <Icon icon={icon} type="solid" />}
                   </td>
                   <th>{icon.slug}</th>
                   <td>{(icon.data.tags || []).join(', ')}</td>

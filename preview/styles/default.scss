@@ -164,8 +164,9 @@ a {
 
 
 .icons-list {
-  display: table;
-  margin: -.25rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(2.25rem, 1fr));
 }
 
 .icons-list-borders {
@@ -174,22 +175,8 @@ a {
   }
 }
 
-.icons-list-squares,
-.icons-list-circles {
-  .icons-list-icon {
-    background: $dark;
-    color: $light;
-  }
-}
-
-.icons-list-circles {
-  .icons-list-icon {
-    border-radius: 50%;
-  }
-}
 
 .icons-list-icon {
-  margin: .25rem;
   min-width: 2.25rem;
   height: 2.25rem;
   color: inherit;
