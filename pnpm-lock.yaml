@@ -156,25 +156,25 @@ importers:
   packages/icons-eps:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
 
   packages/icons-pdf:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
 
   packages/icons-png:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
 
   packages/icons-preact:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
     devDependencies:
       '@babel/preset-env':
@@ -199,8 +199,8 @@ importers:
   packages/icons-react:
     dependencies:
       '@tabler/icons':
-        specifier: 2.45.0
-        version: 2.45.0
+        specifier: 3.0.0-alpha.0
+        version: link:../icons
     devDependencies:
       '@babel/preset-env':
         specifier: 7.11.5
@@ -236,7 +236,7 @@ importers:
   packages/icons-solidjs:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
     devDependencies:
       '@solidjs/testing-library':
@@ -261,7 +261,7 @@ importers:
   packages/icons-svelte:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
     devDependencies:
       '@sveltejs/package':
@@ -289,7 +289,7 @@ importers:
   packages/icons-vue:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
     devDependencies:
       '@babel/preset-env':
@@ -317,7 +317,7 @@ importers:
   packages/icons-webfont:
     dependencies:
       '@tabler/icons':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../icons
     devDependencies:
       sass:
@@ -330,7 +330,7 @@ importers:
   test/test-preact:
     dependencies:
       '@tabler/icons-preact':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../../packages/icons-preact
       preact:
         specifier: ^10.11.3
@@ -358,7 +358,7 @@ importers:
   test/test-react:
     dependencies:
       '@tabler/icons-react':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../../packages/icons-react
       react:
         specifier: ^18.2.0
@@ -386,7 +386,7 @@ importers:
   test/test-svelte:
     dependencies:
       '@tabler/icons-svelte':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../../packages/icons-svelte
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
@@ -414,7 +414,7 @@ importers:
   test/test-vue:
     dependencies:
       '@tabler/icons-vue':
-        specifier: 2.46.0
+        specifier: 3.0.0-alpha.0
         version: link:../../packages/icons-vue
       vue:
         specifier: ^3.2.45
@@ -4614,10 +4614,6 @@ packages:
     dependencies:
       defer-to-connect: 2.0.1
     dev: true
-
-  /@tabler/icons@2.45.0:
-    resolution: {integrity: sha512-J10UDghOni9wlrj5CpKAzychDCABCKYq897mGg0wGFsd+tYLaUdz0dt/HZeGnV8gZJo0hIiTPLGwBp5EW42Qsg==}
-    dev: false
 
   /@testing-library/dom@8.19.1:
     resolution: {integrity: sha512-P6iIPyYQ+qH8CvGauAqanhVnjrnRe0IZFSYCeGkSRW9q3u8bdVn2NPI+lasFyVsEQn1J/IFmp5Aax41+dAP9wg==}
