@@ -4,11 +4,6 @@ import { PACKAGES_DIR, readSvgs, readAliases, toPascalCase } from './helpers.mjs
 import { stringify } from 'svgson'
 import prettier from "@prettier/sync"
 
-import bundleSize from '@atomico/rollup-plugin-sizes'
-import { visualizer } from 'rollup-plugin-visualizer'
-import license from 'rollup-plugin-license'
-import esbuild from 'rollup-plugin-esbuild'
-
 /**
  * Build icons
  *
@@ -121,18 +116,3 @@ export const buildIcons = ({
   }
 }
 
-export const getRollupPlugins = (pkg, minify) => {
-  return [
-    esbuild({
-      minify
-    }),
-    license({
-      banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
-    }),
-    bundleSize(),
-    visualizer({
-      sourcemap: false,
-      filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
-    })
-  ].filter(Boolean)
-}

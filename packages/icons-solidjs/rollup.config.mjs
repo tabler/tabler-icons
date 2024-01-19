@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import { getRollupPlugins } from '../../.build/rollup-plugins.mjs'
 import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))

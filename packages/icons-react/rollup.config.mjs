@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import { getRollupPlugins } from '../../.build/rollup-plugins.mjs'
 import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
@@ -38,7 +38,7 @@ const configs = bundles
     inputs.map(input => ({
       input,
       plugins: getRollupPlugins(pkg, minify),
-      external: ['react', 'prop-types'],
+      external: ['react'],
       output: {
         name: packageName,
         ...(preserveModules
@@ -52,8 +52,7 @@ const configs = bundles
         sourcemap: true,
         preserveModules,
         globals: {
-          react: 'react',
-          'prop-types': 'PropTypes'
+          react: 'react'
         },
       },
     })),
