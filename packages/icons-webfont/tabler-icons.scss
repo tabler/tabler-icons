@@ -4241,7 +4241,7 @@ $ti-icon-sort-ascending-letters: unicode('ef18');
 $ti-icon-sort-ascending-numbers: unicode('ef19');
 $ti-icon-sort-ascending-shapes: unicode('fd94');
 $ti-icon-sort-ascending-small-big: unicode('fd95');
-$ti-icon-sort-deacending-small-big: unicode('fd96');
+$ti-icon-sort-descending-small-big: unicode('fd96');
 $ti-icon-sort-descending: unicode('eb27');
 $ti-icon-sort-descending-2: unicode('eee3');
 $ti-icon-sort-descending-letters: unicode('ef1a');
@@ -9187,7 +9187,7 @@ $ti-icon-zzz-off: unicode('f440');
 .#{$ti-prefix}-sort-ascending-numbers:before { content: $ti-icon-sort-ascending-numbers; }
 .#{$ti-prefix}-sort-ascending-shapes:before { content: $ti-icon-sort-ascending-shapes; }
 .#{$ti-prefix}-sort-ascending-small-big:before { content: $ti-icon-sort-ascending-small-big; }
-.#{$ti-prefix}-sort-deacending-small-big:before { content: $ti-icon-sort-deacending-small-big; }
+.#{$ti-prefix}-sort-descending-small-big:before { content: $ti-icon-sort-descending-small-big; }
 .#{$ti-prefix}-sort-descending:before { content: $ti-icon-sort-descending; }
 .#{$ti-prefix}-sort-descending-2:before { content: $ti-icon-sort-descending-2; }
 .#{$ti-prefix}-sort-descending-letters:before { content: $ti-icon-sort-descending-letters; }
