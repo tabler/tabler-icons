@@ -32,13 +32,6 @@ const buildNodes = () => {
 const buildCategories = () => {
   const icons = JSON.parse(fs.readFileSync(`${HOME_DIR}/tags.json`))
 
-  if(fs.existsSync(`./categories`)) {
-    fs.rmSync(`./categories`, { recursive: true })
-  }
-
-  fs.mkdirSync(`./categories`)
-
-
   Object
     .entries(icons)
     .forEach(([name, content]) => {
