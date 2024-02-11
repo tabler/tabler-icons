@@ -9,10 +9,13 @@ plugins:
 exclude:
   - .idea
   - package.json
-  - index.html
-  - tags.json
+  # - tags.json
   - tags.html
 
 collections:
   icons:
+    output: false
+  icons-outline:
+    output: false
+  icons-solid:
     output: false

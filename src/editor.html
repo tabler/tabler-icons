@@ -85,7 +85,6 @@ layout: default
 
 		<div class="mb">
 			<div class="icons-list">
-
 				{% for icon in new-icons %}
 				{% assign name = icon.slug %}
 				<a href="#" class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}"{% unless icon.category %} style="color: #999" {% endunless %}>
@@ -96,29 +95,31 @@ layout: default
 		</div>
 		{% endif %}
 
-		<h2 class="icon-subtitle">{{ site.icons.size }} icons</h2>
+		<h2 class="icon-subtitle">{{ site.icons-outline.size | plus: site.icons-solid.size }} icons</h2>
 
-		{% assign icons = icons | group_by: "category" %}
+    {% assign styles = "icons-outline,icons-solid" | split: "," %}
+    {% for style in styles %}
+      {% assign icons = site[style] | group_by: "category" %}
+      <div class="mb">
+        {% for category in icons %}
+        {% if category.name %}
+        <h3 class="category-subtitle">{% if category.name != "" %}{{ category.name }}{% else %}Uncategorized{% endif %} <span class="text-muted">({{ category.items | size }})</span></h3>
+        {% endif %}
 
-		<div class="mb">
+        <div class="icons-list">
 
-			{% for category in icons %}
+          {% for icon in category.items %}
+          {% assign name = icon.slug %}
+          <a href="#" class="icons-list-icon js-icon{% unless icon.version %} new-icon{% endunless %}" title="{{ icon.slug }}" data-icon="{{ name }}">
+            {% include_cached icon.html name=name style=style %}
+          </a>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
 
-			{% if category.name %}
-			<h3 class="category-subtitle">{% if category.name != "" %}{{ category.name }}{% else %}Uncategorized{% endif %} <span class="text-muted">({{ category.items | size }})</span></h3>
-			{% endif %}
 
-			<div class="icons-list">
-
-				{% for icon in category.items %}
-				{% assign name = icon.slug %}
-				<a href="#" class="icons-list-icon js-icon{% unless icon.version %} new-icon{% endunless %}" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include_cached icon.html name=name %}
-				</a>
-				{% endfor %}
-			</div>
-			{% endfor %}
-		</div>
 	</div>
 </div>
 

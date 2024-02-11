@@ -5,7 +5,15 @@
     "name": "{{ icon.slug }}",
     "category": "{{ icon.category }}",
     "tags": ["{{ tags | join: '", "' }}"],
-    "version": "{{ icon.version }}",
-    "unicode": "{{ icon.unicode }}"
+    "styles": {
+      "outline": {
+        "version": "{{ icon.version }}",
+        "unicode": "{{ icon.unicode }}"
+      },
+      "solid": {
+        "version": "{{ icon.solid_version }}",
+        "unicode": "{{ icon.solid_unicode }}"
+      }
+    }
   }{% unless forloop.last %}, {% endunless %}{% endfor %}
 }
