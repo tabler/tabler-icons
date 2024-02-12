@@ -22,6 +22,8 @@ export const iconTemplate = `<svg
   stroke-linejoin="round"
 >`
 
+export const types = ['outline', 'filled']
+
 export const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
 }

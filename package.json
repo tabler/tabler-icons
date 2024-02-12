@@ -30,7 +30,6 @@
     "preview": "pnpm run preview-icons && pnpm run preview-stroke",
     "preview-icons": "node ./.build/preview-icons.mjs",
     "preview-stroke": "node ./.build/preview-stroke.mjs",
-    "prepare-icons": "node ./.build/prepare-icons.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && release-it --verbose",
     "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
