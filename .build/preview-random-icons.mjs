@@ -17,7 +17,7 @@ files = files.sort(() => Math.random() - 0.5)
 
 files = files.slice(0, 500)
 
-await generateIconsPreview(files, path.join(GITHUB_DIR, 'random-icons.svg'), {
+await generateIconsPreview(files, path.join(GITHUB_DIR, 'preview/random-icons.svg'), {
   background: 'transparent',
   columnsCount: 25,
   stroke: 1.5

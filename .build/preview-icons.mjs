@@ -11,12 +11,14 @@ const types = {
 asyncForEach(Object.entries(types), async ([type, dir]) => {
   const files = globSync(path.join(ICONS_SRC_DIR, `${dir}/*.svg`)).sort((a, b) => path.basename(a).localeCompare(path.basename(b)))
 
-  await generateIconsPreview(files, path.join(GITHUB_DIR, `icons${type}.svg`), {
-    retina: false
+  await generateIconsPreview(files, path.join(GITHUB_DIR, `preview/icons${type}.svg`), {
+    retina: false,
+    stroke: 1.5
   })
-  await generateIconsPreview(files, path.join(GITHUB_DIR, `icons${type}-dark.svg`), {
+  await generateIconsPreview(files, path.join(GITHUB_DIR, `preview/icons${type}-dark.svg`), {
     color: '#ffffff',
     background: 'transparent',
-    retina: false
+    retina: false,
+    stroke: 1.5
   })
 })
