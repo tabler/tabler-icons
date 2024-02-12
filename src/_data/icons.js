@@ -7,16 +7,15 @@ module.exports = (function () {
   const types = ['outline', 'filled']
 
   return types.map(type => {
-    const p = path.join(__dirname, `../../icons/**/*.svg`);
+    const p = path.join(__dirname, `../../icons/${type}/*.svg`);
 
     const icons = globSync(p).map((icon) => {
-      const data = matter.read(icon, { delims: ['<!--', '-->'] })
-
-      console.log(data)
+      const { data, content } = matter.read(icon, { delims: ['<!--', '-->'] })
 
       return {
         slug: path.basename(icon, ".svg"),
-        ...data
+        data,
+        content
       }
     }).sort((a, b) => {
       return a.slug.localeCompare(b.slug);
