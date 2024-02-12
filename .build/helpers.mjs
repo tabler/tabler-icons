@@ -199,9 +199,12 @@ export const asyncForEach = async (array, callback) => {
   }
 }
 
-export const createScreenshot = async (filePath) => {
-  await cp.exec(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`)
-  await cp.exec(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
+export const createScreenshot = (filePath, retina = true) => {
+  cp.execSync(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`)
+
+  if (retina) {
+    cp.execSync(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
+  }
 }
 
 export const createSvgSymbol = (svg, name, stroke) => {
@@ -220,7 +223,8 @@ export const generateIconsPreview = async function (files, destFile, {
   color = '#354052',
   background = '#fff',
   png = true,
-  stroke = 2
+  stroke = 2,
+  retina = true
 } = {}) {
 
   const padding = 20,
@@ -237,7 +241,7 @@ export const generateIconsPreview = async function (files, destFile, {
     y = paddingOuter
 
   files.forEach(function (file, i) {
-    let name = path.basename(file, '.svg')
+    const name = file.replace(/^(.*)\/([^\/]+)\/([^.]+).svg$/g, '$2-$3');
 
     let svgFile = fs.readFileSync(file),
       svgFileContent = svgFile.toString()
@@ -261,9 +265,8 @@ export const generateIconsPreview = async function (files, destFile, {
 
   fs.writeFileSync(destFile, svgContent)
 
-
   if (png) {
-    await createScreenshot(destFile)
+    await createScreenshot(destFile, retina)
   }
 }
 
