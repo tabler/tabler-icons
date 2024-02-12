@@ -11,8 +11,9 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "eleventy --serve --watch",
     "start": "bundle exec jekyll serve --watch --livereload --trace --livereload_port 8888 --profile",
-    "build": "pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "build": "pnpm run validate && pnpm run optimize && pnpm run update && pnpm run build:svgs && pnpm run build:icons && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
     "changelog": "node ./.build/changelog.mjs",
@@ -29,6 +30,8 @@
     "preview": "pnpm run preview-icons && pnpm run preview-stroke",
     "preview-icons": "node ./.build/preview-icons.mjs",
     "preview-stroke": "node ./.build/preview-stroke.mjs",
+    "prepare-icons": "node ./.build/prepare-icons.mjs",
+    "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && release-it --verbose",
     "build:svgs": "pnpm run build:jekyll && pnpm run build:copy",
     "build:jekyll": "bundle exec jekyll build --config _config.yml,_config-build.yml",
@@ -49,6 +52,9 @@
     "zip": "node ./.build/zip-files.mjs"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.0",
+    "@11ty/eleventy-navigation": "^0.3.5",
     "@atomico/rollup-plugin-sizes": "^1.1.4",
     "@babel/cli": "^7.23.4",
     "@babel/core": "7.23.7",
@@ -68,10 +74,13 @@
     "adm-zip": "^0.5.10",
     "cheerio": "^1.0.0-rc.12",
     "csv-parser": "^3.0.0",
+    "eleventy-sass": "^2.2.4",
     "esbuild": "^0.19.11",
     "fs-extra": "^11.2.0",
     "glob": "10.3.10",
+    "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
+    "install": "^0.13.0",
     "jest-serializer-html": "^7.1.0",
     "jsdom": "^23.2.0",
     "lodash.template": "4.5.0",

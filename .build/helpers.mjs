@@ -9,7 +9,18 @@ import { parseSync } from 'svgson'
 import { optimize } from 'svgo'
 import cp from 'child_process'
 import minimist from 'minimist'
-import { exit } from 'process'
+
+export const iconTemplate = `<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>`
 
 export const getCurrentDirPath = () => {
   return path.dirname(fileURLToPath(import.meta.url));
@@ -17,8 +28,7 @@ export const getCurrentDirPath = () => {
 
 export const HOME_DIR = resolve(getCurrentDirPath(), '..')
 
-export const ICONS_SRC_DIR = resolve(HOME_DIR, 'src/_icons')
-export const ICONS_DIR = resolve(HOME_DIR, 'icons')
+export const ICONS_SRC_DIR = resolve(HOME_DIR, 'icons')
 export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
 
 export const getArgvs = () => {
@@ -28,6 +38,7 @@ export const getArgvs = () => {
 export const getPackageDir = (packageName) => {
   return `${PACKAGES_DIR}/${packageName}`
 }
+
 
 /**
  * Return project package.json
@@ -48,7 +59,7 @@ export const readSvgDirectory = (directory) => {
 }
 
 export const readSvgs = () => {
-  const svgFiles = readSvgDirectory(ICONS_DIR)
+  const svgFiles = readSvgDirectory(ICONS_SRC_DIR)
   const limit = process.env['ICONS_LIMIT'] || Infinity;
 
   return svgFiles
@@ -56,8 +67,8 @@ export const readSvgs = () => {
     .map(svgFile => {
       const name = basename(svgFile, '.svg'),
         namePascal = toPascalCase(`icon ${name}`),
-        contents = readSvg(svgFile, ICONS_DIR).trim(),
-        path = resolve(ICONS_DIR, svgFile),
+        contents = readSvg(svgFile, ICONS_SRC_DIR).trim(),
+        path = resolve(ICONS_SRC_DIR, svgFile),
         obj = parseSync(contents.replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', ''));
 
       return {
@@ -129,8 +140,6 @@ export const toPascalCase = (string) => {
 
   return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
 }
-
-
 
 export const addFloats = function (n1, n2) {
   return Math.round((parseFloat(n1) + parseFloat(n2)) * 1000) / 1000
