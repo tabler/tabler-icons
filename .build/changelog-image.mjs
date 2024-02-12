@@ -1,5 +1,6 @@
 import { generateIconsPreview, getArgvs, getPackageJson, HOME_DIR } from './helpers.mjs'
-import * as fs from 'fs'
+import fs from 'fs'
+import path from 'path'
 
 const argv = getArgvs(),
     p = getPackageJson()
@@ -19,7 +20,7 @@ if (version) {
       })
 
   if (newIcons.length > 0) {
-    generateIconsPreview(newIcons, `.github/tabler-icons-${version}.svg`, {
+    generateIconsPreview(newIcons, path.join(GITHUB_DIR, `tabler-icons-${version}.svg`), {
       columnsCount: 6,
       paddingOuter: 24
     })

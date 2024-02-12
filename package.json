@@ -29,6 +29,7 @@
     "import-categories": "node ./.build/import-categories.mjs",
     "preview": "pnpm run preview-icons && pnpm run preview-stroke",
     "preview-icons": "node ./.build/preview-icons.mjs",
+    "preview-random-icons": "node ./.build/preview-random-icons.mjs",
     "preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && release-it --verbose",

@@ -32,6 +32,7 @@ export const HOME_DIR = resolve(getCurrentDirPath(), '..')
 
 export const ICONS_SRC_DIR = resolve(HOME_DIR, 'icons')
 export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
+export const GITHUB_DIR = resolve(HOME_DIR, '.github')
 
 export const getArgvs = () => {
   return minimist(process.argv.slice(2))
@@ -203,12 +204,23 @@ export const createScreenshot = async (filePath) => {
   await cp.exec(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`)
 }
 
+export const createSvgSymbol = (svg, name, stroke) => {
+  return svg.replace('<svg', `<symbol id="${name}"`)
+    .replace(' width="24" height="24"', '')
+    .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
+    .replace('</svg>', '</symbol>')
+    .replace(/\n\s+/g, ' ')
+    .replace(/<!--(.*?)-->/gis, '')
+    .trim()
+}
+
 export const generateIconsPreview = async function (files, destFile, {
   columnsCount = 19,
   paddingOuter = 7,
   color = '#354052',
   background = '#fff',
-  png = true
+  png = true,
+  stroke = 2
 } = {}) {
 
   const padding = 20,
@@ -230,10 +242,7 @@ export const generateIconsPreview = async function (files, destFile, {
     let svgFile = fs.readFileSync(file),
       svgFileContent = svgFile.toString()
 
-    svgFileContent = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="${name}"`)
-      .replace(' width="24" height="24"', '')
-      .replace('</svg>', '</symbol>')
-      .replace(/\n\s+/g, '')
+    svgFileContent = createSvgSymbol(svgFileContent, name, stroke)
 
     svgContentSymbols += `\t${svgFileContent}\n`
     svgContentIcons += `\t<use xlink:href="#${name}" x="${x}" y="${y}" width="${iconSize}" height="${iconSize}" />\n`
@@ -248,7 +257,10 @@ export const generateIconsPreview = async function (files, destFile, {
 
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
+  console.log(destFile)
+
   fs.writeFileSync(destFile, svgContent)
+
 
   if (png) {
     await createScreenshot(destFile)
