@@ -50,12 +50,19 @@ types.forEach(type => {
 
     fileData = optimizeSVG(fileData)
 
-    if (filename.match(/\-filled$/)) {
-      fileData = fileData
-        .replace(/\/>/g, ' stroke-width="0" fill="currentColor" />')
-    }
 
     fileData = fileData.replace(/<svg>/g, `<!--\n-->\n${iconTemplate}`)
+
+    if (type == "filled") {
+      fileData = fileData
+        .replace('stroke-width="2"', '')
+        .replace('stroke-linecap="round"', '')
+        .replace('stroke-linejoin="round"', '')
+        .replace('stroke="currentColor"', '')
+        .replace('fill="none"', 'fill="currentColor"')
+        // remove empty lines
+        .replace(/^\s*[\r\n]/gm, '')
+    }
 
     if (fs.existsSync(`./icons/${type}/${filename}.svg`)) {
       const newFileData = fs.readFileSync(`./icons/${type}/${filename}.svg`).toString()
@@ -72,7 +79,6 @@ types.forEach(type => {
         .replace(/<!--\n-->/g, '<!--\ncategory: Brand\n-->')
     }
 
-    console.log(fileData);
 
     fs.writeFileSync(`./icons/${type}/${filename}.svg`, fileData)
   })

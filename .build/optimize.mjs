@@ -73,6 +73,19 @@ files.forEach(function (file, i) {
   // Add icon template
   svgFileContent = svgFileContent.replace(/<svg[^>]+>/, iconTemplate)
 
+  // Remove stroke and fill
+  if (file.match(/\/filled\//)) {
+    svgFileContent = svgFileContent
+      .replace(/stroke-width="0" fill="currentColor"/gm, '')
+      .replace('stroke-width="2"', '')
+      .replace('stroke-linecap="round"', '')
+      .replace('stroke-linejoin="round"', '')
+      .replace('stroke="currentColor"', '')
+      .replace('fill="none"', 'fill="currentColor"')
+      .replace(/^\s*[\r\n]/gm, '')
+      .replace(/\s{2,}/g, ' ')
+  }
+
   // Add comment if not exists
   if (!svgFileContent.includes('<!--')) {
     svgFileContent = '<!--\n-->\n' + svgFileContent
