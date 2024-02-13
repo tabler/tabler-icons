@@ -1,6 +1,5 @@
 const matter = require('gray-matter');
 const path = require('path');
-const fs = require('fs');
 const { globSync } = require('glob');
 
 module.exports = (function () {
@@ -13,13 +12,15 @@ module.exports = (function () {
       const { data, content } = matter.read(icon, { delims: ['<!--', '-->'] })
 
       return {
-        slug: path.basename(icon, ".svg"),
+        name: path.basename(icon, ".svg"),
         data,
         content
       }
     }).sort((a, b) => {
-      return a.slug.localeCompare(b.slug);
+      return a.name.localeCompare(b.name);
     });
+
+    console.log(`Found ${icons.length} ${type} icons`);
 
     return {
       type,

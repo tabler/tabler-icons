@@ -9,9 +9,8 @@ layout: default
 			<div class="icons-list">
 				<h3 class="box-title">{{ category.type }}</h3>
         {% for icon in category.icons %}
-				{% assign name = icon.slug %}
-				<div class="icons-list-icon js-icon" title="{{ icon.slug }}" data-icon="{{ name }}">
-					{% include "icon" name=name %}
+				{% assign name = icon.name %}
+				<div class="icons-list-icon js-icon" title="{{ name }}" data-icon="{{ name }}">
           {{ icon.content }}
 				</div>
         {% endfor %}

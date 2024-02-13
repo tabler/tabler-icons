@@ -9,6 +9,7 @@ import { parseSync } from 'svgson'
 import { optimize } from 'svgo'
 import cp from 'child_process'
 import minimist from 'minimist'
+import matter from 'gray-matter'
 
 export const iconTemplate = `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +34,12 @@ export const HOME_DIR = resolve(getCurrentDirPath(), '..')
 export const ICONS_SRC_DIR = resolve(HOME_DIR, 'icons')
 export const PACKAGES_DIR = resolve(HOME_DIR, 'packages')
 export const GITHUB_DIR = resolve(HOME_DIR, '.github')
+
+export const parseMatter = (icon) => {
+  const { data, content } = matter.read(icon, { delims: ['<!--', '-->'] })
+
+  return { data, content }
+}
 
 export const getArgvs = () => {
   return minimist(process.argv.slice(2))

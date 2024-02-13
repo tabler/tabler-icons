@@ -1,15 +1,14 @@
 import { globSync } from 'glob'
 import fs from 'fs'
 import path, { basename } from 'path'
-import { ICONS_SRC_DIR, iconTemplate } from './helpers.mjs'
+import { ICONS_SRC_DIR, iconTemplate, parseMatter } from './helpers.mjs'
 import { join } from 'path'
-import matter from 'gray-matter'
 
 let error = false
 
 const allIcons = globSync(join(ICONS_SRC_DIR, '**/*.svg')),
   outlineIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i => basename(i, '.svg')),
-  filledIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i => basename(i, '.svg'));
+  filledIconsNames = globSync(join(ICONS_SRC_DIR, 'filled/*.svg')).map(i => basename(i, '.svg'));
 
 let unicodes = []
 
@@ -31,7 +30,7 @@ allIcons.forEach((icon) => {
   }
 
   try {
-    const { data } = matter(iconContent, { delims: ['<!--', '-->'] })
+    const { data } = parseMatter(iconContent)
 
     if (data.unicode) {
       if (unicodes.indexOf(data.unicode) !== -1) {
@@ -58,8 +57,8 @@ allIcons.forEach((icon) => {
   }
 })
 
-outlineIconsNames.forEach((icon) => {
-  if (filledIconsNames.indexOf(icon) == -1) {
+filledIconsNames.forEach((icon) => {
+  if (outlineIconsNames.indexOf(icon) === -1) {
     console.log(`Icon ${icon} exists in filled version but doesn't exists in outline`)
     error = true
   }
