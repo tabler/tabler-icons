@@ -281,14 +281,14 @@ export const generateIconsPreview = async function (files, destFile, {
 export const printChangelog = function (newIcons, modifiedIcons, renamedIcons, pretty = false) {
   if (newIcons.length > 0) {
     if (pretty) {
-      console.log(`### ${newIcons.length} new icons:\n`)
+      console.log(`### ${newIcons.length} new icon${newIcons.length > 1 ? 's' : ''}:\n`)
 
       newIcons.forEach(function (icon, i) {
         console.log(`- \`${icon}\``)
       })
     } else {
       let str = ''
-      str += `${newIcons.length} new icons: `
+      str += `${newIcons.length} new icon${modifnewIconsiedIcons.length > 1 ? 's' : ''}: `
 
       newIcons.forEach(function (icon, i) {
         str += `\`${icon}\``
@@ -306,7 +306,7 @@ export const printChangelog = function (newIcons, modifiedIcons, renamedIcons, p
 
   if (modifiedIcons.length > 0) {
     let str = ''
-    str += `Fixed icons: `
+    str += `Fixed icon${modifiedIcons.length > 1 ? 's' : ''}: `
 
     modifiedIcons.forEach(function (icon, i) {
       str += `\`${icon}\``
