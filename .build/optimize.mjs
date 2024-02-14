@@ -83,7 +83,7 @@ files.forEach(function (file, i) {
       .replace('stroke="currentColor"', '')
       .replace('fill="none"', 'fill="currentColor"')
       .replace(/^\s*[\r\n]/gm, '')
-      .replace(/\s{2,}/g, ' ')
+      .replace(/\s{2,}\//g, ' /')
   }
 
   // Add comment if not exists

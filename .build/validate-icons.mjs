@@ -30,7 +30,7 @@ allIcons.forEach((icon) => {
   }
 
   try {
-    const { data } = parseMatter(iconContent)
+    const { data } = parseMatter(icon)
 
     if (data.unicode) {
       if (unicodes.indexOf(data.unicode) !== -1) {

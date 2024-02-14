@@ -21,6 +21,9 @@ importers:
       '@11ty/eleventy-navigation':
         specifier: ^0.3.5
         version: 0.3.5
+      '@11ty/eleventy-plugin-directory-output':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@atomico/rollup-plugin-sizes':
         specifier: ^1.1.4
         version: 1.1.4(rollup@4.9.5)
@@ -554,6 +557,13 @@ packages:
     resolution: {integrity: sha512-4aKW5aIQDFed8xs1G1pWcEiFPcDSwZtA4IH1eERtoJ+Xy+/fsoe0pzbDmw84bHZ9ACny5jblENhfZhcCxklqQw==}
     dependencies:
       dependency-graph: 0.11.0
+    dev: true
+
+  /@11ty/eleventy-plugin-directory-output@1.0.1:
+    resolution: {integrity: sha512-CPBiAOOu5pCIuQW10mURGMK/zBA6gwhzqZmzBBbUeqRsmb3gDk0jcQh/H+2D538Az6NVRSOfjXOzZWorjpG6nw==}
+    dependencies:
+      kleur: 4.1.5
+      strip-color: 0.1.0
     dev: true
 
   /@11ty/eleventy-utils@1.0.2:
@@ -14120,6 +14130,11 @@ packages:
 
   /strip-bom-string@1.0.0:
     resolution: {integrity: sha512-uCC2VHvQRYu+lMh4My/sFNmF2klFymLX1wHJeXnbEJERpV/ZsVuonzerjfrGpIGF7LBVa1O7i9kjiWvJiFck8g==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  /strip-color@0.1.0:
+    resolution: {integrity: sha512-p9LsUieSjWNNAxVCXLeilaDlmuUOrDS5/dF9znM1nZc7EGX5+zEFC0bEevsNIaldjlks+2jns5Siz6F9iK6jwA==}
     engines: {node: '>=0.10.0'}
     dev: true
 

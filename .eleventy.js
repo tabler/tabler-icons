@@ -1,9 +1,15 @@
 const eleventySass = require("eleventy-sass");
+const eleventyDirectoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventySass);
+  eleventyConfig.addPlugin(eleventyDirectoryOutputPlugin);
+  
   eleventyConfig.addWatchTarget("./src");
   eleventyConfig.addWatchTarget("./icons");
+
+  eleventyConfig.setQuietMode(true);
 
   eleventyConfig.addLiquidTag("include_cached", function (liquidEngine) {
     return {
