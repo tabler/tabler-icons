@@ -15,6 +15,7 @@ asyncForEach(Object.entries(types), async ([type, dir]) => {
     retina: false,
     stroke: 1.5
   })
+  
   await generateIconsPreview(files, path.join(GITHUB_DIR, `preview/icons${type}-dark.svg`), {
     color: '#ffffff',
     background: 'transparent',

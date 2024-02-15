@@ -10,6 +10,7 @@ import { optimize } from 'svgo'
 import cp from 'child_process'
 import minimist from 'minimist'
 import matter from 'gray-matter'
+import { globSync } from 'glob'
 
 export const iconTemplate = `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +23,8 @@ export const iconTemplate = `<svg
   stroke-linecap="round"
   stroke-linejoin="round"
 >`
+
+export const blankSquare = '<path stroke="none" d="M0 0h24v24H0z" fill="none"/>'
 
 export const types = ['outline', 'filled']
 
@@ -39,6 +42,77 @@ export const parseMatter = (icon) => {
   const { data, content } = matter.read(icon, { delims: ['<!--', '-->'] })
 
   return { data, content }
+}
+
+const getSvgContent = (svg, type, name) => {
+  return svg
+    .replace(/<svg([^>]+)>/, (m, m1) => {
+      return `<svg${m1}  class="icon icon-tabler icons-tabler-${type} icon-tabler-${name}"\n>\n  ${blankSquare}`
+    })
+    .trim()
+}
+
+export const getAllIcons = (withContent = false, withObject = false) => {
+  let icons = {}
+  const limit = process.env['ICONS_LIMIT'] || Infinity;
+
+  types.forEach(type => {
+    icons[type] = globSync(path.join(ICONS_SRC_DIR, `${type}/*.svg`))
+      .slice(0, limit)
+      .sort()
+      .map(i => {
+        const { data, content } = parseMatter(i),
+          name = basename(i, '.svg')
+
+        return {
+          name,
+          path: i,
+          category: data.category || '',
+          tags: data.tags || [],
+          version: data.version || '',
+          unicode: data.unicode || '',
+          ...(withContent ? { content: getSvgContent(content, type, name) } : {}),
+          ...(withObject ? { obj: parseSync(content.replace(blankSquare, '')) } : {})
+        }
+      })
+      .sort()
+  })
+
+  return icons
+}
+
+export const getAllIconsMerged = (withContent = false, withObject = false) => {
+  const allIcons = getAllIcons(true)
+
+  const icons = {};
+  allIcons.outline.forEach(icon => {
+    icons[icon.name] = {
+      name: icon.name,
+      category: icon.category || '',
+      tags: icon.tags || [],
+      styles: {
+        outline: {
+          version: icon.version || '',
+          unicode: icon.unicode || '',
+          ...(withContent ? { content: icon.content } : {}),
+          ...(withObject ? { obj: icon.obj } : {})
+        }
+      }
+    }
+  })
+
+  allIcons.filled.forEach(icon => {
+    if (icons[icon.name]) {
+      icons[icon.name].styles.filled = {
+        version: icon.version || '',
+        unicode: icon.unicode || '',
+        ...(withContent ? { content: icon.content } : {}),
+        ...(withObject ? { obj: icon.obj } : {})
+      }
+    }
+  })
+
+  return icons;
 }
 
 export const getArgvs = () => {
@@ -68,8 +142,12 @@ export const readSvgDirectory = (directory) => {
   return fs.readdirSync(directory).filter((file) => path.extname(file) === '.svg')
 }
 
+/**
+ * @deprecated
+ * @returns
+ */
 export const readSvgs = () => {
-  const svgFiles = readSvgDirectory(ICONS_SRC_DIR)
+  const svgFiles = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
   const limit = process.env['ICONS_LIMIT'] || Infinity;
 
   return svgFiles
@@ -79,7 +157,7 @@ export const readSvgs = () => {
         namePascal = toPascalCase(`icon ${name}`),
         contents = readSvg(svgFile, ICONS_SRC_DIR).trim(),
         path = resolve(ICONS_SRC_DIR, svgFile),
-        obj = parseSync(contents.replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', ''));
+        obj = parseSync(contents.replace(blankSquare, ''));
 
       return {
         name,
