@@ -11,6 +11,7 @@ import cp from 'child_process'
 import minimist from 'minimist'
 import matter from 'gray-matter'
 import { globSync } from 'glob'
+import { exec } from 'child_process'
 
 export const iconTemplate = `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -484,4 +485,25 @@ export const getCompileOptions = () => {
   }
 
   return compileOptions
+}
+
+
+export const convertIconsToImages = async (dir, extension, size = 240) => {
+  const icons = getAllIcons()
+
+  await asyncForEach(Object.entries(icons), async function ([type, svgFiles]) {
+    fs.mkdirSync(path.join(dir, `./${type}`), { recursive: true })
+
+    await asyncForEach(svgFiles, async function (file, i) {
+      const distPath = path.join(dir, `./${type}/${file.name}.${extension}`)
+
+      process.stdout.write(`Building ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`)
+
+      await new Promise((resolve, reject) => {
+        exec(`rsvg-convert -f ${extension} -h ${size} ${file.path} > ${distPath}`, (error) => {
+          error ? reject() : resolve()
+        })
+      })
+    })
+  })
 }
