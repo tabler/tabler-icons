@@ -288,7 +288,7 @@ export const printChangelog = function (newIcons, modifiedIcons, renamedIcons, p
       })
     } else {
       let str = ''
-      str += `${newIcons.length} new icon${modifnewIconsiedIcons.length > 1 ? 's' : ''}: `
+      str += `${newIcons.length} new icon${newIcons.length > 1 ? 's' : ''}: `
 
       newIcons.forEach(function (icon, i) {
         str += `\`${icon}\``
