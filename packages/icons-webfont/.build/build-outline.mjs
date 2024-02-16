@@ -80,30 +80,30 @@ const buildOutline = async () => {
             .readFileSync(resolve(DIR, `icons-outlined/${filename}`), 'utf-8')
             .replace(/\n/g, ' ')
             .trim(),
-          hashString = `<!--!cache:${crypto.createHash('sha1').update(fixedFileContent).digest("hex")}-->`
+            hashString = `<!--!cache:${crypto.createHash('sha1').update(fixedFileContent).digest("hex")}-->`
 
-        // Save file
-        fs.writeFileSync(
-          resolve(DIR, `icons-outlined/${filename}`),
-          fixedFileContent + hashString,
-          'utf-8'
-        )
-      }).catch(error => console.log(error))
-}
+          // Save file
+          fs.writeFileSync(
+            resolve(DIR, `icons-outlined/${filename}`),
+            fixedFileContent + hashString,
+            'utf-8'
+          )
+        }).catch(error => console.log(error))
+      }
     }
   })
 
-// Remove old files
-const existedFiles = (await glob(resolve(DIR, `icons-outlined/*.svg`))).map(file => basename(file))
+  // Remove old files
+  const existedFiles = (await glob(resolve(DIR, `icons-outlined/*.svg`))).map(file => basename(file))
 
-existedFiles.forEach(file => {
-  if (filesList.indexOf(file) === -1) {
-    console.log('Remove:', file)
-    fs.unlinkSync(resolve(DIR, `icons-outlined/${file}`))
-  }
-})
+  existedFiles.forEach(file => {
+    if (filesList.indexOf(file) === -1) {
+      console.log('Remove:', file)
+      fs.unlinkSync(resolve(DIR, `icons-outlined/${file}`))
+    }
+  })
 
-console.log('Done')
+  console.log('Done')
 }
 
 await buildOutline()

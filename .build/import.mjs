@@ -3,7 +3,6 @@ import { glob } from 'glob'
 import { resolve, basename } from 'path'
 import { HOME_DIR, optimizeSVG, iconTemplate, types } from './helpers.mjs'
 
-
 types.forEach(type => {
   const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`))
 
@@ -51,7 +50,7 @@ types.forEach(type => {
     fileData = optimizeSVG(fileData)
 
 
-    fileData = fileData.replace(/<svg>/g, `<!--\n-->\n${iconTemplate}`)
+    fileData = fileData.replace(/<svg>/g, `<!--\n-->\n${iconTemplate(type)}`)
 
     if (type == "filled") {
       fileData = fileData
