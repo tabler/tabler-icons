@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  type,
   name,
   namePascal,
   children
 }) => `\
 import createVueComponent from '../createVueComponent';
-export default createVueComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,
@@ -17,11 +18,11 @@ const indexItemTemplate = ({
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
-buildIcons({
+buildJsIcons({
   name: 'icons-vue',
   componentTemplate,
   indexItemTemplate,
   aliasTemplate,
   extension: 'ts',
-  indexFile: 'icons/index.ts',
+  indexFile: 'index.ts',
 })

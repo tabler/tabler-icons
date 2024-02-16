@@ -1,6 +1,3 @@
----
----
-
 $breakpoint: 50rem;
 $primary: #206bc4;
 $border: #eeeeee;
@@ -8,7 +5,7 @@ $muted: #aaaaaa;
 $dark: #354052;
 $light: #fafbfc;
 $btn-form-height: 2rem;
-$hover: rgba(0, 0, 0, .04);
+$hover: rgba(0, 0, 0, 0.04);
 
 * {
   box-sizing: border-box;
@@ -18,12 +15,25 @@ $hover: rgba(0, 0, 0, .04);
 
 html {
   font-size: 16px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
 }
 
 body {
-  background: #fafbfc;
-  font-size: .9375rem;
+  background: $light;
+  font-size: 0.9375rem;
   color: $dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,12 +95,14 @@ a {
 .box {
   padding: 2rem;
   background: #ffff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 1px rgba(0, 0, 0, .1);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 1px 1px rgba(0, 0, 0, 0.1);
   page-break-before: always;
   margin-bottom: 2rem;
 
   @media (max-width: #{$breakpoint}) {
-    padding: .5rem;
+    padding: 0.5rem;
     box-shadow: none;
   }
 
@@ -98,6 +110,17 @@ a {
     padding: 0;
     box-shadow: none;
     margin-bottom: 0;
+  }
+}
+
+.box-title {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem;
+  font-weight: 600;
+
+  @media print {
+    display: none;
   }
 }
 
@@ -116,9 +139,9 @@ a {
 }
 
 .category-subtitle {
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1;
-  margin: 1rem 0 .5rem;
+  margin: 1rem 0 0.5rem;
   font-weight: 600;
 }
 
@@ -145,10 +168,10 @@ a {
   svg {
     width: 100%;
     height: 100%;
-    opacity: .8;
+    opacity: 0.8;
 
     + svg {
-      stroke-width: .08;
+      stroke-width: 0.08;
       opacity: 1;
       stroke: red;
       position: absolute;
@@ -165,10 +188,9 @@ a {
   }
 }
 
-
 .icons-list {
   display: table;
-  margin: -.25rem;
+  margin: -0.25rem;
 }
 
 .icons-list-borders {
@@ -192,7 +214,7 @@ a {
 }
 
 .icons-list-icon {
-  margin: .25rem;
+  margin: 0.25rem;
   min-width: 2.25rem;
   height: 2.25rem;
   color: inherit;
@@ -222,7 +244,7 @@ a {
   }
 
   @at-root a#{&}:hover {
-    opacity: .75;
+    opacity: 0.75;
   }
 
   .icon {
@@ -240,7 +262,6 @@ a {
   margin-top: auto;
 }
 
-
 /*
 Components
  */
@@ -256,12 +277,12 @@ Components
   align-items: center;
   min-height: $btn-form-height;
   min-width: $btn-form-height;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
 
   .icon {
     width: 1rem;
     height: 1rem;
-    margin: 0 .5rem 0 -.25rem;
+    margin: 0 0.5rem 0 -0.25rem;
   }
 }
 
@@ -286,13 +307,13 @@ Components
   display: block;
   font-size: inherit;
   font-family: inherit;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   width: 100%;
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 3px rgba($primary, .1);
-    border-color: rgba($primary, .4);
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    border-color: rgba($primary, 0.4);
   }
 
   @at-root textarea#{&} {
@@ -303,7 +324,7 @@ Components
 .icon {
   width: 1em;
   height: 1em;
-  vertical-align: -.15em;
+  vertical-align: -0.15em;
 }
 
 .input-icon {
@@ -318,14 +339,14 @@ Components
     width: 1.25rem;
     height: 1.25rem;
     position: absolute;
-    top: ($btn-form-height - 1.25rem) * .5;
-    right: ($btn-form-height - 1.25rem) * .5;
+    top: ($btn-form-height - 1.25rem) * 0.5;
+    right: ($btn-form-height - 1.25rem) * 0.5;
     stroke-width: 1.75;
   }
 
   &.icon-left {
     .icon {
-      left: ($btn-form-height - 1.25rem) * .5;
+      left: ($btn-form-height - 1.25rem) * 0.5;
       right: auto;
     }
 
@@ -337,7 +358,7 @@ Components
 }
 
 .avatar {
-  background: rgba($muted, .1);
+  background: rgba($muted, 0.1);
   color: $muted;
   display: inline-flex;
   width: 2.5rem;
@@ -365,7 +386,7 @@ Components
     flex: 1;
     text-align: center;
     border-bottom: 1px solid $border;
-    padding: .25rem 0;
+    padding: 0.25rem 0;
     color: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -386,7 +407,6 @@ Components
   width: 100%;
 }
 
-
 .icon-size {
   display: inline-block;
 
@@ -396,18 +416,34 @@ Components
   }
 }
 
-.icon-size-16 { width: 16px; height: 16px }
-.icon-size-24 { width: 24px; height: 24px }
-.icon-size-32 { width: 32px; height: 32px }
-.icon-size-48 { width: 48px; height: 48px }
-.icon-size-64 { width: 64px; height: 64px }
+.icon-size-16 {
+  width: 16px;
+  height: 16px;
+}
+.icon-size-24 {
+  width: 24px;
+  height: 24px;
+}
+.icon-size-32 {
+  width: 32px;
+  height: 32px;
+}
+.icon-size-48 {
+  width: 48px;
+  height: 48px;
+}
+.icon-size-64 {
+  width: 64px;
+  height: 64px;
+}
 
 .table {
   width: 100%;
   border-collapse: collapse;
 
-  td, th {
-    padding: .5rem;
+  td,
+  th {
+    padding: 0.5rem;
     text-align: left;
     border: 1px solid #eee;
   }
@@ -431,8 +467,8 @@ $border-color: #e0e0e0;
 
 .buttons {
   display: flex;
-  margin-right: .5rem;
-  margin-bottom: .5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   border: 1px solid $border-color;
   border-radius: 3px;
 
@@ -457,4 +493,9 @@ $border-color: #e0e0e0;
 
 .text-muted {
   color: $muted;
+}
+
+.text-reset {
+  color: inherit;
+  text-decoration: none;
 }

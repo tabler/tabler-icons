@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PACKAGES_DIR, readSvgs, readAliases, toPascalCase } from './helpers.mjs'
+import { PACKAGES_DIR, readAliases, toPascalCase, getAllIcons } from './helpers.mjs'
 import { stringify } from 'svgson'
 import prettier from "@prettier/sync"
 
@@ -10,109 +10,97 @@ import prettier from "@prettier/sync"
  * @param name
  * @param componentTemplate
  * @param indexIconTemplate
- * @param typeDefinitionsTemplate
  * @param indexTypeTemplate
  * @param extension
  * @param pretty
  */
-export const buildIcons = ({
+export const buildJsIcons = ({
   name,
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
   aliasTemplate,
   extension = 'js',
   pretty = true,
   key = true,
   pascalCase = false,
   pascalName = true,
-  indexFile = 'icons.js'
+  indexFile = 'icons.ts'
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
-  const svgFiles = readSvgs(),
-    aliases = readAliases()
+  const aliases = readAliases(),
+    allIcons = getAllIcons(false, true)
 
   let index = []
-  let typings = []
+  Object.entries(allIcons).forEach(([type, icons]) => {
+    icons.forEach((icon, i) => {
+      process.stdout.write(`Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`)
 
-  svgFiles.forEach((svgFile, i) => {
-    const children = svgFile.obj.children
-      .map(({
-        name,
-        attributes
-      }, i) => {
-        if (key) {
-          attributes.key = `svg-${i}`
-        }
+      const children = icon.obj.children
+        .map(({
+          name,
+          attributes
+        }, i) => {
+          if (key) {
+            attributes.key = `svg-${i}`
+          }
 
-        if (pascalCase) {
-          attributes.strokeWidth = attributes['stroke-width']
-          delete attributes['stroke-width']
-        }
+          if (pascalCase) {
+            attributes.strokeWidth = attributes['stroke-width']
+            delete attributes['stroke-width']
+          }
 
-        return [name, attributes]
+          return [name, attributes]
+        })
+        .filter((i) => {
+          const [name, attributes] = i
+          return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
+        })
+
+      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
+        iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`
+
+      let component = componentTemplate({
+        type,
+        name: iconName,
+        namePascal: iconNamePascal,
+        children,
+        stringify,
+        svg: icon.content
       })
-      .filter((i) => {
-        const [name, attributes] = i
-        return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
-      })
 
-    let component = componentTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal,
-      children,
-      stringify,
-      svg: svgFile
-    })
+      // Format component
+      const output = pretty ? prettier.format(component, {
+        singleQuote: true,
+        trailingComma: 'all',
+        parser: 'babel'
+      }) : component
 
-    // Format component
-    const output = pretty ? prettier.format(component, {
-      singleQuote: true,
-      trailingComma: 'all',
-      parser: 'babel'
-    }) : component
+      let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? iconNamePascal : iconName}.${extension}`)
+      fs.writeFileSync(filePath, output, 'utf-8')
 
-    let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? svgFile.namePascal : svgFile.name}.${extension}`)
-    fs.writeFileSync(filePath, output, 'utf-8')
-
-    index.push(indexItemTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal
-    }))
-
-    if (indexTypeTemplate) {
-      typings.push(indexTypeTemplate({
-        name: svgFile.name,
-        namePascal: svgFile.namePascal
+      index.push(indexItemTemplate({
+        type,
+        name: iconName,
+        namePascal: iconNamePascal
       }))
-    }
+    })
   })
 
-  // Write aliases
-  if (aliases && aliasTemplate) {
-    let aliasesStr = '';
+  fs.writeFileSync(path.resolve(DIST_DIR, `src/icons/${indexFile}`), index.join('\n'), 'utf-8')
 
+  // Write aliases
+  let aliasesStr = '';
+  if (aliases && aliasTemplate) {
     Object.entries(aliases).forEach(([from, to]) => {
       aliasesStr += aliasTemplate({
-        from, to,
+        from,
+        to,
         fromPascal: toPascalCase(from),
         toPascal: toPascalCase(to)
       })
     })
-
-    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8')
-  } else {
-    fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), `export {};`, 'utf-8')
   }
 
-  // Write index file
-  fs.writeFileSync(path.resolve(DIST_DIR, `./src/${indexFile}`), index.join('\n'), 'utf-8')
-
-  // Write type definitions
-  if (typeDefinitionsTemplate) {
-    fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
-    fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')
-  }
+  fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8')
 }
 

@@ -45,7 +45,7 @@
     "build:icons": "node build.mjs",
     "build:package": "svelte-package --input ./src",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.svelte && rm -rf ./src/icons.js && rm -rf ./src/icons.ts",
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run"
   },
   "dependencies": {

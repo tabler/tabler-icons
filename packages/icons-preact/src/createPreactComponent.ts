@@ -3,6 +3,7 @@ import defaultAttributes from './defaultAttributes';
 import type { Icon, IconNode, IconProps } from './types';
 
 const createPreactComponent = (
+  type: 'outline' | 'filled',
   iconName: string,
   iconNamePascal: string,
   iconNode: IconNode
@@ -19,7 +20,7 @@ const createPreactComponent = (
     h(
       'svg',
       {
-        ...defaultAttributes,
+        ...defaultAttributes[type],
         width: String(size),
         height: size,
         stroke: color,

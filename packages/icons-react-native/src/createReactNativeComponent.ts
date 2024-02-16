@@ -4,6 +4,7 @@ import type { Icon, IconNode, IconProps } from './types';
 import { NativeSvg } from './types';
 
 const createReactNativeComponent = (
+  type: 'outline' | 'filled',
   iconName: string,
   iconNamePascal: string,
   iconNode: IconNode,
@@ -20,7 +21,7 @@ const createReactNativeComponent = (
         NativeSvg.Svg as unknown as string,
         {
           ref,
-          ...defaultAttributes,
+          ...defaultAttributes[type],
           width: size,
           height: size,
           ...customAttrs,
@@ -33,7 +34,7 @@ const createReactNativeComponent = (
 
             return createElement(
               NativeSvg[upperCasedTag] as FunctionComponent<IconProps>,
-              { ...childDefaultAttributes, ...customAttrs, ...attrs } as IconProps,
+              { ...childDefaultAttributes[type], ...customAttrs, ...attrs } as IconProps,
             );
           }),
           ...((Array.isArray(children) ? children : [children]) || []),

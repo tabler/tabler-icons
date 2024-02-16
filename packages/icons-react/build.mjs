@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  type,
   name,
   namePascal,
   children
 }) => `\
 import createReactComponent from '../createReactComponent';
-export default createReactComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default createReactComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,
@@ -17,12 +18,12 @@ const indexItemTemplate = ({
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
-buildIcons({
+buildJsIcons({
   name: 'icons-react',
   componentTemplate,
   indexItemTemplate,
   aliasTemplate,
-  indexFile: 'icons/index.ts',
+  indexFile: 'index.ts',
   pascalCase: true,
   extension: 'ts'
 })

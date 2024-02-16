@@ -2,6 +2,7 @@
   import defaultAttributes from "./defaultAttributes";
   import type { IconNode } from "./types";
 
+  export let type: "outline" | "filled";
   export let name: string;
   export let color: string = "currentColor";
   export let size: number | string = 24;
@@ -10,7 +11,7 @@
 </script>
 
 <svg
-  {...defaultAttributes}
+  {...defaultAttributes[type]}
   {...$$restProps}
   width={size}
   height={size}

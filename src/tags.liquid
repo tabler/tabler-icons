@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<div class="container">
+	<div class="box">
+		{% assign i = 0 %}
+		<table class="table mb">
+			{% for icon in groupped-icons %}
+			<tr>
+				<td class="td-1"><a href="#" data-copy class="text-reset">{{ icon.styles.outline.content }}</a></td>
+				<td class="td-1"><a href="#" data-copy class="text-reset">{{ icon.styles.filled.content }}</a></td>
+				<th><a href="#" data-copy class="text-reset">{{ icon.name }}</a></th>
+				<td>{{ icon.data.tags | join: ', ' }}</td>
+				<td>{{ icon.data.category }}</td>
+				<td>{{ icon.styles.outline.version }}</td>
+			</tr>
+			{% if icon.data.tags.size == 0 %}
+			{% assign i = i | plus: 1 %}
+			{% endif %}
+			{% endfor %}
+		</table>
+
+		<p>Untagged: {{ i }}</p>
+	</div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelectorAll('a[data-copy]').forEach(function(a) {
+
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(this.innerHTML);
+
+        return false;
+      });
+    });
+  });
+</script>

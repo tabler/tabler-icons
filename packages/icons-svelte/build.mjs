@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  type,
   name,
   children,
   stringify
@@ -16,7 +17,7 @@ type $$Props = IconProps;
 
 const iconNode: IconNode = ${JSON.stringify(children)};
 </script>
-<Icon name="${name}" {...$$props} iconNode={iconNode}>
+<Icon type="${type}" name="${name}" {...$$props} iconNode={iconNode}>
   <slot/>
 </Icon>
 `;
@@ -29,7 +30,7 @@ const indexItemTemplate = ({
   namePascal
 }) => `export { default as ${namePascal} } from './${name}.svelte';`
 
-buildIcons({
+buildJsIcons({
   name: 'icons-svelte',
   componentTemplate,
   indexItemTemplate,
@@ -37,6 +38,6 @@ buildIcons({
   extension: 'svelte',
   pretty: false,
   key: false,
-  indexFile: 'icons/index.ts',
+  indexFile: 'index.ts',
   pascalName: false,
 })
