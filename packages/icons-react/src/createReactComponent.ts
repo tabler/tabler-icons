@@ -1,18 +1,20 @@
-import {
-  forwardRef,
-  createElement,
-} from 'react';
+import { forwardRef, createElement } from 'react';
 import defaultAttributes from './defaultAttributes';
 import type { IconNode, IconProps } from './types';
 
-const createReactComponent = (iconName: string, iconNamePascal: string, iconNode: IconNode) => {
+const createReactComponent = (
+  type: 'outline' | 'filled',
+  iconName: string,
+  iconNamePascal: string,
+  iconNode: IconNode,
+) => {
   const Component = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', size = 24, stroke = 2, className = '', children, ...rest }, ref) =>
       createElement(
         'svg',
         {
           ref,
-          ...defaultAttributes,
+          ...defaultAttributes[type],
           width: size,
           height: size,
           stroke: color,
@@ -23,8 +25,8 @@ const createReactComponent = (iconName: string, iconNamePascal: string, iconNode
         [
           ...iconNode.map(([tag, attrs]) => createElement(tag, attrs)),
           ...(Array.isArray(children) ? children : [children]),
-        ]
-      )
+        ],
+      ),
   );
 
   Component.displayName = `${iconNamePascal}`;

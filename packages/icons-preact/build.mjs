@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  type,
   name,
   namePascal,
   children
 }) => `\
 import createPreactComponent from '../createPreactComponent';
-export default createPreactComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default createPreactComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,
@@ -17,14 +18,12 @@ const indexItemTemplate = ({
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
-buildIcons({
+buildJsIcons({
   name: 'icons-preact',
   componentTemplate,
   indexItemTemplate,
-  // typeDefinitionsTemplate,
-  // indexTypeTemplate,
   aliasTemplate,
   pascalCase: true,
-  indexFile: 'icons/index.ts',
+  indexFile: 'index.ts',
   extension: 'ts'
 })

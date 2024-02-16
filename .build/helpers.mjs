@@ -67,6 +67,7 @@ export const getAllIcons = (withContent = false, withObject = false) => {
 
         return {
           name,
+          namePascal: toPascalCase(`icon ${name}`),
           path: i,
           category: data.category || '',
           tags: data.tags || [],
@@ -143,44 +144,21 @@ export const readSvgDirectory = (directory) => {
   return fs.readdirSync(directory).filter((file) => path.extname(file) === '.svg')
 }
 
-/**
- * @deprecated
- * @returns
- */
-export const readSvgs = () => {
-  const svgFiles = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
-  const limit = process.env['ICONS_LIMIT'] || Infinity;
-
-  return svgFiles
-    .slice(0, limit)
-    .map(svgFile => {
-      const name = basename(svgFile, '.svg'),
-        namePascal = toPascalCase(`icon ${name}`),
-        contents = readSvg(svgFile, ICONS_SRC_DIR).trim(),
-        path = resolve(ICONS_SRC_DIR, svgFile),
-        obj = parseSync(contents.replace(blankSquare, ''));
-
-      return {
-        name,
-        namePascal,
-        contents,
-        obj,
-        path
-      };
-    });
-}
-
 export const readAliases = () => {
-  const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8')),
-    svgFilesList = readSvgs().map(icon => icon.name);
+  const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8'));
+  const allIcons = getAllIcons()
 
   let aliases = [];
 
-  for (const [key, value] of Object.entries(allAliases)) {
-    if (svgFilesList.includes(value)) {
-      aliases[key] = value;
+  types.forEach(type => {
+    const icons = allIcons[type].map(i => i.name);
+
+    for (const [key, value] of Object.entries(allAliases[type])) {
+      if (icons.includes(value)) {
+        aliases[`${key}${type !== 'outline' ? `-${type}` : ''}`] = `${value}${type !== 'outline' ? `-${type}` : ''}`;
+      }
     }
-  }
+  });
 
   return aliases
 }
@@ -497,7 +475,7 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
     await asyncForEach(svgFiles, async function (file, i) {
       const distPath = path.join(dir, `./${type}/${file.name}.${extension}`)
 
-      process.stdout.write(`Building ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`)
+      process.stdout.write(`Building \`icons/${extension}\` ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`)
 
       await new Promise((resolve, reject) => {
         exec(`rsvg-convert -f ${extension} -h ${size} ${file.path} > ${distPath}`, (error) => {

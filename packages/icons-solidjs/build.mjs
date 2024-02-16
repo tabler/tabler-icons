@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
+  type,
   name,
   namePascal,
   children
 }) => `\
 import createSolidComponent from '../createSolidComponent';
-export default createSolidComponent('${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default createSolidComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({
   name,
@@ -17,14 +18,12 @@ const indexItemTemplate = ({
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
-buildIcons({
+buildJsIcons({
   name: 'icons-solidjs',
   componentTemplate,
   indexItemTemplate,
   aliasTemplate,
-  // typeDefinitionsTemplate,
-  // indexTypeTemplate,
   key: false,
   extension: 'ts',
-  indexFile: 'icons/index.ts'
+  indexFile: 'index.ts'
 })
