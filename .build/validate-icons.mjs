@@ -1,13 +1,14 @@
 import { globSync } from 'glob'
 import fs from 'fs'
 import { basename } from 'path'
-import { ICONS_SRC_DIR, iconTemplate, parseMatter, types } from './helpers.mjs'
+import { ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs } from './helpers.mjs'
 import { join } from 'path'
 
 let error = false
 
 const outlineIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i => basename(i, '.svg')),
-  filledIconsNames = globSync(join(ICONS_SRC_DIR, 'filled/*.svg')).map(i => basename(i, '.svg'));
+  filledIconsNames = globSync(join(ICONS_SRC_DIR, 'filled/*.svg')).map(i => basename(i, '.svg')),
+  argvs = getArgvs();
 
 let unicodes = []
 
@@ -52,8 +53,13 @@ types.forEach(type => {
         }
 
         unicodes.push(data.unicode)
-      } else {
+      } else if (argvs.hard) {
         console.log(`Icon ${icon} has no unicode`)
+        error = true
+      }
+
+      if (argvs.hard && !data.version) {
+        console.log(`Icon ${icon} has no version`)
         error = true
       }
     } catch (e) {

@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "eleventy --serve --watch",
     "preview": "pnpm run validate && pnpm run build:preview",
-    "build": "pnpm run update && pnpm run validate && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "build": "pnpm run update && pnpm run validate --hard && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
     "changelog": "node ./.build/changelog.mjs",
