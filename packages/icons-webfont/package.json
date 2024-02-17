@@ -17,11 +17,13 @@
   },
   "scripts": {
     "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:webfont && pnpm run build:css",
-    "build:prepare": "mkdir -p icons-outlined fonts && rm -fd fonts/*",
+    "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
     "build:outline": "node .build/build-outline.mjs",
-    "build:webfont": "rm -fd fonts/* && node .build/build-webfont.mjs",
-    "build:css": "sass tabler-icons.scss tabler-icons.css --style expanded && sass tabler-icons.scss tabler-icons.min.css --style compressed",
-    "build:clean": "rm -rf ./icons-outlined",
+    "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
+    "build:css": "pnpm run build:css:outline && pnpm run build:css:filled",
+    "build:css:outline": "sass dist/tabler-icons.scss dist/tabler-icons.css --style expanded && sass dist/tabler-icons.scss dist/tabler-icons.min.css --style compressed",
+    "build:css:filled": "sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.css --style expanded && sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.min.css --style compressed",
+    "clean": "rm -rf dist && rm -rf ./icons-outlined",
     "copy": "pnpm run copy:license",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },

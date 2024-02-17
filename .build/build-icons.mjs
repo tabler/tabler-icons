@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PACKAGES_DIR, readAliases, toPascalCase, getAllIcons } from './helpers.mjs'
+import { PACKAGES_DIR, getAliases, toPascalCase, getAllIcons } from './helpers.mjs'
 import { stringify } from 'svgson'
 import prettier from "@prettier/sync"
 
@@ -27,7 +27,7 @@ export const buildJsIcons = ({
   indexFile = 'icons.ts'
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
-  const aliases = readAliases(),
+  const aliases = getAliases(),
     allIcons = getAllIcons(false, true)
 
   let index = []

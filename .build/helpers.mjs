@@ -150,23 +150,39 @@ export const readSvgDirectory = (directory) => {
   return fs.readdirSync(directory).filter((file) => path.extname(file) === '.svg')
 }
 
-export const readAliases = () => {
+export const getAliases = (groupped = false) => {
   const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8'));
   const allIcons = getAllIcons()
 
-  let aliases = [];
+  if (groupped) {
+    let aliases = [];
+    types.forEach(type => {
+      const icons = allIcons[type].map(i => i.name);
 
-  types.forEach(type => {
-    const icons = allIcons[type].map(i => i.name);
+      aliases[type] = {};
 
-    for (const [key, value] of Object.entries(allAliases[type])) {
-      if (icons.includes(value)) {
-        aliases[`${key}${type !== 'outline' ? `-${type}` : ''}`] = `${value}${type !== 'outline' ? `-${type}` : ''}`;
+      for (const [key, value] of Object.entries(allAliases[type])) {
+        if (icons.includes(value)) {
+          aliases[type][key] = value;
+        }
       }
-    }
-  });
+    });
 
-  return aliases
+    return aliases
+  } else {
+    let aliases = [];
+    types.forEach(type => {
+      const icons = allIcons[type].map(i => i.name);
+
+      for (const [key, value] of Object.entries(allAliases[type])) {
+        if (icons.includes(value)) {
+          aliases[`${key}${type !== 'outline' ? `-${type}` : ''}`] = `${value}${type !== 'outline' ? `-${type}` : ''}`;
+        }
+      }
+    });
+
+    return aliases
+  }
 }
 
 /**
