@@ -507,3 +507,25 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
     })
   })
 }
+
+
+export const getMaxUnicode = () => {
+  const files = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
+  let maxUnicode = 0
+
+  files.forEach(function (file) {
+    const svgFile = fs.readFileSync(file).toString()
+
+    svgFile.replace(/unicode: "([a-f0-9.]+)"/i, function (m, unicode) {
+      const newUnicode = parseInt(unicode, 16)
+
+      if (newUnicode) {
+        maxUnicode = Math.max(maxUnicode, newUnicode)
+      }
+    })
+  })
+
+  console.log(`Max unicode: ${maxUnicode}`)
+
+  return maxUnicode
+}
