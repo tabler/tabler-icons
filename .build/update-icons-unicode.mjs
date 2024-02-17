@@ -4,7 +4,7 @@ import path from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 
 const getMaxUnicode = () => {
-  const files = globSync(path.join(ICONS_SRC_DIR, '*.svg'))
+  const files = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
   let maxUnicode = 0
 
   files.forEach(function(file) {
@@ -24,24 +24,24 @@ const getMaxUnicode = () => {
 
 let maxUnicode = getMaxUnicode()
 
-glob(path.join(ICONS_SRC_DIR, '*.svg'), {}, function(er, files) {
-  for (const i in files) {
-    const file = files[i]
+console.log(`Max unicode: ${maxUnicode}`)
 
-    let svgFile = fs.readFileSync(file).toString()
+const files = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
 
-    if (!svgFile.match(/\nunicode: "?([a-f0-9.]+)"?/i)) {
-      maxUnicode++
-      const unicode = maxUnicode.toString(16)
+files.forEach(function(file) {
+  let svgFile = fs.readFileSync(file).toString()
 
-      if (unicode) {
-        svgFile = svgFile.replace(/---\n<svg>/i, function(m) {
-          return `unicode: "${unicode}"\n${m}`
-        })
+  if (!svgFile.match(/\nunicode: "?([a-f0-9.]+)"?/i)) {
+    maxUnicode++
+    const unicode = maxUnicode.toString(16)
 
-        console.log(`Add unicode "${unicode}" to "${file}"`)
-        fs.writeFileSync(file, svgFile)
-      }
+    if (unicode) {
+      svgFile = svgFile.replace(/-->\n<svg/i, function(m) {
+        return `unicode: "${unicode}"\n${m}`
+      })
+
+      console.log(`Add unicode "${unicode}" to "${file}"`)
+      fs.writeFileSync(file, svgFile, 'utf8')
     }
   }
 })
