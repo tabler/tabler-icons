@@ -18,7 +18,6 @@ const duplicateExists = (arr) => {
 types.forEach(type => {
   const icons = globSync(join(ICONS_SRC_DIR, type, '*.svg'))
 
-
   icons.forEach((icon) => {
     const iconContent = fs.readFileSync(icon, 'utf-8')
 
@@ -53,6 +52,9 @@ types.forEach(type => {
         }
 
         unicodes.push(data.unicode)
+      } else {
+        console.log(`Icon ${icon} has no unicode`)
+        error = true
       }
     } catch (e) {
       console.log(`Icon ${icon} has invalid metadata`)
@@ -66,11 +68,11 @@ types.forEach(type => {
       error = true
     }
   })
-
-  if (error) {
-    process.exit(1)
-  } else {
-    console.log('All icons are valid')
-    process.exit(0)
-  }
 })
+
+if (error) {
+  process.exit(1)
+} else {
+  console.log('All icons are valid')
+  process.exit(0)
+}

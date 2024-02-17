@@ -1,7 +1,7 @@
 import { webfont } from "webfont";
 import * as fs from 'fs'
 import template from 'lodash.template'
-import { getPackageDir, getPackageJson, getAliases, types, asyncForEach } from '../../../.build/helpers.mjs'
+import { getPackageDir, getPackageJson, getAliases, types, asyncForEach, toPascalCase } from '../../../.build/helpers.mjs'
 
 const formats = ['ttf', 'woff', 'woff2']
 const p = getPackageJson()
@@ -39,7 +39,8 @@ asyncForEach(types, async type => {
 
       console.log(aliases[type])
       const options = {
-        fileName: 'tabler-icons',
+        name: `Tabler Icons${type !== 'outline' ? ` ${toPascalCase(type)}` : ''}`,
+        fileName: `tabler-icons${type !== 'outline' ? `-${type}` : ''}`,
         glyphs,
         v: p.version,
         aliases: aliases[type] || {}
