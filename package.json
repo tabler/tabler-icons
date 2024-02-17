@@ -20,7 +20,7 @@
     "changelog-commit": "git add . && node ./.build/changelog-commit.mjs",
     "changelog-image": "node ./.build/changelog-image.mjs",
     "update": "pnpm run update:icons",
-    "update:icons": "node ./.build/update-icons.mjs",
+    "update:icons": "node ./.build/update-icons.mjs --new-version ${npm_config_new-version}",
     "optimize": "node ./.build/optimize.mjs",
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",
