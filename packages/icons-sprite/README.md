@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons-sprite" alt="Latest Release"></a>
+    <a href="https://github.com/tabler/tabler-icons/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons-sprite.svg" alt="License"></a>
 </p>
 
 ## Sponsors
@@ -28,68 +28,31 @@
 ## Installation
 
 ```
-yarn add @tabler/icons
+yarn add @tabler/icons-sprite
 ```
 
 or
 
 ```
-npm install @tabler/icons
+npm install @tabler/icons-sprite
 ```
 
 or
 
 ```
-pnpm install @tabler/icons
+pnpm install @tabler/icons-sprite
 ```
 
 or just [download from Github](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
-All icons are built with SVG, so you can place them as `<img>`, `background-image` and inline in HTML code.
-
-### HTML image
-
-If you load an icon as an image, you can modify its size using CSS.
+Add an icon to be displayed on your page with the following markup (`activity` in the above example can be replaced with any valid icon name):
 
 ```html
-<img src="path/to/icon.svg" alt="icon title" />
-```
-
-### Inline HTML
-
-You can paste the content of the icon file into your HTML code to display it on the page.
-
-```html
-<a href="">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-disabled"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    stroke-width="1.25"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    ...
-  </svg>
-  Click me
-</a>
-```
-
-Thanks to that, you can change the size, color and the `stroke-width` of the icons with CSS code.
-
-```css
-.icon-tabler {
-  color: red;
-  width: 32px;
-  height: 32px;
-  stroke-width: 1.25;
-}
+<svg width="24" height="24">
+  <use xlink:href="path/to/tabler-sprite.svg#tabler-activity" />
+</svg>
 ```
 
 ## Contributing

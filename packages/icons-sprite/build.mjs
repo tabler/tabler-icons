@@ -20,8 +20,9 @@ const buildSprite = () => {
 
   let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`
 
-  fs.writeFileSync('tabler-sprite.svg', svg)
-  fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
+  fs.mkdirSync('dist', { recursive: true })
+  fs.writeFileSync('dist/tabler-sprite.svg', svg)
+  fs.writeFileSync('dist/tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
 }
 
 buildSprite()

@@ -5,8 +5,7 @@ import { ICONS_SRC_DIR, getMaxUnicode, getArgvs, getPackageJson } from './helper
 
 const p = getPackageJson(),
   argv = getArgvs(),
-  lastVersion = argv['latest-version'] || `${p.version}`,
-  newVersion = argv['new-version']
+  newVersion = argv['new-version'] || `${p.version}`
 
 console.log(argv);
 
