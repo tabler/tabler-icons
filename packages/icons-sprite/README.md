@@ -1,7 +1,7 @@
 # Tabler Icons
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-core.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-package-sprite.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
@@ -47,7 +47,7 @@ or just [download from Github](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
-Add an icon to be displayed on your page with the following markup (`activity` in the above example can be replaced with any valid icon name):
+Add an icon to be displayed on your page with the following markup (`activity` in the following example can be replaced with any valid icon name):
 
 ```html
 <svg width="24" height="24">
