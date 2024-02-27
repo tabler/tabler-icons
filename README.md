@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-core.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-core.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
@@ -103,7 +103,7 @@ React components available through [`@tabler/icons-react`](https://www.npmjs.com
 import { IconAward } from '@tabler/icons-react';
 
 const MyComponent = () => {
-  return <IconAward 
+  return <IconAward
     size={36} // set custom `width` and `height`
     color="red" // set `stroke` color
     stroke={3}  // set `stroke-width`
@@ -165,10 +165,10 @@ For more details, see the [documentation](https://github.com/tabler/tabler-icons
 
 ### Angular
 
-Angular components available through [`angular-tabler-icons`](https://www.npmjs.com/package/angular-tabler-icons) package.  
+Angular components available through [`angular-tabler-icons`](https://www.npmjs.com/package/angular-tabler-icons) package.
 Install the package, then create icons module:
 
-```ts  
+```ts
 import { NgModule } from '@angular/core';
 
 import { TablerIconsModule } from 'angular-tabler-icons';
