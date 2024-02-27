@@ -1,13 +1,8 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { PACKAGES_DIR, readSvgs } from './helpers.mjs'
+import { PACKAGES_DIR, getAliases, toPascalCase, getAllIcons } from './helpers.mjs'
 import { stringify } from 'svgson'
-import prettier from 'prettier'
-
-import bundleSize from '@atomico/rollup-plugin-sizes'
-import { visualizer } from 'rollup-plugin-visualizer'
-import license from 'rollup-plugin-license'
-import esbuild from 'rollup-plugin-esbuild'
+import prettier from "@prettier/sync"
 
 /**
  * Build icons
@@ -15,30 +10,32 @@ import esbuild from 'rollup-plugin-esbuild'
  * @param name
  * @param componentTemplate
  * @param indexIconTemplate
- * @param typeDefinitionsTemplate
  * @param indexTypeTemplate
  * @param extension
  * @param pretty
  */
-export const buildIcons = ({
+export const buildJsIcons = ({
   name,
   componentTemplate,
   indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
+  aliasTemplate,
   extension = 'js',
   pretty = true,
   key = true,
-  pascalCase = false
+  pascalCase = false,
+  pascalName = true,
+  indexFile = 'icons.ts'
 }) => {
-  const DIST_DIR = path.resolve(PACKAGES_DIR, name),
-      svgFiles = readSvgs()
+  const DIST_DIR = path.resolve(PACKAGES_DIR, name);
+  const aliases = getAliases(),
+    allIcons = getAllIcons(false, true)
 
   let index = []
-  let typings = []
+  Object.entries(allIcons).forEach(([type, icons]) => {
+    icons.forEach((icon, i) => {
+      process.stdout.write(`Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`)
 
-  svgFiles.forEach((svgFile, i) => {
-    const children = svgFile.obj.children
+      const children = icon.obj.children
         .map(({
           name,
           attributes
@@ -47,7 +44,7 @@ export const buildIcons = ({
             attributes.key = `svg-${i}`
           }
 
-          if(pascalCase) {
+          if (pascalCase) {
             attributes.strokeWidth = attributes['stroke-width']
             delete attributes['stroke-width']
           }
@@ -59,54 +56,51 @@ export const buildIcons = ({
           return !attributes.d || attributes.d !== 'M0 0h24v24H0z'
         })
 
-    // process.stdout.write(`Building ${i}/${svgFiles.length}: ${svgFile.name.padEnd(42)}\r`)
+      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
+        iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`
 
-    let component = componentTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal,
-      children,
-      stringify,
-      svg: svgFile
+      let component = componentTemplate({
+        type,
+        name: iconName,
+        namePascal: iconNamePascal,
+        children,
+        stringify,
+        svg: icon.content
+      })
+
+      // Format component
+      const output = pretty ? prettier.format(component, {
+        singleQuote: true,
+        trailingComma: 'all',
+        parser: 'babel'
+      }) : component
+
+      let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? iconNamePascal : iconName}.${extension}`)
+      fs.writeFileSync(filePath, output, 'utf-8')
+
+      index.push(indexItemTemplate({
+        type,
+        name: iconName,
+        namePascal: iconNamePascal
+      }))
     })
-
-    const output = pretty ? prettier.format(component, {
-      singleQuote: true,
-      trailingComma: 'all',
-      parser: 'babel'
-    }) : component
-
-    let filePath = path.resolve(DIST_DIR, 'src/icons', `${svgFile.namePascal}.${extension}`)
-    fs.writeFileSync(filePath, output, 'utf-8')
-
-    index.push(indexItemTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal
-    }))
-
-    typings.push(indexTypeTemplate({
-      name: svgFile.name,
-      namePascal: svgFile.namePascal
-    }))
   })
 
-  fs.writeFileSync(path.resolve(DIST_DIR, `./src/icons.js`), index.join('\n'), 'utf-8')
+  fs.writeFileSync(path.resolve(DIST_DIR, `src/icons/${indexFile}`), index.join('\n'), 'utf-8')
 
-  fs.ensureDirSync(path.resolve(DIST_DIR, `./dist/`))
-  fs.writeFileSync(path.resolve(DIST_DIR, `./dist/tabler-${name}.d.ts`), typeDefinitionsTemplate() + '\n' + typings.join('\n'), 'utf-8')
-}
-
-export const getRollupPlugins = (pkg, minify) => {
-  return [
-    esbuild({
-      minify
-    }),
-    license({
-      banner: `${pkg.name} v${pkg.version} - ${pkg.license}`
-    }),
-    bundleSize(),
-    visualizer({
-      sourcemap: false,
-      filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
+  // Write aliases
+  let aliasesStr = '';
+  if (aliases && aliasTemplate) {
+    Object.entries(aliases).forEach(([from, to]) => {
+      aliasesStr += aliasTemplate({
+        from,
+        to,
+        fromPascal: toPascalCase(from),
+        toPascal: toPascalCase(to)
+      })
     })
-  ].filter(Boolean)
+  }
+
+  fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8')
 }
+

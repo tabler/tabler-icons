@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="box">
+  <h3 class="box-title">new icons</h3>
+  {% for category in icons %}
+    {% for icon in category.icons %}
+      {% if not icon.data.version %}
+      <div class="icons-list-icon js-icon" title="{{ name }}"{% unless icon.data.category %} style="opacity: .66" {% endunless %}>
+        {{ icon.content }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  </div>
+
+  {% for category in icons %}
+	<div class="box">
+		<div class="mb">
+			<div class="icons-list">
+				<h3 class="box-title">{{ category.type }}</h3>
+        {% for icon in category.icons %}
+				{% assign name = icon.name %}
+				<div class="icons-list-icon js-icon" title="{{ name }}">
+          {{ icon.content }}
+				</div>
+        {% endfor %}
+			</div>
+		</div>
+	</div>
+  {% endfor %}
+</div>

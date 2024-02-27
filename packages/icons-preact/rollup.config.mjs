@@ -1,12 +1,13 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import { getRollupPlugins } from '../../.build/rollup-plugins.mjs'
+import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 const packageName = '@tabler/icons-preact';
 const outputFileName = 'tabler-icons-preact';
 const outputDir = 'dist';
-const inputs = ['./src/tabler-icons-preact.js'];
+const inputs = ['./src/tabler-icons-preact.ts'];
 const bundles = [
   {
     format: 'umd',
@@ -25,11 +26,6 @@ const bundles = [
     outputDir,
   },
   {
-    format: 'es',
-    inputs,
-    outputDir,
-  },
-  {
     format: 'esm',
     inputs,
     outputDir,
@@ -38,30 +34,38 @@ const bundles = [
 ];
 
 const configs = bundles
-    .map(({ inputs, outputDir, format, minify, preserveModules }) =>
-        inputs.map(input => ({
-          input,
-          plugins: getRollupPlugins(pkg, minify),
-          external: ['preact', 'prop-types'],
-          output: {
-            name: packageName,
-            ...(preserveModules
-                ? {
-                  dir: `${outputDir}/${format}`,
-                }
-                : {
-                  file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
-                }),
-            preserveModules,
-            format,
-            sourcemap: true,
-            globals: {
-              preact: 'preact',
-              'prop-types': 'PropTypes',
-            },
-          },
-        })),
-    )
-    .flat();
+  .map(({ inputs, outputDir, format, minify, preserveModules }) =>
+    inputs.map(input => ({
+      input,
+      plugins: getRollupPlugins(pkg, minify),
+      external: ['preact'],
+      output: {
+        name: packageName,
+        ...(preserveModules
+          ? {
+            dir: `${outputDir}/${format}`,
+          }
+          : {
+            file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.js`,
+          }),
+        preserveModules,
+        format,
+        sourcemap: true,
+        globals: {
+          preact: 'preact'
+        },
+      },
+    })),
+  )
+  .flat();
 
-export default configs;
+export default [
+  {
+    input: inputs[0],
+    output: [{
+      file: `dist/${outputFileName}.d.ts`, format: "es"
+    }],
+    plugins: [dts()],
+  },
+  ...configs
+];

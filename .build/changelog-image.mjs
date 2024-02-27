@@ -1,25 +1,28 @@
-import { generateIconsPreview, getArgvs, getPackageJson, HOME_DIR } from './helpers.mjs'
-import * as fs from 'fs'
+import { generateIconsPreview, getAllIcons, getArgvs, getPackageJson, GITHUB_DIR } from './helpers.mjs'
+import path from 'path'
 
 const argv = getArgvs(),
-    p = getPackageJson()
+  p = getPackageJson()
 
 const version = argv['new-version'] || `${p.version}`
 
 if (version) {
-  const icons = JSON.parse(fs.readFileSync(`${HOME_DIR}/tags.json`))
+  const icons = getAllIcons()
 
-  const newIcons = Object
-      .entries(icons)
-      .filter(([name, value]) => {
-        return `${value.version}.0` === version
-      })
-      .map(([name, value]) => {
-        return `./icons/${name}.svg`
-      })
+  let newIcons = []
+  Object.entries(icons).forEach(([type, icons]) => {
+    icons.forEach(icon => {
+      if (icon.version) {
+        if (`${icon.version}.0` === version) {
+          console.log(`Add icon "${type}/${icon.name}" vith version "${icon.version}" to new icons list`)
+          newIcons.push(icon.path)
+        }
+      }
+    })
+  })
 
   if (newIcons.length > 0) {
-    generateIconsPreview(newIcons, `.github/tabler-icons-${version}.svg`, {
+    generateIconsPreview(newIcons, path.join(GITHUB_DIR, `tabler-icons-${version}.svg`), {
       columnsCount: 6,
       paddingOuter: 24
     })

@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons",
-  "version": "2.47.0",
+  "version": "3.0.0-beta",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -20,13 +20,11 @@
   "typings": "dist/tabler-icons.d.ts",
   "sideEffects": false,
   "files": [
-    "dist/*",
-    "tags.json",
-    "tabler-nodes.json",
+    "icons.json",
+    "tabler-nodes-filled.json",
+    "tabler-nodes-outline.json",
     "icons/*",
-    "categories/*",
-    "tabler-sprite.svg",
-    "tabler-sprite-nostroke.svg"
+    "categories/*"
   ],
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -37,16 +35,11 @@
     "url": "https://github.com/sponsors/codecalm"
   },
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons && pnpm run build:es && pnpm run build:bundles",
+    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons",
     "build:icons": "node build.mjs",
-    "build:es": "babel src -d dist/esm",
-    "build:bundles": "rollup -c ./rollup.config.mjs",
-    "copy": "pnpm run copy:license && pnpm run copy:icons && pnpm run copy:tags",
-    "copy:icons": "mkdir -p ./icons && cp ../../icons/*.svg ./icons/",
-    "copy:tags": "cp ../../tags.json tags.json",
+    "copy": "pnpm run copy:license",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf src/icons/*.js && rm -rf icons",
-    "test": "jest --env=jsdom"
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/categories/*' -exec rm -rf {} + && rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +"
   },
   "keywords": [
     "icons",
@@ -56,21 +49,5 @@
     "react",
     "front-end",
     "web"
-  ],
-  "devDependencies": {
-    "babel-jest": "^29.4.1",
-    "jest": "^29.4.1",
-    "jest-environment-jsdom": "^29.4.1"
-  },
-  "jest": {
-    "testEnvironmentOptions": {
-      "customExportConditions": [
-        "node",
-        "node-addons"
-      ]
-    },
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
-  }
+  ]
 }

@@ -1,25 +1,31 @@
 import fs from 'fs'
 import { createScreenshot } from './helpers.mjs'
+import { ICONS_SRC_DIR } from './helpers.mjs'
+import path from 'path'
 
 const icon = 'ghost',
-    strokes = ['.25', '.5', '.75', '1', '1.25', '1.5', '1.75', '2', '2.25', '2.5', '2.25'],
-    svgFileContent = fs.readFileSync(`icons/${icon}.svg`).toString(),
-    padding = 16,
-    paddingOuter = 3,
-    iconSize = 56,
-    width = 830,
-    height = iconSize + paddingOuter * 2
+  strokes = ['.25', '.5', '.75', '1', '1.25', '1.5', '1.75', '2', '2.25', '2.5', '2.25'],
+  svgFileContent = fs.readFileSync(path.join(ICONS_SRC_DIR, `outline/${icon}.svg`), 'utf-8'),
+  padding = 16,
+  paddingOuter = 3,
+  iconSize = 56,
+  width = 830,
+  height = iconSize + paddingOuter * 2
 
 let svgContentSymbols = '',
-    svgContentIcons = '',
-    x = paddingOuter
+  svgContentIcons = '',
+  x = paddingOuter
 
-strokes.forEach(function(stroke) {
-  let svgFileContentStroked = svgFileContent.replace('<svg xmlns="http://www.w3.org/2000/svg"', `<symbol id="icon-${stroke}"`)
-      .replace(' width="24" height="24"', '')
-      .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
-      .replace('</svg>', '</symbol>')
-      .replace(/\n\s+/g, '')
+strokes.forEach(function (stroke) {
+  let svgFileContentStroked = createSvgSymbol(svgFileContent, `icon-${stroke}`, stroke)
+
+  svgFileContent
+    .replace('<svg', `<symbol id="icon-${stroke}"`)
+    .replace(' width="24" height="24"', '')
+    .replace(' stroke-width="2"', ` stroke-width="${stroke}"`)
+    .replace('</svg>', '</symbol>')
+    .replace(/\n\s+/g, ' ')
+    .replace(/<!--(.*?)-->/gis, '')
 
   svgContentSymbols += `\t${svgFileContentStroked}\n`
   svgContentIcons += `\t<use xlink:href="#icon-${stroke}" x="${x}" y="${paddingOuter}" width="${iconSize}" height="${iconSize}" />\n`

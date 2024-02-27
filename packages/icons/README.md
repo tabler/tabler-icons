@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->4962<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5201<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -90,16 +90,6 @@ Thanks to that, you can change the size, color and the `stroke-width` of the ico
   height: 32px;
   stroke-width: 1.25;
 }
-```
-
-### SVG sprite
-
-Add an icon to be displayed on your page with the following markup (`activity` in the above example can be replaced with any valid icon name):
-
-```html
-<svg width="24" height="24">
-  <use xlink:href="path/to/tabler-sprite.svg#tabler-activity" />
-</svg>
 ```
 
 ## Contributing

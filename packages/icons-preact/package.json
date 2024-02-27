@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-preact",
-  "version": "2.47.0",
+  "version": "3.0.0-beta",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -17,49 +17,37 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-preact"
   },
+  "amdName": "tabler-icons-preact",
   "main": "dist/cjs/tabler-icons-preact.js",
   "main:umd": "dist/umd/tabler-icons-preact.js",
   "module": "dist/esm/tabler-icons-preact.js",
   "unpkg": "dist/umd/tabler-icons-preact.min.js",
   "typings": "dist/tabler-icons-preact.d.ts",
-  "sideEffects": false,
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
     "build:icons": "node build.mjs",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.js",
-    "test": "pnpm run clean && pnpm run build:icons && jest --env=jsdom"
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "test": "vitest run",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@tabler/icons": "2.47.0"
+    "@tabler/icons": "3.0.0-beta"
   },
   "peerDependencies": {
     "preact": "^10.5.13"
   },
   "devDependencies": {
     "@babel/preset-env": "7.11.5",
-    "@preact/preset-vite": "^2.5.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/preact": "^3.2.2",
-    "babel-preset-preact": "^2.0.0",
+    "@preact/preset-vite": "^2.8.1",
+    "@testing-library/preact": "^3.2.3",
     "babel-jest": "^29.4.1",
-    "jest": "^29.3.1",
-    "jest-environment-jsdom": "^29.4.1",
-    "preact": "^10.11.3"
-  },
-  "jest": {
-    "testEnvironmentOptions": {
-      "customExportConditions": [
-        "node",
-        "node-addons"
-      ]
-    },
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
+    "babel-preset-preact": "^2.0.0",
+    "preact": "^10.5.13"
   }
 }

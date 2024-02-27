@@ -1,9 +1,9 @@
 import { readFileSync, writeFileSync } from 'fs'
-import glob from 'glob'
+import { glob } from 'glob'
 import { resolve } from 'path'
-import { HOME_DIR } from './helpers.mjs'
+import { HOME_DIR, ICONS_SRC_DIR } from './helpers.mjs'
 
-let count = glob.sync(resolve(HOME_DIR, 'icons/*.svg')).length
+let count = glob.sync(resolve(ICONS_SRC_DIR, '**/*.svg')).length
 
 console.log('count', count);
 

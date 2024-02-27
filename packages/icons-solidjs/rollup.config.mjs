@@ -1,12 +1,13 @@
 import fs from 'fs'
-import { getRollupPlugins } from '../../.build/build-icons.mjs'
+import { getRollupPlugins } from '../../.build/rollup-plugins.mjs'
+import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
 
 const packageName = '@tabler/icons-solidjs';
 const outputFileName = 'tabler-icons-solidjs';
 const outputDir = 'dist';
-const inputs = ['./src/tabler-icons-solidjs.js'];
+const inputs = ['./src/tabler-icons-solidjs.ts'];
 const bundles = [
   {
     format: 'umd',
@@ -21,11 +22,6 @@ const bundles = [
   },
   {
     format: 'cjs',
-    inputs,
-    outputDir,
-  },
-  {
-    format: 'es',
     inputs,
     outputDir,
   },
@@ -64,4 +60,13 @@ const configs = bundles
     )
     .flat();
 
-export default configs;
+export default [
+  {
+    input: inputs[0],
+    output: [{
+      file: `dist/${outputFileName}.d.ts`, format: "es"
+    }],
+    plugins: [dts()],
+  },
+  ...configs
+];

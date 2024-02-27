@@ -1,93 +1,48 @@
 import fs from 'fs'
-import {  readSvgs, HOME_DIR } from '../../.build/helpers.mjs'
-import { buildIcons } from '../../.build/build-icons.mjs'
+import { getAllIconsMerged, getAllIcons } from '../../.build/helpers.mjs'
 
-const svgFiles = readSvgs()
+const iconsMerged = getAllIconsMerged()
+const icons = getAllIcons(true, true)
 
-const buildSprite = () => {
-  let svgContent = ''
-  svgFiles.forEach(function (file, i) {
-    const svgFileContent = file.contents.replace(/<svg[^>]+>/g, '').replace(/<\/svg>/g, '').replace(/\n+/g, '').replace(/>\s+</g, '><').trim()
-    svgContent += `<symbol id="tabler-${file.name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`
-  })
+const buildJSON = () => {
+  console.log('Building icons.json')
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`
-
-  fs.writeFileSync('tabler-sprite.svg', svg)
-  fs.writeFileSync('tabler-sprite-nostroke.svg', svg.replace(/stroke-width="2"\s/g, ''))
+  fs.writeFileSync(`./icons.json`, JSON.stringify(iconsMerged, null, 2))
 }
 
 const buildNodes = () => {
-  const iconNodes = svgFiles.reduce((acc, { name, obj }) => {
-    acc[name] = obj.children.map(({ name, attributes }) => [name, attributes]);
+  console.log('Building tabler-nodes.json')
 
-    return acc;
-  }, {});
+  Object.entries(icons).forEach(([type, icons]) => {
+    const iconNodes = icons.reduce((acc, { name, obj }) => {
+      acc[name] = obj.children.map(({ name, attributes }) => [name, attributes]);
 
-  const iconNodesStringified = JSON.stringify(iconNodes, null, 2);
+      return acc;
+    }, {});
 
-  fs.writeFileSync(`./tabler-nodes.json`, iconNodesStringified);
+    const iconNodesStringified = JSON.stringify(iconNodes, null, 2);
+
+    fs.writeFileSync(`./tabler-nodes-${type}.json`, iconNodesStringified);
+  })
 }
 
-const buildCategories = () => {
-  const icons = JSON.parse(fs.readFileSync(`${HOME_DIR}/tags.json`))
+const buildSvgs = () => {
+  console.log('Building svgs')
 
-  if(fs.existsSync(`./categories`)) {
-    fs.rmSync(`./categories`, { recursive: true })
-  } 
-    
-  fs.mkdirSync(`./categories`)
+  Object.entries(icons).forEach(([type, icons]) => {
+    fs.mkdirSync(`./icons/${type}`, { recursive: true });
 
+    icons.forEach(({ name, content, category }) => {
+      fs.writeFileSync(`./icons/${type}/${name}.svg`, content);
 
-  Object
-    .entries(icons)
-    .forEach(([name, content]) => {
-      const categories = [(content.category || 'other')
-        .toLowerCase()
-        .replace(/ /g, '-')]
-        .flat()
-
-      categories.forEach(category => {
-        if (!fs.existsSync(`./categories/${category}`)) {
-          fs.mkdirSync(`./categories/${category}`)
-        }
-
-        if (fs.existsSync(`./icons/${name}.svg`)) {
-          fs.copyFileSync(`./icons/${name}.svg`, `./categories/${category}/${name}.svg`)
-        }
-      })
-
-      console.log(`Move ${name} icon to ${categories.join(', ')} category`)
+      if (category) {
+        fs.mkdirSync(`./categories/${type}/${category}`, { recursive: true });
+        fs.writeFileSync(`./categories/${type}/${category}/${name}.svg`, content);
+      }
     })
+  })
 }
 
-const componentTemplate = ({
-  namePascal,
-  svg
-}) => `\
-export default ${namePascal} => \`${svg.contents}\`;`;
-
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as ${namePascal} } from './icons/${namePascal}';`
-
-const typeDefinitionsTemplate = () => `// Generated icons`
-
-const indexTypeTemplate = ({
-  namePascal
-}) => `export declare const ${namePascal}: string;`
-
-
-
-buildSprite()
+buildJSON()
 buildNodes()
-buildCategories()
-buildIcons({
-  name: 'icons',
-  componentTemplate,
-  indexItemTemplate,
-  typeDefinitionsTemplate,
-  indexTypeTemplate,
-  pretty: false
-})
+buildSvgs()

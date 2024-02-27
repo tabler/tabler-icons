@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-webfont",
-  "version": "2.47.0",
+  "version": "3.0.0-beta",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -16,26 +16,24 @@
     "directory": "packages/icons-webfont"
   },
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:optimize && pnpm run build:fix-outline && pnpm run build:webfont && pnpm run build:css && pnpm run build:clean",
-    "build:prepare": "mkdir -p icons-outlined fonts && rm -fd icons-outlined/* fonts/*",
+    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:webfont && pnpm run build:css",
+    "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
     "build:outline": "node .build/build-outline.mjs",
-    "build:optimize": "svgo icons-outlined/*",
-    "build:fix-outline": "fontforge -lang=py -script .build/fix-outline.py",
-    "build:webfont": "rm -fd fonts/* && node .build/build-webfont.mjs",
-    "build:css": "sass tabler-icons.scss tabler-icons.css --style expanded && sass tabler-icons.scss tabler-icons.min.css --style compressed",
-    "build:clean": "rm -rf ./icons-outlined",
-    "clean": "rm -rf ./iconfont",
+    "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
+    "build:css": "pnpm run build:css:outline && pnpm run build:css:filled",
+    "build:css:outline": "sass dist/tabler-icons.scss dist/tabler-icons.css --style expanded && sass dist/tabler-icons.scss dist/tabler-icons.min.css --style compressed",
+    "build:css:filled": "sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.css --style expanded && sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.min.css --style compressed",
+    "clean": "rm -rf dist && rm -rf ./icons-outlined",
     "copy": "pnpm run copy:license",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
   "files": [
-    "fonts/*",
-    "tabler-icons.*"
+    "dist/*"
   ],
   "sass": "./tabler-icons.scss",
   "style": "./tabler-icons.min.css",
   "dependencies": {
-    "@tabler/icons": "2.47.0"
+    "@tabler/icons": "3.0.0-beta"
   },
   "keywords": [
     "icons",

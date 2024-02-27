@@ -1,0 +1,42 @@
+{
+  "name": "@tabler/icons-sprite",
+  "version": "3.0.0-beta",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/*"
+  ],
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons",
+    "build:icons": "node build.mjs",
+    "copy": "pnpm run copy:license",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist/*"
+  },
+  "dependencies": {
+    "@tabler/icons": "3.0.0-beta"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "png",
+    "iconfont",
+    "react",
+    "front-end",
+    "web"
+  ]
+}

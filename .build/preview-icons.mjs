@@ -1,10 +1,25 @@
-import glob from 'glob'
-import { generateIconsPreview } from './helpers.mjs'
+import { globSync } from 'glob'
+import { GITHUB_DIR, generateIconsPreview, ICONS_SRC_DIR, asyncForEach } from './helpers.mjs'
+import path from 'path'
 
-glob('icons/*.svg', {}, async function(er, files) {
-  await generateIconsPreview(files, '.github/icons.svg')
-  await generateIconsPreview(files, '.github/icons-dark.svg', {
+const types = {
+  '-outline': 'outline',
+  '-filled': 'filled',
+  '': '**'
+}
+
+asyncForEach(Object.entries(types), async ([type, dir]) => {
+  const files = globSync(path.join(ICONS_SRC_DIR, `${dir}/*.svg`)).sort((a, b) => path.basename(a).localeCompare(path.basename(b)))
+
+  await generateIconsPreview(files, path.join(GITHUB_DIR, `preview/icons${type}.svg`), {
+    retina: false,
+    stroke: 1.5
+  })
+  
+  await generateIconsPreview(files, path.join(GITHUB_DIR, `preview/icons${type}-dark.svg`), {
     color: '#ffffff',
-    background: 'transparent'
+    background: 'transparent',
+    retina: false,
+    stroke: 1.5
   })
 })

@@ -13,9 +13,7 @@ $ti-prefix: 'ti' !default;
   font-style: normal;
   font-weight: 400;
   font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/<%= fileName %>.eot?v<%= v %>');
-  src: url('#{$ti-font-path}/<%= fileName %>.eot?#iefix-v<%= v %>') format('embedded-opentype'),
-    url('#{$ti-font-path}/<%= fileName %>.woff2?v<%= v %>') format('woff2'),
+  src: url('#{$ti-font-path}/<%= fileName %>.woff2?v<%= v %>') format('woff2'),
     url('#{$ti-font-path}/<%= fileName %>.woff?') format('woff'),
     url('#{$ti-font-path}/<%= fileName %>.ttf?v<%= v %>') format('truetype');
 }
@@ -43,3 +41,7 @@ $ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicode[0].codePointAt(0).toStrin
 
 <% glyphs.forEach(function(glyph) { %>
 .#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
+
+// Aliases
+<% Object.entries(aliases).forEach(function([from, to]) { %>.#{$ti-prefix}-<%= from %>:before { content: $ti-icon-<%= to %>; }
+<% }); %>

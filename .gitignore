@@ -20,7 +20,6 @@ yarn.lock
 dist/
 _import.csv
 _import.tsv
-random-icons.svg
 
 .yarn
 .yarnrc.yml
@@ -28,9 +27,12 @@ random-icons.svg
 packages/icons*/icons/*
 packages/icons*/src/icons/*
 packages/icons*/src/icons.js
+packages/icons*/src/icons.ts
 packages/icons*/LICENSE
 packages/icons*/stats/*
 packages/icons*/icons/*
 
 .turbo
 .sass-cache
+
+!/**/.gitkeep

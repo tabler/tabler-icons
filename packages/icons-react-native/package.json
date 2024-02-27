@@ -1,0 +1,60 @@
+{
+  "name": "@tabler/icons-react-native",
+  "version": "3.0.0-beta",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-react-native"
+  },
+  "type": "module",
+  "amdName": "tabler-icons-react-native",
+  "main": "dist/cjs/tabler-icons-react-native.js",
+  "main:umd": "dist/umd/tabler-icons-react-native.js",
+  "module": "dist/esm/tabler-icons-react-native.js",
+  "unpkg": "dist/umd/tabler-icons-react-native.min.js",
+  "typings": "dist/tabler-icons-react-native.d.ts",
+  "react-native": "dist/esm/tabler-icons-react-native.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
+    "build:icons": "node build.mjs",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "test": "vitest run",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@tabler/icons": "3.0.0-beta"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.23.8",
+    "@babel/preset-react": "7.23.3",
+    "@testing-library/react": "^14.1.2",
+    "@types/react": "18.2.48",
+    "@vitejs/plugin-react": "^4.2.1",
+    "babel-jest": "^29.7.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "^0.73.1",
+    "react-native-svg": "^14.1.0",
+    "react-test-renderer": "18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.5.1 || ^17.0.0 || ^18.0.0"
+  }
+}
