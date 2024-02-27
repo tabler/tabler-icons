@@ -1,14 +1,15 @@
 import { globSync } from 'glob'
 import fs from 'fs'
 import { basename } from 'path'
-import { ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs } from './helpers.mjs'
+import { HOME_DIR, ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs } from './helpers.mjs'
 import { join } from 'path'
 
 let error = false
 
 const outlineIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i => basename(i, '.svg')),
   filledIconsNames = globSync(join(ICONS_SRC_DIR, 'filled/*.svg')).map(i => basename(i, '.svg')),
-  argvs = getArgvs();
+  argvs = getArgvs(),
+  aliases = JSON.parse(fs.readFileSync(join(HOME_DIR, 'aliases.json'), 'utf-8'));
 
 let unicodes = []
 
@@ -71,6 +72,16 @@ types.forEach(type => {
   filledIconsNames.forEach((icon) => {
     if (outlineIconsNames.indexOf(icon) === -1) {
       console.log(`Icon ${icon} exists in filled version but doesn't exists in outline`)
+      error = true
+    }
+  })
+})
+
+// check aliases
+Object.entries(aliases).forEach(([type, replacers]) => {
+  Object.entries(replacers).forEach(([icon, alias]) => {
+    if (!fs.existsSync(join(ICONS_SRC_DIR, type, `${alias}.svg`))) {
+      console.log(`Alias ${icon} for ${alias} in ${type} doesn't exists`)
       error = true
     }
   })
