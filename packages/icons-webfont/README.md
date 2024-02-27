@@ -1,7 +1,7 @@
 # Tabler Icons Webfont
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/packages/og-package-webfont.png" alt="Tabler Icons" width="838">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-package-webfont.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
