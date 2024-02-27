@@ -36,6 +36,3 @@ jobs:
 
       - name: Validate icons
         run: pnpm validate
-
-      - name: Build icons
-        run: ICONS_LIMIT=10 pnpm run build
