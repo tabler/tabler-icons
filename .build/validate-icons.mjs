@@ -79,6 +79,6 @@ types.forEach(type => {
 if (error) {
   process.exit(1)
 } else {
-  console.log('All icons are valid')
+  console.log('All icons are valid!')
   process.exit(0)
 }
