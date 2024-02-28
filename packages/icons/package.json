@@ -8,16 +8,11 @@
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
   },
-  "main": "dist/cjs/tabler-icons.js",
-  "main:umd": "dist/umd/tabler-icons.js",
   "exports": {
     "./*": [
       "./icons/*"
     ]
   },
-  "module": "dist/esm/tabler-icons.js",
-  "unpkg": "dist/umd/tabler-icons.min.js",
-  "typings": "dist/tabler-icons.d.ts",
   "sideEffects": false,
   "files": [
     "icons.json",
