@@ -101,9 +101,9 @@
       "addUntrackedFiles": true,
       "changelog": "pnpm run --silent changelog --latest-version ${latestTag}",
       "tagName": "v${version}",
-      "_requireBranch": "master",
+      "requireBranch": "main",
       "requireCommits": true,
-      "requireCleanWorkingDir": false
+      "requireCleanWorkingDir": true
     },
     "github": {
       "release": true

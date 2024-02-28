@@ -10,15 +10,15 @@ if (version) {
 
     let newIcons = [], modifiedIcons = [], renamedIcons = []
 
-    ret.replace(/A\s+icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
+    ret.replace(/A\s+icons\/([a-z0-9-\/]+)\.svg/g, function(m, fileName) {
       newIcons.push(fileName)
     })
 
-    ret.replace(/M\s+icons\/([a-z0-9-]+)\.svg/g, function(m, fileName) {
+    ret.replace(/M\s+icons\/([a-z0-9-\/]+)\.svg/g, function(m, fileName) {
       modifiedIcons.push(fileName)
     })
 
-    ret.replace(/R[0-9]+\s+icons\/([a-z0-9-]+)\.svg\s+icons\/([a-z0-9-]+).svg/g, function(m, fileNameBefore, fileNameAfter) {
+    ret.replace(/R[0-9]+\s+icons\/([a-z0-9-\/]+)\.svg\s+icons\/([a-z0-9-\/]+).svg/g, function(m, fileNameBefore, fileNameAfter) {
       renamedIcons.push([fileNameBefore, fileNameAfter])
     })
 
