@@ -21,7 +21,7 @@
 
 ## Preview
 
-## Outline version
+### Outline version
 
 <p align="center">
   <picture>
@@ -31,7 +31,7 @@
   </picture>
 </p>
 
-## Filled version
+### Filled version
 
 <p align="center">
   <picture>
