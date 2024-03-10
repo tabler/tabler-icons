@@ -21,7 +21,7 @@
 
 ## Preview
 
-### Outline version
+### Outline version (<!--icons-count-outline-->4547<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -31,7 +31,7 @@
   </picture>
 </p>
 
-### Filled version
+### Filled version (<!--icons-count-filled-->653<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>
