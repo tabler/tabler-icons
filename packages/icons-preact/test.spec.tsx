@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { render, cleanup } from '@testing-library/react'
-import { IconAccessible, IconAccessibleFilled } from "./src/tabler-icons-react"
+import { describe, it, expect, afterEach } from 'vitest';
+import { render, cleanup } from '@testing-library/preact'
+import { IconAccessible, IconAccessibleFilled } from "./src/tabler-icons-preact"
 
-describe("React Icon component", () => {
+describe("Preact Icon component", () => {
   afterEach(() => {
     cleanup();
   });
@@ -17,9 +17,9 @@ describe("React Icon component", () => {
     const svg = container.getElementsByTagName("svg")[0]
 
     expect(svg.getAttribute("width")).toBe("48")
+    expect(svg.getAttribute("fill")).toBe("none")
     expect(svg.getAttribute("stroke")).toBe("red")
     expect(svg.getAttribute("stroke-width")).toBe("4")
-    expect(svg.getAttribute("fill")).toBe("none")
   })
 
   it("should update svg attributes when there are props passed to the filled version of component", () => {

@@ -1,6 +1,6 @@
 import { forwardRef, createElement } from 'react';
 import defaultAttributes from './defaultAttributes';
-import type { IconNode, IconProps } from './types';
+import type { IconNode, IconProps, Icon } from './types';
 
 const createReactComponent = (
   type: 'outline' | 'filled',
@@ -8,8 +8,11 @@ const createReactComponent = (
   iconNamePascal: string,
   iconNode: IconNode,
 ) => {
-  const Component = forwardRef<SVGSVGElement, IconProps>(
-    ({ color = 'currentColor', size = 24, stroke = 2, className = '', children, ...rest }, ref) =>
+  const Component = forwardRef<Icon, IconProps>(
+    (
+      { color = 'currentColor', size = 24, stroke = 2, className, children, ...rest }: IconProps,
+      ref,
+    ) =>
       createElement(
         'svg',
         {

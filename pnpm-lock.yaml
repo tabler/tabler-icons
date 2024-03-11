@@ -15,9 +15,6 @@ importers:
       '@11ty/eleventy':
         specifier: ^2.0.1
         version: 2.0.1
-      '@prettier/sync':
-        specifier: ^0.5.1
-        version: 0.5.1(prettier@3.2.5)
       '@release-it-plugins/workspaces':
         specifier: ^4.2.0
         version: 4.2.0(release-it@17.1.1)
@@ -3164,15 +3161,6 @@ packages:
       vite: 5.1.4
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@prettier/sync@0.5.1(prettier@3.2.5):
-    resolution: {integrity: sha512-tpF+A1e4ynO2U4fTH21Sjgm9EYENmqg4zmJCMLrmLVfzIzuDc1cKGXyxrxbFgcH8qQRfowyDCZFAUukwhiZlsw==}
-    peerDependencies:
-      prettier: '*'
-    dependencies:
-      make-synchronized: 0.2.8
-      prettier: 3.2.5
     dev: true
 
   /@react-native-community/cli-clean@12.3.6:
@@ -8796,10 +8784,6 @@ packages:
     transitivePeerDependencies:
       - bluebird
       - supports-color
-    dev: true
-
-  /make-synchronized@0.2.8:
-    resolution: {integrity: sha512-jtXnKYCxjmGaXiZhXbDbGPbh4YyTvIIbOgcQjtAboc4RSm9k3nyhTFvFQB0cfs7QFKuZXKe2D2RvOkv1c+vpxg==}
     dev: true
 
   /makeerror@1.0.12:

@@ -36,7 +36,6 @@ buildJsIcons({
   indexItemTemplate,
   aliasTemplate,
   extension: 'svelte',
-  pretty: false,
   key: false,
   indexFile: 'index.ts',
   pascalName: false,

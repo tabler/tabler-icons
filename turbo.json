@@ -4,8 +4,7 @@
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"],
-
-      "cache": false
+      "inputs": ["../../icons/**"]
     },
     "lint": {},
     "dev": {
@@ -16,10 +15,13 @@
       "cache": false
     },
     "test": {
-      "dependsOn": []
+      "dependsOn": ["build", "^build"]
+    },
+    "typecheck": {
+      "dependsOn": ["build", "^build"]
     },
     "imports-check": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["build", "^build"]
     }
   }
 }

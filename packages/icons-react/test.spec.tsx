@@ -1,8 +1,10 @@
-import { describe, it, expect } from 'vitest';
-import { render, cleanup } from '@testing-library/preact'
-import { IconAccessible, IconAccessibleFilled } from "./src/tabler-icons-preact"
+import { describe, it, expect, afterEach, assertType, expectTypeOf } from 'vitest';
+import { render, cleanup } from '@testing-library/react'
+import { IconAccessible, IconAccessibleFilled, createReactComponent } from "./src/tabler-icons-react"
+import type { IconNode } from './src/tabler-icons-react';
+import { ReactNode } from 'react';
 
-describe("Preact Icon component", () => {
+describe("React Icon component", () => {
   afterEach(() => {
     cleanup();
   });
@@ -16,12 +18,10 @@ describe("Preact Icon component", () => {
     const { container } = render(<IconAccessible size={48} color={"red"} stroke={4}/>)
     const svg = container.getElementsByTagName("svg")[0]
 
-    console.log(svg.outerHTML)
-
     expect(svg.getAttribute("width")).toBe("48")
-    expect(svg.getAttribute("fill")).toBe("none")
     expect(svg.getAttribute("stroke")).toBe("red")
     expect(svg.getAttribute("stroke-width")).toBe("4")
+    expect(svg.getAttribute("fill")).toBe("none")
   })
 
   it("should update svg attributes when there are props passed to the filled version of component", () => {
@@ -52,6 +52,11 @@ describe("Preact Icon component", () => {
 
     expect(svg).toHaveStyle('color: rgb(255, 0, 0)')
   })
+
+  it('should have proper type', () => {
+    expectTypeOf(IconAccessible).toBeFunction();
+    expectTypeOf(IconAccessible).toEqualTypeOf(createReactComponent('outline', 'accessible', 'Accessible', []));
+  });
 
   it("should match snapshot", () => {
     const { container } = render(<IconAccessible/>)
