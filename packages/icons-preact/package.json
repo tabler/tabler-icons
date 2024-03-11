@@ -44,7 +44,8 @@
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
     "@tabler/icons": "3.0.0"

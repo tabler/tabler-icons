@@ -4,7 +4,7 @@
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"],
-      
+
       "cache": false
     },
     "lint": {},
@@ -17,6 +17,9 @@
     },
     "test": {
       "dependsOn": []
+    },
+    "imports-check": {
+      "dependsOn": ["^build"]
     }
   }
 }
