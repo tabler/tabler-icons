@@ -1,6 +1,6 @@
 import { h } from 'vue';
 import defaultAttributes from './defaultAttributes';
-import { Icon, IconNode } from './types';
+import type { Icon, IconNode } from './types';
 
 const createVueComponent =
   (
@@ -9,20 +9,24 @@ const createVueComponent =
     iconNamePascal: string,
     iconNode: IconNode,
   ): Icon =>
-  ({ size, color, class: classes, strokeWidth, ...props }, { attrs, slots }) => {
-    const attributes = defaultAttributes[type];
-
+  ({ size, color, class: classes, stroke, ...rest }, { attrs, slots }) => {
     return h(
       'svg',
       {
-        ...attributes,
-        width: size || attributes.width,
-        height: size || attributes.height,
-        stroke: color || attributes.stroke,
-        'stroke-width': strokeWidth || attributes['stroke-width'],
+        ...defaultAttributes[type],
+        width: size,
+        height: size,
         ...attrs,
         class: ['tabler-icon', `tabler-icon-${iconName}`],
-        ...props,
+        ...(type === 'filled'
+          ? {
+              fill: color,
+            }
+          : {
+              'stroke-width': stroke,
+              stroke: color,
+            }),
+        ...rest,
       },
       [...iconNode.map((child) => h(...child)), ...(slots.default ? [slots.default()] : [])],
     );

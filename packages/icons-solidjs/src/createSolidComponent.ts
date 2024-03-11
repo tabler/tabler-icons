@@ -12,9 +12,15 @@ const createSolidComponent = (type: 'outline' | 'filled',iconName: string, iconN
       ...attributes,
       width: () => (localProps.size != null ? localProps.size : attributes.width),
       height: () => (localProps.size != null ? localProps.size : attributes.height),
-      stroke: () => (localProps.color != null ? localProps.color : attributes.stroke),
-      'stroke-width': () =>
-        localProps.stroke != null ? localProps.stroke : attributes['stroke-width'],
+      ...(type === 'filled'
+        ? {
+            fill: () => (localProps.color != null ? localProps.color : attributes.stroke),
+          }
+        : {
+            stroke: () => (localProps.color != null ? localProps.color : attributes.stroke),
+            'stroke-width': () =>
+              localProps.stroke != null ? localProps.stroke : attributes['stroke-width'],
+          }),
       class: () =>
         `tabler-icon tabler-icon-${iconName} ${localProps.class != null ? localProps.class : ''}`,
     };
