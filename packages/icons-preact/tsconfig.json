@@ -17,7 +17,9 @@
     "downlevelIteration": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "types": ["@testing-library/jest-dom"],
   },
   "exclude": ["**/node_modules"]
 }

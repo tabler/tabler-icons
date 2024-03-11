@@ -2,7 +2,6 @@ import fs from 'fs-extra'
 import path from 'path'
 import { PACKAGES_DIR, getAliases, toPascalCase, getAllIcons } from './helpers.mjs'
 import { stringify } from 'svgson'
-import prettier from "@prettier/sync"
 
 /**
  * Build icons
@@ -20,7 +19,6 @@ export const buildJsIcons = ({
   indexItemTemplate,
   aliasTemplate,
   extension = 'js',
-  pretty = true,
   key = true,
   pascalCase = false,
   pascalName = true,
@@ -68,15 +66,8 @@ export const buildJsIcons = ({
         svg: icon.content
       })
 
-      // Format component
-      const output = pretty ? prettier.format(component, {
-        singleQuote: true,
-        trailingComma: 'all',
-        parser: 'babel'
-      }) : component
-
       let filePath = path.resolve(DIST_DIR, 'src/icons', `${pascalName ? iconNamePascal : iconName}.${extension}`)
-      fs.writeFileSync(filePath, output, 'utf-8')
+      fs.writeFileSync(filePath, component, 'utf-8')
 
       index.push(indexItemTemplate({
         type,
