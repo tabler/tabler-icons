@@ -6,7 +6,7 @@ const createPreactComponent = (
   type: 'outline' | 'filled',
   iconName: string,
   iconNamePascal: string,
-  iconNode: IconNode
+  iconNode: IconNode,
 ): Icon => {
   const Component = ({
     color = 'currentColor',
@@ -23,13 +23,19 @@ const createPreactComponent = (
         ...defaultAttributes[type],
         width: String(size),
         height: size,
-        stroke: color,
-        'stroke-width': stroke,
         class: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+        ...(type === 'filled'
+          ? {
+              fill: color,
+            }
+          : {
+              'stroke-width': stroke,
+              stroke: color,
+            }),
         style,
       },
       [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
-      ...[rest]
+      ...[rest],
     );
 
   Component.displayName = `${iconNamePascal}`;
