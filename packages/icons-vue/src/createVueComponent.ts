@@ -1,6 +1,6 @@
 import { h } from 'vue';
 import defaultAttributes from './defaultAttributes';
-import type { Icon, IconNode } from './types';
+import type { Icon, IconNode, IconProps } from './types';
 
 const createVueComponent =
   (
@@ -9,7 +9,7 @@ const createVueComponent =
     iconNamePascal: string,
     iconNode: IconNode,
   ): Icon =>
-  ({ size, color, class: classes, stroke, ...rest }, { attrs, slots }) => {
+  ({ size, color, class: classes, stroke, ...rest }: IconProps, { attrs, slots }) => {
     return h(
       'svg',
       {
