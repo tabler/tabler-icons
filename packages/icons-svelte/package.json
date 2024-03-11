@@ -20,6 +20,7 @@
   "type": "module",
   "main": "./dist/tabler-icons-svelte.js",
   "svelte": "./dist/tabler-icons-svelte.js",
+  "types": "./dist/tabler-icons-svelte.d.ts",
   "exports": {
     ".": {
       "types": "./dist/tabler-icons-svelte.d.ts",
@@ -35,7 +36,6 @@
       "svelte": "./dist/icons/*.svelte"
     }
   },
-  "typings": "dist/tabler-icons-svelte.d.ts",
   "sideEffects": false,
   "files": [
     "dist"

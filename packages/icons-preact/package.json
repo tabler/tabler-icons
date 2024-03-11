@@ -17,12 +17,22 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-preact"
   },
-  "amdName": "tabler-icons-preact",
-  "main": "dist/cjs/tabler-icons-preact.js",
-  "main:umd": "dist/umd/tabler-icons-preact.js",
-  "module": "dist/esm/tabler-icons-preact.mjs",
-  "unpkg": "dist/umd/tabler-icons-preact.min.js",
-  "typings": "dist/tabler-icons-preact.d.ts",
+  "type": "module",
+  "main": "./dist/cjs/tabler-icons-preact.cjs",
+  "types": "./dist/cjs/tabler-icons-preact.d.cts",
+  "module": "./dist/esm/tabler-icons-preact.mjs",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/tabler-icons-preact.d.cts",
+        "default": "./dist/cjs/tabler-icons-preact.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/tabler-icons-preact.d.ts",
+        "default": "./dist/esm/tabler-icons-preact.cjs"
+      }
+    }
+  },
   "files": [
     "dist"
   ],

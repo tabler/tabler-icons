@@ -17,21 +17,22 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-solidjs"
   },
-  "source": "src/tabler-icons-solidjs.ts",
-  "main": "dist/cjs/tabler-icons-solidjs.js",
-  "module": "dist/esm/tabler-icons-solidjs.mjs",
-  "types": "dist/types/tabler-icons-solidjs.d.ts",
+  "main": "./dist/cjs/tabler-icons-solidjs.cjs",
+  "module": "./dist/esm/tabler-icons-solidjs.mjs",
+  "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "types": "./dist/types/tabler-icons-solidjs.d.ts",
-      "solid": "./dist/source/tabler-icons-solidjs.js",
-      "import": "./dist/esm/tabler-icons-solidjs.js",
-      "browser": "./dist/esm/tabler-icons-solidjs.js",
-      "require": "./dist/cjs/tabler-icons-solidjs.js",
-      "node": "./dist/cjs/tabler-icons-solidjs.js"
+      "require": {
+        "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
+        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/tabler-icons-solidjs.d.ts",
+        "default": "./dist/esm/tabler-icons-solidjs.cjs"
+      }
     }
   },
   "scripts": {

@@ -18,11 +18,21 @@
     "directory": "packages/icons-react"
   },
   "type": "module",
-  "main": "dist/cjs/tabler-icons-react.js",
-  "main:umd": "dist/umd/tabler-icons-react.js",
-  "module": "dist/esm/tabler-icons-react.mjs",
-  "unpkg": "dist/umd/tabler-icons-react.min.js",
-  "typings": "dist/tabler-icons-react.d.ts",
+  "main": "./dist/cjs/tabler-icons-react.cjs",
+  "types": "./dist/cjs/tabler-icons-react.d.cts",
+  "module": "./dist/esm/tabler-icons-react.mjs",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/tabler-icons-react.d.cts",
+        "default": "./dist/cjs/tabler-icons-react.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/tabler-icons-react.d.ts",
+        "default": "./dist/esm/tabler-icons-react.cjs"
+      }
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist"
@@ -48,6 +58,6 @@
     "react-test-renderer": "18.2.0"
   },
   "peerDependencies": {
-    "react": "^16.5.1 || ^17.0.0 || ^18.0.0"
+    "react": ">= 16"
   }
 }
