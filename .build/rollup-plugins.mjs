@@ -23,8 +23,6 @@ See the LICENSE file in the root directory of this source tree.`
 export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
   return bundles
     .map(({ inputs, format, minify, preserveModules, outputDir = 'dist', extension = 'js' }) => {
-      console.log(format, extension)
-
       return inputs.map(input => ({
         input,
         plugins: getRollupPlugins(pkg, minify),
