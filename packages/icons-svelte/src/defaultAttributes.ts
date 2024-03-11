@@ -18,8 +18,7 @@ const defaultAttributes: Record<"outline" | "filled", Attrs> = {
     height: 24,
     viewBox: '0 0 24 24',
     fill: 'currentColor',
-    stroke: 'none',
-    'stroke-width': 0,
+    stroke: 'none'
   },
 };
 

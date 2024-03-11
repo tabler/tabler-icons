@@ -17,6 +17,5 @@ export default {
     viewBox: '0 0 24 24',
     fill: 'currentColor',
     stroke: 'none',
-    'stroke-width': 0,
   },
 };

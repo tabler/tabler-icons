@@ -8,7 +8,7 @@ export type IconNode = [elementName: keyof SvelteHTMLElements, attrs: Attrs][];
 export interface IconProps extends Attrs {
   color?: string;
   size?: number | string;
-  strokeWidth?: number | string;
+  stroke?: number | string;
   class?: string;
 }
 

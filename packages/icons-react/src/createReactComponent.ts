@@ -17,9 +17,15 @@ const createReactComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
-          stroke: color,
-          strokeWidth: stroke,
           className: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+          ...(type === 'filled'
+            ? {
+                fill: color,
+              }
+            : {
+                strokeWidth: stroke,
+                stroke: color,
+              }),
           ...rest,
         },
         [
