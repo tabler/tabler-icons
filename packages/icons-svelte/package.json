@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -20645,6 +20645,10 @@
       "types": "./dist/icons/square-filled.svelte.d.ts",
       "svelte": "./dist/icons/square-filled.svelte"
     },
+    "./IconSquaresFilled.svelte": {
+      "types": "./dist/icons/squares-filled.svelte.d.ts",
+      "svelte": "./dist/icons/squares-filled.svelte"
+    },
     "./IconStack2Filled.svelte": {
       "types": "./dist/icons/stack-2-filled.svelte.d.ts",
       "svelte": "./dist/icons/stack-2-filled.svelte"
@@ -20844,7 +20848,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.0.0"
+    "@tabler/icons": "3.0.1"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.2.7",
