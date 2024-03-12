@@ -10,6 +10,7 @@ const bundles = [
   {
     format: 'cjs',
     inputs,
+    extension: 'cjs',
   },
   {
     format: 'esm',
@@ -23,7 +24,9 @@ export default [
   {
     input: inputs[0],
     output: [{
-      file: `dist/${outputFileName}.d.ts`, format: "es"
+      file: `dist/esm/${outputFileName}.d.ts`
+    }, {
+      file: `dist/cjs/${outputFileName}.d.cts`
     }],
     plugins: [dts()],
   },

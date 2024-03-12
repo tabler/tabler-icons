@@ -18,13 +18,22 @@
     "directory": "packages/icons-react-native"
   },
   "type": "module",
-  "amdName": "tabler-icons-react-native",
-  "main": "dist/cjs/tabler-icons-react-native.js",
-  "main:umd": "dist/umd/tabler-icons-react-native.js",
-  "module": "dist/esm/tabler-icons-react-native.mjs",
-  "unpkg": "dist/umd/tabler-icons-react-native.min.js",
-  "typings": "dist/tabler-icons-react-native.d.ts",
-  "react-native": "dist/esm/tabler-icons-react-native.js",
+  "main": "./dist/cjs/tabler-icons-react-native.cjs",
+  "types": "./dist/cjs/tabler-icons-react-native.d.cts",
+  "module": "./dist/esm/tabler-icons-react-native.mjs",
+  "react-native": "./dist/esm/tabler-icons-react-native.mjs",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/tabler-icons-react-native.d.cts",
+        "default": "./dist/cjs/tabler-icons-react-native.cjs"
+      },
+      "import": {
+        "types": "./dist/esm/tabler-icons-react-native.d.ts",
+        "default": "./dist/esm/tabler-icons-react-native.cjs"
+      }
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist"
@@ -35,7 +44,8 @@
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
     "@tabler/icons": "3.0.0"

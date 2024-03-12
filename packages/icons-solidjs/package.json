@@ -17,23 +17,12 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-solidjs"
   },
-  "source": "src/tabler-icons-solidjs.ts",
-  "main": "dist/cjs/tabler-icons-solidjs.js",
-  "module": "dist/esm/tabler-icons-solidjs.mjs",
-  "types": "dist/types/tabler-icons-solidjs.d.ts",
+  "main": "./dist/cjs/tabler-icons-solidjs.cjs",
+  "module": "./dist/esm/tabler-icons-solidjs.mjs",
+  "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/types/tabler-icons-solidjs.d.ts",
-      "solid": "./dist/source/tabler-icons-solidjs.js",
-      "import": "./dist/esm/tabler-icons-solidjs.js",
-      "browser": "./dist/esm/tabler-icons-solidjs.js",
-      "require": "./dist/cjs/tabler-icons-solidjs.js",
-      "node": "./dist/cjs/tabler-icons-solidjs.js"
-    }
-  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
     "build:icons": "node build.mjs",
@@ -41,7 +30,8 @@
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
     "@tabler/icons": "3.0.0"

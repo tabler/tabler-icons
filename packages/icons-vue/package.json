@@ -17,13 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-vue"
   },
-  "amdName": "tabler-icons-vue",
-  "main": "dist/cjs/tabler-icons-vue.js",
-  "main:umd": "dist/umd/tabler-icons-vue.js",
-  "module": "dist/esm/tabler-icons-vue.mjs",
-  "unpkg": "dist/umd/tabler-icons-vue.min.js",
-  "typings": "dist/tabler-icons-vue.d.ts",
-  "sideEffects": false,
+  "main": "./dist/cjs/tabler-icons-vue.cjs",
+  "module": "./dist/esm/tabler-icons-vue.mjs",
+  "types": "./dist/esm/tabler-icons-vue.d.ts",
   "files": [
     "dist"
   ],
@@ -33,7 +29,8 @@
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
-    "test": "vitest run"
+    "test": "vitest run",
+    "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
     "@tabler/icons": "3.0.0"

@@ -19,6 +19,9 @@
     },
     "typecheck": {
       "dependsOn": ["build", "^build"]
+    },
+    "imports-check": {
+      "dependsOn": ["build", "^build"]
     }
   }
 }

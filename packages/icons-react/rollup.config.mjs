@@ -8,16 +8,8 @@ const outputFileName = 'tabler-icons-react';
 const inputs = ['./src/tabler-icons-react.ts'];
 const bundles = [
   {
-    format: 'umd',
-    inputs,
-    minify: true,
-  },
-  {
-    format: 'umd',
-    inputs,
-  },
-  {
     format: 'cjs',
+    extension: 'cjs',
     inputs,
   },
   {
@@ -32,10 +24,13 @@ export default [
   {
     input: inputs[0],
     output: [{
-      file: `dist/${outputFileName}.d.ts`, format: "es"
+      file: `dist/esm/${outputFileName}.d.ts`, format: 'esm'
+    }, {
+      file: `dist/cjs/${outputFileName}.d.cts`, format: 'cjs'
     }],
     plugins: [dts()],
   },
+
   ...getRollupConfig(pkg, outputFileName, bundles, {
     react: 'react'
   })

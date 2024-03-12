@@ -8,16 +8,8 @@ const outputFileName = 'tabler-icons-solidjs';
 const inputs = ['./src/tabler-icons-solidjs.ts'];
 const bundles = [
   {
-    format: 'umd',
-    inputs,
-    minify: true,
-  },
-  {
-    format: 'umd',
-    inputs,
-  },
-  {
     format: 'cjs',
+    extension: 'cjs',
     inputs,
   },
   {
@@ -32,7 +24,9 @@ export default [
   {
     input: inputs[0],
     output: [{
-      file: `dist/${outputFileName}.d.ts`, format: "es"
+      file: `dist/esm/${outputFileName}.d.ts`
+    }, {
+      file: `dist/cjs/${outputFileName}.d.cts`
     }],
     plugins: [dts()],
   },
