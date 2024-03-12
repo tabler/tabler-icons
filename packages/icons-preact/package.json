@@ -17,26 +17,13 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-preact"
   },
-  "type": "module",
   "main": "./dist/cjs/tabler-icons-preact.cjs",
-  "types": "./dist/cjs/tabler-icons-preact.d.cts",
+  "types": "./dist/esm/tabler-icons-preact.d.ts",
   "module": "./dist/esm/tabler-icons-preact.mjs",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/cjs/tabler-icons-preact.d.cts",
-        "default": "./dist/cjs/tabler-icons-preact.cjs"
-      },
-      "import": {
-        "types": "./dist/esm/tabler-icons-preact.d.ts",
-        "default": "./dist/esm/tabler-icons-preact.cjs"
-      }
-    }
-  },
+  "sideEffects": false,
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
     "build:icons": "node build.mjs",

@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { IconAd, IconAdOff, IconAdFilled } from "@tabler/icons-svelte";
+  import IconAd from "@tabler/icons-svelte/IconAd.svelte";
+  import IconAdOff from "@tabler/icons-svelte/IconAdOff.svelte";
+  import IconAdFilled from "@tabler/icons-svelte/IconAdFilled.svelte";
   let active = false;
 </script>
 

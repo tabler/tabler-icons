@@ -17,22 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-vue"
   },
-  "type": "module",
   "main": "./dist/cjs/tabler-icons-vue.cjs",
-  "types": "./dist/cjs/tabler-icons-vue.d.cts",
   "module": "./dist/esm/tabler-icons-vue.mjs",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/cjs/tabler-icons-vue.d.cts",
-        "default": "./dist/cjs/tabler-icons-vue.cjs"
-      },
-      "import": {
-        "types": "./dist/esm/tabler-icons-vue.d.ts",
-        "default": "./dist/esm/tabler-icons-vue.cjs"
-      }
-    }
-  },
+  "types": "./dist/esm/tabler-icons-vue.d.ts",
   "files": [
     "dist"
   ],

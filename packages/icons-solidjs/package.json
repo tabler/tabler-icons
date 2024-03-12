@@ -23,18 +23,6 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
-        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
-      },
-      "import": {
-        "types": "./dist/esm/tabler-icons-solidjs.d.ts",
-        "default": "./dist/esm/tabler-icons-solidjs.cjs"
-      }
-    }
-  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
     "build:icons": "node build.mjs",

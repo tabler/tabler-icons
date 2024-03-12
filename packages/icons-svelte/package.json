@@ -17,23 +17,29 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-svelte"
   },
-  "type": "module",
-  "main": "./dist/tabler-icons-svelte.js",
   "svelte": "./dist/tabler-icons-svelte.js",
   "types": "./dist/tabler-icons-svelte.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/tabler-icons-svelte.d.ts",
-      "svelte": "./dist/tabler-icons-svelte.js",
-      "default": "./dist/tabler-icons-svelte.js"
+      "svelte": "./dist/tabler-icons-svelte.js"
     },
     "./icons": {
       "types": "./dist/tabler-icons-svelte.d.ts",
       "svelte": "./dist/tabler-icons-svelte.js"
     },
-    "./icons/*": {
-      "types": "./dist/icons/*.svelte.d.ts",
-      "svelte": "./dist/icons/*.svelte"
+    "./IconAd.svelte": {
+      "types": "./dist/icons/ad.svelte.d.ts",
+      "svelte": "./dist/icons/ad.svelte"
+    },
+    "./IconAdOff.svelte": {
+      "types": "./dist/icons/ad-off.svelte.d.ts",
+      "svelte": "./dist/icons/ad-off.svelte"
+    },
+    "./IconAdFilled.svelte": {
+      "types": "./dist/icons/ad-filled.svelte.d.ts",
+      "svelte": "./dist/icons/ad-filled.svelte"
     }
   },
   "sideEffects": false,
