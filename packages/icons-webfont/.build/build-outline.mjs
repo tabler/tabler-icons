@@ -107,6 +107,25 @@ const buildOutline = async () => {
     })
   })
 
+  // Copy icons from firs to all directory
+  await asyncForEach(Object.entries(icons), async ([type, icons]) => {
+    fs.mkdirSync(resolve(DIR, `icons-outlined/all`), { recursive: true })
+
+    await asyncForEach(icons, async function ({ name, unicode }) {
+      const iconName = `u${unicode.toUpperCase()}-${name}`
+
+      if (fs.existsSync(resolve(DIR, `icons-outlined/${type}/${iconName}.svg`))) {
+        // Copy file
+        console.log(`Copy ${iconName} to all directory`)
+
+        fs.copyFileSync(
+          resolve(DIR, `icons-outlined/${type}/${iconName}.svg`),
+          resolve(DIR, `icons-outlined/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
+        )
+      }
+    })
+  })
+
   console.log('Done')
 }
 

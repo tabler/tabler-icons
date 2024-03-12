@@ -12,6 +12,20 @@ const aliases = getAliases(true)
 
 fs.mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
 
+types.push('all')
+
+const getAlliasesFlat = () => {
+  let allAliases = {}
+
+  Object.entries(aliases).forEach(([type, aliases]) => {
+    Object.entries(aliases).forEach(([from, to]) => {
+      allAliases[`${from}${type !== 'outline' ? `-${type}` : ''}`] = `${to}${type !== 'outline' ? `-${type}` : ''}`
+    })
+  })
+
+  return allAliases
+}
+
 asyncForEach(types, async type => {
   console.log(`Building webfont for ${type} icons`)
 
@@ -28,7 +42,7 @@ asyncForEach(types, async type => {
   })
     .then((result) => {
       formats.forEach(format => {
-        fs.writeFileSync(`${DIR}/dist/fonts/tabler-icons${type !== 'outline' ? `-${type}` : ''}.${format}`, result[format])
+        fs.writeFileSync(`${DIR}/dist/fonts/tabler-icons${type !== 'all' ? `-${type}` : ''}.${format}`, result[format])
       })
 
       const glyphs = result.glyphsData
@@ -37,24 +51,23 @@ asyncForEach(types, async type => {
           return ('' + a.name).localeCompare(b.name)
         })
 
-      console.log(aliases[type])
       const options = {
-        name: `Tabler Icons${type !== 'outline' ? ` ${toPascalCase(type)}` : ''}`,
-        fileName: `tabler-icons${type !== 'outline' ? `-${type}` : ''}`,
+        name: `Tabler Icons${type !== 'all' ? ` ${toPascalCase(type)}` : ''}`,
+        fileName: `tabler-icons${type !== 'all' ? `-${type}` : ''}`,
         glyphs,
         v: p.version,
-        aliases: aliases[type] || {}
+        aliases: (type === 'all' ? getAlliasesFlat() : aliases[type]) || {}
       }
 
       //scss
       const compiled = template(fs.readFileSync(`${DIR}/.build/iconfont.scss`).toString())
       const resultSCSS = compiled(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'outline' ? `-${type}` : ''}.scss`, resultSCSS)
+      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.scss`, resultSCSS)
 
       //html
       const compiledHtml = template(fs.readFileSync(`${DIR}/.build/iconfont.html`).toString())
       const resultHtml = compiledHtml(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'outline' ? `-${type}` : ''}.html`, resultHtml)
+      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.html`, resultHtml)
     })
     .catch((error) => {
       throw error;
