@@ -44,7 +44,6 @@
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
-    "test": "vitest run",
     "typecheck": "tsc",
     "imports-check": "attw $(npm pack)"
   },
