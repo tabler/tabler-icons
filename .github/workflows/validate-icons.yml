@@ -48,3 +48,4 @@ jobs:
           message: |
             ${{ steps.validate.outputs }}
           comment_tag: validate
+          mode: recreate
