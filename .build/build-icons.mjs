@@ -95,3 +95,20 @@ export const buildJsIcons = ({
   fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8')
 }
 
+export const buildIconsList = (name) => {
+  const DIST_DIR = path.resolve(PACKAGES_DIR, name);
+  const allIcons = getAllIcons(false, true)
+
+  let index = []
+  Object.entries(allIcons).forEach(([type, icons]) => {
+    icons.forEach((icon, i) => {
+      process.stdout.write(`Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`)
+
+      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`
+
+      index.push(iconName)
+    })
+  })
+
+  fs.writeFileSync(path.resolve(DIST_DIR, `./src/icons-list.ts`), `export default ${JSON.stringify(index, null, 2)};`, 'utf-8')
+}
