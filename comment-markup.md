@@ -1,1 +1,0 @@
-All icons are valid!
