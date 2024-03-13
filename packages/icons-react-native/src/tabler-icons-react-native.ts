@@ -4,6 +4,4 @@ export * as iconsList from './icons-list';
 export * from './aliases';
 export { default as createReactComponent } from './createReactNativeComponent';
 
-export type { IconNode, IconProps, Icon } from './types';
-
-
+export type { Icon, IconNode, IconProps } from './types';

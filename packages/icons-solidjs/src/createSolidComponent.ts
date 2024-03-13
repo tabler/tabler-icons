@@ -1,9 +1,14 @@
-import defaultAttributes from './defaultAttributes'
-import { splitProps } from "solid-js"
-import h from "solid-js/h";
+import defaultAttributes from './defaultAttributes';
+import { splitProps } from 'solid-js';
+import h from 'solid-js/h';
 import { IconNode, IconProps } from './types';
 
-const createSolidComponent = (type: 'outline' | 'filled',iconName: string, iconNamePascal: string, iconNode: IconNode) => {
+const createSolidComponent = (
+  type: 'outline' | 'filled',
+  iconName: string,
+  iconNamePascal: string,
+  iconNode: IconNode,
+) => {
   const Component = (props: IconProps) => {
     const [localProps, rest] = splitProps(props, ['color', 'size', 'stroke', 'children', 'class']),
       attributes = defaultAttributes[type];
