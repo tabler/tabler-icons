@@ -40,12 +40,11 @@ jobs:
 
       - name: Validate icons
         id: validate
-        run: pnpm validate >> $GITHUB_OUTPUT
+        run: pnpm validate >> ./comment-markup.md
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            ${{ steps.validate.outputs }}
+          filePath: ./comment-markup.md
           comment_tag: validate
           mode: recreate
