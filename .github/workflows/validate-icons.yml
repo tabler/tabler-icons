@@ -7,6 +7,7 @@ permissions:
 
 jobs:
   validate:
+    if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,11 +39,12 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Validate icons
+        id: validate
         run: pnpm validate
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            Hello world ! :wave:
-          comment_tag: recreate
+            ${{ steps.validate.outputs }}
+          comment_tag: validate
