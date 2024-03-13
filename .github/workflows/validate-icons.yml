@@ -40,7 +40,7 @@ jobs:
 
       - name: Validate icons
         id: validate
-        run: pnpm validate
+        run: pnpm validate >> $GITHUB_OUTPUT
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
