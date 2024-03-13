@@ -34,7 +34,7 @@ types.forEach(type => {
       error = true
     }
 
-    if (!iconContent.includes('<!--a') || !iconContent.includes('-->')) {
+    if (!iconContent.includes('<!--') || !iconContent.includes('-->')) {
       console.log(`⛔️ Icon \`${iconName}\` has no metadata`)
       error = true
     }
