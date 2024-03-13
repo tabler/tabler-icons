@@ -24,12 +24,12 @@ types.forEach(type => {
     const iconContent = fs.readFileSync(icon, 'utf-8')
 
     if (!iconContent.includes(iconTemplate(type))) {
-      console.log(`Icon ${icon} is not properly formatted`)
+      console.log(`Icon ${icon} is not properly formatted\n`)
       error = true
     }
 
     if (!iconContent.includes('<!--') || !iconContent.includes('-->')) {
-      console.log(`Icon ${icon} has no metadata`)
+      console.log(`Icon ${icon} has no metadata\n`)
       error = true
     }
 
@@ -38,33 +38,33 @@ types.forEach(type => {
 
       if (data.unicode) {
         if (unicodes.indexOf(data.unicode) !== -1) {
-          console.log(`Icon ${icon} has duplicate unicode "${data.unicode}"`)
+          console.log(`Icon ${icon} has duplicate unicode "${data.unicode}"\n`)
           error = true
         }
 
         if (data.unicode.length !== 4) {
-          console.log(`Icon ${icon} has invalid unicode "${data.unicode}"`)
+          console.log(`Icon ${icon} has invalid unicode "${data.unicode}"\n`)
           error = true
         }
 
         // check duplicates in tags
         if (duplicateExists(data.tags || [])) {
-          console.log(`Icon ${icon} has duplicate tags`)
+          console.log(`Icon ${icon} has duplicate tags\n`)
           error = true
         }
 
         unicodes.push(data.unicode)
       } else if (argvs.hard) {
-        console.log(`Icon ${icon} has no unicode`)
+        console.log(`Icon ${icon} has no unicode\n`)
         error = true
       }
 
       if (argvs.hard && !data.version) {
-        console.log(`Icon ${icon} has no version`)
+        console.log(`Icon ${icon} has no version\n`)
         error = true
       }
     } catch (e) {
-      console.log(`Icon ${icon} has invalid metadata`)
+      console.log(`Icon ${icon} has invalid metadata\n`)
       error = true
     }
   })
@@ -81,7 +81,7 @@ types.forEach(type => {
 Object.entries(aliases).forEach(([type, replacers]) => {
   Object.entries(replacers).forEach(([icon, alias]) => {
     if (!fs.existsSync(join(ICONS_SRC_DIR, type, `${alias}.svg`))) {
-      console.log(`Alias ${icon} for ${alias} in ${type} doesn't exists`)
+      console.log(`Alias ${icon} for ${alias} in ${type} doesn't exists\n`)
       error = true
     }
   })
