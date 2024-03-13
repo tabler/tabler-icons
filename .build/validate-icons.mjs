@@ -87,9 +87,9 @@ types.forEach(type => {
 
 // check aliases
 Object.entries(aliases).forEach(([type, replacers]) => {
-  Object.entries(replacers).forEach(([icon, alias]) => {
-    if (!fs.existsSync(join(ICONS_SRC_DIR, type, `${alias}.svg`))) {
-      console.log(`⛔️ Alias ${icon} for ${alias} in ${type} doesn't exists`)
+  Object.entries(replacers).forEach(([from, to]) => {
+    if (!fs.existsSync(join(ICONS_SRC_DIR, type, `${to}.svg`))) {
+      console.log(`⛔️ Alias \`${type}/${from}\` for \`${type}/${to}\` doesn't exists`)
       error = true
     }
   })
