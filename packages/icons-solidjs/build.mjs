@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { buildJsIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
 
 const componentTemplate = ({
   type,
@@ -27,3 +27,5 @@ buildJsIcons({
   extension: 'ts',
   indexFile: 'index.ts'
 })
+
+buildIconsList('icons-solidjs')

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { buildJsIcons } from '../../.build/build-icons.mjs'
+import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
 import { readFileSync, writeFileSync } from 'fs'
 import { getAllIcons, toPascalCase } from '../../.build/helpers.mjs'
 
@@ -72,3 +72,4 @@ buildJsIcons({
 })
 
 updatePackageJson()
+buildIconsList('icons-svelte')
