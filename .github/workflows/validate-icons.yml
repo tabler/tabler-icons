@@ -40,7 +40,7 @@ jobs:
 
       - name: Validate icons
         id: validate
-        run: pnpm validate >> ./comment-markup.md
+        run: pnpm run --silent validate >> ./comment-markup.md
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
