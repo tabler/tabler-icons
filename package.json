@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "eleventy --serve --watch",
-    "preview": "pnpm run validate && pnpm run build:preview",
+    "preview": "eleventy",
     "build": "pnpm run update && pnpm run validate --hard && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
@@ -31,7 +31,6 @@
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && release-it --verbose",
-    "build:preview": "eleventy",
     "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:packages": "pnpm run build:icons && pnpm run build:sprite && pnpm run build:react && pnpm run build:react-native && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:svelte && pnpm run build:vue && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
     "build:icons": "pnpm --filter @tabler/icons build",
