@@ -4,4 +4,4 @@ export * from './aliases';
 
 export { default as createReactComponent } from './createPreactComponent';
 
-export type { IconNode, IconProps, Icon } from './types';
+export type { Icon, IconNode, IconProps } from './types';
