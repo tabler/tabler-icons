@@ -9,3 +9,12 @@
   - changed-files:
       - any-glob-to-any-file:
           - 'icons/**/*.svg'
+          - aliases.json
+
+# For Github Actions
+🤖 github-actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/*.yml
+          - .github/labeler.yml
+          - .github/dependabot.yml
