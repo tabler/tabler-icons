@@ -19,10 +19,10 @@ const createSolidComponent = (
       height: () => (localProps.size != null ? localProps.size : attributes.height),
       ...(type === 'filled'
         ? {
-            fill: () => (localProps.color != null ? localProps.color : attributes.stroke),
+            fill: () => (localProps.color != null ? localProps.color : 'currentColor'),
           }
         : {
-            stroke: () => (localProps.color != null ? localProps.color : attributes.stroke),
+            stroke: () => (localProps.color != null ? localProps.color : 'currentColor'),
             'stroke-width': () =>
               localProps.stroke != null ? localProps.stroke : attributes['stroke-width'],
           }),
