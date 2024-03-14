@@ -9,7 +9,7 @@ const createVueComponent =
     iconNamePascal: string,
     iconNode: IconNode,
   ): Icon =>
-  ({ size, color, class: classes, stroke, ...rest }: IconProps, { attrs, slots }) => {
+  ({ size, color = 'currentColor', class: classes, stroke, ...rest }: IconProps, { attrs, slots }) => {
     return h(
       'svg',
       {
