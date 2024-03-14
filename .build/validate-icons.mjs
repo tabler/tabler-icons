@@ -69,6 +69,16 @@ types.forEach(type => {
         console.log(`⛔️ Icon \`${iconName}\` has no version`)
         error = true
       }
+
+      if (type === 'filled' && data.category) {
+        console.log(`⛔️ Icon \`${iconName}\` has category in filled version`)
+        error = true
+      }
+
+      if (type === 'filled' && data.tags) {
+        console.log(`⛔️ Icon \`${iconName}\` has tags in filled version`)
+        error = true
+      }
     } catch (e) {
       console.log(`⛔️ Icon \`${iconName}\` has invalid metadata`)
       error = true
