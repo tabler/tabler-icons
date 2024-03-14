@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -91,9 +91,8 @@
     },
     "npm": false,
     "hooks": {
-      "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose",
-      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
-      "before:git:init": "pnpm install"
+      "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose && pnpm install",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
       "addUntrackedFiles": true,
@@ -101,7 +100,7 @@
       "tagName": "v${version}",
       "requireBranch": "main",
       "requireCommits": true,
-      "requireCleanWorkingDir": true
+      "requireCleanWorkingDir": false
     },
     "github": {
       "release": true
