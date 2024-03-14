@@ -3,11 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import { ICONS_SRC_DIR, getMaxUnicode, getArgvs, getPackageJson } from './helpers.mjs'
 
-const p = getPackageJson(),
-  argv = getArgvs(),
-  newVersion = argv['new-version'] || `${p.version}`
-
-console.log(argv);
+const argv = getArgvs(),
+  newVersion = argv['new-version']
 
 const files = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
 
@@ -34,11 +31,13 @@ files.forEach(function (file) {
   if (newVersion) {
     // Add version to svg files
     if (!svgFile.match(/\nversion: "?([a-f0-9.]+)"?/i)) {
+      const minorVersion = newVersion.split('.').slice(0, 2).join('.')
+
       svgFile = svgFile.replace(/-->\n<svg/i, function (m) {
-        return `version: "${newVersion}"\n${m}`
+        return `version: "${minorVersion}"\n${m}`
       })
 
-      console.log(`Add version "${newVersion}" to "${file}"`)
+      console.log(`Add version "${minorVersion}" to "${file}"`)
       fs.writeFileSync(file, svgFile, 'utf8')
     }
   }
