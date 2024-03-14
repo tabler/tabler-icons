@@ -18,3 +18,47 @@
           - .github/workflows/*.yml
           - .github/labeler.yml
           - .github/dependabot.yml
+
+
+# For React package
+🔗 react package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-react/*'
+
+# For Vue package
+🔗 vue package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-vue/*'
+
+# For Preact package
+🔗 preact package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-preact/*'
+
+# For Svelte package
+🔗 svelte package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-svelte/*'
+
+# For SolidJS package
+🔗 solid package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-solid/*'
+
+# For Webfont package
+🔗 webfont package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-webfont/*'
+
+# For Sprite package
+🔗 sprite package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-sprite/*'
+
