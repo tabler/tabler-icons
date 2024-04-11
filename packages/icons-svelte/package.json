@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -3825,6 +3825,26 @@
       "types": "./dist/icons/brush.svelte.d.ts",
       "svelte": "./dist/icons/brush.svelte"
     },
+    "./IconBubbleMinus.svelte": {
+      "types": "./dist/icons/bubble-minus.svelte.d.ts",
+      "svelte": "./dist/icons/bubble-minus.svelte"
+    },
+    "./IconBubblePlus.svelte": {
+      "types": "./dist/icons/bubble-plus.svelte.d.ts",
+      "svelte": "./dist/icons/bubble-plus.svelte"
+    },
+    "./IconBubbleText.svelte": {
+      "types": "./dist/icons/bubble-text.svelte.d.ts",
+      "svelte": "./dist/icons/bubble-text.svelte"
+    },
+    "./IconBubbleX.svelte": {
+      "types": "./dist/icons/bubble-x.svelte.d.ts",
+      "svelte": "./dist/icons/bubble-x.svelte"
+    },
+    "./IconBubble.svelte": {
+      "types": "./dist/icons/bubble.svelte.d.ts",
+      "svelte": "./dist/icons/bubble.svelte"
+    },
     "./IconBucketDroplet.svelte": {
       "types": "./dist/icons/bucket-droplet.svelte.d.ts",
       "svelte": "./dist/icons/bucket-droplet.svelte"
@@ -4332,6 +4352,10 @@
     "./IconCar.svelte": {
       "types": "./dist/icons/car.svelte.d.ts",
       "svelte": "./dist/icons/car.svelte"
+    },
+    "./IconCarambola.svelte": {
+      "types": "./dist/icons/carambola.svelte.d.ts",
+      "svelte": "./dist/icons/carambola.svelte"
     },
     "./IconCaravan.svelte": {
       "types": "./dist/icons/caravan.svelte.d.ts",
@@ -4881,6 +4905,14 @@
       "types": "./dist/icons/circle-chevrons-up.svelte.d.ts",
       "svelte": "./dist/icons/circle-chevrons-up.svelte"
     },
+    "./IconCircleDashedCheck.svelte": {
+      "types": "./dist/icons/circle-dashed-check.svelte.d.ts",
+      "svelte": "./dist/icons/circle-dashed-check.svelte"
+    },
+    "./IconCircleDashedMinus.svelte": {
+      "types": "./dist/icons/circle-dashed-minus.svelte.d.ts",
+      "svelte": "./dist/icons/circle-dashed-minus.svelte"
+    },
     "./IconCircleDashedNumber0.svelte": {
       "types": "./dist/icons/circle-dashed-number-0.svelte.d.ts",
       "svelte": "./dist/icons/circle-dashed-number-0.svelte"
@@ -4924,6 +4956,10 @@
     "./IconCircleDashedPercentage.svelte": {
       "types": "./dist/icons/circle-dashed-percentage.svelte.d.ts",
       "svelte": "./dist/icons/circle-dashed-percentage.svelte"
+    },
+    "./IconCircleDashedPlus.svelte": {
+      "types": "./dist/icons/circle-dashed-plus.svelte.d.ts",
+      "svelte": "./dist/icons/circle-dashed-plus.svelte"
     },
     "./IconCircleDashedX.svelte": {
       "types": "./dist/icons/circle-dashed-x.svelte.d.ts",
@@ -7704,6 +7740,10 @@
     "./IconDualScreen.svelte": {
       "types": "./dist/icons/dual-screen.svelte.d.ts",
       "svelte": "./dist/icons/dual-screen.svelte"
+    },
+    "./IconDumpling.svelte": {
+      "types": "./dist/icons/dumpling.svelte.d.ts",
+      "svelte": "./dist/icons/dumpling.svelte"
     },
     "./IconEPassport.svelte": {
       "types": "./dist/icons/e-passport.svelte.d.ts",
@@ -12245,6 +12285,10 @@
       "types": "./dist/icons/moneybag.svelte.d.ts",
       "svelte": "./dist/icons/moneybag.svelte"
     },
+    "./IconMonkeybar.svelte": {
+      "types": "./dist/icons/monkeybar.svelte.d.ts",
+      "svelte": "./dist/icons/monkeybar.svelte"
+    },
     "./IconMoodAngry.svelte": {
       "types": "./dist/icons/mood-angry.svelte.d.ts",
       "svelte": "./dist/icons/mood-angry.svelte"
@@ -13304,6 +13348,10 @@
     "./IconPennant.svelte": {
       "types": "./dist/icons/pennant.svelte.d.ts",
       "svelte": "./dist/icons/pennant.svelte"
+    },
+    "./IconPentagonMinus.svelte": {
+      "types": "./dist/icons/pentagon-minus.svelte.d.ts",
+      "svelte": "./dist/icons/pentagon-minus.svelte"
     },
     "./IconPentagonNumber0.svelte": {
       "types": "./dist/icons/pentagon-number-0.svelte.d.ts",
@@ -16817,6 +16865,10 @@
       "types": "./dist/icons/text-spellcheck.svelte.d.ts",
       "svelte": "./dist/icons/text-spellcheck.svelte"
     },
+    "./IconTextWrapColumn.svelte": {
+      "types": "./dist/icons/text-wrap-column.svelte.d.ts",
+      "svelte": "./dist/icons/text-wrap-column.svelte"
+    },
     "./IconTextWrapDisabled.svelte": {
       "types": "./dist/icons/text-wrap-disabled.svelte.d.ts",
       "svelte": "./dist/icons/text-wrap-disabled.svelte"
@@ -18841,6 +18893,10 @@
       "types": "./dist/icons/brightness-filled.svelte.d.ts",
       "svelte": "./dist/icons/brightness-filled.svelte"
     },
+    "./IconBubbleFilled.svelte": {
+      "types": "./dist/icons/bubble-filled.svelte.d.ts",
+      "svelte": "./dist/icons/bubble-filled.svelte"
+    },
     "./IconBugFilled.svelte": {
       "types": "./dist/icons/bug-filled.svelte.d.ts",
       "svelte": "./dist/icons/bug-filled.svelte"
@@ -20093,6 +20149,14 @@
       "types": "./dist/icons/photo-filled.svelte.d.ts",
       "svelte": "./dist/icons/photo-filled.svelte"
     },
+    "./IconPictureInPictureTopFilled.svelte": {
+      "types": "./dist/icons/picture-in-picture-top-filled.svelte.d.ts",
+      "svelte": "./dist/icons/picture-in-picture-top-filled.svelte"
+    },
+    "./IconPictureInPictureFilled.svelte": {
+      "types": "./dist/icons/picture-in-picture-filled.svelte.d.ts",
+      "svelte": "./dist/icons/picture-in-picture-filled.svelte"
+    },
     "./IconPinFilled.svelte": {
       "types": "./dist/icons/pin-filled.svelte.d.ts",
       "svelte": "./dist/icons/pin-filled.svelte"
@@ -20765,6 +20829,14 @@
       "types": "./dist/icons/timeline-event-filled.svelte.d.ts",
       "svelte": "./dist/icons/timeline-event-filled.svelte"
     },
+    "./IconToggleLeftFilled.svelte": {
+      "types": "./dist/icons/toggle-left-filled.svelte.d.ts",
+      "svelte": "./dist/icons/toggle-left-filled.svelte"
+    },
+    "./IconToggleRightFilled.svelte": {
+      "types": "./dist/icons/toggle-right-filled.svelte.d.ts",
+      "svelte": "./dist/icons/toggle-right-filled.svelte"
+    },
     "./IconTransformFilled.svelte": {
       "types": "./dist/icons/transform-filled.svelte.d.ts",
       "svelte": "./dist/icons/transform-filled.svelte"
@@ -20920,7 +20992,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.1.0"
+    "@tabler/icons": "3.2.0"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.2.7",
