@@ -53,15 +53,15 @@ types.forEach(type => {
           error = true
         }
 
-        // check duplicates in tags
-        if (duplicateExists(data.tags || [])) {
-          console.log(`⛔️ Icon \`${iconName}\` has duplicate tags`)
-          error = true
-        }
-
         unicodes.push(data.unicode)
       } else if (argvs.hard) {
         console.log(`⛔️ Icon \`${iconName}\` has no unicode`)
+        error = true
+      }
+
+      // check duplicates in tags
+      if (duplicateExists(data.tags || [])) {
+        console.log(`⛔️ Icon \`${iconName}\` has duplicate tags`)
         error = true
       }
 
