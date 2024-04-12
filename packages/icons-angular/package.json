@@ -1,0 +1,58 @@
+{
+  "name": "@tabler/icons-angular",
+  "version": "0.0.0-alpha",
+  "license": "MIT",
+  "author": "BG-Software",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your Angular projects.",
+  "homepage": "https://tabler.io/icons",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-angular"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:ng",
+    "build:icons": "node build.mjs",
+    "build:ng": "ng build --configuration=production",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "typecheck": "tsc",
+    "test": "ng test --no-watch --no-progress",
+    "test:watch": "ng test"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.3",
+    "@angular/animations": "^17.3.3",
+    "@angular/cli": "^17.2.2",
+    "@angular/common": "^17.3.3",
+    "@angular/compiler": "^17.3.3",
+    "@angular/compiler-cli": "^17.3.3",
+    "@angular/core": "^17.3.3",
+    "@angular/platform-browser": "^17.3.3",
+    "@angular/platform-browser-dynamic": "^17.3.3",
+    "@prettier/sync": "^0.5.1",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^17.3.0",
+    "tslib": "^2.3.0",
+    "typescript": "~5.3.2",
+    "zone.js": "~0.14.3"
+  },
+  "peerDependencies": {
+    "@angular/common": "16.x - 17.x",
+    "@angular/core": "16.x - 17.x"
+  }
+}
