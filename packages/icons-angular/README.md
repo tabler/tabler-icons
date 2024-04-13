@@ -183,6 +183,20 @@ You are able to set all three properties or just some of them.
 { provide: TablerIconConfig, useValue: { size: 40 } }
 ```
 
+## Loading all icons
+
+There is also a possibility to import all icons at once but this can cause a **significant growth of your application build size**.
+
+```ts
+import { icons, TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
+
+@NgModule({
+  imports: [TablerIconModule.pick(icons), TablerIconComponent],
+  // other configuration
+})
+export class AppModule {}
+```
+
 ## Contributing
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
