@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -10149,6 +10149,10 @@
       "types": "./dist/icons/id.svelte.d.ts",
       "svelte": "./dist/icons/id.svelte"
     },
+    "./IconIkosaedr.svelte": {
+      "types": "./dist/icons/ikosaedr.svelte.d.ts",
+      "svelte": "./dist/icons/ikosaedr.svelte"
+    },
     "./IconImageInPicture.svelte": {
       "types": "./dist/icons/image-in-picture.svelte.d.ts",
       "svelte": "./dist/icons/image-in-picture.svelte"
@@ -11977,10 +11981,6 @@
       "types": "./dist/icons/message-check.svelte.d.ts",
       "svelte": "./dist/icons/message-check.svelte"
     },
-    "./IconMessageCircle2.svelte": {
-      "types": "./dist/icons/message-circle-2.svelte.d.ts",
-      "svelte": "./dist/icons/message-circle-2.svelte"
-    },
     "./IconMessageCircleBolt.svelte": {
       "types": "./dist/icons/message-circle-bolt.svelte.d.ts",
       "svelte": "./dist/icons/message-circle-bolt.svelte"
@@ -12056,6 +12056,10 @@
     "./IconMessageCircleUp.svelte": {
       "types": "./dist/icons/message-circle-up.svelte.d.ts",
       "svelte": "./dist/icons/message-circle-up.svelte"
+    },
+    "./IconMessageCircleUser.svelte": {
+      "types": "./dist/icons/message-circle-user.svelte.d.ts",
+      "svelte": "./dist/icons/message-circle-user.svelte"
     },
     "./IconMessageCircleX.svelte": {
       "types": "./dist/icons/message-circle-x.svelte.d.ts",
@@ -12148,6 +12152,10 @@
     "./IconMessageUp.svelte": {
       "types": "./dist/icons/message-up.svelte.d.ts",
       "svelte": "./dist/icons/message-up.svelte"
+    },
+    "./IconMessageUser.svelte": {
+      "types": "./dist/icons/message-user.svelte.d.ts",
+      "svelte": "./dist/icons/message-user.svelte"
     },
     "./IconMessageX.svelte": {
       "types": "./dist/icons/message-x.svelte.d.ts",
@@ -19237,6 +19245,10 @@
       "types": "./dist/icons/circle-number-9-filled.svelte.d.ts",
       "svelte": "./dist/icons/circle-number-9-filled.svelte"
     },
+    "./IconCirclePercentageFilled.svelte": {
+      "types": "./dist/icons/circle-percentage-filled.svelte.d.ts",
+      "svelte": "./dist/icons/circle-percentage-filled.svelte"
+    },
     "./IconCircleXFilled.svelte": {
       "types": "./dist/icons/circle-x-filled.svelte.d.ts",
       "svelte": "./dist/icons/circle-x-filled.svelte"
@@ -19308,6 +19320,14 @@
     "./IconClubsFilled.svelte": {
       "types": "./dist/icons/clubs-filled.svelte.d.ts",
       "svelte": "./dist/icons/clubs-filled.svelte"
+    },
+    "./IconCodeCircle2Filled.svelte": {
+      "types": "./dist/icons/code-circle-2-filled.svelte.d.ts",
+      "svelte": "./dist/icons/code-circle-2-filled.svelte"
+    },
+    "./IconCodeCircleFilled.svelte": {
+      "types": "./dist/icons/code-circle-filled.svelte.d.ts",
+      "svelte": "./dist/icons/code-circle-filled.svelte"
     },
     "./IconCoinBitcoinFilled.svelte": {
       "types": "./dist/icons/coin-bitcoin-filled.svelte.d.ts",
@@ -19793,6 +19813,10 @@
       "types": "./dist/icons/home-filled.svelte.d.ts",
       "svelte": "./dist/icons/home-filled.svelte"
     },
+    "./IconHospitalCircleFilled.svelte": {
+      "types": "./dist/icons/hospital-circle-filled.svelte.d.ts",
+      "svelte": "./dist/icons/hospital-circle-filled.svelte"
+    },
     "./IconHourglassFilled.svelte": {
       "types": "./dist/icons/hourglass-filled.svelte.d.ts",
       "svelte": "./dist/icons/hourglass-filled.svelte"
@@ -20001,6 +20025,10 @@
       "types": "./dist/icons/lego-filled.svelte.d.ts",
       "svelte": "./dist/icons/lego-filled.svelte"
     },
+    "./IconLivePhotoFilled.svelte": {
+      "types": "./dist/icons/live-photo-filled.svelte.d.ts",
+      "svelte": "./dist/icons/live-photo-filled.svelte"
+    },
     "./IconLocationFilled.svelte": {
       "types": "./dist/icons/location-filled.svelte.d.ts",
       "svelte": "./dist/icons/location-filled.svelte"
@@ -20049,9 +20077,21 @@
       "types": "./dist/icons/medical-cross-filled.svelte.d.ts",
       "svelte": "./dist/icons/medical-cross-filled.svelte"
     },
-    "./IconMessageCircle2Filled.svelte": {
-      "types": "./dist/icons/message-circle-2-filled.svelte.d.ts",
-      "svelte": "./dist/icons/message-circle-2-filled.svelte"
+    "./IconMessageChatbotFilled.svelte": {
+      "types": "./dist/icons/message-chatbot-filled.svelte.d.ts",
+      "svelte": "./dist/icons/message-chatbot-filled.svelte"
+    },
+    "./IconMessageCircleFilled.svelte": {
+      "types": "./dist/icons/message-circle-filled.svelte.d.ts",
+      "svelte": "./dist/icons/message-circle-filled.svelte"
+    },
+    "./IconMessageReportFilled.svelte": {
+      "types": "./dist/icons/message-report-filled.svelte.d.ts",
+      "svelte": "./dist/icons/message-report-filled.svelte"
+    },
+    "./IconMessageFilled.svelte": {
+      "types": "./dist/icons/message-filled.svelte.d.ts",
+      "svelte": "./dist/icons/message-filled.svelte"
     },
     "./IconMickeyFilled.svelte": {
       "types": "./dist/icons/mickey-filled.svelte.d.ts",
@@ -20124,6 +20164,18 @@
     "./IconPaintFilled.svelte": {
       "types": "./dist/icons/paint-filled.svelte.d.ts",
       "svelte": "./dist/icons/paint-filled.svelte"
+    },
+    "./IconPanoramaHorizontalFilled.svelte": {
+      "types": "./dist/icons/panorama-horizontal-filled.svelte.d.ts",
+      "svelte": "./dist/icons/panorama-horizontal-filled.svelte"
+    },
+    "./IconPanoramaVerticalFilled.svelte": {
+      "types": "./dist/icons/panorama-vertical-filled.svelte.d.ts",
+      "svelte": "./dist/icons/panorama-vertical-filled.svelte"
+    },
+    "./IconParkingCircleFilled.svelte": {
+      "types": "./dist/icons/parking-circle-filled.svelte.d.ts",
+      "svelte": "./dist/icons/parking-circle-filled.svelte"
     },
     "./IconPawFilled.svelte": {
       "types": "./dist/icons/paw-filled.svelte.d.ts",
@@ -20212,6 +20264,10 @@
     "./IconPolaroidFilled.svelte": {
       "types": "./dist/icons/polaroid-filled.svelte.d.ts",
       "svelte": "./dist/icons/polaroid-filled.svelte"
+    },
+    "./IconPooFilled.svelte": {
+      "types": "./dist/icons/poo-filled.svelte.d.ts",
+      "svelte": "./dist/icons/poo-filled.svelte"
     },
     "./IconPuzzleFilled.svelte": {
       "types": "./dist/icons/puzzle-filled.svelte.d.ts",
@@ -20813,6 +20869,10 @@
       "types": "./dist/icons/sun-filled.svelte.d.ts",
       "svelte": "./dist/icons/sun-filled.svelte"
     },
+    "./IconSunglassesFilled.svelte": {
+      "types": "./dist/icons/sunglasses-filled.svelte.d.ts",
+      "svelte": "./dist/icons/sunglasses-filled.svelte"
+    },
     "./IconTableFilled.svelte": {
       "types": "./dist/icons/table-filled.svelte.d.ts",
       "svelte": "./dist/icons/table-filled.svelte"
@@ -20824,6 +20884,10 @@
     "./IconThumbUpFilled.svelte": {
       "types": "./dist/icons/thumb-up-filled.svelte.d.ts",
       "svelte": "./dist/icons/thumb-up-filled.svelte"
+    },
+    "./IconTiltShiftFilled.svelte": {
+      "types": "./dist/icons/tilt-shift-filled.svelte.d.ts",
+      "svelte": "./dist/icons/tilt-shift-filled.svelte"
     },
     "./IconTimelineEventFilled.svelte": {
       "types": "./dist/icons/timeline-event-filled.svelte.d.ts",
@@ -20992,7 +21056,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.2.0"
+    "@tabler/icons": "3.3.0"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.2.7",
