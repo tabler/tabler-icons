@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -204,6 +204,10 @@
     "./IconAffiliate.svelte": {
       "types": "./dist/icons/affiliate.svelte.d.ts",
       "svelte": "./dist/icons/affiliate.svelte"
+    },
+    "./IconAi.svelte": {
+      "types": "./dist/icons/ai.svelte.d.ts",
+      "svelte": "./dist/icons/ai.svelte"
     },
     "./IconAirBalloon.svelte": {
       "types": "./dist/icons/air-balloon.svelte.d.ts",
@@ -4424,6 +4428,10 @@
     "./IconCashOff.svelte": {
       "types": "./dist/icons/cash-off.svelte.d.ts",
       "svelte": "./dist/icons/cash-off.svelte"
+    },
+    "./IconCashRegister.svelte": {
+      "types": "./dist/icons/cash-register.svelte.d.ts",
+      "svelte": "./dist/icons/cash-register.svelte"
     },
     "./IconCash.svelte": {
       "types": "./dist/icons/cash.svelte.d.ts",
@@ -13429,6 +13437,66 @@
       "types": "./dist/icons/pepper.svelte.d.ts",
       "svelte": "./dist/icons/pepper.svelte"
     },
+    "./IconPercentage0.svelte": {
+      "types": "./dist/icons/percentage-0.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-0.svelte"
+    },
+    "./IconPercentage10.svelte": {
+      "types": "./dist/icons/percentage-10.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-10.svelte"
+    },
+    "./IconPercentage100.svelte": {
+      "types": "./dist/icons/percentage-100.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-100.svelte"
+    },
+    "./IconPercentage20.svelte": {
+      "types": "./dist/icons/percentage-20.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-20.svelte"
+    },
+    "./IconPercentage25.svelte": {
+      "types": "./dist/icons/percentage-25.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-25.svelte"
+    },
+    "./IconPercentage30.svelte": {
+      "types": "./dist/icons/percentage-30.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-30.svelte"
+    },
+    "./IconPercentage33.svelte": {
+      "types": "./dist/icons/percentage-33.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-33.svelte"
+    },
+    "./IconPercentage40.svelte": {
+      "types": "./dist/icons/percentage-40.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-40.svelte"
+    },
+    "./IconPercentage50.svelte": {
+      "types": "./dist/icons/percentage-50.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-50.svelte"
+    },
+    "./IconPercentage60.svelte": {
+      "types": "./dist/icons/percentage-60.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-60.svelte"
+    },
+    "./IconPercentage66.svelte": {
+      "types": "./dist/icons/percentage-66.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-66.svelte"
+    },
+    "./IconPercentage70.svelte": {
+      "types": "./dist/icons/percentage-70.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-70.svelte"
+    },
+    "./IconPercentage75.svelte": {
+      "types": "./dist/icons/percentage-75.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-75.svelte"
+    },
+    "./IconPercentage80.svelte": {
+      "types": "./dist/icons/percentage-80.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-80.svelte"
+    },
+    "./IconPercentage90.svelte": {
+      "types": "./dist/icons/percentage-90.svelte.d.ts",
+      "svelte": "./dist/icons/percentage-90.svelte"
+    },
     "./IconPercentage.svelte": {
       "types": "./dist/icons/percentage.svelte.d.ts",
       "svelte": "./dist/icons/percentage.svelte"
@@ -13636,6 +13704,10 @@
     "./IconPick.svelte": {
       "types": "./dist/icons/pick.svelte.d.ts",
       "svelte": "./dist/icons/pick.svelte"
+    },
+    "./IconPicnicTable.svelte": {
+      "types": "./dist/icons/picnic-table.svelte.d.ts",
+      "svelte": "./dist/icons/picnic-table.svelte"
     },
     "./IconPictureInPictureOff.svelte": {
       "types": "./dist/icons/picture-in-picture-off.svelte.d.ts",
@@ -21056,7 +21128,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.3.0"
+    "@tabler/icons": "3.4.0"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.2.7",
