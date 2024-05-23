@@ -12,13 +12,18 @@ body:
       label: Package
       description: Which Tabler Icons packages are affected? You may select more than one.
       options:
-        - label: @tabler/icons
-        - label: @tabler/icons-preact
-        - label: @tabler/icons-react
-        - label: @tabler/icons-react-native
-        - label: @tabler/icons-solid
-        - label: @tabler/icons-svelte
-        - label: @tabler/icons-vue
+        - label: "@tabler/icons"
+        - label: "@tabler/icons-eps"
+        - label: "@tabler/icons-pdf"
+        - label: "@tabler/icons-png"
+        - label: "@tabler/icons-webfont"
+        - label: "@tabler/icons-sprite"
+        - label: "@tabler/icons-preact"
+        - label: "@tabler/icons-react"
+        - label: "@tabler/icons-react-native"
+        - label: "@tabler/icons-solid"
+        - label: "@tabler/icons-svelte"
+        - label: "@tabler/icons-vue"
         - label: Figma plugin
         - label: source/main
         - label: other/not relevant
