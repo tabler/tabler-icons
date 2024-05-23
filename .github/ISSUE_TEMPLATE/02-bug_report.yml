@@ -2,6 +2,14 @@ name: Bug report
 description: Create a report to help us improve
 labels: ['bug']
 body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Try to describe in detail the problem you're running into and provide additional context about your working environment if necessary.
+      placeholder: e.g. When I do X, Y happens instead of Z
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
@@ -65,14 +73,7 @@ body:
         - label: iOS
         - label: Android
         - label: Other/not relevant
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: Try to describe in detail the problem you're running into and provide additional context about your working environment if necessary.
-      placeholder: e.g. When I do X, Y happens instead of Z
-    validations:
-      required: true
+  
   - type: textarea
     id: steps-to-reproduce
     attributes:
