@@ -1,9 +1,11 @@
+# Tabler Icons
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-core.png" alt="Tabler Icons" width="838">
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5271<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5289<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -21,7 +23,7 @@
 
 ## Preview
 
-### Outline version (<!--icons-count-outline-->4597<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->4614<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -31,7 +33,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->674<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->675<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>

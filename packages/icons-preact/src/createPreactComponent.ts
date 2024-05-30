@@ -33,7 +33,7 @@ const createPreactComponent = (
               stroke: color,
             }),
         style,
-        ...rest,
+        ...[rest],
       },
       [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
     );

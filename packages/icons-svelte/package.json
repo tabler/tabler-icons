@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -1324,6 +1324,10 @@
     "./IconAutomaticGearbox.svelte": {
       "types": "./dist/icons/automatic-gearbox.svelte.d.ts",
       "svelte": "./dist/icons/automatic-gearbox.svelte"
+    },
+    "./IconAutomation.svelte": {
+      "types": "./dist/icons/automation.svelte.d.ts",
+      "svelte": "./dist/icons/automation.svelte"
     },
     "./IconAvocado.svelte": {
       "types": "./dist/icons/avocado.svelte.d.ts",
@@ -4561,6 +4565,10 @@
       "types": "./dist/icons/chart-bar-off.svelte.d.ts",
       "svelte": "./dist/icons/chart-bar-off.svelte"
     },
+    "./IconChartBarPopular.svelte": {
+      "types": "./dist/icons/chart-bar-popular.svelte.d.ts",
+      "svelte": "./dist/icons/chart-bar-popular.svelte"
+    },
     "./IconChartBar.svelte": {
       "types": "./dist/icons/chart-bar.svelte.d.ts",
       "svelte": "./dist/icons/chart-bar.svelte"
@@ -4576,6 +4584,10 @@
     "./IconChartCircles.svelte": {
       "types": "./dist/icons/chart-circles.svelte.d.ts",
       "svelte": "./dist/icons/chart-circles.svelte"
+    },
+    "./IconChartCohort.svelte": {
+      "types": "./dist/icons/chart-cohort.svelte.d.ts",
+      "svelte": "./dist/icons/chart-cohort.svelte"
     },
     "./IconChartDonut2.svelte": {
       "types": "./dist/icons/chart-donut-2.svelte.d.ts",
@@ -4604,6 +4616,10 @@
     "./IconChartDots.svelte": {
       "types": "./dist/icons/chart-dots.svelte.d.ts",
       "svelte": "./dist/icons/chart-dots.svelte"
+    },
+    "./IconChartFunnel.svelte": {
+      "types": "./dist/icons/chart-funnel.svelte.d.ts",
+      "svelte": "./dist/icons/chart-funnel.svelte"
     },
     "./IconChartGridDots.svelte": {
       "types": "./dist/icons/chart-grid-dots.svelte.d.ts",
@@ -7237,6 +7253,10 @@
       "types": "./dist/icons/device-tv.svelte.d.ts",
       "svelte": "./dist/icons/device-tv.svelte"
     },
+    "./IconDeviceUnknown.svelte": {
+      "types": "./dist/icons/device-unknown.svelte.d.ts",
+      "svelte": "./dist/icons/device-unknown.svelte"
+    },
     "./IconDeviceUsb.svelte": {
       "types": "./dist/icons/device-usb.svelte.d.ts",
       "svelte": "./dist/icons/device-usb.svelte"
@@ -8217,6 +8237,10 @@
       "types": "./dist/icons/file-euro.svelte.d.ts",
       "svelte": "./dist/icons/file-euro.svelte"
     },
+    "./IconFileExcel.svelte": {
+      "types": "./dist/icons/file-excel.svelte.d.ts",
+      "svelte": "./dist/icons/file-excel.svelte"
+    },
     "./IconFileExport.svelte": {
       "types": "./dist/icons/file-export.svelte.d.ts",
       "svelte": "./dist/icons/file-export.svelte"
@@ -8468,6 +8492,10 @@
     "./IconFileVector.svelte": {
       "types": "./dist/icons/file-vector.svelte.d.ts",
       "svelte": "./dist/icons/file-vector.svelte"
+    },
+    "./IconFileWord.svelte": {
+      "types": "./dist/icons/file-word.svelte.d.ts",
+      "svelte": "./dist/icons/file-word.svelte"
     },
     "./IconFileX.svelte": {
       "types": "./dist/icons/file-x.svelte.d.ts",
@@ -13053,6 +13081,10 @@
       "types": "./dist/icons/nut.svelte.d.ts",
       "svelte": "./dist/icons/nut.svelte"
     },
+    "./IconObjectScan.svelte": {
+      "types": "./dist/icons/object-scan.svelte.d.ts",
+      "svelte": "./dist/icons/object-scan.svelte"
+    },
     "./IconOctagonMinus2.svelte": {
       "types": "./dist/icons/octagon-minus-2.svelte.d.ts",
       "svelte": "./dist/icons/octagon-minus-2.svelte"
@@ -16805,6 +16837,18 @@
       "types": "./dist/icons/target.svelte.d.ts",
       "svelte": "./dist/icons/target.svelte"
     },
+    "./IconTaxEuro.svelte": {
+      "types": "./dist/icons/tax-euro.svelte.d.ts",
+      "svelte": "./dist/icons/tax-euro.svelte"
+    },
+    "./IconTaxPound.svelte": {
+      "types": "./dist/icons/tax-pound.svelte.d.ts",
+      "svelte": "./dist/icons/tax-pound.svelte"
+    },
+    "./IconTax.svelte": {
+      "types": "./dist/icons/tax.svelte.d.ts",
+      "svelte": "./dist/icons/tax.svelte"
+    },
     "./IconTeapot.svelte": {
       "types": "./dist/icons/teapot.svelte.d.ts",
       "svelte": "./dist/icons/teapot.svelte"
@@ -17076,6 +17120,22 @@
     "./IconTimeline.svelte": {
       "types": "./dist/icons/timeline.svelte.d.ts",
       "svelte": "./dist/icons/timeline.svelte"
+    },
+    "./IconTimezone.svelte": {
+      "types": "./dist/icons/timezone.svelte.d.ts",
+      "svelte": "./dist/icons/timezone.svelte"
+    },
+    "./IconTipJarEuro.svelte": {
+      "types": "./dist/icons/tip-jar-euro.svelte.d.ts",
+      "svelte": "./dist/icons/tip-jar-euro.svelte"
+    },
+    "./IconTipJarPound.svelte": {
+      "types": "./dist/icons/tip-jar-pound.svelte.d.ts",
+      "svelte": "./dist/icons/tip-jar-pound.svelte"
+    },
+    "./IconTipJar.svelte": {
+      "types": "./dist/icons/tip-jar.svelte.d.ts",
+      "svelte": "./dist/icons/tip-jar.svelte"
     },
     "./IconTir.svelte": {
       "types": "./dist/icons/tir.svelte.d.ts",
@@ -17788,6 +17848,14 @@
     "./IconViewportNarrow.svelte": {
       "types": "./dist/icons/viewport-narrow.svelte.d.ts",
       "svelte": "./dist/icons/viewport-narrow.svelte"
+    },
+    "./IconViewportShort.svelte": {
+      "types": "./dist/icons/viewport-short.svelte.d.ts",
+      "svelte": "./dist/icons/viewport-short.svelte"
+    },
+    "./IconViewportTall.svelte": {
+      "types": "./dist/icons/viewport-tall.svelte.d.ts",
+      "svelte": "./dist/icons/viewport-tall.svelte"
     },
     "./IconViewportWide.svelte": {
       "types": "./dist/icons/viewport-wide.svelte.d.ts",
@@ -19320,6 +19388,10 @@
     "./IconCirclePercentageFilled.svelte": {
       "types": "./dist/icons/circle-percentage-filled.svelte.d.ts",
       "svelte": "./dist/icons/circle-percentage-filled.svelte"
+    },
+    "./IconCirclePlusFilled.svelte": {
+      "types": "./dist/icons/circle-plus-filled.svelte.d.ts",
+      "svelte": "./dist/icons/circle-plus-filled.svelte"
     },
     "./IconCircleXFilled.svelte": {
       "types": "./dist/icons/circle-x-filled.svelte.d.ts",
@@ -21128,7 +21200,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.4.0"
+    "@tabler/icons": "3.5.0"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.2.7",
