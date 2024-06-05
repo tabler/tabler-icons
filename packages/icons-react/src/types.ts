@@ -7,6 +7,7 @@ export type IconNode = [elementName: keyof ReactSVG, attrs: Record<string, strin
 export interface IconProps extends Partial<Omit<React.ComponentPropsWithoutRef<'svg'>, 'stroke'>> {
   size?: string | number;
   stroke?: string | number;
+  title?: string;
 }
 
 export type Icon = FunctionComponent<IconProps>;
