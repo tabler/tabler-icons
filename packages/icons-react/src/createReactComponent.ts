@@ -10,7 +10,7 @@ const createReactComponent = (
 ) => {
   const Component = forwardRef<Icon, IconProps>(
     (
-      { color = 'currentColor', size = 24, stroke = 2, className, children, title, ...rest }: IconProps,
+      { color = 'currentColor', size = 24, stroke = 2, title, className, children, ...rest }: IconProps,
       ref,
     ) =>
       createElement(
