@@ -12,7 +12,7 @@ const createPreactComponent = (
     color = 'currentColor',
     size = 24,
     stroke = 2,
-    // title,
+    title,
     children,
     className = '',
     style,
@@ -37,7 +37,7 @@ const createPreactComponent = (
         ...[rest],
       },
       [
-        // title && h('title', {}, title),
+        title && h('title', {}, title),
         ...iconNode.map(([tag, attrs]) => h(tag, attrs)),
         ...toChildArray(children)],
     );
