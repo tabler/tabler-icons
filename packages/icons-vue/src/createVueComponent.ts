@@ -10,6 +10,8 @@ const createVueComponent =
     iconNode: IconNode,
   ): Icon =>
   ({ color = 'currentColor', size, stroke, title, class: classes, ...rest }: IconProps, { attrs, slots }) => {
+    let children = [...iconNode.map((child) => h(...child)), ...(slots.default ? [slots.default()] : [])];
+    if (title) children = [h('title', title), ...children];
     return h(
       'svg',
       {
@@ -28,10 +30,7 @@ const createVueComponent =
             }),
         ...rest,
       },
-      [
-        title && h('title', title),
-        ...iconNode.map((child) => h(...child)), ...(slots.default ? [slots.default()] : [])
-      ],
+      children,
     );
   };
 

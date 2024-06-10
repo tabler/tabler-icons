@@ -67,6 +67,20 @@ describe("Vue Icon component", () => {
     expect(svg.getAttribute("stroke-width")).toBe(null)
   })
 
+  it('should add title child element to svg when title prop is passed', () => {
+    const { container } = render(IconAccessible, {
+      props: {
+        title: 'Test Title',
+      }
+    })
+
+    const svg = container.getElementsByTagName("svg")[0]
+    const title = container.getElementsByTagName("title")[0]
+
+    expect(title).toHaveTextContent('Test Title')
+    expect(svg).toContainElement(title)
+  })
+
   it('should call the onClick event', async () => {
     const onClick = vi.fn()
     const { container } = render(IconAccessible, {
