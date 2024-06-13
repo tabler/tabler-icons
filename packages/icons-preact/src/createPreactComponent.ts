@@ -33,9 +33,9 @@ const createPreactComponent = (
               stroke: color,
             }),
         style,
+        ...[rest],
       },
       [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
-      ...[rest],
     );
 
   Component.displayName = `${iconNamePascal}`;
