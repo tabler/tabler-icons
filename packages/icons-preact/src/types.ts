@@ -7,6 +7,7 @@ export interface IconProps
   color?: string;
   size?: string | number;
   stroke?: string | number;
+  title?: string;
 }
 
 export type Icon = FunctionComponent<IconProps>;
