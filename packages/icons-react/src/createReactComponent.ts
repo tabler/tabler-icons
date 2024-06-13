@@ -10,7 +10,7 @@ const createReactComponent = (
 ) => {
   const Component = forwardRef<Icon, IconProps>(
     (
-      { color = 'currentColor', size = 24, stroke = 2, className, children, ...rest }: IconProps,
+      { color = 'currentColor', size = 24, stroke = 2, title, className, children, ...rest }: IconProps,
       ref,
     ) =>
       createElement(
@@ -32,6 +32,7 @@ const createReactComponent = (
           ...rest,
         },
         [
+          title && createElement('title', { key: 'svg-title' }, title),
           ...iconNode.map(([tag, attrs]) => createElement(tag, attrs)),
           ...(Array.isArray(children) ? children : [children]),
         ],
