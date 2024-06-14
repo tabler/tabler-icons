@@ -25,7 +25,7 @@ const createVueComponent =
               fill: color,
             }
           : {
-              'stroke-width': stroke,
+              'stroke-width': stroke ?? defaultAttributes[type]['stroke-width'],
               stroke: color,
             }),
         ...rest,
