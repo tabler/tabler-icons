@@ -11,4 +11,5 @@ export type Icon = FunctionalComponent<SVGProps>;
 export interface IconProps extends Partial<Omit<SVGProps, 'stroke'>> {
   size?: string | number;
   stroke?: string | number;
+  title?: string;
 }
