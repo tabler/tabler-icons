@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "3.2.0",
+  "version": "3.6.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "eleventy --serve --watch",
     "preview": "eleventy",
-    "build": "pnpm run update && pnpm run validate --hard && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
+    "build": "pnpm run validate && pnpm run update && pnpm run validate --hard && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
     "changelog": "node ./.build/changelog.mjs",

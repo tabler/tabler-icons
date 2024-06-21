@@ -12,6 +12,7 @@ const createPreactComponent = (
     color = 'currentColor',
     size = 24,
     stroke = 2,
+    title,
     children,
     className = '',
     style,
@@ -33,9 +34,12 @@ const createPreactComponent = (
               stroke: color,
             }),
         style,
+        ...[rest],
       },
-      [...iconNode.map(([tag, attrs]) => h(tag, attrs)), ...toChildArray(children)],
-      ...[rest],
+      [
+        title && h('title', {}, title),
+        ...iconNode.map(([tag, attrs]) => h(tag, attrs)),
+        ...toChildArray(children)],
     );
 
   Component.displayName = `${iconNamePascal}`;
