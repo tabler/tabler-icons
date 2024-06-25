@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-angular",
-  "version": "3.6.0-alpha.1",
+  "version": "3.7.0-alpha.1",
   "license": "MIT",
   "author": "BG-Software",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your Angular projects.",
@@ -27,6 +27,9 @@
     "typecheck": "tsc",
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test"
+  },
+  "dependencies": {
+    "@tabler/icons": "^3.7.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.3",
