@@ -1,3 +1,4 @@
+import { JSX } from 'solid-js/jsx-runtime';
 import defaultAttributes from './defaultAttributes';
 import { splitProps } from 'solid-js';
 import h from 'solid-js/h';
@@ -9,7 +10,7 @@ const createSolidComponent = (
   iconNamePascal: string,
   iconNode: IconNode,
 ) => {
-  const Component = (props: IconProps) => {
+  const Component = (props: IconProps): JSX.Element => {
     const [localProps, rest] = splitProps(props, ['color', 'size', 'stroke', 'title', 'children', 'class']),
       attributes = defaultAttributes[type];
 
@@ -39,7 +40,7 @@ const createSolidComponent = (
         ...iconNode.map(([tag, attrs]) => h(tag, attrs)),
         localProps.children
       ],
-    );
+    ) as unknown as JSX.Element;
   };
 
   Component.displayName = `${iconNamePascal}`;
