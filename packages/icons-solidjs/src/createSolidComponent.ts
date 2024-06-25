@@ -10,13 +10,14 @@ const createSolidComponent = (
   iconNode: IconNode,
 ) => {
   const Component = (props: IconProps) => {
-    const [localProps, rest] = splitProps(props, ['color', 'size', 'stroke', 'children', 'class']),
+    const [localProps, rest] = splitProps(props, ['color', 'size', 'stroke', 'title', 'children', 'class']),
       attributes = defaultAttributes[type];
 
     const svgProps = {
       ...attributes,
       width: () => (localProps.size != null ? localProps.size : attributes.width),
       height: () => (localProps.size != null ? localProps.size : attributes.height),
+      title: () => localProps.title != null ? localProps.title : undefined,
       ...(type === 'filled'
         ? {
             fill: () => (localProps.color != null ? localProps.color : 'currentColor'),
@@ -33,7 +34,11 @@ const createSolidComponent = (
     return h(
       'svg',
       [svgProps, rest],
-      [...iconNode.map(([tag, attrs]) => h(tag, attrs)), localProps.children],
+      [
+        localProps.title && h('title', {}, localProps.title),
+        ...iconNode.map(([tag, attrs]) => h(tag, attrs)),
+        localProps.children
+      ],
     );
   };
 

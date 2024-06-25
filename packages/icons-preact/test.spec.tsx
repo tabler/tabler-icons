@@ -51,6 +51,15 @@ describe("Preact Icon component", () => {
     expect(svg).toHaveStyle('color: rgb(255, 0, 0)')
   })
 
+  it('should add a title element to the svg', () => {
+    const { container } = render(<IconAccessible title="Accessible Icon"/>)
+    const svg = container.getElementsByTagName("svg")[0]
+    const title = container.getElementsByTagName("title")[0]
+
+    expect(svg.getAttribute("title")).toBe("Accessible Icon");
+    expect(title).toHaveTextContent("Accessible Icon");
+  })
+
   it("should match snapshot", () => {
     const { container } = render(<IconAccessible/>)
     expect(container.innerHTML).toMatchInlineSnapshot(`
