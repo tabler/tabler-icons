@@ -28,9 +28,9 @@
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test"
   },
-  "dependencies": {
-    "@tabler/icons": "^3.7.0"
-  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.3",
     "@angular/animations": "^17.3.3",
@@ -56,6 +56,7 @@
   },
   "peerDependencies": {
     "@angular/common": "16.x - 18.x",
-    "@angular/core": "16.x - 18.x"
+    "@angular/core": "16.x - 18.x",
+    "@tabler/icons": "^3.7.0"
   }
 }
