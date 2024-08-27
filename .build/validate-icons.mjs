@@ -48,7 +48,7 @@ types.forEach(type => {
           error = true
         }
 
-        if (data.unicode.length !== 4) {
+        if (data.unicode.length !== 4 && data.unicode.length !== 5) {
           console.log(`⛔️ Icon \`${iconName}\` has invalid unicode \`${data.unicode}\``)
           error = true
         }
