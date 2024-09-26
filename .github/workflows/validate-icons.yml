@@ -45,6 +45,8 @@ jobs:
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
+        permissions:
+          contents: write
         with:
           filePath: ./comment-markup.md
           comment_tag: validate
