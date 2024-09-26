@@ -10,7 +10,7 @@ jobs:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 20
