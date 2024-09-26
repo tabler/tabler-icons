@@ -9,8 +9,6 @@ jobs:
   validate:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 20
@@ -50,3 +48,4 @@ jobs:
         with:
           filePath: ./comment-markup.md
           comment_tag: validate
+          mode: recreate
