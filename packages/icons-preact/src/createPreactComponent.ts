@@ -15,6 +15,7 @@ const createPreactComponent = (
     title,
     children,
     className = '',
+    class: cls = '',
     style,
     ...rest
   }: IconProps) =>
@@ -24,7 +25,7 @@ const createPreactComponent = (
         ...defaultAttributes[type],
         width: String(size),
         height: size,
-        class: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+        class: [`tabler-icon`, `tabler-icon-${iconName}`, cls, className].join(' '),
         ...(type === 'filled'
           ? {
               fill: color,
