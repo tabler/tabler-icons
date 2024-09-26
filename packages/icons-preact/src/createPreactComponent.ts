@@ -35,7 +35,7 @@ const createPreactComponent = (
               stroke: color,
             }),
         style,
-        ...[rest],
+        ...rest,
       },
       [
         title && h('title', {}, title),
