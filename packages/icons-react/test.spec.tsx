@@ -1,8 +1,6 @@
-import { describe, it, expect, afterEach, assertType, expectTypeOf } from 'vitest';
+import { describe, it, expect, afterEach, expectTypeOf } from 'vitest';
 import { render, cleanup } from '@testing-library/react'
 import { IconAccessible, IconAccessibleFilled, createReactComponent } from "./src/tabler-icons-react"
-import type { IconNode } from './src/tabler-icons-react';
-import { ReactNode } from 'react';
 
 describe("React Icon component", () => {
   afterEach(() => {
@@ -57,6 +55,14 @@ describe("React Icon component", () => {
     expectTypeOf(IconAccessible).toBeFunction();
     expectTypeOf(IconAccessible).toEqualTypeOf(createReactComponent('outline', 'accessible', 'Accessible', []));
   });
+
+  it('should add title child element to svg when title prop is passed', () => {
+    const { container } = render(<IconAccessible title="Accessible Icon"/>);
+    const svg = container.getElementsByTagName("svg")[0];
+    const title = svg.getElementsByTagName("title")[0];
+
+    expect(title).toHaveTextContent("Accessible Icon");
+  })
 
   it("should match snapshot", () => {
     const { container } = render(<IconAccessible/>)

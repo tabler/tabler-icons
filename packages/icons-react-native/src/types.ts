@@ -10,6 +10,7 @@ export type SVGAttributes = Partial<SVGProps<SVGSVGElement>>;
 export interface IconProps extends SvgProps {
   size?: string | number;
   strokeWidth?: string | number;
+  title?: string;
 }
 
 export type Icon = ForwardRefExoticComponent<IconProps>;

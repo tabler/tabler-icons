@@ -1,36 +1,6 @@
 #!/usr/bin/env node
 
 import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
-import { readFileSync, writeFileSync } from 'fs'
-import { getAllIcons, toPascalCase } from '../../.build/helpers.mjs'
-
-const updatePackageJson = () => {
-  let packageJson = JSON.parse(readFileSync('package.json', 'utf-8'))
-
-  if (packageJson.exports) {
-    for (const key in packageJson.exports) {
-      if (key.match(/^\.\/[^\.]+\.svelte$/)) {
-        delete packageJson.exports[key]
-      }
-    }
-  }
-
-  const allIcons = getAllIcons(false, false)
-
-  Object.entries(allIcons).forEach(([type, icons]) => {
-    icons.forEach((icon, i) => {
-      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
-        iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`
-
-      packageJson.exports[`./${iconNamePascal}.svelte`] = {
-        types: `./dist/icons/${iconName}.svelte.d.ts`,
-        svelte: `./dist/icons/${iconName}.svelte`
-      }
-    })
-  })
-
-  writeFileSync('package.json', JSON.stringify(packageJson, null, 2))
-}
 
 const componentTemplate = ({
   type,
@@ -71,5 +41,4 @@ buildJsIcons({
   pascalName: false,
 })
 
-updatePackageJson()
 buildIconsList('icons-svelte')

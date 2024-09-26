@@ -48,20 +48,20 @@ types.forEach(type => {
           error = true
         }
 
-        if (data.unicode.length !== 4) {
+        if (data.unicode.length !== 4 && data.unicode.length !== 5) {
           console.log(`⛔️ Icon \`${iconName}\` has invalid unicode \`${data.unicode}\``)
-          error = true
-        }
-
-        // check duplicates in tags
-        if (duplicateExists(data.tags || [])) {
-          console.log(`⛔️ Icon \`${iconName}\` has duplicate tags`)
           error = true
         }
 
         unicodes.push(data.unicode)
       } else if (argvs.hard) {
         console.log(`⛔️ Icon \`${iconName}\` has no unicode`)
+        error = true
+      }
+
+      // check duplicates in tags
+      if (duplicateExists(data.tags || [])) {
+        console.log(`⛔️ Icon \`${iconName}\` has duplicate tags`)
         error = true
       }
 

@@ -5,4 +5,4 @@ export * as dynamicImports from './dynamic-imports';
 export * from './aliases';
 export { default as createReactComponent } from './createReactComponent';
 
-export type { Icon, IconNode, IconProps } from './types';
+export type { Icon, IconNode, IconProps, TablerIcon } from './types';
