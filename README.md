@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5307<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5646<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 ## Preview
 
-### Outline version (<!--icons-count-outline-->4621<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->4868<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -33,7 +33,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->686<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->778<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>
