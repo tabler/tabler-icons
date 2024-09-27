@@ -17,9 +17,21 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-react"
   },
-  "main": "./dist/cjs/tabler-icons-react.cjs",
-  "types": "./dist/esm/tabler-icons-react.d.ts",
-  "module": "./dist/esm/tabler-icons-react.mjs",
+  "main": "./dist/cjs/tabler-icons-react.js",
+  "types": "./dist/cjs/tabler-icons-react.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/esm/tabler-icons-react.d.mts",
+        "default": "./dist/esm/tabler-icons-react.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/tabler-icons-react.d.ts",
+        "default": "./dist/cjs/tabler-icons-react.js"
+      }
+    }
+  },
   "sideEffects": false,
   "files": [
     "dist"

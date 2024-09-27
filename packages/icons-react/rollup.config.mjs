@@ -9,7 +9,7 @@ const inputs = ['./src/tabler-icons-react.ts'];
 const bundles = [
   {
     format: 'cjs',
-    extension: 'cjs',
+    extension: 'js',
     inputs,
   },
   {
@@ -24,9 +24,9 @@ export default [
   {
     input: inputs[0],
     output: [{
-      file: `dist/esm/${outputFileName}.d.ts`, format: 'esm'
+      file: `dist/esm/${outputFileName}.d.mts`, format: 'esm'
     }, {
-      file: `dist/cjs/${outputFileName}.d.cts`, format: 'cjs'
+      file: `dist/cjs/${outputFileName}.d.ts`, format: 'cjs'
     }],
     plugins: [dts()],
   },
