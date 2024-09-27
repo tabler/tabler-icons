@@ -1,0 +1,32 @@
+{
+  "name": "test-angular",
+  "private": true,
+  "version": "3.7.0-alpha.1",
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "dependencies": {
+    "@angular/animations": "^17.3.11",
+    "@angular/common": "^17.3.11",
+    "@angular/compiler": "^17.3.11",
+    "@angular/core": "^17.3.11",
+    "@angular/forms": "^17.3.11",
+    "@angular/platform-browser": "^17.3.11",
+    "@angular/platform-browser-dynamic": "^17.3.11",
+    "@angular/router": "^17.3.11",
+    "@tabler/icons-angular": "^3.7.0-alpha.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.8",
+    "@angular/cli": "^17.3.8",
+    "@angular/compiler-cli": "^17.3.11",
+    "typescript": "~5.3.2"
+  }
+}
