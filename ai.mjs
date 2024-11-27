@@ -30,4 +30,7 @@ async function main() {
   writeFileSync('./new/tags.json', completion.choices[0].message.content);
 }
 
-main();
+
+if (withoutTags.length > 0) {
+  main();
+}
