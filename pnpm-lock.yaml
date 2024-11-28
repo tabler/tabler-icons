@@ -30,6 +30,9 @@ importers:
       csv-parser:
         specifier: ^3.0.0
         version: 3.0.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       eleventy-sass:
         specifier: ^2.2.4
         version: 2.2.4(@11ty/eleventy@2.0.1)
@@ -6053,6 +6056,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       is-obj: 2.0.0
+    dev: true
+
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
     dev: true
 
   /duplexer@0.1.1:

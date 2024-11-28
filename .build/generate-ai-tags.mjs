@@ -1,6 +1,9 @@
 import OpenAI from 'openai';
-import { getAllIcons } from './.build/helpers.mjs';
+import { getAllIcons } from './helpers.mjs';
 import { writeFileSync } from 'fs';
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 const client = new OpenAI();
 
