@@ -12,16 +12,6 @@
   <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
 </p>
 
-## Testing
-
-<p align="center">Browser testing via</p>
-
-<p align="center">
-  <a href="https://www.lambdatest.com/" target="_blank">
-    <img src="https://www.lambdatest.com/support/img/logo.svg" width="296" height="52" />
-  </a>
-</p>
-
 
 ## Sponsors
 
@@ -30,6 +20,17 @@
 <a href="https://github.com/sponsors/codecalm">
   <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
 </a>
+
+## Testing
+
+<p align="center">Browser testing via:</p>
+
+<p align="center">
+  <a href="https://www.lambdatest.com/" target="_blank">
+    <img src="https://www.lambdatest.com/support/img/logo.svg#gh-light-mode-only" width="296" height="52" class="" />
+    <img src="https://www.lambdatest.com/support/img/logo.svg#gh-dark-mode-only" width="296" height="52" class="" style="filter:brightness(0) invert(1);" />
+  </a>
+</p>
 
 ## Preview
 
