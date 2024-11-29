@@ -9,7 +9,7 @@
 <p>
 
 <p align="center">
-  <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
+  <a href="https://tabler.io/icons"><strong>Browse at tabler.io/icons &rarr;</strong></a>
 </p>
 
 
