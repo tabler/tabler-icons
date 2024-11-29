@@ -12,10 +12,20 @@
   <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
 </p>
 
+## Testing
+
+<p align="center">Browser testing via</p>
+
+<p align="center">
+  <a href="https://www.lambdatest.com/" target="_blank">
+    <img src="https://www.lambdatest.com/support/img/logo.svg" width="296" height="52" />
+  </a>
+</p>
+
 
 ## Sponsors
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
   <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
