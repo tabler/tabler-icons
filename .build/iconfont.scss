@@ -3,6 +3,8 @@
  * Tabler Icons <%= v %> by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
+@use "sass:string";
+
 $ti-font-family: '<%= fileName %>' !default;
 $ti-font-path: 'fonts' !default;
 $ti-font-display: null !default;
@@ -42,7 +44,7 @@ $ti-prefix: 'ti' !default;
   -moz-osx-font-smoothing: grayscale;
 }
 @function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+  @return string.unquote("\"")+string.unquote(string.insert($str, "\\", 1))+string.unquote("\"")
 }
 
 <% glyphs.forEach(function(glyph) { %>
