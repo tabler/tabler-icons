@@ -19,7 +19,8 @@
     "tabler-nodes-filled.json",
     "tabler-nodes-outline.json",
     "icons/*",
-    "categories/*"
+    "categories/*",
+    "docs/*"
   ],
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -30,8 +31,9 @@
     "url": "https://github.com/sponsors/codecalm"
   },
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons",
+    "build": "pnpm run clean && pnpm run copy && pnpm run build:icons && pnpm run build:docs",
     "build:icons": "node build.mjs",
+    "build:docs": "cp -r ../../docs/* ./docs/",
     "copy": "pnpm run copy:license",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/categories/*' -exec rm -rf {} + && rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +"
