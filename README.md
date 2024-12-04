@@ -5,25 +5,39 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5700<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5754<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
-  <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
+  <a href="https://tabler.io/icons"><strong>Browse at tabler.io/icons &rarr;</strong></a>
 </p>
 
 
 ## Sponsors
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
   <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
 </a>
 
+## Testing
+
+<p align="center">Browser testing via:</p>
+
+<p align="center">
+  <a href="https://www.lambdatest.com/" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/14dd2a0a-bafe-436e-a6cb-29636278c781">
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83">
+      <img src="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83" alt="Tabler Icons preview" width="296">
+    </picture>
+  </a>
+</p>
+
 ## Preview
 
-### Outline version (<!--icons-count-outline-->4882<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->4905<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -33,7 +47,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->818<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->849<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>

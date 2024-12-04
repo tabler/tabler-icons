@@ -30,6 +30,9 @@ importers:
       csv-parser:
         specifier: ^3.0.0
         version: 3.0.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       eleventy-sass:
         specifier: ^2.2.4
         version: 2.2.4(@11ty/eleventy@2.0.1)
@@ -63,6 +66,9 @@ importers:
       node-sass:
         specifier: 9.0.0
         version: 9.0.0
+      openai:
+        specifier: ^4.73.0
+        version: 4.73.0
       parse-svg-path:
         specifier: ^0.1.2
         version: 0.1.2
@@ -126,25 +132,25 @@ importers:
   packages/icons-eps:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
 
   packages/icons-pdf:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
 
   packages/icons-png:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
 
   packages/icons-preact:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@preact/preset-vite':
@@ -160,7 +166,7 @@ importers:
   packages/icons-react:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@testing-library/react':
@@ -185,7 +191,7 @@ importers:
   packages/icons-react-native:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@testing-library/react':
@@ -216,7 +222,7 @@ importers:
   packages/icons-solidjs:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@solidjs/testing-library':
@@ -235,13 +241,13 @@ importers:
   packages/icons-sprite:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
 
   packages/icons-svelte:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@sveltejs/package':
@@ -269,7 +275,7 @@ importers:
   packages/icons-vue:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       '@testing-library/vue':
@@ -291,7 +297,7 @@ importers:
   packages/icons-webfont:
     dependencies:
       '@tabler/icons':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../icons
     devDependencies:
       sass:
@@ -304,7 +310,7 @@ importers:
   test/test-preact:
     dependencies:
       '@tabler/icons-preact':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../../packages/icons-preact
       preact:
         specifier: ^10.19.6
@@ -317,7 +323,7 @@ importers:
   test/test-react:
     dependencies:
       '@tabler/icons-react':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../../packages/icons-react
       react:
         specifier: ^18.2.0
@@ -339,7 +345,7 @@ importers:
   test/test-svelte:
     dependencies:
       '@tabler/icons-svelte':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../../packages/icons-svelte
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
@@ -361,7 +367,7 @@ importers:
   test/test-vue:
     dependencies:
       '@tabler/icons-vue':
-        specifier: 3.21.0
+        specifier: 3.24.0
         version: link:../../packages/icons-vue
       vue:
         specifier: ^3.4.20
@@ -4101,8 +4107,21 @@ packages:
     resolution: {integrity: sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==}
     dev: true
 
+  /@types/node-fetch@2.6.12:
+    resolution: {integrity: sha512-8nneRWKCg3rMtF69nLQJnOYUcbafYeFSjqkw3jCRLsqkWFlHaoQrr5mXmofFGOx3DKn7UfmBMyov8ySvLRVldA==}
+    dependencies:
+      '@types/node': 18.19.64
+      form-data: 4.0.0
+    dev: true
+
   /@types/node@16.9.1:
     resolution: {integrity: sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==}
+    dev: true
+
+  /@types/node@18.19.64:
+    resolution: {integrity: sha512-955mDqvO2vFf/oL7V3WiUtiz+BugyX8uVbaT2H8oj3+8dRyH2FLiNdowe7eNqRM7IOIZvzDH76EoAT+gwm6aIQ==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/normalize-package-data@2.4.4:
@@ -6039,6 +6058,11 @@ packages:
       is-obj: 2.0.0
     dev: true
 
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
+    dev: true
+
   /duplexer@0.1.1:
     resolution: {integrity: sha512-sxNZ+ljy+RA1maXoUReeqBBpBC6RLKmg5ewzV+x+mSETmWNoKdZN6vcQjpFROemza23hGFskJtFNoUWUaQ+R4Q==}
     dev: true
@@ -6859,6 +6883,10 @@ packages:
       signal-exit: 4.1.0
     dev: true
 
+  /form-data-encoder@1.7.2:
+    resolution: {integrity: sha512-qfqtYan3rxrnCk1VYaA4H+Ms9xdpPqvLZa6xmMgFvhO32x7/3J/ExcTd6qpxM0vH2GdMI+poehyBZvqfMTto8A==}
+    dev: true
+
   /form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
     engines: {node: '>= 14.17'}
@@ -6871,6 +6899,14 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: true
+
+  /formdata-node@4.4.1:
+    resolution: {integrity: sha512-0iirZp3uVDjVGt9p49aTaqjk84TrglENEDuqfdlZQ1roC9CWlPk6Avf8EEnZNcAqPonwkG35x4n3ww/1THYAeQ==}
+    engines: {node: '>= 12.20'}
+    dependencies:
+      node-domexception: 1.0.0
+      web-streams-polyfill: 4.0.0-beta.3
     dev: true
 
   /formdata-polyfill@4.0.10:
@@ -9903,6 +9939,26 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
+  /openai@4.73.0:
+    resolution: {integrity: sha512-NZstV77w3CEol9KQTRBRQ15+Sw6nxVTicAULSjYO4wn9E5gw72Mtp3fAVaBFXyyVPws4241YmFG6ya4L8v03tA==}
+    hasBin: true
+    peerDependencies:
+      zod: ^3.23.8
+    peerDependenciesMeta:
+      zod:
+        optional: true
+    dependencies:
+      '@types/node': 18.19.64
+      '@types/node-fetch': 2.6.12
+      abort-controller: 3.0.0
+      agentkeepalive: 4.5.0
+      form-data-encoder: 1.7.2
+      formdata-node: 4.4.1
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /ora@5.4.1:
     resolution: {integrity: sha512-5b6Y85tPxZZ7QytO+BQzysW31HJku27cRIlkbAXaNx+BdcVi+LlRFmVXzeF6a7JCwJpyw5c4b+YSVImQIrBpuQ==}
     engines: {node: '>=10'}
@@ -12642,6 +12698,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
     engines: {node: '>=4'}
@@ -13075,6 +13135,11 @@ packages:
   /web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /web-streams-polyfill@4.0.0-beta.3:
+    resolution: {integrity: sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug==}
+    engines: {node: '>= 14'}
     dev: true
 
   /webfont@11.2.26:
