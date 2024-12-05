@@ -1,4 +1,5 @@
 import os
+import sys
 import fontforge
 
 file = sys.argv[1]
