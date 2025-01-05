@@ -16,7 +16,7 @@ const bundles = [
     format: 'esm',
     inputs,
     preserveModules: true,
-    extension: 'mjs',
+    extension: 'js',
   },
 ];
 
@@ -24,9 +24,9 @@ export default [
   {
     input: inputs[0],
     output: [{
-      file: `dist/esm/${outputFileName}.d.ts`
+      file: `dist/esm/${outputFileName}.d.ts`, format: 'esm'
     }, {
-      file: `dist/cjs/${outputFileName}.d.cts`
+      file: `dist/cjs/${outputFileName}.d.cts`, format: 'cjs'
     }],
     plugins: [dts()],
   },
