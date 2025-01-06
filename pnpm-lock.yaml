@@ -132,26 +132,26 @@ importers:
   packages/icons-eps:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
 
   packages/icons-pdf:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
 
   packages/icons-png:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
 
   packages/icons-preact:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.8.1
@@ -166,8 +166,8 @@ importers:
   packages/icons-react:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@testing-library/react':
         specifier: ^14.2.1
@@ -191,8 +191,8 @@ importers:
   packages/icons-react-native:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@testing-library/react':
         specifier: ^14.2.1
@@ -222,8 +222,8 @@ importers:
   packages/icons-solidjs:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@solidjs/testing-library':
         specifier: ^0.8.6
@@ -241,14 +241,14 @@ importers:
   packages/icons-sprite:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
 
   packages/icons-svelte:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@sveltejs/package':
         specifier: ^2.2.7
@@ -275,8 +275,8 @@ importers:
   packages/icons-vue:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@testing-library/vue':
         specifier: ^8.0.2
@@ -297,8 +297,8 @@ importers:
   packages/icons-webfont:
     dependencies:
       '@tabler/icons':
-        specifier: 3.26.0
-        version: 3.26.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       sass:
         specifier: ^1.71.1
@@ -2094,9 +2094,6 @@ packages:
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
-
-  '@tabler/icons@3.26.0':
-    resolution: {integrity: sha512-oO3D4ss+DxzxqU1aDy0f1HmToyrO0gcQWIMpzHAfV1quPUx0BZYvNm5xz1DQb4DxNm/+xNvbBGLJy4pzTLYWag==}
 
   '@testing-library/dom@8.20.1':
     resolution: {integrity: sha512-/DiOQ5xBxgdYRC8LNk7U+RWat0S3qRLeIw3ZIkMQ9kkVlRmwD/Eg8k8CqIpD6GW7u20JIUOfMKbxtiLutpjQ4g==}
@@ -9288,8 +9285,6 @@ snapshots:
   '@szmarczak/http-timer@5.0.1':
     dependencies:
       defer-to-connect: 2.0.1
-
-  '@tabler/icons@3.26.0': {}
 
   '@testing-library/dom@8.20.1':
     dependencies:
