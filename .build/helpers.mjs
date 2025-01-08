@@ -3,7 +3,7 @@ import path, { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import svgParse from 'parse-svg-path';
 import svgpath from 'svgpath';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import { minify } from 'html-minifier';
 import { parseSync } from 'svgson';
 import { optimize } from 'svgo';
