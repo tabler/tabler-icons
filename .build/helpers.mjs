@@ -418,6 +418,8 @@ export const printChangelog = function (newIcons, modifiedIcons, renamedIcons, p
       console.log(`- \`${icon[0]}\` renamed to \`${icon[1]}\``);
     });
   }
+
+  console.log('');
 };
 
 export const getCompileOptions = () => {
