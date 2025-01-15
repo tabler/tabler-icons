@@ -18,7 +18,7 @@
 **If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
+  <img src='https://github.com/tabler/sponsors/blob/72022828de6adb27ac254880250d9fabd15a2397/sponsors.png'>
 </a>
 
 ## Testing
