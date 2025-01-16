@@ -20,4 +20,4 @@ type IconSlots = {
   default: {};
 };
 
-export type Icon = SvelteComponent<IconProps, IconEvents, IconSlots>;
+export type Icon = typeof SvelteComponent<IconProps, IconEvents, IconSlots>;
