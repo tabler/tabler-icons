@@ -18,7 +18,12 @@ const buildOutline = async () => {
   const compileOptions = getCompileOptions()
 
   await asyncForEach(Object.entries(icons), async ([type, icons]) => {
+    if (fs.existsSync(resolve(DIR, `icons-outlined/${type}/new`))) {
+      await execa('rm', ['-rf', resolve(DIR, `icons-outlined/${type}/new`)]);
+    }
+
     fs.mkdirSync(resolve(DIR, `icons-outlined/${type}/new`), { recursive: true })
+
     filesList[type] = []
 
     console.log('Start generating strokes for:', type)
