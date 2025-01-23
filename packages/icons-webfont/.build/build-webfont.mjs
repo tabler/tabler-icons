@@ -26,7 +26,7 @@ const getAlliasesFlat = () => {
   return allAliases
 }
 
-asyncForEach(types, async type => {
+await asyncForEach(types, async type => {
   console.log(`Building webfont for ${type} icons`)
 
   await webfont({
