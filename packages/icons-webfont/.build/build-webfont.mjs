@@ -8,6 +8,12 @@ const p = getPackageJson()
 const DIR = getPackageDir('icons-webfont')
 const fontHeight = 1000
 
+const strokes = {
+  200: 1,
+  300: 1.5,
+  400: 2,
+}
+
 const aliases = getAliases(true)
 
 fs.mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
@@ -26,50 +32,52 @@ const getAlliasesFlat = () => {
   return allAliases
 }
 
-await asyncForEach(types, async type => {
-  console.log(`Building webfont for ${type} icons`)
+for (const strokeName in strokes) {
+  asyncForEach(types, async type => {
+    console.log(`Building ${strokeName} webfont for ${type} icons`)
 
-  await webfont({
-    files: `icons-outlined/${type}/*.svg`,
-    fontName: 'tabler-icons',
-    prependUnicode: true,
-    formats,
-    normalize: true,
-    fontHeight,
-    descent: 100,
-    ascent: 900,
-    fixedWidth: false
-  })
-    .then((result) => {
-      formats.forEach(format => {
-        fs.writeFileSync(`${DIR}/dist/fonts/tabler-icons${type !== 'all' ? `-${type}` : ''}.${format}`, result[format])
-      })
-
-      const glyphs = result.glyphsData
-        .map(icon => icon.metadata)
-        .sort(function (a, b) {
-          return ('' + a.name).localeCompare(b.name)
+    await webfont({
+      files: `icons-outlined/${strokeName}/${type}/*.svg`,
+      fontName: 'tabler-icons',
+      prependUnicode: true,
+      formats,
+      normalize: true,
+      fontHeight,
+      descent: 100,
+      ascent: 900,
+      fixedWidth: false
+    })
+      .then((result) => {
+        formats.forEach(format => {
+          fs.writeFileSync(`${DIR}/dist/fonts/tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}${type !== 'all' ? `-${type}` : ''}.${format}`, result[format])
         })
 
-      const options = {
-        name: `Tabler Icons${type !== 'all' ? ` ${toPascalCase(type)}` : ''}`,
-        fileName: `tabler-icons${type !== 'all' ? `-${type}` : ''}`,
-        glyphs,
-        v: p.version,
-        aliases: (type === 'all' ? getAlliasesFlat() : aliases[type]) || {}
-      }
+        const glyphs = result.glyphsData
+          .map(icon => icon.metadata)
+          .sort(function (a, b) {
+            return ('' + a.name).localeCompare(b.name)
+          })
 
-      //scss
-      const compiled = template(fs.readFileSync(`${DIR}/.build/iconfont.scss`).toString())
-      const resultSCSS = compiled(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.scss`, resultSCSS)
+        const options = {
+          name: `Tabler Icons ${strokeName}${type !== 'all' ? ` ${toPascalCase(type)}` : ''}`,
+          fileName: `tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}${type !== 'all' ? `-${type}` : ''}`,
+          glyphs,
+          v: p.version,
+          aliases: (type === 'all' ? getAlliasesFlat() : aliases[type]) || {}
+        }
 
-      //html
-      const compiledHtml = template(fs.readFileSync(`${DIR}/.build/iconfont.html`).toString())
-      const resultHtml = compiledHtml(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.html`, resultHtml)
-    })
-    .catch((error) => {
-      throw error;
-    });
-})
+        //scss
+        const compiled = template(fs.readFileSync(`${DIR}/.build/iconfont.scss`).toString())
+        const resultSCSS = compiled(options)
+        fs.writeFileSync(`${DIR}/dist/tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}${type !== 'all' ? `-${type}` : ''}.scss`, resultSCSS)
+
+        //html
+        const compiledHtml = template(fs.readFileSync(`${DIR}/.build/iconfont.html`).toString())
+        const resultHtml = compiledHtml(options)
+        fs.writeFileSync(`${DIR}/dist/tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}${type !== 'all' ? `-${type}` : ''}.html`, resultHtml)
+      })
+      .catch((error) => {
+        throw error;
+      });
+  })
+}

@@ -22,13 +22,13 @@
 **If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
+  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
 </a>
 
 ## Installation
 
 ```
-yarn add @tabler/icons-webfont
+yarn add @tabler/icons-webfont~~~~~~~~
 ```
 
 or

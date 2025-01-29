@@ -8,29 +8,28 @@ import { execa } from 'execa'
 
 const DIR = getPackageDir('icons-webfont')
 
+const strokes = {
+  200: 1,
+  300: 1.5,
+  400: 2,
+}
+
 const args = process.argv.slice(2)
 const debug = args.some(arg => arg === '--debug')
-
 const buildOutline = async () => {
   let filesList = {}
   const icons = getAllIcons(true)
 
   const compileOptions = getCompileOptions()
 
-  await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-    if (fs.existsSync(resolve(DIR, `icons-outlined/${type}/new`))) {
-      await execa('rm', ['-rf', resolve(DIR, `icons-outlined/${type}/new`)]);
-    }
-
-    fs.mkdirSync(resolve(DIR, `icons-outlined/${type}/new`), { recursive: true })
-
-    filesList[type] = []
+  for (const strokeName in strokes) {
+    const stroke = strokes[strokeName]
 
     console.log('Start generating strokes for:', type)
 
     const iconsCount = icons.length.toString().length;
 
-    await asyncForEach(icons, async function ({ name, content, unicode }, i) {
+    await asyncForEach(icons, async function ({ name, unicode, content }) {
       if (!debug) {
         process.stdout.clearLine()
         process.stdout.write(`\r[${(i + 1).toString().padStart(iconsCount, ' ')} / ${icons.length}] ${name}...`)
@@ -39,7 +38,7 @@ const buildOutline = async () => {
       if (compileOptions.includeIcons.length === 0 || compileOptions.includeIcons.indexOf(name) >= 0) {
 
         if (unicode) {
-          if (debug) console.log('Stroke for:', name, unicode)
+          if (debug) console.log(`Stroke ${strokeName} for:`, name, unicode)
 
           let filename = `${name}.svg`
           if (unicode) {
@@ -52,16 +51,14 @@ const buildOutline = async () => {
             .replace('width="24"', 'width="1000"')
             .replace('height="24"', 'height="1000"')
 
-          if (compileOptions.strokeWidth) {
-            content = content
-              .replace('stroke-width="2"', `stroke-width="${compileOptions.strokeWidth}"`)
-          }
+          content = content
+            .replace('stroke-width="2"', `stroke-width="${stroke}"`)
 
           const cachedFilename = `u${unicode.toUpperCase()}-${name}.svg`;
 
-          if (unicode && fs.existsSync(resolve(DIR, `icons-outlined/${type}/${cachedFilename}`))) {
+          if (unicode && fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${cachedFilename}`))) {
             // Get content
-            let cachedContent = fs.readFileSync(resolve(DIR, `icons-outlined/${type}/${cachedFilename}`), 'utf-8')
+            let cachedContent = fs.readFileSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${cachedFilename}`), 'utf-8')
 
             // Get hash
             let cachedHash = '';
@@ -77,7 +74,7 @@ const buildOutline = async () => {
             }
           }
 
-          if (unicode && fs.existsSync(resolve(DIR, `icons-outlined/${type}/new/${cachedFilename}`))) {
+          if (unicode && fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/${cachedFilename}`))) {
             if (debug) console.log('Use cached (not optimized) stroke for:', name, unicode)
             return true;
           }
@@ -91,7 +88,7 @@ const buildOutline = async () => {
             color: 'black'
           }).then(outlined => {
             // Save file
-            fs.writeFileSync(resolve(DIR, `icons-outlined/${type}/new/${filename}`), outlined, 'utf-8')
+            fs.writeFileSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/${filename}`), outlined, 'utf-8')
             if (debug) console.log('Created unoptimized stroke for:', name, unicode)
           }).catch(error => console.log(error))
         }
@@ -105,31 +102,31 @@ const buildOutline = async () => {
     // Process for new files
     // Fix outline
     if (
-      fs.existsSync(resolve(DIR, `icons-outlined/${type}/new`)) &&
-      (await glob(resolve(DIR, `icons-outlined/${type}/new/*.svg`))).length > 0
+      fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)) &&
+      (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/*.svg`))).length > 0
     ) {
       console.log('Fixing outline using FontForge...')
-      await execa('fontforge', ['-quiet', '-lang=py', '-script', '.build/fix-outline.py', resolve(DIR, `icons-outlined/${type}/new`)], {
+      await execa('fontforge', ['-quiet', '-lang=py', '-script', '.build/fix-outline.py', resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)], {
         stdout: debug ? process.stdout : null,
         stderr: process.stderr,
       });
       console.log('Optimizing SVG files using svgo...')
-      await execa('pnpm', ['dlx', 'svgo', resolve(DIR, `icons-outlined/${type}/new`)], {
+      await execa('pnpm', ['dlx', 'svgo', resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)], {
         stdout: debug ? process.stdout : null,
         stderr: process.stderr,
       });
       // Add hash
       console.log('Adding hash to SVG files...')
-      await asyncForEach((await glob(resolve(DIR, `icons-outlined/${type}/new/*.svg`))), async (dir) => {
+      await asyncForEach((await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/*.svg`))), async (dir) => {
         const filename = basename(dir)
         const fixedFileContent = fs
-          .readFileSync(resolve(DIR, `icons-outlined/${type}/new/${filename}`), 'utf-8')
+          .readFileSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/${filename}`), 'utf-8')
           .replace(/\n/g, ' ')
           .trim();
         const hashString = `<!--!cache:${crypto.createHash('sha1').update(fixedFileContent).digest("hex")}-->`
         // Save file
         fs.writeFileSync(
-          resolve(DIR, `icons-outlined/${type}/${filename}`),
+          resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`),
           fixedFileContent + hashString,
           'utf-8'
         )
@@ -138,40 +135,41 @@ const buildOutline = async () => {
 
     // Remove unoptimized files directory
     console.log('Remove unoptimized files directory...')
-    await execa('rm', ['-rf', resolve(DIR, `icons-outlined/${type}/new`)]);
-  })
+    await execa('rm', ['-rf', resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)]);
 
-  // Remove old files
-  console.log('Remove old files...')
-  await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-    const existedFiles = (await glob(resolve(DIR, `icons-outlined/${type}/*.svg`))).map(file => basename(file))
-    existedFiles.forEach(file => {
-      if (filesList[type].indexOf(file) === -1) {
-        if (debug) console.log('Remove:', file)
-        fs.unlinkSync(resolve(DIR, `icons-outlined/${type}/${file}`))
-      }
+    // Remove old files
+    console.log('Remove old files...')
+    // Remove old files
+    await asyncForEach(Object.entries(icons), async ([type, icons]) => {
+      const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
+      existedFiles.forEach(file => {
+        if (filesList[type].indexOf(file) === -1) {
+          console.log('Remove:', file)
+          fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
+        }
+      })
     })
-  })
 
-  // Copy icons from firs to all directory
-  console.log('Copy icons from firs to all directory...')
-  await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-    fs.mkdirSync(resolve(DIR, `icons-outlined/all`), { recursive: true })
+    // Copy icons from firs to all directory
+    console.log('Copy icons from firs to all directory...')
+    await asyncForEach(Object.entries(icons), async ([type, icons]) => {
+      fs.mkdirSync(resolve(DIR, `icons-outlined/all`), { recursive: true })
 
-    await asyncForEach(icons, async function ({ name, unicode }) {
-      const iconName = `u${unicode.toUpperCase()}-${name}`
+      await asyncForEach(icons, async function ({ name, unicode }) {
+        const iconName = `u${unicode.toUpperCase()}-${name}`
 
-      if (fs.existsSync(resolve(DIR, `icons-outlined/${type}/${iconName}.svg`))) {
-        // Copy file
-        if (debug) console.log(`Copy ${iconName} to all directory`)
+        if (fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`))) {
+          // Copy file
+          if (debug) console.log(`Copy ${iconName} to all directory`)
 
-        fs.copyFileSync(
-          resolve(DIR, `icons-outlined/${type}/${iconName}.svg`),
-          resolve(DIR, `icons-outlined/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
-        )
-      }
+          fs.copyFileSync(
+            resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`),
+            resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
+          )
+        }
+      })
     })
-  })
+  }
 
   console.log('Done')
 }
