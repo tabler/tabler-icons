@@ -1,5 +1,6 @@
 import outlineStroke from 'svg-outline-stroke'
 import { asyncForEach, getAllIcons, getCompileOptions, getPackageDir, HOME_DIR } from '../../../.build/helpers.mjs'
+import { strokes, fontHeight } from './build-config.mjs'
 import fs from 'fs'
 import { resolve, basename } from 'path'
 import crypto from 'crypto'
@@ -7,12 +8,6 @@ import { glob } from 'glob'
 import { execa } from 'execa'
 
 const DIR = getPackageDir('icons-webfont')
-
-const strokes = {
-  200: 1,
-  300: 1.5,
-  400: 2,
-}
 
 const args = process.argv.slice(2)
 const debug = args.some(arg => arg === '--debug')
@@ -54,8 +49,8 @@ const buildOutline = async () => {
             filesList[type].push(filename)
 
             content = content
-              .replace('width="24"', 'width="1000"')
-              .replace('height="24"', 'height="1000"')
+              .replace('width="24"', `width="${fontHeight}"`)
+              .replace('height="24"', `height="${fontHeight}"`)
 
             content = content
               .replace('stroke-width="2"', `stroke-width="${stroke}"`)
