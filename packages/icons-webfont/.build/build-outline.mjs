@@ -144,35 +144,32 @@ const buildOutline = async () => {
 
       // Remove old files
       console.log('Remove old files...')
-      // Remove old files
-      await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-        const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
-        existedFiles.forEach(file => {
-          if (filesList[type].indexOf(file) === -1) {
-            console.log('Remove:', file)
-            fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
-          }
-        })
+      const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
+      existedFiles.forEach(file => {
+        if (filesList[type].indexOf(file) === -1) {
+          console.log('Remove:', file)
+          fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
+        }
       })
 
       // Copy icons from firs to all directory
       console.log('Copy icons from firs to all directory...')
-      await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-        fs.mkdirSync(resolve(DIR, `icons-outlined/all`), { recursive: true })
+      fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/all`), { recursive: true })
 
-        await asyncForEach(icons, async function ({ name, unicode }) {
-          const iconName = `u${unicode.toUpperCase()}-${name}`
+      await asyncForEach(icons, async function ({ name, unicode }) {
+        const iconName = `u${unicode.toUpperCase()}-${name}`
 
-          if (fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`))) {
-            // Copy file
-            if (debug) console.log(`Copy ${iconName} to all directory`)
+        if (debug) console.log(`Check ${iconName} for copy`)
 
-            fs.copyFileSync(
-              resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`),
-              resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
-            )
-          }
-        })
+        if (fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`))) {
+          // Copy file
+          if (debug) console.log(`Copy ${iconName} to all directory`)
+
+          fs.copyFileSync(
+            resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`),
+            resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
+          )
+        }
       })
     })
   }
