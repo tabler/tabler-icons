@@ -32,12 +32,13 @@ const buildOutline = async () => {
 
       console.log('Start generating strokes for:', strokeName, type)
 
-      const iconsCount = icons.length.toString().length;
+      const iconsCount = icons.length;
+      const iconsCountChars = iconsCount.toString().length;
 
       await asyncForEach(icons, async function ({ name, unicode, content }, i) {
         if (!debug) {
           process.stdout.clearLine()
-          process.stdout.write(`\r[${(i + 1).toString().padStart(iconsCount, ' ')} / ${icons.length}] ${name}...`)
+          process.stdout.write(`\r[${(i + 1).toString().padStart(iconsCountChars, ' ')} / ${iconsCount}] ${name}`)
         }
 
         if (compileOptions.includeIcons.length === 0 || compileOptions.includeIcons.indexOf(name) >= 0) {
@@ -110,7 +111,7 @@ const buildOutline = async () => {
         fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)) &&
         (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/*.svg`))).length > 0
       ) {
-        console.log('Fixing outline using FontForge...')
+        console.log('Fix outline using FontForge...')
         await execa('fontforge', ['-quiet', '-lang=py', '-script', '.build/fix-outline.py', resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)], {
           stdout: debug ? process.stdout : null,
           stderr: process.stderr,
