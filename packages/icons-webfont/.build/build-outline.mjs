@@ -111,13 +111,13 @@ const buildOutline = async () => {
           stdout: debug ? process.stdout : null,
           stderr: process.stderr,
         });
-        console.log('Optimizing SVG files using svgo...')
+        console.log('Optimize SVG files using svgo...')
         await execa('pnpm', ['dlx', 'svgo', resolve(DIR, `icons-outlined/${strokeName}/${type}/new`)], {
           stdout: debug ? process.stdout : null,
           stderr: process.stderr,
         });
         // Add hash
-        console.log('Adding hash to SVG files...')
+        console.log('Add hash to SVG files...')
         await asyncForEach((await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/new/*.svg`))), async (dir) => {
           const filename = basename(dir)
           const fixedFileContent = fs
