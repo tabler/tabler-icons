@@ -16,7 +16,7 @@
     "directory": "packages/icons-webfont"
   },
   "scripts": {
-    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:webfont && pnpm run build:css",
+    "build": "node .build/build.mjs",
     "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
     "build:outline": "node .build/build-outline.mjs",
     "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
@@ -46,6 +46,7 @@
     "web"
   ],
   "devDependencies": {
+    "execa": "^9.5.2",
     "sass": "^1.71.1",
     "webfont": "^11.2.26"
   }
