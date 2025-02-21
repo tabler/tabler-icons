@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5826<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5862<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 **If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors/sponsors.svg" alt="Tabler sponsors">
+  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
 </a>
 
 ## Testing
@@ -47,7 +47,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->908<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->944<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>
