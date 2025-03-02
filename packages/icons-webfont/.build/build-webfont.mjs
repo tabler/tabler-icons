@@ -1,19 +1,14 @@
 import * as fs from 'node:fs'
 import template from 'lodash.template'
 import { getPackageDir, getPackageJson, getAliases, types, asyncForEach, toPascalCase } from '../../../.build/helpers.mjs'
-import {buildSvgFont, loadSvgFiles} from "./build-utilities.mjs";
-import svg2ttf from "svg2ttf";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
+import { strokes, fontHeight } from './build-config.mjs'
+import { buildSvgFont, loadSvgFiles } from './build-utilities.mjs'
+import svg2ttf from 'svg2ttf'
+import ttf2woff from 'ttf2woff'
+import wawoff2 from 'wawoff2'
 
 const p = getPackageJson()
 const DIR = getPackageDir('icons-webfont')
-
-const strokes = {
-  200: 1,
-  300: 1.5,
-  400: 2,
-}
 
 const aliases = getAliases(true)
 
@@ -34,7 +29,7 @@ const getAlliasesFlat = () => {
 }
 
 for (const strokeName in strokes) {
-  asyncForEach(types, async type => {
+  await asyncForEach(types, async type => {
     console.log(`Building ${strokeName} webfont for ${type} icons`)
 
     const svgFiles = await loadSvgFiles(`icons-outlined/${strokeName}/${type}`);
