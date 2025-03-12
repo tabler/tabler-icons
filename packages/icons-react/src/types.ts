@@ -1,8 +1,8 @@
 
-import { ForwardRefExoticComponent, FunctionComponent, RefAttributes, ReactSVG } from 'react';
+import { ForwardRefExoticComponent, FunctionComponent, RefAttributes } from 'react';
 export type { ReactNode } from 'react';
 
-export type IconNode = [elementName: keyof ReactSVG, attrs: Record<string, string>][];
+export type IconNode = [elementName: string, attrs: Record<string, string>][];
 
 export interface IconProps extends Partial<Omit<React.ComponentPropsWithoutRef<'svg'>, 'stroke'>> {
   size?: string | number;
