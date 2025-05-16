@@ -34,7 +34,8 @@
   "sass": "./tabler-icons.scss",
   "style": "./tabler-icons.min.css",
   "dependencies": {
-    "@tabler/icons": "3.31.0"
+    "@tabler/icons": "3.31.0",
+    "sharp": "^0.34.1"
   },
   "keywords": [
     "icons",
@@ -48,7 +49,7 @@
   "devDependencies": {
     "sass": "^1.71.1",
     "svg2ttf": "^6.0.3",
-    "svgicons2svgfont": "^15.0.0",
+    "svgicons2svgfont": "^15.0.1",
     "ttf2woff": "^3.0.0",
     "wawoff2": "^2.0.1"
   }
