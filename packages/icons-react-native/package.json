@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-react-native",
-  "version": "3.31.0",
+  "version": "3.33.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -30,7 +30,7 @@
       },
       "import": {
         "types": "./dist/esm/tabler-icons-react-native.d.ts",
-        "default": "./dist/esm/tabler-icons-react-native.cjs"
+        "default": "./dist/esm/tabler-icons-react-native.mjs"
       }
     }
   },
@@ -48,7 +48,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.31.0"
+    "@tabler/icons": "3.33.0"
   },
   "devDependencies": {
     "@testing-library/react": "^14.2.1",
