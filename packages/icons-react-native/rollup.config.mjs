@@ -11,6 +11,7 @@ const bundles = [
     format: 'cjs',
     inputs,
     extension: 'cjs',
+    preserveModules: true,
   },
   {
     format: 'esm',
