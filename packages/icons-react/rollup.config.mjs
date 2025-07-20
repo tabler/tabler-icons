@@ -18,6 +18,13 @@ const bundles = [
     preserveModules: true,
     inputs,
   },
+  {
+    format: 'esm',
+    extension: 'mjs',
+    preserveModules: true,
+    inputs: ['./src/dynamic-imports.ts'],
+    external: [/src\/icons/],
+  },
 ];
 
 export default [

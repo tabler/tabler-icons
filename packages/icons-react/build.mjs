@@ -17,13 +17,12 @@ const Icon${namePascal} = createReactComponent('${type}', '${name}', '${namePasc
 export default Icon${namePascal};`;
 
 const indexItemTemplate = ({ name, namePascal }) =>
-  `export { default as Icon${namePascal} } from './${name}';`;
+  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 
-const aliasTemplate = ({ fromPascal, to }) =>
-  `export { default as Icon${fromPascal} } from './icons/${to}';\n`;
+const aliasTemplate = ({ fromPascal, toPascal }) =>
+  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
 
 buildJsIcons({
-  pascalName: false,
   name: 'icons-react',
   componentTemplate,
   indexItemTemplate,

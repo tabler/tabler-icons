@@ -29,11 +29,22 @@ See the LICENSE file in the root directory of this source tree.`
 
 export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
   return bundles
-    .map(({ inputs, format, minify, preserveModules, outputDir = 'dist', extension = 'js', exports = 'named' }) => {
+    .map(({
+      inputs,
+      format,
+      minify,
+      preserveModules,
+      outputDir = 'dist',
+      extension = 'js',
+      exports = 'named',
+      outputFile,
+      external = [],
+      paths
+    }) => {
       return inputs.map(input => ({
         input,
         plugins: getRollupPlugins(pkg, minify),
-        external: Object.keys(globals),
+        external: [...Object.keys(globals), ...external],
         output: {
           name: pkg.name,
           ...(preserveModules
@@ -42,14 +53,15 @@ export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
               entryFileNames: `[name].${extension}`,
             }
             : {
-              file: `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.${extension}`,
+              file: outputFile ?? `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.${extension}`,
             }),
           format,
           sourcemap: true,
           preserveModules,
           preserveModulesRoot: 'src',
-          // exports,
           globals,
+          exports,
+          paths
         },
       }))
     })
