@@ -529,7 +529,7 @@ export const getMaxUnicode = () => {
   let maxUnicode = 0;
 
   files.forEach(function (file) {
-    const svgFile = fs.readFileSync(file).toString();
+    const svgFile = readFileSync(file).toString();
 
     svgFile.replace(/unicode: "([a-f0-9.]+)"/i, function (m, unicode) {
       const newUnicode = parseInt(unicode, 16);
