@@ -1,9 +1,9 @@
-import fs from 'fs';
+import { readdirSync, readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
 import path, { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import svgParse from 'parse-svg-path';
 import svgpath from 'svgpath';
-import * as cheerio from 'cheerio';
+import { load as cheerioLoad } from 'cheerio';
 import { minify } from 'html-minifier';
 import { parseSync } from 'svgson';
 import { optimize } from 'svgo';
@@ -140,7 +140,7 @@ export const getPackageDir = (packageName) => {
  * @returns {any}
  */
 export const getPackageJson = () => {
-  return JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'package.json'), 'utf-8'));
+  return JSON.parse(readFileSync(resolve(HOME_DIR, 'package.json'), 'utf-8'));
 };
 
 /**
@@ -150,11 +150,11 @@ export const getPackageJson = () => {
  * @returns {string[]}
  */
 export const readSvgDirectory = (directory) => {
-  return fs.readdirSync(directory).filter((file) => path.extname(file) === '.svg');
+  return readdirSync(directory).filter((file) => path.extname(file) === '.svg');
 };
 
 export const getAliases = (groupped = false) => {
-  const allAliases = JSON.parse(fs.readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8'));
+  const allAliases = JSON.parse(readFileSync(resolve(HOME_DIR, 'aliases.json'), 'utf-8'));
   const allIcons = getAllIcons();
 
   if (groupped) {
@@ -197,7 +197,7 @@ export const getAliases = (groupped = false) => {
  * @returns {string}
  */
 export const readSvg = (fileName, directory) => {
-  return fs.readFileSync(path.join(directory, fileName), 'utf-8');
+  return readFileSync(path.join(directory, fileName), 'utf-8');
 };
 
 /**
@@ -205,8 +205,8 @@ export const readSvg = (fileName, directory) => {
  * @param dir
  */
 export const createDirectory = (dir) => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+  if (!existsSync(dir)) {
+    mkdirSync(dir);
   }
 };
 
@@ -284,7 +284,7 @@ export function buildIconsObject(svgFiles, getSvg) {
 }
 
 function getSvgContents(svg) {
-  const $ = cheerio.load(svg);
+  const $ = cheerioLoad(svg);
   return minify($('svg').html(), { collapseWhitespace: true });
 }
 
@@ -342,7 +342,7 @@ export const generateIconsPreview = async function (
   files.forEach(function (file, i) {
     const name = file.replace(/^(.*)\/([^\/]+)\/([^.]+).svg$/g, '$2-$3');
 
-    let svgFile = fs.readFileSync(file),
+    let svgFile = readFileSync(file),
       svgFileContent = svgFile.toString();
 
     svgFileContent = createSvgSymbol(svgFileContent, name, stroke);
@@ -362,7 +362,7 @@ export const generateIconsPreview = async function (
 
   console.log(destFile);
 
-  fs.writeFileSync(destFile, svgContent);
+  writeFileSync(destFile, svgContent);
 
   if (png) {
     await createScreenshot(destFile, retina);
@@ -429,9 +429,9 @@ export const getCompileOptions = () => {
     fontForge: 'fontforge',
   };
 
-  if (fs.existsSync('../compile-options.json')) {
+  if (existsSync('../compile-options.json')) {
     try {
-      const tempOptions = JSON.parse(fs.readFileSync('../compile-options.json').toString());
+      const tempOptions = JSON.parse(readFileSync('../compile-options.json').toString());
 
       if (typeof tempOptions !== 'object') {
         throw 'Compile options file does not contain an json object';
@@ -506,7 +506,7 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
   const icons = getAllIcons();
 
   await asyncForEach(Object.entries(icons), async function ([type, svgFiles]) {
-    fs.mkdirSync(path.join(dir, `./${type}`), { recursive: true });
+    mkdirSync(path.join(dir, `./${type}`), { recursive: true });
 
     await asyncForEach(svgFiles, async function (file, i) {
       const distPath = path.join(dir, `./${type}/${file.name}.${extension}`);

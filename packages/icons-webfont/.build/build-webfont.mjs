@@ -1,4 +1,4 @@
-import * as fs from 'node:fs'
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs'
 import template from 'lodash.template'
 import { getPackageDir, getPackageJson, getAliases, types, asyncForEach, toPascalCase } from '../../../.build/helpers.mjs'
 import {buildSvgFont, loadSvgFiles} from "./build-utilities.mjs";
@@ -17,7 +17,7 @@ const strokes = {
 
 const aliases = getAliases(true)
 
-fs.mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
+mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
 
 types.push('all')
 
@@ -44,10 +44,10 @@ for (const strokeName in strokes) {
     const woff2File = await wawoff2.compress(ttfFile);
 
     const fileName = `tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}${type !== 'all' ? `-${type}` : ''}`;
-    //fs.writeFileSync(`${DIR}/dist/fonts/${fileName}.svg`, svgFontFileSource); // for debug
-    fs.writeFileSync(`${DIR}/dist/fonts/${fileName}.ttf`, ttfFile);
-    fs.writeFileSync(`${DIR}/dist/fonts/${fileName}.woff`, woffFile);
-    fs.writeFileSync(`${DIR}/dist/fonts/${fileName}.woff2`, woff2File);
+    //writeFileSync(`${DIR}/dist/fonts/${fileName}.svg`, svgFontFileSource); // for debug
+    writeFileSync(`${DIR}/dist/fonts/${fileName}.ttf`, ttfFile);
+    writeFileSync(`${DIR}/dist/fonts/${fileName}.woff`, woffFile);
+    writeFileSync(`${DIR}/dist/fonts/${fileName}.woff2`, woff2File);
 
     const glyphs = svgFiles.map(f => f.metadata)
       .sort(function (a, b) {
@@ -63,13 +63,13 @@ for (const strokeName in strokes) {
     }
 
     //scss
-    const compiled = template(fs.readFileSync(`${DIR}/.build/iconfont.scss`).toString())
+    const compiled = template(readFileSync(`${DIR}/.build/iconfont.scss`).toString())
     const resultSCSS = compiled(options)
-    fs.writeFileSync(`${DIR}/dist/${fileName}.scss`, resultSCSS)
+    writeFileSync(`${DIR}/dist/${fileName}.scss`, resultSCSS)
 
     //html
-    const compiledHtml = template(fs.readFileSync(`${DIR}/.build/iconfont.html`).toString())
+    const compiledHtml = template(readFileSync(`${DIR}/.build/iconfont.html`).toString())
     const resultHtml = compiledHtml(options)
-    fs.writeFileSync(`${DIR}/dist/${fileName}.html`, resultHtml)
+    writeFileSync(`${DIR}/dist/${fileName}.html`, resultHtml)
   })
 }
