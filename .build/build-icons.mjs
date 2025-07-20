@@ -138,7 +138,7 @@ export const buildIconsDynamicImport = (name) => {
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
         iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;
 
-      dynamicImportString += `  '${iconName}': () => import('./icons/${iconNamePascal}'),\n`;
+      dynamicImportString += `  '${iconName}': () => import('./icons/${iconName}'),\n`;
     });
   });
 

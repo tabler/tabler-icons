@@ -77,7 +77,7 @@ export const getAllIcons = (withContent = false, withObject = false) => {
 
         return {
           name,
-          namePascal: toPascalCase(`icon ${name}`),
+          namePascal: toPascalCase(`${name}`),
           path: i,
           category: data.category || '',
           tags: data.tags || [],
