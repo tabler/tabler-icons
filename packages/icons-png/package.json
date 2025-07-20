@@ -21,6 +21,7 @@
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
+  "amdName": "TablerIconsPng",
   "files": [
     "icons/**/*.png"
   ],
