@@ -14,7 +14,7 @@ export default createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './${namePascal}';`
+}) => `export { default as Icon${namePascal} } from './Icon${namePascal}';`
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 

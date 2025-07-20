@@ -26,12 +26,8 @@ export default [
     input: inputs[0],
     output: [
       {
-        dir: `dist/esm`,
-        preserveModules: true,
-      },
-      {
-        dir: `dist/cjs`,
-        preserveModules: true,
+        file: `dist/${outputFileName}.d.ts`,
+        format: 'es',
       },
     ],
     plugins: [dts()],

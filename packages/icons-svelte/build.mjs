@@ -28,7 +28,7 @@ const aliasTemplate = ({ fromPascal, to }) => `export { default as Icon${fromPas
 const indexItemTemplate = ({
   name,
   namePascal
-}) => `export { default as ${namePascal} } from './${name}.svelte';`
+}) => `export { default as Icon${namePascal} } from './${name}.svelte';`
 
 buildJsIcons({
   name: 'icons-svelte',

@@ -68,7 +68,7 @@ export const buildJsIcons = ({
       let filePath = path.resolve(
         DIST_DIR,
         'src/icons',
-        `${pascalName ? iconNamePascal : iconName}.${extension}`,
+        `${pascalName ? `Icon${iconNamePascal}` : iconName}.${extension}`,
       );
       fs.writeFileSync(filePath, component, 'utf-8');
 
@@ -138,7 +138,7 @@ export const buildIconsDynamicImport = (name) => {
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
         iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;
 
-      dynamicImportString += `  '${iconName}': () => import('./icons/${iconNamePascal}'),\n`;
+      dynamicImportString += `  '${iconName}': () => import('./icons/Icon${iconNamePascal}'),\n`;
     });
   });
 
