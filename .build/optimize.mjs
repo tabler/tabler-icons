@@ -71,6 +71,31 @@ types.forEach(type => {
       .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
       .replace(/\n\s+\n+/g, '\n')
 
+    // Merge multiple paths into a single path
+    const pathMatches = svgFileContent.match(/<path[^>]*d="([^"]+)"[^>]*\/>/g)
+    if (pathMatches && pathMatches.length > 1) {
+      // Extract all d attributes
+      const dValues = pathMatches.map(pathElement => {
+        const match = pathElement.match(/d="([^"]+)"/)
+        return match ? match[1] : ''
+      }).filter(d => d)
+      
+      if (dValues.length > 1) {
+        // Concatenate all path commands
+        const mergedD = dValues.join('')
+        
+        // Get the first path index and last path index
+        const firstPathIndex = svgFileContent.indexOf(pathMatches[0])
+        const lastPathIndex = svgFileContent.lastIndexOf(pathMatches[pathMatches.length - 1])
+        const lastPathEnd = lastPathIndex + pathMatches[pathMatches.length - 1].length
+        
+        // Replace all paths with a single merged path
+        const beforePaths = svgFileContent.substring(0, firstPathIndex)
+        const afterPaths = svgFileContent.substring(lastPathEnd)
+        svgFileContent = beforePaths + `  <path d="${mergedD}" />` + afterPaths
+      }
+    }
+
     // Add icon template
     svgFileContent = svgFileContent.replace(/<svg[^>]+>/, iconTemplate(type))
 
