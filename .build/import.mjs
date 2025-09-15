@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs'
+import { readFileSync, existsSync, writeFileSync } from 'fs'
 import { glob } from 'glob'
 import { resolve, basename } from 'path'
 import { HOME_DIR, optimizeSVG, iconTemplate, types } from './helpers.mjs'
@@ -63,7 +63,7 @@ types.forEach(type => {
         .replace(/^\s*[\r\n]/gm, '')
     }
 
-    if (fs.existsSync(`./icons/${type}/${filename}.svg`)) {
+    if (existsSync(`./icons/${type}/${filename}.svg`)) {
       const newFileData = fs.readFileSync(`./icons/${type}/${filename}.svg`).toString()
       const m = newFileData.match(/(<!--.*-->)/gms)
 
@@ -79,6 +79,6 @@ types.forEach(type => {
     }
 
 
-    fs.writeFileSync(`./icons/${type}/${filename}.svg`, fileData)
+    writeFileSync(`./icons/${type}/${filename}.svg`, fileData)
   })
 })
