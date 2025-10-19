@@ -1,0 +1,67 @@
+{
+  "name": "@tabler/icons-svelte-v5",
+  "version": "3.35.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-svelte"
+  },
+  "svelte": "./dist/tabler-icons-svelte.js",
+  "types": "./dist/tabler-icons-svelte.d.ts",
+  "type": "module",
+  "amdName": "TablerIconsSvelte",
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-svelte.d.ts",
+      "svelte": "./dist/tabler-icons-svelte.js",
+      "default": "./dist/tabler-icons-svelte.js"
+    },
+    "./icons": {
+      "types": "./dist/tabler-icons-svelte.d.ts",
+      "svelte": "./dist/tabler-icons-svelte.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.svelte.d.ts",
+      "svelte": "./dist/icons/*.svelte"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:package",
+    "build:icons": "node build.mjs",
+    "build:package": "svelte-package --input ./src",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "test": "vitest run",
+    "imports-check": "attw $(npm pack)"
+  },
+  "dependencies": {
+    "@tabler/icons": "3.35.0"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.3.7",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@testing-library/svelte": "^5.2.8",
+    "@tsconfig/svelte": "^5.0.5",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "svelte-preprocess": "^6.0.0"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  }
+}
