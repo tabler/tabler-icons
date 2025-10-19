@@ -1,6 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { render, cleanup } from "@testing-library/svelte";
-import { IconAccessible, IconAccessibleFilled } from "./src/tabler-icons-svelte";
+import { IconAccessible, IconAccessibleFilled } from "../src/tabler-icons-svelte.js";
+import TestChildren from "./TestChildren.svelte";
 
 describe("Svelte Icon component", () => {
   afterEach(() => cleanup())
@@ -40,7 +41,7 @@ describe("Svelte Icon component", () => {
     const { container } = render(IconAccessible, {
       size: 48,
       color: "red",
-      stroke: 4,
+      strokeWidth: 4,
     });
 
     const svg = container.getElementsByTagName("svg")[0];
@@ -67,8 +68,8 @@ describe("Svelte Icon component", () => {
 
   it("should match snapshot", () => {
     const { container } = render(IconAccessible);
+    expect(container.innerHTML).toMatchSnapshot();
     expect(container.innerHTML).toMatchInlineSnapshot(`
-      <div>
         <svg xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
@@ -78,7 +79,7 @@ describe("Svelte Icon component", () => {
              stroke-width="2"
              stroke-linecap="round"
              stroke-linejoin="round"
-             class="tabler-icon tabler-icon-accessible "
+             class="tabler-icon tabler-icon-accessible"
         >
           <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
           </path>
@@ -91,7 +92,14 @@ describe("Svelte Icon component", () => {
           >
           </circle>
         </svg>
-      </div>
     `);
+  });
+
+  it('should render an icon slot', () => {
+    const { container, getByText } = render(TestChildren);
+
+    const textElement = getByText('Test');
+    expect(textElement).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,0 +1,123 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Svelte Icon component > should match snapshot 1`] = `
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewbox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     class="tabler-icon tabler-icon-accessible"
+>
+  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
+  </path>
+  <path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1">
+  </path>
+  <circle cx="12"
+          cy="7.5"
+          r=".5"
+          fill="currentColor"
+  >
+  </circle>
+</svg>
+`;
+
+exports[`Svelte Icon component > should render an icon slot 1`] = `
+<div>
+  <svg
+    class="tabler-icon tabler-icon-accessible"
+    fill="none"
+    height="24"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!---->
+    <path
+      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+    >
+      
+    </path>
+    
+    <!---->
+    <path
+      d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1"
+    >
+      
+    </path>
+    
+    <!---->
+    <circle
+      cx="12"
+      cy="7.5"
+      fill="currentColor"
+      r=".5"
+    >
+      
+    </circle>
+    
+    <!---->
+    <!---->
+    <text>
+      Test
+    </text>
+    
+    <!---->
+  </svg>
+  
+</div>
+`;
+
+exports[`Svelte Icon component > should render icon component 1`] = `
+<div>
+  <svg
+    class="tabler-icon tabler-icon-accessible"
+    fill="none"
+    height="24"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <!---->
+    <path
+      d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+    >
+      
+    </path>
+    
+    <!---->
+    <path
+      d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1"
+    >
+      
+    </path>
+    
+    <!---->
+    <circle
+      cx="12"
+      cy="7.5"
+      fill="currentColor"
+      r=".5"
+    >
+      
+    </circle>
+    
+    <!---->
+    <!---->
+    
+    <!---->
+  </svg>
+  
+</div>
+`;
