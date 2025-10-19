@@ -1,5 +1,7 @@
 export * from "./icons/index.js";
 export * as icons from "./icons/index.js";
-export * as iconsList from './icons-list';
+export * as iconsList from './icons-list.js';
 export * from "./aliases.js";
-export { default as defaultAttributes } from './defaultAttributes'
+export { default as defaultAttributes } from './defaultAttributes.js'
+export * from "./types.js";
+export { default as Icon } from "./Icon.svelte";
