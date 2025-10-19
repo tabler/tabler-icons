@@ -13,17 +13,24 @@
     children,
     ...props
   }: IconProps = $props();
+
+  console.log(JSON.stringify(props));
 </script>
 
 <svg
-  {...defaultAttributes}
+  {...defaultAttributes[type]}
   {...props}
   width={size}
   height={size}
-  {...type === 'filled' ? { fill: color } : {
-    stroke: color,
-    'stroke-width': absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth,
-  }}
+  {...(
+    type === 'filled' ?
+      { fill: color } :
+      {
+        'stroke-width': absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth,
+        stroke: color,
+      }
+      )
+    }
   class={[`tabler-icon tabler-icon-${name}`, props.class].filter(Boolean).join(' ')}
 >
   {#each iconNode as [tag, attrs]}
