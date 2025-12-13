@@ -1,0 +1,83 @@
+{
+  "name": "@tabler/icons-svelte-runes",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for Svelte 5+ using runes",
+  "homepage": "https://tabler-icons.io",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-svelte-runes"
+  },
+  "svelte": "./dist/tabler-icons-svelte-runes.js",
+  "types": "./dist/tabler-icons-svelte-runes.d.ts",
+  "type": "module",
+  "amdName": "TablerIconsSvelteRunes",
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-svelte-runes.d.ts",
+      "svelte": "./dist/tabler-icons-svelte-runes.js",
+      "default": "./dist/tabler-icons-svelte-runes.js"
+    },
+    "./icons": {
+      "types": "./dist/tabler-icons-svelte-runes.d.ts",
+      "svelte": "./dist/tabler-icons-svelte-runes.js"
+    },
+    "./icons/*": {
+      "types": "./dist/icons/*.svelte.d.ts",
+      "svelte": "./dist/icons/*.svelte"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "svelte",
+    "svelte5",
+    "runes",
+    "icons",
+    "svg",
+    "tabler",
+    "tabler-icons",
+    "svelte-runes",
+    "ui"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:package",
+    "build:icons": "node build.mjs",
+    "build:package": "svelte-package --input ./src",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "test": "vitest run",
+    "imports-check": "attw $(npm pack)"
+  },
+  "dependencies": {
+    "@tabler/icons": "3.35.0"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.3.7",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/svelte": "^5.2.9",
+    "@tsconfig/svelte": "^5.0.4",
+    "jest-serializer-html": "^7.1.0",
+    "jsdom": "^25.0.1",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^7.2.7",
+    "vitest": "^3.0.8"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  }
+}
