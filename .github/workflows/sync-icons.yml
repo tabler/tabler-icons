@@ -1,0 +1,105 @@
+name: Sync Icons to CDN
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'icons/**'
+
+  workflow_dispatch:
+
+jobs:
+  sync-icons:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync icons and create release tag
+        id: sync
+        run: |
+          CDN_BRANCH="icons"
+          SOURCE_FOLDER="icons"
+
+          if [ ! -d "$SOURCE_FOLDER" ]; then
+            echo "No $SOURCE_FOLDER folder found"
+            exit 0
+          fi
+
+          # Get version from package.json
+          VERSION=$(node -p "require('./package.json').version")
+          VERSION_TAG="icons-v${VERSION}"
+
+          echo "Package version: $VERSION"
+          echo "Tag: $VERSION_TAG"
+
+          # Check if tag already exists
+          if git ls-remote --tags origin | grep -q "refs/tags/${VERSION_TAG}$"; then
+            echo "Tag $VERSION_TAG already exists, skipping"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Store icons in temp location
+          mkdir -p /tmp/icons-sync
+          cp -r $SOURCE_FOLDER/* /tmp/icons-sync/
+
+          MAIN_SHA=$(git rev-parse --short HEAD)
+
+          # Setup CDN branch
+          if git ls-remote --heads origin $CDN_BRANCH | grep -q $CDN_BRANCH; then
+            git checkout $CDN_BRANCH
+            find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
+          else
+            git checkout --orphan $CDN_BRANCH
+            git rm -rf .
+          fi
+
+          # Copy icons to root
+          cp -r /tmp/icons-sync/* .
+
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "No changes to sync"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          git commit -m "v${VERSION}"
+          git push -u origin $CDN_BRANCH --force-with-lease
+
+          # Create versioned tag
+          git tag $VERSION_TAG
+          git push origin $VERSION_TAG
+
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "version_tag=$VERSION_TAG" >> $GITHUB_OUTPUT
+
+      - name: Output CDN URLs
+        if: steps.sync.outputs.has_changes == 'true'
+        run: |
+          REPO="${{ github.repository }}"
+          TAG="${{ steps.sync.outputs.version_tag }}"
+
+          echo "═══════════════════════════════════════════════════════════"
+          echo "  CDN URLs"
+          echo "═══════════════════════════════════════════════════════════"
+          echo ""
+          echo "  https://cdn.jsdelivr.net/gh/${REPO}@${TAG}/<filename>"
+          echo ""
+          echo "  Browse: https://cdn.jsdelivr.net/gh/${REPO}@${TAG}/"
+          echo ""
+          echo "═══════════════════════════════════════════════════════════"
