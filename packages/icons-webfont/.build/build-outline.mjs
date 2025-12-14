@@ -62,19 +62,21 @@ const buildOutline = async () => {
         const filename = `u${unicode.toUpperCase()}-${name}.svg`
         const filePath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`)
         
-        // Check cache
-        if (fs.existsSync(filePath)) {
-          let cachedContent = fs.readFileSync(filePath, 'utf-8')
+        // Check cache (try/catch faster than existsSync + readFileSync)
+        try {
+          const cachedContent = fs.readFileSync(filePath, 'utf-8')
           let cachedHash = ''
-          cachedContent = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
+          const contentWithoutHash = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
             cachedHash = hash
             return ''
           })
           
-          if (crypto.createHash('sha1').update(cachedContent).digest("hex") === cachedHash) {
+          if (cachedHash && crypto.createHash('sha1').update(contentWithoutHash).digest("hex") === cachedHash) {
             cached++
             return
           }
+        } catch (e) {
+          // File doesn't exist, will be created
         }
         
         // Prepare content
@@ -135,11 +137,13 @@ const buildOutline = async () => {
         const iconName = `u${unicode.toUpperCase()}-${name}`
         const srcPath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`)
         
-        if (fs.existsSync(srcPath)) {
+        try {
           fs.copyFileSync(
             srcPath,
             resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
           )
+        } catch (e) {
+          // Source file doesn't exist, skip
         }
       }
     }
