@@ -64,7 +64,7 @@ types.forEach(type => {
     }
 
     if (existsSync(`./icons/${type}/${filename}.svg`)) {
-      const newFileData = fs.readFileSync(`./icons/${type}/${filename}.svg`).toString()
+      const newFileData = readFileSync(`./icons/${type}/${filename}.svg`).toString()
       const m = newFileData.match(/(<!--.*-->)/gms)
 
       if (m) {
