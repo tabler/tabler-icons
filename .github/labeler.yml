@@ -38,11 +38,17 @@
       - any-glob-to-any-file:
           - 'packages/icons-preact/*'
 
-# For Svelte package
+# For Svelte 4 and below package
 🔗 svelte package:
   - changed-files:
       - any-glob-to-any-file:
           - 'packages/icons-svelte/*'
+
+# For Svelte 5 package
+🔗 svelte-runes package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-svelte-runes/*'
 
 # For SolidJS package
 🔗 solid package:
