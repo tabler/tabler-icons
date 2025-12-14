@@ -232,7 +232,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
-### Svelte
+### Svelte 4 and below
 
 Svelte components available through [`@tabler/icons-svelte`](https://github.com/tabler/tabler-icons/tree/master/packages/icons-svelte) package.
 
@@ -244,6 +244,21 @@ Svelte components available through [`@tabler/icons-svelte`](https://github.com/
 <main>
   <IconHeart size={48} stroke={1} />
   <IconHeart size="32" stroke="1.5" />
+  <IconHeart color="crimson" class="p-1" size="96" stroke="2" />
+</main>
+```
+
+### Svelte 5
+Svelte 5 components available through [`@tabler/icons-svelte-runes`](https://www.npmjs.com/package/@tabler/icons-svelte-runes) package.
+
+```js
+<script lang="ts">
+  import { IconHeart } from '@tabler/icons-svelte-runes';
+</script>
+
+<main>
+  <IconHeart size={48} stroke={1} />
+  <IconHeart size="32" stroke={1.5} />
   <IconHeart color="crimson" class="p-1" size="96" stroke="2" />
 </main>
 ```
