@@ -57,6 +57,19 @@ const buildOutline = async () => {
       let processed = 0
       let cached = 0
       const total = iconsToProcess.length
+      const startTime = Date.now()
+      
+      // Progress update interval (every 50 icons to avoid console spam)
+      let lastProgress = 0
+      const showProgress = () => {
+        const done = processed + cached
+        if (done - lastProgress >= 50 || done === total) {
+          const percent = Math.round((done / total) * 100)
+          const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+          process.stdout.write(`\r[${strokeName}/${type}] ${done}/${total} (${percent}%) - ${elapsed}s`.padEnd(60))
+          lastProgress = done
+        }
+      }
       
       await parallelLimit(iconsToProcess, async ({ name, content, unicode }) => {
         const filename = `u${unicode.toUpperCase()}-${name}.svg`
@@ -73,6 +86,7 @@ const buildOutline = async () => {
           
           if (cachedHash && crypto.createHash('sha1').update(contentWithoutHash).digest("hex") === cachedHash) {
             cached++
+            showProgress()
             return
           }
         } catch (e) {
@@ -109,12 +123,14 @@ const buildOutline = async () => {
           fs.writeFileSync(filePath, finalContent + hashString, 'utf-8')
           
           processed++
+          showProgress()
         } catch (error) {
           console.error(`\nError processing ${strokeName}/${type}/${name}:`, error.message)
         }
       }, 64) // 64 concurrent tasks
       
-      console.log(`Stroke ${strokeName}/${type}: ${processed} processed, ${cached} cached`)
+      const totalTime = ((Date.now() - startTime) / 1000).toFixed(1)
+      console.log(`\n[${strokeName}/${type}] Done: ${processed} processed, ${cached} cached in ${totalTime}s`)
     }
 
     // Remove old files
@@ -128,25 +144,28 @@ const buildOutline = async () => {
       })
     }
 
-    // Copy icons to all directory
+    // Copy icons to all directory (parallel)
     fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/all`), { recursive: true })
     
+    const copyTasks = []
     for (const [type, typeIcons] of Object.entries(icons)) {
       for (const { name, unicode } of typeIcons) {
         if (!unicode) continue
-        const iconName = `u${unicode.toUpperCase()}-${name}`
-        const srcPath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`)
-        
-        try {
-          fs.copyFileSync(
-            srcPath,
-            resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
-          )
-        } catch (e) {
-          // Source file doesn't exist, skip
-        }
+        copyTasks.push({ type, name, unicode })
       }
     }
+    
+    await parallelLimit(copyTasks, async ({ type, name, unicode }) => {
+      const iconName = `u${unicode.toUpperCase()}-${name}`
+      const srcPath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`)
+      const destPath = resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
+      
+      try {
+        fs.copyFileSync(srcPath, destPath)
+      } catch (e) {
+        // Source file doesn't exist, skip
+      }
+    }, 128) // High concurrency for simple I/O
     
     console.log(`Stroke ${strokeName}: completed`)
   }))
