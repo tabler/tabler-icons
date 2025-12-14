@@ -35,11 +35,11 @@ const strokes = {
 const buildOutline = async () => {
   const icons = getAllIcons(true)
   const compileOptions = getCompileOptions()
-  
-  // Process all strokes in parallel
+
+  // Process all strokes in parallel (200, 300, 400 at once)
   await Promise.all(Object.entries(strokes).map(async ([strokeName, stroke]) => {
     let filesList = {}
-    
+
     for (const [type, typeIcons] of Object.entries(icons)) {
       fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/${type}`), { recursive: true })
       
@@ -50,8 +50,8 @@ const buildOutline = async () => {
         return true
       })
       
-      // Collect filenames for later cleanup
-      filesList[type] = iconsToProcess.map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
+      // Collect filenames for later cleanup (Set for O(1) lookup)
+      filesList[type] = new Set(iconsToProcess.map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`))
       
       // Process icons in parallel with concurrency limit
       let processed = 0
@@ -110,7 +110,7 @@ const buildOutline = async () => {
         } catch (error) {
           console.error(`\nError processing ${strokeName}/${type}/${name}:`, error.message)
         }
-      }, 32) // 32 concurrent tasks
+      }, 64) // 64 concurrent tasks
       
       console.log(`Stroke ${strokeName}/${type}: ${processed} processed, ${cached} cached`)
     }
@@ -119,7 +119,7 @@ const buildOutline = async () => {
     for (const [type] of Object.entries(icons)) {
       const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
       existedFiles.forEach(file => {
-        if (filesList[type].indexOf(file) === -1) {
+        if (!filesList[type].has(file)) {
           console.log('Remove:', file)
           fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
         }
