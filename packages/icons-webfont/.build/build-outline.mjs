@@ -4,7 +4,8 @@ import fs from 'fs'
 import { resolve, basename } from 'path'
 import crypto from 'crypto'
 import { glob } from 'glob'
-import { execSync } from 'child_process'
+import { optimize } from 'svgo'
+import { fixOutline } from './fix-outline.mjs'
 
 const DIR = getPackageDir('icons-webfont')
 
@@ -75,24 +76,20 @@ const buildOutline = async () => {
               fixedWidth: false,
               color: 'black'
             }).then(outlined => {
-              // Save file
-              fs.writeFileSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`), outlined, 'utf-8')
+              // Fix outline direction (using JS instead of fontforge)
+              const fixed = fixOutline(outlined)
+              
+              // Optimize with svgo (in memory, no subprocess)
+              const optimized = optimize(fixed, { multipass: true }).data
+              
+              // Prepare final content with hash
+              const finalContent = optimized.replace(/\n/g, ' ').trim()
+              const hashString = `<!--!cache:${crypto.createHash('sha1').update(finalContent).digest("hex")}-->`
 
-              // Fix outline
-              execSync(`fontforge -lang=py -script .build/fix-outline.py icons-outlined/${strokeName}/${type}/${filename}`).toString()
-              execSync(`svgo icons-outlined/${strokeName}/${type}/${filename}`).toString()
-
-              // Add hash
-              const fixedFileContent = fs
-                .readFileSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`), 'utf-8')
-                .replace(/\n/g, ' ')
-                .trim(),
-                hashString = `<!--!cache:${crypto.createHash('sha1').update(fixedFileContent).digest("hex")}-->`
-
-              // Save file
+              // Save file (single write instead of 3 file operations)
               fs.writeFileSync(
                 resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`),
-                fixedFileContent + hashString,
+                finalContent + hashString,
                 'utf-8'
               )
             }).catch(error => console.log(error))
