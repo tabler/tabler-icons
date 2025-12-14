@@ -13,6 +13,5 @@ glyph.simplify()
 glyph.simplify()
 glyph.correctDirection()
 glyph.export("./" + file)
-glyph.clear()
 
 print ("Finished fixing svg outline directions!")

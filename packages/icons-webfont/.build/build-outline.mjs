@@ -28,8 +28,6 @@ const buildOutline = async () => {
       filesList[type] = []
 
       await asyncForEach(icons, async function ({ name, content, unicode }) {
-        console.log(type, name);
-
         if (compileOptions.includeIcons.length === 0 || compileOptions.includeIcons.indexOf(name) >= 0) {
 
           if (unicode) {
