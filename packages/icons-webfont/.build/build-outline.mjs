@@ -33,14 +33,13 @@ const strokes = {
 }
 
 const buildOutline = async () => {
-  let filesList = {}
   const icons = getAllIcons(true)
-
   const compileOptions = getCompileOptions()
-
-  for (const strokeName in strokes) {
-    const stroke = strokes[strokeName]
-
+  
+  // Process all strokes in parallel
+  await Promise.all(Object.entries(strokes).map(async ([strokeName, stroke]) => {
+    let filesList = {}
+    
     for (const [type, typeIcons] of Object.entries(icons)) {
       fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/${type}`), { recursive: true })
       
@@ -56,6 +55,7 @@ const buildOutline = async () => {
       
       // Process icons in parallel with concurrency limit
       let processed = 0
+      let cached = 0
       const total = iconsToProcess.length
       
       await parallelLimit(iconsToProcess, async ({ name, content, unicode }) => {
@@ -72,8 +72,7 @@ const buildOutline = async () => {
           })
           
           if (crypto.createHash('sha1').update(cachedContent).digest("hex") === cachedHash) {
-            processed++
-            process.stdout.write(`\rStroke ${strokeName}/${type}: ${processed}/${total} (cached: ${name})`.padEnd(80))
+            cached++
             return
           }
         }
@@ -108,17 +107,16 @@ const buildOutline = async () => {
           fs.writeFileSync(filePath, finalContent + hashString, 'utf-8')
           
           processed++
-          process.stdout.write(`\rStroke ${strokeName}/${type}: ${processed}/${total} (${name})`.padEnd(80))
         } catch (error) {
-          console.error(`\nError processing ${name}:`, error.message)
+          console.error(`\nError processing ${strokeName}/${type}/${name}:`, error.message)
         }
       }, 32) // 32 concurrent tasks
       
-      console.log() // New line after progress
+      console.log(`Stroke ${strokeName}/${type}: ${processed} processed, ${cached} cached`)
     }
 
     // Remove old files
-    await asyncForEach(Object.entries(icons), async ([type, icons]) => {
+    for (const [type] of Object.entries(icons)) {
       const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
       existedFiles.forEach(file => {
         if (filesList[type].indexOf(file) === -1) {
@@ -126,27 +124,28 @@ const buildOutline = async () => {
           fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
         }
       })
-    })
+    }
 
-    // Copy icons from firs to all directory
-    await asyncForEach(Object.entries(icons), async ([type, icons]) => {
-      fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/all`), { recursive: true })
-
-      await asyncForEach(icons, async function ({ name, unicode }) {
+    // Copy icons to all directory
+    fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/all`), { recursive: true })
+    
+    for (const [type, typeIcons] of Object.entries(icons)) {
+      for (const { name, unicode } of typeIcons) {
+        if (!unicode) continue
         const iconName = `u${unicode.toUpperCase()}-${name}`
-
-        if (fs.existsSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`))) {
-          // Copy file
-          console.log(`Copy ${iconName} to all directory`)
-
+        const srcPath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`)
+        
+        if (fs.existsSync(srcPath)) {
           fs.copyFileSync(
-            resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`),
+            srcPath,
             resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
           )
         }
-      })
-    })
-  }
+      }
+    }
+    
+    console.log(`Stroke ${strokeName}: completed`)
+  }))
 
   console.log('Done')
 }
