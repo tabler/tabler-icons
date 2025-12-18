@@ -4,7 +4,6 @@ import fs from 'fs'
 import { resolve, basename } from 'path'
 import crypto from 'crypto'
 import { glob } from 'glob'
-import { optimize } from 'svgo'
 import { fixOutline } from './fix-outline.mjs'
 import os from 'os'
 
@@ -112,11 +111,8 @@ const buildOutline = async () => {
           // Fix outline direction (using JS instead of fontforge)
           const fixed = fixOutline(outlined)
           
-          // Optimize with svgo (in memory, no subprocess)
-          const optimized = optimize(fixed, { multipass: true }).data
-          
           // Prepare final content with hash
-          const finalContent = optimized.replace(/\n/g, ' ').trim()
+          const finalContent = fixed.replace(/\n/g, ' ').trim()
           const hashString = `<!--!cache:${crypto.createHash('sha1').update(finalContent).digest("hex")}-->`
           
           // Save file
