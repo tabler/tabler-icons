@@ -1,6 +1,7 @@
 import { describe, it, expect, afterEach, expectTypeOf } from 'vitest';
 import { render, cleanup } from '@testing-library/react'
 import { IconAccessible, IconAccessibleFilled, createReactComponent } from "./src/tabler-icons-react"
+import type { TablerIcon } from "./src/types"
 
 describe("React Icon component", () => {
   afterEach(() => {
@@ -54,6 +55,11 @@ describe("React Icon component", () => {
   it('should have proper type', () => {
     expectTypeOf(IconAccessible).toBeFunction();
     expectTypeOf(IconAccessible).toEqualTypeOf(createReactComponent('outline', 'accessible', 'Accessible', []));
+  });
+
+  it('should match TablerIcon type', () => {
+    expectTypeOf(IconAccessible).toMatchTypeOf<TablerIcon>();
+    expectTypeOf(IconAccessibleFilled).toMatchTypeOf<TablerIcon>();
   });
 
   it('should add title child element to svg when title prop is passed', () => {

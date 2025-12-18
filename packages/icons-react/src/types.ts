@@ -12,4 +12,4 @@ export interface IconProps extends Partial<Omit<React.ComponentPropsWithoutRef<'
 
 export type Icon = FunctionComponent<IconProps>;
 
-export type TablerIcon = ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<Icon>>;
+export type TablerIcon = ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
