@@ -4,12 +4,8 @@ import { resolve, basename } from 'path'
 import { glob } from 'glob'
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander'
 import spo from 'svg-path-outline'
-// import paper from 'paper'
 
 const DIR = getPackageDir('icons-webfont')
-
-// Initialize paper.js
-// paper.setup()
 
 const strokes = {
   200: 1,
@@ -145,20 +141,6 @@ const splitPaths = (svgBuffer) => {
   return svgBuffer
 }
 
-const reorientPath = (svgBuffer) => {
-  let result = svgBuffer
-
-  // const pathRegex = /<path.*?d="([^"]+)"/g
-  // const matches = [...svgBuffer.matchAll(pathRegex)]
-  // for (const match of matches) {
-  //   const originalPath = match[1]
-  //   const compoundPath = new paper.CompoundPath(originalPath)
-  //   const newPath = compoundPath.reorient(false, false).pathData
-  //   result = result.replace(originalPath, newPath)
-  // }
-  return result
-}
-
 const offsetPath = (svgBuffer, offset) => {
   svgBuffer = svgBuffer.replaceAll(/<path[^>]*d="([^"]*)"/g, (match, p1) => {
     let newPath = spo(new SVGPathCommander(p1).toAbsolute().toString(), offset, {
@@ -231,7 +213,6 @@ const buildOutline = async () => {
 
           svgContent = splitPaths(svgContent)
           svgContent = offsetPath(svgContent, offset)
-          svgContent = reorientPath(svgContent)
 
           // Save file
           fs.writeFileSync(filePath, svgContent, 'utf-8')
@@ -259,25 +240,6 @@ const buildOutline = async () => {
       })
     }
 
-    // Copy icons to all directory (sequential)
-    fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/all`), { recursive: true })
-    
-    for (const [type, typeIcons] of Object.entries(icons)) {
-      for (const { name, unicode } of typeIcons) {
-        if (!unicode) continue
-        
-        const iconName = `u${unicode.toUpperCase()}-${name}`
-        const srcPath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${iconName}.svg`)
-        const destPath = resolve(DIR, `icons-outlined/${strokeName}/all/${iconName}${type !== 'outline' ? `-${type}` : ''}.svg`)
-        
-        try {
-          fs.copyFileSync(srcPath, destPath)
-        } catch (e) {
-          // Source file doesn't exist, skip
-        }
-      }
-    }
-    
     console.log(`Stroke ${strokeName}: completed`)
   }
 
