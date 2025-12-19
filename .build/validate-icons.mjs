@@ -44,6 +44,14 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for SVG elements that should be converted to path
+    const invalidElements = ['<circle', '<rect', '<ellipse', '<line', '<polygon', '<polyline']
+    const foundInvalidElements = invalidElements.filter(el => iconContent.includes(el))
+    if (foundInvalidElements.length > 0) {
+      console.log(`⛔️ Icon \`${iconName}\` contains elements that should be converted to path: ${foundInvalidElements.join(', ')}`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 

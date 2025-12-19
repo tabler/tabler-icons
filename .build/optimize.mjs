@@ -24,8 +24,8 @@ types.forEach(type => {
       .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function (f, x1, y1, x2, y2) {
         return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
       })
-      .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function (f, cx, cy, r) {
-        return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
+      .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"([^>]*)?\/>/g, function (f, cx, cy, r, attrs) {
+        return `<path d="M ${cx - r} ${cy}a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0"${attrs}/>`
       })
       .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)"\s+\/>/g, function (f, cx, cy, rx) {
         return `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${rx}" />`
@@ -33,8 +33,8 @@ types.forEach(type => {
       .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function (f, cx, cy, rx, ry) {
         return `<path d="M${cx} ${cy}m -${rx} 0a${rx} ${ry} 0 1 0 ${rx * 2} 0a ${rx} ${ry} 0 1 0 -${rx * 2} 0" />`
       })
-      .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)" rx="([^"]+)"\s+\/>/g, function (f, width, height, x, y, rx) {
-        return `<rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" />`
+      .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)"(.*)?\/>/g, function (f, width, height, x, y, attrs) {
+        return `<rect x="${x}" y="${y}" width="${width}" height="${height}"${attrs} />`
       })
       .replace(/<rect x="([^"]+)" y="([^"]+)" rx="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function (f, x, y, rx, width, height) {
         return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
