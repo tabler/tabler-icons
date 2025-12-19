@@ -72,8 +72,8 @@ types.forEach(type => {
       .replace(/<path[^>]*d=["']([^"']*?)a([\d.]+)\s+([\d.]+)\s([01])\s([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)a\2\s+\3\s+([01])\s+([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)z([^"']*?)["']\s+\/>/g, function (match, d, rx, ry, flag1, flag2, extra1, x1, y1, flag3, flag4, extra2, x2, y2, afterZ) {
         return `<path d="${d}a${rx} ${ry} ${flag1} ${flag2} ${extra1} ${x1} ${y1}a${rx} ${ry} ${flag3} ${flag4} ${extra2} ${x2} ${y2}${afterZ}" />`
       })
-      .replace(/<path[^>]*d=["']([^"']*?)M([0-9.-])\s([0-9.-])m([0-9.-])\s([0-9.-])([^"']*?)["']\s+\/>/g, function (match, d, x1, y1, x2, y2, afterM) {
-        return `<path d="${d}M${Number(x1) + Number(x2)} ${Number(y1) + Number(y2)}${afterM}" />`
+      .replace(/<path[^>]*d=["']([^"']*?)M([0-9.-]+)\s([0-9.-]+)m([0-9.-]+)\s([0-9.-]+)([^"']*?)["'](.*)?\/>/g, function (match, d, x1, y1, x2, y2, afterM, attrs) {
+        return `<path d="${d}M${Number(x1) + Number(x2)} ${Number(y1) + Number(y2)}${afterM}"${attrs} />`
       })
       .replace(/\n\s+\n+/g, '\n')
 
