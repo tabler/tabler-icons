@@ -74,6 +74,15 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for path with 'Z' (uppercase) - disallow Z from path
+    if (type === 'outline') {
+      const invalidZRegex = /<path[^>]*d=["'][^"']*Z[^"']*["']\s+\/>/gi
+      if (invalidZRegex.test(iconContent)) {
+        console.log(`⛔️ Icon \`${iconName}\` contains path with 'Z'`)
+        error = true
+      }
+    }
+
     try {
       const { data } = parseMatter(icon)
 
