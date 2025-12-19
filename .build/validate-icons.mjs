@@ -67,6 +67,13 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for path with 'm' (relative move) after 'M' (absolute move)
+    const invalidMAfterMRegex = /<path[^>]*d=["']([^"']*?)M[0-9.-]\s[0-9.-]*?m([^"']*?)["']/g
+    if (invalidMAfterMRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with 'm' (relative move) after 'M' (absolute move)`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
