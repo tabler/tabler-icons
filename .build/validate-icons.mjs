@@ -52,6 +52,14 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for rectangle paths that end with 'z' (should not have closing 'z')
+    // Rectangle paths should have two arc commands next to each other with the same size (rx and ry)
+    const rectanglePathRegex = /<path[^>]*d=["']([^"']*?)a([\d.]+)\s+([\d.]+)\s+[01]\s+[01]\s([0-9.-]+)\s([0-9.-]+)\s[0-9.-]+a\2\s+\3\s+[01]\s+[01]\s[0-9.-]+\s([0-9.-]+)\s([0-9.-]+)z([^"']*?)["']\s+\/>/g
+    if (rectanglePathRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains rectangle path that ends with 'z' (should not have closing 'z')`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 

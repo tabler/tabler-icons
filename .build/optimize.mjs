@@ -69,6 +69,9 @@ types.forEach(type => {
       })
       .replace(/d="m/g, 'd="M')
       .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
+      .replace(/<path[^>]*d=["']([^"']*?)a([\d.]+)\s+([\d.]+)\s([01])\s([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)a\2\s+\3\s+([01])\s+([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)z([^"']*?)["']\s+\/>/g, function (match, d, rx, ry, flag1, flag2, extra1, x1, y1, flag3, flag4, extra2, x2, y2, afterZ) {
+        return `<path d="${d}a${rx} ${ry} ${flag1} ${flag2} ${extra1} ${x1} ${y1}a${rx} ${ry} ${flag3} ${flag4} ${extra2} ${x2} ${y2}${afterZ}" />`
+      })
       .replace(/\n\s+\n+/g, '\n')
 
     // Add icon template
