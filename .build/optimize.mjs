@@ -58,7 +58,6 @@ types.forEach(type => {
         return `<path d="${r1}"`
       })
       .replace(/<path\s+d="([^"]+)"/g, function (f, d) {
-
         const d2 = d
           .replace(/m0 0/g, (f, m) => ``)
           .replace(/ 0\./g, ' .')
@@ -76,6 +75,13 @@ types.forEach(type => {
         return `<path d="${d}M${Number(x1) + Number(x2)} ${Number(y1) + Number(y2)}${afterM}"${attrs} />`
       })
       .replace(/\n\s+\n+/g, '\n')
+      .replace(/<path d="([^"]+)"/g, function (f, d) {
+        const d2 = d
+          .replace(/v0/g, (f, v) => ``)
+          .replace(/h0/g, (f, h) => ``)
+
+        return `<path d="${d2}"`
+      })
 
     // Add icon template
     svgFileContent = svgFileContent.replace(/<svg[^>]+>/, iconTemplate(type))

@@ -90,6 +90,13 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for v0 or h0 (forbidden)
+    const forbiddenV0H0Regex = /<path[^>]*d=["'][^"']*[hv]0[^"']*["']/g
+    if (forbiddenV0H0Regex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains forbidden v0 or h0`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
