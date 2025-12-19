@@ -60,6 +60,13 @@ types.forEach(type => {
       error = true
     }
 
+    // Check for path with 'z' followed by h/v/H/V command (invalid pattern)
+    const invalidZCommandRegex = /<path[^>]*d=["']([^"']*?)z[hvHV]([^"']*?)["']\s+\/>/g
+    if (invalidZCommandRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with 'z' followed by h/v/H/V command (invalid pattern)`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
