@@ -34,7 +34,7 @@ const getAlliasesFlat = () => {
 }
 
 for (const strokeName in strokes) {
-  asyncForEach(types, async type => {
+  await asyncForEach(types, async type => {
     console.log(`Building ${strokeName} webfont for ${type} icons`)
 
     const svgFiles = await loadSvgFiles(`icons-outlined/${strokeName}/${type}`);

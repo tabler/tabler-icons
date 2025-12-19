@@ -354,12 +354,18 @@ importers:
       '@tabler/icons':
         specifier: 3.36.0
         version: link:../icons
+      paper:
+        specifier: ^0.12.17
+        version: 0.12.18
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
       svg-path-commander:
         specifier: ^2.1.11
         version: 2.1.11
+      svg-path-outline:
+        specifier: ^1.0.0
+        version: 1.0.1
     devDependencies:
       sass:
         specifier: ^1.71.1
@@ -4921,6 +4927,10 @@ packages:
       '@babel/types': 7.28.4
     dev: true
 
+  /@types/bezier-js@0.0.6:
+    resolution: {integrity: sha512-kXsAlt8e8N6zt9R6LcMYWB1HkBw3q2g+M9BdI/UE+s4agIONuIscQaRCoInH22+Jas3rw8yLUehL2InaZjyNSA==}
+    dev: false
+
   /@types/chai@5.2.3:
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
     dependencies:
@@ -4981,7 +4991,20 @@ packages:
     resolution: {integrity: sha512-gUuVEAK4/u6F9wRLznPUU4WGUacSEBDPoC2TrBkw3GAnOLHBL45QdfHOXp1kJ4ypBGLxTOB+t7NJLpKoC3gznQ==}
     dependencies:
       undici-types: 7.11.0
-    dev: true
+
+  /@types/node@7.10.14:
+    resolution: {integrity: sha512-29GS75BE8asnTno3yB6ubOJOO0FboExEqNJy4bpz0GSmW/8wPTNL4h9h63c6s1uTrOopCmJYe/4yJLh5r92ZUA==}
+    dev: false
+
+  /@types/opentype.js@0.0.0:
+    resolution: {integrity: sha512-TivKn8w37v7i/UURRL7Q/3s3b5Fojzpa4dlNytI3VSXXjFwepueOzq83SLSTnSHr+eHZy06gtzzaRA0a+udIwg==}
+    dev: false
+
+  /@types/pdfkit@0.7.36:
+    resolution: {integrity: sha512-9eRA6MuW+n78yU3HhoIrDxjyAX2++B5MpLDYqHOnaRTquCw+5sYXT+QN8E1eSaxvNUwlRfU3tOm4UzTeGWmBqg==}
+    dependencies:
+      '@types/node': 24.4.0
+    dev: false
 
   /@types/prop-types@15.7.15:
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
@@ -5783,6 +5806,10 @@ packages:
     resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
     dev: true
 
+  /bezier-js@2.6.1:
+    resolution: {integrity: sha512-jelZM33eNzcZ9snJ/5HqJLw3IzXvA8RFcBjkdOB8SDYyOvW8Y2tTosojAiBTnD1MhbHoWUYNbxUXxBl61TxbRg==}
+    dev: false
+
   /binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
@@ -6284,7 +6311,6 @@ packages:
   /clone@1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
-    dev: true
 
   /clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
@@ -8301,6 +8327,10 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
 
+  /graham_scan@1.0.5:
+    resolution: {integrity: sha512-471KIBS1jOrAHpEStAbOjYI5U7MGBSyqy+wIEnvRYaFDNmpUUhbDZWLRsCSh/OnlY0dCg0NaDyN/2XLoypgIfA==}
+    dev: false
+
   /gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
@@ -9867,6 +9897,18 @@ packages:
       tmpl: 1.0.5
     dev: true
 
+  /makerjs@0.9.93:
+    resolution: {integrity: sha512-XztS2tJEpL01dsZ5P11kGO2MitrD6MsSvkNDS3uUDVN9SVDJn33Q2j9DFruJsiRtqNVRseLK52vkkbWKtLB/tA==}
+    dependencies:
+      '@types/bezier-js': 0.0.6
+      '@types/node': 7.10.14
+      '@types/opentype.js': 0.0.0
+      '@types/pdfkit': 0.7.36
+      bezier-js: 2.6.1
+      clone: 1.0.4
+      graham_scan: 1.0.5
+    dev: false
+
   /markdown-it@13.0.2:
     resolution: {integrity: sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w==}
     hasBin: true
@@ -11046,6 +11088,11 @@ packages:
   /pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
     dev: true
+
+  /paper@0.12.18:
+    resolution: {integrity: sha512-ZSLIEejQTJZuYHhSSqAf4jXOnii0kPhCJGAnYAANtdS72aNwXJ9cP95tZHgq1tnNpvEwgQhggy+4OarviqTCGw==}
+    engines: {node: '>=8.0.0'}
+    dev: false
 
   /param-case@2.1.1:
     resolution: {integrity: sha512-eQE845L6ot89sk2N8liD8HAuH4ca6Vvr7VWAWwt7+kvvG5aBcPmmphQ68JsEG2qa9n1TykS2DLeMt363AAH8/w==}
@@ -13274,6 +13321,12 @@ packages:
       '@thednp/dommatrix': 2.0.12
     dev: false
 
+  /svg-path-outline@1.0.1:
+    resolution: {integrity: sha512-GCXt/gsCbDtzvx2P0Z3z5582i7sBvYCnXlPbO2lAecNxLcdqCvXacgvlviROiqGu4q2ntimurGpTh7vSlaS7Jw==}
+    dependencies:
+      makerjs: 0.9.93
+    dev: false
+
   /svg-pathdata@7.2.0:
     resolution: {integrity: sha512-qd+AxqMpfRrRQaWb2SrNFvn69cvl6piqY8TxhYl2Li1g4/LO5F9NJb5wI4vNwRryqgSgD43gYKLm/w3ag1bKvQ==}
     engines: {node: '>=20.11.1'}
@@ -13711,7 +13764,6 @@ packages:
 
   /undici-types@7.11.0:
     resolution: {integrity: sha512-kt1ZriHTi7MU+Z/r9DOdAI3ONdaR3M3csEaRc6ewa4f4dTvX4cQCbJ4NkEn0ohE4hHtq85+PhPSTY+pO/1PwgA==}
-    dev: true
 
   /undici@7.16.0:
     resolution: {integrity: sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==}

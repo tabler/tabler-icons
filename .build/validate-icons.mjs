@@ -90,10 +90,17 @@ types.forEach(type => {
       error = true
     }
 
-    // Check for v0 or h0 (forbidden)
-    const forbiddenV0H0Regex = /<path[^>]*d=["'][^"']*[hv]0[^"']*["']/g
+    // Check for v0 or h0 (forbidden, but v0.1, h0.5 etc. are allowed)
+    const forbiddenV0H0Regex = /<path[^>]*d="[^"']*[hv]0(?!\.\d)[^"']*"/g
     if (forbiddenV0H0Regex.test(iconContent)) {
       console.log(`⛔️ Icon \`${iconName}\` contains forbidden v0 or h0`)
+      error = true
+    }
+
+    // Check for path with only M command (empty path)
+    const onlyMRegex = /<path[^>]*d=["']\s*[Mm][\s0-9.-]+\s*["']/g
+    if (onlyMRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with only M command (empty path)`)
       error = true
     }
 
