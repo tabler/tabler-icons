@@ -83,6 +83,13 @@ types.forEach(type => {
       }
     }
 
+    // Check for empty path d=""
+    const emptyPathRegex = /<path[^>]*d=["']\s*["']/g
+    if (emptyPathRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains empty path d=""`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
