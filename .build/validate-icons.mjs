@@ -39,6 +39,11 @@ types.forEach(type => {
       error = true
     }
 
+    if (iconContent.includes('M0 0h24v24H0z')) {
+      console.log(`⛔️ Icon \`${iconName}\` contains empty rectangle path \`M0 0h24v24H0z\``)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
