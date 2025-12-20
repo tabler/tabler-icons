@@ -33,7 +33,6 @@ function getEndPoint(segment, startPoint) {
       return [params[4], params[5]];
     case 'S':
       // Smooth Cubic Bezier: S x2 y2 x y
-      // Końcowy punkt to ostatnie dwie wartości
       return [params[2], params[3]];
     case 'Q':
       // Quadratic Bezier: Q x1 y1 x y
@@ -43,7 +42,6 @@ function getEndPoint(segment, startPoint) {
       return [params[0], params[1]];
     case 'A':
       // Arc: A rx ry x-axis-rotation large-arc-flag sweep-flag x y
-      // Końcowy punkt to ostatnie dwie wartości
       return [params[5], params[6]];
     case 'Z':
       return startPoint;
@@ -223,7 +221,7 @@ const buildOutline = async () => {
 
         svgContent = splitPaths(svgContent)
         svgContent = offsetPath(svgContent, offset)
-        
+
         // Save file
         fs.writeFileSync(filePath, svgContent, 'utf-8')
         
