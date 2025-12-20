@@ -19,8 +19,6 @@ const aliases = getAliases(true)
 
 mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
 
-types.push('all')
-
 const getAlliasesFlat = () => {
   let allAliases = {}
 
@@ -35,6 +33,8 @@ const getAlliasesFlat = () => {
 
 for (const strokeName in strokes) {
   await asyncForEach(types, async type => {
+    if (type === 'filled') return
+
     console.log(`Building ${strokeName} webfont for ${type} icons`)
 
     const svgFiles = await loadSvgFiles(`icons-outlined/${strokeName}/${type}`);

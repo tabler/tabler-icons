@@ -15,37 +15,40 @@ const strokes = {
 
 // Function to calculate the end point of a segment
 function getEndPoint(segment, startPoint) {
-  const [command, ...params] = segment
-  const upperCommand = command.toUpperCase()
-  
+  const [command, ...params] = segment;
+  const upperCommand = command.toUpperCase();
+
   switch (upperCommand) {
     case 'M':
-      return [params[0], params[1]]
+      return [params[0], params[1]];
     case 'L':
-      return [params[0], params[1]]
+      return [params[0], params[1]];
     case 'H':
-      return [params[0], startPoint[1]]
+      return [params[0], startPoint[1]];
     case 'V':
-      return [startPoint[0], params[0]]
+      return [startPoint[0], params[0]];
     case 'C':
       // Cubic Bezier: C x1 y1 x2 y2 x y
-      return [params[4], params[5]]
+      // Końcowy punkt to ostatnie dwie wartości
+      return [params[4], params[5]];
     case 'S':
       // Smooth Cubic Bezier: S x2 y2 x y
-      return [params[2], params[3]]
+      // Końcowy punkt to ostatnie dwie wartości
+      return [params[2], params[3]];
     case 'Q':
       // Quadratic Bezier: Q x1 y1 x y
-      return [params[2], params[3]]
+      return [params[2], params[3]];
     case 'T':
       // Smooth Quadratic Bezier: T x y
-      return [params[0], params[1]]
+      return [params[0], params[1]];
     case 'A':
       // Arc: A rx ry x-axis-rotation large-arc-flag sweep-flag x y
-      return [params[5], params[6]]
+      // Końcowy punkt to ostatnie dwie wartości
+      return [params[5], params[6]];
     case 'Z':
-      return startPoint
+      return startPoint;
     default:
-      return startPoint
+      return startPoint;
   }
 }
 
@@ -143,11 +146,17 @@ const splitPaths = (svgBuffer) => {
 
 const offsetPath = (svgBuffer, offset) => {
   svgBuffer = svgBuffer.replaceAll(/<path[^>]*d="([^"]*)"/g, (match, p1) => {
-    let newPath = spo(new SVGPathCommander(p1).toAbsolute().toString(), offset, {
-      inside: true,
+    const absolutePath = new SVGPathCommander(p1).toAbsolute().toString()
+
+    let newPath = spo(absolutePath, offset, {
       outside: true,
       joints: 0
     })
+
+    if (!newPath) {
+      console.error('absolutePath', absolutePath)
+      throw new Error('newPath', newPath)
+    }
 
     return `<path d="${newPath}"`
   })
@@ -164,81 +173,79 @@ const buildOutline = async () => {
 
   // Process strokes sequentially (200, 300, 400 one by one)
   for (const [strokeName, stroke] of Object.entries(strokes)) {
+    const type = 'outline'
+    const typeIcons = icons.outline
     let filesList = {}
 
-    for (const [type, typeIcons] of Object.entries(icons)) {
-      fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/${type}`), { recursive: true })
-      
-      // Filter icons first
-      const iconsToProcess = typeIcons.filter(({ name, unicode }) => {
-        if (!unicode) return false
-        if (compileOptions.includeIcons.length > 0 && compileOptions.includeIcons.indexOf(name) < 0) return false
-        return true
-      })
-      
-      // Collect filenames for later cleanup (Set for O(1) lookup)
-      filesList[type] = new Set(iconsToProcess.map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`))
-      
-      // Process icons sequentially
-      let processed = 0
-      const total = iconsToProcess.length
-      const startTime = Date.now()
-      
-      // Progress update interval (every 50 icons to avoid console spam)
-      let lastProgress = 0
-      const showProgress = () => {
-        if (processed - lastProgress >= 50 || processed === total) {
-          const percent = Math.round((processed / total) * 100)
-          const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
-          process.stdout.write(`\r[${strokeName}/${type}] ${processed}/${total} (${percent}%) - ${elapsed}s`.padEnd(60))
-          lastProgress = processed
-        }
+    fs.mkdirSync(resolve(DIR, `icons-outlined/${strokeName}/${type}`), { recursive: true })
+    
+    // Filter icons first
+    const iconsToProcess = typeIcons.filter(({ name, unicode }) => {
+      if (!unicode) return false
+      if (compileOptions.includeIcons.length > 0 && compileOptions.includeIcons.indexOf(name) < 0) return false
+      return true
+    })
+    
+    // Collect filenames for later cleanup (Set for O(1) lookup)
+    filesList[type] = new Set(iconsToProcess.map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`))
+    
+    // Process icons sequentially
+    let processed = 0
+    const total = iconsToProcess.length
+    const startTime = Date.now()
+    
+    // Progress update interval (every 50 icons to avoid console spam)
+    let lastProgress = 0
+    const showProgress = () => {
+      if (processed - lastProgress >= 50 || processed === total) {
+        const percent = Math.round((processed / total) * 100)
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+        process.stdout.write(`\r[${strokeName}/${type}] ${processed}/${total} (${percent}%) - ${elapsed}s`.padEnd(60))
+        lastProgress = processed
       }
-      
-      for (const { name, content, unicode } of iconsToProcess) {
-        const filename = `u${unicode.toUpperCase()}-${name}.svg`
-        const filePath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`)
-        
-        try {
-          // Prepare content: modify size and stroke-width
-          let svgContent = content
-            .replace(blankSquare, '')
-            // .replace('width="24"', 'width="1000"')
-            // .replace('height="24"', 'height="1000"')
-            .replace('stroke-width="2"', `stroke-width="${stroke}"`)
-
-          // Convert stroke to fill using the new script
-          // offset is half of stroke width (0.5 for stroke-width 1, 0.75 for 1.5, 1 for 2)
-          const offset = stroke / 2
-
-          svgContent = splitPaths(svgContent)
-          svgContent = offsetPath(svgContent, offset)
-
-          // Save file
-          fs.writeFileSync(filePath, svgContent, 'utf-8')
-          
-          processed++
-          showProgress()
-        } catch (error) {
-          console.error(`\nError processing ${strokeName}/${type}/${name}:`, error.message)
-          console.error(error.stack)
-        }
-      }
-      
-      const totalTime = ((Date.now() - startTime) / 1000).toFixed(1)
-      console.log(`\n[${strokeName}/${type}] Done: ${processed} processed in ${totalTime}s`)
     }
+    
+    for (const { name, content, unicode } of iconsToProcess) {
+      const filename = `u${unicode.toUpperCase()}-${name}.svg`
+      const filePath = resolve(DIR, `icons-outlined/${strokeName}/${type}/${filename}`)
+      
+      try {
+        // Prepare content: modify size and stroke-width
+        let svgContent = content
+          .replace(blankSquare, '')
+          // .replace('width="24"', 'width="1000"')
+          // .replace('height="24"', 'height="1000"')
+          .replace('stroke-width="2"', `stroke-width="${stroke}"`)
+
+        // Convert stroke to fill using the new script
+        // offset is half of stroke width (0.5 for stroke-width 1, 0.75 for 1.5, 1 for 2)
+        const offset = stroke / 2
+
+        svgContent = splitPaths(svgContent)
+        svgContent = offsetPath(svgContent, offset)
+        
+        // Save file
+        fs.writeFileSync(filePath, svgContent, 'utf-8')
+        
+        processed++
+        showProgress()
+      } catch (error) {
+        console.error(`\nError processing ${strokeName}/${type}/${name}:`, error.message)
+        console.error(error.stack)
+      }
+    }
+    
+    const totalTime = ((Date.now() - startTime) / 1000).toFixed(1)
+    console.log(`\n[${strokeName}/${type}] Done: ${processed} processed in ${totalTime}s`)
 
     // Remove old files
-    for (const [type] of Object.entries(icons)) {
-      const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
-      existedFiles.forEach(file => {
-        if (!filesList[type].has(file)) {
-          console.log('Remove:', file)
-          fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
-        }
-      })
-    }
+    const existedFiles = (await glob(resolve(DIR, `icons-outlined/${strokeName}/${type}/*.svg`))).map(file => basename(file))
+    existedFiles.forEach(file => {
+      if (!filesList[type].has(file)) {
+        console.log('Remove:', file)
+        fs.unlinkSync(resolve(DIR, `icons-outlined/${strokeName}/${type}/${file}`))
+      }
+    })
 
     console.log(`Stroke ${strokeName}: completed`)
   }
