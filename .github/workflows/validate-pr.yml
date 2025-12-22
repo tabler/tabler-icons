@@ -10,7 +10,8 @@ jobs:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
-    - name: Add in progress comment
+      - name: Add in progress comment
+        id: add-in-progress-comment
         uses: thollander/actions-comment-pull-request@v2
         with:
           comment_tag: validate
@@ -18,7 +19,7 @@ jobs:
           content: |
             🔄 Icons are being validated... Please wait...
         continue-on-error: true
-        
+
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -46,8 +47,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
