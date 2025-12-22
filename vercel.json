@@ -1,0 +1,8 @@
+{
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm run build",
+  "env": {
+    "CANVAS_PREBUILD": "1"
+  }
+}
+
