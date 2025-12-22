@@ -18,7 +18,7 @@ jobs:
         id: add-in-progress-comment
         uses: thollander/actions-comment-pull-request@v2
         with:
-          comment_tag: validate-in-progress
+          comment_tag: validate
           mode: upsert
           content: |
             🔄 Icons are being validated... Please wait...
