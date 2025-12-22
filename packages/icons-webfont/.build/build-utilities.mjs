@@ -1,9 +1,15 @@
 import fsPromises from 'node:fs/promises';
-import {createReadStream} from 'node:fs';
-import {SVGIcons2SVGFontStream} from "svgicons2svgfont";
+import { createReadStream } from 'node:fs';
+import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
+import { blankSquare } from '../../../.build/helpers.mjs';
+import spo from 'svg-path-outline';
+import paper from "paper-jsdom-canvas";
+import crypto from 'crypto';
+
+paper.setup();
 
 /**
- * @typedef {stream.Readable & { metadata?: import('svgicons2svgfont').FileMetadata }} Svgicons2svgfontStream
+ * @typedef {stream.Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
  */
 
 /**
@@ -46,6 +52,7 @@ export async function loadSvgFiles(path) {
  * @return {Promise<string>}
  */
 export async function buildSvgFont(svgStreams) {
+  const { SVGIcons2SVGFontStream } = await import("svgicons2svgfont");
   const fontStream = new SVGIcons2SVGFontStream({
     fontName: 'tabler-icons',
     normalize: true,
@@ -70,4 +77,163 @@ export async function buildSvgFont(svgStreams) {
   fontStream.end();
 
   return await fontStreamPromise;
+}
+
+// Function to calculate the end point of a segment
+export function getEndPoint(segment, startPoint) {
+  const [command, ...params] = segment;
+  const upperCommand = command.toUpperCase();
+
+  switch (upperCommand) {
+    case 'M':
+      return [params[0], params[1]];
+    case 'L':
+      return [params[0], params[1]];
+    case 'H':
+      return [params[0], startPoint[1]];
+    case 'V':
+      return [startPoint[0], params[0]];
+    case 'C':
+      // Cubic Bezier: C x1 y1 x2 y2 x y
+      return [params[4], params[5]];
+    case 'S':
+      // Smooth Cubic Bezier: S x2 y2 x y
+      return [params[2], params[3]];
+    case 'Q':
+      // Quadratic Bezier: Q x1 y1 x y
+      return [params[2], params[3]];
+    case 'T':
+      // Smooth Quadratic Bezier: T x y
+      return [params[0], params[1]];
+    case 'A':
+      // Arc: A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+      return [params[5], params[6]];
+    case 'Z':
+      return startPoint;
+    default:
+      return startPoint;
+  }
+}
+
+// Function to remove XML/HTML comments from SVG
+export function removeComments(svgBuffer) {
+  // Remove all XML/HTML comments (<!-- ... -->)
+  // Using non-greedy match to handle multiline comments
+  svgBuffer = svgBuffer.replace(/<!--[\s\S]*?-->/g, '');
+
+  svgBuffer = svgBuffer.replace(blankSquare, '')
+
+  return svgBuffer;
+}
+
+// Function to split all paths in SVG into individual segments
+export function splitPaths(svgBuffer) {
+  svgBuffer = svgBuffer.replaceAll(/<path([^>]*)d="([^"]*)"([^>]*)>/g, (match, p1, p2, p3) => {
+    // Convert path to absolute format
+    const absolutePath = new SVGPathCommander(p2).toAbsolute().toString();
+    // Parse path string to PathArray
+    const pathArray = parsePathString(absolutePath)
+
+    if (!Array.isArray(pathArray) || pathArray.length === 0) {
+      return match;
+    }
+
+    // Track current position and path start point
+    let currentPoint = [0, 0];
+    let pathStartPoint = [0, 0];
+    const individualPaths = [];
+
+    for (let i = 0; i < pathArray.length; i++) {
+      const segment = pathArray[i];
+      const [command] = segment;
+      const upperCommand = command.toUpperCase();
+
+      if (upperCommand === 'M') {
+        // MoveTo command - update current position and path start
+        currentPoint = [segment[1], segment[2]];
+        pathStartPoint = currentPoint;
+
+        // If there's a next segment, create a path from M to that segment
+        if (i + 1 < pathArray.length) {
+          const nextSegment = pathArray[i + 1];
+          const newPath = pathToString([segment, nextSegment]);
+          individualPaths.push(newPath);
+          currentPoint = getEndPoint(nextSegment, currentPoint);
+          i++; // Skip next segment as we've already processed it
+        }
+      } else if (upperCommand === 'Z') {
+        // Close path - create a line back to start
+        if (individualPaths.length > 0) {
+          // Add Z to the last path if it doesn't already have it
+          let lastPath = individualPaths[individualPaths.length - 1];
+          if (!lastPath.trim().endsWith('Z') && !lastPath.trim().endsWith('z')) {
+            const lastPathArray = parsePathString(lastPath);
+            lastPathArray.push(['Z']);
+            lastPath = pathToString(lastPathArray);
+            individualPaths[individualPaths.length - 1] = lastPath;
+          }
+        }
+        currentPoint = pathStartPoint;
+      } else {
+        // Any other command - create a new path starting with M
+        const newPath = pathToString([
+          ['M', currentPoint[0], currentPoint[1]],
+          segment
+        ]);
+        individualPaths.push(newPath);
+        currentPoint = getEndPoint(segment, currentPoint);
+      }
+    }
+
+    // If we have multiple paths, create separate <path> elements
+    if (individualPaths.length > 1) {
+      const newPaths = individualPaths.map(path => {
+        return `<path${p1}d="${path}"${p3}>`;
+      });
+      return newPaths.join('\n');
+    } else if (individualPaths.length === 1) {
+      // Even if only one path, return it (might be different from original)
+      return `<path${p1}d="${individualPaths[0]}"${p3}>`;
+    } else {
+      // Fallback to original
+      return match;
+    }
+  });
+
+  return svgBuffer;
+}
+
+export function reorientPath(svgBuffer) {
+  let result = svgBuffer;
+
+  const pathRegex = /<path.*?d="([^"]+)"/g;
+  const matches = [...svgBuffer.matchAll(pathRegex)];
+  for (const match of matches) {
+    const originalPath = match[1];
+    const compoundPath = new paper.CompoundPath(originalPath);
+    const newPath = compoundPath.reorient(false, false).pathData;
+    result = result.replace(originalPath, newPath);
+  }
+  return result;
+}
+
+export function offsetPath(svgBuffer, offset) {
+  svgBuffer = svgBuffer.replaceAll(/<path[^>]*d="([^"]*)"/g, (match, p1) => {
+    let newPath = spo(new SVGPathCommander(p1).toAbsolute().toString(), offset / 2 - 0.001, {
+      inside: true,
+      outside: true,
+      joints: 0
+    });
+
+    return `<path d="${newPath}"`
+  })
+
+  svgBuffer = svgBuffer.replaceAll(/stroke="[^"]*"/g, 'stroke="none"')
+  svgBuffer = svgBuffer.replaceAll(/fill="[^"]*"/g, 'fill="black"')
+
+  return svgBuffer;
+}
+
+export function calculateHash(content) {
+  return crypto.createHash('sha1').update(content).digest("hex");
 }
