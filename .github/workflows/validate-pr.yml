@@ -38,6 +38,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Add in progress comment
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          comment_tag: validate
+          mode: recreate
+          content: |
+            🔄 Icons are being validated... Please wait...
+
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
