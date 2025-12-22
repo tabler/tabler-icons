@@ -360,9 +360,9 @@ importers:
       glob:
         specifier: ^13.0.0
         version: 13.0.0
-      paper-jsdom-canvas:
+      paper-jsdom:
         specifier: ^0.12.18
-        version: 0.12.18(encoding@0.1.13)
+        version: 0.12.18(canvas@2.11.2(encoding@0.1.13))
       svg-path-outline:
         specifier: ^1.0.1
         version: 1.0.1
@@ -6027,8 +6027,8 @@ packages:
   pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
 
-  paper-jsdom-canvas@0.12.18:
-    resolution: {integrity: sha512-91l4xG2ksSX/geOVRH8F2BE1EJCrQGIxU7K2HRiAzznXd0oRArdgzn/tEhkHUs/Z/ZWnPnZuMoIaNxOeZqK5/w==}
+  paper-jsdom@0.12.18:
+    resolution: {integrity: sha512-nTwkfAjCGxuo9MNXT41Pibwd79d5C+yyA6/gIGI0WLuoVQdIc6aorCdzBTw5GihGfBTqBx0vdAUh0ha0ND2ouw==}
     engines: {node: '>=4.0.0'}
 
   paper@0.12.18:
@@ -9557,6 +9557,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    optional: true
 
   '@napi-rs/canvas-android-arm64@0.1.86':
     optional: true
@@ -10927,6 +10928,7 @@ snapshots:
     dependencies:
       delegates: 1.0.0
       readable-stream: 3.6.2
+    optional: true
 
   are-we-there-yet@3.0.1:
     dependencies:
@@ -11327,6 +11329,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    optional: true
 
   centra@2.7.0:
     dependencies:
@@ -11835,7 +11838,8 @@ snapshots:
 
   detect-libc@1.0.3: {}
 
-  detect-libc@2.1.2: {}
+  detect-libc@2.1.2:
+    optional: true
 
   detect-newline@3.1.0: {}
 
@@ -12550,6 +12554,7 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wide-align: 1.1.5
+    optional: true
 
   gauge@4.0.4:
     dependencies:
@@ -13700,6 +13705,7 @@ snapshots:
   make-dir@3.1.0:
     dependencies:
       semver: 6.3.1
+    optional: true
 
   make-fetch-happen@10.2.1:
     dependencies:
@@ -14246,6 +14252,7 @@ snapshots:
   nopt@5.0.0:
     dependencies:
       abbrev: 1.1.1
+    optional: true
 
   nopt@6.0.0:
     dependencies:
@@ -14327,6 +14334,7 @@ snapshots:
       console-control-strings: 1.1.0
       gauge: 3.0.2
       set-blocking: 2.0.0
+    optional: true
 
   npmlog@6.0.2:
     dependencies:
@@ -14559,15 +14567,14 @@ snapshots:
 
   pako@1.0.11: {}
 
-  paper-jsdom-canvas@0.12.18(encoding@0.1.13):
+  paper-jsdom@0.12.18(canvas@2.11.2(encoding@0.1.13)):
     dependencies:
-      canvas: 2.11.2(encoding@0.1.13)
       jsdom: 16.7.0(canvas@2.11.2(encoding@0.1.13))
       paper: 0.12.18
       source-map-support: 0.5.21
     transitivePeerDependencies:
       - bufferutil
-      - encoding
+      - canvas
       - supports-color
       - utf-8-validate
 

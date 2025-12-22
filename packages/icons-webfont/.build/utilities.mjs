@@ -5,7 +5,7 @@ import { globSync } from 'glob';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
-import paper from "paper";
+import paper from "paper-jsdom";
 import { createCanvas } from '@napi-rs/canvas';
 import crypto from 'crypto';
 import { Eta } from 'eta';
