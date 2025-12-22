@@ -15,18 +15,6 @@ const aliases = getAliases(true)
 
 mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
 
-const getAlliasesFlat = () => {
-  let allAliases = {}
-
-  Object.entries(aliases).forEach(([type, aliases]) => {
-    Object.entries(aliases).forEach(([from, to]) => {
-      allAliases[`${from}${type !== 'outline' ? `-${type}` : ''}`] = `${to}${type !== 'outline' ? `-${type}` : ''}`
-    })
-  })
-
-  return allAliases
-}
-
 for (const strokeName in strokes) {
   await asyncForEach(types, async type => {
     if (type === 'filled') return
