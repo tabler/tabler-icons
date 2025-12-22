@@ -1,4 +1,4 @@
-name: Validate icons
+name: Validate PR
 
 on: [pull_request]
 
@@ -6,11 +6,24 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate:
+  validate-pr:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add in progress comment
+        id: add-in-progress-comment
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: validate
+          mode: upsert
+          message: |
+            🔄 Icons are being validated... Please wait...
+        continue-on-error: true
+
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
@@ -44,8 +57,8 @@ jobs:
         continue-on-error: true
 
       - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          filePath: ./comment-markup.md
-          comment_tag: validate
+          file-path: ./comment-markup.md
+          comment-tag: validate
           mode: recreate

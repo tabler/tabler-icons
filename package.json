@@ -48,7 +48,8 @@
     "build:sprite": "pnpm --filter @tabler/icons-sprite build",
     "build:webfont": "pnpm --filter @tabler/icons-webfont build",
     "update-readme": "node ./.build/update-readme.mjs",
-    "zip": "node ./.build/zip-files.mjs"
+    "zip": "node ./.build/zip-files.mjs",
+    "validate-pr": "node ./.build/validate-pr.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
