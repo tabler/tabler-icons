@@ -1,60 +1,17 @@
-import { mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'fs';
+import { mkdirSync, writeFileSync, unlinkSync, readFileSync } from 'fs';
 import path from 'node:path';
-import template from 'lodash.template';
-import svg2ttf from "svg2ttf";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
 import { getAliases, getAllIcons, getPackageDir, getPackageJson, strokes } from '../../../.build/helpers.mjs';
-import { buildSvgFont, calculateHash, loadSvgFiles, offsetPath, removeComments, reorientPath, splitPaths } from './build-utilities.mjs';
+import { calculateHash, generateFont, offsetPath, removeComments, reorientPath, splitPaths } from './utilities.mjs';
 import { globSync } from 'glob';
 
 const DIR = getPackageDir('icons-webfont')
 const packageJson = getPackageJson()
 
-const files = getAllIcons(true).outline;
+const outlineFiles = getAllIcons(true).outline;
+const filledFiles = getAllIcons(true).filled;
 const aliases = getAliases(true)
 
-const generateFont = async (strokeName) => {
-   const svgFiles = await loadSvgFiles(`icons-outlined/${strokeName}/`);
-   const svgFontFileSource = await buildSvgFont(svgFiles);
-   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
-   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
-   const woff2File = await wawoff2.compress(ttfFile);
-
-   const fileName = `tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}`;
-
-   // Ensure dist/fonts directory exists
-   mkdirSync(`${DIR}/dist/fonts`, { recursive: true });
-
-   writeFileSync(`${DIR}/dist/fonts/${fileName}.svg`, svgFontFileSource); // for debug
-   writeFileSync(`${DIR}/dist/fonts/${fileName}.ttf`, ttfFile);
-   writeFileSync(`${DIR}/dist/fonts/${fileName}.woff`, woffFile);
-   writeFileSync(`${DIR}/dist/fonts/${fileName}.woff2`, woff2File);
-
-   const glyphs = svgFiles.map(f => f.metadata)
-      .sort(function (a, b) {
-         return a.name.localeCompare(b.name)
-      })
-
-   const options = {
-      name: `Tabler Icons Outline`,
-      fileName,
-      glyphs,
-      v: packageJson.version,
-      aliases: aliases.outline
-   }
-
-   //scss
-   const compiled = template(readFileSync(`${DIR}/.build/iconfont.scss`).toString())
-   const resultSCSS = compiled(options)
-   writeFileSync(`${DIR}/dist/${fileName}.scss`, resultSCSS)
-
-   //html
-   const compiledHtml = template(readFileSync(`${DIR}/.build/iconfont.html`).toString())
-   const resultHtml = compiledHtml(options)
-   writeFileSync(`${DIR}/dist/${fileName}.html`, resultHtml)
-}
-
+// Generate outline icons
 for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
    const dirname = path.join(DIR, 'icons-outlined', strokeName);
    mkdirSync(dirname, { recursive: true });
@@ -63,12 +20,12 @@ for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
    let cached = 0;
    const startTime = Date.now();
 
-   const filesList = new Set(files
+   const filesList = new Set(outlineFiles
       .filter(({ unicode }) => unicode)
       .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
    );
 
-   for (const file of files) {
+   for (const file of outlineFiles) {
       const { name, content, unicode } = file;
       if (!unicode) continue;
 
@@ -122,6 +79,32 @@ for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
    const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
    console.log(`\n[${strokeName}] Done: ${processed} processed, ${cached} cached in ${totalTime}s`);
 
-   await generateFont(strokeName);
+   await generateFont(strokeName, 'outline', DIR, packageJson, aliases);
 }
 
+// Generate filled icons
+const dirname = path.join(DIR, 'icons-filled');
+mkdirSync(dirname, { recursive: true });
+
+let processed = 0;
+let cached = 0;
+const startTime = Date.now();
+
+for (const file of filledFiles) {
+   const { name, content, unicode } = file;
+   if (!unicode) continue;
+
+   let svgContent = content;
+   const fileName = `u${unicode.toUpperCase()}-${name}`;
+   const filePath = path.join(dirname, `${fileName}.svg`);
+
+   // Save file
+   writeFileSync(filePath, svgContent, 'utf-8');
+
+   processed++;
+}
+
+const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
+console.log(`\n[filled] Done: ${processed} processed, ${cached} cached in ${totalTime}s`);
+
+await generateFont('filled', 'filled', DIR, packageJson, aliases);

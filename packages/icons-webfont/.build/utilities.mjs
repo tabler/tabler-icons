@@ -1,10 +1,15 @@
 import fsPromises from 'node:fs/promises';
-import { createReadStream } from 'node:fs';
+import { createReadStream, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
 import { blankSquare } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
 import paper from "paper-jsdom-canvas";
 import crypto from 'crypto';
+import template from 'lodash.template';
+import svg2ttf from "svg2ttf";
+import ttf2woff from "ttf2woff";
+import wawoff2 from "wawoff2";
 
 paper.setup();
 
@@ -236,4 +241,47 @@ export function offsetPath(svgBuffer, offset) {
 
 export function calculateHash(content) {
   return crypto.createHash('sha1').update(content).digest("hex");
+}
+
+export async function generateFont(strokeName, type, DIR, packageJson, aliases) {
+
+  console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
+  const svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
+  const svgFontFileSource = await buildSvgFont(svgFiles);
+  const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
+  const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
+  const woff2File = await wawoff2.compress(ttfFile);
+
+  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== "400" ? `-${strokeName}` : '') : `-${type}`}`;
+
+  // Ensure dist/fonts directory exists
+  mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
+
+  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.svg`), svgFontFileSource); // for debug
+  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.ttf`), ttfFile);
+  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
+  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
+
+  const glyphs = svgFiles.map(f => f.metadata)
+     .sort(function (a, b) {
+        return a.name.localeCompare(b.name)
+     })
+
+  const options = {
+     name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+     fileName,
+     glyphs,
+     v: packageJson.version,
+     aliases: aliases[type]
+  }
+
+  //scss
+  const compiled = template(readFileSync(path.join(DIR, '.build/iconfont.scss')).toString())
+  const resultSCSS = compiled(options)
+  writeFileSync(path.join(DIR, `dist/${fileName}.scss`), resultSCSS)
+
+  //html
+  const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString())
+  const resultHtml = compiledHtml(options)
+  writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml)
 }
