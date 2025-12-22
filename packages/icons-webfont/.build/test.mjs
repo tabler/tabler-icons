@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import SVGPathCommander, { optimizePath, parsePathString, pathToString, splitPath } from 'svg-path-commander';
+import { getAllIcons, getCompileOptions, getPackageDir, blankSquare, strokes } from '../../../.build/helpers.mjs'
+
 import spo from 'svg-path-outline'
 
 import { globSync } from 'glob';
@@ -14,41 +16,113 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const files = globSync(path.join(__dirname, '../../../icons/outline/*.svg'));
-const offset = .5;
 
-// Function to split all paths in SVG
+// Function to calculate the end point of a segment
+function getEndPoint(segment, startPoint) {
+   const [command, ...params] = segment;
+   const upperCommand = command.toUpperCase();
+
+   switch (upperCommand) {
+      case 'M':
+         return [params[0], params[1]];
+      case 'L':
+         return [params[0], params[1]];
+      case 'H':
+         return [params[0], startPoint[1]];
+      case 'V':
+         return [startPoint[0], params[0]];
+      case 'C':
+         // Cubic Bezier: C x1 y1 x2 y2 x y
+         return [params[4], params[5]];
+      case 'S':
+         // Smooth Cubic Bezier: S x2 y2 x y
+         return [params[2], params[3]];
+      case 'Q':
+         // Quadratic Bezier: Q x1 y1 x y
+         return [params[2], params[3]];
+      case 'T':
+         // Smooth Quadratic Bezier: T x y
+         return [params[0], params[1]];
+      case 'A':
+         // Arc: A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+         return [params[5], params[6]];
+      case 'Z':
+         return startPoint;
+      default:
+         return startPoint;
+   }
+}
+
+// Function to split all paths in SVG into individual segments
 const splitPaths = (svgBuffer) => {
    svgBuffer = svgBuffer.replaceAll(/<path([^>]*)d="([^"]*)"([^>]*)>/g, (match, p1, p2, p3) => {
+      // Convert path to absolute format
       const absolutePath = new SVGPathCommander(p2).toAbsolute().toString();
-
-      const absolutePathArray = new SVGPathCommander(absolutePath).toAbsolute().toString()
       // Parse path string to PathArray
-      const pathArray = parsePathString(absolutePathArray)
-      // Split path array into individual paths
-      const splitPathsArray = splitPath(pathArray)
-      // Convert each path array back to string
-      const individualPaths = splitPathsArray.map(pathArray => pathToString(pathArray))
+      const pathArray = parsePathString(absolutePath)
 
-      // If path was split, create separate <path> elements
-      if (individualPaths.length > 1) {
-         // Get attributes from original path (except d)
-         // match is e.g. '<path fill="none" stroke="currentColor" d="M10 20L10 10"'
-         // Remove '<path ' and 'd="..."' to get only attributes
-         let pathAttributes = match.replace(/<path\s*/, '').replace(/\s*d="[^"]*"/, '').trim();
+      if (!Array.isArray(pathArray) || pathArray.length === 0) {
+         return match;
+      }
 
-         // If there are any attributes, add space before d
-         if (pathAttributes) {
-            pathAttributes = pathAttributes + ' ';
+      // Track current position and path start point
+      let currentPoint = [0, 0];
+      let pathStartPoint = [0, 0];
+      const individualPaths = [];
+
+      for (let i = 0; i < pathArray.length; i++) {
+         const segment = pathArray[i];
+         const [command] = segment;
+         const upperCommand = command.toUpperCase();
+
+         if (upperCommand === 'M') {
+            // MoveTo command - update current position and path start
+            currentPoint = [segment[1], segment[2]];
+            pathStartPoint = currentPoint;
+
+            // If there's a next segment, create a path from M to that segment
+            if (i + 1 < pathArray.length) {
+               const nextSegment = pathArray[i + 1];
+               const newPath = pathToString([segment, nextSegment]);
+               individualPaths.push(newPath);
+               currentPoint = getEndPoint(nextSegment, currentPoint);
+               i++; // Skip next segment as we've already processed it
+            }
+         } else if (upperCommand === 'Z') {
+            // Close path - create a line back to start
+            if (individualPaths.length > 0) {
+               // Add Z to the last path if it doesn't already have it
+               let lastPath = individualPaths[individualPaths.length - 1];
+               if (!lastPath.trim().endsWith('Z') && !lastPath.trim().endsWith('z')) {
+                  const lastPathArray = parsePathString(lastPath);
+                  lastPathArray.push(['Z']);
+                  lastPath = pathToString(lastPathArray);
+                  individualPaths[individualPaths.length - 1] = lastPath;
+               }
+            }
+            currentPoint = pathStartPoint;
+         } else {
+            // Any other command - create a new path starting with M
+            const newPath = pathToString([
+               ['M', currentPoint[0], currentPoint[1]],
+               segment
+            ]);
+            individualPaths.push(newPath);
+            currentPoint = getEndPoint(segment, currentPoint);
          }
+      }
 
-         // Create separate path elements for each path
+      // If we have multiple paths, create separate <path> elements
+      if (individualPaths.length > 1) {
          const newPaths = individualPaths.map(path => {
             return `<path${p1}d="${path}"${p3}>`;
          });
-
          return newPaths.join('\n');
+      } else if (individualPaths.length === 1) {
+         // Even if only one path, return it (might be different from original)
+         return `<path${p1}d="${individualPaths[0]}"${p3}>`;
       } else {
-         // If not split, return original path
+         // Fallback to original
          return match;
       }
    });
@@ -72,7 +146,7 @@ const reorientPath = (svgBuffer) => {
 
 const offsetPath = (svgBuffer, offset) => {
    svgBuffer = svgBuffer.replaceAll(/<path[^>]*d="([^"]*)"/g, (match, p1) => {
-      let newPath = spo(new SVGPathCommander(p1).toAbsolute().toString(), offset - 0.001, {
+      let newPath = spo(new SVGPathCommander(p1).toAbsolute().toString(), offset / 2 - 0.001, {
          inside: true,
          outside: true,
          joints: 0
@@ -87,10 +161,10 @@ const offsetPath = (svgBuffer, offset) => {
    return svgBuffer;
 };
 
-const generateFont = () => {
-   svgtofont({
-      src: path.resolve(process.cwd(), "icons-outlined"), // svg path, only searches one level, not recursive
-      dist: path.resolve(process.cwd(), "dist/fonts"), // output path
+const generateFont = async (strokeName) => {
+   await svgtofont({
+      src: path.resolve(process.cwd(), "icons-outlined", strokeName), // svg path, only searches one level, not recursive
+      dist: path.resolve(process.cwd(), "dist/fonts", strokeName), // output path
       fontName: "tabler-icons", // font name
       css: true, // Create CSS files.
       startUnicode: 0xea01, // unicode start number
@@ -122,15 +196,23 @@ const generateFont = () => {
    });;
 }
 
-for (const file of files) {
-   console.log(`Processing ${file}`);
-   let svgContent = fs.readFileSync(file, 'utf-8');
+for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
+   const dirname = path.join(__dirname, '../icons-outlined', strokeName);
+   fs.mkdirSync(dirname, { recursive: true });
 
-   svgContent = splitPaths(svgContent);
-   svgContent = offsetPath(svgContent, offset);
-   svgContent = reorientPath(svgContent);
+   for (const file of files) {
+      let svgContent = fs.readFileSync(file, 'utf-8');
+      const fileName = path.basename(file);
+      const filePath = path.join(dirname, fileName);
+      console.log(`Writing to ${strokeName}/${fileName}`);
 
-   fs.writeFileSync(path.join(__dirname, '../icons-outlined', path.basename(file)), svgContent);
+      svgContent = splitPaths(svgContent);
+      svgContent = offsetPath(svgContent, strokeWidth);
+      svgContent = reorientPath(svgContent);
+
+      fs.writeFileSync(filePath, svgContent);
+   }
+
+   await generateFont(strokeName);
 }
 
-generateFont();
