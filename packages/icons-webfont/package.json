@@ -16,9 +16,8 @@
     "directory": "packages/icons-webfont"
   },
   "scripts": {
-    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:webfont && pnpm run build:css",
+    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:webfont && pnpm run build:css",
     "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
-    "build:outline": "node .build/build-outline.mjs",
     "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
     "_build:css": "pnpm run build:css:outline && pnpm run build:css:filled && pnpm run build:css:all",
     "build:css": "pnpm run build:css:outline",
@@ -52,7 +51,7 @@
   "devDependencies": {
     "canvas": "^3.2.0",
     "glob": "^13.0.0",
-    "martinez-polygon-clipping": "^0.7.1",
+    "lodash.template": "4.5.0",
     "paper": "^0.12.18",
     "paper-jsdom-canvas": "^0.12.18",
     "svg-path-outline": "^1.0.1",
