@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'fs';
 import path from 'node:path';
 import template from 'lodash.template';
 import svg2ttf from "svg2ttf";
@@ -6,6 +6,7 @@ import ttf2woff from "ttf2woff";
 import wawoff2 from "wawoff2";
 import { getAliases, getAllIcons, getPackageDir, getPackageJson, strokes } from '../../../.build/helpers.mjs';
 import { buildSvgFont, calculateHash, loadSvgFiles, offsetPath, removeComments, reorientPath, splitPaths } from './build-utilities.mjs';
+import { globSync } from 'glob';
 
 const DIR = getPackageDir('icons-webfont')
 const packageJson = getPackageJson()
@@ -20,7 +21,7 @@ const generateFont = async (strokeName) => {
    const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
    const woff2File = await wawoff2.compress(ttfFile);
 
-   const fileName = `tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}-outline`;
+   const fileName = `tabler-icons${strokeName !== "400" ? `-${strokeName}` : ''}`;
 
    // Ensure dist/fonts directory exists
    mkdirSync(`${DIR}/dist/fonts`, { recursive: true });
@@ -61,6 +62,11 @@ for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
    let processed = 0;
    let cached = 0;
    const startTime = Date.now();
+
+   const filesList = new Set(files
+      .filter(({ unicode }) => unicode)
+      .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
+   );
 
    for (const file of files) {
       const { name, content, unicode } = file;
@@ -103,6 +109,15 @@ for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
 
       processed++;
    }
+
+   // Remove old files
+   const existedFiles = (globSync(path.join(DIR, `icons-outlined/${strokeName}/*.svg`))).map(file => path.basename(file))
+   existedFiles.forEach(file => {
+      if (!filesList.has(file)) {
+         console.log('Remove:', file)
+         unlinkSync(path.join(DIR, `icons-outlined/${strokeName}/${file}`))
+      }
+   })
 
    const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
    console.log(`\n[${strokeName}] Done: ${processed} processed, ${cached} cached in ${totalTime}s`);
