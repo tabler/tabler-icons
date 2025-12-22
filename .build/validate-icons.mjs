@@ -3,6 +3,7 @@ import fs from 'fs'
 import { basename } from 'path'
 import { HOME_DIR, ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs } from './helpers.mjs'
 import { join } from 'path'
+import { execSync } from 'child_process'
 
 let error = false
 
@@ -193,6 +194,7 @@ Object.entries(aliases).forEach(([type, replacers]) => {
 })
 
 const addedIcons = getAddedIconsFromMain()
+
 for (const icon of addedIcons) {
   const iconPath = join(ICONS_SRC_DIR, icon)
 
