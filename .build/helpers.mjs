@@ -14,6 +14,12 @@ import { globSync } from 'glob';
 import { exec } from 'child_process';
 import slash from 'slash';
 
+export const strokes = {
+  200: 1,
+  300: 1.5,
+  400: 2,
+}
+
 export const iconTemplate = (type) =>
   type === 'outline'
     ? `<svg
@@ -65,7 +71,7 @@ const getSvgContent = (svg, type, name) => {
 
 export const getAllIcons = (withContent = false, withObject = false) => {
   let icons = {};
-  const limit = process.env['ICONS_LIMIT'] || Infinity;
+  const limit = process.env['ICONS_LIMIT'] ? parseInt(process.env['ICONS_LIMIT'], 10) : Infinity;
 
   types.forEach((type) => {
     icons[type] = globSync(slash(path.join(ICONS_SRC_DIR, `${type}/*.svg`)))

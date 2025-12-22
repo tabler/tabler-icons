@@ -39,6 +39,71 @@ types.forEach(type => {
       error = true
     }
 
+    if (iconContent.includes('M0 0h24v24H0z')) {
+      console.log(`⛔️ Icon \`${iconName}\` contains empty rectangle path \`M0 0h24v24H0z\``)
+      error = true
+    }
+
+    // Check for SVG elements that should be converted to path
+    const invalidElements = ['<circle', '<rect', '<ellipse', '<line', '<polygon', '<polyline']
+    const foundInvalidElements = invalidElements.filter(el => iconContent.includes(el))
+    if (foundInvalidElements.length > 0) {
+      console.log(`⛔️ Icon \`${iconName}\` contains elements that should be converted to path: ${foundInvalidElements.join(', ')}`)
+      error = true
+    }
+
+    // Check for rectangle paths that end with 'z' (should not have closing 'z')
+    // Rectangle paths should have two arc commands next to each other with the same size (rx and ry)
+    const rectanglePathRegex = /<path[^>]*d=["']([^"']*?)a([\d.]+)\s+([\d.]+)\s+[01]\s+[01]\s([0-9.-]+)\s([0-9.-]+)\s[0-9.-]+a\2\s+\3\s+[01]\s+[01]\s[0-9.-]+\s([0-9.-]+)\s([0-9.-]+)z([^"']*?)["']\s+\/>/g
+    if (rectanglePathRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains rectangle path that ends with 'z' (should not have closing 'z')`)
+      error = true
+    }
+
+    // Check for path with 'z' followed by h/v/H/V command (invalid pattern)
+    const invalidZCommandRegex = /<path[^>]*d=["']([^"']*?)z[hvHV]([^"']*?)["']\s+\/>/g
+    if (invalidZCommandRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with 'z' followed by h/v/H/V command (invalid pattern)`)
+      error = true
+    }
+
+    // Check for path with 'm' (relative move) after 'M' (absolute move)
+    const invalidMAfterMRegex = /<path[^>]*d=["']([^"']*?)M[0-9.-]\s[0-9.-]*?m([^"']*?)["']/g
+    if (invalidMAfterMRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with 'm' (relative move) after 'M' (absolute move)`)
+      error = true
+    }
+
+    // Check for path with 'Z' (uppercase) - disallow Z from path
+    if (type === 'outline') {
+      const invalidZRegex = /<path[^>]*d=["'][^"']*Z[^"']*["']\s+\/>/gi
+      if (invalidZRegex.test(iconContent)) {
+        console.log(`⛔️ Icon \`${iconName}\` contains path with 'Z'`)
+        error = true
+      }
+    }
+
+    // Check for empty path d=""
+    const emptyPathRegex = /<path[^>]*d=["']\s*["']/g
+    if (emptyPathRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains empty path d=""`)
+      error = true
+    }
+
+    // Check for v0 or h0 (forbidden, but v0.1, h0.5 etc. are allowed)
+    const forbiddenV0H0Regex = /<path[^>]*d="[^"']*[hv]0(?!\.\d)[^"']*"/g
+    if (forbiddenV0H0Regex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains forbidden v0 or h0`)
+      error = true
+    }
+
+    // Check for path with only M command (empty path)
+    const onlyMRegex = /<path[^>]*d=["']\s*[Mm][\s0-9.-]+\s*["']/g
+    if (onlyMRegex.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` contains path with only M command (empty path)`)
+      error = true
+    }
+
     try {
       const { data } = parseMatter(icon)
 
