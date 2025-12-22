@@ -16,11 +16,11 @@ jobs:
 
       - name: Add in progress comment
         id: add-in-progress-comment
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           comment_tag: validate
           mode: upsert
-          content: |
+          message: |
             🔄 Icons are being validated... Please wait...
         continue-on-error: true
 
@@ -57,7 +57,7 @@ jobs:
         continue-on-error: true
 
       - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v2
+        uses: thollander/actions-comment-pull-request@v3
         with:
           filePath: ./comment-markup.md
           comment_tag: validate
