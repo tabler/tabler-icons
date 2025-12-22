@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { getAllIcons, getPackageDir, getPackageJson, strokes } from '../../../.build/helpers.mjs';
+import { getAllIcons, getPackageDir, strokes } from '../../../.build/helpers.mjs';
 import { generateFont, offsetPath, processIcons, removeComments, reorientPath, splitPaths } from './utilities.mjs';
 
 const DIR = getPackageDir('icons-webfont')

@@ -6,6 +6,7 @@ import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-comman
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
 import paper from "paper-jsdom-canvas";
+import { createCanvas } from '@napi-rs/canvas';
 import crypto from 'crypto';
 import { Eta } from 'eta';
 import svg2ttf from "svg2ttf";
@@ -29,8 +30,9 @@ function template(templateString) {
   };
 }
 
-
-paper.setup();
+// Setup paper.js with @napi-rs/canvas
+const canvas = createCanvas(1, 1);
+paper.setup(canvas);
 
 /**
  * @typedef {stream.Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
