@@ -1,6 +1,7 @@
 import fsPromises from 'node:fs/promises';
-import { createReadStream, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createReadStream, mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
+import { globSync } from 'glob';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
 import { blankSquare } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
@@ -284,4 +285,79 @@ export async function generateFont(strokeName, type, DIR, packageJson, aliases) 
   const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString())
   const resultHtml = compiledHtml(options)
   writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml)
+}
+
+// Process icons with cache mechanism
+export async function processIcons(files, dirname, type, DIR, strokeName = null, processContentFn = null) {
+  mkdirSync(dirname, { recursive: true });
+
+  let processed = 0;
+  let cached = 0;
+  const startTime = Date.now();
+
+  const filesList = new Set(files
+    .filter(({ unicode }) => unicode)
+    .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
+  );
+
+  for (const file of files) {
+    const { name, content, unicode } = file;
+    if (!unicode) continue;
+
+    let svgContent = content;
+    const fileName = `u${unicode.toUpperCase()}-${name}`;
+    const filePath = path.join(dirname, `${fileName}.svg`);
+
+    // Check cache (try/catch faster than existsSync + readFileSync)
+    try {
+      const cachedContent = readFileSync(filePath, 'utf-8');
+      let cachedHash = '';
+      const contentWithoutHash = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
+        cachedHash = hash;
+        return '';
+      });
+
+      if (cachedHash && calculateHash(contentWithoutHash) === cachedHash) {
+        cached++;
+        continue;
+      }
+    } catch (e) {
+      // File doesn't exist, will be created
+    }
+
+    const logPrefix = strokeName ? `${strokeName}/${fileName}` : `${type}/${fileName}`;
+    console.log(`Writing to ${logPrefix}`);
+
+    // Process content if processing function is provided
+    if (processContentFn) {
+      svgContent = processContentFn(svgContent);
+    }
+
+    // Prepare final content with hash
+    const finalContent = svgContent.replace(/\n/g, ' ').trim();
+    const hashString = `<!--!cache:${calculateHash(finalContent)}-->`;
+
+    // Save file
+    writeFileSync(filePath, finalContent + hashString, 'utf-8');
+
+    processed++;
+  }
+
+  // Remove old files
+  const globPattern = strokeName 
+    ? path.join(DIR, `icons-outlined/${strokeName}/*.svg`)
+    : path.join(DIR, `icons-filled/*.svg`);
+  const existedFiles = (globSync(globPattern)).map(file => path.basename(file));
+  existedFiles.forEach(file => {
+    if (!filesList.has(file)) {
+      console.log('Remove:', file);
+      unlinkSync(path.join(dirname, file));
+    }
+  });
+
+  const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
+  const logPrefix = strokeName ? `[${strokeName}]` : `[${type}]`;
+  console.log(`\n${logPrefix} Done: ${processed} processed, ${cached} cached in ${totalTime}s`);
+
+  return { processed, cached };
 }
