@@ -68,7 +68,6 @@
     "html-minifier": "^4.0.0",
     "jest-serializer-html": "^7.1.0",
     "jsdom": "^24.0.0",
-    "lodash.template": "4.5.0",
     "minimist": "1.2.8",
     "openai": "^4.73.1",
     "parse-svg-path": "^0.1.2",
@@ -117,11 +116,13 @@
   "pnpm": {
     "ignoredBuiltDependencies": [
       "@parcel/watcher",
-      "canvas",
       "esbuild",
       "sharp",
       "svelte-preprocess",
       "ttf2woff2"
+    ],
+    "onlyBuiltDependencies": [
+      "canvas"
     ]
   }
 }

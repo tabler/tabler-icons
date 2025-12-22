@@ -3,16 +3,24 @@ import { createReadStream, mkdirSync, readFileSync, writeFileSync, unlinkSync } 
 import path from 'node:path';
 import { globSync } from 'glob';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
-import { blankSquare } from '../../../.build/helpers.mjs';
+import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
 import paper from "paper-jsdom-canvas";
 import crypto from 'crypto';
 import { Eta } from 'eta';
+import svg2ttf from "svg2ttf";
+import ttf2woff from "ttf2woff";
+import wawoff2 from "wawoff2";
 
 // Create Eta instance
 const eta = new Eta({ 
   autoEscape: false
 });
+
+// Get aliases
+const aliases = getAliases(true)
+
+const packageJson = getPackageJson()
 
 // Template function compatible with lodash.template API
 function template(templateString) {
@@ -20,9 +28,7 @@ function template(templateString) {
     return eta.renderString(templateString, data);
   };
 }
-import svg2ttf from "svg2ttf";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
+
 
 paper.setup();
 
@@ -256,7 +262,7 @@ export function calculateHash(content) {
   return crypto.createHash('sha1').update(content).digest("hex");
 }
 
-export async function generateFont(strokeName, type, DIR, packageJson, aliases) {
+export async function generateFont(strokeName, type, DIR) {
 
   console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
   const svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
