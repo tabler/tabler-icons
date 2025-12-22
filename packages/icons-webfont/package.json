@@ -35,12 +35,6 @@
   ],
   "sass": "./tabler-icons.scss",
   "style": "./tabler-icons.min.css",
-  "dependencies": {
-    "@tabler/icons": "3.36.0",
-    "sharp": "^0.33.5",
-    "svg-path-commander": "^2.1.11",
-    "svg-path-outline": "^1.0.0"
-  },
   "keywords": [
     "icons",
     "svg",
@@ -50,11 +44,17 @@
     "front-end",
     "web"
   ],
+  "dependencies": {
+    "@tabler/icons": "3.36.0",
+    "svg-path-commander": "^2.1.11",
+    "svgtofont": "^6.5.0"
+  },
   "devDependencies": {
-    "sass": "^1.71.1",
-    "svg2ttf": "^6.0.3",
-    "svgicons2svgfont": "^15.0.1",
-    "ttf2woff": "^3.0.0",
-    "wawoff2": "^2.0.1"
+    "canvas": "^3.2.0",
+    "glob": "^13.0.0",
+    "martinez-polygon-clipping": "^0.7.1",
+    "paper": "^0.12.18",
+    "paper-jsdom-canvas": "^0.12.18",
+    "svg-path-outline": "^1.0.1"
   }
 }

@@ -70,7 +70,6 @@
     "jsdom": "^24.0.0",
     "lodash.template": "4.5.0",
     "minimist": "1.2.8",
-    "sass": "^1.71.1",
     "openai": "^4.73.1",
     "parse-svg-path": "^0.1.2",
     "prettier": "^3.2.5",
@@ -82,6 +81,7 @@
     "rollup-plugin-license": "^3.2.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-visualizer": "^5.12.0",
+    "sass": "^1.71.1",
     "slash": "^5.1.0",
     "svg-outline-stroke": "1.3.1",
     "svgo": "^3.2.0",
@@ -113,13 +113,17 @@
       "release": true
     }
   },
-  "packageManager": "pnpm@8.15.9",
+  "packageManager": "pnpm@10.26.1",
   "pnpm": {
-    "overrides": {
-      "sharp": "^0.33.5"
-    }
-  },
-  "dependencies": {
-    "crypto-js": "^4.2.0"
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp",
+      "svelte-preprocess",
+      "ttf2woff2"
+    ],
+    "onlyBuiltDependencies": [
+      "canvas"
+    ]
   }
 }

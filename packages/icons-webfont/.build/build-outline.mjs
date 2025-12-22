@@ -1,17 +1,14 @@
-import { getAllIcons, getCompileOptions, getPackageDir, blankSquare } from '../../../.build/helpers.mjs'
+import { getAllIcons, getCompileOptions, getPackageDir, blankSquare, strokes } from '../../../.build/helpers.mjs'
 import fs from 'fs'
 import { resolve, basename } from 'path'
 import { glob } from 'glob'
-import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander'
+import SVGPathCommander, { parsePathString, pathToString, splitPath } from 'svg-path-commander'
 import spo from 'svg-path-outline'
+import paper from 'paper';
+
+paper.setup();
 
 const DIR = getPackageDir('icons-webfont')
-
-const strokes = {
-  200: 1,
-  300: 1.5,
-  400: 2,
-}
 
 // Function to calculate the end point of a segment
 function getEndPoint(segment, startPoint) {
@@ -51,7 +48,23 @@ function getEndPoint(segment, startPoint) {
 }
 
 // Function to split a single path into individual paths
+// Uses svg-path-commander's splitPath if available, otherwise falls back to custom implementation
 function splitPathIntoIndividualPaths(pathString) {
+  // Try to use svg-path-commander's splitPath function if available
+  if (typeof splitPath === 'function') {
+    try {
+      // Ensure the path is in absolute format
+      const absolutePath = new SVGPathCommander(pathString).toAbsolute().toString()
+      const paths = splitPath(absolutePath)
+      // splitPath returns array of path strings, which is exactly what we need
+      return paths
+    } catch (error) {
+      // Fall back to custom implementation if splitPath fails
+      console.warn('splitPath failed, using custom implementation:', error.message)
+    }
+  }
+  
+  // Custom implementation (fallback or if splitPath is not available)
   // Ensure the path is in absolute format
   const absolutePath = new SVGPathCommander(pathString).toAbsolute().toString()
   const pathArray = parsePathString(absolutePath)
@@ -160,9 +173,65 @@ const offsetPath = (svgBuffer, offset) => {
   })
 
   svgBuffer = svgBuffer.replaceAll(/stroke="[^"]*"/g, 'stroke="none"')
-  svgBuffer = svgBuffer.replaceAll(/fill="[^"]*"/g, 'fill="currentColor"')
+  svgBuffer = svgBuffer.replaceAll(/fill="[^"]*"/g, 'fill="black"')
 
   return svgBuffer
+}
+
+const reorientPath = (svgBuffer) => {
+  // Reorient paths by reversing their direction
+  // This ensures consistent winding order for fill operations
+  svgBuffer = svgBuffer.replaceAll(/<path[^>]*d="([^"]*)"/g, (match, p1) => {
+    try {
+      const pathCommander = new SVGPathCommander(p1)
+      // Reverse the path to change its orientation
+      const reversedPath = pathCommander.reverse().toString()
+      return `<path d="${reversedPath}"`
+    } catch (error) {
+      // If reversal fails, return original path
+      console.warn('Failed to reorient path:', error.message)
+      return match
+    }
+  })
+  
+  return svgBuffer
+}
+
+const unionPaths = (svgBuffer) => {
+  // Extract all path elements to check count
+  const root = paper.project.importSVG(svgBuffer);
+  const paths = root.getItems({ class: paper.PathItem });
+
+  // Upewnij się, że są zamknięte (boolean ops tego zwykle wymagają)
+  for (const p of paths) {
+    if (!p.closed) p.closePath();
+  }
+
+  // Iteracyjny union
+  let merged = paths[0];
+  for (let i = 1; i < paths.length; i++) {
+    merged = merged.unite(paths[i]);
+  }
+
+  // Export do SVG i wyciągnięcie d
+  const outSvg = merged.exportSVG({ asString: true });
+
+  // Znajdź wszystkie path jako jedną grupę
+  // Wyrażenie dopasowuje wszystkie path obok siebie (z opcjonalnymi białymi znakami między nimi)
+  // Użyj + z non-greedy, żeby dopasować wszystkie path jako jedną grupę
+  const allPathsRegex = /(<path[^>]*>[\s\n\r\t]*)+/;
+  const pathMatch = svgBuffer.match(allPathsRegex);
+  
+  if (!pathMatch || !pathMatch[0]) {
+    return svgBuffer;
+  }
+
+  // Zamień wszystkie path razem na jeden nowy path
+  // Użyj replace z dokładnym dopasowaniem match[0], żeby zamienić tylko raz
+  // i upewnij się, że nie ma flagi g, która mogłaby powodować wielokrotne zamienianie
+  const result = svgBuffer.replace(pathMatch[0], outSvg);
+  
+  return result;
 }
 
 const buildOutline = async () => {
@@ -217,10 +286,12 @@ const buildOutline = async () => {
 
         // Convert stroke to fill using the new script
         // offset is half of stroke width (0.5 for stroke-width 1, 0.75 for 1.5, 1 for 2)
-        const offset = stroke / 2
+        const offset = stroke / 2 - 0.001
 
         svgContent = splitPaths(svgContent)
         svgContent = offsetPath(svgContent, offset)
+        // svgContent = reorientPath(svgContent)
+        svgContent = unionPaths(svgContent)
 
         // Save file
         fs.writeFileSync(filePath, svgContent, 'utf-8')
