@@ -1,4 +1,4 @@
-name: Validate icons
+name: Validate PR
 
 on: [pull_request]
 
@@ -6,11 +6,14 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate:
+  validate-pr:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
@@ -49,3 +52,16 @@ jobs:
           filePath: ./comment-markup.md
           comment_tag: validate
           mode: recreate
+
+      - name: Validate PR
+        id: validate-pr
+        run: pnpm run --silent validate-pr > ./comment-markup.md
+        continue-on-error: true
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: ./comment-markup.md
+          comment_tag: validate-pr
+          mode: recreate
+
