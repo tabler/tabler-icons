@@ -5,12 +5,12 @@
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tabler Icons - version <%= v %></title>
+	<title>Tabler Icons - version <%= it.v %></title>
 
 	<link rel="preconnect" href="https://rsms.me/">
 	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-	<link rel="stylesheet" href="./<%= fileName %>.css">
+	<link rel="stylesheet" href="./<%= it.fileName %>.css">
 
 	<style>
 		* { margin: 0; border: 0; outline: 0; box-sizing: border-box; }
@@ -114,9 +114,9 @@
 <div class="container">
 	<header class="header">
 		<h1>
-			<%= name %>
+			<%= it.name %>
 		</h1>
-		<p class="text-muted">version <%= v %></p>
+		<p class="text-muted">version <%= it.v %></p>
 	</header>
 
 	<div class="search-bar">
@@ -125,13 +125,13 @@
 
 	<div class="box">
 		<div class="tabler-icons">
-			<% glyphs.forEach(function(glyph) { %>
+			<% it.glyphs.forEach(function(glyph) { %>
 			<div class="tabler-icon">
 				<i class="ti ti-<%= glyph.name %>"></i>
 				<strong><%= glyph.name %></strong>
 				<div class="tabler-icon-codes">
 					<code>ti ti-<%= glyph.name %></code><br>
-					<code>\<%= glyph.unicode[0].codePointAt(0).toString(16) %></code>
+					<code>\<%= glyph.unicodeHex %></code>
 				</div>
 			</div>
 			<% }) %>

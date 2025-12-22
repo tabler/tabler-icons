@@ -9,16 +9,15 @@ import paper from "paper-jsdom-canvas";
 import crypto from 'crypto';
 import { Eta } from 'eta';
 
-// Create Eta instance with varName: '' to use variables directly without 'it.' prefix
+// Create Eta instance
 const eta = new Eta({ 
-  varName: '',
   autoEscape: false
 });
 
 // Template function compatible with lodash.template API
 function template(templateString) {
   return function(data) {
-    return eta.render(templateString, data);
+    return eta.renderString(templateString, data);
   };
 }
 import svg2ttf from "svg2ttf";
@@ -276,17 +275,25 @@ export async function generateFont(strokeName, type, DIR, packageJson, aliases) 
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
 
-  const glyphs = svgFiles.map(f => f.metadata)
+  const glyphs = svgFiles.map(f => ({
+     ...f.metadata,
+     unicodeHex: f.metadata.unicode && f.metadata.unicode[0] 
+        ? f.metadata.unicode[0].codePointAt(0).toString(16) 
+        : ''
+  }))
      .sort(function (a, b) {
         return a.name.localeCompare(b.name)
      })
+
+  // Convert aliases object to array of {from, to} objects
+  const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to })) : []
 
   const options = {
      name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
      fileName,
      glyphs,
      v: packageJson.version,
-     aliases: aliases[type]
+     aliases: aliasesArray
   }
 
   //scss
