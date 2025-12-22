@@ -10,19 +10,19 @@ jobs:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Add in progress comment
         id: add-in-progress-comment
         uses: thollander/actions-comment-pull-request@v2
         with:
-          comment_tag: validate
-          mode: recreate
+          comment_tag: validate-in-progress
+          mode: upsert
           content: |
             🔄 Icons are being validated... Please wait...
         continue-on-error: true
-
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js 20
         uses: actions/setup-node@v3
