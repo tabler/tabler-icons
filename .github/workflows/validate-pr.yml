@@ -52,26 +52,3 @@ jobs:
           filePath: ./comment-markup.md
           comment_tag: validate
           mode: recreate
-
-      - name: Validate PR
-        id: validate-pr
-        run: pnpm run --silent validate-pr > ./comment-markup-pr.md || true
-        continue-on-error: true
-
-      - name: Check if icons were added
-        id: check-icons
-        run: |
-          if [ -s ./comment-markup-pr.md ]; then
-            echo "has_icons=true" >> $GITHUB_OUTPUT
-          else
-            echo "has_icons=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Comment PR
-        if: steps.check-icons.outputs.has_icons == 'true'
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          filePath: ./comment-markup-pr.md
-          comment_tag: validate-pr
-          mode: recreate
-

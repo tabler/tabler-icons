@@ -22,6 +22,28 @@ const getIconName = (icon) => {
   return icon.split('/').slice(-2).join('/')
 }
 
+function getAddedIconsFromMain() {
+  try {
+    const output = execSync('git diff origin/main...HEAD --name-status', { encoding: 'utf-8' })
+    const addedIcons = []
+
+    output.split('\n').forEach(line => {
+      if (line.startsWith('A\t')) {
+        const filePath = line.substring(2)
+        // Filter only SVG files from icons/outline/ or icons/filled/ directories
+        if (filePath.match(/^icons\/((outline|filled)\/.+\.svg)$/)) {
+          // add icon without icons/ prefix
+          addedIcons.push(filePath.replace(/^icons\//, ''))
+        }
+      }
+    })
+
+    return addedIcons
+  } catch (error) {
+    return []
+  }
+}
+
 types.forEach(type => {
   const icons = globSync(join(ICONS_SRC_DIR, type, '*.svg')).sort()
 
@@ -169,6 +191,45 @@ Object.entries(aliases).forEach(([type, replacers]) => {
     }
   })
 })
+
+const addedIcons = getAddedIconsFromMain()
+for (const icon of addedIcons) {
+  const iconPath = join(ICONS_SRC_DIR, icon)
+
+  try {
+    const { data, content } = parseMatter(iconPath)
+
+    if (data.unicode) {
+      console.log(`⛔️ Icon \`${icon}\` has unicode, but should not have it`)
+      error = true
+    }
+
+    if (data.version) {
+      console.log(`⛔️ New icon \`${icon}\` has version, but should not have it`)
+      error = true
+    }
+
+    if (!icon.match(/^[a-z0-9-]+$/)) {
+      console.log(`⛔️ New icon \`${icon}\` has invalid name`)
+      error = true
+    }
+
+    // check if filled icon hasnt category
+    if (icon.match(/^filled\//) && data.category) {
+      console.log(`⛔️ New icon \`${icon}\` has category, but should not have it`)
+      error = true
+    }
+
+    // check if filled icon has tags
+    if (icon.match(/^filled\//) && data.tags) {
+      console.log(`⛔️ New icon \`${icon}\` has tags, but should not have it`)
+      error = true
+    }
+  } catch (error) {
+    console.log(`⛔️ New icon \`${icon}\` has invalid metadata`)
+    error = true
+  }
+}
 
 if (error) {
   process.exit(1)
