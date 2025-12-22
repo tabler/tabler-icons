@@ -7,7 +7,20 @@ import { blankSquare } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
 import paper from "paper-jsdom-canvas";
 import crypto from 'crypto';
-import template from 'lodash.template';
+import { Eta } from 'eta';
+
+// Create Eta instance with varName: '' to use variables directly without 'it.' prefix
+const eta = new Eta({ 
+  varName: '',
+  autoEscape: false
+});
+
+// Template function compatible with lodash.template API
+function template(templateString) {
+  return function(data) {
+    return eta.render(templateString, data);
+  };
+}
 import svg2ttf from "svg2ttf";
 import ttf2woff from "ttf2woff";
 import wawoff2 from "wawoff2";
