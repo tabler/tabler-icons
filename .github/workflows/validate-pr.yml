@@ -18,7 +18,7 @@ jobs:
         id: add-in-progress-comment
         uses: thollander/actions-comment-pull-request@v3
         with:
-          comment_tag: validate
+          comment-tag: validate
           mode: upsert
           message: |
             🔄 Icons are being validated... Please wait...
@@ -60,5 +60,5 @@ jobs:
         uses: thollander/actions-comment-pull-request@v3
         with:
           filePath: ./comment-markup.md
-          comment_tag: validate
+          comment-tag: validate
           mode: recreate
