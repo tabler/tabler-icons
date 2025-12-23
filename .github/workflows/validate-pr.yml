@@ -83,7 +83,7 @@ jobs:
         with:
           file-path: ./comment-icons.md
           comment-tag: added-icons
-          mode: recreate
+          mode: upsert
 
       - name: Remove comment with added icons
         if: steps.check-icons.outputs.has_icons == 'false'
