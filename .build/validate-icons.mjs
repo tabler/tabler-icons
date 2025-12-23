@@ -1,7 +1,7 @@
 import { globSync } from 'glob'
 import fs from 'fs'
 import { basename } from 'path'
-import { HOME_DIR, ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs } from './helpers.mjs'
+import { HOME_DIR, ICONS_SRC_DIR, iconTemplate, parseMatter, types, getArgvs, categories } from './helpers.mjs'
 import { join } from 'path'
 import { execSync } from 'child_process'
 
@@ -214,6 +214,17 @@ for (const icon of addedIcons) {
     if (!icon.match(/^[a-z0-9-]+$/)) {
       console.log(`⛔️ New icon \`${icon}\` has invalid name`)
       error = true
+    }
+
+    // check if outline icon has category
+    if (icon.match(/^outline\//) && !data.category) {
+      console.log(`⛔️ New icon \`${icon}\` has no category`)
+      error = true
+    } else {
+      if (!categories.includes(data.category)) {
+        console.log(`⛔️ New icon \`${icon}\` has invalid category \`${data.category}\`. Valid categories are: ${categories.join(', ')}`)
+        error = true
+      }
     }
 
     // check if filled icon hasnt category

@@ -20,6 +20,50 @@ export const strokes = {
   400: 2,
 }
 
+export const categories = [
+  'Animals',
+  'Arrows',
+  'Badges',
+  'Brand',
+  'Buildings',
+  'Charts',
+  'Communication',
+  'Computers',
+  'Currencies',
+  'Database',
+  'Design',
+  'Development',
+  'Devices',
+  'Document',
+  'E-commerce',
+  'Electrical',
+  'Extensions',
+  'Food',
+  'Games',
+  'Gender',
+  'Gestures',
+  'Health',
+  'Laundry',
+  'Letters',
+  'Logic',
+  'Map',
+  'Math',
+  'Media',
+  'Mood',
+  'Nature',
+  'Numbers',
+  'Photography',
+  'Shapes',
+  'Sport',
+  'Symbols',
+  'System',
+  'Text',
+  'Vehicles',
+  'Version control',
+  'Weather',
+  'Zodiac'
+]
+
 export const iconTemplate = (type) =>
   type === 'outline'
     ? `<svg

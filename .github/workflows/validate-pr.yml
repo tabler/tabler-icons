@@ -62,3 +62,32 @@ jobs:
           file-path: ./comment-markup.md
           comment-tag: validate
           mode: recreate
+
+      - name: Generate icons comment
+        id: generate-icons-comment
+        run: pnpm run --silent generate-icons-comment > ./comment-icons.md || true
+        continue-on-error: true
+
+      - name: Check if icons were added
+        id: check-icons
+        run: |
+          if [ -s ./comment-icons.md ]; then
+            echo "has_icons=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_icons=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment PR with added icons
+        if: steps.check-icons.outputs.has_icons == 'true'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          file-path: ./comment-icons.md
+          comment-tag: added-icons
+          mode: upsert
+
+      - name: Remove comment with added icons
+        if: steps.check-icons.outputs.has_icons == 'false'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: added-icons
+          mode: delete
