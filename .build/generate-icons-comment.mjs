@@ -53,14 +53,11 @@ function getSVGContent(iconPath) {
   }
 }
 
-// Convert SVG to base64 data URI
-function svgToBase64(svgContent) {
-  try {
-    const base64 = Buffer.from(svgContent, 'utf-8').toString('base64')
-    return `data:image/svg+xml;base64,${base64}`
-  } catch (error) {
-    return null
-  }
+// Get GitHub raw file URL for icon
+function getIconRawUrl(iconPath) {
+  const repo = process.env.GITHUB_REPOSITORY || 'tabler/tabler-icons'
+  const ref = process.env.GITHUB_HEAD_REF || process.env.GITHUB_SHA || 'main'
+  return `https://raw.githubusercontent.com/${repo}/${ref}/icons/${iconPath}`
 }
 
 // Generate markdown table for icons
@@ -76,19 +73,10 @@ function generateIconsTable(icons, type) {
   
   icons.forEach(iconPath => {
     const iconName = basename(iconPath, '.svg')
-    const svgContent = getSVGContent(iconPath)
+    const rawUrl = getIconRawUrl(iconPath)
     
-    if (svgContent) {
-      // Convert SVG to base64 and use img tag
-      const base64DataUri = svgToBase64(svgContent)
-      if (base64DataUri) {
-        markdown += `| <img src="${base64DataUri}" width="120" height="120" /> | \`${iconName}\` |\n`
-      } else {
-        markdown += `| ❌ | \`${iconName}\` |\n`
-      }
-    } else {
-      markdown += `| ❌ | \`${iconName}\` |\n`
-    }
+    // Use GitHub raw file URL - GitHub Comments support external image URLs
+    markdown += `| <img src="${rawUrl}" width="24" height="24" alt="${iconName}" /> | \`${iconName}\` |\n`
   })
   markdown += `\n`
 
