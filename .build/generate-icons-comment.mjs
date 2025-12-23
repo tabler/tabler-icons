@@ -53,6 +53,48 @@ function getSVGContent(iconPath) {
   }
 }
 
+// Convert SVG to base64 data URI
+function svgToBase64(svgContent) {
+  try {
+    const base64 = Buffer.from(svgContent, 'utf-8').toString('base64')
+    return `data:image/svg+xml;base64,${base64}`
+  } catch (error) {
+    return null
+  }
+}
+
+// Generate markdown table for icons
+function generateIconsTable(icons, type) {
+  if (icons.length === 0) {
+    return ''
+  }
+
+  const typeName = type === 'outline' ? 'Outline' : 'Filled'
+  let markdown = `### ${typeName} Icons (${icons.length})\n\n`
+  markdown += `| Icon | Name |\n`
+  markdown += `|------|------|\n`
+  
+  icons.forEach(iconPath => {
+    const iconName = basename(iconPath, '.svg')
+    const svgContent = getSVGContent(iconPath)
+    
+    if (svgContent) {
+      // Convert SVG to base64 and use img tag
+      const base64DataUri = svgToBase64(svgContent)
+      if (base64DataUri) {
+        markdown += `| <img src="${base64DataUri}" width="120" height="120" /> | \`${iconName}\` |\n`
+      } else {
+        markdown += `| ❌ | \`${iconName}\` |\n`
+      }
+    } else {
+      markdown += `| ❌ | \`${iconName}\` |\n`
+    }
+  })
+  markdown += `\n`
+
+  return markdown
+}
+
 // Generate markdown comment with table of added icons
 function generateIconsComment(icons) {
   if (icons.length === 0) {
@@ -66,49 +108,8 @@ function generateIconsComment(icons) {
   let markdown = `## 📦 Added Icons\n\n`
   markdown += `This PR adds **${icons.length}** new icon${icons.length > 1 ? 's' : ''}.\n\n`
 
-  // Generate table for outline icons
-  if (outlineIcons.length > 0) {
-    markdown += `### Outline Icons (${outlineIcons.length})\n\n`
-    markdown += `| Icon | Name |\n`
-    markdown += `|------|------|\n`
-    
-    outlineIcons.forEach(iconPath => {
-      const iconName = basename(iconPath, '.svg')
-      const svgContent = getSVGContent(iconPath)
-      
-      if (svgContent) {
-        // Use inline SVG - GitHub supports HTML in markdown
-        // Escape pipe characters in SVG to avoid breaking table
-        const escapedSvg = svgContent.replace(/\|/g, '&#124;').replaceAll('\n', '')
-        markdown += `| ${escapedSvg} | \`${iconName}\` |\n`
-      } else {
-        markdown += `| ❌ | \`${iconName}\` |\n`
-      }
-    })
-    markdown += `\n`
-  }
-
-  // Generate table for filled icons
-  if (filledIcons.length > 0) {
-    markdown += `### Filled Icons (${filledIcons.length})\n\n`
-    markdown += `| Icon | Name |\n`
-    markdown += `|------|------|\n`
-    
-    filledIcons.forEach(iconPath => {
-      const iconName = basename(iconPath, '.svg')
-      const svgContent = getSVGContent(iconPath)
-      
-      if (svgContent) {
-        // Use inline SVG - GitHub supports HTML in markdown
-        // Escape pipe characters in SVG to avoid breaking table
-        const escapedSvg = svgContent.replace(/\|/g, '&#124;').replaceAll('\n', '')
-        markdown += `| ${escapedSvg} | \`${iconName}\` |\n`
-      } else {
-        markdown += `| ❌ | \`${iconName}\` |\n`
-      }
-    })
-    markdown += `\n`
-  }
+  markdown += generateIconsTable(outlineIcons, 'outline')
+  markdown += generateIconsTable(filledIcons, 'filled')
 
   return markdown
 }
