@@ -21,6 +21,10 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "baseUrl": ".",
+    "paths": {
+      "@tabler/icons-angular": ["../../packages/icons-angular/src/public-api.ts"]
+    },
     "lib": [
       "ES2022",
       "dom"
@@ -30,6 +34,10 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "strictTemplates": true,
+    "skipTemplateCodegen": false
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }

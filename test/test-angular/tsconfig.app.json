@@ -5,10 +5,7 @@
     "outDir": "./out-tsc/app",
     "types": [],
     "baseUrl": ".",
-    "paths": {
-      "@tabler/icons-angular": ["../../packages/icons-angular/src/public-api.ts"],
-      "@tabler/icons-angular/*": ["../../packages/icons-angular/src/*"]
-    }
+    "skipLibCheck": true
   },
   "files": [
     "src/main.ts"
@@ -17,7 +14,6 @@
     "src/**/*.d.ts"
   ],
   "exclude": [
-    "**/*.spec.ts",
-    "../../packages/icons-angular/src/**/*.spec.ts"
+    "**/*.spec.ts"
   ]
 }

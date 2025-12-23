@@ -1,5 +1,6 @@
 import * as icons from './icons';
 
+export * from './types';
 export * from './lib/tabler-icon.component';
 export * from './lib/tabler-icon.module';
 export * from './lib/tabler-icon.config';
