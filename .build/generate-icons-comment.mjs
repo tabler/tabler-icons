@@ -44,8 +44,9 @@ function getAddedIconsFromMain() {
 
 // Get GitHub raw file URL for icon
 function getIconRawUrl(iconPath) {
-  const repo = process.env.GITHUB_REPOSITORY || 'tabler/tabler-icons'
-  const ref = process.env.GITHUB_HEAD_REF || process.env.GITHUB_SHA || 'main'
+  // Use PR repo and SHA if available (for forks), otherwise fallback to current repo
+  const repo = process.env.PR_REPO || process.env.GITHUB_REPOSITORY || 'tabler/tabler-icons'
+  const ref = process.env.PR_SHA || process.env.GITHUB_SHA || 'main'
   return `https://raw.githubusercontent.com/${repo}/${ref}/icons/${iconPath}`
 }
 
