@@ -67,7 +67,7 @@ function generateIconsTable(icons, type) {
     const tags = data.tags || []
     
     // Use GitHub raw file URL - GitHub Comments support external image URLs
-    markdown += `| <img src="${rawUrl}" width="240" height="240" alt="${iconName}" /> | \`${iconName}\` | ${category || '❌ No category'} | ${tags.join(', ') || '❌ No tags' } |\n`
+    markdown += `| <img src="${rawUrl}" width="240" height="240" alt="${iconName}" /> | \`${iconName}.svg\` | ${category || '❌ No category'} | ${tags.join(', ') || '❌ No tags' } |\n`
   })
   markdown += `\n`
 
