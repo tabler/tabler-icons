@@ -16,14 +16,13 @@
     "directory": "packages/icons-webfont"
   },
   "scripts": {
-    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:outline && pnpm run build:webfont && pnpm run build:css",
+    "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:webfont && pnpm run build:css",
     "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
-    "build:outline": "node .build/build-outline.mjs",
     "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
-    "build:css": "pnpm run build:css:outline && pnpm run build:css:filled && pnpm run build:css:all",
-    "build:css:filled": "sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.css --style expanded && sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.min.css --style compressed && sass dist/tabler-icons-200-filled.scss dist/tabler-icons-200-filled.css --style expanded && sass dist/tabler-icons-200-filled.scss dist/tabler-icons-200-filled.min.css --style compressed && sass dist/tabler-icons-300-filled.scss dist/tabler-icons-300-filled.css --style expanded && sass dist/tabler-icons-300-filled.scss dist/tabler-icons-300-filled.min.css --style compressed",
-    "build:css:outline": "sass dist/tabler-icons-outline.scss dist/tabler-icons-outline.css --style expanded && sass dist/tabler-icons-outline.scss dist/tabler-icons-outline.min.css --style compressed && sass dist/tabler-icons-200-outline.scss dist/tabler-icons-200-outline.css --style expanded && sass dist/tabler-icons-200-outline.scss dist/tabler-icons-200-outline.min.css --style compressed && sass dist/tabler-icons-300-outline.scss dist/tabler-icons-300-outline.css --style expanded && sass dist/tabler-icons-300-outline.scss dist/tabler-icons-300-outline.min.css --style compressed",
-    "build:css:all": "sass dist/tabler-icons.scss dist/tabler-icons.css --style expanded && sass dist/tabler-icons.scss dist/tabler-icons.min.css --style compressed && sass dist/tabler-icons-200.scss dist/tabler-icons-200.css --style expanded && sass dist/tabler-icons-200.scss dist/tabler-icons-200.min.css --style compressed && sass dist/tabler-icons-300.scss dist/tabler-icons-300.css --style expanded && sass dist/tabler-icons-300.scss dist/tabler-icons-300.min.css --style compressed",
+    "build:css": "pnpm run build:css:outline && pnpm run build:css:filled",
+    "build:css:filled": "sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.css --style expanded && sass dist/tabler-icons-filled.scss dist/tabler-icons-filled.min.css --style compressed",
+    "build:css:outline": "sass dist/tabler-icons.scss dist/tabler-icons.css --style expanded --no-source-map && sass dist/tabler-icons.scss dist/tabler-icons.min.css --style compressed --no-source-map && sass dist/tabler-icons-200.scss dist/tabler-icons-200.css --style expanded --no-source-map && sass dist/tabler-icons-200.scss dist/tabler-icons-200.min.css --style compressed --no-source-map && sass dist/tabler-icons-300.scss dist/tabler-icons-300.css --style expanded --no-source-map && sass dist/tabler-icons-300.scss dist/tabler-icons-300.min.css --style compressed --no-source-map",
+    "build:css:all": "sass dist/tabler-icons.scss dist/tabler-icons.css --style expanded --no-source-map && sass dist/tabler-icons.scss dist/tabler-icons.min.css --style compressed --no-source-map && sass dist/tabler-icons-200.scss dist/tabler-icons-200.css --style expanded --no-source-map && sass dist/tabler-icons-200.scss dist/tabler-icons-200.min.css --style compressed --no-source-map && sass dist/tabler-icons-300.scss dist/tabler-icons-300.css --style expanded --no-source-map && sass dist/tabler-icons-300.scss dist/tabler-icons-300.min.css --style compressed --no-source-map",
     "clean": "rm -rf dist && rm -rf ./icons-outlined",
     "copy": "pnpm run copy:license",
     "copy:license": "cp ../../LICENSE ./LICENSE"
@@ -34,11 +33,6 @@
   ],
   "sass": "./tabler-icons.scss",
   "style": "./tabler-icons.min.css",
-  "dependencies": {
-    "@tabler/icons": "3.36.0",
-    "sharp": "^0.33.5",
-    "svg-path-commander": "^2.1.11"
-  },
   "keywords": [
     "icons",
     "svg",
@@ -48,8 +42,17 @@
     "front-end",
     "web"
   ],
+  "dependencies": {
+    "@tabler/icons": "3.36.0",
+    "svg-path-commander": "^2.1.11",
+    "svgtofont": "^6.5.0"
+  },
   "devDependencies": {
-    "sass": "^1.71.1",
+    "@napi-rs/canvas": "^0.1.86",
+    "eta": "^3.4.0",
+    "glob": "^13.0.0",
+    "paper-jsdom": "^0.12.18",
+    "svg-path-outline": "^1.0.1",
     "svg2ttf": "^6.0.3",
     "svgicons2svgfont": "^15.0.1",
     "ttf2woff": "^3.0.0",

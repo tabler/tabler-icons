@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { IconAd, IconAdOff } from '@tabler/icons-react-native';
-import IconAdFilled from '@tabler/icons-react-native/IconAdFilled'
+import { IconAd, IconAdOff, IconAdFilled } from '@tabler/icons-react-native';
 
 function App() {
   const [active, setActive] = useState(false)

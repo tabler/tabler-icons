@@ -48,7 +48,9 @@
     "build:sprite": "pnpm --filter @tabler/icons-sprite build",
     "build:webfont": "pnpm --filter @tabler/icons-webfont build",
     "update-readme": "node ./.build/update-readme.mjs",
-    "zip": "node ./.build/zip-files.mjs"
+    "zip": "node ./.build/zip-files.mjs",
+    "validate-pr": "node ./.build/validate-pr.mjs",
+    "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -68,9 +70,7 @@
     "html-minifier": "^4.0.0",
     "jest-serializer-html": "^7.1.0",
     "jsdom": "^24.0.0",
-    "lodash.template": "4.5.0",
     "minimist": "1.2.8",
-    "sass": "^1.71.1",
     "openai": "^4.73.1",
     "parse-svg-path": "^0.1.2",
     "prettier": "^3.2.5",
@@ -82,15 +82,16 @@
     "rollup-plugin-license": "^3.2.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-visualizer": "^5.12.0",
+    "sass": "^1.71.1",
     "slash": "^5.1.0",
     "svg-outline-stroke": "1.3.1",
     "svgo": "^3.2.0",
     "svgpath": "^2.6.0",
     "svgson": "^5.3.1",
-    "turbo": "^1.12.5",
+    "turbo": "^2.6.3",
     "typescript": "^5.3.3",
-    "vite": "^5.1.8",
-    "vitest": "^1.3.1"
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
   },
   "release-it": {
     "plugins": {
@@ -113,13 +114,14 @@
       "release": true
     }
   },
-  "packageManager": "pnpm@8.15.9",
+  "packageManager": "pnpm@10.26.1",
   "pnpm": {
-    "overrides": {
-      "sharp": "^0.33.5"
-    }
-  },
-  "dependencies": {
-    "crypto-js": "^4.2.0"
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp",
+      "svelte-preprocess",
+      "ttf2woff2"
+    ]
   }
 }

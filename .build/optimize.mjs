@@ -24,8 +24,8 @@ types.forEach(type => {
       .replace(/<line x1="([^"]+)" y1="([^"]+)" x2="([^"]+)" y2="([^"]+)"\s*\/>/g, function (f, x1, y1, x2, y2) {
         return `<path d="M${x1} ${y1}L${x2} ${y2}" />`
       })
-      .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"\s+\/>/g, function (f, cx, cy, r) {
-        return `<path d="M ${cx} ${cy}m -${r} 0a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0" />`
+      .replace(/<circle cx="([^"]+)" cy="([^"]+)" r="([^"]+)"([^>]*)?\/>/g, function (f, cx, cy, r, attrs) {
+        return `<path d="M ${cx - r} ${cy}a ${r} ${r} 0 1 0 ${r * 2} 0a ${r} ${r} 0 1 0 ${r * -2} 0"${attrs}/>`
       })
       .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)"\s+\/>/g, function (f, cx, cy, rx) {
         return `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${rx}" />`
@@ -33,8 +33,8 @@ types.forEach(type => {
       .replace(/<ellipse cx="([^"]+)" cy="([^"]+)" rx="([^"]+)" ry="([^"]+)"\s+\/>/g, function (f, cx, cy, rx, ry) {
         return `<path d="M${cx} ${cy}m -${rx} 0a${rx} ${ry} 0 1 0 ${rx * 2} 0a ${rx} ${ry} 0 1 0 -${rx * 2} 0" />`
       })
-      .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)" rx="([^"]+)"\s+\/>/g, function (f, width, height, x, y, rx) {
-        return `<rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" />`
+      .replace(/<rect width="([^"]+)" height="([^"]+)" x="([^"]+)" y="([^"]+)"(.*)?\/>/g, function (f, width, height, x, y, attrs) {
+        return `<rect x="${x}" y="${y}" width="${width}" height="${height}"${attrs} />`
       })
       .replace(/<rect x="([^"]+)" y="([^"]+)" rx="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function (f, x, y, rx, width, height) {
         return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
@@ -58,7 +58,6 @@ types.forEach(type => {
         return `<path d="${r1}"`
       })
       .replace(/<path\s+d="([^"]+)"/g, function (f, d) {
-
         const d2 = d
           .replace(/m0 0/g, (f, m) => ``)
           .replace(/ 0\./g, ' .')
@@ -69,7 +68,20 @@ types.forEach(type => {
       })
       .replace(/d="m/g, 'd="M')
       .replace(/([Aa])\s?([0-9.]+)[\s,]([0-9.]+)[\s,]([0-9.]+)[\s,]?([0-1])[\s,]?([0-1])[\s,]?(-?[0-9.]+)[\s,]?(-?[0-9.]+)/gi, '$1$2 $3 $4 $5 $6 $7 $8')
+      .replace(/<path[^>]*d=["']([^"']*?)a([\d.]+)\s+([\d.]+)\s([01])\s([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)a\2\s+\3\s+([01])\s+([01])\s([01]+)\s([0-9.-]+)\s([0-9.-]+)z([^"']*?)["']\s+\/>/g, function (match, d, rx, ry, flag1, flag2, extra1, x1, y1, flag3, flag4, extra2, x2, y2, afterZ) {
+        return `<path d="${d}a${rx} ${ry} ${flag1} ${flag2} ${extra1} ${x1} ${y1}a${rx} ${ry} ${flag3} ${flag4} ${extra2} ${x2} ${y2}${afterZ}" />`
+      })
+      .replace(/<path[^>]*d=["']([^"']*?)M([0-9.-]+)\s([0-9.-]+)m([0-9.-]+)\s([0-9.-]+)([^"']*?)["'](.*)?\/>/g, function (match, d, x1, y1, x2, y2, afterM, attrs) {
+        return `<path d="${d}M${Number(x1) + Number(x2)} ${Number(y1) + Number(y2)}${afterM}"${attrs} />`
+      })
       .replace(/\n\s+\n+/g, '\n')
+      .replace(/<path d="([^"]+)"/g, function (f, d) {
+        const d2 = d
+          .replace(/v0/g, (f, v) => ``)
+          .replace(/h0/g, (f, h) => ``)
+
+        return `<path d="${d2}"`
+      })
 
     // Add icon template
     svgFileContent = svgFileContent.replace(/<svg[^>]+>/, iconTemplate(type))

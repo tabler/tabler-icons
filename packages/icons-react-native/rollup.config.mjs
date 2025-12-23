@@ -32,6 +32,46 @@ export default [
     ],
     plugins: [dts()],
   },
+  {
+    input: './src/icons/index.ts',
+    output: [
+      {
+        dir: 'dist/icons',
+        format: 'es',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+      },
+    ],
+    plugins: [
+      dts({
+        compilerOptions: {
+          declaration: true,
+          emitDeclarationOnly: true,
+        },
+      }),
+    ],
+    external: ['react', 'react-native-svg'],
+  },
+  {
+    input: './src/icons/index.ts',
+    output: [
+      {
+        dir: 'dist/cjs/icons',
+        format: 'es',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+      },
+    ],
+    plugins: [
+      dts({
+        compilerOptions: {
+          declaration: true,
+          emitDeclarationOnly: true,
+        },
+      }),
+    ],
+    external: ['react', 'react-native-svg'],
+  },
   ...getRollupConfig(pkg, outputFileName, bundles, {
     react: 'react',
     'react-native-svg': 'react-native-svg',
