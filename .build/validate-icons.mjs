@@ -25,7 +25,9 @@ const getIconName = (icon) => {
 
 function getAddedIconsFromMain() {
   try {
-    const output = execSync('git diff origin/main...HEAD --name-status', { encoding: 'utf-8' })
+    // Use BASE_SHA or BASE_REF from environment, fallback to origin/main
+    const baseRef = process.env.BASE_SHA || process.env.BASE_REF || 'origin/main'
+    const output = execSync(`git diff ${baseRef}...HEAD --name-status`, { encoding: 'utf-8' })
     const addedIcons = []
 
     output.split('\n').forEach(line => {

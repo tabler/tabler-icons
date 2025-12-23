@@ -2,10 +2,12 @@ import { execSync } from 'child_process'
 import { basename, join } from 'path'
 import { ICONS_SRC_DIR, parseMatter } from './helpers.mjs'
 
-// Check icon files added relative to main branch (for PR)
+// Check icon files added relative to base branch (for PR)
 function getAddedIconsFromMain() {
   try {
-    const output = execSync('git diff origin/main...HEAD --name-status', { encoding: 'utf-8' })
+    // Use BASE_SHA or BASE_REF from environment, fallback to origin/main
+    const baseRef = process.env.BASE_SHA || process.env.BASE_REF || 'origin/main'
+    const output = execSync(`git diff ${baseRef}...HEAD --name-status`, { encoding: 'utf-8' })
     const addedIcons = []
 
     output.split('\n').forEach(line => {
@@ -21,7 +23,7 @@ function getAddedIconsFromMain() {
 
     return addedIcons
   } catch (error) {
-    // Fallback: check relative to HEAD if origin/main doesn't exist
+    // Fallback: check relative to HEAD if base ref doesn't exist
     try {
       const output = execSync('git diff --diff-filter=A --name-only', { encoding: 'utf-8' })
       const addedIcons = []
