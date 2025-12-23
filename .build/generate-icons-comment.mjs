@@ -2,6 +2,7 @@ import { execSync } from 'child_process'
 import { readFileSync } from 'fs'
 import { basename, join } from 'path'
 import { ICONS_SRC_DIR } from './helpers.mjs'
+import { parseMatter } from './helpers.mjs'
 
 // Check icon files added relative to main branch (for PR)
 function getAddedIconsFromMain() {
@@ -41,18 +42,6 @@ function getAddedIconsFromMain() {
   }
 }
 
-// Extract SVG content from file (remove metadata comments)
-function getSVGContent(iconPath) {
-  try {
-    const content = readFileSync(join(ICONS_SRC_DIR, iconPath), 'utf-8')
-    // Remove metadata comments (<!-- ... -->)
-    const svgContent = content.replace(/<!--[\s\S]*?-->/g, '').trim()
-    return svgContent
-  } catch (error) {
-    return null
-  }
-}
-
 // Get GitHub raw file URL for icon
 function getIconRawUrl(iconPath) {
   const repo = process.env.GITHUB_REPOSITORY || 'tabler/tabler-icons'
@@ -68,15 +57,19 @@ function generateIconsTable(icons, type) {
 
   const typeName = type === 'outline' ? 'Outline' : 'Filled'
   let markdown = `### ${typeName} Icons (${icons.length})\n\n`
-  markdown += `| Icon | Name |\n`
-  markdown += `|------|------|\n`
+  markdown += `| Icon | Name | Category | Tags |\n`
+  markdown += `|------|------|------|------|\n`
   
   icons.forEach(iconPath => {
     const iconName = basename(iconPath, '.svg')
     const rawUrl = getIconRawUrl(iconPath)
+
+    const { data } = parseMatter(join(ICONS_SRC_DIR, iconPath))
+    const category = data.category || ''
+    const tags = data.tags || []
     
     // Use GitHub raw file URL - GitHub Comments support external image URLs
-    markdown += `| <img src="${rawUrl}" width="240" height="240" alt="${iconName}" /> | \`${iconName}\` |\n`
+    markdown += `| <img src="${rawUrl}" width="240" height="240" alt="${iconName}" /> | \`${iconName}\` | ${category || '❌ No category'} | ${tags.join(', ') || '❌ No tags' } |\n`
   })
   markdown += `\n`
 
