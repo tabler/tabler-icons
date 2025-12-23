@@ -65,7 +65,7 @@ jobs:
 
       - name: Generate icons comment
         id: generate-icons-comment
-        run: pnpm run --silent generate-icons-comment
+        run: pnpm run --silent generate-icons-comment > ./comment-icons.md || true
         continue-on-error: true
 
       - name: Check if icons were added
