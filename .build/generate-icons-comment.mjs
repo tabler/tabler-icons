@@ -76,7 +76,7 @@ function generateIconsTable(icons, type) {
     const rawUrl = getIconRawUrl(iconPath)
     
     // Use GitHub raw file URL - GitHub Comments support external image URLs
-    markdown += `| <img src="${rawUrl}" width="24" height="24" alt="${iconName}" /> | \`${iconName}\` |\n`
+    markdown += `| <img src="${rawUrl}" width="240" height="240" alt="${iconName}" /> | \`${iconName}\` |\n`
   })
   markdown += `\n`
 
