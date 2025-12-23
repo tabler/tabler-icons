@@ -49,7 +49,8 @@
     "build:webfont": "pnpm --filter @tabler/icons-webfont build",
     "update-readme": "node ./.build/update-readme.mjs",
     "zip": "node ./.build/zip-files.mjs",
-    "validate-pr": "node ./.build/validate-pr.mjs"
+    "validate-pr": "node ./.build/validate-pr.mjs",
+    "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
