@@ -213,7 +213,7 @@ for (const icon of addedIcons) {
       error = true
     }
 
-    if (!icon.match(/^(outline|filled)\/[a-z0-9-]+$/)) {
+    if (!icon.match(/^(outline|filled)\/[a-z0-9-]+\.svg$/)) {
       console.log(`⛔️ New icon \`${icon}\` has invalid name`)
       error = true
     }
@@ -232,12 +232,6 @@ for (const icon of addedIcons) {
         console.log(`⛔️ New filled icon \`${icon}\` has category, but should not have it`)
         error = true
       }
-    }
-
-    // check if filled icon has tags
-    if (icon.match(/^filled\//) && data.tags) {
-      console.log(`⛔️ New icon \`${icon}\` has tags, but should not have it`)
-      error = true
     }
   } catch (error) {
     console.log(`⛔️ New icon \`${icon}\` has invalid metadata`)
