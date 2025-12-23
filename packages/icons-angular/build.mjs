@@ -20,7 +20,7 @@ const componentTemplate = ({ type, name, namePascal, children }) => {
 const indexItemTemplate = ({
                              _,
                              namePascal
-                           }) => `export { default as ${namePascal}} from './${namePascal}';`;
+                           }) => `export { default as ${namePascal}} from './Icon${namePascal}';`;
 
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal}} from './icons/Icon${toPascal}';\n`;
 
