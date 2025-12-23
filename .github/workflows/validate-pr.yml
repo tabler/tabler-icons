@@ -18,12 +18,16 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
       
-      - name: Set base branch
+      - name: Set base branch and PR info
         run: |
           BASE_REF="${{ github.event.pull_request.base.ref }}"
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          PR_REPO="${{ github.event.pull_request.head.repo.full_name }}"
+          PR_SHA="${{ github.event.pull_request.head.sha }}"
           echo "BASE_REF=${BASE_REF}" >> $GITHUB_ENV
           echo "BASE_SHA=${BASE_SHA}" >> $GITHUB_ENV
+          echo "PR_REPO=${PR_REPO}" >> $GITHUB_ENV
+          echo "PR_SHA=${PR_SHA}" >> $GITHUB_ENV
           # Fetch base branch to ensure it's available
           git fetch origin ${BASE_REF}:${BASE_REF} || true
 
@@ -84,6 +88,8 @@ jobs:
         env:
           BASE_REF: ${{ env.BASE_REF }}
           BASE_SHA: ${{ env.BASE_SHA }}
+          PR_REPO: ${{ env.PR_REPO }}
+          PR_SHA: ${{ env.PR_SHA }}
         run: pnpm run --silent generate-icons-comment > ./comment-icons.md || true
         continue-on-error: true
 
