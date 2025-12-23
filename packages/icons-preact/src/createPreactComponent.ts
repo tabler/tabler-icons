@@ -15,16 +15,17 @@ const createPreactComponent = (
     title,
     children,
     className = '',
+    class: classes = '',
     style,
     ...rest
   }: IconProps) =>
     h(
-      'svg',
+      'svg' as any,
       {
         ...defaultAttributes[type],
         width: String(size),
-        height: size,
-        class: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+        height: String(size),
+        class: [`tabler-icon`, `tabler-icon-${iconName}`, classes, className].join(' '),
         ...(type === 'filled'
           ? {
               fill: color,
@@ -34,12 +35,13 @@ const createPreactComponent = (
               stroke: color,
             }),
         style,
-        ...[rest],
+        ...rest,
       },
       [
         title && h('title', {}, title),
         ...iconNode.map(([tag, attrs]) => h(tag, attrs)),
-        ...toChildArray(children)],
+        ...toChildArray(children),
+      ],
     );
 
   Component.displayName = `${iconNamePascal}`;

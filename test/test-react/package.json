@@ -1,7 +1,7 @@
 {
   "name": "test-react",
   "private": true,
-  "version": "3.7.0",
+  "version": "3.36.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,13 +10,13 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@tabler/icons-react": "3.7.0",
+    "@tabler/icons-react": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^5.1.2"
   }
 }

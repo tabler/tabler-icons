@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-react-native",
-  "version": "3.7.0",
+  "version": "3.36.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -21,6 +21,7 @@
   "main": "./dist/cjs/tabler-icons-react-native.cjs",
   "types": "./dist/cjs/tabler-icons-react-native.d.cts",
   "module": "./dist/esm/tabler-icons-react-native.mjs",
+  "amdName": "TablerIconsReactNative",
   "react-native": "./dist/esm/tabler-icons-react-native.mjs",
   "exports": {
     ".": {
@@ -29,8 +30,18 @@
         "default": "./dist/cjs/tabler-icons-react-native.cjs"
       },
       "import": {
-        "types": "./dist/esm/tabler-icons-react-native.d.ts",
-        "default": "./dist/esm/tabler-icons-react-native.cjs"
+        "types": "./dist/tabler-icons-react-native.d.ts",
+        "default": "./dist/esm/tabler-icons-react-native.mjs"
+      }
+    },
+    "./*": {
+      "require": {
+        "types": "./dist/cjs/icons/*.d.cts",
+        "default": "./dist/cjs/icons/*.cjs"
+      },
+      "import": {
+        "types": "./dist/icons/*.d.ts",
+        "default": "./dist/esm/icons/*.mjs"
       }
     }
   },
@@ -48,7 +59,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.7.0"
+    "@tabler/icons": "3.36.0"
   },
   "devDependencies": {
     "@testing-library/react": "^14.2.1",
@@ -61,6 +72,6 @@
     "react-test-renderer": "18.2.0"
   },
   "peerDependencies": {
-    "react": "^16.5.1 || ^17.0.0 || ^18.0.0"
+    "react": ">= 16.5.1"
   }
 }

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $breakpoint: 50rem;
 $primary: #206bc4;
 $border: #eeeeee;
@@ -483,7 +485,7 @@ $border-color: #e0e0e0;
   height: 2rem;
   align-items: center;
   justify-content: center;
-  color: mix($dark, #fff, 75%);
+  color: color.mix($dark, #fff, 75%);
 
   svg {
     width: 1.25rem;

@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-vue",
-  "version": "3.7.0",
+  "version": "3.36.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -19,7 +19,8 @@
   },
   "main": "./dist/cjs/tabler-icons-vue.cjs",
   "module": "./dist/esm/tabler-icons-vue.mjs",
-  "types": "./dist/esm/tabler-icons-vue.d.ts",
+  "types": "./dist/tabler-icons-vue.d.ts",
+  "amdName": "TablerIconsVue",
   "files": [
     "dist"
   ],
@@ -33,14 +34,14 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.7.0"
+    "@tabler/icons": "3.36.0"
   },
   "peerDependencies": {
     "vue": ">=3.0.1"
   },
   "devDependencies": {
     "@testing-library/vue": "^8.0.2",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^6.0.3",
     "@vue/compiler-sfc": "^3.4.20",
     "@vue/test-utils": "2.4.4",
     "vue": "^3.4.20"

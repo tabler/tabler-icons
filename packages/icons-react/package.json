@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-react",
-  "version": "3.7.0",
+  "version": "3.36.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -18,8 +18,9 @@
     "directory": "packages/icons-react"
   },
   "main": "./dist/cjs/tabler-icons-react.cjs",
-  "types": "./dist/esm/tabler-icons-react.d.ts",
   "module": "./dist/esm/tabler-icons-react.mjs",
+  "types": "./dist/tabler-icons-react.d.ts",
+  "amdName": "TablerIconsReact",
   "sideEffects": false,
   "files": [
     "dist"
@@ -35,7 +36,7 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.7.0"
+    "@tabler/icons": "3.36.0"
   },
   "devDependencies": {
     "@testing-library/react": "^14.2.1",

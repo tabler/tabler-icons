@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-pdf",
-  "version": "3.7.0",
+  "version": "3.36.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -21,8 +21,9 @@
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
+  "amdName": "TablerIconsPdf",
   "files": [
-    "icons/*.pdf"
+    "icons/**/*.pdf"
   ],
   "exports": {
     "./*": [
@@ -30,7 +31,7 @@
     ]
   },
   "dependencies": {
-    "@tabler/icons": "3.7.0"
+    "@tabler/icons": "3.36.0"
   },
   "keywords": [
     "icons",

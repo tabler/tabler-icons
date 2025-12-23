@@ -1,7 +1,7 @@
-export * from './icons/index';
-export * as icons from './icons/index';
+export * from './icons';
+export * as icons from './icons';
 export * as iconsList from './icons-list';
 export * from './aliases';
-export { default as createReactComponent } from './createReactComponent';
+export * from './types';
 
-export type { Icon, IconNode, IconProps, TablerIcon } from './types';
+export { default as createReactComponent } from './createReactComponent';

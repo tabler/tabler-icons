@@ -1,0 +1,118 @@
+name: Validate PR
+
+on: [pull_request_target]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  validate-pr:
+    if: github.repository == 'tabler/tabler-icons'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Set base branch and PR info
+        run: |
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          PR_REPO="${{ github.event.pull_request.head.repo.full_name }}"
+          PR_SHA="${{ github.event.pull_request.head.sha }}"
+          echo "BASE_REF=${BASE_REF}" >> $GITHUB_ENV
+          echo "BASE_SHA=${BASE_SHA}" >> $GITHUB_ENV
+          echo "PR_REPO=${PR_REPO}" >> $GITHUB_ENV
+          echo "PR_SHA=${PR_SHA}" >> $GITHUB_ENV
+          # Fetch base branch to ensure it's available
+          git fetch origin ${BASE_REF}:${BASE_REF} || true
+
+      - name: Add in progress comment
+        id: add-in-progress-comment
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: validate
+          mode: upsert
+          message: |
+            🔄 Icons are being validated... Please wait...
+        continue-on-error: true
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Validate icons
+        id: validate
+        env:
+          BASE_REF: ${{ env.BASE_REF }}
+          BASE_SHA: ${{ env.BASE_SHA }}
+        run: pnpm run --silent validate > ./comment-markup.md
+        continue-on-error: true
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          file-path: ./comment-markup.md
+          comment-tag: validate
+          mode: recreate
+
+      - name: Generate icons comment
+        id: generate-icons-comment
+        env:
+          BASE_REF: ${{ env.BASE_REF }}
+          BASE_SHA: ${{ env.BASE_SHA }}
+          PR_REPO: ${{ env.PR_REPO }}
+          PR_SHA: ${{ env.PR_SHA }}
+        run: pnpm run --silent generate-icons-comment > ./comment-icons.md || true
+        continue-on-error: true
+
+      - name: Check if icons were added
+        id: check-icons
+        run: |
+          if [ -s ./comment-icons.md ]; then
+            echo "has_icons=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_icons=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment PR with added icons
+        if: steps.check-icons.outputs.has_icons == 'true'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          file-path: ./comment-icons.md
+          comment-tag: added-icons
+          mode: upsert
+
+      - name: Remove comment with added icons
+        if: steps.check-icons.outputs.has_icons == 'false'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: added-icons
+          mode: delete

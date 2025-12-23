@@ -1,75 +1,35 @@
-import { webfont } from "webfont";
-import * as fs from 'fs'
-import template from 'lodash.template'
-import { getPackageDir, getPackageJson, getAliases, types, asyncForEach, toPascalCase } from '../../../.build/helpers.mjs'
+import path from 'node:path';
+import { getAllIcons, getPackageDir, strokes } from '../../../.build/helpers.mjs';
+import { generateFont, offsetPath, processIcons, removeComments, reorientPath, splitPaths } from './utilities.mjs';
 
-const formats = ['ttf', 'woff', 'woff2']
-const p = getPackageJson()
 const DIR = getPackageDir('icons-webfont')
-const fontHeight = 1000
 
-const aliases = getAliases(true)
+const outlineFiles = getAllIcons(true).outline;
+const filledFiles = getAllIcons(true).filled;
 
-fs.mkdirSync(`${DIR}/dist/fonts`, { recursive: true })
+// Generate outline icons
+for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
+   const dirname = path.join(DIR, 'icons-outlined', strokeName);
+   
+   await processIcons(
+      outlineFiles,
+      dirname,
+      'outline',
+      DIR,
+      strokeName,
+      (svgContent) => {
+         svgContent = removeComments(svgContent);
+         svgContent = splitPaths(svgContent);
+         svgContent = offsetPath(svgContent, strokeWidth);
+         svgContent = reorientPath(svgContent);
+         return svgContent;
+      }
+   );
 
-types.push('all')
-
-const getAlliasesFlat = () => {
-  let allAliases = {}
-
-  Object.entries(aliases).forEach(([type, aliases]) => {
-    Object.entries(aliases).forEach(([from, to]) => {
-      allAliases[`${from}${type !== 'outline' ? `-${type}` : ''}`] = `${to}${type !== 'outline' ? `-${type}` : ''}`
-    })
-  })
-
-  return allAliases
+   await generateFont(strokeName, 'outline', DIR);
 }
 
-asyncForEach(types, async type => {
-  console.log(`Building webfont for ${type} icons`)
-
-  await webfont({
-    files: `icons-outlined/${type}/*.svg`,
-    fontName: 'tabler-icons',
-    prependUnicode: true,
-    formats,
-    normalize: true,
-    fontHeight,
-    descent: 100,
-    ascent: 900,
-    fixedWidth: false
-  })
-    .then((result) => {
-      formats.forEach(format => {
-        fs.writeFileSync(`${DIR}/dist/fonts/tabler-icons${type !== 'all' ? `-${type}` : ''}.${format}`, result[format])
-      })
-
-      const glyphs = result.glyphsData
-        .map(icon => icon.metadata)
-        .sort(function (a, b) {
-          return ('' + a.name).localeCompare(b.name)
-        })
-
-      const options = {
-        name: `Tabler Icons${type !== 'all' ? ` ${toPascalCase(type)}` : ''}`,
-        fileName: `tabler-icons${type !== 'all' ? `-${type}` : ''}`,
-        glyphs,
-        v: p.version,
-        aliases: (type === 'all' ? getAlliasesFlat() : aliases[type]) || {}
-      }
-
-      //scss
-      const compiled = template(fs.readFileSync(`${DIR}/.build/iconfont.scss`).toString())
-      const resultSCSS = compiled(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.scss`, resultSCSS)
-
-      //html
-      const compiledHtml = template(fs.readFileSync(`${DIR}/.build/iconfont.html`).toString())
-      const resultHtml = compiledHtml(options)
-      fs.writeFileSync(`${DIR}/dist/tabler-icons${type !== 'all' ? `-${type}` : ''}.html`, resultHtml)
-    })
-    .catch((error) => {
-      throw error;
-    });
-})
+// Generate filled icons
+const filledDirname = path.join(DIR, 'icons-filled');
+await processIcons(filledFiles, filledDirname, 'filled', DIR);
+await generateFont('filled', 'filled', DIR);

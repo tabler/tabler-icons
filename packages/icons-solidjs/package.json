@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-solidjs",
-  "version": "3.7.0",
+  "version": "3.36.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -17,16 +17,30 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-solidjs"
   },
+  "sideEffects": false,
+  "type": "module",
+  "amdName": "TablerIconsSolidjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/tabler-icons-solidjs.d.ts",
+        "default": "./dist/esm/tabler-icons-solidjs.js"
+      },
+      "require": {
+        "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
+        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
+      }
+    }
+  },
   "main": "./dist/cjs/tabler-icons-solidjs.cjs",
-  "module": "./dist/esm/tabler-icons-solidjs.mjs",
   "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
-    "build:icons": "node build.mjs",
-    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "build:icons": "node build.js",
+    "build:bundles": "rollup -c ./rollup.config.js",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
@@ -34,13 +48,14 @@
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.7.0"
+    "@tabler/icons": "3.36.0"
   },
   "devDependencies": {
     "@solidjs/testing-library": "^0.8.6",
     "rollup-preset-solid": "^2.0.1",
     "vite-plugin-solid": "^2.10.1",
-    "solid-js": "^1.8.15"
+    "solid-js": "^1.8.15",
+    "rollup": "^4.12.0"
   },
   "peerDependencies": {
     "solid-js": "^1.4.7"

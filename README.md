@@ -5,25 +5,39 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5325<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->5984<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
-  <a href="https://tabler-icons.io/"><strong>Browse at tabler-icons.io &rarr;</strong></a>
+  <a href="https://tabler.io/icons"><strong>Browse at tabler.io/icons &rarr;</strong></a>
 </p>
 
 
 ## Sponsors
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
+  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
 </a>
+
+## Testing
+
+<p align="center">Browser testing via:</p>
+
+<p align="center">
+  <a href="https://www.lambdatest.com/" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/14dd2a0a-bafe-436e-a6cb-29636278c781">
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83">
+      <img src="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83" alt="Tabler Icons preview" width="296">
+    </picture>
+  </a>
+</p>
 
 ## Preview
 
-### Outline version (<!--icons-count-outline-->4639<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->4985<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -33,7 +47,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->686<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->999<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>
@@ -218,7 +232,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
-### Svelte
+### Svelte 4 and below
 
 Svelte components available through [`@tabler/icons-svelte`](https://github.com/tabler/tabler-icons/tree/master/packages/icons-svelte) package.
 
@@ -230,6 +244,21 @@ Svelte components available through [`@tabler/icons-svelte`](https://github.com/
 <main>
   <IconHeart size={48} stroke={1} />
   <IconHeart size="32" stroke="1.5" />
+  <IconHeart color="crimson" class="p-1" size="96" stroke="2" />
+</main>
+```
+
+### Svelte 5
+Svelte 5 components available through [`@tabler/icons-svelte-runes`](https://www.npmjs.com/package/@tabler/icons-svelte-runes) package.
+
+```js
+<script lang="ts">
+  import { IconHeart } from '@tabler/icons-svelte-runes';
+</script>
+
+<main>
+  <IconHeart size={48} stroke={1} />
+  <IconHeart size="32" stroke={1.5} />
   <IconHeart color="crimson" class="p-1" size="96" stroke="2" />
 </main>
 ```

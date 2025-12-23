@@ -23,11 +23,12 @@ const bundles = [
 export default [
   {
     input: inputs[0],
-    output: [{
-      file: `dist/esm/${outputFileName}.d.ts`
-    }, {
-      file: `dist/cjs/${outputFileName}.d.cts`
-    }],
+    output: [
+      {
+        file: `dist/${outputFileName}.d.ts`,
+        format: 'es',
+      },
+    ],
     plugins: [dts()],
   },
   ...getRollupConfig(pkg, outputFileName, bundles, {

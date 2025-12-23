@@ -1,9 +1,11 @@
 @charset "UTF-8";
 /*!
- * Tabler Icons <%= v %> by tabler - https://tabler.io
+ * Tabler Icons <%= it.v %> by tabler - https://tabler.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
  */
-$ti-font-family: '<%= fileName %>' !default;
+@use "sass:string";
+
+$ti-font-family: '<%= it.fileName %>' !default;
 $ti-font-path: './fonts' !default;
 $ti-font-display: null !default;
 $ti-prefix: 'ti' !default;
@@ -13,9 +15,9 @@ $ti-prefix: 'ti' !default;
   font-style: normal;
   font-weight: 400;
   font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/<%= fileName %>.woff2?v<%= v %>') format('woff2'),
-    url('#{$ti-font-path}/<%= fileName %>.woff?') format('woff'),
-    url('#{$ti-font-path}/<%= fileName %>.ttf?v<%= v %>') format('truetype');
+  src: url('#{$ti-font-path}/<%= it.fileName %>.woff2?v<%= it.v %>') format('woff2'),
+    url('#{$ti-font-path}/<%= it.fileName %>.woff?') format('woff'),
+    url('#{$ti-font-path}/<%= it.fileName %>.ttf?v<%= it.v %>') format('truetype');
 }
 
 .#{$ti-prefix} {
@@ -33,15 +35,15 @@ $ti-prefix: 'ti' !default;
 }
 
 @function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+  @return string.unquote("\"")+string.unquote(string.insert($str, "\\", 1))+string.unquote("\"")
 }
 
-<% glyphs.forEach(function(glyph) { %>
-$ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicode[0].codePointAt(0).toString(16) %>');<% }); %>
+<% it.glyphs.forEach(function(glyph) { %>
+$ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicodeHex %>');<% }) %>
 
-<% glyphs.forEach(function(glyph) { %>
-.#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }); %>
+<% it.glyphs.forEach(function(glyph) { %>
+.#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }) %>
 
 // Aliases
-<% Object.entries(aliases).forEach(function([from, to]) { %>.#{$ti-prefix}-<%= from %>:before { content: $ti-icon-<%= to %>; }
-<% }); %>
+<% it.aliases.forEach(function(alias) { %>.#{$ti-prefix}-<%= alias.from %>:before { content: $ti-icon-<%= alias.to %>; }
+<% }) %>

@@ -1,7 +1,7 @@
 {
   "name": "test-vue",
   "private": true,
-  "version": "3.7.0",
+  "version": "3.36.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "vue": "^3.4.20",
-    "@tabler/icons-vue": "3.7.0"
+    "@tabler/icons-vue": "workspace:*"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vue-tsc": "^1.8.27"
+    "@vitejs/plugin-vue": "^6.0.3",
+    "vue-tsc": "^3.1.8"
   }
 }
