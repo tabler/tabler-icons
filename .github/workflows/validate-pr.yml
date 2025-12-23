@@ -1,6 +1,6 @@
 name: Validate PR
 
-on: [pull_request]
+on: [pull_request_target]
 
 permissions:
   pull-requests: write
