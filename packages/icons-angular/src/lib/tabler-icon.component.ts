@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, inject, Inject, Input, OnChanges, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2 } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TablerIconConfig } from './tabler-icon.config';
@@ -20,24 +20,27 @@ export class TablerIconComponent implements OnChanges {
   @HostBinding('style.height.px')
   @HostBinding('style.width.px')
   size?: number;
-  config: TablerIconConfig;
 
-  constructor(
-    @Inject(Renderer2) private readonly renderer: Renderer2,
-    @Inject(TABLER_ICONS) private readonly iconProviders: ITablerIconProvider[],
-    @Inject(ElementRef) private readonly elementRef: ElementRef
-  ) {
-    this.config = {
+  private readonly renderer = inject(Renderer2);
+  private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
+  private readonly elementRef = inject(ElementRef);
+  private readonly iconConfig = inject(TablerIconConfig);
+
+  private get config(): TablerIconConfig {
+    return {
       size: defaultAttributes.outline.width,
       color: defaultAttributes.outline.stroke,
       stroke: defaultAttributes.outline['stroke-width'],
-      ...inject(TablerIconConfig)
+      ...this.iconConfig
     };
   }
 
   ngOnChanges() {
     this.size ??= this.config.size;
     if (typeof this.icon === 'string') {
+      if (!this.icon || this.icon.trim() === '') {
+        throw new Error('Icon name cannot be empty.');
+      }
       const icon = this.getIconFromProviders(this.toPascalCase(this.icon));
       if (icon) {
         this.replaceElement(icon);
@@ -47,7 +50,7 @@ export class TablerIconComponent implements OnChanges {
     } else if (this.icon != null && Array.isArray(this.icon.nodes)) {
       this.replaceElement(this.icon);
     } else {
-      throw new Error(`Icon has to be provided ! ! !.`);
+      throw new Error('Icon must be provided as a TablerIcon object or a string name.');
     }
   }
 
@@ -69,7 +72,15 @@ export class TablerIconComponent implements OnChanges {
     };
 
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
-    iconElement.classList.add('tabler-icon', `tabler-icon-${icon.name}`, this.class?.split(/ /).map(x => x.trim()));
+    iconElement.classList.add('tabler-icon', `tabler-icon-${icon.name}`);
+    if (this.class) {
+      this.class.split(/ /).forEach(cls => {
+        const trimmed = cls.trim();
+        if (trimmed) {
+          iconElement.classList.add(trimmed);
+        }
+      });
+    }
 
     const childElements = this.elementRef.nativeElement.childNodes;
     for (const childElement of childElements) {

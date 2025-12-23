@@ -13,7 +13,7 @@ export class TablerIconProvider implements ITablerIconProvider {
     return this.iconExists(name) ? this.icons[name] : null;
   };
 
-  private iconExists = (name: string): boolean => typeof this.icons === 'object' && name in this.icons;
+  private iconExists = (name: string): boolean => name in this.icons;
 }
 
 export const TABLER_ICONS = new InjectionToken<ITablerIconProvider>('TablerIcons', {
