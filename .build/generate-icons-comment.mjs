@@ -1,8 +1,6 @@
 import { execSync } from 'child_process'
-import { readFileSync } from 'fs'
 import { basename, join } from 'path'
-import { ICONS_SRC_DIR } from './helpers.mjs'
-import { parseMatter } from './helpers.mjs'
+import { ICONS_SRC_DIR, parseMatter } from './helpers.mjs'
 
 // Check icon files added relative to main branch (for PR)
 function getAddedIconsFromMain() {
