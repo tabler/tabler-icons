@@ -8,12 +8,5 @@
     "inlineSources": true,
     "types": []
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "out-tsc",
-    "dist"
-  ]
+  "exclude": ["**/*.spec.ts"]
 }

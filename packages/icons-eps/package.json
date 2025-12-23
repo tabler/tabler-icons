@@ -13,7 +13,7 @@
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",
-    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +",
+    "clean": "rm -rf dist && find icons -mindepth 1 ! -name '.gitkeep' -delete",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
   "files": [

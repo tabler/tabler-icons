@@ -17,8 +17,21 @@
     "directory": "packages/icons-angular"
   },
   "publishConfig": {
-    "directory": "dist"
+    "access": "public"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "angular",
+    "icons",
+    "svg",
+    "tabler",
+    "ui",
+    "icon-pack"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run copy:license && npm run build:icons && npm run typecheck && npm run build:ng",
@@ -26,7 +39,7 @@
     "build:ng": "ng build --configuration=production",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
-    "typecheck": "tsc -p tsconfig.lib.json",
+    "typecheck": "tsc",
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test"
   },
