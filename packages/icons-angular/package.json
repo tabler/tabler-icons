@@ -46,6 +46,12 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^21.0.4",
     "@angular/animations": "^21.0.6",

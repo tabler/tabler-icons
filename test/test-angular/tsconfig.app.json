@@ -3,12 +3,21 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+      "@tabler/icons-angular": ["../../packages/icons-angular/src/public-api.ts"],
+      "@tabler/icons-angular/*": ["../../packages/icons-angular/src/*"]
+    }
   },
   "files": [
     "src/main.ts"
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "../../packages/icons-angular/src/**/*.spec.ts"
   ]
 }

@@ -1,7 +1,6 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { IconAB, IconAlertSmall, IconBadge8k, IconHome } from '@tabler/icons-angular/src/icons';
-import { TablerIconModule } from '@tabler/icons-angular/src/lib/tabler-icon.module';
+import { IconAB, IconAlertSmall, IconBadge8k, IconHome, TablerIconModule } from '@tabler/icons-angular';
 
 import { routes } from './app.routes';
 
