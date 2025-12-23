@@ -16,6 +16,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Set base branch
+        run: |
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          echo "BASE_REF=${BASE_REF}" >> $GITHUB_ENV
+          echo "BASE_SHA=${BASE_SHA}" >> $GITHUB_ENV
+          # Fetch base branch to ensure it's available
+          git fetch origin ${BASE_REF}:${BASE_REF} || true
 
       - name: Add in progress comment
         id: add-in-progress-comment
@@ -56,6 +66,9 @@ jobs:
 
       - name: Validate icons
         id: validate
+        env:
+          BASE_REF: ${{ env.BASE_REF }}
+          BASE_SHA: ${{ env.BASE_SHA }}
         run: pnpm run --silent validate > ./comment-markup.md
         continue-on-error: true
 
@@ -68,6 +81,9 @@ jobs:
 
       - name: Generate icons comment
         id: generate-icons-comment
+        env:
+          BASE_REF: ${{ env.BASE_REF }}
+          BASE_SHA: ${{ env.BASE_SHA }}
         run: pnpm run --silent generate-icons-comment > ./comment-icons.md || true
         continue-on-error: true
 
