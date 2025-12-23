@@ -213,26 +213,25 @@ for (const icon of addedIcons) {
       error = true
     }
 
-    if (!icon.match(/^[a-z0-9-]+$/)) {
+    if (!icon.match(/^(outline|filled)\/[a-z0-9-]+$/)) {
       console.log(`⛔️ New icon \`${icon}\` has invalid name`)
       error = true
     }
 
     // check if outline icon has category
-    if (icon.match(/^outline\//) && !data.category) {
-      console.log(`⛔️ New icon \`${icon}\` has no category`)
-      error = true
-    } else {
-      if (!categories.includes(data.category)) {
-        console.log(`⛔️ New icon \`${icon}\` has invalid category \`${data.category}\`. Valid categories are: ${categories.join(', ')}`)
+    if (icon.match(/^outline\//) ) {
+      if(!data.category) {
+        console.log(`⛔️ New outline icon \`${icon}\` has no category`)
+        error = true
+      } else if (!categories.includes(data.category)) {
+        console.log(`⛔️ New outline icon \`${icon}\` has invalid category \`${data.category}\`. Valid categories are: ${categories.join(', ')}`)
         error = true
       }
-    }
-
-    // check if filled icon hasnt category
-    if (icon.match(/^filled\//) && data.category) {
-      console.log(`⛔️ New icon \`${icon}\` has category, but should not have it`)
-      error = true
+    } else {
+      if (icon.match(/^filled\//) && data.category) {
+        console.log(`⛔️ New filled icon \`${icon}\` has category, but should not have it`)
+        error = true
+      }
     }
 
     // check if filled icon has tags
