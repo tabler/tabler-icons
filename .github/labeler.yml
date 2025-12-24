@@ -11,6 +11,18 @@
           - 'icons/**/*.svg'
           - aliases.json
 
+# For new icons
+✨ new icons:
+  - changed-files:
+      - all-files-to-any-file:
+          - 'icons/**/*.svg'
+
+# For modified icons
+🔧 modified icons:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'icons/**/*.svg'
+
 # For Github Actions
 🤖 github-actions:
   - changed-files:
