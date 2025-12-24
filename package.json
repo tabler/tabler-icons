@@ -35,6 +35,7 @@
     "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:packages": "pnpm run build:icons && pnpm run build:sprite && pnpm run build:react && pnpm run build:react-native && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:svelte && pnpm run build:svelte-runes && pnpm run build:vue && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
     "build:icons": "pnpm --filter @tabler/icons build",
+    "build:angular": "pnpm --filter @tabler/icons-angular build",
     "build:react": "pnpm --filter @tabler/icons-react build",
     "build:react-native": "pnpm --filter @tabler/icons-react-native build",
     "build:preact": "pnpm --filter @tabler/icons-preact build",
@@ -89,7 +90,7 @@
     "svgpath": "^2.6.0",
     "svgson": "^5.3.1",
     "turbo": "^2.6.3",
-    "typescript": "^5.3.3",
+    "typescript": "~5.9.3",
     "vite": "^7.3.0",
     "vitest": "^4.0.16"
   },

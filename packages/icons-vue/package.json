@@ -29,7 +29,7 @@
     "build:icons": "node build.mjs",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
     "test": "vitest run",
     "imports-check": "attw $(npm pack)"
   },

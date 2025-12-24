@@ -56,7 +56,7 @@
     "build:icons": "node build.mjs",
     "build:package": "svelte-package --input ./src",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
     "test": "vitest run",
     "imports-check": "attw $(npm pack)"
   },
@@ -73,7 +73,7 @@
     "jsdom": "^25.0.1",
     "svelte": "^5.0.0",
     "svelte-check": "^4.3.4",
-    "typescript": "^5.7.3",
+    "typescript": "^5.9.3",
     "vite": "^7.2.7",
     "vitest": "^3.0.8"
   },

@@ -1,0 +1,77 @@
+{
+  "name": "@tabler/icons-angular",
+  "version": "3.7.0-alpha.1",
+  "license": "MIT",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your Angular projects.",
+  "homepage": "https://tabler.io/icons",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-angular"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "angular",
+    "icons",
+    "svg",
+    "tabler",
+    "ui",
+    "icon-pack"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run clean && npm run copy:license && npm run build:icons && npm run typecheck && npm run build:ng",
+    "build:icons": "node build.mjs",
+    "build:ng": "ng build --configuration=production",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
+    "typecheck": "tsc",
+    "test": "ng test --no-watch --no-progress",
+    "test:watch": "ng test"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.0.4",
+    "@angular/animations": "^21.0.6",
+    "@angular/cli": "^21.0.4",
+    "@angular/common": "^21.0.6",
+    "@angular/compiler": "^21.0.6",
+    "@angular/compiler-cli": "^21.0.6",
+    "@angular/core": "^21.0.6",
+    "@angular/platform-browser": "^21.0.6",
+    "@angular/platform-browser-dynamic": "^21.0.6",
+    "@prettier/sync": "^0.5.1",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^21.0.1",
+    "tslib": "^2.3.0",
+    "typescript": "~5.9.3",
+    "zone.js": "~0.14.3"
+  },
+  "peerDependencies": {
+    "@angular/common": "16.x - 21.x",
+    "@angular/core": "16.x - 21.x",
+    "@tabler/icons": "^3.7.0"
+  }
+}
