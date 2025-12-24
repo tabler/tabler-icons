@@ -61,7 +61,7 @@ describe('TablerIconComponent', () => {
     selector: 'tabler-test',
     template: `
       <tabler-icon
-        icon="icon-test"
+        icon="test"
         class="test-class"
         [color]="color"
         [size]="size"

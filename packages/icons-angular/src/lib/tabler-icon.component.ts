@@ -6,15 +6,41 @@ import { ITablerIconProvider, TABLER_ICONS } from './tabler-icon.provider';
 
 type SvgAttributes = { [key: string]: string | number | undefined };
 
+/**
+ * Component for rendering Tabler icons in Angular applications.
+ * Supports both outline and filled icon types.
+ * 
+ * @example
+ * ```html
+ * <tabler-icon icon="home" [size]="24" color="blue"></tabler-icon>
+ * ```
+ */
 @Component({
   selector: 'tabler-icon',
   standalone: true,
   template: '<ng-content></ng-content>'
 })
 export class TablerIconComponent implements OnChanges {
+  /**
+   * Icon to display. Can be a TablerIcon object or a string name.
+   * @required
+   */
   @Input({ required: true }) icon!: TablerIcon | string;
+  
+  /**
+   * Color of the icon. For outline icons, this sets the stroke color.
+   * For filled icons, this sets the fill color.
+   */
   @Input() color?: string;
+  
+  /**
+   * Stroke width for outline icons. Defaults to 2.
+   */
   @Input() stroke?: number;
+  
+  /**
+   * Additional CSS classes to apply to the icon element.
+   */
   @Input() class?: string;
   @Input()
   @HostBinding('style.height.px')
@@ -55,6 +81,10 @@ export class TablerIconComponent implements OnChanges {
   }
 
   private replaceElement(icon: TablerIcon): void {
+    if (icon.type !== 'outline' && icon.type !== 'filled') {
+      throw new Error(`Invalid icon type: ${icon.type}. Must be 'outline' or 'filled'.`);
+    }
+
     const typeAttributes = icon.type === 'outline'
       ? {
         stroke: this.color ?? this.config.color,
@@ -82,9 +112,8 @@ export class TablerIconComponent implements OnChanges {
       });
     }
 
-    const childElements = this.elementRef.nativeElement.childNodes;
-    for (const childElement of childElements) {
-      this.renderer.removeChild(this.elementRef.nativeElement, childElement);
+    while (this.elementRef.nativeElement.firstChild) {
+      this.renderer.removeChild(this.elementRef.nativeElement, this.elementRef.nativeElement.firstChild);
     }
 
     this.renderer.appendChild(this.elementRef.nativeElement, iconElement);
@@ -94,13 +123,14 @@ export class TablerIconComponent implements OnChanges {
     const element = this.renderer.createElement(tag, 'http://www.w3.org/2000/svg');
 
     Object.keys(attributes).forEach(key => {
-      if (attributes[key]) {
-        const value = typeof attributes[key] === 'string' ? attributes[key] as string : attributes[key]!.toString();
+      const attrValue = attributes[key];
+      if (attrValue) {
+        const value = typeof attrValue === 'string' ? attrValue : attrValue.toString();
         this.renderer.setAttribute(element, key, value);
       }
     });
 
-    if (nodes && nodes.length > 0) {
+    if (nodes?.length > 0) {
       nodes.forEach((node: TablerIconNode) => {
         const childElement = this.createElement(node);
         this.renderer.appendChild(element, childElement);
@@ -111,7 +141,7 @@ export class TablerIconComponent implements OnChanges {
   }
 
   private getIconFromProviders(iconName: string): TablerIcon | null {
-    for (const provider of Array.isArray(this.iconProviders) ? this.iconProviders : [this.iconProviders]) {
+    for (const provider of this.iconProviders) {
       const icon = provider.getIcon(iconName);
       if (icon) return icon;
     }
