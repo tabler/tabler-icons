@@ -1,0 +1,20 @@
+{
+  "name": "test-astro",
+  "private": true,
+  "version": "3.36.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "clean": "rm -rf dist .astro"
+  },
+  "dependencies": {
+    "@tabler/icons-astro": "workspace:*",
+    "astro": "^5.16.6"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.6"
+  }
+}
+

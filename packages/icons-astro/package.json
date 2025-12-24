@@ -1,0 +1,56 @@
+{
+   "name": "@tabler/icons-astro",
+   "version": "3.36.0",
+   "license": "MIT",
+   "author": "codecalm",
+   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+   "homepage": "https://tabler-icons.io",
+   "bugs": {
+      "url": "https://github.com/tabler/tabler-icons/issues"
+   },
+   "funding": {
+      "type": "github",
+      "url": "https://github.com/sponsors/codecalm"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tabler/tabler-icons.git",
+      "directory": "packages/icons-astro"
+   },
+   "type": "module",
+   "exports": {
+      ".": {
+         "import": "./src/tabler-icons-astro.ts"
+      },
+      "./icons": {
+         "import": "./src/icons/index.ts"
+      },
+      "./icons/*": {
+         "import": "./src/icons/*.ts"
+      }
+   },
+   "sideEffects": false,
+   "files": [
+      "src",
+      "LICENSE",
+      "README.md"
+   ],
+   "scripts": {
+      "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
+      "build:icons": "node build.mjs",
+      "copy:license": "cp ../../LICENSE ./LICENSE",
+      "clean": "rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -delete",
+      "test": "echo \"No tests yet\"",
+      "imports-check": "attw $(npm pack)"
+   },
+   "dependencies": {
+      "@tabler/icons": "3.36.0"
+   },
+   "devDependencies": {
+      "@astrojs/ts-plugin": "^1.10.6",
+      "astro": "^5.16.6"
+   },
+   "peerDependencies": {
+      "astro": "^4 || ^5"
+   }
+}
