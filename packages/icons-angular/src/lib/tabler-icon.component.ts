@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TablerIconConfig } from './tabler-icon.config';
@@ -18,7 +18,8 @@ type SvgAttributes = { [key: string]: string | number | undefined };
 @Component({
   selector: 'tabler-icon',
   standalone: true,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TablerIconComponent implements OnChanges {
   /**
