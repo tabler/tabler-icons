@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TablerIconConfig } from './tabler-icon.config';
@@ -61,7 +61,15 @@ export class TablerIconComponent implements OnChanges {
     };
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    // Only update if icon, color, stroke, size, or class changed
+    const shouldUpdate = changes['icon'] || changes['color'] || changes['stroke'] || 
+                         changes['size'] || changes['class'];
+    
+    if (!shouldUpdate && this.elementRef.nativeElement.firstChild) {
+      return; // Skip update if nothing relevant changed
+    }
+
     this.size ??= this.config.size;
     if (typeof this.icon === 'string') {
       if (!this.icon || this.icon.trim() === '') {
@@ -104,12 +112,11 @@ export class TablerIconComponent implements OnChanges {
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
     iconElement.classList.add('tabler-icon', `tabler-icon-${icon.name}`);
     if (this.class) {
-      this.class.split(/ /).forEach(cls => {
-        const trimmed = cls.trim();
-        if (trimmed) {
-          iconElement.classList.add(trimmed);
-        }
-      });
+      // Split by whitespace and filter empty strings
+      const classes = this.class.trim().split(/\s+/).filter(cls => cls.length > 0);
+      if (classes.length > 0) {
+        iconElement.classList.add(...classes);
+      }
     }
 
     while (this.elementRef.nativeElement.firstChild) {
@@ -130,7 +137,7 @@ export class TablerIconComponent implements OnChanges {
       }
     });
 
-    if (nodes?.length > 0) {
+    if (nodes && nodes.length > 0) {
       nodes.forEach((node: TablerIconNode) => {
         const childElement = this.createElement(node);
         this.renderer.appendChild(element, childElement);
