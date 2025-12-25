@@ -1,0 +1,39 @@
+---
+import defaultAttributes from './defaultAttributes';
+import type { IconProps as Props, IconNodeChild } from './types';
+
+const {
+  type = 'outline',
+  color = 'currentColor',
+  size = 24,
+  'stroke-width': strokeWidth = 2,
+  stroke,
+  iconNode = [],
+  class: className,
+  ...rest
+} = Astro.props;
+
+const typeAttrs = type === 'filled'
+  ? { fill: color }
+  : {
+      'stroke-width': stroke || strokeWidth,
+      stroke: color,
+    };
+
+const svgAttrs = {
+  ...defaultAttributes[type as 'outline' | 'filled'],
+  width: size,
+  height: size,
+  ...typeAttrs,
+  ...rest,
+};
+---
+
+<svg
+  {...svgAttrs}
+  class:list={['tabler-icon', className]}
+>
+  {iconNode.map(([Tag, attrs]: IconNodeChild) => <Tag {...attrs} />)}
+  <slot />
+</svg>
+

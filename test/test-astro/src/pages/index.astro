@@ -1,0 +1,85 @@
+---
+import { IconAd, IconAdOff, IconAdFilled } from '@tabler/icons-astro/icons';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      a {
+        font-weight: 500;
+        color: #646cff;
+        text-decoration: inherit;
+      }
+
+      a:hover {
+        color: #535bf2;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        place-items: center;
+        min-width: 320px;
+        min-height: 100vh;
+      }
+
+      h1 {
+        font-size: 3.2em;
+        line-height: 1.1;
+      }
+
+      .App {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          color: #213547;
+          background-color: #ffffff;
+        }
+        a:hover {
+          color: #747bff;
+        }
+        button {
+          background-color: #f9f9f9;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="App">
+      <a id="toggle-icon">
+        <IconAd size={48} id="icon-ad" />
+        <IconAdOff size={48} id="icon-ad-off" style="display: none;" />
+      </a>
+      <IconAd size={48} stroke={1} />
+      <IconAdOff size={48} stroke={1.5} />
+      <IconAdFilled size={48} type="filled" />
+    </div>
+    <script>
+      let active = false;
+      const toggleButton = document.getElementById('toggle-icon');
+      const iconAd = document.getElementById('icon-ad');
+      const iconAdOff = document.getElementById('icon-ad-off');
+      
+      if (toggleButton && iconAd && iconAdOff) {
+        toggleButton.addEventListener('click', () => {
+          active = !active;
+          if (active) {
+            iconAd.style.display = 'none';
+            iconAdOff.style.display = 'inline-block';
+          } else {
+            iconAd.style.display = 'inline-block';
+            iconAdOff.style.display = 'none';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
