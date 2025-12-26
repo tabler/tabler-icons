@@ -1,3 +1,16 @@
 packages:
   - 'packages/*'
   - 'test/*'
+
+catalog:
+  typescript: ^5.3.3
+  vite: ^7.3.0
+  vitest: ^4.0.16
+  jest-serializer-html: ^7.1.0
+  jsdom: ^25.0.1
+  "@testing-library/jest-dom": ^6.6.3
+  rollup: ^4.12.1
+  "@types/react": 18.2.60
+  "@testing-library/react": ^14.2.1
+  react: 18.2.0
+  "@vitejs/plugin-react": ^4.2.1

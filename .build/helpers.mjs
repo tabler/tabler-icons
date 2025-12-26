@@ -119,8 +119,8 @@ export const getAllIcons = (withContent = false, withObject = false) => {
 
   types.forEach((type) => {
     icons[type] = globSync(slash(path.join(ICONS_SRC_DIR, `${type}/*.svg`)))
+      .sort((a, b) => a.localeCompare(b))
       .slice(0, limit)
-      .sort()
       .map((i) => {
         const { data, content } = parseMatter(i),
           name = basename(i, '.svg');
