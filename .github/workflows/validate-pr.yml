@@ -41,10 +41,10 @@ jobs:
             🔄 Icons are being validated... Please wait...
         continue-on-error: true
 
-      - name: Use Node.js 20
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
