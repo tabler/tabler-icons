@@ -18,6 +18,17 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
 
+      - name: Install system dependencies for canvas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            libcairo2-dev \
+            libpango1.0-dev \
+            libjpeg-dev \
+            libgif-dev \
+            librsvg2-dev
+
       - name: Get pnpm store directory
         shell: bash
         run: |
