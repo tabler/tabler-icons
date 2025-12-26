@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Use Node.js 20
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -40,5 +40,5 @@ jobs:
       - name: Build
         env:
           ICONS_LIMIT: 100
-        run: turbo build
+        run: pnpm exec turbo build
 
