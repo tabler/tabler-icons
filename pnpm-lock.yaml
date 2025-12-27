@@ -363,6 +363,9 @@ importers:
       '@napi-rs/canvas':
         specifier: ^0.1.86
         version: 0.1.86
+      canvas:
+        specifier: ^2.11.2
+        version: 2.11.2(encoding@0.1.13)
       eta:
         specifier: ^3.4.0
         version: 3.5.0
@@ -9973,7 +9976,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    optional: true
 
   '@napi-rs/canvas-android-arm64@0.1.86':
     optional: true
@@ -11302,7 +11304,6 @@ snapshots:
     dependencies:
       delegates: 1.0.0
       readable-stream: 3.6.2
-    optional: true
 
   are-we-there-yet@3.0.1:
     dependencies:
@@ -11701,7 +11702,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    optional: true
 
   centra@2.7.0:
     dependencies:
@@ -12205,8 +12205,7 @@ snapshots:
 
   detect-libc@1.0.3: {}
 
-  detect-libc@2.1.2:
-    optional: true
+  detect-libc@2.1.2: {}
 
   detect-newline@3.1.0: {}
 
@@ -12976,7 +12975,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wide-align: 1.1.5
-    optional: true
 
   gauge@4.0.4:
     dependencies:
@@ -14088,7 +14086,6 @@ snapshots:
   make-dir@3.1.0:
     dependencies:
       semver: 6.3.1
-    optional: true
 
   make-fetch-happen@10.2.1:
     dependencies:
@@ -14637,7 +14634,6 @@ snapshots:
   nopt@5.0.0:
     dependencies:
       abbrev: 1.1.1
-    optional: true
 
   nopt@6.0.0:
     dependencies:
@@ -14719,7 +14715,6 @@ snapshots:
       console-control-strings: 1.1.0
       gauge: 3.0.2
       set-blocking: 2.0.0
-    optional: true
 
   npmlog@6.0.2:
     dependencies:
@@ -14922,7 +14917,7 @@ snapshots:
       got: 12.6.1
       registry-auth-token: 5.1.0
       registry-url: 6.0.1
-      semver: 7.6.0
+      semver: 7.7.3
 
   package-name-regex@2.0.6: {}
 
