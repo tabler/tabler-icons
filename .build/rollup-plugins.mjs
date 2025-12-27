@@ -2,7 +2,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
 import esbuild from 'rollup-plugin-esbuild'
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import bundleSize from '@atomico/rollup-plugin-sizes';
 
 const getRollupPlugins = (pkg, minify) => {
   return [
@@ -19,7 +18,6 @@ const getRollupPlugins = (pkg, minify) => {
 This source code is licensed under the ${pkg.license} license.
 See the LICENSE file in the root directory of this source tree.`
     }),
-    bundleSize(),
     visualizer({
       sourcemap: false,
       filename: `stats/${pkg.name}${minify ? '-min' : ''}.html`
