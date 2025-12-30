@@ -48,7 +48,8 @@
     "svgtofont": "^6.5.0"
   },
   "devDependencies": {
-    "@napi-rs/canvas": "^0.1.86",
+    "@napi-rs/canvas": "^0.1.88",
+    "canvas": "^3.2.0",
     "eta": "^3.4.0",
     "glob": "^13.0.0",
     "paper-jsdom": "^0.12.18",
@@ -57,5 +58,7 @@
     "svgicons2svgfont": "^15.0.1",
     "ttf2woff": "^3.0.0",
     "wawoff2": "^2.0.1"
-  }
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {}
 }

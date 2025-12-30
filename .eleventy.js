@@ -1,7 +1,27 @@
-const eleventySass = require("eleventy-sass");
+const sass = require("sass");
+const path = require("path");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(eleventySass);
+  eleventyConfig.addTemplateFormats("scss");
+  
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    compile: async function(inputContent, inputPath) {
+      const parsed = path.parse(inputPath);
+      if (parsed.name.startsWith("_")) {
+        return;
+      }
+      
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || ".", path.join(process.cwd(), "src", "_includes")],
+        style: "expanded"
+      });
+      
+      return async (data) => {
+        return result.css;
+      };
+    }
+  });
 
   eleventyConfig.addWatchTarget("./src");
   eleventyConfig.addWatchTarget("./icons");

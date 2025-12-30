@@ -1,3 +1,22 @@
 packages:
-  - 'packages/*'
-  - 'test/*'
+  - "packages/*"
+  - "test/*"
+catalog:
+  typescript: 5.9.3
+  vite: ^7.3.0
+  vitest: ^4.0.16
+  jest-serializer-html: ^7.1.0
+  jsdom: 27.4.0
+  "@testing-library/jest-dom": 6.9.1
+  rollup: 4.54.0
+  "@rollup/plugin-node-resolve": 16.0.3
+  rollup-plugin-dts: 6.3.0
+  rollup-plugin-esbuild: 6.2.1
+  rollup-plugin-filesize: 10.0.0
+  rollup-plugin-license: 3.6.0
+  rollup-plugin-peer-deps-external: 2.2.4
+  rollup-plugin-visualizer: ^6.0.5
+  "@types/react": 18.3.27
+  "@testing-library/react": 16.3.1
+  react: 18.3.1
+  "@vitejs/plugin-react": 5.1.2
