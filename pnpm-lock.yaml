@@ -100,7 +100,7 @@ importers:
         version: 7.1.0
       jsdom:
         specifier: 'catalog:'
-        version: 27.4.0
+        version: 27.4.0(canvas@3.2.0)
       minimist:
         specifier: 1.2.8
         version: 1.2.8
@@ -166,7 +166,7 @@ importers:
         version: 7.3.0(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
       vitest:
         specifier: 'catalog:'
-        version: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
+        version: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0(canvas@3.2.0))(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
 
   packages/icons: {}
 
@@ -333,7 +333,7 @@ importers:
         version: 5.1.1(svelte@5.46.0)(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))
       '@testing-library/svelte':
         specifier: ^5.2.9
-        version: 5.2.10(svelte@5.46.0)(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))(vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))
+        version: 5.2.10(svelte@5.46.0)(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))(vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0(canvas@3.2.0))(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))
       '@tsconfig/svelte':
         specifier: ^5.0.4
         version: 5.0.6
@@ -382,11 +382,11 @@ importers:
         version: 6.5.0(chokidar@3.6.0)
     devDependencies:
       '@napi-rs/canvas':
-        specifier: ^0.1.86
-        version: 0.1.86
+        specifier: ^0.1.88
+        version: 0.1.88
       canvas:
-        specifier: ^2.11.2
-        version: 2.11.2(encoding@0.1.13)
+        specifier: ^3.2.0
+        version: 3.2.0
       eta:
         specifier: ^3.4.0
         version: 3.5.0
@@ -395,7 +395,7 @@ importers:
         version: 13.0.0
       paper-jsdom:
         specifier: ^0.12.18
-        version: 0.12.18(canvas@2.11.2(encoding@0.1.13))
+        version: 0.12.18(canvas@3.2.0)
       svg-path-outline:
         specifier: ^1.0.1
         version: 1.0.1
@@ -2258,78 +2258,74 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mapbox/node-pre-gyp@1.0.11':
-    resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
-    hasBin: true
-
-  '@napi-rs/canvas-android-arm64@0.1.86':
-    resolution: {integrity: sha512-IjkZFKUr6GzMzzrawJaN3v+yY3Fvpa71e0DcbePfxWelFKnESIir+XUcdAbim29JOd0JE0/hQJdfUCb5t/Fjrw==}
+  '@napi-rs/canvas-android-arm64@0.1.88':
+    resolution: {integrity: sha512-KEaClPnZuVxJ8smUWjV1wWFkByBO/D+vy4lN+Dm5DFH514oqwukxKGeck9xcKJhaWJGjfruGmYGiwRe//+/zQQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
 
-  '@napi-rs/canvas-darwin-arm64@0.1.86':
-    resolution: {integrity: sha512-PUCxDq0wSSJbtaOqoKj3+t5tyDbtxWumziOTykdn3T839hu6koMaBFpGk9lXpsGaPNgyFpPqjxhtsPljBGnDHg==}
+  '@napi-rs/canvas-darwin-arm64@0.1.88':
+    resolution: {integrity: sha512-Xgywz0dDxOKSgx3eZnK85WgGMmGrQEW7ZLA/E7raZdlEE+xXCozobgqz2ZvYigpB6DJFYkqnwHjqCOTSDGlFdg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@napi-rs/canvas-darwin-x64@0.1.86':
-    resolution: {integrity: sha512-rlCFLv4Rrg45qFZq7mysrKnsUbMhwdNg3YPuVfo9u4RkOqm7ooAJvdyDFxiqfSsJJTqupYqa9VQCUt8WKxKhNQ==}
+  '@napi-rs/canvas-darwin-x64@0.1.88':
+    resolution: {integrity: sha512-Yz4wSCIQOUgNucgk+8NFtQxQxZV5NO8VKRl9ePKE6XoNyNVC8JDqtvhh3b3TPqKK8W5p2EQpAr1rjjm0mfBxdg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.86':
-    resolution: {integrity: sha512-6xWwyMc9BlDBt+9XHN/GzUo3MozHta/2fxQHMb80x0K2zpZuAdDKUYHmYzx9dFWDY3SbPYnx6iRlQl6wxnwS1w==}
+  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.88':
+    resolution: {integrity: sha512-9gQM2SlTo76hYhxHi2XxWTAqpTOb+JtxMPEIr+H5nAhHhyEtNmTSDRtz93SP7mGd2G3Ojf2oF5tP9OdgtgXyKg==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@napi-rs/canvas-linux-arm64-gnu@0.1.86':
-    resolution: {integrity: sha512-r2OX3w50xHxrToTovOSQWwkVfSq752CUzH9dzlVXyr8UDKFV8dMjfa9hePXvAJhN3NBp4TkHcGx15QCdaCIwnA==}
+  '@napi-rs/canvas-linux-arm64-gnu@0.1.88':
+    resolution: {integrity: sha512-7qgaOBMXuVRk9Fzztzr3BchQKXDxGbY+nwsovD3I/Sx81e+sX0ReEDYHTItNb0Je4NHbAl7D0MKyd4SvUc04sg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@napi-rs/canvas-linux-arm64-musl@0.1.86':
-    resolution: {integrity: sha512-jbXuh8zVFUPw6a9SGpgc6EC+fRbGGyP1NFfeQiVqGLs6bN93ROtPLPL6MH9Bp6yt0CXUFallk2vgKdWDbmW+bw==}
+  '@napi-rs/canvas-linux-arm64-musl@0.1.88':
+    resolution: {integrity: sha512-kYyNrUsHLkoGHBc77u4Unh067GrfiCUMbGHC2+OTxbeWfZkPt2o32UOQkhnSswKd9Fko/wSqqGkY956bIUzruA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@napi-rs/canvas-linux-riscv64-gnu@0.1.86':
-    resolution: {integrity: sha512-9IwHR2qbq2HceM9fgwyL7x37Jy3ptt1uxvikQEuWR0FisIx9QEdt7F3huljCky76aoouF2vSd0R2fHo3ESRoPw==}
+  '@napi-rs/canvas-linux-riscv64-gnu@0.1.88':
+    resolution: {integrity: sha512-HVuH7QgzB0yavYdNZDRyAsn/ejoXB0hn8twwFnOqUbCCdkV+REna7RXjSR7+PdfW0qMQ2YYWsLvVBT5iL/mGpw==}
     engines: {node: '>= 10'}
     cpu: [riscv64]
     os: [linux]
 
-  '@napi-rs/canvas-linux-x64-gnu@0.1.86':
-    resolution: {integrity: sha512-Jor+rhRN6ubix+D2QkNn9XlPPVAYl+2qFrkZ4oZN9UgtqIUZ+n+HljxhlkkDFRaX1mlxXOXPQjxaZg17zDSFcQ==}
+  '@napi-rs/canvas-linux-x64-gnu@0.1.88':
+    resolution: {integrity: sha512-hvcvKIcPEQrvvJtJnwD35B3qk6umFJ8dFIr8bSymfrSMem0EQsfn1ztys8ETIFndTwdNWJKWluvxztA41ivsEw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@napi-rs/canvas-linux-x64-musl@0.1.86':
-    resolution: {integrity: sha512-A28VTy91DbclopSGZ2tIon3p8hcVI1JhnNpDpJ5N9rYlUnVz1WQo4waEMh+FICTZF07O3coxBNZc4Vu4doFw7A==}
+  '@napi-rs/canvas-linux-x64-musl@0.1.88':
+    resolution: {integrity: sha512-eSMpGYY2xnZSQ6UxYJ6plDboxq4KeJ4zT5HaVkUnbObNN6DlbJe0Mclh3wifAmquXfrlgTZt6zhHsUgz++AK6g==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@napi-rs/canvas-win32-arm64-msvc@0.1.86':
-    resolution: {integrity: sha512-q6G1YXUt3gBCAS2bcDMCaBL4y20di8eVVBi1XhjUqZSVyZZxxwIuRQHy31NlPJUCMiyNiMuc6zeI0uqgkWwAmA==}
+  '@napi-rs/canvas-win32-arm64-msvc@0.1.88':
+    resolution: {integrity: sha512-qcIFfEgHrchyYqRrxsCeTQgpJZ/GqHiqPcU/Fvw/ARVlQeDX1VyFH+X+0gCR2tca6UJrq96vnW+5o7buCq+erA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@napi-rs/canvas-win32-x64-msvc@0.1.86':
-    resolution: {integrity: sha512-X0g46uRVgnvCM1cOjRXAOSFSG63ktUFIf/TIfbKCUc7QpmYUcHmSP9iR6DGOYfk+SggLsXoJCIhPTotYeZEAmg==}
+  '@napi-rs/canvas-win32-x64-msvc@0.1.88':
+    resolution: {integrity: sha512-ROVqbfS4QyZxYkqmaIBBpbz/BQvAR+05FXM5PAtTYVc0uyY8Y4BHJSMdGAaMf6TdIVRsQsiq+FG/dH9XhvWCFQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
 
-  '@napi-rs/canvas@0.1.86':
-    resolution: {integrity: sha512-hOkywnrkdFdVpsuaNsZWfEY7kc96eROV2DuMTTvGF15AZfwobzdG2w0eDlU5UBx3Lg/XlWUnqVT5zLUWyo5h6A==}
+  '@napi-rs/canvas@0.1.88':
+    resolution: {integrity: sha512-/p08f93LEbsL5mDZFQ3DBxcPv/I4QG9EDYRRq1WNlCOXVfAHBTHMSVMwxlqG/AtnSfUr9+vgfN7MKiyDo0+Weg==}
     engines: {node: '>= 10'}
 
   '@nodeutils/defaults-deep@1.1.0':
@@ -3334,11 +3330,6 @@ packages:
     resolution: {integrity: sha512-nxwy40TuMiUGqMyRHgCSWZ9FM4VAoRP4xUYSTv5ImRog+h9yISPbVH7H8fASCIzYn9wlEv4zvFL7uKDMCFQm3g==}
     deprecated: This package is no longer supported.
 
-  are-we-there-yet@2.0.0:
-    resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
-    engines: {node: '>=10'}
-    deprecated: This package is no longer supported.
-
   are-we-there-yet@3.0.1:
     resolution: {integrity: sha512-QZW4EDmGwlYur0Yyf/b2uGucHQMa8aFUP7eu9ddR73vvhFyt4V0Vl3QHPcTNJ8l6qYOBdxgXdnBXQrHilfRQBg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
@@ -3634,9 +3625,9 @@ packages:
   caniuse-lite@1.0.30001761:
     resolution: {integrity: sha512-JF9ptu1vP2coz98+5051jZ4PwQgd2ni8A+gYSN7EA7dPKIMf0pDlSUxhdmVOaV3/fYK5uWBkgSXJaRLr4+3A6g==}
 
-  canvas@2.11.2:
-    resolution: {integrity: sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==}
-    engines: {node: '>=6'}
+  canvas@3.2.0:
+    resolution: {integrity: sha512-jk0GxrLtUEmW/TmFsk2WghvgHe8B0pxGilqCL21y8lHkPUGa6FTsnCNtHPOzT8O3y+N+m3espawV80bbBlgfTA==}
+    engines: {node: ^18.12.0 || >= 20.9.0}
 
   centra@2.7.0:
     resolution: {integrity: sha512-PbFMgMSrmgx6uxCdm57RUos9Tc3fclMvhLSATYN39XsDV29B89zZ3KA89jmY0vwSGazyU+uerqwa6t+KaodPcg==}
@@ -3999,6 +3990,10 @@ packages:
   decompress-response@4.2.1:
     resolution: {integrity: sha512-jOSne2qbyE+/r8G1VU+G/82LBs2Fs4LAsTiLSHOCOMZQl2OKZ6i8i4IyHemTe+/yIXOtTcRQMzPcgyhoFlqPkw==}
     engines: {node: '>=8'}
+
+  decompress-response@6.0.0:
+    resolution: {integrity: sha512-aW35yZM6Bb/4oJlZncMH2LCoZtJXTRxES17vE3hoRiowU2kWHaJKFkSBDnDR+cm9J+9QhXmREyIfv0pji9ejCQ==}
+    engines: {node: '>=10'}
 
   dedent-js@1.0.1:
     resolution: {integrity: sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==}
@@ -4717,11 +4712,6 @@ packages:
 
   gauge@2.7.4:
     resolution: {integrity: sha512-14x4kjc6lkD3ltw589k0NrPD6cCNTD6CWoVUNpB85+DrtONoZn+Rug6xZU5RvSC4+TZPxA5AnBibQYAvZn41Hg==}
-    deprecated: This package is no longer supported.
-
-  gauge@3.0.2:
-    resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
-    engines: {node: '>=10'}
     deprecated: This package is no longer supported.
 
   gauge@4.0.4:
@@ -5542,10 +5532,6 @@ packages:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
     engines: {node: '>=6'}
 
-  make-dir@3.1.0:
-    resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
-    engines: {node: '>=8'}
-
   make-fetch-happen@10.2.1:
     resolution: {integrity: sha512-NgOPbRiaQM10DYXvN3/hhGVI2M5MtITFryzBGxHM5p4wnFxsVCbxkrBrDsk+EZ5OB4jEOT7AjDxtdF+KVEFT7w==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
@@ -5720,6 +5706,10 @@ packages:
     resolution: {integrity: sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==}
     engines: {node: '>=8'}
 
+  mimic-response@3.1.0:
+    resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
+    engines: {node: '>=10'}
+
   min-document@2.19.2:
     resolution: {integrity: sha512-8S5I8db/uZN8r9HSLFVWPdJCvYOejMcEC82VIzNUc6Zkklf/d1gg2psfE79/vyhWOj4+J8MtwmoOz3TmvaGu5A==}
 
@@ -5848,6 +5838,9 @@ packages:
   napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
 
+  napi-build-utils@2.0.0:
+    resolution: {integrity: sha512-GEbrYkbfF7MoNaoh2iGG84Mnf/WZfB0GdGEsM8wz7Expx/LlWf5U8t9nvJKXSp3qr5IsEbK04cBGhol/KwOsWA==}
+
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -5876,6 +5869,10 @@ packages:
 
   node-abi@2.30.1:
     resolution: {integrity: sha512-/2D0wOQPgaUWzVSVgRMx+trKJRC2UG4SUc4oCJoXx9Uxjtp0Vy3/kt7zcbxHF8+Z/pK3UloLWzBISg72brfy1w==}
+
+  node-abi@3.85.0:
+    resolution: {integrity: sha512-zsFhmbkAzwhTft6nd3VxcG0cvJsT70rL+BIGHWVq5fi6MwGrHwzqKaxXE+Hl2GmnGItnDKPPkO5/LQqjVkIdFg==}
+    engines: {node: '>=10'}
 
   node-abort-controller@3.1.1:
     resolution: {integrity: sha512-AGK2yQKIjRuqnc6VkX2Xj5d+QW8xZ87pa1UK6yA6ouUyuxfHuMP6umE5QK7UmTeOAymo+Zx1Fxiuw9rVx8taHQ==}
@@ -5937,11 +5934,6 @@ packages:
     resolution: {integrity: sha512-LN4fydt9TqhZhThkZIVQnF9cwjU3qmUH9h78Mx/K7d3VvfRqqwthLwJEUOEL0QPZ0XQmNN7be5Ggit5+4dq3Bw==}
     engines: {node: '>=0.12.0'}
 
-  nopt@5.0.0:
-    resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
-    engines: {node: '>=6'}
-    hasBin: true
-
   nopt@6.0.0:
     resolution: {integrity: sha512-ZwLpbTgdhuZUnZzjd7nb1ZV+4DoiC6/sfiVKok72ym/4Tlf+DFdlHYmT2JPmcNNWV6Pi3SDf1kT+A4r9RTuT9g==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
@@ -5998,10 +5990,6 @@ packages:
 
   npmlog@4.1.2:
     resolution: {integrity: sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==}
-    deprecated: This package is no longer supported.
-
-  npmlog@5.0.1:
-    resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
     deprecated: This package is no longer supported.
 
   npmlog@6.0.2:
@@ -6379,6 +6367,11 @@ packages:
   prebuild-install@6.1.4:
     resolution: {integrity: sha512-Z4vpywnK1lBg+zdPCVCsKq0xO66eEV9rWo2zrROGGiRS4JtueBOdlB1FnY8lcy7JsUud/Q3ijUxyWN26Ika0vQ==}
     engines: {node: '>=6'}
+    hasBin: true
+
+  prebuild-install@7.1.3:
+    resolution: {integrity: sha512-8Mf2cbV7x1cXPUILADGI3wuhfqWvtiLA1iclTDbFRZkgRQS0NqsPZphna9V+HyTEadheuPmjaJMsbzKQFOzLug==}
+    engines: {node: '>=10'}
     hasBin: true
 
   prettier@3.7.4:
@@ -6945,6 +6938,9 @@ packages:
 
   simple-get@3.1.1:
     resolution: {integrity: sha512-CQ5LTKGfCpvE1K0n2us+kuMPbk/q0EKl82s4aheV9oXjFEz6W/Y7oQFVJuU6QG77hRT4Ghb5RURteF5vnWjupA==}
+
+  simple-get@4.0.1:
+    resolution: {integrity: sha512-brv7p5WgH0jmQJr1ZDDfKDOSeWWg+OVypG99A/5vYGPqJ6pxiaHLy8nxtFjBA7oMa01ebA9gfh1uMCFqOuXxvA==}
 
   simple-swizzle@0.2.4:
     resolution: {integrity: sha512-nAu1WFPQSMNr2Zn9PGSZK9AGn4t/y97lEm+MXTtUDwfP0ksAIX4nO+6ruD9Jwut4C49SB1Ws+fbXsm/yScWOHw==}
@@ -9878,67 +9874,52 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mapbox/node-pre-gyp@1.0.11(encoding@0.1.13)':
-    dependencies:
-      detect-libc: 2.1.2
-      https-proxy-agent: 5.0.1
-      make-dir: 3.1.0
-      node-fetch: 2.7.0(encoding@0.1.13)
-      nopt: 5.0.0
-      npmlog: 5.0.1
-      rimraf: 3.0.2
-      semver: 7.7.3
-      tar: 6.2.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
-  '@napi-rs/canvas-android-arm64@0.1.86':
+  '@napi-rs/canvas-android-arm64@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-darwin-arm64@0.1.86':
+  '@napi-rs/canvas-darwin-arm64@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-darwin-x64@0.1.86':
+  '@napi-rs/canvas-darwin-x64@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.86':
+  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-arm64-gnu@0.1.86':
+  '@napi-rs/canvas-linux-arm64-gnu@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-arm64-musl@0.1.86':
+  '@napi-rs/canvas-linux-arm64-musl@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-riscv64-gnu@0.1.86':
+  '@napi-rs/canvas-linux-riscv64-gnu@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-x64-gnu@0.1.86':
+  '@napi-rs/canvas-linux-x64-gnu@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-linux-x64-musl@0.1.86':
+  '@napi-rs/canvas-linux-x64-musl@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-win32-arm64-msvc@0.1.86':
+  '@napi-rs/canvas-win32-arm64-msvc@0.1.88':
     optional: true
 
-  '@napi-rs/canvas-win32-x64-msvc@0.1.86':
+  '@napi-rs/canvas-win32-x64-msvc@0.1.88':
     optional: true
 
-  '@napi-rs/canvas@0.1.86':
+  '@napi-rs/canvas@0.1.88':
     optionalDependencies:
-      '@napi-rs/canvas-android-arm64': 0.1.86
-      '@napi-rs/canvas-darwin-arm64': 0.1.86
-      '@napi-rs/canvas-darwin-x64': 0.1.86
-      '@napi-rs/canvas-linux-arm-gnueabihf': 0.1.86
-      '@napi-rs/canvas-linux-arm64-gnu': 0.1.86
-      '@napi-rs/canvas-linux-arm64-musl': 0.1.86
-      '@napi-rs/canvas-linux-riscv64-gnu': 0.1.86
-      '@napi-rs/canvas-linux-x64-gnu': 0.1.86
-      '@napi-rs/canvas-linux-x64-musl': 0.1.86
-      '@napi-rs/canvas-win32-arm64-msvc': 0.1.86
-      '@napi-rs/canvas-win32-x64-msvc': 0.1.86
+      '@napi-rs/canvas-android-arm64': 0.1.88
+      '@napi-rs/canvas-darwin-arm64': 0.1.88
+      '@napi-rs/canvas-darwin-x64': 0.1.88
+      '@napi-rs/canvas-linux-arm-gnueabihf': 0.1.88
+      '@napi-rs/canvas-linux-arm64-gnu': 0.1.88
+      '@napi-rs/canvas-linux-arm64-musl': 0.1.88
+      '@napi-rs/canvas-linux-riscv64-gnu': 0.1.88
+      '@napi-rs/canvas-linux-x64-gnu': 0.1.88
+      '@napi-rs/canvas-linux-x64-musl': 0.1.88
+      '@napi-rs/canvas-win32-arm64-msvc': 0.1.88
+      '@napi-rs/canvas-win32-x64-msvc': 0.1.88
 
   '@nodeutils/defaults-deep@1.1.0':
     dependencies:
@@ -10774,13 +10755,13 @@ snapshots:
       '@testing-library/dom': 9.3.4
       svelte: 4.2.20
 
-  '@testing-library/svelte@5.2.10(svelte@5.46.0)(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))(vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))':
+  '@testing-library/svelte@5.2.10(svelte@5.46.0)(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))(vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0(canvas@3.2.0))(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))':
     dependencies:
       '@testing-library/dom': 10.4.1
       svelte: 5.46.0
     optionalDependencies:
       vite: 6.4.1(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
-      vitest: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
+      vitest: 4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0(canvas@3.2.0))(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
 
   '@testing-library/vue@8.1.0(@vue/compiler-sfc@3.5.26)(@vue/server-renderer@3.5.26(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
@@ -11183,11 +11164,6 @@ snapshots:
       delegates: 1.0.0
       readable-stream: 2.3.8
 
-  are-we-there-yet@2.0.0:
-    dependencies:
-      delegates: 1.0.0
-      readable-stream: 3.6.2
-
   are-we-there-yet@3.0.1:
     dependencies:
       delegates: 1.0.0
@@ -11541,14 +11517,10 @@ snapshots:
 
   caniuse-lite@1.0.30001761: {}
 
-  canvas@2.11.2(encoding@0.1.13):
+  canvas@3.2.0:
     dependencies:
-      '@mapbox/node-pre-gyp': 1.0.11(encoding@0.1.13)
-      nan: 2.24.0
-      simple-get: 3.1.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
+      node-addon-api: 7.1.1
+      prebuild-install: 7.1.3
 
   centra@2.7.0:
     dependencies:
@@ -11928,6 +11900,10 @@ snapshots:
   decompress-response@4.2.1:
     dependencies:
       mimic-response: 2.1.0
+
+  decompress-response@6.0.0:
+    dependencies:
+      mimic-response: 3.1.0
 
   dedent-js@1.0.1: {}
 
@@ -12684,18 +12660,6 @@ snapshots:
       strip-ansi: 3.0.1
       wide-align: 1.1.5
 
-  gauge@3.0.2:
-    dependencies:
-      aproba: 2.1.0
-      color-support: 1.1.3
-      console-control-strings: 1.1.0
-      has-unicode: 2.0.1
-      object-assign: 4.1.1
-      signal-exit: 3.0.7
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      wide-align: 1.1.5
-
   gauge@4.0.4:
     dependencies:
       aproba: 2.1.0
@@ -13410,7 +13374,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jsdom@16.7.0(canvas@2.11.2(encoding@0.1.13)):
+  jsdom@16.7.0(canvas@3.2.0):
     dependencies:
       abab: 2.0.6
       acorn: 8.15.0
@@ -13440,13 +13404,13 @@ snapshots:
       ws: 7.5.10
       xml-name-validator: 3.0.0
     optionalDependencies:
-      canvas: 2.11.2(encoding@0.1.13)
+      canvas: 3.2.0
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  jsdom@27.4.0:
+  jsdom@27.4.0(canvas@3.2.0):
     dependencies:
       '@acemir/cssom': 0.9.30
       '@asamuzakjp/dom-selector': 6.7.6
@@ -13468,6 +13432,8 @@ snapshots:
       whatwg-url: 15.1.0
       ws: 8.18.3
       xml-name-validator: 5.0.0
+    optionalDependencies:
+      canvas: 3.2.0
     transitivePeerDependencies:
       - '@exodus/crypto'
       - bufferutil
@@ -13634,10 +13600,6 @@ snapshots:
     dependencies:
       pify: 4.0.1
       semver: 5.7.2
-
-  make-dir@3.1.0:
-    dependencies:
-      semver: 6.3.1
 
   make-fetch-happen@10.2.1:
     dependencies:
@@ -13966,6 +13928,8 @@ snapshots:
 
   mimic-response@2.1.0: {}
 
+  mimic-response@3.1.0: {}
+
   min-document@2.19.2:
     dependencies:
       dom-walk: 0.1.2
@@ -14084,6 +14048,8 @@ snapshots:
 
   napi-build-utils@1.0.2: {}
 
+  napi-build-utils@2.0.0: {}
+
   negotiator@0.6.3: {}
 
   negotiator@0.6.4: {}
@@ -14106,12 +14072,15 @@ snapshots:
     dependencies:
       semver: 5.7.2
 
+  node-abi@3.85.0:
+    dependencies:
+      semver: 7.7.3
+
   node-abort-controller@3.1.1: {}
 
   node-addon-api@3.2.1: {}
 
-  node-addon-api@7.1.1:
-    optional: true
+  node-addon-api@7.1.1: {}
 
   node-dir@0.1.17:
     dependencies:
@@ -14181,10 +14150,6 @@ snapshots:
       esm-import-transformer: 3.0.5
 
   node-stream-zip@1.15.0: {}
-
-  nopt@5.0.0:
-    dependencies:
-      abbrev: 1.1.1
 
   nopt@6.0.0:
     dependencies:
@@ -14256,13 +14221,6 @@ snapshots:
       are-we-there-yet: 1.1.7
       console-control-strings: 1.1.0
       gauge: 2.7.4
-      set-blocking: 2.0.0
-
-  npmlog@5.0.1:
-    dependencies:
-      are-we-there-yet: 2.0.0
-      console-control-strings: 1.1.0
-      gauge: 3.0.2
       set-blocking: 2.0.0
 
   npmlog@6.0.2:
@@ -14493,9 +14451,9 @@ snapshots:
 
   pako@1.0.11: {}
 
-  paper-jsdom@0.12.18(canvas@2.11.2(encoding@0.1.13)):
+  paper-jsdom@0.12.18(canvas@3.2.0):
     dependencies:
-      jsdom: 16.7.0(canvas@2.11.2(encoding@0.1.13))
+      jsdom: 16.7.0(canvas@3.2.0)
       paper: 0.12.18
       source-map-support: 0.5.21
     transitivePeerDependencies:
@@ -14684,6 +14642,21 @@ snapshots:
       pump: 3.0.3
       rc: 1.2.8
       simple-get: 3.1.1
+      tar-fs: 2.1.4
+      tunnel-agent: 0.6.0
+
+  prebuild-install@7.1.3:
+    dependencies:
+      detect-libc: 2.1.2
+      expand-template: 2.0.3
+      github-from-package: 0.0.0
+      minimist: 1.2.8
+      mkdirp-classic: 0.5.3
+      napi-build-utils: 2.0.0
+      node-abi: 3.85.0
+      pump: 3.0.3
+      rc: 1.2.8
+      simple-get: 4.0.1
       tar-fs: 2.1.4
       tunnel-agent: 0.6.0
 
@@ -15474,6 +15447,12 @@ snapshots:
       once: 1.4.0
       simple-concat: 1.0.1
 
+  simple-get@4.0.1:
+    dependencies:
+      decompress-response: 6.0.0
+      once: 1.4.0
+      simple-concat: 1.0.1
+
   simple-swizzle@0.2.4:
     dependencies:
       is-arrayish: 0.3.4
@@ -16256,7 +16235,7 @@ snapshots:
     optionalDependencies:
       vite: 7.3.0(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2)
 
-  vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2):
+  vitest@4.0.16(@types/node@25.0.3)(jiti@2.6.1)(jsdom@27.4.0(canvas@3.2.0))(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.16
       '@vitest/mocker': 4.0.16(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(sass@1.97.1)(terser@5.44.1)(yaml@2.8.2))
@@ -16280,7 +16259,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 25.0.3
-      jsdom: 27.4.0
+      jsdom: 27.4.0(canvas@3.2.0)
     transitivePeerDependencies:
       - jiti
       - less
