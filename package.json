@@ -97,12 +97,12 @@
     },
     "npm": false,
     "hooks": {
-      "after:bump": "pnpm run build --latest-version ${latestVersion} --new-version ${version} --verbose && pnpm install",
+      "after:bump": "LATEST_VERSION=${latestVersion} NEW_VERSION=${version} pnpm run build --verbose && pnpm install",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
       "addUntrackedFiles": true,
-      "changelog": "pnpm run --silent changelog --latest-version ${latestTag}",
+      "changelog": "LATEST_VERSION=${latestTag} pnpm run --silent changelog",
       "tagName": "v${version}",
       "requireBranch": "main",
       "requireCommits": true,

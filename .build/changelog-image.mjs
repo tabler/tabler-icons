@@ -1,10 +1,9 @@
-import { generateIconsPreview, getAllIcons, getArgvs, getPackageJson, GITHUB_DIR } from './helpers.mjs'
+import { generateIconsPreview, getAllIcons, getPackageJson, GITHUB_DIR } from './helpers.mjs'
 import path from 'path'
 
-const argv = getArgvs(),
-  p = getPackageJson()
+const p = getPackageJson()
 
-const version = argv['new-version'] || `${p.version}`
+const version = process.env.NEW_VERSION || `${p.version}`
 
 if (version) {
   const icons = getAllIcons()

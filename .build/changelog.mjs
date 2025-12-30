@@ -1,9 +1,8 @@
 import cp from 'child_process'
-import { getArgvs, getPackageJson, printChangelog } from './helpers.mjs'
+import { getPackageJson, printChangelog } from './helpers.mjs'
 
 const p = getPackageJson(),
-    argv = getArgvs(),
-    version = argv['latest-version'] || `${p.version}`
+    version = process.env.LATEST_VERSION || `${p.version}`
 
 if (version) {
   cp.exec(`git diff ${version} HEAD --name-status ./icons`, function(err, ret) {
