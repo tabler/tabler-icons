@@ -5,6 +5,11 @@ import { globSync } from 'glob';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
+// Import canvas before paper-jsdom to ensure it's available for jsdom
+// Use require for canvas to ensure it's loaded before jsdom initializes
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('canvas');
 import paper from "paper-jsdom";
 import { createCanvas } from '@napi-rs/canvas';
 import crypto from 'crypto';
