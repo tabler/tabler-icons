@@ -14,6 +14,24 @@ const outlineIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i =
 
 let unicodes = []
 
+// Validate that only .svg files exist in icons/filled and icons/outline directories
+types.forEach(type => {
+  const dirPath = join(ICONS_SRC_DIR, type)
+  const files = fs.readdirSync(dirPath)
+  
+  files.forEach(file => {
+    // Ignore .DS_Store (macOS system file)
+    if (file === '.DS_Store') {
+      return
+    }
+    
+    if (!file.endsWith('.svg')) {
+      console.log(`⛔️ Directory \`icons/${type}\` contains non-SVG file: \`${file}\``)
+      error = true
+    }
+  })
+})
+
 const duplicateExists = (arr) => {
   return new Set(arr).size !== arr.length
 }
