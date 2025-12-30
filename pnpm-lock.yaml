@@ -77,9 +77,6 @@ importers:
       dotenv:
         specifier: ^16.4.7
         version: 16.6.1
-      eleventy-sass:
-        specifier: ^2.2.6
-        version: 2.2.6(@11ty/eleventy@3.1.2)
       esbuild:
         specifier: ^0.20.2
         version: 0.20.2
@@ -173,26 +170,26 @@ importers:
   packages/icons-eps:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
 
   packages/icons-pdf:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
 
   packages/icons-png:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
 
   packages/icons-preact:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.2
@@ -207,8 +204,8 @@ importers:
   packages/icons-react:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@testing-library/react':
         specifier: ^14.2.1
@@ -232,8 +229,8 @@ importers:
   packages/icons-react-native:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@testing-library/react':
         specifier: ^14.2.1
@@ -263,8 +260,8 @@ importers:
   packages/icons-solidjs:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@solidjs/testing-library':
         specifier: ^0.8.6
@@ -285,14 +282,14 @@ importers:
   packages/icons-sprite:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
 
   packages/icons-svelte:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@sveltejs/package':
         specifier: ^2.2.7
@@ -322,8 +319,8 @@ importers:
   packages/icons-svelte-runes:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@sveltejs/package':
         specifier: ^2.3.7
@@ -350,8 +347,8 @@ importers:
   packages/icons-vue:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
     devDependencies:
       '@testing-library/vue':
         specifier: ^8.0.2
@@ -372,8 +369,8 @@ importers:
   packages/icons-webfont:
     dependencies:
       '@tabler/icons':
-        specifier: 3.36.0
-        version: 3.36.0
+        specifier: 'workspace:'
+        version: link:../icons
       svg-path-commander:
         specifier: ^2.1.11
         version: 2.1.11
@@ -2902,9 +2899,6 @@ packages:
       svelte: ^5.0.0
       vite: ^6.0.0
 
-  '@tabler/icons@3.36.0':
-    resolution: {integrity: sha512-z9OfTEG6QbaQWM9KBOxxUdpgvMUn0atageXyiaSc2gmYm51ORO8Ua7eUcjlks+Dc0YMK4rrodAFdK9SfjJ4ZcA==}
-
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
     engines: {node: '>=18'}
@@ -4187,18 +4181,6 @@ packages:
 
   electron-to-chromium@1.5.267:
     resolution: {integrity: sha512-0Drusm6MVRXSOJpGbaSVgcQsuB4hEkMpHXaVstcPmhu5LIedxs1xNK/nIxmQIU/RPC0+1/o0AVZfBTkTNJOdUw==}
-
-  eleventy-sass@2.2.6:
-    resolution: {integrity: sha512-7OOFZ+A6BjWnpRRxP0UWvTdMUReVQUbusV1YhGQCAaEnWtQYTWzUq1EvyvfJfaWsPx7a26QHYGX8vYUNTACG/w==}
-    peerDependencies:
-      '@11ty/eleventy': ^1.0.0 || ^2.0.0-canary.12 || ^2.0.0-beta.1
-      eleventy-plugin-clean: ^1.1.0
-      eleventy-plugin-rev: ^2.0.0
-    peerDependenciesMeta:
-      eleventy-plugin-clean:
-        optional: true
-      eleventy-plugin-rev:
-        optional: true
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -7561,10 +7543,6 @@ packages:
     resolution: {integrity: sha512-gwXJnPRewT4rT7sBi/IvxKTjsms7jX7QIDLOClApuZwR49SXbrB1z2NLUZ+vDHyqCj/n58OzRRqaW+B8OZi8vg==}
     engines: {node: '>=18.12.0'}
 
-  upath@2.0.1:
-    resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
-    engines: {node: '>=4'}
-
   update-browserslist-db@1.2.3:
     resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
     hasBin: true
@@ -10691,8 +10669,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tabler/icons@3.36.0': {}
-
   '@testing-library/dom@10.4.1':
     dependencies:
       '@babel/code-frame': 7.27.1
@@ -12097,16 +12073,6 @@ snapshots:
   ee-first@1.1.1: {}
 
   electron-to-chromium@1.5.267: {}
-
-  eleventy-sass@2.2.6(@11ty/eleventy@3.1.2):
-    dependencies:
-      '@11ty/eleventy': 3.1.2
-      debug: 4.4.3
-      kleur: 4.1.5
-      sass: 1.97.1
-      upath: 2.0.1
-    transitivePeerDependencies:
-      - supports-color
 
   emoji-regex@8.0.0: {}
 
@@ -16111,8 +16077,6 @@ snapshots:
     dependencies:
       pathe: 2.0.3
       picomatch: 4.0.3
-
-  upath@2.0.1: {}
 
   update-browserslist-db@1.2.3(browserslist@4.28.1):
     dependencies:
