@@ -53,11 +53,10 @@
     "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@atomico/rollup-plugin-sizes": "^1.1.4",
-    "@release-it-plugins/workspaces": "^4.2.1",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@testing-library/jest-dom": "^6.4.8",
+    "@11ty/eleventy": "^3.1.2",
+    "@release-it-plugins/workspaces": "^5.0.3",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@testing-library/jest-dom": "catalog:",
     "adm-zip": "^0.5.16",
     "cheerio": "^1.0.0",
     "csv-parser": "^3.0.0",
@@ -68,30 +67,30 @@
     "glob": "10.3.16",
     "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
-    "jest-serializer-html": "^7.1.0",
-    "jsdom": "^24.0.0",
+    "jest-serializer-html": "catalog:",
+    "jsdom": "catalog:",
     "minimist": "1.2.8",
     "openai": "^4.73.1",
     "parse-svg-path": "^0.1.2",
     "prettier": "^3.2.5",
-    "release-it": "17.1.1",
-    "rollup": "^4.12.1",
-    "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-esbuild": "^6.1.1",
-    "rollup-plugin-filesize": "10.0.0",
-    "rollup-plugin-license": "^3.2.0",
-    "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-visualizer": "^5.12.0",
+    "release-it": "19.2.2",
+    "rollup": "catalog:",
+    "rollup-plugin-dts": "catalog:",
+    "rollup-plugin-esbuild": "catalog:",
+    "rollup-plugin-filesize": "catalog:",
+    "rollup-plugin-license": "catalog:",
+    "rollup-plugin-peer-deps-external": "catalog:",
+    "rollup-plugin-visualizer": "catalog:",
     "sass": "^1.71.1",
     "slash": "^5.1.0",
     "svg-outline-stroke": "1.3.1",
-    "svgo": "^3.2.0",
+    "svgo": "^4.0.0",
     "svgpath": "^2.6.0",
     "svgson": "^5.3.1",
-    "turbo": "^2.6.3",
-    "typescript": "^5.3.3",
-    "vite": "^7.3.0",
-    "vitest": "^4.0.16"
+    "turbo": "^2.7.2",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   },
   "release-it": {
     "plugins": {
@@ -114,6 +113,7 @@
       "release": true
     }
   },
+  "packageManager": "pnpm@10.26.2",
   "pnpm": {
     "ignoredBuiltDependencies": [
       "@parcel/watcher",
@@ -121,6 +121,9 @@
       "sharp",
       "svelte-preprocess",
       "ttf2woff2"
+    ],
+    "onlyBuiltDependencies": [
+      "canvas"
     ]
   }
 }

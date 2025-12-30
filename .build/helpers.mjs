@@ -119,8 +119,8 @@ export const getAllIcons = (withContent = false, withObject = false) => {
 
   types.forEach((type) => {
     icons[type] = globSync(slash(path.join(ICONS_SRC_DIR, `${type}/*.svg`)))
+      .sort((a, b) => a.localeCompare(b))
       .slice(0, limit)
-      .sort()
       .map((i) => {
         const { data, content } = parseMatter(i),
           name = basename(i, '.svg');
@@ -553,6 +553,17 @@ export const getCompileOptions = () => {
 };
 
 export const convertIconsToImages = async (dir, extension, size = 240) => {
+  const rsvgConvertAvailable = await new Promise((resolve) => {
+    exec('command -v rsvg-convert', (error) => {
+      resolve(!error);
+    });
+  });
+
+  if (!rsvgConvertAvailable) {
+    console.log(`\nWarning: rsvg-convert not found. Skipping ${extension} conversion.`);
+    return;
+  }
+
   const icons = getAllIcons();
 
   await asyncForEach(Object.entries(icons), async function ([type, svgFiles]) {
