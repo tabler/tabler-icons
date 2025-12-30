@@ -31,25 +31,15 @@ jobs:
           # Fetch base branch to ensure it's available
           git fetch origin ${BASE_REF}:${BASE_REF} || true
 
-      - name: Add in progress comment
-        id: add-in-progress-comment
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          comment-tag: validate
-          mode: upsert
-          message: |
-            🔄 Icons are being validated... Please wait...
-        continue-on-error: true
-
-      - name: Use Node.js 20
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 10.26.1
+          version: 10.26.2
 
       - name: Get pnpm store directory
         shell: bash
@@ -66,6 +56,16 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
+
+      - name: Add in progress comment
+        id: add-in-progress-comment
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: validate
+          mode: upsert
+          message: |
+            🔄 Icons are being validated... Please wait...
+        continue-on-error: true
 
       - name: Validate icons
         id: validate
