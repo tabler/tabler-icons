@@ -572,9 +572,9 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
     await asyncForEach(svgFiles, async function (file, i) {
       const distPath = path.join(dir, `./${type}/${file.name}.${extension}`);
 
-      process.stdout.write(
-        `Building \`icons/${extension}\` ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`icons/${extension}\` ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`,
+      // );
 
       await new Promise((resolve, reject) => {
         exec(`rsvg-convert -f ${extension} -h ${size} ${file.path} > ${distPath}`, (error) => {

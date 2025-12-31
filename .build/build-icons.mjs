@@ -31,9 +31,9 @@ export const buildJsIcons = ({
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const children = icon.obj.children
         .map(({ name, attributes }, i) => {
@@ -107,9 +107,9 @@ export const buildIconsList = (name) => {
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`;
 
@@ -131,9 +131,9 @@ export const buildIconsDynamicImport = (name) => {
   let dynamicImportString = 'export default {';
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
         iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;
