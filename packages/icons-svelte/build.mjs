@@ -13,13 +13,11 @@ const componentTemplate = ({
 import Icon from '../Icon.svelte';
 import type { IconNode, IconProps } from '../types.js';
 
-type $$Props = IconProps;
+let {...rest}: IconProps = $props();
 
 const iconNode: IconNode = ${JSON.stringify(children)};
 </script>
-<Icon type="${type}" name="${name}" {...$$props} iconNode={iconNode}>
-  <slot/>
-</Icon>
+<Icon type="${type}" name="${name}" {...rest} iconNode={iconNode} />
 `;
 };
 
