@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
-import { TablerIconConfig } from './tabler-icon.config';
+import { TABLER_ICON_CONFIG, TablerIconConfig } from './tabler-icon.config';
 import { ITablerIconProvider, TABLER_ICONS } from './tabler-icon.provider';
 
 type SvgAttributes = { [key: string]: string | number | undefined };
@@ -12,7 +12,11 @@ type SvgAttributes = { [key: string]: string | number | undefined };
  * 
  * @example
  * ```html
+ * <!-- Using icon name (requires provideTablerIcons) -->
  * <tabler-icon icon="home" [size]="24" color="blue"></tabler-icon>
+ * 
+ * <!-- Using direct icon object (best for tree-shaking) -->
+ * <tabler-icon [icon]="IconHome" [size]="24"></tabler-icon>
  * ```
  */
 @Component({
@@ -53,14 +57,17 @@ export class TablerIconComponent {
   private readonly renderer = inject(Renderer2);
   private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
   private readonly elementRef = inject(ElementRef);
-  private readonly iconConfig = inject(TablerIconConfig);
+  private readonly iconConfig = inject(TABLER_ICON_CONFIG, { optional: true });
 
-  protected readonly config = computed(() => ({
-    size: defaultAttributes.outline.width,
-    color: defaultAttributes.outline.stroke,
-    stroke: defaultAttributes.outline['stroke-width'],
-    ...this.iconConfig
-  }));
+  protected readonly config = computed(() => {
+    const config = this.iconConfig ?? {};
+    return {
+      size: defaultAttributes.outline.width,
+      color: defaultAttributes.outline.stroke,
+      stroke: defaultAttributes.outline['stroke-width'],
+      ...config
+    };
+  });
 
   constructor() {
     effect(() => {
