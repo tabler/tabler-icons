@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, inject, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TablerIconConfig } from './tabler-icon.config';
@@ -19,102 +19,111 @@ type SvgAttributes = { [key: string]: string | number | undefined };
   selector: 'tabler-icon',
   standalone: true,
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[style.height.px]': 'size() ?? config().size',
+    '[style.width.px]': 'size() ?? config().size'
+  }
 })
-export class TablerIconComponent implements OnChanges {
+export class TablerIconComponent {
   /**
    * Icon to display. Can be a TablerIcon object or a string name.
    * @required
    */
-  @Input({ required: true }) icon!: TablerIcon | string;
+  icon = input.required<TablerIcon | string>();
   
   /**
    * Color of the icon. For outline icons, this sets the stroke color.
    * For filled icons, this sets the fill color.
    */
-  @Input() color?: string;
+  color = input<string>();
   
   /**
    * Stroke width for outline icons. Defaults to 2.
    */
-  @Input() stroke?: number;
+  stroke = input<number>();
   
   /**
    * Additional CSS classes to apply to the icon element.
    */
-  @Input() class?: string;
-  @Input()
-  @HostBinding('style.height.px')
-  @HostBinding('style.width.px')
-  size?: number;
+  class = input<string>();
+  
+  size = input<number>();
 
   private readonly renderer = inject(Renderer2);
   private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
   private readonly elementRef = inject(ElementRef);
   private readonly iconConfig = inject(TablerIconConfig);
 
-  private get config(): TablerIconConfig {
-    return {
-      size: defaultAttributes.outline.width,
-      color: defaultAttributes.outline.stroke,
-      stroke: defaultAttributes.outline['stroke-width'],
-      ...this.iconConfig
-    };
+  protected readonly config = computed(() => ({
+    size: defaultAttributes.outline.width,
+    color: defaultAttributes.outline.stroke,
+    stroke: defaultAttributes.outline['stroke-width'],
+    ...this.iconConfig
+  }));
+
+  constructor() {
+    effect(() => {
+      const icon = this.icon();
+      const color = this.color();
+      const stroke = this.stroke();
+      const size = this.size();
+      const className = this.class();
+
+      this.updateIcon(icon, color, stroke, size, className);
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // Only update if icon, color, stroke, size, or class changed
-    const shouldUpdate = changes['icon'] || changes['color'] || changes['stroke'] || 
-                         changes['size'] || changes['class'];
-    
-    if (!shouldUpdate && this.elementRef.nativeElement.firstChild) {
-      return; // Skip update if nothing relevant changed
-    }
+  private updateIcon(
+    iconData: TablerIcon | string,
+    color?: string,
+    stroke?: number,
+    size?: number,
+    className?: string
+  ): void {
+    let icon: TablerIcon;
 
-    this.size ??= this.config.size;
-    if (typeof this.icon === 'string') {
-      if (!this.icon || this.icon.trim() === '') {
+    if (typeof iconData === 'string') {
+      if (!iconData || iconData.trim() === '') {
         throw new Error('Icon name cannot be empty.');
       }
-      const icon = this.getIconFromProviders(this.toPascalCase(this.icon));
-      if (icon) {
-        this.replaceElement(icon);
+      const foundIcon = this.getIconFromProviders(this.toPascalCase(iconData));
+      if (foundIcon) {
+        icon = foundIcon;
       } else {
-        throw new Error(`The ${this.icon} icon is not provided by any of the icon providers.`);
+        throw new Error(`The ${iconData} icon is not provided by any of the icon providers.`);
       }
-    } else if (this.icon != null && Array.isArray(this.icon.nodes)) {
-      this.replaceElement(this.icon);
+    } else if (iconData != null && Array.isArray(iconData.nodes)) {
+      icon = iconData;
     } else {
       throw new Error('Icon must be provided as a TablerIcon object or a string name.');
     }
-  }
 
-  private replaceElement(icon: TablerIcon): void {
     if (icon.type !== 'outline' && icon.type !== 'filled') {
       throw new Error(`Invalid icon type: ${icon.type}. Must be 'outline' or 'filled'.`);
     }
 
     const typeAttributes = icon.type === 'outline'
       ? {
-        stroke: this.color ?? this.config.color,
-        'stroke-width': this.stroke ?? this.config.stroke
+        stroke: color ?? this.config().color,
+        'stroke-width': stroke ?? this.config().stroke
       }
       : {
-        fill: this.color ?? this.config.color
+        fill: color ?? this.config().color
       };
 
     const attributes = {
       ...defaultAttributes[icon.type],
       ...typeAttributes,
-      width: this.size,
-      height: this.size
+      width: size ?? this.config().size,
+      height: size ?? this.config().size
     };
 
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
     iconElement.classList.add('tabler-icon', `tabler-icon-${icon.name}`);
-    if (this.class) {
+    if (className) {
       // Split by whitespace and filter empty strings
-      const classes = this.class.trim().split(/\s+/).filter(cls => cls.length > 0);
+      const classes = className.trim().split(/\s+/).filter(cls => cls.length > 0);
       if (classes.length > 0) {
         iconElement.classList.add(...classes);
       }
