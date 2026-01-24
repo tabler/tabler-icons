@@ -69,47 +69,100 @@ export class TablerIconComponent {
     };
   });
 
+  private svgElement: SVGElement | null = null;
+
   constructor() {
     effect(() => {
-      const icon = this.icon();
+      const iconData = this.icon();
       const color = this.color();
       const stroke = this.stroke();
       const size = this.size();
       const className = this.class();
 
-      this.updateIcon(icon, color, stroke, size, className);
+      const icon = this.resolveIcon(iconData);
+
+      if (!this.svgElement || this.shouldRecreateSvg(icon)) {
+        this.renderNewSvg(icon, color, stroke, size, className);
+      } else {
+        this.updateExistingSvg(icon, color, stroke, size, className);
+      }
     });
   }
 
-  private updateIcon(
-    iconData: TablerIcon | string,
-    color?: string,
-    stroke?: number,
-    size?: number,
-    className?: string
-  ): void {
-    let icon: TablerIcon;
-
+  private resolveIcon(iconData: TablerIcon | string): TablerIcon {
     if (typeof iconData === 'string') {
       if (!iconData || iconData.trim() === '') {
         throw new Error('Icon name cannot be empty.');
       }
       const foundIcon = this.getIconFromProviders(this.toPascalCase(iconData));
       if (foundIcon) {
-        icon = foundIcon;
+        return foundIcon;
       } else {
         throw new Error(`The ${iconData} icon is not provided by any of the icon providers.`);
       }
     } else if (iconData != null && Array.isArray(iconData.nodes)) {
-      icon = iconData;
+      return iconData;
     } else {
       throw new Error('Icon must be provided as a TablerIcon object or a string name.');
     }
+  }
 
+  private shouldRecreateSvg(icon: TablerIcon): boolean {
+    if (!this.svgElement) return true;
+    // If the icon name or type changed, SVG structure has to be recreated
+    return this.svgElement.getAttribute('data-tabler-icon') !== icon.name ||
+           this.svgElement.getAttribute('data-tabler-type') !== icon.type;
+  }
+
+  private renderNewSvg(
+    icon: TablerIcon,
+    color?: string,
+    stroke?: number,
+    size?: number,
+    className?: string
+  ): void {
     if (icon.type !== 'outline' && icon.type !== 'filled') {
       throw new Error(`Invalid icon type: ${icon.type}. Must be 'outline' or 'filled'.`);
     }
 
+    const attributes = this.getSvgAttributes(icon, color, stroke, size);
+    const iconElement = this.createElement(['svg', attributes, icon.nodes]);
+    
+    iconElement.setAttribute('data-tabler-icon', icon.name);
+    iconElement.setAttribute('data-tabler-type', icon.type);
+    
+    this.applyClasses(iconElement, icon.name, className);
+
+    // Remove only previous SVG, preserve ng-content
+    if (this.svgElement) {
+      this.renderer.removeChild(this.elementRef.nativeElement, this.svgElement);
+    }
+    
+    this.svgElement = iconElement;
+    this.renderer.appendChild(this.elementRef.nativeElement, iconElement);
+  }
+
+  private updateExistingSvg(
+    icon: TablerIcon,
+    color?: string,
+    stroke?: number,
+    size?: number,
+    className?: string
+  ): void {
+    if (!this.svgElement) return;
+
+    const attributes = this.getSvgAttributes(icon, color, stroke, size);
+    
+    Object.entries(attributes).forEach(([key, value]) => {
+      if (value !== undefined) {
+        this.renderer.setAttribute(this.svgElement!, key, value.toString());
+      }
+    });
+
+    this.applyClasses(this.svgElement, icon.name, className);
+  }
+
+  private getSvgAttributes(icon: TablerIcon, color?: string, stroke?: number, size?: number): SvgAttributes {
     const typeAttributes = icon.type === 'outline'
       ? {
         stroke: color ?? this.config().color,
@@ -119,28 +172,24 @@ export class TablerIconComponent {
         fill: color ?? this.config().color
       };
 
-    const attributes = {
+    return {
       ...defaultAttributes[icon.type],
       ...typeAttributes,
       width: size ?? this.config().size,
       height: size ?? this.config().size
     };
+  }
 
-    const iconElement = this.createElement(['svg', attributes, icon.nodes]);
-    iconElement.classList.add('tabler-icon', `tabler-icon-${icon.name}`);
+  private applyClasses(element: SVGElement, iconName: string, className?: string): void {
+    // Reset classes to base
+    element.setAttribute('class', `tabler-icon tabler-icon-${iconName}`);
+    
     if (className) {
-      // Split by whitespace and filter empty strings
       const classes = className.trim().split(/\s+/).filter(cls => cls.length > 0);
       if (classes.length > 0) {
-        iconElement.classList.add(...classes);
+        element.classList.add(...classes);
       }
     }
-
-    while (this.elementRef.nativeElement.firstChild) {
-      this.renderer.removeChild(this.elementRef.nativeElement, this.elementRef.nativeElement.firstChild);
-    }
-
-    this.renderer.appendChild(this.elementRef.nativeElement, iconElement);
   }
 
   private createElement([tag, attributes, nodes]: readonly [string, SvgAttributes, TablerIconNode[]?]) {
