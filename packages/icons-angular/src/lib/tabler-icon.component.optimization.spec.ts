@@ -16,8 +16,7 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestHostComponent],
-      imports: [TablerIconComponent, TablerIconModule.pick(icons)]
+      imports: [TablerIconComponent, TestHostComponent, TablerIconModule.pick(icons)]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
@@ -55,14 +54,13 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
     });
   });
 
-  describe('ngOnChanges optimization', () => {
-    it('should skip update when irrelevant properties change', () => {
+  describe('Signal reactivity and optimization', () => {
+    it('should skip update when same values are set', () => {
       fixture.detectChanges();
       const initialSvg = getSvgElement();
       const initialStroke = getSvgAttr('stroke');
       
-      // Change a property that doesn't affect rendering (if we had one)
-      // Since all inputs affect rendering, we test that changes do trigger updates
+      // Signal inputs handle equality checks automatically
       hostComponent.color = '#ff0000';
       fixture.detectChanges();
       
@@ -133,6 +131,7 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
     it('should throw error when icon object is invalid', () => {
       hostComponent.iconObject = null as any;
+      hostComponent.iconName = undefined;
       expect(() => fixture.detectChanges()).toThrowError('Icon must be provided as a TablerIcon object or a string name.');
     });
 
@@ -143,6 +142,7 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
     it('should throw error when icon object has no nodes', () => {
       hostComponent.iconObject = { name: 'test', type: 'outline', nodes: null as any };
+      hostComponent.iconName = undefined;
       expect(() => fixture.detectChanges()).toThrowError('Icon must be provided as a TablerIcon object or a string name.');
     });
   });
@@ -198,25 +198,19 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
   describe('Icon name conversion (toPascalCase)', () => {
     it('should convert kebab-case to PascalCase', () => {
       hostComponent.iconName = 'brand-angular';
-      fixture.detectChanges();
-      
       // The component should look for IconBrandAngular in providers
       // Since we only have IconTest, this will throw, but we can verify the conversion happens
-      expect(() => fixture.detectChanges()).toThrow();
+      expect(() => fixture.detectChanges()).toThrowError(/The brand-angular icon is not provided/);
     });
 
     it('should handle single word icon names', () => {
       hostComponent.iconName = 'home';
-      fixture.detectChanges();
-      
-      expect(() => fixture.detectChanges()).toThrow();
+      expect(() => fixture.detectChanges()).toThrowError(/The home icon is not provided/);
     });
 
     it('should handle icon names with multiple hyphens', () => {
       hostComponent.iconName = 'brand-angular-outline';
-      fixture.detectChanges();
-      
-      expect(() => fixture.detectChanges()).toThrow();
+      expect(() => fixture.detectChanges()).toThrowError(/The brand-angular-outline icon is not provided/);
     });
   });
 
@@ -281,6 +275,8 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
   @Component({
     selector: 'tabler-test',
+    standalone: true,
+    imports: [TablerIconComponent],
     template: `
       <tabler-icon
         [icon]="iconObject || iconName"
