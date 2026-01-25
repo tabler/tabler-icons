@@ -30,8 +30,3 @@ export function provideTablerIconConfig(config: TablerIconConfig): Provider {
     useValue: config
   };
 }
-
-/**
- * @deprecated Use TABLER_ICON_CONFIG injection token or provideTablerIconConfig instead.
- */
-export const TablerIconConfig = TABLER_ICON_CONFIG;

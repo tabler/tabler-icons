@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
-import { TABLER_ICON_CONFIG, TablerIconConfig } from './tabler-icon.config';
+import { TABLER_ICON_CONFIG } from './tabler-icon.config';
 import { ITablerIconProvider, TABLER_ICONS } from './tabler-icon.provider';
 
 type SvgAttributes = { [key: string]: string | number | undefined };
@@ -110,8 +110,9 @@ export class TablerIconComponent {
   private shouldRecreateSvg(icon: TablerIcon): boolean {
     if (!this.svgElement) return true;
     // If the icon name or type changed, SVG structure has to be recreated
-    return this.svgElement.getAttribute('data-tabler-icon') !== icon.name ||
-           this.svgElement.getAttribute('data-tabler-type') !== icon.type;
+    const currentIconName = this.svgElement.getAttribute('data-tabler-icon');
+    const currentIconType = this.svgElement.getAttribute('data-tabler-type');
+    return currentIconName !== icon.name || currentIconType !== icon.type;
   }
 
   private renderNewSvg(
@@ -128,8 +129,9 @@ export class TablerIconComponent {
     const attributes = this.getSvgAttributes(icon, color, stroke, size);
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
     
-    iconElement.setAttribute('data-tabler-icon', icon.name);
-    iconElement.setAttribute('data-tabler-type', icon.type);
+    // Use Renderer2 for attribute setting to ensure zoneless compatibility
+    this.renderer.setAttribute(iconElement, 'data-tabler-icon', icon.name);
+    this.renderer.setAttribute(iconElement, 'data-tabler-type', icon.type);
     
     this.applyClasses(iconElement, icon.name, className);
 
@@ -170,7 +172,7 @@ export class TablerIconComponent {
       }
       : {
         fill: color ?? this.config().color
-      };
+      };                                                    
 
     return {
       ...defaultAttributes[icon.type],
@@ -181,13 +183,15 @@ export class TablerIconComponent {
   }
 
   private applyClasses(element: SVGElement, iconName: string, className?: string): void {
-    // Reset classes to base
-    element.setAttribute('class', `tabler-icon tabler-icon-${iconName}`);
+    // Reset classes to base using Renderer2 for zoneless compatibility
+    const baseClasses = `tabler-icon tabler-icon-${iconName}`;
+    this.renderer.setAttribute(element, 'class', baseClasses);
     
     if (className) {
       const classes = className.trim().split(/\s+/).filter(cls => cls.length > 0);
       if (classes.length > 0) {
-        element.classList.add(...classes);
+        // Use Renderer2 for class manipulation to ensure zoneless compatibility
+        classes.forEach(cls => this.renderer.addClass(element, cls));
       }
     }
   }
