@@ -1,0 +1,46 @@
+<div class="app">
+  <h2>Tabler Icons Angular Package</h2>
+
+  <div style="margin-top: 40px;">
+    <h3>Different strokes:</h3>
+    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="0.5"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="1"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="1.5"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="2"></tabler-icon>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Different sizes:</h3>
+    <tabler-icon [icon]="iconAd" [size]="24"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="32"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="64"></tabler-icon>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Different colors:</h3>
+    <tabler-icon [icon]="iconAd" [size]="48" color="blue"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" color="red"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" color="green"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="48" color="purple"></tabler-icon>
+  </div>
+
+  <div>
+    <h3>Button</h3>
+    <a (click)="toggleActive()" style="cursor: pointer;">
+      @if (active()) {
+      <tabler-icon [icon]="iconHome" [size]="64"></tabler-icon>
+      } @else {
+      <tabler-icon [icon]="iconHomeOff" [size]="64"></tabler-icon>
+      }
+    </a>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Using string names (requires provider):</h3>
+    <tabler-icon icon="brand-tabler" [size]="48"></tabler-icon>
+    <tabler-icon icon="brand-tabler-filled" [size]="48"></tabler-icon>
+    <tabler-icon icon="brand-tabler" [size]="48" [stroke]="1"></tabler-icon>
+    <tabler-icon icon="brand-tabler-filled" [size]="48" color="orange"></tabler-icon>
+  </div>
+</div>

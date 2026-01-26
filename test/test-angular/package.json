@@ -1,0 +1,30 @@
+{
+  "name": "test-angular",
+  "private": true,
+  "version": "3.36.0",
+  "type": "module",
+  "scripts": {
+    "dev": "ng serve",
+    "build": "ng build",
+    "preview": "ng serve --configuration=production",
+    "clean": "rm -rf dist .angular"
+  },
+  "dependencies": {
+    "@angular/animations": "^21.0.6",
+    "@angular/common": "^21.0.6",
+    "@angular/compiler": "^21.0.6",
+    "@angular/core": "^21.0.6",
+    "@angular/platform-browser": "^21.0.6",
+    "@angular/platform-browser-dynamic": "^21.0.6",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.0.4",
+    "@angular/cli": "^21.0.4",
+    "@angular/compiler-cli": "^21.0.6",
+    "@types/node": "^20.11.0",
+    "typescript": "~5.9.3"
+  }
+}
