@@ -3,10 +3,10 @@
 
   <div style="margin-top: 40px;">
     <h3>Different strokes:</h3>
-    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="0.5"></tabler-icon>
-    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="1"></tabler-icon>
-    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="1.5"></tabler-icon>
-    <tabler-icon [icon]="iconAd" [size]="48" [stroke]="2"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="defaultSize()" [stroke]="0.5"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="defaultSize()" [stroke]="1"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="defaultSize()" [stroke]="1.5"></tabler-icon>
+    <tabler-icon [icon]="iconAd" [size]="defaultSize()" [stroke]="2"></tabler-icon>
   </div>
 
   <div style="margin-top: 20px;">
@@ -26,13 +26,19 @@
   </div>
 
   <div>
-    <h3>Button</h3>
+    <h3>Buttons</h3>
     <a (click)="toggleActive()" style="cursor: pointer;">
       @if (active()) {
       <tabler-icon [icon]="iconHome" [size]="64"></tabler-icon>
       } @else {
       <tabler-icon [icon]="iconHomeOff" [size]="64"></tabler-icon>
       }
+    </a>
+    <a (click)="toggleIcon()" style="cursor: pointer;">
+      <tabler-icon [icon]="toggledIcon()" [size]="64"></tabler-icon>      
+    </a>
+    <a (click)="toggleStroke()" style="cursor: pointer;">
+      <tabler-icon [icon]="iconHome" [size]="64" [stroke]="stroke()"></tabler-icon>
     </a>
   </div>
 
