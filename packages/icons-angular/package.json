@@ -43,9 +43,9 @@
     "test": "ng test --no-watch --no-progress",
     "test:watch": "ng test"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/fesm2022/tabler-icons-angular.mjs",
+  "module": "./dist/fesm2022/tabler-icons-angular.mjs",
+  "types": "./dist/types/tabler-icons-angular.d.ts",
   "devDependencies": {
     "@angular-devkit/build-angular": "^21.0.4",
     "@angular/animations": "^21.0.6",
