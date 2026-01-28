@@ -27,7 +27,7 @@
 
 ## Prerequisites
 
-The minimal supported version of Angular is 16.0.0.
+The minimal supported version of Angular is 19.0.0.
 
 ## Installation
 

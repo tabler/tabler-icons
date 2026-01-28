@@ -12,8 +12,7 @@ describe('TablerIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestHostComponent],
-      imports: [TablerIconComponent]
+      imports: [TablerIconComponent, TestHostComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
@@ -64,6 +63,8 @@ describe('TablerIconComponent', () => {
 
   @Component({
     selector: 'tabler-test',
+    standalone: true,
+    imports: [TablerIconComponent],
     template: `
       <tabler-icon
         [icon]="iconTest"
