@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, DestroyRef, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TABLER_ICON_CONFIG } from './tabler-icon.config';
@@ -35,29 +35,30 @@ export class TablerIconComponent {
    * @required
    */
   icon = input.required<TablerIcon | string>();
-  
+
   /**
    * Color of the icon. For outline icons, this sets the stroke color.
    * For filled icons, this sets the fill color.
    */
   color = input<string>();
-  
+
   /**
    * Stroke width for outline icons. Defaults to 2.
    */
   stroke = input<number>();
-  
+
   /**
    * Additional CSS classes to apply to the icon element.
    */
   class = input<string>();
-  
+
   size = input<number>();
 
   private readonly renderer = inject(Renderer2);
   private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
   private readonly elementRef = inject(ElementRef);
   private readonly iconConfig = inject(TABLER_ICON_CONFIG, { optional: true });
+  private readonly destroyRef = inject(DestroyRef);
 
   protected readonly config = computed(() => {
     const config = this.iconConfig ?? {};
@@ -72,6 +73,10 @@ export class TablerIconComponent {
   private svgElement: SVGElement | null = null;
 
   constructor() {
+    this.destroyRef.onDestroy(() => {
+      this.svgElement = null;
+    });
+
     effect(() => {
       const iconData = this.icon();
       const color = this.color();
@@ -128,18 +133,18 @@ export class TablerIconComponent {
 
     const attributes = this.getSvgAttributes(icon, color, stroke, size);
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
-    
+
     // Use Renderer2 for attribute setting to ensure zoneless compatibility
     this.renderer.setAttribute(iconElement, 'data-tabler-icon', icon.name);
     this.renderer.setAttribute(iconElement, 'data-tabler-type', icon.type);
-    
+
     this.applyClasses(iconElement, icon.name, className);
 
     // Remove only previous SVG, preserve ng-content
     if (this.svgElement) {
       this.renderer.removeChild(this.elementRef.nativeElement, this.svgElement);
     }
-    
+
     this.svgElement = iconElement;
     this.renderer.appendChild(this.elementRef.nativeElement, iconElement);
   }
@@ -154,7 +159,7 @@ export class TablerIconComponent {
     if (!this.svgElement) return;
 
     const attributes = this.getSvgAttributes(icon, color, stroke, size);
-    
+
     Object.entries(attributes).forEach(([key, value]) => {
       if (value !== undefined) {
         this.renderer.setAttribute(this.svgElement!, key, value.toString());
@@ -172,7 +177,7 @@ export class TablerIconComponent {
       }
       : {
         fill: color ?? this.config().color
-      };                                                    
+      };
 
     return {
       ...defaultAttributes[icon.type],
@@ -186,7 +191,7 @@ export class TablerIconComponent {
     // Reset classes to base using Renderer2 for zoneless compatibility
     const baseClasses = `tabler-icon tabler-icon-${iconName}`;
     this.renderer.setAttribute(element, 'class', baseClasses);
-    
+
     if (className) {
       const classes = className.trim().split(/\s+/).filter(cls => cls.length > 0);
       if (classes.length > 0) {
