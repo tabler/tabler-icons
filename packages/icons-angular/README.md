@@ -27,7 +27,7 @@
 
 ## Prerequisites
 
-The minimal supported version of Angular is 16.0.0.
+The minimal supported version of Angular is 21.0.0.
 
 ## Installation
 
@@ -49,54 +49,41 @@ pnpm install @tabler/icons-angular
 
 ## How to use
 
-It's build with ESmodules so it's tree-shakable. You decide which icons to include.
+The package is built with ES modules and is tree-shakable. You choose which icons to include.
 
-You can include icons by providing them with `TablerIconModule` or by importing `TablerIcon` objects in a single component.
+You can provide icons via `provideTablerIcons()` (recommended for standalone apps) or `TablerIconModule.pick()` (for NgModule-based apps), or pass `TablerIcon` objects directly to the component.
 
-### I. Using the provider
+### I. Using the provider (icon names in templates)
 
-#### 1a. Import with NgModules
+#### 1a. Standalone applications (recommended)
 
-In a module in which the icons are needed or in a main module
-```ts
-import { TablerIconComponent, TablerIconModule, IconBrandAngular, IconHome } from '@tabler/icons-angular';
-
-@NgModule({
-  imports: [TablerIconModule.pick({ IconBrandAngular, IconHome }), TablerIconComponent]
-  // other configuration
-})
-export class AppModule { }
-```
-
-#### 1b. Import without NgModules
-
-In `main.ts`
+In `main.ts`:
 
 ```ts
-import { TablerIconModule, IconBrandAngular } from '@tabler/icons-angular';
+import { provideTablerIcons, IconBrandAngular, IconHome } from '@tabler/icons-angular';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(TablerIconModule.pick({ IconBrandAngular }))
+    provideTablerIcons({ IconBrandAngular, IconHome })
   ]
-})
+});
 ```
 
-or in a route configuration
+Or in a route configuration:
 
 ```ts
-import { IconBrandAngular, TablerIconModule } from '@tabler/icons-angular';
+import { IconBrandAngular, provideTablerIcons } from '@tabler/icons-angular';
 
 export const routes: Routes = [
   {
     path: 'demo',
     component: DemoComponent,
-    providers: [importProvidersFrom(TablerIconModule.pick({ IconBrandAngular }))]
+    providers: [provideTablerIcons({ IconBrandAngular })]
   }
 ];
 ```
 
-In a standalone component which needs a TablerIconComponent
+In any component that uses icons, import the standalone `TablerIconComponent`:
 
 ```ts
 import { TablerIconComponent } from '@tabler/icons-angular';
@@ -104,34 +91,35 @@ import { TablerIconComponent } from '@tabler/icons-angular';
 @Component({
   imports: [TablerIconComponent],
   standalone: true,
-  // other configuration
+  // ...
 })
-export class DemoComponent { }
+export class DemoComponent {}
 ```
 
-#### 2. Use an icon component in a template
+#### 1b. NgModule-based applications
 
-```html
-<tabler-icon icon="icon-brand-angular"></tabler-icon>
-<tabler-icon icon="brand-angular"></tabler-icon>
-```
+In a module where the icons are needed or in the root module:
 
-### II. Importing an icon object
-
-#### 1a. Import with NgModules
-
-In a module in which the icons are needed or in a main module:
 ```ts
-import { TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
+import { TablerIconComponent, TablerIconModule, IconBrandAngular, IconHome } from '@tabler/icons-angular';
 
 @NgModule({
-  imports: [TablerIconModule, TablerIconComponent]
-  // other configuration
+  imports: [TablerIconModule.pick({ IconBrandAngular, IconHome }), TablerIconComponent],
+  // ...
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
-#### 1b. Import in a standalone component
+#### 2. Use the icon in a template (by name)
+
+```html
+<tabler-icon icon="brand-angular"></tabler-icon>
+<tabler-icon icon="icon-brand-angular"></tabler-icon>
+```
+
+### II. Passing an icon object (no provider)
+
+#### 1a. Standalone component
 
 ```ts
 import { TablerIconComponent, IconBrandAngular } from '@tabler/icons-angular';
@@ -139,14 +127,28 @@ import { TablerIconComponent, IconBrandAngular } from '@tabler/icons-angular';
 @Component({
   imports: [TablerIconComponent],
   standalone: true,
-  // other configuration
+  // ...
 })
 export class AppComponent {
   iconBrandAngular = IconBrandAngular;
 }
 ```
 
-#### 2. Use an icon component in a template
+#### 1b. NgModule
+
+Import `TablerIconModule` and `TablerIconComponent` in the module that declares components using icons (no need to call `.pick()` if you only pass icon objects):
+
+```ts
+import { TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
+
+@NgModule({
+  imports: [TablerIconModule, TablerIconComponent],
+  // ...
+})
+export class AppModule {}
+```
+
+#### 2. Use the icon in a template (by reference)
 
 ```html
 <tabler-icon [icon]="iconBrandAngular"></tabler-icon>
@@ -154,11 +156,15 @@ export class AppComponent {
 
 ## Props
 
-| name          | type     | default      |
-| ------------- |----------| ------------ |
-| `size`        | _number_ | 24           |~~~~
-| `color`       | _string_ | currentColor |
-| `stroke`      | _number_ | 2            |
+The component uses Angular signal inputs and supports both outline and filled icon types.
+
+| name     | type               | default      |
+| -------- | ------------------ | ------------ |
+| `icon`   | _TablerIcon \| string_ | _(required)_ |
+| `size`   | _number_           | 24           |
+| `color`  | _string_           | currentColor |
+| `stroke` | _number_           | 2            |
+| `class`  | _string_           | —            |
 
 ```html
 <tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" class="my-icon"></tabler-icon>
@@ -166,33 +172,50 @@ export class AppComponent {
 
 ## Global configuration
 
-If you want to change default property values globally you can overwrite `TablerIconConfig` using providers.
-You are able to set all three properties or just some of them.
+To change default property values globally, use `provideTablerIconConfig()` in your providers. You can set any combination of `size`, `color`, and `stroke`.
 
 ```ts
-{
-  provide: TablerIconConfig, useValue: {
-    size: 40,
-    stroke: 1,
-    color: 'blue'
-  }
-}
+import { provideTablerIconConfig } from '@tabler/icons-angular';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideTablerIconConfig({
+      size: 40,
+      stroke: 1,
+      color: 'blue'
+    })
+  ]
+});
 ```
 
+Or only some defaults:
+
 ```ts
-{ provide: TablerIconConfig, useValue: { size: 40 } }
+provideTablerIconConfig({ size: 40 })
 ```
 
 ## Loading all icons
 
-There is also a possibility to import all icons at once but this can cause a **significant growth of your application build size**.
+You can register all icons at once, but this will **significantly increase your application bundle size**. Prefer registering only the icons you use.
+
+**Standalone:**
+
+```ts
+import { icons, provideTablerIcons } from '@tabler/icons-angular';
+
+bootstrapApplication(AppComponent, {
+  providers: [provideTablerIcons(icons)]
+});
+```
+
+**NgModule:**
 
 ```ts
 import { icons, TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
 
 @NgModule({
   imports: [TablerIconModule.pick(icons), TablerIconComponent],
-  // other configuration
+  // ...
 })
 export class AppModule {}
 ```

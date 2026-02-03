@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -9,22 +8,17 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
+    "importHelpers": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
-    "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "useDefineForClassFields": false,
-    "baseUrl": ".",
-    "paths": {
-      "@tabler/icons-angular": ["../../packages/icons-angular/src/public-api.ts"]
-    },
     "lib": [
       "ES2022",
       "dom"
@@ -34,10 +28,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "skipTemplateCodegen": false
-  },
-  "exclude": [
-    "**/*.spec.ts"
-  ]
+    "strictTemplates": true
+  }
 }
