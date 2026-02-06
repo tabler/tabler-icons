@@ -26,7 +26,7 @@ export const buildJsIcons = ({
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
   const aliases = getAliases(),
-    allIcons = getAllIcons(false, true);
+    allIcons = getAllIcons(true, true);
 
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
@@ -77,6 +77,7 @@ export const buildJsIcons = ({
           type,
           name: iconName,
           namePascal: iconNamePascal,
+          svg: icon.content,
         }),
       );
     });
