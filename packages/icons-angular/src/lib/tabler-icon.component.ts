@@ -55,7 +55,7 @@ export class TablerIconComponent {
 
   private readonly renderer = inject(Renderer2);
   private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
-  private readonly elementRef = inject(ElementRef);
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
   private readonly iconConfig = inject(TABLER_ICON_CONFIG, { optional: true });
   private readonly destroyRef = inject(DestroyRef);
 
