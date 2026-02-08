@@ -21,7 +21,6 @@ type SvgAttributes = { [key: string]: string | number | undefined };
  */
 @Component({
   selector: 'tabler-icon',
-  standalone: true,
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

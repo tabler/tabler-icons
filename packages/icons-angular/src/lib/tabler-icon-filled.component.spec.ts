@@ -58,7 +58,6 @@ describe('TablerIconComponent', () => {
 
   @Component({
     selector: 'tabler-test',
-    standalone: true,
     imports: [TablerIconComponent],
     template: `
       <tabler-icon

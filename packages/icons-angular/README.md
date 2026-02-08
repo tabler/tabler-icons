@@ -90,7 +90,6 @@ import { TablerIconComponent } from '@tabler/icons-angular';
 
 @Component({
   imports: [TablerIconComponent],
-  standalone: true,
   // ...
 })
 export class DemoComponent {}
@@ -126,7 +125,6 @@ import { TablerIconComponent, IconBrandAngular } from '@tabler/icons-angular';
 
 @Component({
   imports: [TablerIconComponent],
-  standalone: true,
   // ...
 })
 export class AppComponent {
