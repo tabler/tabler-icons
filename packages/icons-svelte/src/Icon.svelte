@@ -1,21 +1,39 @@
 <script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
   import defaultAttributes from './defaultAttributes';
   import type { IconNode } from './types';
+  import type { Snippet } from 'svelte';
 
-  export let type: 'outline' | 'filled';
-  export let name: string;
-  export let color: string = 'currentColor';
-  export let size: number | string = 24;
-  export let stroke: number | string = 2;
-  export let iconNode: IconNode;
+  type Props = {
+    type: 'outline' | 'filled';
+    name: string;
+    color: string;
+    size: number | string;
+    stroke: number | string;
+    iconNode: IconNode;
+    class?: string;
+    children?: Snippet;
+  } & HTMLAttributes<SVGElement>;
+
+  const {
+    type,
+    name,
+    color = 'currentColor',
+    size = 24,
+    stroke = 2,
+    iconNode,
+    class: className,
+    children,
+    ...restProps
+  }: Props = $props();
 </script>
 
 <svg
   {...defaultAttributes[type]}
-  {...$$restProps}
+  {...restProps}
   width={size}
   height={size}
-  class={`tabler-icon tabler-icon-${name} ${$$props.class ?? ''}`}
+  class={`tabler-icon tabler-icon-${name} ${className}`}
   {...type === 'filled'
     ? {
         fill: color,
@@ -28,5 +46,5 @@
   {#each iconNode as [tag, attrs]}
     <svelte:element this={tag} {...attrs} />
   {/each}
-  <slot />
+  {@render children?.()}
 </svg>
