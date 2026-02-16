@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, DestroyRef, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, effect, ElementRef, inject, input, Renderer2, signal } from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TABLER_ICON_CONFIG } from './tabler-icon.config';
@@ -59,14 +59,11 @@ export class TablerIconComponent {
   private readonly iconConfig = inject(TABLER_ICON_CONFIG, { optional: true });
   private readonly destroyRef = inject(DestroyRef);
 
-  protected readonly config = computed(() => {
-    const config = this.iconConfig ?? {};
-    return {
-      size: defaultAttributes.outline.width,
-      color: defaultAttributes.outline.stroke,
-      stroke: defaultAttributes.outline['stroke-width'],
-      ...config
-    };
+  protected readonly config = signal({
+    size: defaultAttributes.outline.width,
+    color: defaultAttributes.outline.stroke,
+    stroke: defaultAttributes.outline['stroke-width'],
+    ...(this.iconConfig ?? {})
   });
 
   private svgElement: SVGElement | null = null;
