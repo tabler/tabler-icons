@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, effect, ElementRef, inject, input, Renderer2, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  Renderer2,
+  signal,
+} from '@angular/core';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIconNode } from '../types';
 import { TABLER_ICON_CONFIG } from './tabler-icon.config';
@@ -9,12 +19,12 @@ type SvgAttributes = { [key: string]: string | number | undefined };
 /**
  * Component for rendering Tabler icons in Angular applications.
  * Supports both outline and filled icon types.
- * 
+ *
  * @example
  * ```html
  * <!-- Using icon name (requires provideTablerIcons) -->
  * <tabler-icon icon="home" [size]="24" color="blue"></tabler-icon>
- * 
+ *
  * <!-- Using direct icon object (best for tree-shaking) -->
  * <tabler-icon [icon]="IconHome" [size]="24"></tabler-icon>
  * ```
@@ -25,8 +35,8 @@ type SvgAttributes = { [key: string]: string | number | undefined };
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[style.height.px]': 'size() ?? config().size',
-    '[style.width.px]': 'size() ?? config().size'
-  }
+    '[style.width.px]': 'size() ?? config().size',
+  },
 })
 export class TablerIconComponent {
   /**
@@ -63,7 +73,7 @@ export class TablerIconComponent {
     size: defaultAttributes.outline.width,
     color: defaultAttributes.outline.stroke,
     stroke: defaultAttributes.outline['stroke-width'],
-    ...(this.iconConfig ?? {})
+    ...(this.iconConfig ?? {}),
   });
 
   private svgElement: SVGElement | null = null;
@@ -121,7 +131,7 @@ export class TablerIconComponent {
     color?: string,
     stroke?: number,
     size?: number,
-    className?: string
+    className?: string,
   ): void {
     if (icon.type !== 'outline' && icon.type !== 'filled') {
       throw new Error(`Invalid icon type: ${icon.type}. Must be 'outline' or 'filled'.`);
@@ -150,7 +160,7 @@ export class TablerIconComponent {
     color?: string,
     stroke?: number,
     size?: number,
-    className?: string
+    className?: string,
   ): void {
     if (!this.svgElement) return;
 
@@ -165,21 +175,27 @@ export class TablerIconComponent {
     this.applyClasses(this.svgElement, icon.name, className);
   }
 
-  private getSvgAttributes(icon: TablerIcon, color?: string, stroke?: number, size?: number): SvgAttributes {
-    const typeAttributes = icon.type === 'outline'
-      ? {
-        stroke: color ?? this.config().color,
-        'stroke-width': stroke ?? this.config().stroke
-      }
-      : {
-        fill: color ?? this.config().color
-      };
+  private getSvgAttributes(
+    icon: TablerIcon,
+    color?: string,
+    stroke?: number,
+    size?: number,
+  ): SvgAttributes {
+    const typeAttributes =
+      icon.type === 'outline'
+        ? {
+            stroke: color ?? this.config().color,
+            'stroke-width': stroke ?? this.config().stroke,
+          }
+        : {
+            fill: color ?? this.config().color,
+          };
 
     return {
       ...defaultAttributes[icon.type],
       ...typeAttributes,
       width: size ?? this.config().size,
-      height: size ?? this.config().size
+      height: size ?? this.config().size,
     };
   }
 
@@ -189,18 +205,25 @@ export class TablerIconComponent {
     this.renderer.setAttribute(element, 'class', baseClasses);
 
     if (className) {
-      const classes = className.trim().split(/\s+/).filter(cls => cls.length > 0);
+      const classes = className
+        .trim()
+        .split(/\s+/)
+        .filter((cls) => cls.length > 0);
       if (classes.length > 0) {
         // Use Renderer2 for class manipulation to ensure zoneless compatibility
-        classes.forEach(cls => this.renderer.addClass(element, cls));
+        classes.forEach((cls) => this.renderer.addClass(element, cls));
       }
     }
   }
 
-  private createElement([tag, attributes, nodes]: readonly [string, SvgAttributes, TablerIconNode[]?]) {
+  private createElement([tag, attributes, nodes]: readonly [
+    string,
+    SvgAttributes,
+    TablerIconNode[]?,
+  ]) {
     const element = this.renderer.createElement(tag, 'http://www.w3.org/2000/svg');
 
-    Object.keys(attributes).forEach(key => {
+    Object.keys(attributes).forEach((key) => {
       const attrValue = attributes[key];
       if (attrValue) {
         const value = typeof attrValue === 'string' ? attrValue : attrValue.toString();
@@ -226,7 +249,10 @@ export class TablerIconComponent {
     return null;
   }
 
-  private toPascalCase = (value: string): string => value.split('-')
-    .map(v => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase())
-    .join('');
+  private toPascalCase(value: string): string {
+    return value
+      .split('-')
+      .map((v) => v.charAt(0).toUpperCase() + v.slice(1).toLowerCase())
+      .join('');
+  }
 }
