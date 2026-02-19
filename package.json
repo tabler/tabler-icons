@@ -97,7 +97,7 @@
     },
     "npm": false,
     "hooks": {
-      "after:bump": "export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm exec turbo build --concurrency=5 && pnpm install",
+      "after:bump": "export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {

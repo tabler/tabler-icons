@@ -51,5 +51,5 @@ jobs:
       - name: Build
         env:
           ICONS_LIMIT: 100
-        run: pnpm exec turbo build
+        run: pnpm run build
 
