@@ -45,6 +45,7 @@ types.forEach(type => {
       .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<path[^>]*fill="red"[^>]*\/>/gs, '')
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
+      .replace(/<title[^>]*>.*?<\/title>/gs, '')
       .replace(/<svg\s+>/gs, '<svg>')
 
     fileData = optimizeSVG(fileData)
