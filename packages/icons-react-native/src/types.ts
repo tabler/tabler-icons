@@ -1,4 +1,3 @@
-
 import { ForwardRefExoticComponent, ReactSVG, SVGProps } from 'react';
 import type { SvgProps } from 'react-native-svg';
 export * as NativeSvg from 'react-native-svg';
