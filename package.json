@@ -59,7 +59,6 @@
     "@testing-library/jest-dom": "catalog:",
     "adm-zip": "^0.5.16",
     "cheerio": "^1.0.0",
-    "csv-parser": "^3.0.0",
     "dotenv": "^16.4.7",
     "esbuild": "^0.20.2",
     "fs-extra": "^11.2.0",
@@ -72,7 +71,7 @@
     "openai": "^4.73.1",
     "parse-svg-path": "^0.1.2",
     "prettier": "^3.2.5",
-    "release-it": "19.2.2",
+    "release-it": "19.2.4",
     "rollup": "catalog:",
     "rollup-plugin-dts": "catalog:",
     "rollup-plugin-esbuild": "catalog:",
@@ -93,7 +92,12 @@
   },
   "release-it": {
     "plugins": {
-      "@release-it-plugins/workspaces": true
+      "@release-it-plugins/workspaces": {
+        "skipChecks": true,
+        "workspaces": [
+          "packages/*"
+        ]
+      }
     },
     "npm": false,
     "hooks": {
@@ -112,7 +116,7 @@
       "release": true
     }
   },
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.30.3",
   "pnpm": {
     "ignoredBuiltDependencies": [
       "@parcel/watcher",
