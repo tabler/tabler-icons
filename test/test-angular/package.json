@@ -4,7 +4,7 @@
   "version": "3.36.0",
   "type": "module",
   "scripts": {
-    "dev": "ng serve",
+    "dev": "pnpm run clean && pnpm install && ng serve",
     "build": "ng build",
     "preview": "ng serve --configuration=production",
     "clean": "rm -rf dist .angular"

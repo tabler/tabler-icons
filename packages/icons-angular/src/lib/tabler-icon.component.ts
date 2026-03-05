@@ -59,7 +59,7 @@ export class TablerIconComponent {
   /**
    * Additional CSS classes to apply to the icon element.
    */
-  class = input<string>();
+  svgClass = input<string>();
 
   size = input<number>();
 
@@ -88,7 +88,7 @@ export class TablerIconComponent {
       const color = this.color();
       const stroke = this.stroke();
       const size = this.size();
-      const className = this.class();
+      const className = this.svgClass();
 
       const icon = this.resolveIcon(iconData);
 
