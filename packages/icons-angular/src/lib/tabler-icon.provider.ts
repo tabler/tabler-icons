@@ -8,12 +8,14 @@ export interface ITablerIconProvider {
 export class TablerIconProvider implements ITablerIconProvider {
   constructor(private readonly icons: TablerIcons) {}
 
-  getIcon = (name: string): TablerIcon | null => {
+  getIcon(name: string): TablerIcon | null {
     name = name.startsWith('Icon') ? name : `Icon${name}`;
     return this.iconExists(name) ? this.icons[name] : null;
-  };
+  }
 
-  private iconExists = (name: string): boolean => name in this.icons;
+  private iconExists(name: string): boolean {
+    return name in this.icons;
+  }
 }
 
 export const TABLER_ICONS = new InjectionToken<ITablerIconProvider>('TablerIcons', {
