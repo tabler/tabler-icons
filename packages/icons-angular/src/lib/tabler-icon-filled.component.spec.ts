@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import defaultAttributes from '../defaultAttributes';
 import { TablerIcon, TablerIcons } from '../types';
 import { TablerIconComponent } from './tabler-icon.component';
-import { TablerIconModule } from './tabler-icon.module';
+import { provideTablerIcons } from './tabler-icon.provider';
 
 describe('TablerIconComponent', () => {
   let hostComponent: TestHostComponent;
@@ -14,7 +14,8 @@ describe('TablerIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TablerIconComponent, TestHostComponent, TablerIconModule.pick(icons)]
+      imports: [TablerIconComponent, TestHostComponent],
+      providers: [provideTablerIcons(icons)]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);

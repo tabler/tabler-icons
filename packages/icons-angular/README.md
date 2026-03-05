@@ -51,7 +51,7 @@ pnpm install @tabler/icons-angular
 
 The package is built with ES modules and is tree-shakable. You choose which icons to include.
 
-You can provide icons via `provideTablerIcons()` (recommended for standalone apps) or `TablerIconModule.pick()` (for NgModule-based apps), or pass `TablerIcon` objects directly to the component.
+You can provide icons via `provideTablerIcons()`, or pass `TablerIcon` objects directly to the component.
 
 ### I. Using the provider (icon names in templates)
 
@@ -97,13 +97,14 @@ export class DemoComponent {}
 
 #### 1b. NgModule-based applications
 
-In a module where the icons are needed or in the root module:
+In a module where the icons are needed or in the root module, add `provideTablerIcons()` to the module's providers:
 
 ```ts
-import { TablerIconComponent, TablerIconModule, IconBrandAngular, IconHome } from '@tabler/icons-angular';
+import { TablerIconComponent, provideTablerIcons, IconBrandAngular, IconHome } from '@tabler/icons-angular';
 
 @NgModule({
-  imports: [TablerIconModule.pick({ IconBrandAngular, IconHome }), TablerIconComponent],
+  imports: [TablerIconComponent],
+  providers: [provideTablerIcons({ IconBrandAngular, IconHome })],
   // ...
 })
 export class AppModule {}
@@ -134,13 +135,13 @@ export class AppComponent {
 
 #### 1b. NgModule
 
-Import `TablerIconModule` and `TablerIconComponent` in the module that declares components using icons (no need to call `.pick()` if you only pass icon objects):
+Import `TablerIconComponent` in the module that declares components using icons (no need to provide icons if you only pass icon objects):
 
 ```ts
-import { TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
+import { TablerIconComponent } from '@tabler/icons-angular';
 
 @NgModule({
-  imports: [TablerIconModule, TablerIconComponent],
+  imports: [TablerIconComponent],
   // ...
 })
 export class AppModule {}
@@ -209,10 +210,11 @@ bootstrapApplication(AppComponent, {
 **NgModule:**
 
 ```ts
-import { icons, TablerIconComponent, TablerIconModule } from '@tabler/icons-angular';
+import { icons, TablerIconComponent, provideTablerIcons } from '@tabler/icons-angular';
 
 @NgModule({
-  imports: [TablerIconModule.pick(icons), TablerIconComponent],
+  imports: [TablerIconComponent],
+  providers: [provideTablerIcons(icons)],
   // ...
 })
 export class AppModule {}
