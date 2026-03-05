@@ -18,4 +18,4 @@ export default {
     fill: 'currentColor',
     stroke: 'none'
   }
-};
+} as const;
