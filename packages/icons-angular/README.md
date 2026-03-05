@@ -113,8 +113,8 @@ export class AppModule {}
 #### 2. Use the icon in a template (by name)
 
 ```html
-<tabler-icon icon="brand-angular"></tabler-icon>
-<tabler-icon icon="icon-brand-angular"></tabler-icon>
+<tabler-icon icon="brand-angular" />
+<tabler-icon icon="icon-brand-angular" />
 ```
 
 ### II. Passing an icon object (no provider)
@@ -150,7 +150,7 @@ export class AppModule {}
 #### 2. Use the icon in a template (by reference)
 
 ```html
-<tabler-icon [icon]="iconBrandAngular"></tabler-icon>
+<tabler-icon [icon]="iconBrandAngular" />
 ```
 
 ## Props
@@ -166,7 +166,7 @@ The component uses Angular signal inputs and supports both outline and filled ic
 | `class`  | _string_           | —            |
 
 ```html
-<tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" class="my-icon"></tabler-icon>
+<tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" class="my-icon" />
 ```
 
 ## Global configuration

@@ -72,7 +72,7 @@ describe('TablerIconComponent', () => {
         [size]="size"
         [stroke]="stroke"
         [class]="class"
-      ></tabler-icon>
+      />
     `,
   })
   class TestHostComponent {

@@ -23,10 +23,10 @@ type SvgAttributes = { [key: string]: string | number | undefined };
  * @example
  * ```html
  * <!-- Using icon name (requires provideTablerIcons) -->
- * <tabler-icon icon="home" [size]="24" color="blue"></tabler-icon>
+ * <tabler-icon icon="home" [size]="24" color="blue" />
  *
  * <!-- Using direct icon object (best for tree-shaking) -->
- * <tabler-icon [icon]="IconHome" [size]="24"></tabler-icon>
+ * <tabler-icon [icon]="IconHome" [size]="24" />
  * ```
  */
 @Component({

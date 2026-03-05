@@ -284,7 +284,7 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
         [size]="size"
         [stroke]="stroke"
         [class]="customClass"
-      ></tabler-icon>
+      />
     `,
   })
   class TestHostComponent {
