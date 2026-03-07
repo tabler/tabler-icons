@@ -38,7 +38,7 @@ types.forEach(type => {
       .replace(/height="24px"/g, '')
       .replace(/clip-rule="evenodd"/g, '')
       .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
-      .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
+      .replace(/<path d="M0 0h24v24H0z"\s*?\/>/g, '')
       .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
       .replace(/<path[^>]*fill-opacity=".1"[^>]*\/>/g, '')
       .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
