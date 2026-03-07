@@ -85,7 +85,7 @@ export const iconTemplate = (type) =>
   fill="currentColor"
 >`;
 
-export const blankSquare = '<path stroke="none" d="M0 0h24v24H0z" fill="none"/>';
+export const blankSquare = '<path stroke="none" d="M0 0h24v24H0z" fill="none" />';
 
 export const types = ['outline', 'filled'];
 
