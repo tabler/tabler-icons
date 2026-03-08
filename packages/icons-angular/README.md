@@ -157,16 +157,25 @@ export class AppModule {}
 
 The component uses Angular signal inputs and supports both outline and filled icon types.
 
-| name     | type               | default      |
-| -------- | ------------------ | ------------ |
-| `icon`   | _TablerIcon \| string_ | _(required)_ |
-| `size`   | _number_           | 24           |
-| `color`  | _string_           | currentColor |
-| `stroke` | _number_           | 2            |
-| `class`  | _string_           | —            |
+| name            | type                              | default      |
+| --------------- | --------------------------------- | ------------ |
+| `icon`          | _TablerIcon \| string_            | _(required)_ |
+| `size`          | _number_                          | 24           |
+| `color`         | _string_                          | currentColor |
+| `stroke`        | _number_                          | 2            |
+| `svgClass`      | _string_                          | —            |
+| `svgAttributes` | _Record<string, string \| number \| undefined>_ | —            |
+
+- **`icon`** — Icon to display. Pass a `TablerIcon` object (e.g. from an import) or a string name when using `provideTablerIcons()`.
+- **`size`** — Width and height of the icon in pixels.
+- **`color`** — For outline icons this sets the stroke color; for filled icons it sets the fill color.
+- **`stroke`** — Stroke width for outline icons. Has no effect on filled icons.
+- **`svgClass`** — Extra CSS classes to apply to the SVG element (in addition to `tabler-icon` and `tabler-icon-{name}`).
+- **`svgAttributes`** — Extra attributes to apply to the SVG element (e.g. `aria-label`, `role`) for accessibility. Component-managed attributes (`size`, `color`, `stroke`, etc.) always take precedence and cannot be overridden.
 
 ```html
 <tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" class="my-icon" />
+<tabler-icon [icon]="IconAlarm" [svgAttributes]="{ 'aria-label': 'Alarm', 'role': 'img' }" />
 ```
 
 ## Global configuration

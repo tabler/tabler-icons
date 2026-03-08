@@ -63,6 +63,12 @@ export class TablerIconComponent {
 
   size = input<number>();
 
+  /**
+   * Additional attributes to apply to the SVG element (e.g. aria-label, role).
+   * Component-managed attributes (size, color, stroke, etc.) always take precedence.
+   */
+  svgAttributes = input<Record<string, string | number | undefined>>();
+
   private readonly renderer = inject(Renderer2);
   private readonly iconProviders = inject<ITablerIconProvider[]>(TABLER_ICONS);
   private readonly elementRef = inject(ElementRef<HTMLElement>);
@@ -89,13 +95,14 @@ export class TablerIconComponent {
       const stroke = this.stroke();
       const size = this.size();
       const className = this.svgClass();
+      const extraAttributes = this.svgAttributes();
 
       const icon = this.resolveIcon(iconData);
 
       if (!this.svgElement || this.shouldRecreateSvg(icon)) {
-        this.renderNewSvg(icon, color, stroke, size, className);
+        this.renderNewSvg(icon, color, stroke, size, className, extraAttributes);
       } else {
-        this.updateExistingSvg(icon, color, stroke, size, className);
+        this.updateExistingSvg(icon, color, stroke, size, className, extraAttributes);
       }
     });
   }
@@ -132,12 +139,13 @@ export class TablerIconComponent {
     stroke?: number,
     size?: number,
     className?: string,
+    extraAttributes?: Record<string, string | number | undefined>,
   ): void {
     if (icon.type !== 'outline' && icon.type !== 'filled') {
       throw new Error(`Invalid icon type: ${icon.type}. Must be 'outline' or 'filled'.`);
     }
 
-    const attributes = this.getSvgAttributes(icon, color, stroke, size);
+    const attributes = this.getSvgAttributes(icon, color, stroke, size, extraAttributes);
     const iconElement = this.createElement(['svg', attributes, icon.nodes]);
 
     // Use Renderer2 for attribute setting to ensure zoneless compatibility
@@ -161,10 +169,11 @@ export class TablerIconComponent {
     stroke?: number,
     size?: number,
     className?: string,
+    extraAttributes?: Record<string, string | number | undefined>,
   ): void {
     if (!this.svgElement) return;
 
-    const attributes = this.getSvgAttributes(icon, color, stroke, size);
+    const attributes = this.getSvgAttributes(icon, color, stroke, size, extraAttributes);
 
     Object.entries(attributes).forEach(([key, value]) => {
       if (value !== undefined) {
@@ -180,6 +189,7 @@ export class TablerIconComponent {
     color?: string,
     stroke?: number,
     size?: number,
+    extraAttributes?: Record<string, string | number | undefined>,
   ): SvgAttributes {
     const typeAttributes =
       icon.type === 'outline'
@@ -191,11 +201,16 @@ export class TablerIconComponent {
             fill: color ?? this.config().color,
           };
 
-    return {
+    const componentAttributes: SvgAttributes = {
       ...defaultAttributes[icon.type],
       ...typeAttributes,
       width: size ?? this.config().size,
       height: size ?? this.config().size,
+    };
+
+    return {
+      ...(extraAttributes ?? {}),
+      ...componentAttributes,
     };
   }
 
