@@ -1,20 +1,17 @@
 import { buildJsIcons } from '../../.build/build-icons.mjs';
-import prettier from '@prettier/sync';
 
 const componentTemplate = ({ type, name, namePascal, children }) => {
   const nodes = JSON.stringify(Array.isArray(children) ? children : [children]);
 
-  return prettier.format(
-    `import { TablerIcon } from '../types';
+  return `import { TablerIcon } from '../types';
 
-    const ${namePascal}: TablerIcon = {
-      name: '${name}',
-      type: '${type}',
-      nodes: ${nodes}
-    };
+const ${namePascal}: TablerIcon = {
+  name: '${name}',
+  type: '${type}',
+  nodes: ${nodes}
+};
 
-    export default ${namePascal};`,
-    { singleQuote: true, printWidth: 120, parser: 'typescript' });
+export default ${namePascal};`
 };
 
 const indexItemTemplate = ({
