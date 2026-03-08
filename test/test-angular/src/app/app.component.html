@@ -38,7 +38,7 @@
       <tabler-icon [icon]="toggledIcon()" [size]="64" />
     </a>
     <a (click)="toggleStroke()" style="cursor: pointer;">
-      <tabler-icon [icon]="iconHome" [size]="64" [stroke]="stroke()" />
+      <tabler-icon [icon]="iconHome" [size]="64" [stroke]="stroke()" [svgAttributes]="{ 'aria-label': 'Home', 'role': 'button' }" />
     </a>
   </div>
 
