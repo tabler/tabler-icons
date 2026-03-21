@@ -22,18 +22,28 @@
   "amdName": "TablerIconsSolidjs",
   "exports": {
     ".": {
+      "solid": "./dist/source/tabler-icons-solidjs.js",
       "import": {
-        "types": "./dist/tabler-icons-solidjs.d.ts",
+        "types": "./dist/types/tabler-icons-solidjs.d.ts",
+        "default": "./dist/esm/tabler-icons-solidjs.js"
+      },
+      "browser": {
+        "types": "./dist/types/tabler-icons-solidjs.d.ts",
         "default": "./dist/esm/tabler-icons-solidjs.js"
       },
       "require": {
-        "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
-        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
+        "types": "./dist/types/tabler-icons-solidjs.d.ts",
+        "default": "./dist/cjs/tabler-icons-solidjs.js"
+      },
+      "node": {
+        "default": "./dist/cjs/tabler-icons-solidjs.js",
+        "types": "./dist/types/tabler-icons-solidjs.d.ts"
       }
     }
   },
-  "main": "./dist/cjs/tabler-icons-solidjs.cjs",
-  "types": "./dist/cjs/tabler-icons-solidjs.d.cts",
+  "main": "./dist/cjs/tabler-icons-solidjs.js",
+  "module": "./dist/esm/tabler-icons-solidjs.js",
+  "types": "./dist/types/tabler-icons-solidjs.d.ts",
   "files": [
     "dist"
   ],
