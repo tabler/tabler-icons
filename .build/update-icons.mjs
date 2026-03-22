@@ -1,11 +1,10 @@
 import { globSync } from 'glob'
 import { readFileSync, writeFileSync } from 'fs'
 import path from 'path'
-import { ICONS_SRC_DIR, getMaxUnicode, getArgvs, getPackageJson } from './helpers.mjs'
+import { ICONS_SRC_DIR, getMaxUnicode, getPackageJson } from './helpers.mjs'
 
-const argv = getArgvs(),
-  pkg = getPackageJson(),
-  newVersion = argv['new-version'] || pkg.version
+const pkg = getPackageJson(),
+  newVersion = process.env.NEW_VERSION || pkg.version
 
 const files = globSync(path.join(ICONS_SRC_DIR, '**/*.svg'))
 

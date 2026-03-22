@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
@@ -31,33 +31,32 @@ jobs:
           # Fetch base branch to ensure it's available
           git fetch origin ${BASE_REF}:${BASE_REF} || true
 
-      - name: Add in progress comment
-        id: add-in-progress-comment
-        uses: thollander/actions-comment-pull-request@v3
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
         with:
-          comment-tag: validate
-          mode: upsert
-          message: |
-            🔄 Icons are being validated... Please wait...
-        continue-on-error: true
+          node-version: 22
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
-        with:
-          version: 8
-          run_install: false
+
+      - name: Install system dependencies for canvas and rsvg-convert
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            libcairo2-dev \
+            libpango1.0-dev \
+            libjpeg-dev \
+            libgif-dev \
+            librsvg2-dev \
+            librsvg2-bin
 
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
@@ -67,6 +66,16 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
+
+      - name: Add in progress comment
+        id: add-in-progress-comment
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          comment-tag: validate
+          mode: upsert
+          message: |
+            🔄 Icons are being validated... Please wait...
+        continue-on-error: true
 
       - name: Validate icons
         id: validate

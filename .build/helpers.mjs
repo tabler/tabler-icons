@@ -85,7 +85,7 @@ export const iconTemplate = (type) =>
   fill="currentColor"
 >`;
 
-export const blankSquare = '<path stroke="none" d="M0 0h24v24H0z" fill="none"/>';
+export const blankSquare = '<path stroke="none" d="M0 0h24v24H0z" fill="none" />';
 
 export const types = ['outline', 'filled'];
 
@@ -119,8 +119,8 @@ export const getAllIcons = (withContent = false, withObject = false) => {
 
   types.forEach((type) => {
     icons[type] = globSync(slash(path.join(ICONS_SRC_DIR, `${type}/*.svg`)))
+      .sort((a, b) => a.localeCompare(b))
       .slice(0, limit)
-      .sort()
       .map((i) => {
         const { data, content } = parseMatter(i),
           name = basename(i, '.svg');
@@ -553,6 +553,17 @@ export const getCompileOptions = () => {
 };
 
 export const convertIconsToImages = async (dir, extension, size = 240) => {
+  const rsvgConvertAvailable = await new Promise((resolve) => {
+    exec('command -v rsvg-convert', (error) => {
+      resolve(!error);
+    });
+  });
+
+  if (!rsvgConvertAvailable) {
+    console.log(`\nWarning: rsvg-convert not found. Skipping ${extension} conversion.`);
+    return;
+  }
+
   const icons = getAllIcons();
 
   await asyncForEach(Object.entries(icons), async function ([type, svgFiles]) {
@@ -561,9 +572,9 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
     await asyncForEach(svgFiles, async function (file, i) {
       const distPath = path.join(dir, `./${type}/${file.name}.${extension}`);
 
-      process.stdout.write(
-        `Building \`icons/${extension}\` ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`icons/${extension}\` ${type} ${i}/${svgFiles.length}: ${file.name.padEnd(42)}\r`,
+      // );
 
       await new Promise((resolve, reject) => {
         exec(`rsvg-convert -f ${extension} -h ${size} ${file.path} > ${distPath}`, (error) => {

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->5984<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->6074<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -26,18 +26,18 @@
 <p align="center">Browser testing via:</p>
 
 <p align="center">
-  <a href="https://www.lambdatest.com/" target="_blank">
+  <a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=tabler" target="_blank">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/14dd2a0a-bafe-436e-a6cb-29636278c781">
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83">
-      <img src="https://github.com/user-attachments/assets/d3dede5a-d702-47c3-bb66-4d887948ed83" alt="Tabler Icons preview" width="296">
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f0967860-31ad-4078-850b-40b0abc95582" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/55ac290a-6729-44aa-bbc3-4c5e909facbf" />
+      <img src="https://github.com/user-attachments/assets/86bcbe29-eb8d-4273-a381-5ce17d4ca92d" alt="TestMu AI" width="296">
     </picture>
   </a>
 </p>
 
 ## Preview
 
-### Outline version (<!--icons-count-outline-->4985<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->5021<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
@@ -47,7 +47,7 @@
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->999<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->1053<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>

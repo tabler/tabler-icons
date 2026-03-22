@@ -1,7 +1,7 @@
 {
   "name": "test-preact",
   "private": true,
-  "version": "3.36.0",
+  "version": "3.37.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,5 +15,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2"
-  }
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {}
 }

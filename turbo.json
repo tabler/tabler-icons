@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["ICONS_LIMIT"],
   "tasks": {
     "build": {
       "outputs": ["dist/**", "src/icons/**", "icons/**", "icons.json", "tabler-nodes-*.json", "categories/**", "docs/**"],

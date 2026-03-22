@@ -26,14 +26,14 @@ export const buildJsIcons = ({
 }) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
   const aliases = getAliases(),
-    allIcons = getAllIcons(false, true);
+    allIcons = getAllIcons(true, true);
 
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const children = icon.obj.children
         .map(({ name, attributes }, i) => {
@@ -77,6 +77,7 @@ export const buildJsIcons = ({
           type,
           name: iconName,
           namePascal: iconNamePascal,
+          svg: icon.content,
         }),
       );
     });
@@ -107,9 +108,9 @@ export const buildIconsList = (name) => {
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`;
 
@@ -131,9 +132,9 @@ export const buildIconsDynamicImport = (name) => {
   let dynamicImportString = 'export default {';
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon, i) => {
-      process.stdout.write(
-        `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      );
+      // process.stdout.write(
+      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
+      // );
 
       const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
         iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;

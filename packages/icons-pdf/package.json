@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-pdf",
-  "version": "3.36.0",
+  "version": "3.40.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler-icons.io",
   "bugs": {
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",
-    "clean": "rm -rf dist && find icons -mindepth 1 ! -name '.gitkeep' -delete",
+    "clean": "find dist -mindepth 1 -delete 2>/dev/null; rm -rf dist && find . ! -name '.gitkeep' -path '*/icons/*' -exec rm -rf {} +",
     "copy:license": "cp ../../LICENSE ./LICENSE"
   },
   "amdName": "TablerIconsPdf",
@@ -31,7 +31,7 @@
     ]
   },
   "dependencies": {
-    "@tabler/icons": "3.36.0"
+    "@tabler/icons": "workspace:"
   },
   "keywords": [
     "icons",
@@ -41,5 +41,8 @@
     "react",
     "front-end",
     "web"
-  ]
+  ],
+  "devDependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {}
 }

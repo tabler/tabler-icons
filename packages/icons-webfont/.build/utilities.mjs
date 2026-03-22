@@ -5,6 +5,11 @@ import { globSync } from 'glob';
 import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
+// Import canvas before paper-jsdom to ensure it's available for jsdom
+// Use require for canvas to ensure it's loaded before jsdom initializes
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('canvas');
 import paper from "paper-jsdom";
 import { createCanvas } from '@napi-rs/canvas';
 import crypto from 'crypto';
@@ -388,4 +393,88 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
   console.log(`\n${logPrefix} Done: ${processed} processed, ${cached} cached in ${totalTime}s`);
 
   return { processed, cached };
+}
+
+function applyTransformToPath(pathData, transform) {
+  try {
+    const path = new SVGPathCommander(pathData);
+    // Parse transform string into DOMMatrix-compatible format
+    // SVGPathCommander.transform() accepts transform object or string
+    const transformed = path.transform(transform);
+    return transformed.toString();
+  } catch (e) {
+    console.warn('Transform detected but not applied:', e.message, '- Using original path data.');
+    return pathData;
+  }
+}
+
+export function mergePaths(svgBuffer) {
+  const pathRegex = /<path\s+([^>]*?)\s*\/?>/gs;
+  const matches = [...svgBuffer.matchAll(pathRegex)];
+
+  if (matches.length <= 1) {
+    return svgBuffer;
+  }
+
+  const pathDataArray = [];
+  const fills = new Set();
+  const strokes = new Set();
+  const fillRules = new Set();
+  const warnings = [];
+
+  for (const match of matches) {
+    const attrs = match[1];
+    const d = attrs.match(/d="([^"]*)"/)?.[1];
+    const transform = attrs.match(/transform="([^"]*)"/)?.[1];
+    const fill = attrs.match(/fill="([^"]*)"/)?.[1] || 'none';
+    const stroke = attrs.match(/stroke="([^"]*)"/)?.[1] || 'none';
+    const fillRule = attrs.match(/fill-rule="([^"]*)"/)?.[1];
+
+    if (fill !== 'none') fills.add(fill);
+    if (stroke !== 'none') strokes.add(stroke);
+    if (fillRule) fillRules.add(fillRule);
+
+    if (d) {
+      pathDataArray.push(transform ? applyTransformToPath(d, transform) : d);
+    }
+  }
+
+  if (fills.size > 1) {
+    warnings.push(
+      `Multiple fill colors detected (${fills.size} different colors). All paths will use the first color found.`
+    );
+  }
+  if (strokes.size > 1) {
+    warnings.push(
+      `Multiple stroke colors detected (${strokes.size} different colors). All paths will use the first stroke found.`
+    );
+  }
+  if (warnings.length > 0) {
+    console.warn('mergePaths:', warnings.join(' '));
+  }
+
+  const mergedPathData = pathDataArray.join(' ');
+
+  const firstAttrs = matches[0][1];
+  const fill = firstAttrs.match(/fill="([^"]*)"/)?.[1];
+  const stroke = firstAttrs.match(/stroke="([^"]*)"/)?.[1];
+  const strokeWidth = firstAttrs.match(/stroke-width="([^"]*)"/)?.[1];
+  const fillRule = fillRules.size > 0 ? [...fillRules][0] : null;
+
+  const newPathAttrs = ['d="' + mergedPathData + '"'];
+  if (fill) newPathAttrs.push(`fill="${fill}"`);
+  if (stroke) newPathAttrs.push(`stroke="${stroke}"`);
+  if (strokeWidth) newPathAttrs.push(`stroke-width="${strokeWidth}"`);
+  if (fillRule) newPathAttrs.push(`fill-rule="${fillRule}"`);
+
+  const newPath = '<path ' + newPathAttrs.join(' ') + ' />';
+
+  const firstMatchStart = matches[0].index;
+  const lastMatch = matches[matches.length - 1];
+  const lastMatchEnd = lastMatch.index + lastMatch[0].length;
+
+  const before = svgBuffer.substring(0, firstMatchStart);
+  const after = svgBuffer.substring(lastMatchEnd);
+
+  return before + newPath + after;
 }

@@ -14,6 +14,24 @@ const outlineIconsNames = globSync(join(ICONS_SRC_DIR, 'outline/*.svg')).map(i =
 
 let unicodes = []
 
+// Validate that only .svg files exist in icons/filled and icons/outline directories
+types.forEach(type => {
+  const dirPath = join(ICONS_SRC_DIR, type)
+  const files = fs.readdirSync(dirPath)
+  
+  files.forEach(file => {
+    // Ignore .DS_Store (macOS system file)
+    if (file === '.DS_Store') {
+      return
+    }
+    
+    if (!file.endsWith('.svg')) {
+      console.log(`⛔️ Directory \`icons/${type}\` contains non-SVG file: \`${file}\``)
+      error = true
+    }
+  })
+})
+
 const duplicateExists = (arr) => {
   return new Set(arr).size !== arr.length
 }
@@ -27,7 +45,7 @@ function getAddedIconsFromMain() {
   try {
     // Use BASE_SHA or BASE_REF from environment, fallback to origin/main
     const baseRef = process.env.BASE_SHA || process.env.BASE_REF || 'origin/main'
-    const output = execSync(`git diff ${baseRef}...HEAD --name-status`, { encoding: 'utf-8' })
+    const output = execSync(`git diff ${baseRef}...HEAD -- --name-status`, { encoding: 'utf-8' })
     const addedIcons = []
 
     output.split('\n').forEach(line => {
@@ -74,6 +92,17 @@ types.forEach(type => {
     const foundInvalidElements = invalidElements.filter(el => iconContent.includes(el))
     if (foundInvalidElements.length > 0) {
       console.log(`⛔️ Icon \`${iconName}\` contains elements that should be converted to path: ${foundInvalidElements.join(', ')}`)
+      error = true
+    }
+
+    if (iconContent.includes('<g')) {
+      console.log(`⛔️ Icon \`${iconName}\` contains <g> element (not allowed)`)
+      error = true
+    }
+
+    // stroke-width only on root <svg>, not on child elements
+    if (/<path[^>]*\sstroke-width\s*=/i.test(iconContent)) {
+      console.log(`⛔️ Icon \`${iconName}\` has stroke-width on child element (path); only root <svg> may have stroke-width`)
       error = true
     }
 

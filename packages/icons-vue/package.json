@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-vue",
-  "version": "3.36.0",
+  "version": "3.40.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -29,12 +29,12 @@
     "build:icons": "node build.mjs",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
+    "clean": "find dist -mindepth 1 -delete 2>/dev/null; rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
     "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
-    "@tabler/icons": "3.36.0"
+    "@tabler/icons": "workspace:"
   },
   "peerDependencies": {
     "vue": ">=3.0.1"
@@ -45,5 +45,6 @@
     "@vue/compiler-sfc": "^3.4.20",
     "@vue/test-utils": "2.4.4",
     "vue": "^3.4.20"
-  }
+  },
+  "optionalDependencies": {}
 }

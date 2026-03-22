@@ -11,6 +11,18 @@
           - 'icons/**/*.svg'
           - aliases.json
 
+# For new icons
+✨ new icons:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'icons/**/*.svg'
+
+# For modified icons
+🔧 modified icons:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'icons/**/*.svg'
+
 # For Github Actions
 🤖 github-actions:
   - changed-files:
@@ -73,4 +85,37 @@
   - changed-files:
       - any-glob-to-any-file:
           - 'packages/icons-angular/*'
+
+# For React Native package
+🔗 react-native package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-react-native/*'
+
+# For PNG package
+🔗 png package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-png/*'
+
+# For PDF package
+🔗 pdf package:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/icons-pdf/*'
+
+# For tests
+🧪 tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'test/**/*'
+          - 'packages/*/test.spec.*'
+          - 'packages/*/vitest.config.*'
+
+# For website/documentation site
+🌐 website:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/**/*'
+          - '*.liquid'
 
