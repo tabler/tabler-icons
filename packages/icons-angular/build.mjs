@@ -17,9 +17,9 @@ export default ${namePascal};`
 const indexItemTemplate = ({
                              _,
                              namePascal
-                           }) => `export { default as Icon${namePascal}} from './Icon${namePascal}';`;
+                           }) => `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 
-const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal}} from './icons/Icon${toPascal}';\n`;
+const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
 
 buildJsIcons({
   name: 'icons-angular',
