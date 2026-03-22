@@ -34,7 +34,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && npm run copy:license && npm run build:icons && npm run typecheck && npm run build:ng",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run typecheck && pnpm run build:ng",
     "build:icons": "node build.mjs",
     "build:ng": "ng build --configuration=production",
     "copy:license": "cp ../../LICENSE ./LICENSE",
