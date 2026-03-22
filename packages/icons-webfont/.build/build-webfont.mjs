@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { getAllIcons, getPackageDir, strokes } from '../../../.build/helpers.mjs';
-import { generateFont, offsetPath, processIcons, removeComments, reorientPath, splitPaths } from './utilities.mjs';
+import { generateFont, mergePaths, offsetPath, processIcons, removeComments, reorientPath, splitPaths } from './utilities.mjs';
 
 const DIR = getPackageDir('icons-webfont')
 
@@ -22,6 +22,7 @@ for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
          svgContent = splitPaths(svgContent);
          svgContent = offsetPath(svgContent, strokeWidth);
          svgContent = reorientPath(svgContent);
+         svgContent = mergePaths(svgContent);
          return svgContent;
       }
    );
