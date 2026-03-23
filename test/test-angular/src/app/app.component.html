@@ -27,19 +27,21 @@
 
   <div>
     <h3>Buttons</h3>
-    <a (click)="toggleActive()" style="cursor: pointer;">
-      @if (active()) {
-      <tabler-icon [icon]="iconHome" [size]="64" />
-      } @else {
-      <tabler-icon [icon]="iconHomeOff" [size]="64" />
-      }
-    </a>
-    <a (click)="toggleIcon()" style="cursor: pointer;">
-      <tabler-icon [icon]="toggledIcon()" [size]="64" />
-    </a>
-    <a (click)="toggleStroke()" style="cursor: pointer;">
-      <tabler-icon [icon]="iconHome" [size]="64" [stroke]="stroke()" [svgAttributes]="{ 'aria-label': 'Home', 'role': 'button' }" />
-    </a>
+    <div class="buttons">
+      <button (click)="toggleActive()" style="cursor: pointer;" type="button">
+        @if (active()) {
+        <tabler-icon [icon]="iconHome" [size]="32" />
+        } @else {
+        <tabler-icon [icon]="iconHomeOff" [size]="32" />
+        }
+      </button>
+      <button (click)="toggleIcon()" style="cursor: pointer;">
+        <tabler-icon [icon]="toggledIcon()" [size]="32" />
+      </button>
+      <button (click)="toggleStroke()" style="cursor: pointer;">
+        <tabler-icon [icon]="iconHome" [size]="32" [stroke]="stroke()" [svgAttributes]="{ 'aria-label': 'Home', 'role': 'button' }" />
+      </button>
+    </div>
   </div>
 
   <div style="margin-top: 20px;">

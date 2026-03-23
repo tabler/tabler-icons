@@ -15,13 +15,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
-a:hover {
-  color: #535bf2;
+
+button {
+  font-weight: 500;
+  text-decoration: inherit;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.4em 0.6em;
+}
+
+button:hover {
+  background-color: #cacaca;
 }
 
 body {
@@ -53,8 +63,5 @@ h1, h3 {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
   }
 }
