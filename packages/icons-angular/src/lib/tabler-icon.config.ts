@@ -1,0 +1,29 @@
+import { EnvironmentProviders, InjectionToken, makeEnvironmentProviders } from '@angular/core';
+
+export interface TablerIconConfig {
+  size?: number;
+  color?: string;
+  stroke?: number;
+}
+
+export const TABLER_ICON_CONFIG = new InjectionToken<TablerIconConfig>('TablerIconConfig');
+
+/**
+ * Provides the configuration for Tabler icons.
+ *
+ * @example
+ * ```ts
+ * bootstrapApplication(AppComponent, {
+ *   providers: [
+ *     provideTablerIconConfig({
+ *       size: 24,
+ *       color: 'red',
+ *       stroke: 2
+ *     })
+ *   ]
+ * });
+ * ```
+ */
+export function provideTablerIconConfig(config: TablerIconConfig): EnvironmentProviders {
+  return makeEnvironmentProviders([{ provide: TABLER_ICON_CONFIG, useValue: config }]);
+}

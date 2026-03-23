@@ -1,0 +1,59 @@
+<div class="app">
+  <h2>Tabler Icons Angular Package</h2>
+
+  <div style="margin-top: 40px">
+    <h3>Different strokes:</h3>
+    <tabler-icon [icon]="iconAd" [size]="mySize()" [stroke]="0.5" />
+    <tabler-icon [icon]="iconAd" [size]="mySize()" [stroke]="1" />
+    <tabler-icon [icon]="iconAd" [size]="mySize()" [stroke]="1.5" />
+    <tabler-icon [icon]="iconAd" [size]="mySize()" [stroke]="2" />
+  </div>
+
+  <div style="margin-top: 20px">
+    <h3>Different sizes:</h3>
+    <tabler-icon [icon]="iconAd" [size]="24" />
+    <tabler-icon [icon]="iconAd" [size]="32" />
+    <tabler-icon [icon]="iconAd" [size]="48" />
+    <tabler-icon [icon]="iconAd" [size]="64" />
+  </div>
+
+  <div style="margin-top: 20px">
+    <h3>Different colors:</h3>
+    <tabler-icon [icon]="iconAd" color="blue" />
+    <tabler-icon [icon]="iconAd" color="red" />
+    <tabler-icon [icon]="iconAd" color="green" />
+    <tabler-icon [icon]="iconAd" color="purple" />
+  </div>
+
+  <div>
+    <h3>Buttons</h3>
+    <div class="buttons">
+      <button (click)="toggleActive()" style="cursor: pointer" type="button">
+        @if (active()) {
+          <tabler-icon [icon]="iconHome" [size]="32" />
+        } @else {
+          <tabler-icon [icon]="iconHomeOff" [size]="32" />
+        }
+      </button>
+      <button (click)="toggleIcon()" style="cursor: pointer" type="button">
+        <tabler-icon [icon]="toggledIcon()" [size]="32" />
+      </button>
+      <button (click)="toggleStroke()" style="cursor: pointer" type="button">
+        <tabler-icon
+          [icon]="iconHome"
+          [size]="32"
+          [stroke]="stroke()"
+          [svgAttributes]="{ 'aria-label': 'Home', role: 'button' }"
+        />
+      </button>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px">
+    <h3>Using string names (requires provider):</h3>
+    <tabler-icon icon="brand-tabler" svgClass="olive" />
+    <tabler-icon icon="brand-tabler-filled" />
+    <tabler-icon icon="brand-tabler" [stroke]="1" />
+    <tabler-icon icon="brand-tabler-filled" color="orange" />
+  </div>
+</div>
