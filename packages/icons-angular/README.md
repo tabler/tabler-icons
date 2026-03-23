@@ -174,7 +174,7 @@ The component uses Angular signal inputs and supports both outline and filled ic
 - **`svgAttributes`** — Extra attributes to apply to the SVG element (e.g. `aria-label`, `role`) for accessibility. Component-managed attributes (`size`, `color`, `stroke`, etc.) always take precedence and cannot be overridden.
 
 ```html
-<tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" class="my-icon" />
+<tabler-icon icon="brand-angular" [size]="48" color="blue" [stroke]="1.75" svgClass="my-icon" />
 <tabler-icon [icon]="IconAlarm" [svgAttributes]="{ 'aria-label': 'Alarm', 'role': 'img' }" />
 ```
 
