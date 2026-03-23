@@ -56,6 +56,12 @@ describe('TablerIconComponent', () => {
     expect(getSvgAttr('stroke-width')).toBe(stroke.toString(10));
   })
 
+  it('should set stroke width to 0', () => {
+    hostComponent.stroke = 0;
+    fixture.detectChanges();
+    expect(getSvgAttr('stroke-width')).toBe('0');
+  })
+
   it('should add all classes', () => {
     fixture.detectChanges();
     expect(getSvgAttr('class')).toBe('tabler-icon tabler-icon-test test-class');
@@ -67,11 +73,10 @@ describe('TablerIconComponent', () => {
     template: `
       <tabler-icon
         [icon]="iconTest"
-        class="test-class"
+        [svgClass]="customClass"
         [color]="color"
         [size]="size"
         [stroke]="stroke"
-        [class]="class"
       />
     `,
   })
@@ -79,7 +84,7 @@ describe('TablerIconComponent', () => {
     size?: number;
     color?: string;
     stroke?: number;
-    class?: string;
+    customClass = 'test-class';
     iconTest = icon;
   }
 })

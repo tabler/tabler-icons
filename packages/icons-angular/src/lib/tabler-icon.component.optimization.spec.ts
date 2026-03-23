@@ -283,7 +283,7 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
         [color]="color"
         [size]="size"
         [stroke]="stroke"
-        [class]="customClass"
+        [svgClass]="customClass"
       />
     `,
   })

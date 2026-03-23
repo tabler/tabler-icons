@@ -63,16 +63,15 @@ describe('TablerIconComponent', () => {
     template: `
       <tabler-icon
         icon="test"
-        class="test-class"
+        [svgClass]="customClass"
         [color]="color"
         [size]="size"
-        [class]="class"
       />
     `,
   })
   class TestHostComponent {
     size?: number;
     color?: string;
-    class?: string;
+    customClass = 'test-class';
   }
 })
