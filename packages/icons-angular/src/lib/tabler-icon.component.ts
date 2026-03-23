@@ -240,7 +240,7 @@ export class TablerIconComponent {
 
     Object.keys(attributes).forEach((key) => {
       const attrValue = attributes[key];
-      if (attrValue) {
+      if (attrValue !== undefined && attrValue !== null) {
         const value = typeof attrValue === 'string' ? attrValue : attrValue.toString();
         this.renderer.setAttribute(element, key, value);
       }
