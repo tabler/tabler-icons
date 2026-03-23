@@ -202,28 +202,28 @@ Or only some defaults:
 provideTablerIconConfig({ size: 40 })
 ```
 
-## Loading all icons
+## Providing multiple icons
 
-You can register all icons at once, but this will **significantly increase your application bundle size**. Prefer registering only the icons you use.
+Prefer registering only the icons you use to keep your application bundle small.
 
 **Standalone:**
 
 ```ts
-import { icons, provideTablerIcons } from '@tabler/icons-angular';
+import { IconBrandAngular, IconHome, IconUser, provideTablerIcons } from '@tabler/icons-angular';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideTablerIcons(icons)]
+  providers: [provideTablerIcons({ IconBrandAngular, IconHome, IconUser })]
 });
 ```
 
 **NgModule:**
 
 ```ts
-import { icons, TablerIconComponent, provideTablerIcons } from '@tabler/icons-angular';
+import { IconBrandAngular, IconHome, IconUser, TablerIconComponent, provideTablerIcons } from '@tabler/icons-angular';
 
 @NgModule({
   imports: [TablerIconComponent],
-  providers: [provideTablerIcons(icons)],
+  providers: [provideTablerIcons({ IconBrandAngular, IconHome, IconUser })],
   // ...
 })
 export class AppModule {}
