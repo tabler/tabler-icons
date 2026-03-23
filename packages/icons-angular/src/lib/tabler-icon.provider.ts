@@ -18,8 +18,8 @@ export class TablerIconProvider implements ITablerIconProvider {
   }
 }
 
-export const TABLER_ICONS = new InjectionToken<ITablerIconProvider>('TablerIcons', {
-  factory: () => new TablerIconProvider({})
+export const TABLER_ICONS = new InjectionToken<ITablerIconProvider[]>('TablerIcons', {
+  factory: () => []
 });
 
 /**
