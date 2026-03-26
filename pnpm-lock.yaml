@@ -167,8 +167,8 @@ importers:
   packages/icons-angular:
     dependencies:
       '@tabler/icons':
-        specifier: ^3.7.0
-        version: 3.40.0
+        specifier: workspace:*
+        version: link:../icons
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: ^21.1.2
@@ -4284,9 +4284,6 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
       vite: ^6.0.0
-
-  '@tabler/icons@3.40.0':
-    resolution: {integrity: sha512-V/Q4VgNPKubRTiLdmWjV/zscYcj5IIk+euicUtaVVqF6luSC9rDngYWgST5/yh3Mrg/mYUwRv1YVTk71Jp0twQ==}
 
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
@@ -15691,8 +15688,6 @@ snapshots:
       vitefu: 1.1.1(vite@6.4.1(@types/node@25.0.3)(jiti@2.6.1)(less@4.6.4)(sass@1.97.3)(terser@5.46.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - supports-color
-
-  '@tabler/icons@3.40.0': {}
 
   '@testing-library/dom@10.4.1':
     dependencies:
