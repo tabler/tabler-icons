@@ -1,7 +1,7 @@
 # Tabler Icons PDF
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-package-pdf.png" alt="Tabler Icons" width="838">
+  <a href="https://tabler.io/icons?ref=tabler-icons-readme"><img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-package-pdf.png" alt="Tabler Icons" width="838"></a>
 </p>
 
 <p align="center">
