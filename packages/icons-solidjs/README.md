@@ -9,7 +9,7 @@ Implementation of the Tabler Icons library for SolidJS applications.
 <p>
 
 <p align="center">
-  <a href="https://tabler-icons.io/"><strong>Browse all icons at tabler-icons.io &rarr;</strong></a>
+  <a href="https://tabler.io/icons"><strong>Browse all icons at tabler.io &rarr;</strong></a>
 </p>
 
 <p align="center">
