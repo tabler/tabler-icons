@@ -19,7 +19,7 @@ import ttf2woff from "ttf2woff";
 import wawoff2 from "wawoff2";
 
 // Create Eta instance
-const eta = new Eta({ 
+const eta = new Eta({
   autoEscape: false
 });
 
@@ -271,14 +271,25 @@ export function calculateHash(content) {
 
 export async function generateFont(strokeName, type, DIR) {
 
-  console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
-  const svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
+  console.log(`Generating font for ${type !== 'filled' ? `${type}/${strokeName}` : 'filled'}`);
+  let svgFiles;
+  if (type === 'all') {
+    svgFiles = [
+      ...((await loadSvgFiles(path.join(DIR, 'icons-filled'))).map(f => {
+        f.metadata.name = `${f.metadata.name}-filled`;
+        return f;
+      })),
+      ...(await loadSvgFiles(path.join(DIR, `icons-outlined/${strokeName}`)))
+    ]
+  } else {
+    svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
+  }
   const svgFontFileSource = await buildSvgFont(svgFiles);
   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
-  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== "400" ? `-${strokeName}` : '') : `-${type}`}`;
+  const fileName = `tabler-icons${type !== 'filled' ? (strokeName !== "400" ? `-${strokeName}` : '') : ''}${type !== 'all' ? `-${type}` : ''}`;
 
   // Ensure dist/fonts directory exists
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
@@ -290,8 +301,8 @@ export async function generateFont(strokeName, type, DIR) {
 
   const glyphs = svgFiles.map(f => ({
      ...f.metadata,
-     unicodeHex: f.metadata.unicode && f.metadata.unicode[0] 
-        ? f.metadata.unicode[0].codePointAt(0).toString(16) 
+     unicodeHex: f.metadata.unicode && f.metadata.unicode[0]
+        ? f.metadata.unicode[0].codePointAt(0).toString(16)
         : ''
   }))
      .sort(function (a, b) {
@@ -302,7 +313,7 @@ export async function generateFont(strokeName, type, DIR) {
   const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to })) : []
 
   const options = {
-     name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+     name: `Tabler Icons ${type !== 'all' ? type.charAt(0).toUpperCase() + type.slice(1) : ''}`,
      fileName,
      glyphs,
      v: packageJson.version,
@@ -377,7 +388,7 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
   }
 
   // Remove old files
-  const globPattern = strokeName 
+  const globPattern = strokeName
     ? path.join(DIR, `icons-outlined/${strokeName}/*.svg`)
     : path.join(DIR, `icons-filled/*.svg`);
   const existedFiles = (globSync(globPattern)).map(file => path.basename(file));
