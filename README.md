@@ -61,7 +61,7 @@
 ## Installation
 
 ```
-npm install @tabler/icons --save
+npm install @tabler/icons --save ```  or  ``` yarn add @tabler/icons ```  or  ``` pnpm add @tabler/icons
 ```
 
 or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
