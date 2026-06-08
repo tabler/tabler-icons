@@ -1,0 +1,14 @@
+{
+  "extends": "@ember/library-tsconfig",
+  "include": ["src/**/*"],
+  "glint": {
+    "environment": ["ember-loose", "ember-template-imports"]
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "declarationDir": "declarations",
+    "rootDir": "./src",
+    "types": ["ember-source/types"]
+  }
+}
+
