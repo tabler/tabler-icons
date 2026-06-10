@@ -1,0 +1,117 @@
+{
+  "name": "@tabler/icons-ember",
+  "version": "3.44.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for modern Ember apps.",
+  "homepage": "https://tabler.io/icons",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-ember"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/tabler-icons-ember.js",
+  "module": "./dist/tabler-icons-ember.js",
+  "types": "./declarations/tabler-icons-ember.d.ts",
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:package",
+    "build:icons": "node build.mjs",
+    "build:package": "rollup --config",
+    "clean": "rm -rf dist declarations && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "test": "pnpm run typecheck",
+    "typecheck": "ember-tsc --noEmit"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.10.3"
+  },
+  "peerDependencies": {
+    "@glimmer/component": ">=1.1.2",
+    "ember-source": ">=5.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/plugin-transform-typescript": "^7.29.7",
+    "@ember/library-tsconfig": "^2.0.0",
+    "@embroider/addon-dev": "^8.3.0",
+    "@glint/core": "^1.5.2",
+    "@glint/ember-tsc": "^1.8.0",
+    "@glint/environment-ember-loose": "^1.5.2",
+    "@glint/environment-ember-template-imports": "^1.5.2",
+    "@glint/template": "^1.7.7",
+    "@glimmer/component": "^2.1.1",
+    "@rollup/plugin-babel": "^7.1.0",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "babel-plugin-ember-template-compilation": "^4.0.0",
+    "ember-source": "^7.0.0",
+    "prettier-plugin-ember-template-tag": "^2.1.6",
+    "rollup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/tabler-icons-ember.d.ts",
+      "default": "./dist/tabler-icons-ember.js"
+    },
+    "./icons": {
+      "types": "./declarations/icons/index.d.ts",
+      "default": "./dist/icons/index.js"
+    },
+    "./icons/*": {
+      "types": "./declarations/icons/*.d.ts",
+      "default": "./dist/icons/*.js"
+    },
+    "./aliases": {
+      "types": "./declarations/aliases.d.ts",
+      "default": "./dist/aliases.js"
+    },
+    "./dynamic-imports": {
+      "types": "./declarations/dynamic-imports.d.ts",
+      "default": "./dist/dynamic-imports.js"
+    },
+    "./icons-list": {
+      "types": "./declarations/icons-list.d.ts",
+      "default": "./dist/icons-list.js"
+    },
+    "./types": {
+      "types": "./declarations/types.d.ts",
+      "default": "./dist/types.js"
+    },
+    "./addon-main.js": "./addon-main.cjs",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ],
+      "icons/*": [
+        "declarations/icons/*"
+      ]
+    }
+  },
+  "optionalDependencies": {}
+}

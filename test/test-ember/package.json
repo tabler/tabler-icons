@@ -1,0 +1,56 @@
+{
+  "name": "test-ember",
+  "private": true,
+  "version": "3.44.0",
+  "exports": {
+    "./tests/*": "./tests/*",
+    "./*": "./app/*"
+  },
+  "scripts": {
+    "build": "vite build",
+    "clean": "rm -rf dist",
+    "dev": "vite",
+    "preview": "vite preview",
+    "test": "vite build --mode development && ember test --path dist",
+    "lint:types": "ember-tsc --noEmit"
+  },
+  "dependencies": {
+    "@tabler/icons-ember": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/plugin-transform-runtime": "^7.29.0",
+    "@babel/plugin-transform-typescript": "^7.29.7",
+    "@babel/runtime": "^7.29.2",
+    "@ember/app-tsconfig": "^1.0.3",
+    "@ember/test-helpers": "^5.4.2",
+    "@ember/test-waiters": "^4.1.1",
+    "@embroider/compat": "^4.1.17",
+    "@embroider/config-meta-loader": "^1.0.0",
+    "@embroider/core": "^4.4.7",
+    "@embroider/macros": "^1.20.2",
+    "@embroider/router": "^3.0.6",
+    "@embroider/vite": "^1.7.6",
+    "@glimmer/component": "^2.1.1",
+    "@glint/ember-tsc": "^1.8.0",
+    "@glint/template": "^1.7.7",
+    "@rollup/plugin-babel": "^7.1.0",
+    "@types/qunit": "^2.19.13",
+    "babel-plugin-ember-template-compilation": "^4.0.0",
+    "decorator-transforms": "^2.3.2",
+    "ember-cli": "~7.0.1",
+    "ember-cli-babel": "^8.3.1",
+    "ember-load-initializers": "^3.0.1",
+    "ember-qunit": "^9.0.4",
+    "ember-resolver": "^13.2.0",
+    "ember-source": "~7.0.0",
+    "qunit": "^2.25.0",
+    "qunit-dom": "^3.5.1",
+    "testem": "^3.20.0",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  },
+  "ember": {
+    "edition": "octane"
+  }
+}
