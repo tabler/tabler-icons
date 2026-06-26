@@ -37,14 +37,22 @@ const indexItemTemplate = ({ name, namePascal, svg }) => {
 export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 };
 
-const aliasTemplate = ({ fromPascal, toPascal }) =>
-  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
+// The root barrel re-exports each alias from its own standalone module (below)
+// rather than straight from the canonical icon, so the alias module stays in the
+// rollup `preserveModules` graph and is emitted for deep/wildcard imports.
+const aliasTemplate = ({ fromPascal }) =>
+  `export { default as Icon${fromPascal} } from './icons/Icon${fromPascal}';\n`;
+
+// Standalone alias module, e.g. src/icons/IconArrowLeftAlt.ts -> re-exports IconArrowLeft.
+const aliasFileTemplate = ({ toPascal }) =>
+  `export { default, __iconNode } from './Icon${toPascal}';\n`;
 
 buildJsIcons({
   name: 'icons-react',
   componentTemplate,
   indexItemTemplate,
   aliasTemplate,
+  aliasFileTemplate,
   indexFile: 'index.ts',
   pascalCase: true,
   extension: 'ts',

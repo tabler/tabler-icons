@@ -47,31 +47,85 @@ or just [download from Github](https://github.com/tabler/tabler-icons/releases).
 
 ## How to use
 
-It's build with ESmodules so it's completely tree-shakable. Each icon can be imported as a component.
+Each icon is its own module, so unused icons are dropped from your bundle.
+
+### Named import (recommended for app code)
 
 ```js
 import { IconArrowLeft } from '@tabler/icons-react';
 
-const App = () => {
-  return <IconArrowLeft />;
-};
-
-export default App;
+const App = () => <IconArrowLeft color="red" size={48} />;
 ```
 
-You can pass additional props to adjust the icon.
+This tree-shakes reliably in modern bundlers (Vite/Rollup, esbuild, webpack 5
+production builds). See [Guaranteed tree-shaking](#guaranteed-tree-shaking) below
+if you target older toolchains.
+
+### Deep import (guaranteed one-icon load, every bundler)
+
+Import an icon directly by its component name to load exactly one icon — no
+barrel, no bundler analysis required:
 
 ```js
-<IconArrowLeft color="red" size={48} />
+import IconArrowLeft from '@tabler/icons-react/IconArrowLeft';
+```
+
+Outline icons (`IconArrowLeft`), filled variants (`IconArrowLeftFilled`), and
+legacy aliases are all available as deep imports (default export).
+
+### Dynamic import
+
+Lazy-load an icon at runtime. The simplest form is a native deep dynamic import:
+
+```js
+const { default: IconArrowLeft } = await import('@tabler/icons-react/IconArrowLeft');
+```
+
+If you have a kebab-case icon name (e.g. from a CMS or config), use the loader
+map, which is keyed by icon name (`arrow-left`, `arrow-left-filled`, …):
+
+```js
+import dynamicIconImports from '@tabler/icons-react/dynamic';
+
+const { default: IconHome } = await dynamicIconImports['home']();
+```
+
+### Icon list
+
+The array of all icon names is available at a dedicated subpath:
+
+```js
+import iconsList from '@tabler/icons-react/icons-list';
 ```
 
 ### Props
 
-| name          | type     | default      |
-| ------------- | -------- | ------------ |
-| `size`        | _Number_ | 24           |
-| `color`       | _String_ | currentColor |
-| `stroke`      | _Number_ | 2            |
+| name     | type     | default      |
+| -------- | -------- | ------------ |
+| `size`   | _Number_ | 24           |
+| `color`  | _String_ | currentColor |
+| `stroke` | _Number_ | 2            |
+
+## Guaranteed tree-shaking
+
+Named imports from the package root tree-shake correctly in modern bundlers. For
+a *guaranteed* minimal bundle in every setup, prefer **deep imports**, or let your
+bundler rewrite named imports into deep ones automatically.
+
+**Next.js** — add the package to `optimizePackageImports`:
+
+```js
+// next.config.js
+module.exports = {
+  experimental: {
+    optimizePackageImports: ['@tabler/icons-react'],
+  },
+};
+```
+
+> **Note:** the `icons` and `iconsList` namespace re-exports were removed from the
+> package root (they defeated tree-shaking). The icon-name list now lives at
+> `@tabler/icons-react/icons-list`.
 
 ## Contributing
 
