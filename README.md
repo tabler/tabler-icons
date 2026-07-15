@@ -41,9 +41,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline.png">
-    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline.png" alt="Tabler Icons preview" width="838">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline.png" alt="Tabler Icons preview" width="838">
   </picture>
 </p>
 
@@ -51,9 +51,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled.png">
-    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled.png" alt="Tabler Icons preview" width="838">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled.png" alt="Tabler Icons preview" width="838">
   </picture>
 </p>
 
@@ -378,9 +378,9 @@ For Android or Desktop you can use [`compose-icons`](https://github.com/DevSrSou
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke.png">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
 </picture>
 
 ## License

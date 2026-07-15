@@ -18,26 +18,29 @@
     "directory": "packages/icons-astro"
   },
   "sideEffects": false,
-  "type": "module",
+  "amdName": "TablerIconsAstro",
   "exports": {
     ".": {
-      "types": "./src/tabler-icons-astro.ts",
-      "default": "./src/tabler-icons-astro.ts"
-    },
-    "./icons/*": "./src/icons/*.ts"
+      "types": "./dist/tabler-icons-astro.d.ts",
+      "import": "./dist/esm/tabler-icons-astro.mjs",
+      "require": "./dist/cjs/tabler-icons-astro.cjs"
+    }
   },
-  "types": "./src/tabler-icons-astro.ts",
+  "main": "./dist/cjs/tabler-icons-astro.cjs",
+  "module": "./dist/esm/tabler-icons-astro.mjs",
+  "types": "./dist/tabler-icons-astro.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
     "build:icons": "node build.mjs",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "clean": "find dist -mindepth 1 -delete 2>/dev/null; rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
     "typecheck": "tsc",
-    "imports-check": "attw $(npm pack) --ignore-rules cjs-resolves-to-esm internal-resolution-error"
+    "imports-check": "attw $(npm pack)"
   },
   "dependencies": {
     "@tabler/icons": "workspace:"
