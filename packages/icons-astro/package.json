@@ -1,0 +1,52 @@
+{
+  "name": "@tabler/icons-astro",
+  "version": "3.44.0",
+  "license": "MIT",
+  "author": "codecalm",
+  "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
+  "homepage": "https://tabler.io/icons",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/icons-astro"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/tabler-icons-astro.ts",
+      "default": "./src/tabler-icons-astro.ts"
+    },
+    "./icons/*": "./src/icons/*.ts"
+  },
+  "types": "./src/tabler-icons-astro.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck",
+    "build:icons": "node build.js",
+    "copy:license": "cp ../../LICENSE ./LICENSE",
+    "clean": "find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
+    "test": "vitest run",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@tabler/icons": "workspace:"
+  },
+  "peerDependencies": {
+    "astro": ">=4.0.0"
+  },
+  "devDependencies": {
+    "astro": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
