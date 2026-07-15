@@ -36,7 +36,8 @@
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "imports-check": "attw $(npm pack) --ignore-rules cjs-resolves-to-esm internal-resolution-error"
   },
   "dependencies": {
     "@tabler/icons": "workspace:"
