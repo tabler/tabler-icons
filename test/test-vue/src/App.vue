@@ -10,14 +10,14 @@ const colorIndex = ref(0)
 
 <template>
   <div class="App">
-    <button type="button" class="toggle" @click="active = !active">
+    <button type="button" class="toggle" aria-label="Toggle icon" :aria-pressed="active" @click="active = !active">
       <IconAdOff v-if="active" size="48" />
       <IconAd v-else size="48" />
     </button>
     <IconAd size="48" stroke="1" />
     <IconAdOff size="48" stroke="1.5" />
     <IconAdFilled size="48" stroke="2" />
-    <button type="button" class="color-toggle" @click="colorIndex = (colorIndex + 1) % colors.length">
+    <button type="button" class="color-toggle" aria-label="Change color" @click="colorIndex = (colorIndex + 1) % colors.length">
       <IconHeartFilled size="48" :color="colors[colorIndex]" />
     </button>
   </div>

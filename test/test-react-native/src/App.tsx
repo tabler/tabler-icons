@@ -10,13 +10,13 @@ function App() {
 
   return (
     <div className="App">
-      <button type="button" className="toggle" onClick={() => setActive(!active)}>
+      <button type="button" className="toggle" aria-label="Toggle icon" aria-pressed={active} onClick={() => setActive(!active)}>
         {active ? <IconAdOff size={48} /> : <IconAd size={48} />}
       </button>
       <IconAd size={48} strokeWidth={1} />
       <IconAdOff size={48} strokeWidth={1.5} />
       <IconAdFilled size={48} strokeWidth={2} />
-      <button type="button" className="color-toggle" onClick={() => setColorIndex((colorIndex + 1) % colors.length)}>
+      <button type="button" className="color-toggle" aria-label="Change color" onClick={() => setColorIndex((colorIndex + 1) % colors.length)}>
         <IconHeartFilled size={48} color={colors[colorIndex]} />
       </button>
     </div>
