@@ -385,7 +385,7 @@ All icons in this repository have been created with the value of the `stroke-wid
 
 ## License
 
-Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
 
 
 ## Sponsor Tabler
