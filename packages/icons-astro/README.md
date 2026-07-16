@@ -6,7 +6,7 @@
 
 <p align="center">
 Implementation of the Tabler Icons library for Astro applications.
-<p>
+</p>
 
 <p align="center">
   <a href="https://tabler.io/icons"><strong>Browse all icons at tabler.io &rarr;</strong></a>
