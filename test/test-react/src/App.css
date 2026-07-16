@@ -1,7 +1,31 @@
-#root {
+.App {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
+.toggle,
+.color-toggle {
+  display: inline-flex;
+  padding: 0.6em;
+}
+
+.color-toggle {
+  color: #e64980;
+  transition: color 0.2s;
+}
+
+/* astro renders both toggle icons and swaps via CSS; harmless elsewhere */
+.toggle .icon-active {
+  display: none;
+}
+.toggle.is-active .icon-default {
+  display: none;
+}
+.toggle.is-active .icon-active {
+  display: inline-flex;
+}
