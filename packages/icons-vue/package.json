@@ -17,6 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-vue"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/cjs/tabler-icons-vue.cjs",
   "module": "./dist/esm/tabler-icons-vue.mjs",
   "types": "./dist/tabler-icons-vue.d.ts",
