@@ -15,6 +15,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-png"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
     "build:icons": "node build.mjs",

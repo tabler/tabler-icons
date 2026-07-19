@@ -17,6 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-svelte"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "svelte": "./dist/tabler-icons-svelte.js",
   "types": "./dist/tabler-icons-svelte.d.ts",
   "type": "module",

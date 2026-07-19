@@ -17,6 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-preact"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/cjs/tabler-icons-preact.cjs",
   "types": "./dist/tabler-icons-preact.d.ts",
   "module": "./dist/esm/tabler-icons-preact.mjs",

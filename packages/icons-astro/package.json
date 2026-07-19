@@ -17,6 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-astro"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": false,
   "amdName": "TablerIconsAstro",
   "main": "./dist/cjs/tabler-icons-astro.cjs",

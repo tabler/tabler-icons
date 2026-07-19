@@ -17,6 +17,9 @@
     "url": "git+https://github.com/tabler/tabler-icons.git",
     "directory": "packages/icons-react"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/cjs/tabler-icons-react.cjs",
   "module": "./dist/esm/tabler-icons-react.mjs",
   "types": "./dist/tabler-icons-react.d.ts",
