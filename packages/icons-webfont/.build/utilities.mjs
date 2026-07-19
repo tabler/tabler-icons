@@ -310,10 +310,16 @@ export async function generateFont(strokeName, type, DIR) {
      })
 
   // Convert aliases object to array of {from, to} objects
-  const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to })) : []
+  // The `all` font contains both variants, so filled glyphs (and their aliases) are suffixed
+  const aliasesArray = type === 'all'
+     ? [
+        ...Object.entries(aliases.outline ?? {}).map(([from, to]) => ({ from, to })),
+        ...Object.entries(aliases.filled ?? {}).map(([from, to]) => ({ from: `${from}-filled`, to: `${to}-filled` }))
+     ]
+     : Object.entries(aliases[type] ?? {}).map(([from, to]) => ({ from, to }))
 
   const options = {
-     name: `Tabler Icons ${type !== 'all' ? type.charAt(0).toUpperCase() + type.slice(1) : ''}`,
+     name: `Tabler Icons${type !== 'all' ? ` ${type.charAt(0).toUpperCase()}${type.slice(1)}` : ''}`,
      fileName,
      glyphs,
      v: packageJson.version,
