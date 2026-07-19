@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->6146<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->6166<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -37,23 +37,23 @@
 
 ## Preview
 
-### Outline version (<!--icons-count-outline-->5093<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->5112<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline.png">
-    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-outline.png" alt="Tabler Icons preview" width="838">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-outline.png" alt="Tabler Icons preview" width="838">
   </picture>
 </p>
 
-### Filled version (<!--icons-count-filled-->1053<!--/icons-count-filled--> icons)
+### Filled version (<!--icons-count-filled-->1054<!--/icons-count-filled--> icons)
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled.png">
-    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/preview/icons-filled.png" alt="Tabler Icons preview" width="838">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled.png">
+    <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/preview/icons-filled.png" alt="Tabler Icons preview" width="838">
   </picture>
 </p>
 
@@ -378,14 +378,14 @@ For Android or Desktop you can use [`compose-icons`](https://github.com/DevSrSou
 All icons in this repository have been created with the value of the `stroke-width` property, so if you change the value, you can get different icon variants that will fit in well with your design.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png">
-  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/master/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke.png">
+  <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
 </picture>
 
 ## License
 
-Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
 
 
 ## Sponsor Tabler

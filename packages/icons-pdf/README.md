@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->6146<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->6166<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -14,7 +14,7 @@
 
 <p align="center">
     <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
 </p>
 
 ## Sponsors
@@ -43,7 +43,7 @@ or
 pnpm install @tabler/icons-pdf
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 All PDF files are stored in `icons` subdirectory.
 
@@ -51,11 +51,11 @@ All PDF files are stored in `icons` subdirectory.
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-pdf/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-pdf/README.md)
 
 ## License
 
-Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
 
 ## Sponsor Tabler
 
