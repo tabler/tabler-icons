@@ -193,12 +193,6 @@ importers:
         specifier: workspace:*
         version: link:../icons
     devDependencies:
-      '@angular-devkit/build-angular':
-        specifier: ^22.0.7
-        version: 22.0.7(0097bb00b046810e003562c797c292e6)
-      '@angular/animations':
-        specifier: ^22.0.7
-        version: 22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))
       '@angular/build':
         specifier: ^22.0.7
         version: 22.0.7(634035327a23f47b140d814b60cc60bd)
@@ -220,9 +214,6 @@ importers:
       '@angular/platform-browser':
         specifier: ^22.0.7
         version: 22.0.7(@angular/animations@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))
-      '@angular/platform-browser-dynamic':
-        specifier: ^22.0.7
-        version: 22.0.7(@angular/common@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/compiler@22.0.7)(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(@angular/platform-browser@22.0.7(@angular/animations@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)))
       '@types/jasmine':
         specifier: ~6.0.0
         version: 6.0.0
@@ -550,7 +541,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: ^22.0.7
-        version: 22.0.7(084a3ec7bcf2867a6bc172fc19292e24)
+        version: 22.0.7(c5b9bbd1e8f0e483f7207a769c1de944)
       '@angular/cli':
         specifier: ^22.0.7
         version: 22.0.7(@types/node@26.1.1)(chokidar@5.0.0)(supports-color@8.1.1)
@@ -10706,106 +10697,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@22.0.7(0097bb00b046810e003562c797c292e6)':
+  '@angular-devkit/build-angular@22.0.7(c5b9bbd1e8f0e483f7207a769c1de944)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2200.7(chokidar@5.0.0)
       '@angular-devkit/build-webpack': 0.2200.7(chokidar@5.0.0)(webpack-dev-server@5.2.3(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)(tslib@2.8.1)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)))(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
       '@angular-devkit/core': 22.0.7(chokidar@5.0.0)
-      '@angular/build': 22.0.7(3a10a41ca3290910eeae9b3a630c7d13)
-      '@angular/compiler-cli': 22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3)
-      '@babel/core': 7.29.7(supports-color@8.1.1)
-      '@babel/generator': 7.29.7
-      '@babel/helper-annotate-as-pure': 7.29.7
-      '@babel/helper-split-export-declaration': 7.24.7
-      '@babel/plugin-transform-async-generator-functions': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-async-to-generator': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/plugin-transform-runtime': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/preset-env': 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1)
-      '@babel/runtime': 7.29.7
-      '@discoveryjs/json-ext': 1.1.0
-      '@ngtools/webpack': 22.0.7(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3))(typescript@6.0.3)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      ansi-colors: 4.1.3
-      autoprefixer: 10.5.0(postcss@8.5.13)
-      babel-loader: 10.1.1(@babel/core@7.29.7(supports-color@8.1.1))(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      browserslist: 4.28.6
-      copy-webpack-plugin: 14.0.0(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      css-loader: 7.1.4(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      esbuild-wasm: 0.28.1
-      http-proxy-middleware: 3.0.7(supports-color@8.1.1)
-      istanbul-lib-instrument: 6.0.3(supports-color@8.1.1)
-      jsonc-parser: 3.3.1
-      karma-source-map-support: 1.4.0
-      less: 4.6.4
-      less-loader: 12.3.2(less@4.6.4)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      license-webpack-plugin: 4.0.2(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      loader-utils: 3.3.1
-      mini-css-extract-plugin: 2.10.2(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      open: 11.0.0
-      ora: 9.4.0
-      picomatch: 4.0.4
-      piscina: 5.2.0
-      postcss: 8.5.13
-      postcss-loader: 8.2.1(postcss@8.5.13)(typescript@6.0.3)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      resolve-url-loader: 5.0.0
-      rxjs: 7.8.2
-      sass: 1.99.0
-      sass-loader: 16.0.7(sass@1.99.0)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      semver: 7.7.4
-      source-map-loader: 5.0.0(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      source-map-support: 0.5.21
-      terser: 5.46.2
-      tinyglobby: 0.2.16
-      tslib: 2.8.1
-      typescript: 6.0.3
-      webpack: 5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)
-      webpack-dev-middleware: 8.0.3(tslib@2.8.1)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      webpack-dev-server: 5.2.3(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)(tslib@2.8.1)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      webpack-merge: 6.0.1
-      webpack-subresource-integrity: 5.1.0(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-    optionalDependencies:
-      '@angular/core': 22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)
-      '@angular/platform-browser': 22.0.7(@angular/animations@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))
-      esbuild: 0.28.1
-      karma: 6.4.4(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
-      ng-packagr: 22.0.1(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
-    transitivePeerDependencies:
-      - '@angular/compiler'
-      - '@minify-html/node'
-      - '@rspack/core'
-      - '@swc/core'
-      - '@swc/css'
-      - '@swc/html'
-      - '@types/node'
-      - bufferutil
-      - chokidar
-      - clean-css
-      - cssnano
-      - csso
-      - debug
-      - html-minifier-terser
-      - html-webpack-plugin
-      - jiti
-      - lightningcss
-      - node-sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - tsx
-      - uglify-js
-      - utf-8-validate
-      - vitest
-      - webpack-cli
-      - yaml
-
-  '@angular-devkit/build-angular@22.0.7(084a3ec7bcf2867a6bc172fc19292e24)':
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@angular-devkit/architect': 0.2200.7(chokidar@5.0.0)
-      '@angular-devkit/build-webpack': 0.2200.7(chokidar@5.0.0)(webpack-dev-server@5.2.3(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)(tslib@2.8.1)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)))(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))
-      '@angular-devkit/core': 22.0.7(chokidar@5.0.0)
-      '@angular/build': 22.0.7(702f8444e3e49c8bc6c78aea68670462)
+      '@angular/build': 22.0.7(ece28af7afe3c45910935c500d1d85fa)
       '@angular/compiler-cli': 22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@7.0.2)
       '@babel/core': 7.29.7(supports-color@8.1.1)
       '@babel/generator': 7.29.7
@@ -10927,60 +10825,6 @@ snapshots:
       '@angular/core': 22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)
       tslib: 2.8.1
 
-  '@angular/build@22.0.7(3a10a41ca3290910eeae9b3a630c7d13)':
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@angular-devkit/architect': 0.2200.7(chokidar@5.0.0)
-      '@angular/compiler': 22.0.7
-      '@angular/compiler-cli': 22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3)
-      '@babel/core': 7.29.7(supports-color@8.1.1)
-      '@babel/helper-annotate-as-pure': 7.29.7
-      '@babel/helper-split-export-declaration': 7.24.7
-      '@inquirer/confirm': 6.0.12(@types/node@26.1.1)
-      '@vitejs/plugin-basic-ssl': 2.3.0(vite@7.3.5(@types/node@26.1.1)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0))
-      beasties: 0.4.2
-      browserslist: 4.28.6
-      esbuild: 0.28.1
-      https-proxy-agent: 9.0.0(supports-color@8.1.1)
-      jsonc-parser: 3.3.1
-      listr2: 10.2.1
-      magic-string: 0.30.21
-      mrmime: 2.0.1
-      parse5-html-rewriting-stream: 8.0.1
-      picomatch: 4.0.4
-      piscina: 5.2.0
-      rollup: 4.60.2
-      sass: 1.99.0
-      semver: 7.7.4
-      source-map-support: 0.5.21
-      tinyglobby: 0.2.16
-      tslib: 2.8.1
-      typescript: 6.0.3
-      vite: 7.3.5(@types/node@26.1.1)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.46.2)(yaml@2.9.0)
-      watchpack: 2.5.1
-    optionalDependencies:
-      '@angular/core': 22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)
-      '@angular/platform-browser': 22.0.7(@angular/animations@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2)))(@angular/common@22.0.7(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))(rxjs@7.8.2))(@angular/core@22.0.7(@angular/compiler@22.0.7)(rxjs@7.8.2)(zone.js@0.16.2))
-      istanbul-lib-instrument: 6.0.3(supports-color@8.1.1)
-      karma: 6.4.4(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)
-      less: 4.6.4
-      lmdb: 3.5.4
-      ng-packagr: 22.0.1(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3))(supports-color@8.1.1)(tslib@2.8.1)(typescript@6.0.3)
-      postcss: 8.5.13
-      vitest: 4.1.10(@types/node@26.1.1)(jsdom@29.1.1(canvas@3.2.3))(vite@7.3.5(@types/node@26.1.1)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0))
-    transitivePeerDependencies:
-      - '@types/node'
-      - chokidar
-      - jiti
-      - lightningcss
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - yaml
-
   '@angular/build@22.0.7(634035327a23f47b140d814b60cc60bd)':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -11035,7 +10879,7 @@ snapshots:
       - tsx
       - yaml
 
-  '@angular/build@22.0.7(702f8444e3e49c8bc6c78aea68670462)':
+  '@angular/build@22.0.7(ece28af7afe3c45910935c500d1d85fa)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2200.7(chokidar@5.0.0)
@@ -11075,7 +10919,7 @@ snapshots:
       lmdb: 3.5.4
       ng-packagr: 22.0.1(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@7.0.2))(supports-color@8.1.1)(tslib@2.8.1)(typescript@7.0.2)
       postcss: 8.5.13
-      vitest: 4.1.10(@types/node@26.1.1)(jsdom@29.1.1(canvas@3.2.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.7.0(supports-color@8.1.1))(sass@1.101.0)(terser@5.49.0)(yaml@2.9.0))
+      vitest: 4.1.10(@types/node@26.1.1)(jsdom@29.1.1(canvas@3.2.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0))
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -13157,12 +13001,6 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@ngtools/webpack@22.0.7(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3))(typescript@6.0.3)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))':
-    dependencies:
-      '@angular/compiler-cli': 22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@6.0.3)
-      typescript: 6.0.3
-      webpack: 5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)
-
   '@ngtools/webpack@22.0.7(@angular/compiler-cli@22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@7.0.2))(typescript@7.0.2)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3))':
     dependencies:
       '@angular/compiler-cli': 22.0.7(@angular/compiler@22.0.7)(supports-color@8.1.1)(typescript@7.0.2)
@@ -14472,6 +14310,15 @@ snapshots:
       vite: 7.3.5(@types/node@26.1.1)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0)
     optional: true
 
+  '@vitest/mocker@4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0))':
+    dependencies:
+      '@vitest/spy': 4.1.10
+      estree-walker: 3.0.3
+      magic-string: 0.30.21
+    optionalDependencies:
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0)
+    optional: true
+
   '@vitest/mocker@4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.7.0(supports-color@8.1.1))(sass@1.101.0)(terser@5.49.0)(yaml@2.9.0))':
     dependencies:
       '@vitest/spy': 4.1.10
@@ -15673,15 +15520,6 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       vary: 1.1.2
-
-  cosmiconfig@9.0.2(typescript@6.0.3):
-    dependencies:
-      env-paths: 2.2.1
-      import-fresh: 3.3.1
-      js-yaml: 4.3.0
-      parse-json: 5.2.0
-    optionalDependencies:
-      typescript: 6.0.3
 
   cosmiconfig@9.0.2(typescript@7.0.2):
     dependencies:
@@ -19216,17 +19054,6 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-loader@8.2.1(postcss@8.5.13)(typescript@6.0.3)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)):
-    dependencies:
-      cosmiconfig: 9.0.2(typescript@6.0.3)
-      jiti: 2.7.0
-      postcss: 8.5.13
-      semver: 7.7.4
-    optionalDependencies:
-      webpack: 5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)
-    transitivePeerDependencies:
-      - typescript
-
   postcss-loader@8.2.1(postcss@8.5.13)(typescript@7.0.2)(webpack@5.106.2(clean-css@4.2.4)(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.13)(uglify-js@3.19.3)):
     dependencies:
       cosmiconfig: 9.0.2(typescript@7.0.2)
@@ -21261,6 +21088,24 @@ snapshots:
       terser: 5.49.0
       yaml: 2.9.0
 
+  vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0):
+    dependencies:
+      lightningcss: 1.32.0
+      picomatch: 4.0.5
+      postcss: 8.5.19
+      rolldown: 1.1.5
+      tinyglobby: 0.2.17
+    optionalDependencies:
+      '@types/node': 26.1.1
+      esbuild: 0.28.1
+      fsevents: 2.3.3
+      jiti: 2.7.0
+      less: 4.6.4
+      sass: 1.99.0
+      terser: 5.49.0
+      yaml: 2.9.0
+    optional: true
+
   vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.7.0(supports-color@8.1.1))(sass@1.101.0)(terser@5.49.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
@@ -21303,6 +21148,35 @@ snapshots:
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
       vite: 7.3.5(@types/node@26.1.1)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 26.1.1
+      jsdom: 29.1.1(canvas@3.2.3)
+    transitivePeerDependencies:
+      - msw
+    optional: true
+
+  vitest@4.1.10(@types/node@26.1.1)(jsdom@29.1.1(canvas@3.2.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0)):
+    dependencies:
+      '@vitest/expect': 4.1.10
+      '@vitest/mocker': 4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0))
+      '@vitest/pretty-format': 4.1.10
+      '@vitest/runner': 4.1.10
+      '@vitest/snapshot': 4.1.10
+      '@vitest/spy': 4.1.10
+      '@vitest/utils': 4.1.10
+      es-module-lexer: 2.3.1
+      expect-type: 1.4.0
+      magic-string: 0.30.21
+      obug: 2.1.4
+      pathe: 2.0.3
+      picomatch: 4.0.5
+      std-env: 4.2.0
+      tinybench: 2.9.0
+      tinyexec: 1.2.4
+      tinyglobby: 0.2.17
+      tinyrainbow: 3.1.0
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.4)(sass@1.99.0)(terser@5.49.0)(yaml@2.9.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 26.1.1
