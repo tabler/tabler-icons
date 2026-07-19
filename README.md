@@ -383,6 +383,23 @@ All icons in this repository have been created with the value of the `stroke-wid
   <img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/icons-stroke.png" alt="Tabler Icons preview" width="838">
 </picture>
 
+## Development
+
+To build all packages, run:
+
+```bash
+pnpm install
+pnpm run build:packages
+```
+
+Package builds run through [Turborepo](https://turbo.build/), so they execute in parallel and are cached — a rebuild with unchanged icons is nearly instant.
+
+When working locally, you can limit the number of icons being built to speed up the feedback loop:
+
+```bash
+ICONS_LIMIT=100 pnpm run build:packages
+```
+
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
