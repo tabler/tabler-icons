@@ -16,7 +16,7 @@ catalog:
   vite: ^8.1.5
   vitest: ^4.1.10
   jest-serializer-html: ^7.1.0
-  jsdom: 29.1.1
+  jsdom: 27.4.0
   "@testing-library/jest-dom": 6.9.1
   rollup: 4.62.2
   "@rollup/plugin-node-resolve": 16.0.3
@@ -33,10 +33,5 @@ catalog:
   react-test-renderer: 19.2.7
   "@types/react-dom": 19.2.3
   "@vitejs/plugin-react": 6.0.3
-# paper requires jsdom internals removed in v17+; pin peer for paper-jsdom builds
-packageExtensions:
-  paper@*:
-    dependencies:
-      jsdom: 16.7.0
 minimumReleaseAgeExclude:
   - vite-plugin-solid@2.11.13
