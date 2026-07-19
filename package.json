@@ -55,25 +55,24 @@
     "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@release-it-plugins/workspaces": "^5.0.3",
+    "@11ty/eleventy": "^3.1.6",
+    "@release-it-plugins/workspaces": "^6.0.0",
     "@rollup/plugin-node-resolve": "catalog:",
     "@testing-library/jest-dom": "catalog:",
-    "adm-zip": "^0.5.16",
-    "cheerio": "^1.0.0",
-    "dotenv": "^16.4.7",
-    "esbuild": "^0.20.2",
-    "fs-extra": "^11.2.0",
-    "glob": "10.3.16",
+    "adm-zip": "^0.6.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "esbuild": "^0.28.1",
+    "fs-extra": "^11.3.6",
+    "glob": "13.0.6",
     "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
     "jest-serializer-html": "catalog:",
     "jsdom": "catalog:",
     "minimist": "1.2.8",
-    "openai": "^4.73.1",
-    "parse-svg-path": "^0.1.2",
-    "prettier": "^3.2.5",
-    "release-it": "19.2.4",
+    "parse-svg-path": "^0.2.0",
+    "prettier": "^3.9.5",
+    "release-it": "20.2.1",
     "rollup": "catalog:",
     "rollup-plugin-dts": "catalog:",
     "rollup-plugin-esbuild": "catalog:",
@@ -81,13 +80,13 @@
     "rollup-plugin-license": "catalog:",
     "rollup-plugin-peer-deps-external": "catalog:",
     "rollup-plugin-visualizer": "catalog:",
-    "sass": "^1.71.1",
+    "sass": "^1.101.0",
     "slash": "^5.1.0",
     "svg-outline-stroke": "1.3.1",
-    "svgo": "^4.0.0",
+    "svgo": "^4.0.2",
     "svgpath": "^2.6.0",
     "svgson": "^5.3.1",
-    "turbo": "^2.7.2",
+    "turbo": "^2.10.5",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
@@ -118,17 +117,5 @@
       "release": true
     }
   },
-  "packageManager": "pnpm@10.30.3",
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "sharp",
-      "svelte-preprocess",
-      "ttf2woff2"
-    ],
-    "onlyBuiltDependencies": [
-      "canvas"
-    ]
-  }
+  "packageManager": "pnpm@11.15.0"
 }
