@@ -1,6 +1,8 @@
+// NOTE: only flat named re-exports here. The previous `export * as icons` /
+// `export * as iconsList` namespace re-exports defeated tree-shaking (a single
+// binding referencing every icon). The icon-name list now lives at the
+// `./icons-list` subpath instead.
 export * from './icons';
-export * as icons from './icons';
-export * as iconsList from './icons-list';
 export * from './aliases';
 export * from './types';
 

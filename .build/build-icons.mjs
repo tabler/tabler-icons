@@ -18,6 +18,7 @@ export const buildJsIcons = ({
   componentTemplate,
   indexItemTemplate,
   aliasTemplate,
+  aliasFileTemplate,
   extension = 'js',
   key = true,
   pascalCase = false,
@@ -89,12 +90,21 @@ export const buildJsIcons = ({
   let aliasesStr = '';
   if (aliases && aliasTemplate) {
     Object.entries(aliases).forEach(([from, to]) => {
-      aliasesStr += aliasTemplate({
-        from,
-        to,
-        fromPascal: toPascalCase(from),
-        toPascal: toPascalCase(to),
-      });
+      const fromPascal = toPascalCase(from),
+        toPascal = toPascalCase(to);
+
+      aliasesStr += aliasTemplate({ from, to, fromPascal, toPascal });
+
+      // Emit a standalone module per alias so that deep imports + the wildcard
+      // `exports` map resolve them, and so rollup `preserveModules` keeps them in
+      // the module graph (they're reached via the regenerated `aliases.ts`).
+      if (aliasFileTemplate) {
+        fs.writeFileSync(
+          path.resolve(DIST_DIR, 'src/icons', `Icon${fromPascal}.${extension}`),
+          aliasFileTemplate({ from, to, fromPascal, toPascal }),
+          'utf-8',
+        );
+      }
     });
   }
 
