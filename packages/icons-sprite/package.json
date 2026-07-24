@@ -1,12 +1,15 @@
 {
   "name": "@tabler/icons-sprite",
-  "version": "3.44.0",
+  "version": "3.45.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideEffects": false,
   "amdName": "TablerIconsSprite",

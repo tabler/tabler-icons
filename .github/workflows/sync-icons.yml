@@ -58,12 +58,13 @@ jobs:
 
           MAIN_SHA=$(git rev-parse --short HEAD)
 
-          # Setup CDN branch
-          if git ls-remote --heads origin $CDN_BRANCH | grep -q $CDN_BRANCH; then
-            git checkout $CDN_BRANCH
+          # Setup CDN branch (use origin/$CDN_BRANCH to avoid ambiguity with local icons/ folder)
+          if git ls-remote --heads origin "refs/heads/${CDN_BRANCH}" | grep -q "refs/heads/${CDN_BRANCH}$"; then
+            git fetch origin "${CDN_BRANCH}"
+            git checkout -B "${CDN_BRANCH}" "origin/${CDN_BRANCH}"
             find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
           else
-            git checkout --orphan $CDN_BRANCH
+            git checkout --orphan "${CDN_BRANCH}"
             git rm -rf .
           fi
 

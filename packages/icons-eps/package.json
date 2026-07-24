@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-eps",
-  "version": "3.44.0",
+  "version": "3.45.0",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "homepage": "https://tabler.io/icons",
   "bugs": {
@@ -9,6 +9,9 @@
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/codecalm"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons",
