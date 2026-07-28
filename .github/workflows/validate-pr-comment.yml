@@ -1,0 +1,80 @@
+name: Validate PR Comment
+
+# Privileged counterpart of "Validate PR": runs in the base repository context
+# with a write token, but never checks out or executes PR code. It only
+# downloads the markdown artifact produced by the unprivileged run and posts
+# it as a PR comment.
+on:
+  workflow_run:
+    workflows: ['Validate PR']
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  comment:
+    if: >
+      github.repository == 'tabler/tabler-icons' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pull-requests: write
+    steps:
+      - name: Download validation results
+        uses: actions/download-artifact@v4
+        with:
+          name: validate-results
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Resolve the PR number from the head SHA via the API instead of trusting
+      # data produced by the unprivileged run.
+      - name: Resolve PR number
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          PR_NUMBER=$(gh api "repos/${{ github.repository }}/commits/${HEAD_SHA}/pulls" \
+            --jq ".[] | select(.head.sha == \"${HEAD_SHA}\") | .number" | head -n1)
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No open PR found for commit ${HEAD_SHA}, skipping comments"
+          fi
+          echo "number=${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+
+      - name: Comment PR
+        if: steps.pr.outputs.number != ''
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          pr-number: ${{ steps.pr.outputs.number }}
+          file-path: ./comment-markup.md
+          comment-tag: validate
+          mode: recreate
+
+      - name: Check if icons were added
+        id: check-icons
+        run: |
+          if [ -s ./comment-icons.md ]; then
+            echo "has_icons=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_icons=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment PR with added icons
+        if: steps.pr.outputs.number != '' && steps.check-icons.outputs.has_icons == 'true'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          pr-number: ${{ steps.pr.outputs.number }}
+          file-path: ./comment-icons.md
+          comment-tag: added-icons
+          mode: upsert
+
+      - name: Remove comment with added icons
+        if: steps.pr.outputs.number != '' && steps.check-icons.outputs.has_icons == 'false'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          pr-number: ${{ steps.pr.outputs.number }}
+          comment-tag: added-icons
+          mode: delete
