@@ -56,14 +56,14 @@
         "default": "./dist/cjs/icons-list.cjs"
       }
     },
-    "./*": {
+    "./Icon*": {
       "import": {
-        "types": "./dist/esm/icons/*.d.ts",
-        "default": "./dist/esm/icons/*.mjs"
+        "types": "./dist/esm/icons/Icon*.d.ts",
+        "default": "./dist/esm/icons/Icon*.mjs"
       },
       "require": {
-        "types": "./dist/cjs/icons/*.d.ts",
-        "default": "./dist/cjs/icons/*.cjs"
+        "types": "./dist/cjs/icons/Icon*.d.ts",
+        "default": "./dist/cjs/icons/Icon*.cjs"
       }
     },
     "./package.json": "./package.json"

@@ -106,11 +106,20 @@ const esmDynamic = readFileSync(esmDynamicPath, 'utf-8').replace(
   (_match, icon) => `import('${PKG_NAME}/${icon}')`,
 );
 writeFileSync(esmDynamicPath, esmDynamic);
+const cjsDynamic = esmDynamic
+  .replace(
+    /(?:export\s*\{\s*dynamicImports as default\s*\}|export\s+default\s+dynamicImports)\s*;?/,
+    'module.exports = dynamicImports;',
+  )
+  .replace(/\n?\/\/# sourceMappingURL=.*$/m, '\n');
+
+if (!cjsDynamic.includes('module.exports = dynamicImports;')) {
+  throw new Error('Unable to convert the Rollup dynamic-import map to CommonJS');
+}
+
 writeFileSync(
   path.join(CJS_DIR, 'dynamic-imports.cjs'),
-  esmDynamic
-    .replace(/export\s*\{\s*dynamicImports as default\s*\}\s*;?/, 'module.exports = dynamicImports;')
-    .replace(/\n?\/\/# sourceMappingURL=.*$/m, '\n'),
+  cjsDynamic,
 );
 
 // The CJS runtime is `module.exports = <map>`, so its declaration must use the
