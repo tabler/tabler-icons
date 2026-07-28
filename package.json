@@ -22,6 +22,7 @@
     "update": "pnpm run update:icons",
     "update:icons": "node ./.build/update-icons.mjs",
     "optimize": "node ./.build/optimize.mjs",
+    "test:build": "node --test ./.build/optimize.test.mjs",
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
