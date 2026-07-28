@@ -110,7 +110,8 @@
       "requireCleanWorkingDir": false
     },
     "github": {
-      "release": true
+      "release": true,
+      "releaseNotes": "([ -f \".github/tabler-icons-${version}@2x.png\" ] && printf '<img width=\"584\" src=\"https://raw.githubusercontent.com/tabler/tabler-icons/v${version}/.github/tabler-icons-${version}@2x.png\" />\\n\\n' || true) && LATEST_VERSION=${latestTag} pnpm run --silent changelog"
     }
   },
   "packageManager": "pnpm@10.30.3",
