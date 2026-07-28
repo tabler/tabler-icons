@@ -300,6 +300,51 @@ export const optimizePath = function (path) {
     .join('');
 };
 
+const CLOSE_PATH_EPSILON = 0.001
+
+// Outline icons must not contain the closepath command. `z` draws a straight
+// line back to the subpath start, so it can only be dropped when the path
+// already ends there — otherwise it is replaced with an explicit line to keep
+// the geometry identical (with round caps/joins both render the same).
+export const removeClosePath = (d) => {
+  const path = svgpath(d).abs().unshort()
+
+  let cx = 0, cy = 0, sx = 0, sy = 0
+  const segments = []
+
+  path.segments.forEach(segment => {
+    const [command, ...args] = segment
+
+    if (command === 'Z') {
+      if (Math.abs(cx - sx) > CLOSE_PATH_EPSILON || Math.abs(cy - sy) > CLOSE_PATH_EPSILON) {
+        segments.push(['L', sx, sy])
+      }
+      cx = sx
+      cy = sy
+      return
+    }
+
+    if (command === 'M') {
+      sx = args[0]
+      sy = args[1]
+    }
+
+    if (command === 'H') {
+      cx = args[0]
+    } else if (command === 'V') {
+      cy = args[0]
+    } else {
+      cx = args[args.length - 2]
+      cy = args[args.length - 1]
+    }
+
+    segments.push(segment)
+  })
+
+  path.segments = segments
+  return path.toString()
+}
+
 export const optimizeSVG = (data) => {
   return optimize(data, {
     js2svg: {
@@ -312,6 +357,11 @@ export const optimizeSVG = (data) => {
         params: {
           overrides: {
             mergePaths: false,
+            // never turn a trailing line back into a closepath — outline
+            // icons must not contain `z` (see removeClosePath above)
+            convertPathData: {
+              convertToZ: false,
+            },
           },
         },
       },
