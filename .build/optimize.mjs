@@ -1,7 +1,7 @@
 import { globSync } from 'glob'
 import { readFileSync, writeFileSync } from 'fs'
 import { join, basename } from 'path'
-import { optimizePath, ICONS_SRC_DIR, iconTemplate, types } from './helpers.mjs'
+import { optimizePath, removeClosePath, ICONS_SRC_DIR, iconTemplate, types } from './helpers.mjs'
 
 types.forEach(type => {
   const files = globSync(join(ICONS_SRC_DIR, type, '*.svg'))
@@ -40,10 +40,10 @@ types.forEach(type => {
         return `<rect x="${x}" y="${y}" width="${height}" height="${height}" rx="${rx}" />`
       })
       .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)" rx="([^"]+)"\s+\/>/g, function (f, x, y, width, height, rx) {
-        return `<path d="M ${x} ${y}m 0 ${rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}Z" />`
+        return `<path d="M ${x} ${y}m 0 ${rx}a${rx} ${rx} 0 0 1 ${rx} ${-rx}h${width - rx * 2}a${rx} ${rx} 0 0 1 ${rx} ${rx}v${height - rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${rx}h${-width + rx * 2}a${rx} ${rx} 0 0 1 ${-rx} ${-rx}v${-height + rx * 2}" />`
       })
       .replace(/<rect x="([^"]+)" y="([^"]+)" width="([^"]+)" height="([^"]+)"\s+\/>/g, function (f, x, y, width, height) {
-        return `<path d="M ${x} ${y}h${width}v${height}h${-width}Z" />`
+        return `<path d="M ${x} ${y}h${width}v${height}h${-width}v${-height}" />`
       })
       .replace(/<polyline points="([^"]+)\s?"\s+\/>/g, function (f, points) {
         const path = points.split(' ').reduce(
@@ -53,6 +53,12 @@ types.forEach(type => {
         return `<path d="${path}" />`
       })
       .replace(/<path d="([^"]+)"/g, function (f, r1) {
+        // outline icons must not contain closepath — drop a redundant z or
+        // replace it with an explicit closing line
+        if (file.match(/\/outline\//) && /[zZ]/.test(r1)) {
+          r1 = removeClosePath(r1)
+        }
+
         r1 = optimizePath(r1)
 
         return `<path d="${r1}"`
@@ -75,6 +81,7 @@ types.forEach(type => {
         return `<path d="${d}M${Number(x1) + Number(x2)} ${Number(y1) + Number(y2)}${afterM}"${attrs} />`
       })
       .replace(/\n\s+\n+/g, '\n')
+      .replace(/" +\/>/g, '" />')
       .replace(/<path d="([^"]+)"/g, function (f, d) {
         const d2 = d
           .replace(/v0/g, (f, v) => ``)
