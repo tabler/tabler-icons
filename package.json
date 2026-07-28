@@ -55,7 +55,6 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@release-it-plugins/workspaces": "^5.0.3",
     "@rollup/plugin-node-resolve": "catalog:",
     "@testing-library/jest-dom": "catalog:",
     "adm-zip": "^0.5.16",
@@ -71,7 +70,7 @@
     "minimist": "1.2.8",
     "parse-svg-path": "^0.1.2",
     "prettier": "^3.2.5",
-    "release-it": "19.2.4",
+    "release-it": "21.0.0",
     "rollup": "catalog:",
     "rollup-plugin-dts": "catalog:",
     "rollup-plugin-esbuild": "catalog:",
@@ -91,17 +90,10 @@
     "vitest": "catalog:"
   },
   "release-it": {
-    "plugins": {
-      "@release-it-plugins/workspaces": {
-        "skipChecks": true,
-        "workspaces": [
-          "packages/*"
-        ]
-      }
-    },
     "npm": false,
     "hooks": {
-      "after:bump": "export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
+      "after:bump": "npm version ${version} --no-git-tag-version --allow-same-version && pnpm -r --filter './packages/*' exec npm version ${version} --no-git-tag-version --allow-same-version && export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
+      "before:github:release": "pnpm -r publish --tag latest --no-git-checks",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
