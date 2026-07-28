@@ -31,7 +31,7 @@
     "generate-preview-random-icons": "node ./.build/preview-random-icons.mjs",
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
-    "release": "git pull && release-it --verbose",
+    "release": "git pull && GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --verbose",
     "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:packages": "pnpm run build:icons && pnpm run build:sprite && pnpm run build:react && pnpm run build:react-native && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:astro && pnpm run build:svelte && pnpm run build:svelte-runes && pnpm run build:vue && pnpm run build:angular && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
     "build:icons": "pnpm --filter @tabler/icons build",
@@ -93,7 +93,10 @@
   "release-it": {
     "npm": false,
     "hooks": {
-      "before:init": "npm whoami || (echo 'You are not logged in to npm. Run `npm login` first.' && exit 1)",
+      "before:init": [
+        "npm whoami || (echo 'You are not logged in to npm. Run `npm login` first.' && exit 1)",
+        "gh auth status || (echo 'You are not logged in to GitHub. Run `gh auth login` first.' && exit 1)"
+      ],
       "after:bump": "npm version ${version} --no-git-tag-version --allow-same-version && pnpm -r --filter './packages/*' exec npm version ${version} --no-git-tag-version --allow-same-version && export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
       "before:github:release": "pnpm -r publish --tag latest --no-git-checks",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
