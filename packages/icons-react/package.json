@@ -22,15 +22,72 @@
   },
   "main": "./dist/cjs/tabler-icons-react.cjs",
   "module": "./dist/esm/tabler-icons-react.mjs",
-  "types": "./dist/tabler-icons-react.d.ts",
+  "types": "./dist/esm/tabler-icons-react.d.ts",
   "amdName": "TablerIconsReact",
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/tabler-icons-react.d.ts",
+        "default": "./dist/esm/tabler-icons-react.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/tabler-icons-react.d.ts",
+        "default": "./dist/cjs/tabler-icons-react.cjs"
+      }
+    },
+    "./dynamic": {
+      "import": {
+        "types": "./dist/esm/dynamic-imports.d.ts",
+        "default": "./dist/esm/dynamic-imports.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/dynamic-imports.d.ts",
+        "default": "./dist/cjs/dynamic-imports.cjs"
+      }
+    },
+    "./icons-list": {
+      "import": {
+        "types": "./dist/esm/icons-list.d.ts",
+        "default": "./dist/esm/icons-list.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/icons-list.d.ts",
+        "default": "./dist/cjs/icons-list.cjs"
+      }
+    },
+    "./*": {
+      "import": {
+        "types": "./dist/esm/icons/*.d.ts",
+        "default": "./dist/esm/icons/*.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/icons/*.d.ts",
+        "default": "./dist/cjs/icons/*.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "Icon*": [
+        "./dist/esm/icons/Icon*.d.ts"
+      ],
+      "dynamic": [
+        "./dist/esm/dynamic-imports.d.ts"
+      ],
+      "icons-list": [
+        "./dist/esm/icons-list.d.ts"
+      ]
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm typecheck && pnpm run build:bundles",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:types && pnpm run build:bundles && node finalize-build.mjs",
     "build:icons": "node build.mjs",
+    "build:types": "tsc -p tsconfig.build.json",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "find dist -mindepth 1 -delete 2>/dev/null; rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
@@ -42,6 +99,7 @@
     "@tabler/icons": "workspace:"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.4",
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
     "@vitejs/plugin-react": "catalog:",
