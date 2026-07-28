@@ -14,7 +14,7 @@ Implementation of the Tabler Icons library for React applications.
 
 <p align="center">
     <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
 </p>
 
 ## Sponsors
@@ -43,7 +43,7 @@ or
 pnpm install @tabler/icons-react-native
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## How to use
 
@@ -77,11 +77,11 @@ You can pass additional props to adjust the icon.
 
 For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
 
-Caught a mistake or want to contribute to the documentation? [Edit this page on Github](https://github.com/tabler/tabler-icons/blob/main/packages/icons-react-native/README.md)
+Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-react-native/README.md)
 
 ## License
 
-Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/master/LICENSE).
+Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
 
 ## Sponsor Tabler
 

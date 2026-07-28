@@ -46,6 +46,9 @@
           [svgAttributes]="{ 'aria-label': 'Home', role: 'button' }"
         />
       </button>
+      <button (click)="toggleColor()" style="cursor: pointer" type="button" aria-label="Change color">
+        <tabler-icon [icon]="iconHeartFilled" [size]="32" [color]="currentColor()" />
+      </button>
     </div>
   </div>
 
