@@ -98,7 +98,7 @@
         "gh auth status || (echo 'You are not logged in to GitHub. Run `gh auth login` first.' && exit 1)"
       ],
       "after:bump": "npm version ${version} --no-git-tag-version --allow-same-version && pnpm -r --filter './packages/*' exec npm version ${version} --no-git-tag-version --allow-same-version && export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
-      "before:github:release": "pnpm -r publish --tag latest --no-git-checks",
+      "after:github:release": "pnpm -r publish --tag latest --no-git-checks",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
