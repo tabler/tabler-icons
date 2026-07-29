@@ -51,3 +51,12 @@ jobs:
           ICONS_LIMIT: 100
         run: pnpm run build
 
+      # Fails the build if the published package shape regresses: attw checks
+      # every static entry point under all resolution modes, and the smoke test
+      # covers the `./Icon*` wildcard deep imports attw cannot check by loading
+      # the packed tarball from a real install layout in both module systems.
+      - name: Check @tabler/icons-react package resolution
+        run: |
+          pnpm --filter @tabler/icons-react run imports-check
+          pnpm --filter @tabler/icons-react run smoke-test
+
