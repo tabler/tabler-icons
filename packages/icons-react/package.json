@@ -93,7 +93,7 @@
     "clean": "find dist -mindepth 1 -delete 2>/dev/null; rm -rf dist && find . ! -name '.gitkeep' -path '*/src/icons/*' -exec rm -rf {} +",
     "test": "vitest run --typecheck",
     "typecheck": "tsc",
-    "imports-check": "attw $(npm pack)"
+    "imports-check": "attw --pack ."
   },
   "dependencies": {
     "@tabler/icons": "workspace:"
