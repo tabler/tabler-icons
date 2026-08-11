@@ -37,7 +37,8 @@ export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
       exports = 'named',
       outputFile,
       external = [],
-      paths
+      paths,
+      sourcemap = true
     }) => {
       return inputs.map(input => ({
         input,
@@ -54,7 +55,7 @@ export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
               file: outputFile ?? `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.${extension}`,
             }),
           format,
-          sourcemap: true,
+          sourcemap,
           preserveModules,
           preserveModulesRoot: 'src',
           globals,
