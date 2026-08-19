@@ -11,8 +11,8 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "eleventy --serve --watch",
-    "preview": "eleventy",
+    "dev": "astro dev",
+    "preview": "astro build",
     "build": "pnpm run validate && pnpm run update && pnpm run validate --hard && pnpm run optimize && pnpm run build:packages && pnpm run preview && pnpm run changelog-image && pnpm run zip && pnpm run update-readme",
     "clean": "turbo run clean",
     "test": "turbo run test",
@@ -32,7 +32,6 @@
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --verbose",
-    "build:copy": "rm -rf ./icons && mkdir ./icons && cp ./_site/tags.json tags.json && cp ./_site/icons/* ./icons/ && rm -rf ./_site/",
     "build:packages": "pnpm run build:icons && pnpm run build:sprite && pnpm run build:react && pnpm run build:react-native && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:astro && pnpm run build:svelte && pnpm run build:svelte-runes && pnpm run build:vue && pnpm run build:angular && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
     "build:icons": "pnpm --filter @tabler/icons build",
     "build:angular": "pnpm --filter @tabler/icons-angular build",
@@ -55,10 +54,10 @@
     "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
     "@rollup/plugin-node-resolve": "catalog:",
     "@testing-library/jest-dom": "catalog:",
     "adm-zip": "^0.5.16",
+    "astro": "catalog:",
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
     "esbuild": "^0.20.2",
