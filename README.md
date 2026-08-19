@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->6166<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->6184<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -21,23 +21,9 @@
   <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
 </a>
 
-## Testing
-
-<p align="center">Browser testing via:</p>
-
-<p align="center">
-  <a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=tabler" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f0967860-31ad-4078-850b-40b0abc95582" />
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/55ac290a-6729-44aa-bbc3-4c5e909facbf" />
-      <img src="https://github.com/user-attachments/assets/86bcbe29-eb8d-4273-a381-5ce17d4ca92d" alt="TestMu AI" width="296">
-    </picture>
-  </a>
-</p>
-
 ## Preview
 
-### Outline version (<!--icons-count-outline-->5112<!--/icons-count-outline--> icons)
+### Outline version (<!--icons-count-outline-->5130<!--/icons-count-outline--> icons)
 
 <p align="center">
   <picture>

@@ -1,7 +1,7 @@
 import { readFileSync, existsSync, writeFileSync } from 'fs'
 import { glob } from 'glob'
 import { resolve, basename } from 'path'
-import { HOME_DIR, optimizeSVG, iconTemplate, types } from './helpers.mjs'
+import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './helpers.mjs'
 
 types.forEach(type => {
   const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`))
@@ -47,6 +47,10 @@ types.forEach(type => {
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
       .replace(/<title[^>]*>.*?<\/title>/gs, '')
       .replace(/<svg\s+>/gs, '<svg>')
+
+    if (type === 'outline') {
+      fileData = fileData.replace(/(<path[^>]*\sd=")([^"]+)(")/g, (_, pre, d, post) => pre + removeClosePath(d) + post)
+    }
 
     fileData = optimizeSVG(fileData)
 
