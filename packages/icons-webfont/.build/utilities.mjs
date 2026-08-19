@@ -2,7 +2,8 @@ import fsPromises from 'node:fs/promises';
 import { createReadStream, mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
 import { globSync } from 'glob';
-import SVGPathCommander, { parsePathString, pathToString } from 'svg-path-commander';
+import SVGPathCommander from 'svg-path-commander';
+const { parsePathString, pathToString } = SVGPathCommander;
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import spo from 'svg-path-outline';
 // Import canvas before paper-jsdom to ensure it's available for jsdom

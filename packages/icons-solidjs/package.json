@@ -25,7 +25,7 @@
   "amdName": "TablerIconsSolidjs",
   "exports": {
     ".": {
-      "solid": "./dist/source/tabler-icons-solidjs.js",
+      "solid": "./dist/source/tabler-icons-solidjs.jsx",
       "import": {
         "types": "./dist/types/tabler-icons-solidjs.d.ts",
         "default": "./dist/esm/tabler-icons-solidjs.js"
@@ -64,10 +64,10 @@
     "@tabler/icons": "workspace:"
   },
   "devDependencies": {
-    "@solidjs/testing-library": "^0.8.6",
-    "rollup-preset-solid": "^2.0.1",
-    "vite-plugin-solid": "^2.10.1",
-    "solid-js": "^1.8.15",
+    "@solidjs/testing-library": "^0.8.10",
+    "rollup-preset-solid": "^3.0.0",
+    "vite-plugin-solid": "^2.11.13",
+    "solid-js": "^1.9.14",
     "rollup": "catalog:"
   },
   "peerDependencies": {
