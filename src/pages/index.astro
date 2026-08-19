@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { icons } from '../data/icons.js';
+
+// Thousands of icons land on this page, so the markup is assembled as a single
+// string per box instead of thousands of Astro nodes.
+const renderIcon = (icon) => {
+  const dimmed = icon.data.category ? '' : ' style="opacity: .66"';
+
+  return `<div class="icons-list-icon js-icon" title="${icon.name}"${dimmed}>${icon.content}</div>`;
+};
+
+const newIcons = icons.flatMap((category) => category.icons.filter((icon) => !icon.data.version));
+---
+
+<Layout>
+  <div class="container">
+    <div class="box">
+      <h3 class="box-title">new icons</h3>
+      <Fragment set:html={newIcons.map(renderIcon).join('')} />
+    </div>
+
+    {
+      icons.map((category) => (
+        <div class="box">
+          <div class="mb">
+            <div class="icons-list">
+              <h3 class="box-title">{category.type}</h3>
+              <Fragment set:html={category.icons.map(renderIcon).join('')} />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>
