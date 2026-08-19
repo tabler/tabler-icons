@@ -47,6 +47,8 @@ export default defineConfig({
   outDir: './_site',
   build: {
     assets: '_assets',
+    // Keep the stylesheet as its own file instead of inlining it into every page.
+    inlineStylesheets: 'never',
   },
   devToolbar: {
     enabled: false,
