@@ -51,3 +51,11 @@ jobs:
           ICONS_LIMIT: 100
         run: pnpm run build
 
+      # @tabler/icons-angular is excluded: its suite runs in a real Chrome via
+      # Karma and needs a browser setup this job does not have yet. Every other
+      # package runs on vitest or node:test.
+      - name: Test
+        env:
+          ICONS_LIMIT: 100
+        run: pnpm exec turbo run test --filter=!@tabler/icons-angular
+

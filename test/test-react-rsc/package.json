@@ -1,0 +1,21 @@
+{
+  "name": "test-react-rsc",
+  "private": true,
+  "version": "3.46.0",
+  "type": "module",
+  "description": "Guards that @tabler/icons-react keeps working inside React Server Components.",
+  "scripts": {
+    "test": "node run.mjs",
+    "clean": "rm -rf .sandbox"
+  },
+  "dependencies": {
+    "@tabler/icons-react": "workspace:*"
+  },
+  "devDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-server-dom-webpack": "^19.2.0"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {}
+}
