@@ -44,6 +44,20 @@ describe("React Icon component", () => {
     expect(container.firstChild).toHaveClass('tabler-icon-accessible');
   });
 
+  it('should not add a trailing space to the class attribute when no className is passed', () => {
+    const { container } = render(<IconAccessible />);
+    const svg = container.getElementsByTagName("svg")[0];
+
+    expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible');
+  });
+
+  it('should separate a provided className with a single space', () => {
+    const { container } = render(<IconAccessible className="first second" />);
+    const svg = container.getElementsByTagName("svg")[0];
+
+    expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible first second');
+  });
+
   it('should add a style attribute to the element', () => {
     const { container } = render(<IconAccessible style={{ color: "red" }}/>)
 
@@ -82,7 +96,7 @@ describe("React Icon component", () => {
            stroke-width="2"
            stroke-linecap="round"
            stroke-linejoin="round"
-           class="tabler-icon tabler-icon-accessible "
+           class="tabler-icon tabler-icon-accessible"
       >
         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
         </path>
