@@ -18,22 +18,8 @@
 **If you want to support our project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
+  <img src="https://raw.githubusercontent.com/tabler/sponsors/main/sponsors.svg" alt="Tabler sponsors">
 </a>
-
-## Testing
-
-<p align="center">Browser testing via:</p>
-
-<p align="center">
-  <a href="https://www.testmuai.com/?utm_medium=sponsor&utm_source=tabler" target="_blank">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f0967860-31ad-4078-850b-40b0abc95582" />
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/55ac290a-6729-44aa-bbc3-4c5e909facbf" />
-      <img src="https://github.com/user-attachments/assets/86bcbe29-eb8d-4273-a381-5ce17d4ca92d" alt="TestMu AI" width="296">
-    </picture>
-  </a>
-</p>
 
 ## Preview
 

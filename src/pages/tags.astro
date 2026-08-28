@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { groupedIcons } from '../data/grouped-icons.js';
+
+const escape = (value) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+// One row per icon, built as a single string — see index.astro for the rationale.
+const rows = groupedIcons
+  .map(
+    (icon) => `<tr>
+	<td class="td-1"><a href="#" data-copy class="text-reset">${icon.styles.outline.content}</a></td>
+	<td class="td-1"><a href="#" data-copy class="text-reset">${icon.styles.filled?.content ?? ''}</a></td>
+	<th><a href="#" data-copy class="text-reset">${escape(icon.name)}</a></th>
+	<td>${escape(icon.data.tags.join(', '))}</td>
+	<td>${escape(icon.data.category)}</td>
+	<td>${escape(icon.styles.outline.version)}</td>
+</tr>`
+  )
+  .join('');
+
+const untagged = groupedIcons.filter((icon) => icon.data.tags.length === 0).length;
+---
+
+<Layout>
+  <div class="container">
+    <div class="box">
+      <table class="table mb">
+        <tbody set:html={rows} />
+      </table>
+
+      <p>Untagged: {untagged}</p>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[data-copy]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          navigator.clipboard.writeText(this.innerHTML);
+
+          return false;
+        });
+      });
+    });
+  </script>
+</Layout>
