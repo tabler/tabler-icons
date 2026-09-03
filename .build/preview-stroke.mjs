@@ -1,10 +1,10 @@
 import fs from 'fs'
-import { createScreenshot } from './helpers.mjs'
+import { createScreenshot, createSvgSymbol } from './helpers.mjs'
 import { ICONS_SRC_DIR } from './helpers.mjs'
 import path from 'path'
 
 const icon = 'ghost',
-  strokes = ['.25', '.5', '.75', '1', '1.25', '1.5', '1.75', '2', '2.25', '2.5', '2.25'],
+  strokes = ['.25', '.5', '.75', '1', '1.25', '1.5', '1.75', '2', '2.25', '2.5'],
   svgFileContent = fs.readFileSync(path.join(ICONS_SRC_DIR, `outline/${icon}.svg`), 'utf-8'),
   padding = 16,
   paddingOuter = 3,
