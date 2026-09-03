@@ -1,108 +1,102 @@
-# Tabler Icons for Svelte (Runes)
+# Tabler Icons for Svelte 5
 
 <p align="center">
   <a href="https://tabler.io/icons?ref=tabler-icons-readme"><img src="https://raw.githubusercontent.com/tabler/tabler-icons/main/.github/packages/og-package-svelte.png" alt="Tabler Icons" width="838"></a>
 </p>
 
 <p align="center">
-Implementation of the Tabler Icons library for Svelte 5+ using the new runes reactivity system.
-<p>
+  Implementation of the Tabler Icons library for Svelte 5 applications using runes.
+</p>
 
 <p align="center">
   <a href="https://tabler.io/icons"><strong>Browse all icons at tabler.io &rarr;</strong></a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons-svelte-runes" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@tabler/icons-svelte-runes"><img src="https://img.shields.io/npm/v/@tabler/icons-svelte-runes" alt="Latest release"></a>
+  <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons-svelte-runes.svg" alt="License"></a>
 </p>
 
-## Why This Package?
+## Sponsors
 
-This package is specifically built for **Svelte 5+** using the new **runes** reactivity system (`$props()`, `$derived`, etc.).
+**If you want to support our project and help us grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or [donate on PayPal](https://paypal.me/codecalm).**
 
-- **For Svelte 5+ projects:** Use this package (`@tabler/icons-svelte-runes`)
-- **For Svelte 3/4 projects:** Use [`@tabler/icons-svelte`](https://www.npmjs.com/package/@tabler/icons-svelte)
+<a href="https://github.com/sponsors/codecalm">
+  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
+</a>
 
 ## Installation
 
-```bash
-pnpm add @tabler/icons-svelte-runes
-```
-
-or
-
-```bash
+```sh
 npm install @tabler/icons-svelte-runes
 ```
 
-or
-
-```bash
+```sh
 yarn add @tabler/icons-svelte-runes
 ```
 
+```sh
+pnpm add @tabler/icons-svelte-runes
+```
+
+You can also [download the latest release from GitHub](https://github.com/tabler/tabler-icons/releases).
+
 ## Requirements
 
-- **Svelte 5.0+** with runes enabled
-- For older Svelte versions, use `@tabler/icons-svelte` instead
+This package is built for **Svelte 5** and uses the runes reactivity system (`$props()`, `$derived`). For Svelte 3 and 4 projects, use [`@tabler/icons-svelte`](https://www.npmjs.com/package/@tabler/icons-svelte) instead.
 
 ## Usage
 
-It's built with ES modules so it's completely tree-shakable. Each icon can be imported as a component.
+The package is built with ES modules, so unused icons are tree-shaken from your bundle. Each icon is exported as a component.
 
 ```svelte
 <script lang="ts">
-import { IconHeart } from '@tabler/icons-svelte-runes';
+  import { IconHeart } from '@tabler/icons-svelte-runes';
 </script>
 
 <IconHeart />
 ```
 
-You can pass additional props to adjust the icon:
+Pass props to adjust the icon:
 
 ```svelte
-<IconHeart size={48} stroke={1} color="red" />
+<IconHeart color="red" size={48} stroke={1.5} />
 ```
 
 ### Props
 
-| name     | type               | default      |
-| -------- | ------------------ | ------------ |
-| `size`   | `number \| string` | 24           |
-| `color`  | `string`           | currentColor |
-| `stroke` | `number \| string` | 2            |
-| `class`  | `string`           | ''           |
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | _number | string_ | 24 | Width and height of the icon |
+| `color` | _string_ | currentColor | Stroke color for outline icons, fill color for filled icons |
+| `stroke` | _number | string_ | 2 | Stroke width, outline icons only |
+| `class` | _string_ | – | Extra classes added to `tabler-icon tabler-icon-{{name}}` |
 
-All other HTML attributes are forwarded to the SVG element.
+Any other attribute is forwarded to the rendered `<svg>` element.
 
-## TypeScript Support
+## TypeScript
 
 The package includes full TypeScript definitions. Icons are typed as Svelte 5 `Component<IconProps>`:
 
-```typescript
+```ts
 import type { Icon } from '@tabler/icons-svelte-runes';
 import { IconHeart } from '@tabler/icons-svelte-runes';
 
-// Icon is compatible with Svelte 5's Component type
 const MyIcon: Icon = IconHeart;
 ```
 
-### Using Icons in Props
-
-When passing icons as props, use the `Component` type or `any` for maximum compatibility:
+When passing icons as props, use the `Component` type from Svelte:
 
 ```svelte
 <script lang="ts">
-import type { Component } from 'svelte';
-import { IconHeart } from '@tabler/icons-svelte-runes';
+  import type { Component } from 'svelte';
 
-interface Props {
-  icon: Component<any>;
-  label: string;
-}
+  interface Props {
+    icon: Component<any>;
+    label: string;
+  }
 
-let { icon: Icon, label }: Props = $props();
+  let { icon: Icon, label }: Props = $props();
 </script>
 
 <button>
@@ -113,95 +107,58 @@ let { icon: Icon, label }: Props = $props();
 
 ## Examples
 
-### Basic Icon Usage
+### Dynamic icons
 
 ```svelte
 <script lang="ts">
-import { IconHeart, IconStar, IconHome } from '@tabler/icons-svelte-runes';
-</script>
+  import { IconHeart, IconStar, IconCircle } from '@tabler/icons-svelte-runes';
 
-<IconHeart />
-<IconStar size={32} color="gold" />
-<IconHome stroke={1.5} class="my-icon" />
-```
+  const icons = {
+    heart: IconHeart,
+    star: IconStar,
+    circle: IconCircle,
+  };
 
-### Dynamic Icons with Runes
-
-```svelte
-<script lang="ts">
-import { IconHeart, IconStar, IconCircle } from '@tabler/icons-svelte-runes';
-
-const icons = {
-  heart: IconHeart,
-  star: IconStar,
-  circle: IconCircle
-};
-
-let selected = $state('heart');
-let DynamicIcon = $derived(icons[selected]);
+  let selected = $state('heart');
+  let DynamicIcon = $derived(icons[selected]);
 </script>
 
 <DynamicIcon size={32} />
 
-<button onclick={() => selected = 'heart'}>Heart</button>
-<button onclick={() => selected = 'star'}>Star</button>
-<button onclick={() => selected = 'circle'}>Circle</button>
+<button onclick={() => (selected = 'heart')}>Heart</button>
+<button onclick={() => (selected = 'star')}>Star</button>
+<button onclick={() => (selected = 'circle')}>Circle</button>
 ```
 
-### Reactive Size with $derived
+### Reactive size
 
 ```svelte
 <script lang="ts">
-import { IconHeart } from '@tabler/icons-svelte-runes';
+  import { IconHeart } from '@tabler/icons-svelte-runes';
 
-let isLarge = $state(false);
-let iconSize = $derived(isLarge ? 48 : 24);
+  let isLarge = $state(false);
+  let iconSize = $derived(isLarge ? 48 : 24);
 </script>
 
 <IconHeart size={iconSize} />
-<button onclick={() => isLarge = !isLarge}>Toggle Size</button>
+<button onclick={() => (isLarge = !isLarge)}>Toggle size</button>
 ```
 
-## Migrating from @tabler/icons-svelte
+## Migrating from `@tabler/icons-svelte`
 
-The API is identical, just change the package name:
+The API is identical, so only the package name changes:
 
 ```diff
 - import { IconHeart } from '@tabler/icons-svelte';
 + import { IconHeart } from '@tabler/icons-svelte-runes';
 ```
 
-No other changes needed! Your existing props and usage remain the same.
-
-## What's Different from @tabler/icons-svelte?
-
-Internally, this package uses Svelte 5's new features:
-
-- `$props()` instead of `export let`
-- `$derived` for computed values
-- Modern TypeScript `Component` type
-- Optimized for Svelte 5's fine-grained reactivity
-
-**Result:** Better performance and smaller bundle sizes in Svelte 5 projects!
-
-## Sponsors
-
-**If you want to support this project, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
-
-<a href="https://github.com/sponsors/codecalm">
-  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
-</a>
+Internally this package uses `$props()` instead of `export let` and `$derived` for computed values, which makes it a better fit for Svelte 5's fine-grained reactivity.
 
 ## Contributing
 
-For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
-
-Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-svelte-runes/README.md)
+Bug reports and icon requests are welcome in the [issue tracker](https://github.com/tabler/tabler-icons/issues). Caught a mistake in this page? [Edit it on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-svelte-runes/README.md).
 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
-
-## Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>

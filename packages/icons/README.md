@@ -5,21 +5,21 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->6184<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
-<p>
+  A set of <!--icons-count-->6184<!--/icons-count--> free, MIT-licensed, high-quality SVG icons for your web projects. Each icon is designed on a 24x24 grid with a 2px stroke.
+</p>
 
 <p align="center">
   <a href="https://tabler.io/icons"><strong>Browse all icons at tabler.io &rarr;</strong></a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@tabler/icons"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest release"></a>
+  <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
 </p>
 
 ## Sponsors
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help us grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or [donate on PayPal](https://paypal.me/codecalm).**
 
 <a href="https://github.com/sponsors/codecalm">
   <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
@@ -27,81 +27,88 @@
 
 ## Installation
 
-```
-yarn add @tabler/icons
-```
-
-or
-
-```
+```sh
 npm install @tabler/icons
 ```
 
-or
-
-```
-pnpm install @tabler/icons
+```sh
+yarn add @tabler/icons
 ```
 
-or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
+```sh
+pnpm add @tabler/icons
+```
+
+You can also [download the latest release from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
-All icons are built with SVG, so you can place them as `<img>`, `background-image` and inline in HTML code.
+All icons are plain SVG files, so you can use them as an `<img>` source, as a CSS `background-image`, or inline in your HTML.
 
 ### HTML image
 
-If you load an icon as an image, you can modify its size using CSS.
+When you load an icon as an image, you can control its size with CSS.
 
 ```html
 <img src="path/to/icon.svg" alt="icon title" />
 ```
 
-### Inline HTML
+### Inline SVG
 
-You can paste the content of the icon file into your HTML code to display it on the page.
+Paste the content of the icon file directly into your HTML to render it inline.
 
 ```html
-<a href="">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="icon icon-tabler icon-tabler-disabled"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    stroke-width="1.25"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    ...
-  </svg>
-  Click me
-</a>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="icon icon-tabler icons-tabler-outline icon-tabler-activity"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 12h4l3 8l4 -16l3 8h4" />
+</svg>
 ```
 
-Thanks to that, you can change the size, color and the `stroke-width` of the icons with CSS code.
+Inline icons inherit `currentColor`, so you can change their size, color, and `stroke-width` with CSS.
 
 ```css
 .icon-tabler {
   color: red;
   width: 32px;
   height: 32px;
-  stroke-width: 1.25;
+  stroke-width: 1.5;
 }
+```
+
+## Package contents
+
+| Path | Description |
+| --- | --- |
+| `icons/outline/*.svg` | Outline icons |
+| `icons/filled/*.svg` | Filled icons |
+| `icons.json` | Metadata for every icon: name, category, tags, version and unicode code point |
+| `categories/outline/<category>/*.svg` | Outline icons grouped by category |
+| `tabler-nodes-outline.json`, `tabler-nodes-filled.json` | Icon paths as `[tag, attributes]` tuples, used to build the framework packages |
+
+## CDN
+
+All files are available from [jsDelivr](https://cdn.jsdelivr.net/npm/@tabler/icons@latest/). Replace `latest` with a specific version number to pin a release.
+
+```html
+<img src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons/outline/home.svg" alt="Home" />
+<img src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons/filled/home.svg" alt="Home" />
 ```
 
 ## Contributing
 
-For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
-
-Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons/README.md)
+Bug reports and icon requests are welcome in the [issue tracker](https://github.com/tabler/tabler-icons/issues). Caught a mistake in this page? [Edit it on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons/README.md).
 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
-
-## Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
