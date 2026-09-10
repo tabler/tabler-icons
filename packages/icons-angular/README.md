@@ -13,16 +13,16 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@tabler/icons-angular"><img src="https://img.shields.io/npm/v/@tabler/icons-angular" alt="Latest release"></a>
+  <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons-angular.svg" alt="License"></a>
 </p>
 
 ## Sponsors
 
-**If you want to support our project and help us grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help us grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or [donate on PayPal](https://paypal.me/codecalm).**
 
 <a href="https://github.com/sponsors/codecalm">
-  <img src='https://raw.githubusercontent.com/tabler/static/main/sponsors.png'>
+  <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
 </a>
 
 ## Prerequisites
@@ -31,23 +31,21 @@
 
 ## Installation
 
-```
-yarn add @tabler/icons-angular
-```
-
-or
-
-```
+```sh
 npm install @tabler/icons-angular
 ```
 
-or
-
+```sh
+yarn add @tabler/icons-angular
 ```
+
+```sh
 pnpm add @tabler/icons-angular
 ```
 
-## How to use
+You can also [download the latest release from GitHub](https://github.com/tabler/tabler-icons/releases).
+
+## Usage
 
 The package is built with ES modules and is tree-shakable. You choose which icons to include.
 
@@ -198,14 +196,8 @@ provideTablerIconConfig({ size: 40 })
 
 ## Contributing
 
-For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
-
-Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-angular/README.md)
+Bug reports and icon requests are welcome in the [issue tracker](https://github.com/tabler/tabler-icons/issues). Caught a mistake in this page? [Edit it on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-angular/README.md).
 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
-
-## Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>

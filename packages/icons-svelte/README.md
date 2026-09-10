@@ -5,21 +5,21 @@
 </p>
 
 <p align="center">
-Implementation of the Tabler Icons library for Svelte applications.
-<p>
+  Implementation of the Tabler Icons library for Svelte applications.
+</p>
 
 <p align="center">
   <a href="https://tabler.io/icons"><strong>Browse all icons at tabler.io &rarr;</strong></a>
 </p>
 
 <p align="center">
-    <a href="https://github.com/tabler/tabler-icons/releases"><img src="https://img.shields.io/npm/v/@tabler/icons" alt="Latest Release"></a>
-    <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@tabler/icons-svelte"><img src="https://img.shields.io/npm/v/@tabler/icons-svelte" alt="Latest release"></a>
+  <a href="https://github.com/tabler/tabler-icons/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@tabler/icons-svelte.svg" alt="License"></a>
 </p>
 
 ## Sponsors
 
-**If you want to support my project and help me grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or just [donate on PayPal](https://paypal.me/codecalm) :)**
+**If you want to support our project and help us grow it, you can [become a sponsor on GitHub](https://github.com/sponsors/codecalm) or [donate on PayPal](https://paypal.me/codecalm).**
 
 <a href="https://github.com/sponsors/codecalm">
   <img src="https://cdn.jsdelivr.net/gh/tabler/sponsors@latest/sponsors.svg" alt="Tabler sponsors">
@@ -27,63 +27,57 @@ Implementation of the Tabler Icons library for Svelte applications.
 
 ## Installation
 
-```
-yarn add @tabler/icons-svelte
-```
-
-or
-
-```
+```sh
 npm install @tabler/icons-svelte
 ```
 
-or
-
-```
-pnpm install @tabler/icons-svelte
+```sh
+yarn add @tabler/icons-svelte
 ```
 
-or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
+```sh
+pnpm add @tabler/icons-svelte
+```
 
-## How to use
+You can also [download the latest release from GitHub](https://github.com/tabler/tabler-icons/releases).
 
-It's build with ESmodules so it's completely tree-shakable. Each icon can be imported as a component.
+## Usage
 
-```sveltehtml
+The package is built with ES modules, so unused icons are tree-shaken from your bundle. Each icon is exported as a component.
+
+```svelte
 <script lang="ts">
-import { IconHeart } from '@tabler/icons-svelte';
+  import { IconHeart } from '@tabler/icons-svelte';
 </script>
 
-<main>
-  <IconHeart />
-</main>
+<IconHeart />
 ```
 
-You can pass additional props to adjust the icon.
+Pass props to adjust the icon:
 
-```html
-<IconHeart size={48} stroke={1} />
+```svelte
+<IconHeart color="red" size={48} stroke={1.5} />
 ```
 
 ### Props
 
-| name          | type     | default      |
-| ------------- | -------- | ------------ |
-| `size`        | _Number_ | 24           |
-| `color`       | _String_ | currentColor |
-| `stroke`      | _Number_ | 2            |
-| `class`       | _String_ |              |
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | _number | string_ | 24 | Width and height of the icon |
+| `color` | _string_ | currentColor | Stroke color for outline icons, fill color for filled icons |
+| `stroke` | _number | string_ | 2 | Stroke width, outline icons only |
+| `class` | _string_ | – | Extra classes added to `tabler-icon tabler-icon-{{name}}` |
+
+Any other attribute is forwarded to the rendered `<svg>` element. The package ships with TypeScript declarations.
+
+## Svelte 5
+
+This package targets Svelte 3 and 4 and also works in Svelte 5 in legacy mode. For projects using runes, install [`@tabler/icons-svelte-runes`](https://www.npmjs.com/package/@tabler/icons-svelte-runes) instead. The API is identical, only the package name changes.
 
 ## Contributing
 
-For more info on how to contribute please see the [contribution guidelines](https://github.com/tabler/tabler-icons/blob/main/CONTRIBUTING.md).
-
-Caught a mistake or want to contribute to the documentation? [Edit this page on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-svelte/README.md)
+Bug reports and icon requests are welcome in the [issue tracker](https://github.com/tabler/tabler-icons/issues). Caught a mistake in this page? [Edit it on GitHub](https://github.com/tabler/tabler-icons/blob/main/packages/icons-svelte/README.md).
 
 ## License
 
 Tabler Icons is licensed under the [MIT License](https://github.com/tabler/tabler-icons/blob/main/LICENSE).
-
-## Sponsor Tabler
-
-<a href="https://github.com/sponsors/codecalm" target="_blank"><img src="https://github.com/tabler/tabler/raw/dev/src/static/sponsor-banner-readme.png?raw=true" alt="Sponsor Tabler" /></a>
