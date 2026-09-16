@@ -47,21 +47,15 @@
   ],
   "dependencies": {
     "@tabler/icons": "workspace:",
-    "svg-path-commander": "^2.1.11",
     "svgtofont": "^6.5.0"
   },
   "devDependencies": {
-    "@napi-rs/canvas": "^0.1.88",
-    "canvas": "^3.2.0",
     "eta": "^3.4.0",
     "glob": "^13.0.0",
-    "paper-jsdom": "^0.12.18",
-    "svg-path-outline": "^1.0.1",
     "svg2ttf": "^6.0.3",
     "svgicons2svgfont": "^15.0.1",
     "ttf2woff": "^3.0.0",
+    "unstroke": "1.0.0",
     "wawoff2": "^2.0.1"
-  },
-  "peerDependencies": {},
-  "optionalDependencies": {}
+  }
 }
