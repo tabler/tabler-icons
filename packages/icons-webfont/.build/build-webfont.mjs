@@ -1,6 +1,7 @@
 import path from 'node:path';
+import { outlineSvg } from 'unstroke';
 import { getAllIcons, getPackageDir, strokes } from '../../../.build/helpers.mjs';
-import { generateFont, mergePaths, offsetPath, processIcons, removeComments, reorientPath, splitPaths } from './utilities.mjs';
+import { generateFont, processIcons, removeComments } from './utilities.mjs';
 
 const DIR = getPackageDir('icons-webfont')
 
@@ -10,21 +11,18 @@ const filledFiles = getAllIcons(true).filled;
 // Generate outline icons
 for await (const [strokeName, strokeWidth] of Object.entries(strokes)) {
    const dirname = path.join(DIR, 'icons-outlined', strokeName);
-   
+
    await processIcons(
       outlineFiles,
       dirname,
       'outline',
       DIR,
       strokeName,
-      (svgContent) => {
-         svgContent = removeComments(svgContent);
-         svgContent = splitPaths(svgContent);
-         svgContent = offsetPath(svgContent, strokeWidth);
-         svgContent = reorientPath(svgContent);
-         svgContent = mergePaths(svgContent);
-         return svgContent;
-      }
+      (svgContent) => outlineSvg(removeComments(svgContent), {
+         strokeWidth,
+         fill: 'black',
+         onWarning: (warning) => console.warn(`[${strokeName}] ${warning.message}`),
+      })
    );
 
    await generateFont(strokeName, 'outline', DIR);

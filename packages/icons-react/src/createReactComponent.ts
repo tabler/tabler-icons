@@ -20,7 +20,7 @@ const createReactComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
-          className: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(' '),
+          className: [`tabler-icon`, `tabler-icon-${iconName}`, className].filter(Boolean).join(' '),
           ...(type === 'filled'
             ? {
                 fill: color,
