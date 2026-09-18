@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  SVG sprite with all <!--icons-count-->6184<!--/icons-count--> Tabler Icons, ready to use with <code>&lt;use&gt;</code>.
+  SVG sprite with all <!--icons-count-->6202<!--/icons-count--> Tabler Icons, ready to use with <code>&lt;use&gt;</code>.
 </p>
 
 <p align="center">
