@@ -42,8 +42,8 @@ $ti-prefix: 'ti' !default;
 $ti-icon-<%= glyph.name %>: unicode('<%= glyph.unicodeHex %>');<% }) %>
 
 <% it.glyphs.forEach(function(glyph) { %>
-.#{$ti-prefix}-<%= glyph.name %>:before { content: $ti-icon-<%= glyph.name %>; }<% }) %>
+.#{$ti-prefix}-<%= glyph.name %>:before { font-family: $ti-font-family !important; content: $ti-icon-<%= glyph.name %>; }<% }) %>
 
 // Aliases
-<% it.aliases.forEach(function(alias) { %>.#{$ti-prefix}-<%= alias.from %>:before { content: $ti-icon-<%= alias.to %>; }
+<% it.aliases.forEach(function(alias) { %>.#{$ti-prefix}-<%= alias.from %>:before { font-family: $ti-font-family !important; content: $ti-icon-<%= alias.to %>; }
 <% }) %>
