@@ -1,0 +1,23 @@
+{
+  "name": "test-react-types",
+  "private": true,
+  "version": "3.46.0",
+  "type": "module",
+  "description": "Type-compatibility matrix for @tabler/icons-react across @types/react major versions.",
+  "scripts": {
+    "test": "node check.mjs",
+    "clean": "rm -rf tsconfig.generated.json"
+  },
+  "dependencies": {
+    "@tabler/icons-react": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react-16": "npm:@types/react@^16",
+    "@types/react-17": "npm:@types/react@^17",
+    "@types/react-18": "npm:@types/react@^18",
+    "@types/react-19": "npm:@types/react@^19",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {}
+}
