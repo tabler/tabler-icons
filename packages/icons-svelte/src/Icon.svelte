@@ -15,7 +15,7 @@
   {...$$restProps}
   width={size}
   height={size}
-  class={`tabler-icon tabler-icon-${name} ${$$props.class ?? ''}`}
+  class={`tabler-icon tabler-icon-${name}${$$props.class ? ` ${$$props.class}` : ''}`}
   {...type === 'filled'
     ? {
         fill: color,

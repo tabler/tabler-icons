@@ -60,7 +60,7 @@ describe("Solidjs Icon component", () => {
            stroke-width="2"
            stroke-linecap="round"
            stroke-linejoin="round"
-           class="tabler-icon tabler-icon-accessible "
+           class="tabler-icon tabler-icon-accessible"
       >
         <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
         </path>
