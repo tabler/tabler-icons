@@ -1,5 +1,6 @@
 import fsPromises from 'node:fs/promises';
-import { createReadStream, mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
+import { Readable } from 'node:stream';
 import path from 'node:path';
 import { globSync } from 'glob';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
@@ -50,15 +51,20 @@ function getMetadataFromSvgName(name) {
 
 /**
  *
- * @param path {string} The directory contains SVG files
+ * @param dirPath {string} The directory contains SVG files
  * @return {Promise<Svgicons2svgfontStream[]>}
  */
-export async function loadSvgFiles(path) {
-  const svgFiles = await fsPromises.readdir(path).then(files => files.filter(file => file.endsWith('.svg')));
+export async function loadSvgFiles(dirPath) {
+  const svgFiles = await fsPromises.readdir(dirPath).then(files => files.filter(file => file.endsWith('.svg')));
   svgFiles.sort();
+  // Read each file into memory and wrap it in a Readable instead of using
+  // createReadStream: opening thousands of file descriptors at once (one per
+  // icon, all handed to the font stream without backpressure) can exceed the
+  // OS file-descriptor limit and either crash the build (EMFILE) or silently
+  // drop glyphs whose stream failed to open.
   return svgFiles.map(file => {
     /** @type {Svgicons2svgfontStream} */
-    const stream = createReadStream(`${path}/${file}`);
+    const stream = Readable.from(readFileSync(`${dirPath}/${file}`));
     stream.metadata = getMetadataFromSvgName(file);
     return stream;
   });
@@ -131,10 +137,16 @@ export async function generateFont(strokeName, type, DIR) {
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
 
+  // Filled icons share class names with outline icons (e.g. both use `flame`), so the
+  // filled stylesheet needs a `-filled` suffix on its CSS classes to avoid colliding
+  // with the outline stylesheet when both are loaded on the same page.
+  const classSuffix = type === 'filled' ? '-filled' : '';
+
   const glyphs = svgFiles.map(f => ({
      ...f.metadata,
-     unicodeHex: f.metadata.unicode && f.metadata.unicode[0] 
-        ? f.metadata.unicode[0].codePointAt(0).toString(16) 
+     name: `${f.metadata.name}${classSuffix}`,
+     unicodeHex: f.metadata.unicode && f.metadata.unicode[0]
+        ? f.metadata.unicode[0].codePointAt(0).toString(16)
         : ''
   }))
      .sort(function (a, b) {
@@ -142,7 +154,7 @@ export async function generateFont(strokeName, type, DIR) {
      })
 
   // Convert aliases object to array of {from, to} objects
-  const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to })) : []
+  const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from: `${from}${classSuffix}`, to: `${to}${classSuffix}` })) : []
 
   const options = {
      name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,

@@ -50,3 +50,17 @@ content: 'ec8f';
 ```scss
 content: $ti-icon-brand-tabler;
 ```
+
+### Filled icons
+
+Filled icons ship in a separate stylesheet and font. Load it alongside the default stylesheet to use outline and filled icons on the same page:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$ICONS_VERSION/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$ICONS_VERSION/dist/tabler-icons-filled.min.css">
+```
+
+```html
+<i class="ti ti-brand-tabler"></i>
+<i class="ti ti-brand-tabler-filled"></i>
+```
