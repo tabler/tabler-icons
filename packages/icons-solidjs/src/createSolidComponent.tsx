@@ -29,7 +29,7 @@ const createSolidComponent = (
         {...rest}
         width={localProps.size != null ? localProps.size : attributes.width}
         height={localProps.size != null ? localProps.size : attributes.height}
-        class={`tabler-icon tabler-icon-${iconName} ${localProps.class != null ? localProps.class : ''}`}
+        class={`tabler-icon tabler-icon-${iconName}${localProps.class ? ` ${localProps.class}` : ''}`}
         {...(type === 'filled'
           ? {
               fill: localProps.color != null ? localProps.color : 'currentColor',

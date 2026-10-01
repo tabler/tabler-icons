@@ -33,7 +33,7 @@
   );
 
   // Derive the full class name
-  const fullClassName = $derived(`tabler-icon tabler-icon-${name} ${className}`);
+  const fullClassName = $derived(`tabler-icon tabler-icon-${name}${className ? ` ${className}` : ''}`);
 </script>
 
 <svg

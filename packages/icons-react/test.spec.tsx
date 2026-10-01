@@ -44,6 +44,20 @@ describe("React Icon component", () => {
     expect(container.firstChild).toHaveClass('tabler-icon-accessible');
   });
 
+  it('should not add a trailing space to the class attribute when no className is passed', () => {
+    const { container } = render(<IconAccessible />);
+    const svg = container.getElementsByTagName("svg")[0];
+
+    expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible');
+  });
+
+  it('should separate a provided className with a single space', () => {
+    const { container } = render(<IconAccessible className="first second" />);
+    const svg = container.getElementsByTagName("svg")[0];
+
+    expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible first second');
+  });
+
   it('should add a style attribute to the element', () => {
     const { container } = render(<IconAccessible style={{ color: "red" }}/>)
 
@@ -82,18 +96,16 @@ describe("React Icon component", () => {
            stroke-width="2"
            stroke-linecap="round"
            stroke-linejoin="round"
-           class="tabler-icon tabler-icon-accessible "
+           class="tabler-icon tabler-icon-accessible"
       >
-        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0">
         </path>
         <path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1">
         </path>
-        <circle cx="12"
-                cy="7.5"
-                r=".5"
-                fill="currentColor"
+        <path d="M11.5 7.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0"
+              fill="currentColor"
         >
-        </circle>
+        </path>
       </svg>
     `)
   })

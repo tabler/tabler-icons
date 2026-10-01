@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "3.46.0",
+  "version": "3.48.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -56,13 +56,13 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "catalog:",
     "@testing-library/jest-dom": "catalog:",
-    "adm-zip": "^0.5.16",
+    "adm-zip": "^0.6.1",
     "astro": "catalog:",
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
-    "esbuild": "^0.20.2",
+    "esbuild": "^0.28.2",
     "fs-extra": "^11.2.0",
-    "glob": "10.3.16",
+    "glob": "10.5.0",
     "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
     "jest-serializer-html": "catalog:",
@@ -74,14 +74,12 @@
     "rollup": "catalog:",
     "rollup-plugin-dts": "catalog:",
     "rollup-plugin-esbuild": "catalog:",
-    "rollup-plugin-filesize": "catalog:",
     "rollup-plugin-license": "catalog:",
     "rollup-plugin-peer-deps-external": "catalog:",
     "rollup-plugin-visualizer": "catalog:",
     "sass": "^1.71.1",
     "slash": "^5.1.0",
-    "svg-outline-stroke": "1.3.1",
-    "svgo": "^4.0.0",
+    "svgo": "^4.1.0",
     "svgpath": "^2.6.0",
     "svgson": "^5.3.1",
     "turbo": "^2.10.7",
@@ -121,9 +119,6 @@
       "sharp",
       "svelte-preprocess",
       "ttf2woff2"
-    ],
-    "onlyBuiltDependencies": [
-      "canvas"
     ]
   }
 }
