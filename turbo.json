@@ -5,7 +5,7 @@
     "build": {
       "outputs": ["dist/**", "src/icons/**", "icons/**", "icons.json", "tabler-nodes-*.json", "categories/**", "docs/**"],
       "dependsOn": ["^build"],
-      "inputs": ["../../icons/**"]
+      "inputs": ["$TURBO_DEFAULT$", "../../icons/**", "../../aliases.json", "../../.build/**", "!../../.build/**/*.test.mjs"]
     },
     "lint": {},
     "dev": {
