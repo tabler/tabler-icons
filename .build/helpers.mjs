@@ -394,11 +394,25 @@ export const asyncForEach = async (array, callback) => {
   }
 };
 
+export const isRsvgConvertAvailable = () => {
+  try {
+    cp.execSync('command -v rsvg-convert', { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 export const createScreenshot = (filePath, retina = true) => {
-  cp.execSync(`rsvg-convert -x 2 -y 2 ${filePath} > ${filePath.replace('.svg', '.png')}`);
+  if (!isRsvgConvertAvailable()) {
+    console.log(`\nWarning: rsvg-convert not found. Skipping screenshot of ${filePath}.`);
+    return;
+  }
+
+  cp.execSync(`rsvg-convert -x 2 -y 2 ${filePath} -o ${filePath.replace('.svg', '.png')}`);
 
   if (retina) {
-    cp.execSync(`rsvg-convert -x 4 -y 4 ${filePath} > ${filePath.replace('.svg', '@2x.png')}`);
+    cp.execSync(`rsvg-convert -x 4 -y 4 ${filePath} -o ${filePath.replace('.svg', '@2x.png')}`);
   }
 };
 
