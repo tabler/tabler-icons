@@ -1,6 +1,6 @@
 import { forwardRef, createElement } from 'react';
 import defaultAttributes from './defaultAttributes';
-import type { IconNode, IconProps, Icon } from './types';
+import type { IconNode, IconProps } from './types';
 
 const createReactComponent = (
   type: 'outline' | 'filled',

@@ -6,16 +6,16 @@ cp.exec('git status', function (err, ret) {
     modifiedIcons = [],
     renamedIcons = [];
 
-  ret.replace(/new file:\s+icons\/([a-z0-9-\/]+)\.svg/g, function (m, fileName) {
+  ret.replace(/new file:\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
     newIcons.push(fileName);
   });
 
-  ret.replace(/modified:\s+icons\/([a-z0-9-\/]+)\.svg/g, function (m, fileName) {
+  ret.replace(/modified:\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
     modifiedIcons.push(fileName);
   });
 
   ret.replace(
-    /renamed:\s+icons\/([a-z0-9-\/]+).svg -> icons\/([a-z0-9-\/]+).svg/g,
+    /renamed:\s+icons\/([a-z0-9-/]+).svg -> icons\/([a-z0-9-/]+).svg/g,
     function (m, fileNameBefore, fileNameAfter) {
       renamedIcons.push([fileNameBefore, fileNameAfter]);
     },

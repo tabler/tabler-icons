@@ -10,12 +10,12 @@ describe('TablerIconComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   const getSvgAttr = (attr: string) =>
     fixture.nativeElement.querySelector('svg').getAttribute(attr);
-  let icon: TablerIcon = {
+  const icon: TablerIcon = {
     name: 'test',
     type: 'filled',
     nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]],
   };
-  let icons: TablerIcons = { IconTest: icon };
+  const icons: TablerIcons = { IconTest: icon };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

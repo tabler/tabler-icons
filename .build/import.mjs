@@ -6,7 +6,7 @@ import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './h
 types.forEach((type) => {
   const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`));
 
-  files.forEach(function (file, i) {
+  files.forEach(function (file) {
     let fileData = readFileSync(file).toString(),
       filename = basename(file, '.svg');
 
@@ -78,9 +78,9 @@ types.forEach((type) => {
       if (m) {
         fileData = fileData.replace('<!--\n-->', m[0]);
       }
-    } else if (filename.match(/\-filled$/)) {
+    } else if (filename.match(/-filled$/)) {
       fileData = fileData.replace(/<!--\n-->/g, '<!--\ncategory: Filled\n-->');
-    } else if (filename.match(/brand\-/)) {
+    } else if (filename.match(/brand-/)) {
       fileData = fileData.replace(/<!--\n-->/g, '<!--\ncategory: Brand\n-->');
     }
 

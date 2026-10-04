@@ -1,6 +1,6 @@
 import { glob } from 'glob';
 import fs from 'fs';
-import { resolve, join, basename } from 'path';
+import { join } from 'path';
 import { ICONS_SRC_DIR } from './helpers.mjs';
 
 const extensions = [
@@ -40,7 +40,7 @@ const extensions = [
 //const extensions = ['off', 'ai', 'spark']
 
 extensions.forEach(function (extension) {
-  glob.sync(join(ICONS_SRC_DIR, `outline/*-${extension}.svg`)).forEach(function (file, i) {
+  glob.sync(join(ICONS_SRC_DIR, `outline/*-${extension}.svg`)).forEach(function (file) {
     const fileOriginal = file.replace(`-${extension}.svg`, '.svg');
 
     if (fs.existsSync(fileOriginal)) {
@@ -50,8 +50,8 @@ extensions.forEach(function (extension) {
         tagsOriginal = dataOriginal.match(/tags: (\[.*?\])/);
 
       if (categoryOriginal || tagsOriginal) {
-        let data = readFileSync(file).toString();
-        data = data.replace(/(\<\!--[\s\S]+?-->)/, function (m, headerContent) {
+        let data = fs.readFileSync(file).toString();
+        data = data.replace(/(<!--[\s\S]+?-->)/, function (m, headerContent) {
           console.log(
             'categoryOriginal',
             fileOriginal,
@@ -61,15 +61,12 @@ extensions.forEach(function (extension) {
 
           if (categoryOriginal) {
             headerContent = headerContent.replace(/category: .*\n/, '');
-            headerContent = headerContent.replace(
-              /\<\!--/,
-              `<!--\ncategory: ${categoryOriginal[1]}`,
-            );
+            headerContent = headerContent.replace(/<!--/, `<!--\ncategory: ${categoryOriginal[1]}`);
           }
 
           // if (tagsOriginal) {
           //   headerContent = headerContent.replace(/tags: .*\n/, '')
-          //   headerContent = headerContent.replace(/\<\!--/, `<!--\ntags: ${tagsOriginal[1]}`)
+          //   headerContent = headerContent.replace(/<!--/, `<!--\ntags: ${tagsOriginal[1]}`)
           // }
 
           return headerContent;

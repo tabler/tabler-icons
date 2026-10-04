@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { PACKAGES_DIR, getAliases, toPascalCase, getAllIcons } from './helpers.mjs';
+import { PACKAGES_DIR, getAliases, getIconName, toPascalCase, getAllIcons } from './helpers.mjs';
 import { stringify } from 'svgson';
 
 /**
@@ -43,11 +43,7 @@ export const buildJsIcons = ({
   let index = [];
   let dtsIcons = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
-    icons.forEach((icon, i) => {
-      // process.stdout.write(
-      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      // );
-
+    icons.forEach((icon) => {
       const children = icon.obj.children
         .map(({ name, attributes }, i) => {
           if (key) {
@@ -61,13 +57,12 @@ export const buildJsIcons = ({
 
           return [name, attributes];
         })
-        .filter((i) => {
-          const [name, attributes] = i;
+        .filter(([, attributes]) => {
           return !attributes.d || attributes.d !== 'M0 0h24v24H0z';
         });
 
-      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
-        iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;
+      const iconName = getIconName(icon.name, type),
+        iconNamePascal = toPascalCase(iconName);
 
       let component = componentTemplate({
         type,
@@ -154,18 +149,12 @@ const buildDtsEntry = ({ dir, icons, aliases }) => {
 
 export const buildIconsList = (name) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
-  const allIcons = getAllIcons(false, true);
+  const allIcons = getAllIcons();
 
   let index = [];
   Object.entries(allIcons).forEach(([type, icons]) => {
-    icons.forEach((icon, i) => {
-      // process.stdout.write(
-      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      // );
-
-      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`;
-
-      index.push(iconName);
+    icons.forEach((icon) => {
+      index.push(getIconName(icon.name, type));
     });
   });
 
@@ -178,17 +167,13 @@ export const buildIconsList = (name) => {
 
 export const buildIconsDynamicImport = (name) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
-  const allIcons = getAllIcons(false, true);
+  const allIcons = getAllIcons();
 
   let dynamicImportString = 'export default {';
   Object.entries(allIcons).forEach(([type, icons]) => {
-    icons.forEach((icon, i) => {
-      // process.stdout.write(
-      //   `Building \`${name}\` ${type} ${i}/${icons.length}: ${icon.name.padEnd(42)}\r`,
-      // );
-
-      const iconName = `${icon.name}${type !== 'outline' ? `-${type}` : ''}`,
-        iconNamePascal = `${icon.namePascal}${type !== 'outline' ? toPascalCase(type) : ''}`;
+    icons.forEach((icon) => {
+      const iconName = getIconName(icon.name, type),
+        iconNamePascal = toPascalCase(iconName);
 
       dynamicImportString += `  '${iconName}': () => import('./icons/Icon${iconNamePascal}'),\n`;
     });

@@ -15,9 +15,9 @@ for (const [key, tags] of Object.entries(data)) {
 
   if (key && tags.length) {
     let data = fs.readFileSync(filename).toString();
-    data = data.replace(/(\<\!--[\s\S]+?-->)/, function (m, headerContent) {
+    data = data.replace(/(<!--[\s\S]+?-->)/, function (m, headerContent) {
       headerContent = headerContent.replace(/tags: .*\n/, '');
-      headerContent = headerContent.replace(/\<\!--/, `<!--\ntags: [${tagsInline}]`);
+      headerContent = headerContent.replace(/<!--/, `<!--\ntags: [${tagsInline}]`);
 
       return headerContent;
     });

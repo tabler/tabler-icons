@@ -203,7 +203,7 @@ export async function processIcons(
     try {
       const cachedContent = readFileSync(filePath, 'utf-8');
       let cachedHash = '';
-      const contentWithoutHash = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
+      const contentWithoutHash = cachedContent.replace(/<!--!cache:([a-z0-9]+)-->/, (m, hash) => {
         cachedHash = hash;
         return '';
       });

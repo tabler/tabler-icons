@@ -6,7 +6,7 @@ const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createPreactComponent from '../createPreactComponent';
 export default createPreactComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
-const indexItemTemplate = ({ name, namePascal }) =>
+const indexItemTemplate = ({ namePascal }) =>
   `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 
 const aliasTemplate = ({ fromPascal, toPascal }) =>

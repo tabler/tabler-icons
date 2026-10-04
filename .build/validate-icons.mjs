@@ -253,7 +253,7 @@ for (const icon of addedIcons) {
   const iconPath = join(ICONS_SRC_DIR, icon);
 
   try {
-    const { data, content } = parseMatter(iconPath);
+    const { data } = parseMatter(iconPath);
 
     if (data.unicode) {
       console.log(`⛔️ Icon \`${icon}\` has unicode, but should not have it`);
@@ -287,7 +287,7 @@ for (const icon of addedIcons) {
         error = true;
       }
     }
-  } catch (error) {
+  } catch {
     console.log(`⛔️ New icon \`${icon}\` has invalid metadata`);
     error = true;
   }

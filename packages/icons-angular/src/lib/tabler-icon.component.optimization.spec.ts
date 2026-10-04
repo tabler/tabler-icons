@@ -7,17 +7,16 @@ import { provideTablerIcons } from './tabler-icon.provider';
 describe('TablerIconComponent - Optimization & Edge Cases', () => {
   let hostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
-  let component: TablerIconComponent;
   const getSvgAttr = (attr: string) =>
     fixture.nativeElement.querySelector('svg')?.getAttribute(attr);
   const getSvgElement = () => fixture.nativeElement.querySelector('svg');
 
-  let icon: TablerIcon = {
+  const icon: TablerIcon = {
     name: 'test',
     type: 'outline',
     nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]],
   };
-  let icons: TablerIcons = { IconTest: icon };
+  const icons: TablerIcons = { IconTest: icon };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,9 +26,6 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
     fixture = TestBed.createComponent(TestHostComponent);
     hostComponent = fixture.componentInstance;
-    component = fixture.debugElement.query(
-      (p) => p.componentInstance instanceof TablerIconComponent,
-    )?.componentInstance as TablerIconComponent;
   });
 
   describe('ChangeDetectionStrategy.OnPush', () => {
@@ -52,7 +48,6 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
     it('should update DOM when size input changes', () => {
       fixture.detectChanges();
-      const initialSize = getSvgAttr('width');
 
       hostComponent.size = 100;
       fixture.detectChanges();
@@ -65,7 +60,6 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
   describe('Signal reactivity and optimization', () => {
     it('should skip update when same values are set', () => {
       fixture.detectChanges();
-      const initialSvg = getSvgElement();
       const initialStroke = getSvgAttr('stroke');
 
       // Signal inputs handle equality checks automatically
@@ -78,7 +72,6 @@ describe('TablerIconComponent - Optimization & Edge Cases', () => {
 
     it('should update when icon changes', () => {
       fixture.detectChanges();
-      const initialName = getSvgAttr('class');
 
       hostComponent.iconName = 'test';
       fixture.detectChanges();

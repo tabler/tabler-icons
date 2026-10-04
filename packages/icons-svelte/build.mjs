@@ -2,7 +2,7 @@
 
 import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
 
-const componentTemplate = ({ type, name, children, stringify }) => {
+const componentTemplate = ({ type, name, children }) => {
   return `\
 <script lang="ts">
 import Icon from '../Icon.svelte';

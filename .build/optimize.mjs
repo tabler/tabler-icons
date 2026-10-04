@@ -82,7 +82,7 @@ export const optimizeSvgContent = (svgFileContent, type) => {
     })
     .replace(/<path\s+d="([^"]+)"/g, function (f, d) {
       const d2 = d
-        .replace(/m0 0/g, (f, m) => ``)
+        .replace(/m0 0/g, () => ``)
         .replace(/ 0\./g, ' .')
         .replace(/ -0\./g, ' -.')
         .replace(/([amcvhslAMCVHLS]) /g, '$1');
@@ -125,7 +125,7 @@ export const optimizeSvgContent = (svgFileContent, type) => {
     .replace(/\n\s+\n+/g, '\n')
     .replace(/" +\/>/g, '" />')
     .replace(/<path d="([^"]+)"/g, function (f, d) {
-      const d2 = d.replace(/v0/g, (f, v) => ``).replace(/h0/g, (f, h) => ``);
+      const d2 = d.replace(/v0/g, () => ``).replace(/h0/g, () => ``);
 
       return `<path d="${d2}"`;
     });

@@ -9,7 +9,7 @@ describe('TablerIconComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   const getSvgAttr = (attr: string) =>
     fixture.nativeElement.querySelector('svg').getAttribute(attr);
-  let icon: TablerIcon = {
+  const icon: TablerIcon = {
     name: 'test',
     type: 'outline',
     nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]],
