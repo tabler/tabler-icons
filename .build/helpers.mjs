@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import svgParse from 'parse-svg-path';
 import svgpath from 'svgpath';
 import { load as cheerioLoad } from 'cheerio';
-import { minify } from 'html-minifier';
 import { parseSync } from 'svgson';
 import { optimize } from 'svgo';
 import cp from 'child_process';
@@ -385,7 +384,10 @@ export function buildIconsObject(svgFiles, getSvg) {
 
 function getSvgContents(svg) {
   const $ = cheerioLoad(svg);
-  return minify($('svg').html(), { collapseWhitespace: true });
+  return $('svg')
+    .html()
+    .replace(/>\s+</g, '><')
+    .trim();
 }
 
 export const asyncForEach = async (array, callback) => {
