@@ -66,6 +66,11 @@ jobs:
           ICONS_LIMIT: 100
         run: pnpm run build
 
+      - name: Check image packages
+        env:
+          ICONS_LIMIT: 100
+        run: pnpm --filter @tabler/icons-png --filter @tabler/icons-pdf --filter @tabler/icons-eps run check
+
       # The demo apps in test/test-* have no test script and import icons outside
       # the ICONS_LIMIT subset, so only the packages and the two guard suites are
       # selected. @tabler/icons-angular runs in headless Chrome via Karma, which
