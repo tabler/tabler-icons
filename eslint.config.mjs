@@ -1,6 +1,9 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import vue from 'eslint-plugin-vue';
+import svelte from 'eslint-plugin-svelte';
+import astro from 'eslint-plugin-astro';
 import prettier from 'eslint-config-prettier';
 
 export default tseslint.config(
@@ -30,6 +33,16 @@ export default tseslint.config(
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
+  ...vue.configs['flat/recommended'],
+  ...svelte.configs.recommended,
+  ...astro.configs.recommended,
+  {
+    // TypeScript inside single-file components
+    files: ['**/*.vue', '**/*.svelte'],
+    languageOptions: {
+      parserOptions: { parser: tseslint.parser },
+    },
+  },
   {
     languageOptions: {
       globals: { ...globals.node, ...globals.browser },

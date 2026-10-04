@@ -31,6 +31,13 @@ module.exports = function (config) {
     },
     reporters: ['progress', 'kjhtml'],
     browsers: ['Chrome'],
+    customLaunchers: {
+      // used by `pnpm test`; the sandbox is not available on CI runners
+      ChromeHeadlessTest: {
+        base: 'ChromeHeadless',
+        flags: process.env.CI ? ['--no-sandbox'] : [],
+      },
+    },
     restartOnFileChange: true,
   });
 };
