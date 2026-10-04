@@ -110,6 +110,11 @@ export function removeComments(svgBuffer) {
   return svgBuffer;
 }
 
+// svg2ttf stamps fonts with the current time by default, which makes every
+// build produce different binaries. Use a fixed timestamp (overridable with
+// SOURCE_DATE_EPOCH) so identical icons give identical font files.
+const FONT_TIMESTAMP = process.env.SOURCE_DATE_EPOCH || 0;
+
 export function calculateHash(content) {
   return crypto.createHash('sha1').update(content).digest('hex');
 }
@@ -120,7 +125,7 @@ export async function generateFont(strokeName, type, DIR) {
     path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
   );
   const svgFontFileSource = await buildSvgFont(svgFiles);
-  const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
+  const ttfFile = Buffer.from(svg2ttf(svgFontFileSource, { ts: FONT_TIMESTAMP }).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
