@@ -29,7 +29,7 @@
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
-    "generate-preview": "pnpm run preview-icons && pnpm run preview-stroke",
+    "generate-preview": "pnpm run generate-preview-icons && pnpm run generate-preview-stroke",
     "generate-preview-icons": "node ./.build/preview-icons.mjs",
     "generate-preview-random-icons": "node ./.build/preview-random-icons.mjs",
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
