@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './setupVitest.ts',
+    setupFiles: '../../.build/vitest-setup.mjs',
   },
   resolve: {
     conditions: ['browser'],

@@ -35,7 +35,7 @@
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --verbose",
-    "build:packages": "pnpm --filter './packages/*' --workspace-concurrency=8 run build",
+    "build:packages": "turbo run build --filter='./packages/*'",
     "build:icons": "pnpm --filter @tabler/icons build",
     "build:angular": "pnpm --filter @tabler/icons-angular build",
     "build:react": "pnpm --filter @tabler/icons-react build",
