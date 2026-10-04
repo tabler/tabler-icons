@@ -3,9 +3,24 @@
   "globalEnv": ["ICONS_LIMIT"],
   "tasks": {
     "build": {
-      "outputs": ["dist/**", "src/icons/**", "icons/**", "icons.json", "tabler-nodes-*.json", "categories/**", "docs/**"],
+      "outputs": [
+        "dist/**",
+        "src/icons/**",
+        "icons/**",
+        "icons.json",
+        "tabler-nodes-*.json",
+        "categories/**",
+        "docs/**"
+      ],
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", "../../icons/**", "../../aliases.json", "../../.build/**", "!../../.build/**/*.test.mjs", "../../LICENSE"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../../icons/**",
+        "../../aliases.json",
+        "../../.build/**",
+        "!../../.build/**/*.test.mjs",
+        "../../LICENSE"
+      ]
     },
     "lint": {},
     "dev": {

@@ -1,5 +1,5 @@
-import type { SvelteComponent } from "svelte";
-import type { SVGAttributes, SvelteHTMLElements } from "svelte/elements";
+import type { SvelteComponent } from 'svelte';
+import type { SVGAttributes, SvelteHTMLElements } from 'svelte/elements';
 
 export type Attrs = SVGAttributes<SVGSVGElement>;
 

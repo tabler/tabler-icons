@@ -16,7 +16,12 @@ const node: IconNode = [
 
 // Building a component exercises the createElement overloads that IconNode feeds.
 const OutlineIcon: TablerIcon = createReactComponent('outline', 'accessible', 'Accessible', node);
-const FilledIcon: TablerIcon = createReactComponent('filled', 'accessible-filled', 'AccessibleFilled', node);
+const FilledIcon: TablerIcon = createReactComponent(
+  'filled',
+  'accessible-filled',
+  'AccessibleFilled',
+  node,
+);
 
 // A TablerIcon must remain assignable to the looser Icon alias.
 const asIcon: Icon = OutlineIcon;

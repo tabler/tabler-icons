@@ -17,7 +17,7 @@ export const strokes = {
   200: 1,
   300: 1.5,
   400: 2,
-}
+};
 
 export const categories = [
   'Animals',
@@ -60,8 +60,8 @@ export const categories = [
   'Vehicles',
   'Version control',
   'Weather',
-  'Zodiac'
-]
+  'Zodiac',
+];
 
 export const iconTemplate = (type) =>
   type === 'outline'
@@ -299,50 +299,53 @@ export const optimizePath = function (path) {
     .join('');
 };
 
-const CLOSE_PATH_EPSILON = 0.001
+const CLOSE_PATH_EPSILON = 0.001;
 
 // Outline icons must not contain the closepath command. `z` draws a straight
 // line back to the subpath start, so it can only be dropped when the path
 // already ends there — otherwise it is replaced with an explicit line to keep
 // the geometry identical (with round caps/joins both render the same).
 export const removeClosePath = (d) => {
-  const path = svgpath(d).abs().unshort()
+  const path = svgpath(d).abs().unshort();
 
-  let cx = 0, cy = 0, sx = 0, sy = 0
-  const segments = []
+  let cx = 0,
+    cy = 0,
+    sx = 0,
+    sy = 0;
+  const segments = [];
 
-  path.segments.forEach(segment => {
-    const [command, ...args] = segment
+  path.segments.forEach((segment) => {
+    const [command, ...args] = segment;
 
     if (command === 'Z') {
       if (Math.abs(cx - sx) > CLOSE_PATH_EPSILON || Math.abs(cy - sy) > CLOSE_PATH_EPSILON) {
-        segments.push(['L', sx, sy])
+        segments.push(['L', sx, sy]);
       }
-      cx = sx
-      cy = sy
-      return
+      cx = sx;
+      cy = sy;
+      return;
     }
 
     if (command === 'M') {
-      sx = args[0]
-      sy = args[1]
+      sx = args[0];
+      sy = args[1];
     }
 
     if (command === 'H') {
-      cx = args[0]
+      cx = args[0];
     } else if (command === 'V') {
-      cy = args[0]
+      cy = args[0];
     } else {
-      cx = args[args.length - 2]
-      cy = args[args.length - 1]
+      cx = args[args.length - 2];
+      cy = args[args.length - 1];
     }
 
-    segments.push(segment)
-  })
+    segments.push(segment);
+  });
 
-  path.segments = segments
-  return path.toString()
-}
+  path.segments = segments;
+  return path.toString();
+};
 
 export const optimizeSVG = (data) => {
   return optimize(data, {
@@ -384,10 +387,7 @@ export function buildIconsObject(svgFiles, getSvg) {
 
 function getSvgContents(svg) {
   const $ = cheerioLoad(svg);
-  return $('svg')
-    .html()
-    .replace(/>\s+</g, '><')
-    .trim();
+  return $('svg').html().replace(/>\s+</g, '><').trim();
 }
 
 export const asyncForEach = async (array, callback) => {

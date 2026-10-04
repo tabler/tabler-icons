@@ -10,7 +10,15 @@ const createReactComponent = (
 ) => {
   const Component = forwardRef<SVGSVGElement, IconProps>(
     (
-      { color = 'currentColor', size = 24, stroke = 2, title, className, children, ...rest }: IconProps,
+      {
+        color = 'currentColor',
+        size = 24,
+        stroke = 2,
+        title,
+        className,
+        children,
+        ...rest
+      }: IconProps,
       ref,
     ) =>
       createElement(
@@ -20,7 +28,9 @@ const createReactComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
-          className: [`tabler-icon`, `tabler-icon-${iconName}`, className].filter(Boolean).join(' '),
+          className: [`tabler-icon`, `tabler-icon-${iconName}`, className]
+            .filter(Boolean)
+            .join(' '),
           ...(type === 'filled'
             ? {
                 fill: color,

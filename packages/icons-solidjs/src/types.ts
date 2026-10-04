@@ -1,7 +1,7 @@
-import { JSX } from "solid-js/jsx-runtime";
+import { JSX } from 'solid-js/jsx-runtime';
 
-export type IconNode = [elementName: keyof JSX.IntrinsicElements, attrs: Record<string, string>][]
-export type SVGAttributes = Partial<JSX.SvgSVGAttributes<SVGSVGElement>>
+export type IconNode = [elementName: keyof JSX.IntrinsicElements, attrs: Record<string, string>][];
+export type SVGAttributes = Partial<JSX.SvgSVGAttributes<SVGSVGElement>>;
 
 export interface IconProps extends SVGAttributes {
   key?: string | number;

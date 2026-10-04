@@ -1,28 +1,29 @@
-import { readFileSync, existsSync, writeFileSync } from 'fs'
-import { glob } from 'glob'
-import { resolve, basename } from 'path'
-import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './helpers.mjs'
+import { readFileSync, existsSync, writeFileSync } from 'fs';
+import { glob } from 'glob';
+import { resolve, basename } from 'path';
+import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './helpers.mjs';
 
-types.forEach(type => {
-  const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`))
+types.forEach((type) => {
+  const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`));
 
   files.forEach(function (file, i) {
     let fileData = readFileSync(file).toString(),
-      filename = basename(file, '.svg')
+      filename = basename(file, '.svg');
 
-    console.log(`${type}/${filename}`)
+    console.log(`${type}/${filename}`);
 
-    fileData = optimizeSVG(fileData)
+    fileData = optimizeSVG(fileData);
 
     if (fileData.match(/transform="/)) {
-      throw new Error(`File ${file} has \`transform\` in code!!`)
+      throw new Error(`File ${file} has \`transform\` in code!!`);
     }
 
     if (filename.match(/\s/)) {
-      throw new Error(`File ${file} has space in name!!`)
+      throw new Error(`File ${file} has space in name!!`);
     }
 
-    fileData = fileData.replace(/---/g, '')
+    fileData = fileData
+      .replace(/---/g, '')
       .replace(/fill="none"/g, '')
       .replace(/fill="#D8D8D8"/gi, '')
       .replace(/fill-rule="evenodd"/g, '')
@@ -46,18 +47,20 @@ types.forEach(type => {
       .replace(/<path[^>]*fill="red"[^>]*\/>/gs, '')
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
       .replace(/<title[^>]*>.*?<\/title>/gs, '')
-      .replace(/<svg\s+>/gs, '<svg>')
+      .replace(/<svg\s+>/gs, '<svg>');
 
     if (type === 'outline') {
-      fileData = fileData.replace(/(<path[^>]*\sd=")([^"]+)(")/g, (_, pre, d, post) => pre + removeClosePath(d) + post)
+      fileData = fileData.replace(
+        /(<path[^>]*\sd=")([^"]+)(")/g,
+        (_, pre, d, post) => pre + removeClosePath(d) + post,
+      );
     }
 
-    fileData = optimizeSVG(fileData)
+    fileData = optimizeSVG(fileData);
 
+    fileData = fileData.replace(/<svg>/g, `<!--\n-->\n${iconTemplate(type)}`);
 
-    fileData = fileData.replace(/<svg>/g, `<!--\n-->\n${iconTemplate(type)}`)
-
-    if (type == "filled") {
+    if (type == 'filled') {
       fileData = fileData
         .replace('stroke-width="2"', '')
         .replace('stroke-linecap="round"', '')
@@ -65,25 +68,22 @@ types.forEach(type => {
         .replace('stroke="currentColor"', '')
         .replace('fill="none"', 'fill="currentColor"')
         // remove empty lines
-        .replace(/^\s*[\r\n]/gm, '')
+        .replace(/^\s*[\r\n]/gm, '');
     }
 
     if (existsSync(`./icons/${type}/${filename}.svg`)) {
-      const newFileData = readFileSync(`./icons/${type}/${filename}.svg`).toString()
-      const m = newFileData.match(/(<!--.*-->)/gms)
+      const newFileData = readFileSync(`./icons/${type}/${filename}.svg`).toString();
+      const m = newFileData.match(/(<!--.*-->)/gms);
 
       if (m) {
-        fileData = fileData.replace('<!--\n-->', m[0])
+        fileData = fileData.replace('<!--\n-->', m[0]);
       }
     } else if (filename.match(/\-filled$/)) {
-      fileData = fileData
-        .replace(/<!--\n-->/g, '<!--\ncategory: Filled\n-->')
+      fileData = fileData.replace(/<!--\n-->/g, '<!--\ncategory: Filled\n-->');
     } else if (filename.match(/brand\-/)) {
-      fileData = fileData
-        .replace(/<!--\n-->/g, '<!--\ncategory: Brand\n-->')
+      fileData = fileData.replace(/<!--\n-->/g, '<!--\ncategory: Brand\n-->');
     }
 
-
-    writeFileSync(`./icons/${type}/${filename}.svg`, fileData)
-  })
-})
+    writeFileSync(`./icons/${type}/${filename}.svg`, fileData);
+  });
+});

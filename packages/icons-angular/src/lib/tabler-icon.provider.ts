@@ -19,12 +19,12 @@ export class TablerIconProvider implements ITablerIconProvider {
 }
 
 export const TABLER_ICONS = new InjectionToken<ITablerIconProvider[]>('TablerIcons', {
-  factory: () => []
+  factory: () => [],
 });
 
 /**
  * Provides a set of Tabler icons to the application.
- * 
+ *
  * @example
  * ```ts
  * bootstrapApplication(AppComponent, {
@@ -39,7 +39,7 @@ export function provideTablerIcons(icons: TablerIcons): EnvironmentProviders {
     {
       provide: TABLER_ICONS,
       multi: true,
-      useValue: new TablerIconProvider(icons)
-    }
+      useValue: new TablerIconProvider(icons),
+    },
   ]);
 }
