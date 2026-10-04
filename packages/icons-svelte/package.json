@@ -32,11 +32,13 @@
     },
     "./icons": {
       "types": "./dist/tabler-icons-svelte.d.ts",
-      "svelte": "./dist/tabler-icons-svelte.js"
+      "svelte": "./dist/tabler-icons-svelte.js",
+      "default": "./dist/tabler-icons-svelte.js"
     },
     "./icons/*": {
       "types": "./dist/icons/*.svelte.d.ts",
-      "svelte": "./dist/icons/*.svelte"
+      "svelte": "./dist/icons/*.svelte",
+      "default": "./dist/icons/*.svelte"
     }
   },
   "sideEffects": false,
