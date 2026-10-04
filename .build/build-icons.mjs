@@ -6,12 +6,20 @@ import { stringify } from 'svgson';
 /**
  * Build icons
  *
- * @param name
- * @param componentTemplate
- * @param indexIconTemplate
- * @param indexTypeTemplate
- * @param extension
- * @param pretty
+ * @param name package directory name inside `packages/`, e.g. `icons-react`
+ * @param componentTemplate returns the source of a single icon module; called
+ *   with `{ type, name, namePascal, children, stringify, svg }`
+ * @param indexItemTemplate returns the line re-exporting an icon from the
+ *   icons index; called with `{ type, name, namePascal, svg }`
+ * @param aliasTemplate returns the line exporting an alias in
+ *   `src/aliases.ts`; called with `{ from, to, fromPascal, toPascal }`. When
+ *   omitted, the aliases file is left empty
+ * @param extension extension of the generated icon modules
+ * @param key add a `key` attribute (`svg-0`, `svg-1`, …) to every icon node
+ * @param pascalCase rename `stroke-width` to `strokeWidth` in icon nodes
+ * @param pascalName name icon modules `Icon<PascalName>` instead of the
+ *   kebab-case icon name
+ * @param indexFile file name of the icons index inside `src/icons`
  * @param dtsEntry generate `src/icons-dts`, a single-module stand-in for the
  *   icon modules that the declaration bundle is built from (see `iconsDts`
  *   in rollup-plugins.mjs)
