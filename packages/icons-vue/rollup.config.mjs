@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { getRollupConfig } from '../../.build/rollup-plugins.mjs'
+import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs'
 import dts from "rollup-plugin-dts";
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
@@ -30,6 +30,7 @@ export default [
       },
     ],
     plugins: [
+      iconsDts(),
       dts({
         compilerOptions: {
           preserveSymlinks: false

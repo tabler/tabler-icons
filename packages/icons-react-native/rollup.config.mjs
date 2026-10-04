@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { getRollupConfig } from '../../.build/rollup-plugins.mjs';
+import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
 import dts from 'rollup-plugin-dts';
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
@@ -30,7 +30,7 @@ export default [
         format: 'es',
       },
     ],
-    plugins: [dts()],
+    plugins: [iconsDts(), dts()],
   },
   {
     input: './src/icons/index.ts',
@@ -49,26 +49,14 @@ export default [
           emitDeclarationOnly: true,
         },
       }),
-    ],
-    external: ['react', 'react-native-svg'],
-  },
-  {
-    input: './src/icons/index.ts',
-    output: [
+      // The CJS build ships the same per-icon declarations — copy them
+      // instead of emitting every icon a second time.
       {
-        dir: 'dist/cjs/icons',
-        format: 'es',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-      },
-    ],
-    plugins: [
-      dts({
-        compilerOptions: {
-          declaration: true,
-          emitDeclarationOnly: true,
+        name: 'copy-icons-dts-to-cjs',
+        writeBundle() {
+          fs.cpSync('dist/icons', 'dist/cjs/icons', { recursive: true });
         },
-      }),
+      },
     ],
     external: ['react', 'react-native-svg'],
   },
