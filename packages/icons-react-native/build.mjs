@@ -1,22 +1,16 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
+import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
 
-const componentTemplate = ({
-  type,
-  name,
-  namePascal,
-  children
-}) => `\
+const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createReactNativeComponent from '../createReactNativeComponent';
 export default createReactNativeComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as Icon${namePascal} } from './Icon${namePascal}';`
+const indexItemTemplate = ({ namePascal }) =>
+  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 
-const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
+const aliasTemplate = ({ fromPascal, toPascal }) =>
+  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
 
 buildJsIcons({
   dtsEntry: true,
@@ -26,7 +20,7 @@ buildJsIcons({
   aliasTemplate,
   indexFile: 'index.ts',
   pascalCase: true,
-  extension: 'ts'
-})
+  extension: 'ts',
+});
 
-buildIconsList('icons-react-native')
+buildIconsList('icons-react-native');

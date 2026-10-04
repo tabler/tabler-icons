@@ -1,8 +1,8 @@
-import fs from 'fs'
-import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs'
-import dts from "rollup-plugin-dts";
+import fs from 'fs';
+import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
+import dts from 'rollup-plugin-dts';
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 const outputFileName = 'tabler-icons-vue';
 const inputs = ['./src/tabler-icons-vue.ts'];
@@ -33,12 +33,12 @@ export default [
       iconsDts(),
       dts({
         compilerOptions: {
-          preserveSymlinks: false
-        }
-      })
+          preserveSymlinks: false,
+        },
+      }),
     ],
   },
   ...getRollupConfig(pkg, outputFileName, bundles, {
     vue: 'vue',
-  })
+  }),
 ];

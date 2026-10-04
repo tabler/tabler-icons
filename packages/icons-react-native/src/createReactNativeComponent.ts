@@ -10,10 +10,13 @@ const createReactNativeComponent = (
   iconNode: IconNode,
 ): Icon => {
   const Component = forwardRef<SVGSVGElement, IconProps>(
-    ({ color = 'currentColor', size = 24, strokeWidth = 2, title, children, ...rest }: IconProps, ref) => {
+    (
+      { color = 'currentColor', size = 24, strokeWidth = 2, title, children, ...rest }: IconProps,
+      ref,
+    ) => {
       const customAttrs = {
-        stroke: type === "filled" ? "none" : color,
-        fill: type === "filled" ? color : "none",
+        stroke: type === 'filled' ? 'none' : color,
+        fill: type === 'filled' ? color : 'none',
         strokeWidth,
         ...rest,
       };
@@ -40,7 +43,7 @@ const createReactNativeComponent = (
           }),
           [
             title && createElement('title', { key: 'svg-title' }, title),
-            ...((Array.isArray(children) ? children : [children]) || [])
+            ...((Array.isArray(children) ? children : [children]) || []),
           ],
         ],
       );

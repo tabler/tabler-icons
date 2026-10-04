@@ -5,23 +5,23 @@ import { globSync } from 'glob';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import crypto from 'crypto';
 import { Eta } from 'eta';
-import svg2ttf from "svg2ttf";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
+import svg2ttf from 'svg2ttf';
+import ttf2woff from 'ttf2woff';
+import wawoff2 from 'wawoff2';
 
 // Create Eta instance
-const eta = new Eta({ 
-  autoEscape: false
+const eta = new Eta({
+  autoEscape: false,
 });
 
 // Get aliases
-const aliases = getAliases(true)
+const aliases = getAliases(true);
 
-const packageJson = getPackageJson()
+const packageJson = getPackageJson();
 
 // Template function compatible with lodash.template API
 function template(templateString) {
-  return function(data) {
+  return function (data) {
     return eta.renderString(templateString, data);
   };
 }
@@ -45,7 +45,7 @@ function getMetadataFromSvgName(name) {
   return {
     unicode: [unicodeChar],
     name: iconName,
-  }
+  };
 }
 
 /**
@@ -54,9 +54,11 @@ function getMetadataFromSvgName(name) {
  * @return {Promise<Svgicons2svgfontStream[]>}
  */
 export async function loadSvgFiles(path) {
-  const svgFiles = await fsPromises.readdir(path).then(files => files.filter(file => file.endsWith('.svg')));
+  const svgFiles = await fsPromises
+    .readdir(path)
+    .then((files) => files.filter((file) => file.endsWith('.svg')));
   svgFiles.sort();
-  return svgFiles.map(file => {
+  return svgFiles.map((file) => {
     /** @type {Svgicons2svgfontStream} */
     const stream = createReadStream(`${path}/${file}`);
     stream.metadata = getMetadataFromSvgName(file);
@@ -70,7 +72,7 @@ export async function loadSvgFiles(path) {
  * @return {Promise<string>}
  */
 export async function buildSvgFont(svgStreams) {
-  const { SVGIcons2SVGFontStream } = await import("svgicons2svgfont");
+  const { SVGIcons2SVGFontStream } = await import('svgicons2svgfont');
   const fontStream = new SVGIcons2SVGFontStream({
     fontName: 'tabler-icons',
     normalize: true,
@@ -82,14 +84,14 @@ export async function buildSvgFont(svgStreams) {
 
   const fontStreamPromise = new Promise((resolve, reject) => {
     const buffers = [];
-    fontStream.on('data', chunk => buffers.push(chunk));
+    fontStream.on('data', (chunk) => buffers.push(chunk));
     fontStream.on('finish', () => {
       resolve(buffers.join(''));
     });
     fontStream.on('error', reject);
   });
 
-  svgStreams.forEach(stream => {
+  svgStreams.forEach((stream) => {
     fontStream.write(stream);
   });
   fontStream.end();
@@ -103,25 +105,26 @@ export function removeComments(svgBuffer) {
   // Using non-greedy match to handle multiline comments
   svgBuffer = svgBuffer.replace(/<!--[\s\S]*?-->/g, '');
 
-  svgBuffer = svgBuffer.replace(blankSquare, '')
+  svgBuffer = svgBuffer.replace(blankSquare, '');
 
   return svgBuffer;
 }
 
 export function calculateHash(content) {
-  return crypto.createHash('sha1').update(content).digest("hex");
+  return crypto.createHash('sha1').update(content).digest('hex');
 }
 
 export async function generateFont(strokeName, type, DIR) {
-
   console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
-  const svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
+  const svgFiles = await loadSvgFiles(
+    path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
+  );
   const svgFontFileSource = await buildSvgFont(svgFiles);
   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
-  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== "400" ? `-${strokeName}` : '') : `-${type}`}`;
+  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== '400' ? `-${strokeName}` : '') : `-${type}`}`;
 
   // Ensure dist/fonts directory exists
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
@@ -131,49 +134,61 @@ export async function generateFont(strokeName, type, DIR) {
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
 
-  const glyphs = svgFiles.map(f => ({
-     ...f.metadata,
-     unicodeHex: f.metadata.unicode && f.metadata.unicode[0] 
-        ? f.metadata.unicode[0].codePointAt(0).toString(16) 
-        : ''
-  }))
-     .sort(function (a, b) {
-        return a.name.localeCompare(b.name)
-     })
+  const glyphs = svgFiles
+    .map((f) => ({
+      ...f.metadata,
+      unicodeHex:
+        f.metadata.unicode && f.metadata.unicode[0]
+          ? f.metadata.unicode[0].codePointAt(0).toString(16)
+          : '',
+    }))
+    .sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
 
   // Convert aliases object to array of {from, to} objects
-  const aliasesArray = aliases[type] ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to })) : []
+  const aliasesArray = aliases[type]
+    ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to }))
+    : [];
 
   const options = {
-     name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
-     fileName,
-     glyphs,
-     v: packageJson.version,
-     aliases: aliasesArray
-  }
+    name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+    fileName,
+    glyphs,
+    v: packageJson.version,
+    aliases: aliasesArray,
+  };
 
   //scss
-  const compiled = template(readFileSync(path.join(DIR, '.build/iconfont.scss')).toString())
-  const resultSCSS = compiled(options)
-  writeFileSync(path.join(DIR, `dist/${fileName}.scss`), resultSCSS)
+  const compiled = template(readFileSync(path.join(DIR, '.build/iconfont.scss')).toString());
+  const resultSCSS = compiled(options);
+  writeFileSync(path.join(DIR, `dist/${fileName}.scss`), resultSCSS);
 
   //html
-  const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString())
-  const resultHtml = compiledHtml(options)
-  writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml)
+  const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString());
+  const resultHtml = compiledHtml(options);
+  writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml);
 }
 
 // Process icons with cache mechanism
-export async function processIcons(files, dirname, type, DIR, strokeName = null, processContentFn = null) {
+export async function processIcons(
+  files,
+  dirname,
+  type,
+  DIR,
+  strokeName = null,
+  processContentFn = null,
+) {
   mkdirSync(dirname, { recursive: true });
 
   let processed = 0;
   let cached = 0;
   const startTime = Date.now();
 
-  const filesList = new Set(files
-    .filter(({ unicode }) => unicode)
-    .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
+  const filesList = new Set(
+    files
+      .filter(({ unicode }) => unicode)
+      .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`),
   );
 
   for (const file of files) {
@@ -188,7 +203,7 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
     try {
       const cachedContent = readFileSync(filePath, 'utf-8');
       let cachedHash = '';
-      const contentWithoutHash = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
+      const contentWithoutHash = cachedContent.replace(/<!--!cache:([a-z0-9]+)-->/, (m, hash) => {
         cachedHash = hash;
         return '';
       });
@@ -220,11 +235,11 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
   }
 
   // Remove old files
-  const globPattern = strokeName 
+  const globPattern = strokeName
     ? path.join(DIR, `icons-outlined/${strokeName}/*.svg`)
     : path.join(DIR, `icons-filled/*.svg`);
-  const existedFiles = (globSync(globPattern)).map(file => path.basename(file));
-  existedFiles.forEach(file => {
+  const existedFiles = globSync(globPattern).map((file) => path.basename(file));
+  existedFiles.forEach((file) => {
     if (!filesList.has(file)) {
       console.log('Remove:', file);
       unlinkSync(path.join(dirname, file));

@@ -8,19 +8,24 @@ import { provideTablerIcons } from './tabler-icon.provider';
 describe('TablerIconComponent', () => {
   let hostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
-  const getSvgAttr = (attr: string) => fixture.nativeElement.querySelector('svg').getAttribute(attr);
-  let icon: TablerIcon = { name: 'test', type: 'filled', nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]] };
-  let icons: TablerIcons = { IconTest: icon };
+  const getSvgAttr = (attr: string) =>
+    fixture.nativeElement.querySelector('svg').getAttribute(attr);
+  const icon: TablerIcon = {
+    name: 'test',
+    type: 'filled',
+    nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]],
+  };
+  const icons: TablerIcons = { IconTest: icon };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TablerIconComponent, TestHostComponent],
-      providers: [provideTablerIcons(icons)]
+      providers: [provideTablerIcons(icons)],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
     hostComponent = fixture.componentInstance;
-  })
+  });
 
   it('should create', () => {
     fixture.detectChanges();
@@ -43,30 +48,25 @@ describe('TablerIconComponent', () => {
     fixture.detectChanges();
     expect(getSvgAttr('height')).toBe(size.toString(10));
     expect(getSvgAttr('width')).toBe(size.toString(10));
-  })
+  });
 
   it('should set color', () => {
     const color = '#abcabc';
     hostComponent.color = color;
     fixture.detectChanges();
     expect(getSvgAttr('fill')).toBe(color);
-  })
+  });
 
   it('should add all classes', () => {
     fixture.detectChanges();
     expect(getSvgAttr('class')).toBe('tabler-icon tabler-icon-test test-class');
-  })
+  });
 
   @Component({
     selector: 'tabler-test',
     imports: [TablerIconComponent],
     template: `
-      <tabler-icon
-        icon="test"
-        [svgClass]="customClass"
-        [color]="color"
-        [size]="size"
-      />
+      <tabler-icon icon="test" [svgClass]="customClass" [color]="color" [size]="size" />
     `,
   })
   class TestHostComponent {
@@ -74,4 +74,4 @@ describe('TablerIconComponent', () => {
     color?: string;
     customClass = 'test-class';
   }
-})
+});

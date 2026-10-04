@@ -1,13 +1,8 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
+import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
 
-const componentTemplate = ({
-  type,
-  name,
-  children,
-  stringify
-}) => {
+const componentTemplate = ({ type, name, children }) => {
   return `\
 <script lang="ts">
 import Icon from '../Icon.svelte';
@@ -23,12 +18,11 @@ const iconNode: IconNode = ${JSON.stringify(children)};
 `;
 };
 
-const aliasTemplate = ({ fromPascal, to }) => `export { default as Icon${fromPascal} } from './icons/${to}.svelte';\n`
+const aliasTemplate = ({ fromPascal, to }) =>
+  `export { default as Icon${fromPascal} } from './icons/${to}.svelte';\n`;
 
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as Icon${namePascal} } from './${name}.svelte';`
+const indexItemTemplate = ({ name, namePascal }) =>
+  `export { default as Icon${namePascal} } from './${name}.svelte';`;
 
 buildJsIcons({
   name: 'icons-svelte',
@@ -39,6 +33,6 @@ buildJsIcons({
   key: false,
   indexFile: 'index.ts',
   pascalName: false,
-})
+});
 
-buildIconsList('icons-svelte')
+buildIconsList('icons-svelte');

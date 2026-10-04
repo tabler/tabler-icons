@@ -1,8 +1,8 @@
-import fs from 'fs'
-import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs'
-import dts from "rollup-plugin-dts";
+import fs from 'fs';
+import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
+import dts from 'rollup-plugin-dts';
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 const outputFileName = 'tabler-icons-preact';
 const inputs = ['./src/tabler-icons-preact.ts'];
@@ -32,6 +32,6 @@ export default [
     plugins: [iconsDts(), dts()],
   },
   ...getRollupConfig(pkg, outputFileName, bundles, {
-    preact: 'preact'
-  })
+    preact: 'preact',
+  }),
 ];

@@ -1,3 +1,3 @@
-import { convertIconsToImages } from '../../.build/helpers.mjs'
+import { convertIconsToImages } from '../../.build/helpers.mjs';
 
-await convertIconsToImages('./icons', 'pdf')
+await convertIconsToImages('./icons', 'pdf');

@@ -26,7 +26,9 @@ const target = path.join(sandbox, 'node_modules', '@tabler', 'icons-react');
 
 const dist = path.join(pkgDir, 'dist');
 if (!fs.existsSync(dist)) {
-  console.error(`@tabler/icons-react is not built (missing ${dist}).\nRun: pnpm --filter @tabler/icons-react build`);
+  console.error(
+    `@tabler/icons-react is not built (missing ${dist}).\nRun: pnpm --filter @tabler/icons-react build`,
+  );
   process.exit(1);
 }
 
@@ -43,11 +45,10 @@ fs.copyFileSync(path.join(root, 'rsc.test.mjs'), path.join(sandbox, 'rsc.test.mj
 
 let failed = false;
 try {
-  execFileSync(
-    process.execPath,
-    ['--conditions=react-server', '--test', 'rsc.test.mjs'],
-    { cwd: sandbox, stdio: 'inherit' },
-  );
+  execFileSync(process.execPath, ['--conditions=react-server', '--test', 'rsc.test.mjs'], {
+    cwd: sandbox,
+    stdio: 'inherit',
+  });
 } catch {
   failed = true;
 }

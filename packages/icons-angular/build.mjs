@@ -11,15 +11,14 @@ const ${namePascal}: TablerIcon = {
   nodes: ${nodes}
 };
 
-export default ${namePascal};`
+export default ${namePascal};`;
 };
 
-const indexItemTemplate = ({
-                             _,
-                             namePascal
-                           }) => `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
+const indexItemTemplate = ({ _, namePascal }) =>
+  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
 
-const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
+const aliasTemplate = ({ fromPascal, toPascal }) =>
+  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
 
 buildJsIcons({
   name: 'icons-angular',
@@ -29,5 +28,5 @@ buildJsIcons({
   indexFile: 'index.ts',
   pascalCase: true,
   extension: 'ts',
-  pretty: false
+  pretty: false,
 });

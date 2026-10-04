@@ -36,8 +36,7 @@ const createSolidComponent = (
             }
           : {
               stroke: localProps.color != null ? localProps.color : 'currentColor',
-              'stroke-width':
-                strokeValue != null ? strokeValue : attributes['stroke-width'],
+              'stroke-width': strokeValue != null ? strokeValue : attributes['stroke-width'],
             })}
       >
         {localProps.title != null && <title>{localProps.title}</title>}
