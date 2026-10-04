@@ -39,17 +39,13 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
 
-      - name: Install system dependencies for canvas and rsvg-convert
+      # Only `rsvg-convert` is needed (PNG/PDF/EPS packages and preview images).
+      # `canvas` is merely an optional peer dependency of jsdom and is not installed.
+      - name: Install rsvg-convert
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            build-essential \
-            libcairo2-dev \
-            libpango1.0-dev \
-            libjpeg-dev \
-            libgif-dev \
-            librsvg2-dev \
-            librsvg2-bin
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+          rsvg-convert --version
 
       - name: Get pnpm store directory
         shell: bash
