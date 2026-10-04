@@ -30,6 +30,7 @@ const indexItemTemplate = ({
 const aliasTemplate = ({ fromPascal, to }) => `export { default as Icon${fromPascal} } from './icons/${to}';\n`
 
 buildJsIcons({
+  dtsEntry: true,
   name: 'icons-astro',
   componentTemplate,
   indexItemTemplate,

@@ -19,6 +19,7 @@ const indexItemTemplate = ({
 const aliasTemplate = ({ fromPascal, toPascal }) => `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`
 
 buildJsIcons({
+  dtsEntry: true,
   name: 'icons-preact',
   componentTemplate,
   indexItemTemplate,
