@@ -40,7 +40,7 @@
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
     "typecheck": "tsc",
-    "test": "ng test --no-watch --no-progress",
+    "test": "ng test --no-watch --no-progress --browsers=ChromeHeadlessTest",
     "test:watch": "ng test"
   },
   "main": "./dist/fesm2022/tabler-icons-angular.mjs",
