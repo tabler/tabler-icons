@@ -2,6 +2,33 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import license from 'rollup-plugin-license'
 import esbuild from 'rollup-plugin-esbuild'
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import path from 'path';
+
+/**
+ * For the declaration bundle only: resolve the icons index and the aliases to
+ * the generated `src/icons-dts` modules (see `buildDtsEntry` in
+ * build-icons.mjs), so rollup-plugin-dts emits declarations for one module
+ * instead of one per icon. Must be placed before `dts()`.
+ */
+export const iconsDts = (srcDir = 'src') => {
+  const src = path.resolve(srcDir);
+  const redirects = {
+    [path.join(src, 'icons')]: path.join(src, 'icons-dts/index.ts'),
+    [path.join(src, 'icons/index')]: path.join(src, 'icons-dts/index.ts'),
+    [path.join(src, 'aliases')]: path.join(src, 'icons-dts/aliases.ts'),
+  };
+
+  return {
+    name: 'icons-dts',
+    resolveId(source, importer) {
+      if (!importer || !source.startsWith('.')) {
+        return null;
+      }
+
+      return redirects[path.resolve(path.dirname(importer), source)] ?? null;
+    },
+  };
+};
 
 const getRollupPlugins = (pkg, minify) => {
   return [

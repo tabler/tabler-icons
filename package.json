@@ -32,7 +32,7 @@
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "release": "git pull && GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --verbose",
-    "build:packages": "pnpm run build:icons && pnpm run build:sprite && pnpm run build:react && pnpm run build:react-native && pnpm run build:preact && pnpm run build:solidjs && pnpm run build:astro && pnpm run build:svelte && pnpm run build:svelte-runes && pnpm run build:vue && pnpm run build:angular && pnpm run build:png && pnpm run build:pdf && pnpm run build:esp && pnpm run build:webfont",
+    "build:packages": "pnpm --filter './packages/*' --workspace-concurrency=8 run build",
     "build:icons": "pnpm --filter @tabler/icons build",
     "build:angular": "pnpm --filter @tabler/icons-angular build",
     "build:react": "pnpm --filter @tabler/icons-react build",
