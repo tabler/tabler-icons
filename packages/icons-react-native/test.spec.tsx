@@ -61,6 +61,31 @@ describe('React Native Icon component', () => {
     expect(svg.getAttribute('opacity')).toBe('0.5');
   });
 
+  it('should not repeat other props on the icon nodes', () => {
+    const { container } = render(<IconAccessible opacity={0.5} accessibilityLabel="icon" />);
+    const paths = Array.from(container.getElementsByTagName('path'));
+
+    expect(paths.length).toBe(3);
+    paths.forEach((path) => {
+      expect(path.getAttribute('opacity')).toBe(null);
+      expect(path.getAttribute('accessibilityLabel')).toBe(null);
+    });
+  });
+
+  it('should still apply explicit stroke and fill props to the svg and its nodes', () => {
+    const { container } = render(
+      <IconAccessible stroke="blue" fill="yellow" strokeLinecap="square" />,
+    );
+    const svg = container.getElementsByTagName('svg')[0];
+    const path = container.getElementsByTagName('path')[0];
+
+    expect(svg.getAttribute('stroke')).toBe('blue');
+    expect(svg.getAttribute('fill')).toBe('yellow');
+    expect(path.getAttribute('stroke')).toBe('blue');
+    expect(path.getAttribute('fill')).toBe('yellow');
+    expect(path.getAttribute('stroke-linecap')).toBe('square');
+  });
+
   it('should render children after the icon nodes', () => {
     const { container } = render(
       <IconAccessible>
