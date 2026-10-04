@@ -98,9 +98,6 @@ importers:
       cheerio:
         specifier: ^1.0.0
         version: 1.2.0
-      dotenv:
-        specifier: ^18.0.4
-        version: 18.0.4
       esbuild:
         specifier: ^0.28.2
         version: 0.28.2
@@ -5576,11 +5573,6 @@ packages:
   dotenv@17.4.2:
     resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
-
-  dotenv@18.0.4:
-    resolution: {integrity: sha512-jGt9uI5BIxpVO15kvy+iEFqNAwxYClKWnkptLjSNPnFLC003Imd0ofr3aEVsbpHdSBdSsbcApNIlz4nbyGMwdA==}
-    engines: {node: '>=12'}
-    hasBin: true
 
   dset@3.1.4:
     resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==}
@@ -15511,8 +15503,6 @@ snapshots:
       domhandler: 5.0.3
 
   dotenv@17.4.2: {}
-
-  dotenv@18.0.4: {}
 
   dset@3.1.4: {}
 
