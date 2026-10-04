@@ -48,8 +48,6 @@ export default tseslint.config(
       globals: { ...globals.node, ...globals.browser },
     },
     rules: {
-      // the public icon types are intentionally loose
-      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -59,6 +57,21 @@ export default tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
+    },
+  },
+  {
+    // icon nodes are a static list, so the each block does not need a key;
+    // configured here because these files are published as they are
+    files: ['packages/icons-svelte*/src/Icon.svelte'],
+    rules: {
+      'svelte/require-each-key': 'off',
+    },
+  },
+  {
+    // tests pass deliberately invalid values and loosely typed fixtures
+    files: ['**/*.spec.{ts,tsx}', '**/vitest-setup.d.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {

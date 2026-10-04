@@ -100,7 +100,7 @@ export const PACKAGES_DIR = resolve(HOME_DIR, 'packages');
 export const GITHUB_DIR = resolve(HOME_DIR, '.github');
 
 export const parseMatter = (icon) => {
-  const { data, content } = matter.read(icon, { delims: ['<!--', '-->'] });
+  const { data, content } = matter.read(icon, { delimiters: ['<!--', '-->'] });
 
   return { data, content };
 };
@@ -270,7 +270,9 @@ const CLOSE_PATH_EPSILON = 0.001;
 // already ends there — otherwise it is replaced with an explicit line to keep
 // the geometry identical (with round caps/joins both render the same).
 export const removeClosePath = (d) => {
-  const path = svgpath(d).abs().unshort();
+  // `segments` is not part of svgpath's public typings
+  /** @type {ReturnType<typeof svgpath> & { segments: any[][] }} */
+  const path = /** @type {any} */ (svgpath(d).abs().unshort());
 
   let cx = 0,
     cy = 0,

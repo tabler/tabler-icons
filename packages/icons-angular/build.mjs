@@ -28,5 +28,4 @@ buildJsIcons({
   indexFile: 'index.ts',
   pascalCase: true,
   extension: 'ts',
-  pretty: false,
 });

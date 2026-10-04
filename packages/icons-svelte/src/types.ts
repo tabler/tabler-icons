@@ -13,6 +13,8 @@ export interface IconProps extends Attrs {
 }
 
 type IconEvents = {
+  // matches the default events type of `SvelteComponent`
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [evt: string]: CustomEvent<any>;
 };
 

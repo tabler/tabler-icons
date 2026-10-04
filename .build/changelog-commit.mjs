@@ -2,28 +2,15 @@ import cp from 'child_process';
 import { printChangelog } from './helpers.mjs';
 
 cp.exec('git status', function (err, ret) {
-  let newIcons = [],
-    modifiedIcons = [],
-    renamedIcons = [];
+  const newIcons = [...ret.matchAll(/new file:\s+icons\/([a-z0-9-/]+)\.svg/g)].map((m) => m[1]);
 
-  ret.replace(/new file:\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
-    newIcons.push(fileName);
-  });
+  const modifiedIcons = [...ret.matchAll(/modified:\s+icons\/([a-z0-9-/]+)\.svg/g)]
+    .map((m) => m[1])
+    .filter((icon) => !newIcons.includes(icon));
 
-  ret.replace(/modified:\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
-    modifiedIcons.push(fileName);
-  });
-
-  ret.replace(
-    /renamed:\s+icons\/([a-z0-9-/]+).svg -> icons\/([a-z0-9-/]+).svg/g,
-    function (m, fileNameBefore, fileNameAfter) {
-      renamedIcons.push([fileNameBefore, fileNameAfter]);
-    },
-  );
-
-  modifiedIcons = modifiedIcons.filter(function (el) {
-    return newIcons.indexOf(el) < 0;
-  });
+  const renamedIcons = [
+    ...ret.matchAll(/renamed:\s+icons\/([a-z0-9-/]+).svg -> icons\/([a-z0-9-/]+).svg/g),
+  ].map((m) => [m[1], m[2]]);
 
   printChangelog(newIcons, modifiedIcons, renamedIcons);
 });

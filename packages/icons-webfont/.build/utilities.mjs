@@ -27,13 +27,13 @@ function template(templateString) {
 }
 
 /**
- * @typedef {stream.Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
+ * @typedef {import('node:stream').Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
  */
 
 /**
  *
  * @param name {string} name
- * @return {import('svgicons2svgfont').FileMetadata}
+ * @return {{ unicode: string[], name: string }}
  */
 function getMetadataFromSvgName(name) {
   // we process uUnicode-Name.svg
