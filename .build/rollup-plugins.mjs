@@ -84,7 +84,10 @@ export const getRollupConfig = (pkg, outputFileName, bundles, globals) => {
                     `${outputDir}/${format}/${outputFileName}${minify ? '.min' : ''}.${extension}`,
                 }),
             format,
-            sourcemap: true,
+            // The output is not minified and mostly generated icon modules, so
+            // source maps add little for debugging but would be about 70% of
+            // the published package size.
+            sourcemap: false,
             preserveModules,
             preserveModulesRoot: 'src',
             globals,
