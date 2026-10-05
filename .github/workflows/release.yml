@@ -101,12 +101,20 @@ jobs:
           } > body.md
           gh pr edit "$PR_NUMBER" --body-file body.md
 
+      # The `published` output of the action stays empty with Changesets 3, which
+      # no longer prints the `New tag:` lines the action looks for. Without
+      # pending changesets the action runs the publish command, so the release is
+      # created whenever it does not exist yet.
       - name: Create GitHub release
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.changesets.outputs.hasChangesets == 'false'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(node -p "require('./packages/icons/package.json').version")
+          if gh release view "v${VERSION}" > /dev/null 2>&1; then
+            echo "Release v${VERSION} already exists"
+            exit 0
+          fi
           node ./.build/release-notes.mjs > notes.md
           # SVG, PNG, PDF, EPS and webfont files built for the published packages
           pnpm run zip
