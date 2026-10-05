@@ -54,6 +54,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Icons are added without changesets. Generating the changeset for the
+      # unreleased ones before the action runs makes any new icon open (or
+      # update) the release pull request as a minor release.
+      - name: Add changeset for new icons
+        run: node ./.build/release-changeset.mjs
+
       - name: Create release pull request or publish
         id: changesets
         uses: changesets/action@v1
