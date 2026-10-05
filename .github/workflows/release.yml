@@ -65,6 +65,20 @@ jobs:
       - name: Add changeset for new icons
         run: node ./.build/release-changeset.mjs
 
+      # Turbo's local cache for a rerun of a failed release: the packages built by
+      # the earlier attempt are restored instead of being rebuilt. Only attempts
+      # of the same commit are restored, the version bump of a new release
+      # changes the inputs of every package anyway. Skipped while changesets are
+      # pending, the packages are built only when they are published.
+      - uses: actions/cache/restore@v6
+        name: Restore turbo cache
+        if: hashFiles('.changeset/*.md', '!.changeset/README.md') == ''
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-release-${{ github.sha }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-release-${{ github.sha }}-
+
       - name: Create release pull request or publish
         id: changesets
         uses: changesets/action@v1
@@ -76,6 +90,16 @@ jobs:
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Saved even when the publish command fails, that is exactly the run whose
+      # rerun needs the cache. Every attempt gets its own key, an existing cache
+      # entry cannot be overwritten.
+      - uses: actions/cache/save@v6
+        name: Save turbo cache
+        if: ${{ !cancelled() && steps.changesets.outputs.hasChangesets == 'false' }}
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-release-${{ github.sha }}-${{ github.run_attempt }}
 
       # Changesets describes every package separately, while GitHub gets a single
       # release for all of them. The description is replaced with a preview of
