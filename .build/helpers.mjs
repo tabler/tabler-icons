@@ -3,6 +3,7 @@ import path, { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { execFile, execFileSync, execSync } from 'child_process';
 import { promisify } from 'util';
+import { availableParallelism } from 'os';
 import svgParse from 'parse-svg-path';
 import svgpath from 'svgpath';
 import { parseSync } from 'svgson';
@@ -483,23 +484,35 @@ export const convertIconsToImages = async (dir, extension, size = 240) => {
     return;
   }
 
+  const jobs = [];
   for (const [type, icons] of Object.entries(getAllIcons())) {
     mkdirSync(path.join(dir, type), { recursive: true });
 
     for (const icon of icons) {
-      const distPath = path.join(dir, type, `${icon.name}.${extension}`);
-
-      await execFileAsync('rsvg-convert', [
-        '-f',
-        extension,
-        '-h',
-        String(size),
-        icon.path,
-        '-o',
-        distPath,
-      ]);
+      jobs.push({ src: icon.path, dest: path.join(dir, type, `${icon.name}.${extension}`) });
     }
   }
+
+  // Each conversion is a separate `rsvg-convert` process, so run as many at a
+  // time as there are CPUs instead of one after another.
+  let next = 0;
+  const worker = async () => {
+    while (next < jobs.length) {
+      const { src, dest } = jobs[next++];
+
+      try {
+        await execFileAsync('rsvg-convert', ['-f', extension, '-h', String(size), src, '-o', dest]);
+      } catch (error) {
+        // stop the other workers from starting new conversions
+        next = jobs.length;
+        throw error;
+      }
+    }
+  };
+
+  await Promise.all(
+    Array.from({ length: Math.min(availableParallelism(), jobs.length) }, () => worker()),
+  );
 };
 
 export const getMaxUnicode = () => {
