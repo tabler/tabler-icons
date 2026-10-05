@@ -35,7 +35,9 @@
     "generate-preview-random-icons": "node ./.build/preview-random-icons.mjs",
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
-    "release": "git pull && GITHUB_TOKEN=${GITHUB_TOKEN:-$(gh auth token)} release-it --verbose",
+    "changeset": "changeset",
+    "version-packages": "node ./.build/release-changeset.mjs && changeset version && node ./.build/release-version.mjs",
+    "release": "pnpm run build:packages && changeset publish",
     "build:packages": "turbo run build --filter='./packages/*'",
     "build:icons": "pnpm --filter @tabler/icons build",
     "build:angular": "pnpm --filter @tabler/icons-angular build",
@@ -58,6 +60,8 @@
     "generate-icons-comment": "node ./.build/generate-icons-comment.mjs"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@eslint/js": "^10.0.1",
     "@rollup/plugin-node-resolve": "catalog:",
     "@testing-library/jest-dom": "catalog:",
@@ -79,7 +83,6 @@
     "minimist": "1.2.8",
     "parse-svg-path": "^0.2.0",
     "prettier": "^3.9.9",
-    "release-it": "21.1.0",
     "rollup": "catalog:",
     "rollup-plugin-dts": "catalog:",
     "rollup-plugin-esbuild": "catalog:",
@@ -96,30 +99,6 @@
     "typescript-eslint": "^8.70.1",
     "vite": "catalog:",
     "vitest": "catalog:"
-  },
-  "release-it": {
-    "npm": false,
-    "hooks": {
-      "before:init": [
-        "npm whoami || (echo 'You are not logged in to npm. Run `npm login` first.' && exit 1)",
-        "gh auth status || (echo 'You are not logged in to GitHub. Run `gh auth login` first.' && exit 1)"
-      ],
-      "after:bump": "npm version ${version} --no-git-tag-version --allow-same-version && pnpm -r --filter './packages/*' exec npm version ${version} --no-git-tag-version --allow-same-version && export LATEST_VERSION=${latestVersion} && export NEW_VERSION=${version} && pnpm run build && pnpm install",
-      "after:github:release": "pnpm -r publish --tag latest --no-git-checks",
-      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
-    },
-    "git": {
-      "addUntrackedFiles": true,
-      "changelog": "LATEST_VERSION=${latestTag} pnpm run --silent changelog",
-      "tagName": "v${version}",
-      "requireBranch": "main",
-      "requireCommits": true,
-      "requireCleanWorkingDir": false
-    },
-    "github": {
-      "release": true,
-      "releaseNotes": "([ -f \".github/tabler-icons-${version}@2x.png\" ] && printf '<img width=\"584\" src=\"https://raw.githubusercontent.com/tabler/tabler-icons/v${version}/.github/tabler-icons-${version}@2x.png\" />\\n\\n' || true) && LATEST_VERSION=${latestTag} pnpm run --silent changelog"
-    }
   },
   "packageManager": "pnpm@10.30.3",
   "pnpm": {

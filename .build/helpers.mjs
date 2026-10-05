@@ -164,6 +164,19 @@ export const getAllIcons = (withContent = false, withObject = false) => {
   return icons;
 };
 
+/**
+ * Icons first released in `version`, i.e. those whose `version` frontmatter is
+ * its minor part (`3.49` for `3.49.0`). Patch releases never add icons.
+ *
+ * @param {string} version
+ */
+export const getIconsReleasedIn = (version) =>
+  Object.entries(getAllIcons()).flatMap(([type, icons]) =>
+    icons
+      .filter((icon) => icon.version && `${icon.version}.0` === version)
+      .map((icon) => ({ ...icon, type })),
+  );
+
 export const getAllIconsMerged = (withContent = false, withObject = false) => {
   const allIcons = getAllIcons(withContent, withObject);
 

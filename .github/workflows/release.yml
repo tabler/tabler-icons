@@ -1,0 +1,100 @@
+name: Release
+
+# On every push to `main` Changesets opens (or updates) the "Version Packages"
+# pull request. Merging it publishes the packages and creates the GitHub release.
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+
+jobs:
+  release:
+    if: github.repository == 'tabler/tabler-icons'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: pnpm/action-setup@v6
+        name: Install pnpm
+
+      # Preview image of the new icons and the PNG/PDF/EPS packages
+      - name: Install rsvg-convert
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v6
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Icons are added without changesets. Generating the changeset for the
+      # unreleased ones before the action runs makes any new icon open (or
+      # update) the release pull request as a minor release.
+      - name: Add changeset for new icons
+        run: node ./.build/release-changeset.mjs
+
+      - name: Create release pull request or publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version-packages
+          publish: pnpm run release
+          title: 'Release'
+          commit: 'Release'
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Changesets builds the description from the changelogs only, so the
+      # preview of the new icons is put on top of it. The image is loaded from
+      # the commit on the release branch, the `v<version>` tag does not exist yet.
+      - name: Add new icons preview to the release pull request
+        if: steps.changesets.outputs.pullRequestNumber != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pullRequestNumber }}
+        run: |
+          SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/changeset-release/main" --jq .sha)
+          git fetch origin changeset-release/main
+          git checkout --detach "$SHA"
+          node ./.build/release-notes.mjs --image-only --ref "$SHA" > body.md
+          gh pr view "$PR_NUMBER" --json body --jq .body >> body.md
+          gh pr edit "$PR_NUMBER" --body-file body.md
+
+      - name: Create GitHub release
+        if: steps.changesets.outputs.published == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./packages/icons/package.json').version")
+          node ./.build/release-notes.mjs > notes.md
+          gh release create "v${VERSION}" --target "$GITHUB_SHA" --title "Release ${VERSION}" --notes-file notes.md
