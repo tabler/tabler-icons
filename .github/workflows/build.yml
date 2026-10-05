@@ -2,6 +2,10 @@ name: Build
 
 on:
   pull_request:
+  # Runs on `main` save the turbo cache that pull requests start from (a pull
+  # request can only restore caches from its own runs and its base branch).
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -42,6 +46,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Turbo's local cache: packages whose inputs did not change are restored
+      # instead of being rebuilt and retested. Keyed per commit, restored from the
+      # most recent entry.
+      - uses: actions/cache@v4
+        name: Setup turbo cache
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Lint
         run: pnpm run lint
 
@@ -53,12 +68,6 @@ jobs:
 
       - name: Test build scripts
         run: pnpm run test:build
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: Check formatting
-        run: pnpm run format:check
 
       - name: Build
         env:
@@ -82,3 +91,9 @@ jobs:
           --filter='./packages/*'
           --filter=test-react-rsc
           --filter=test-react-types
+
+      # The cache is saved after the job; drop entries created more than a week
+      # ago so it does not grow with every change. Restored files keep their
+      # original modification time.
+      - name: Prune turbo cache
+        run: mkdir -p .turbo/cache && find .turbo/cache -type f -mtime +7 -delete
