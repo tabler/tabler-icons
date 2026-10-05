@@ -1,8 +1,6 @@
 <!--
-category: System
-tags: [grid, rows, columns, cells, chart, matrix, dotted, frame, layout, pattern]
-unicode: "100ba"
-version: "3.24"
+tags: [square, dashed, x, remove, delete, cancel, close, selection, clear, deselect]
+category: Shapes
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -17,20 +15,13 @@ version: "3.24"
 >
   <path d="M5 3a2 2 0 0 0 -2 2" />
   <path d="M19 3a2 2 0 0 1 2 2" />
-  <path d="M21 19a2 2 0 0 1 -2 2" />
   <path d="M5 21a2 2 0 0 1 -2 -2" />
   <path d="M9 3h1" />
   <path d="M9 21h1" />
   <path d="M14 3h1" />
-  <path d="M14 21h1" />
   <path d="M3 9v1" />
   <path d="M21 9v1" />
   <path d="M3 14v1" />
-  <path d="M21 14v1" />
-  <path d="M7 10h1" />
-  <path d="M12 10h1" />
-  <path d="M17 10h1" />
-  <path d="M10 12v1" />
-  <path d="M10 17v1" />
-  <path d="M10 7v1" />
+  <path d="M22 22l-5 -5" />
+  <path d="M17 22l5 -5" />
 </svg>
