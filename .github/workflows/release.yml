@@ -108,4 +108,6 @@ jobs:
         run: |
           VERSION=$(node -p "require('./packages/icons/package.json').version")
           node ./.build/release-notes.mjs > notes.md
-          gh release create "v${VERSION}" --target "$GITHUB_SHA" --title "Release ${VERSION}" --notes-file notes.md
+          # SVG, PNG, PDF, EPS and webfont files built for the published packages
+          pnpm run zip
+          gh release create "v${VERSION}" "packages-zip/tabler-icons-${VERSION}.zip" --target "$GITHUB_SHA" --title "Release ${VERSION}" --notes-file notes.md
