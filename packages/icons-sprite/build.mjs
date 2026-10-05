@@ -11,7 +11,6 @@ const buildSprite = () => {
     console.log(`Building ${type} sprite...`);
 
     iconsInCategory.forEach((icon) => {
-      console.log(`Adding ${icon.name}...`);
       const svgFileContent = icon.content
         .replace(/<svg[^>]+>/g, '')
         .replace(/<\/svg>/g, '')
