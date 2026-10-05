@@ -23,7 +23,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Download validation results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: validate-results
           run-id: ${{ github.event.workflow_run.id }}
