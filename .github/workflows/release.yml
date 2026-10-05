@@ -104,9 +104,12 @@ jobs:
       # The `published` output of the action stays empty with Changesets 3, which
       # no longer prints the `New tag:` lines the action looks for. Without
       # pending changesets the action runs the publish command, so the release is
-      # created whenever it does not exist yet.
+      # created whenever it does not exist yet. It is created even when the
+      # publish command fails (for example when npm rejects a package that was
+      # already staged in an earlier run), the packages that were published
+      # should not stay without the release.
       - name: Create GitHub release
-        if: steps.changesets.outputs.hasChangesets == 'false'
+        if: ${{ !cancelled() && steps.changesets.outputs.hasChangesets == 'false' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
