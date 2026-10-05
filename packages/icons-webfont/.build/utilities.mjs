@@ -225,9 +225,6 @@ export async function processIcons(
       // File doesn't exist, will be created
     }
 
-    const logPrefix = strokeName ? `${strokeName}/${fileName}` : `${type}/${fileName}`;
-    console.log(`Writing to ${logPrefix}`);
-
     // Process content if processing function is provided
     if (processContentFn) {
       svgContent = processContentFn(svgContent);
