@@ -1,8 +1,8 @@
 // Prints the notes of the current release, published as a single GitHub
 // release for all packages: the preview image of the new icons followed by the
 // changes from the changelogs of every package for this version. An entry
-// shared by several packages is listed once, "Updated dependencies" entries are
-// left out.
+// shared by several packages is listed once, "Updated dependencies" entries and
+// the thanks to the maintainers are left out.
 //
 //   --ref <git ref>  ref the image is loaded from (default: the `v<version>` tag)
 //   --image-only     print just the image
@@ -13,6 +13,18 @@ import { GITHUB_DIR, PACKAGES_DIR, getArgvs } from './helpers.mjs';
 
 const MAIN_PACKAGE = '@tabler/icons';
 const CHANGE_TYPES = ['Major', 'Minor', 'Patch'];
+const MAINTAINERS = ['codecalm'];
+
+// " Thanks [@user](url), [@other](url)!" added by @changesets/changelog-github,
+// kept only for the contributors from outside of the team
+const removeMaintainersThanks = (entry) =>
+  entry.replace(/ Thanks ((?:\[@[^\]]+\]\([^)]+\)(?:, )?)+)!/, (match, users) => {
+    const contributors = users
+      .split(', ')
+      .filter((user) => !MAINTAINERS.some((maintainer) => user.startsWith(`[@${maintainer}]`)));
+
+    return contributors.length > 0 ? ` Thanks ${contributors.join(', ')}!` : '';
+  });
 
 const { version } = JSON.parse(readFileSync(resolve(PACKAGES_DIR, 'icons/package.json'), 'utf-8'));
 const argvs = getArgvs();
@@ -56,7 +68,7 @@ if (!argvs['image-only']) {
       // Top-level list items, together with their indented continuation lines
       list
         .split(/^(?=- )/m)
-        .map((entry) => entry.trim())
+        .map((entry) => removeMaintainersThanks(entry.trim()))
         .filter((entry) => entry.startsWith('- ') && !entry.startsWith('- Updated dependencies'))
         .forEach((entry) => {
           changes[type].set(entry, [...(changes[type].get(entry) || []), name]);
