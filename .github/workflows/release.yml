@@ -74,10 +74,12 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Changesets builds the description from the changelogs only, so the
-      # preview of the new icons is put on top of it. The image is loaded from
-      # the commit on the release branch, the `v<version>` tag does not exist yet.
-      - name: Add new icons preview to the release pull request
+      # Changesets describes every package separately, while GitHub gets a single
+      # release for all of them. The description is replaced with a preview of
+      # that release, with the image of the new icons on top. The image is loaded
+      # from the commit on the release branch, the `v<version>` tag does not
+      # exist yet.
+      - name: Show the GitHub release in the release pull request
         if: steps.changesets.outputs.pullRequestNumber != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,8 +88,14 @@ jobs:
           SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/changeset-release/main" --jq .sha)
           git fetch origin changeset-release/main
           git checkout --detach "$SHA"
-          node ./.build/release-notes.mjs --image-only --ref "$SHA" > body.md
-          gh pr view "$PR_NUMBER" --json body --jq .body >> body.md
+          VERSION=$(node -p "require('./packages/icons/package.json').version")
+          {
+            echo "Merging this pull request publishes all \`@tabler/icons*\` packages in version **${VERSION}** to npm and creates the following GitHub release."
+            echo
+            echo "---"
+            echo
+            node ./.build/release-notes.mjs --ref "$SHA"
+          } > body.md
           gh pr edit "$PR_NUMBER" --body-file body.md
 
       - name: Create GitHub release
