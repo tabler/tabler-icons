@@ -12,14 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Use Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
 
       # Only `rsvg-convert` is needed (PNG/PDF/EPS packages and preview images).
@@ -35,7 +35,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
@@ -49,7 +49,7 @@ jobs:
       # Turbo's local cache: packages whose inputs did not change are restored
       # instead of being rebuilt and retested. Keyed per commit, restored from the
       # most recent entry.
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         name: Setup turbo cache
         with:
           path: .turbo/cache
