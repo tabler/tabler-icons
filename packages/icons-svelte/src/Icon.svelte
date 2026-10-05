@@ -25,8 +25,6 @@
         stroke: color,
       }}
 >
-  <!-- icon nodes are a static list, so the each block does not need a key -->
-  <!-- eslint-disable-next-line svelte/require-each-key -->
   {#each iconNode as [tag, attrs]}
     <svelte:element this={tag} {...attrs} />
   {/each}

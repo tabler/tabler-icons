@@ -6,28 +6,15 @@ const p = getPackageJson(),
 
 if (version) {
   cp.exec(`git diff ${version} HEAD --name-status ./icons`, function (err, ret) {
-    let newIcons = [],
-      modifiedIcons = [],
-      renamedIcons = [];
+    const newIcons = [...ret.matchAll(/A\s+icons\/([a-z0-9-/]+)\.svg/g)].map((m) => m[1]);
 
-    ret.replace(/A\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
-      newIcons.push(fileName);
-    });
+    const modifiedIcons = [...ret.matchAll(/M\s+icons\/([a-z0-9-/]+)\.svg/g)]
+      .map((m) => m[1])
+      .filter((icon) => !newIcons.includes(icon));
 
-    ret.replace(/M\s+icons\/([a-z0-9-/]+)\.svg/g, function (m, fileName) {
-      modifiedIcons.push(fileName);
-    });
-
-    ret.replace(
-      /R[0-9]+\s+icons\/([a-z0-9-/]+)\.svg\s+icons\/([a-z0-9-/]+).svg/g,
-      function (m, fileNameBefore, fileNameAfter) {
-        renamedIcons.push([fileNameBefore, fileNameAfter]);
-      },
-    );
-
-    modifiedIcons = modifiedIcons.filter(function (el) {
-      return newIcons.indexOf(el) < 0;
-    });
+    const renamedIcons = [
+      ...ret.matchAll(/R[0-9]+\s+icons\/([a-z0-9-/]+)\.svg\s+icons\/([a-z0-9-/]+).svg/g),
+    ].map((m) => [m[1], m[2]]);
 
     printChangelog(newIcons, modifiedIcons, renamedIcons, true);
   });

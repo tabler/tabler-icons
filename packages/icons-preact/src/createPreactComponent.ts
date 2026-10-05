@@ -20,7 +20,7 @@ const createPreactComponent = (
     ...rest
   }: IconProps) =>
     h(
-      'svg' as any,
+      'svg',
       {
         ...defaultAttributes[type],
         width: String(size),

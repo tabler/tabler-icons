@@ -12,7 +12,7 @@
     iconNode: IconNode;
     class?: string;
     children?: Snippet;
-    [key: string]: any; // For rest props
+    [key: string]: unknown; // For rest props
   }
 
   let {
@@ -44,8 +44,6 @@
   class={fullClassName}
   {...typeAttributes}
 >
-  <!-- icon nodes are a static list, so the each block does not need a key -->
-  <!-- eslint-disable-next-line svelte/require-each-key -->
   {#each iconNode as [tag, attrs]}
     <svelte:element this={tag} {...attrs} />
   {/each}
