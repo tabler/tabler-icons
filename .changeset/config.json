@@ -1,0 +1,8 @@
+{
+  "baseBranch": "main",
+  "access": "public",
+  "changelog": ["@changesets/changelog-github", { "repo": "tabler/tabler-icons" }],
+  "commit": false,
+  "fixed": [["@tabler/icons*"]],
+  "privatePackages": { "version": false, "tag": false }
+}
