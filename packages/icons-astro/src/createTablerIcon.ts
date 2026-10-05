@@ -32,7 +32,7 @@ const createTablerIcon = (
     .join('');
 
   return createComponent(
-    (result: any, props: IconProps, slots: any) => {
+    (result, props: IconProps, slots) => {
       const {
         size = 24,
         color,

@@ -1,6 +1,6 @@
-import type { Attrs } from "./types.js";
+import type { Attrs } from './types.js';
 
-const defaultAttributes: Record<"outline" | "filled", Attrs> = {
+const defaultAttributes: Record<'outline' | 'filled', Attrs> = {
   outline: {
     xmlns: 'http://www.w3.org/2000/svg',
     width: 24,
@@ -18,7 +18,7 @@ const defaultAttributes: Record<"outline" | "filled", Attrs> = {
     height: 24,
     viewBox: '0 0 24 24',
     fill: 'currentColor',
-    stroke: 'none'
+    stroke: 'none',
   },
 };
 

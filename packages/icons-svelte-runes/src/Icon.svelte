@@ -12,7 +12,7 @@
     iconNode: IconNode;
     class?: string;
     children?: Snippet;
-    [key: string]: any; // For rest props
+    [key: string]: unknown; // For rest props
   }
 
   let {

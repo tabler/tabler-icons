@@ -5,35 +5,35 @@ import { globSync } from 'glob';
 import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
 import crypto from 'crypto';
 import { Eta } from 'eta';
-import svg2ttf from "svg2ttf";
-import ttf2woff from "ttf2woff";
-import wawoff2 from "wawoff2";
+import svg2ttf from 'svg2ttf';
+import ttf2woff from 'ttf2woff';
+import wawoff2 from 'wawoff2';
 
 // Create Eta instance
 const eta = new Eta({
-  autoEscape: false
+  autoEscape: false,
 });
 
 // Get aliases
-const aliases = getAliases(true)
+const aliases = getAliases(true);
 
-const packageJson = getPackageJson()
+const packageJson = getPackageJson();
 
 // Template function compatible with lodash.template API
 function template(templateString) {
-  return function(data) {
+  return function (data) {
     return eta.renderString(templateString, data);
   };
 }
 
 /**
- * @typedef {stream.Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
+ * @typedef {import('node:stream').Readable & { metadata?: { unicode: string[], name: string } }} Svgicons2svgfontStream
  */
 
 /**
  *
  * @param name {string} name
- * @return {import('svgicons2svgfont').FileMetadata}
+ * @return {{ unicode: string[], name: string }}
  */
 function getMetadataFromSvgName(name) {
   // we process uUnicode-Name.svg
@@ -45,7 +45,7 @@ function getMetadataFromSvgName(name) {
   return {
     unicode: [unicodeChar],
     name: iconName,
-  }
+  };
 }
 
 /**
@@ -54,9 +54,11 @@ function getMetadataFromSvgName(name) {
  * @return {Promise<Svgicons2svgfontStream[]>}
  */
 export async function loadSvgFiles(path) {
-  const svgFiles = await fsPromises.readdir(path).then(files => files.filter(file => file.endsWith('.svg')));
+  const svgFiles = await fsPromises
+    .readdir(path)
+    .then((files) => files.filter((file) => file.endsWith('.svg')));
   svgFiles.sort();
-  return svgFiles.map(file => {
+  return svgFiles.map((file) => {
     /** @type {Svgicons2svgfontStream} */
     const stream = createReadStream(`${path}/${file}`);
     stream.metadata = getMetadataFromSvgName(file);
@@ -70,7 +72,7 @@ export async function loadSvgFiles(path) {
  * @return {Promise<string>}
  */
 export async function buildSvgFont(svgStreams) {
-  const { SVGIcons2SVGFontStream } = await import("svgicons2svgfont");
+  const { SVGIcons2SVGFontStream } = await import('svgicons2svgfont');
   const fontStream = new SVGIcons2SVGFontStream({
     fontName: 'tabler-icons',
     normalize: true,
@@ -82,14 +84,14 @@ export async function buildSvgFont(svgStreams) {
 
   const fontStreamPromise = new Promise((resolve, reject) => {
     const buffers = [];
-    fontStream.on('data', chunk => buffers.push(chunk));
+    fontStream.on('data', (chunk) => buffers.push(chunk));
     fontStream.on('finish', () => {
       resolve(buffers.join(''));
     });
     fontStream.on('error', reject);
   });
 
-  svgStreams.forEach(stream => {
+  svgStreams.forEach((stream) => {
     fontStream.write(stream);
   });
   fontStream.end();
@@ -103,94 +105,118 @@ export function removeComments(svgBuffer) {
   // Using non-greedy match to handle multiline comments
   svgBuffer = svgBuffer.replace(/<!--[\s\S]*?-->/g, '');
 
-  svgBuffer = svgBuffer.replace(blankSquare, '')
+  svgBuffer = svgBuffer.replace(blankSquare, '');
 
   return svgBuffer;
 }
 
+// svg2ttf stamps fonts with the current time by default, which makes every
+// build produce different binaries. Use a fixed timestamp (overridable with
+// SOURCE_DATE_EPOCH) so identical icons give identical font files.
+const FONT_TIMESTAMP = process.env.SOURCE_DATE_EPOCH || 0;
+
 export function calculateHash(content) {
-  return crypto.createHash('sha1').update(content).digest("hex");
+  return crypto.createHash('sha1').update(content).digest('hex');
 }
 
 export async function generateFont(strokeName, type, DIR) {
-
   console.log(`Generating font for ${type !== 'filled' ? `${type}/${strokeName}` : 'filled'}`);
   let svgFiles;
   if (type === 'all') {
     svgFiles = [
-      ...((await loadSvgFiles(path.join(DIR, 'icons-filled'))).map(f => {
+      ...(await loadSvgFiles(path.join(DIR, 'icons-filled'))).map((f) => {
         f.metadata.name = `${f.metadata.name}-filled`;
         return f;
-      })),
-      ...(await loadSvgFiles(path.join(DIR, `icons-outlined/${strokeName}`)))
-    ]
+      }),
+      ...(await loadSvgFiles(path.join(DIR, `icons-outlined/${strokeName}`))),
+    ];
   } else {
-    svgFiles = await loadSvgFiles(path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`));
+    svgFiles = await loadSvgFiles(
+      path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
+    );
   }
   const svgFontFileSource = await buildSvgFont(svgFiles);
-  const ttfFile = Buffer.from(svg2ttf(svgFontFileSource).buffer);
+  const ttfFile = Buffer.from(svg2ttf(svgFontFileSource, { ts: FONT_TIMESTAMP }).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
-  const fileName = `tabler-icons${type !== 'filled' ? (strokeName !== "400" ? `-${strokeName}` : '') : ''}${type !== 'all' ? `-${type}` : ''}`;
+  const fileName = `tabler-icons${type !== 'filled' ? (strokeName !== '400' ? `-${strokeName}` : '') : ''}${type !== 'all' ? `-${type}` : ''}`;
 
-  // Ensure dist/fonts directory exists
+  // Ensure the output directories exist
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
+  mkdirSync(path.join(DIR, 'fonts'), { recursive: true });
 
-  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.svg`), svgFontFileSource); // for debug
+  // The intermediate SVG font is kept for debugging only. It goes to `fonts/`
+  // (git-ignored, not published) because the CSS does not reference it and it
+  // would make up most of the package size.
+  writeFileSync(path.join(DIR, `fonts/${fileName}.svg`), svgFontFileSource);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.ttf`), ttfFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
 
-  const glyphs = svgFiles.map(f => ({
-     ...f.metadata,
-     unicodeHex: f.metadata.unicode && f.metadata.unicode[0]
-        ? f.metadata.unicode[0].codePointAt(0).toString(16)
-        : ''
-  }))
-     .sort(function (a, b) {
-        return a.name.localeCompare(b.name)
-     })
+  const glyphs = svgFiles
+    .map((f) => ({
+      ...f.metadata,
+      unicodeHex:
+        f.metadata.unicode && f.metadata.unicode[0]
+          ? f.metadata.unicode[0].codePointAt(0).toString(16)
+          : '',
+    }))
+    .sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
 
   // Convert aliases object to array of {from, to} objects
   // The `all` font contains both variants, so filled glyphs (and their aliases) are suffixed
-  const aliasesArray = type === 'all'
-     ? [
-        ...Object.entries(aliases.outline ?? {}).map(([from, to]) => ({ from, to })),
-        ...Object.entries(aliases.filled ?? {}).map(([from, to]) => ({ from: `${from}-filled`, to: `${to}-filled` }))
-     ]
-     : Object.entries(aliases[type] ?? {}).map(([from, to]) => ({ from, to }))
+  const aliasesArray =
+    type === 'all'
+      ? [
+          ...Object.entries(aliases.outline ?? {}).map(([from, to]) => ({ from, to })),
+          ...Object.entries(aliases.filled ?? {}).map(([from, to]) => ({
+            from: `${from}-filled`,
+            to: `${to}-filled`,
+          })),
+        ]
+      : Object.entries(aliases[type] ?? {}).map(([from, to]) => ({ from, to }));
 
   const options = {
-     name: `Tabler Icons${type !== 'all' ? ` ${type.charAt(0).toUpperCase()}${type.slice(1)}` : ''}`,
-     fileName,
-     glyphs,
-     v: packageJson.version,
-     aliases: aliasesArray
-  }
+    name: `Tabler Icons${type !== 'all' ? ` ${type.charAt(0).toUpperCase()}${type.slice(1)}` : ''}`,
+    fileName,
+    glyphs,
+    v: packageJson.version,
+    aliases: aliasesArray,
+  };
 
   //scss
-  const compiled = template(readFileSync(path.join(DIR, '.build/iconfont.scss')).toString())
-  const resultSCSS = compiled(options)
-  writeFileSync(path.join(DIR, `dist/${fileName}.scss`), resultSCSS)
+  const compiled = template(readFileSync(path.join(DIR, '.build/iconfont.scss')).toString());
+  const resultSCSS = compiled(options);
+  writeFileSync(path.join(DIR, `dist/${fileName}.scss`), resultSCSS);
 
   //html
-  const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString())
-  const resultHtml = compiledHtml(options)
-  writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml)
+  const compiledHtml = template(readFileSync(path.join(DIR, '.build/iconfont.html')).toString());
+  const resultHtml = compiledHtml(options);
+  writeFileSync(path.join(DIR, `dist/${fileName}.html`), resultHtml);
 }
 
 // Process icons with cache mechanism
-export async function processIcons(files, dirname, type, DIR, strokeName = null, processContentFn = null) {
+export async function processIcons(
+  files,
+  dirname,
+  type,
+  DIR,
+  strokeName = null,
+  processContentFn = null,
+) {
   mkdirSync(dirname, { recursive: true });
 
   let processed = 0;
   let cached = 0;
   const startTime = Date.now();
 
-  const filesList = new Set(files
-    .filter(({ unicode }) => unicode)
-    .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`)
+  const filesList = new Set(
+    files
+      .filter(({ unicode }) => unicode)
+      .map(({ name, unicode }) => `u${unicode.toUpperCase()}-${name}.svg`),
   );
 
   for (const file of files) {
@@ -205,7 +231,7 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
     try {
       const cachedContent = readFileSync(filePath, 'utf-8');
       let cachedHash = '';
-      const contentWithoutHash = cachedContent.replace(/<!--\!cache:([a-z0-9]+)-->/, (m, hash) => {
+      const contentWithoutHash = cachedContent.replace(/<!--!cache:([a-z0-9]+)-->/, (m, hash) => {
         cachedHash = hash;
         return '';
       });
@@ -240,8 +266,8 @@ export async function processIcons(files, dirname, type, DIR, strokeName = null,
   const globPattern = strokeName
     ? path.join(DIR, `icons-outlined/${strokeName}/*.svg`)
     : path.join(DIR, `icons-filled/*.svg`);
-  const existedFiles = (globSync(globPattern)).map(file => path.basename(file));
-  existedFiles.forEach(file => {
+  const existedFiles = globSync(globPattern).map((file) => path.basename(file));
+  existedFiles.forEach((file) => {
     if (!filesList.has(file)) {
       console.log('Remove:', file);
       unlinkSync(path.join(dirname, file));

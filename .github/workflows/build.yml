@@ -2,40 +2,40 @@ name: Build
 
 on:
   pull_request:
+  # Runs on `main` save the turbo cache that pull requests start from (a pull
+  # request can only restore caches from its own runs and its base branch).
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Use Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
 
-      - name: Install system dependencies for canvas and rsvg-convert
+      # Only `rsvg-convert` is needed (PNG/PDF/EPS packages and preview images).
+      # `canvas` is merely an optional peer dependency of jsdom and is not installed.
+      - name: Install rsvg-convert
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            build-essential \
-            libcairo2-dev \
-            libpango1.0-dev \
-            libjpeg-dev \
-            libgif-dev \
-            librsvg2-dev \
-            librsvg2-bin
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+          rsvg-convert --version
 
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
@@ -44,18 +44,45 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
+
+      # Turbo's local cache: packages whose inputs did not change are restored
+      # instead of being rebuilt and retested. Keyed per commit, restored from the
+      # most recent entry.
+      - uses: actions/cache@v6
+        name: Setup turbo cache
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Check formatting
+        run: pnpm run format:check
+
+      - name: Type-check build scripts
+        run: pnpm run typecheck:build
+
+      - name: Test build scripts
+        run: pnpm run test:build
 
       - name: Build
         env:
           ICONS_LIMIT: 100
         run: pnpm run build
 
-      # @tabler/icons-angular is excluded: its suite runs in a real Chrome via
-      # Karma and needs a browser setup this job does not have yet. Every other
-      # package runs on vitest or node:test. The demo apps in test/test-* have no
-      # test script and import icons outside the ICONS_LIMIT subset, so only the
-      # packages and the two guard suites are selected.
+      - name: Check image packages
+        env:
+          ICONS_LIMIT: 100
+        run: pnpm --filter @tabler/icons-png --filter @tabler/icons-pdf --filter @tabler/icons-eps run check
+
+      # The demo apps in test/test-* have no test script and import icons outside
+      # the ICONS_LIMIT subset, so only the packages and the two guard suites are
+      # selected. @tabler/icons-angular runs in headless Chrome via Karma, which
+      # is preinstalled on the runner.
       - name: Test
         env:
           ICONS_LIMIT: 100
@@ -64,5 +91,9 @@ jobs:
           --filter='./packages/*'
           --filter=test-react-rsc
           --filter=test-react-types
-          --filter='!@tabler/icons-angular'
 
+      # The cache is saved after the job; drop entries created more than a week
+      # ago so it does not grow with every change. Restored files keep their
+      # original modification time.
+      - name: Prune turbo cache
+        run: mkdir -p .turbo/cache && find .turbo/cache -type f -mtime +7 -delete

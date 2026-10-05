@@ -70,6 +70,37 @@ Pass props to adjust the icon:
 
 Any other attribute is forwarded to the rendered `<svg>` element. The package ships with TypeScript declarations.
 
+## Importing individual icons
+
+Importing from the package root keeps your bundle small, because unused icons are removed. The bundler still has to compile every icon component (more than 6,000) before it can drop them, though, which slows down builds. To avoid that, import each icon from its own file:
+
+```svelte
+<script lang="ts">
+  import IconHeart from '@tabler/icons-svelte/icons/heart';
+  import IconHeartFilled from '@tabler/icons-svelte/icons/heart-filled';
+</script>
+
+<IconHeart />
+<IconHeartFilled />
+```
+
+The path is the icon name in kebab-case, as listed on [tabler.io/icons](https://tabler.io/icons); filled icons end with `-filled`. Old icon names kept for backwards compatibility (aliases) are only exported from the package root.
+
+With Vite 8 you can keep importing from the package root and let Rolldown skip compiling unused icons with [lazy barrel optimization](https://rolldown.rs/in-depth/lazy-barrel-optimization):
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  build: {
+    rolldownOptions: {
+      experimental: { lazyBarrel: true },
+    },
+  },
+});
+```
+
 ## Svelte 5
 
 This package targets Svelte 3 and 4 and also works in Svelte 5 in legacy mode. For projects using runes, install [`@tabler/icons-svelte-runes`](https://www.npmjs.com/package/@tabler/icons-svelte-runes) instead. The API is identical, only the package name changes.

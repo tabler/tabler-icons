@@ -7,17 +7,22 @@ import { TablerIconComponent } from './tabler-icon.component';
 describe('TablerIconComponent', () => {
   let hostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
-  const getSvgAttr = (attr: string) => fixture.nativeElement.querySelector('svg').getAttribute(attr);
-  let icon: TablerIcon = { name: 'test', type: 'outline', nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]] };
+  const getSvgAttr = (attr: string) =>
+    fixture.nativeElement.querySelector('svg').getAttribute(attr);
+  const icon: TablerIcon = {
+    name: 'test',
+    type: 'outline',
+    nodes: [['path', { d: 'M8 7h-4', key: 'svg-0' }]],
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TablerIconComponent, TestHostComponent]
+      imports: [TablerIconComponent, TestHostComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
     hostComponent = fixture.componentInstance;
-  })
+  });
 
   it('should create', () => {
     fixture.detectChanges();
@@ -40,32 +45,32 @@ describe('TablerIconComponent', () => {
     fixture.detectChanges();
     expect(getSvgAttr('height')).toBe(size.toString(10));
     expect(getSvgAttr('width')).toBe(size.toString(10));
-  })
+  });
 
   it('should set color', () => {
     const color = '#abcabc';
     hostComponent.color = color;
     fixture.detectChanges();
     expect(getSvgAttr('stroke')).toBe(color);
-  })
+  });
 
   it('should set stroke width', () => {
     const stroke = 1.75;
     hostComponent.stroke = stroke;
     fixture.detectChanges();
     expect(getSvgAttr('stroke-width')).toBe(stroke.toString(10));
-  })
+  });
 
   it('should set stroke width to 0', () => {
     hostComponent.stroke = 0;
     fixture.detectChanges();
     expect(getSvgAttr('stroke-width')).toBe('0');
-  })
+  });
 
   it('should add all classes', () => {
     fixture.detectChanges();
     expect(getSvgAttr('class')).toBe('tabler-icon tabler-icon-test test-class');
-  })
+  });
 
   @Component({
     selector: 'tabler-test',
@@ -87,4 +92,4 @@ describe('TablerIconComponent', () => {
     customClass = 'test-class';
     iconTest = icon;
   }
-})
+});

@@ -13,7 +13,7 @@ jobs:
     if: github.repository == 'tabler/tabler-icons'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
@@ -32,31 +32,27 @@ jobs:
           git fetch origin ${BASE_REF}:${BASE_REF} || true
 
       - name: Use Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
 
-      - name: Install system dependencies for canvas and rsvg-convert
+      # Only `rsvg-convert` is needed (PNG/PDF/EPS packages and preview images).
+      # `canvas` is merely an optional peer dependency of jsdom and is not installed.
+      - name: Install rsvg-convert
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            build-essential \
-            libcairo2-dev \
-            libpango1.0-dev \
-            libjpeg-dev \
-            libgif-dev \
-            librsvg2-dev \
-            librsvg2-bin
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+          rsvg-convert --version
 
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         name: Setup pnpm cache
         with:
           path: ${{ env.STORE_PATH }}
@@ -65,7 +61,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Validate icons
         id: validate
@@ -86,7 +82,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload validation results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: validate-results
           path: |

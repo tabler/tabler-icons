@@ -1,12 +1,12 @@
-import { defineConfig } from 'vitest/config'
-import preact from '@preact/preset-vite'
+import { defineConfig } from 'vitest/config';
+import preact from '@preact/preset-vite';
 
 export default defineConfig({
   plugins: [preact()],
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './setupVitest.js',
+    setupFiles: '../../.build/vitest-setup.mjs',
   },
   resolve: {
     mainFields: ['module'],

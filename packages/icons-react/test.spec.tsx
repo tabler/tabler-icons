@@ -1,43 +1,45 @@
 import { describe, it, expect, afterEach, expectTypeOf } from 'vitest';
-import { render, cleanup } from '@testing-library/react'
-import { IconAccessible, IconAccessibleFilled, createReactComponent } from "./src/tabler-icons-react"
-import type { TablerIcon } from "./src/types"
+import { render, cleanup } from '@testing-library/react';
+import {
+  IconAccessible,
+  IconAccessibleFilled,
+  createReactComponent,
+} from './src/tabler-icons-react';
+import type { TablerIcon } from './src/types';
 
-describe("React Icon component", () => {
+describe('React Icon component', () => {
   afterEach(() => {
     cleanup();
   });
 
-  it("should render icon component", () => {
-    const { container } = render(<IconAccessible/>)
-    expect(container.getElementsByTagName("svg").length).toBeGreaterThan(0)
-  })
+  it('should render icon component', () => {
+    const { container } = render(<IconAccessible />);
+    expect(container.getElementsByTagName('svg').length).toBeGreaterThan(0);
+  });
 
-  it("should update svg attributes when there are props passed to the component", () => {
-    const { container } = render(<IconAccessible size={48} color={"red"} stroke={4}/>)
-    const svg = container.getElementsByTagName("svg")[0]
+  it('should update svg attributes when there are props passed to the component', () => {
+    const { container } = render(<IconAccessible size={48} color={'red'} stroke={4} />);
+    const svg = container.getElementsByTagName('svg')[0];
 
-    expect(svg.getAttribute("width")).toBe("48")
-    expect(svg.getAttribute("stroke")).toBe("red")
-    expect(svg.getAttribute("stroke-width")).toBe("4")
-    expect(svg.getAttribute("fill")).toBe("none")
-  })
+    expect(svg.getAttribute('width')).toBe('48');
+    expect(svg.getAttribute('stroke')).toBe('red');
+    expect(svg.getAttribute('stroke-width')).toBe('4');
+    expect(svg.getAttribute('fill')).toBe('none');
+  });
 
-  it("should update svg attributes when there are props passed to the filled version of component", () => {
-    const { container } = render(<IconAccessibleFilled size={48} color={"red"}/>)
-    const svg = container.getElementsByTagName("svg")[0]
+  it('should update svg attributes when there are props passed to the filled version of component', () => {
+    const { container } = render(<IconAccessibleFilled size={48} color={'red'} />);
+    const svg = container.getElementsByTagName('svg')[0];
 
-    expect(svg.getAttribute("width")).toBe("48")
-    expect(svg.getAttribute("fill")).toBe("red")
-    expect(svg.getAttribute("stroke")).toBe("none")
-    expect(svg.getAttribute("stroke-width")).toBe(null)
-  })
+    expect(svg.getAttribute('width')).toBe('48');
+    expect(svg.getAttribute('fill')).toBe('red');
+    expect(svg.getAttribute('stroke')).toBe('none');
+    expect(svg.getAttribute('stroke-width')).toBe(null);
+  });
 
   it('should apply all classNames to the element', () => {
     const testClass = 'test-class';
-    const { container } = render(
-      <IconAccessible className={testClass} />,
-    );
+    const { container } = render(<IconAccessible className={testClass} />);
 
     expect(container.firstChild).toHaveClass(testClass);
     expect(container.firstChild).toHaveClass('tabler-icon');
@@ -46,29 +48,31 @@ describe("React Icon component", () => {
 
   it('should not add a trailing space to the class attribute when no className is passed', () => {
     const { container } = render(<IconAccessible />);
-    const svg = container.getElementsByTagName("svg")[0];
+    const svg = container.getElementsByTagName('svg')[0];
 
     expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible');
   });
 
   it('should separate a provided className with a single space', () => {
     const { container } = render(<IconAccessible className="first second" />);
-    const svg = container.getElementsByTagName("svg")[0];
+    const svg = container.getElementsByTagName('svg')[0];
 
     expect(svg.getAttribute('class')).toBe('tabler-icon tabler-icon-accessible first second');
   });
 
   it('should add a style attribute to the element', () => {
-    const { container } = render(<IconAccessible style={{ color: "red" }}/>)
+    const { container } = render(<IconAccessible style={{ color: 'red' }} />);
 
-    const svg = container.getElementsByTagName("svg")[0]
+    const svg = container.getElementsByTagName('svg')[0];
 
-    expect(svg).toHaveStyle('color: rgb(255, 0, 0)')
-  })
+    expect(svg).toHaveStyle('color: rgb(255, 0, 0)');
+  });
 
   it('should have proper type', () => {
     expectTypeOf(IconAccessible).toBeFunction();
-    expectTypeOf(IconAccessible).toEqualTypeOf(createReactComponent('outline', 'accessible', 'Accessible', []));
+    expectTypeOf(IconAccessible).toEqualTypeOf(
+      createReactComponent('outline', 'accessible', 'Accessible', []),
+    );
   });
 
   it('should match TablerIcon type', () => {
@@ -77,15 +81,15 @@ describe("React Icon component", () => {
   });
 
   it('should add title child element to svg when title prop is passed', () => {
-    const { container } = render(<IconAccessible title="Accessible Icon"/>);
-    const svg = container.getElementsByTagName("svg")[0];
-    const title = svg.getElementsByTagName("title")[0];
+    const { container } = render(<IconAccessible title="Accessible Icon" />);
+    const svg = container.getElementsByTagName('svg')[0];
+    const title = svg.getElementsByTagName('title')[0];
 
-    expect(title).toHaveTextContent("Accessible Icon");
-  })
+    expect(title).toHaveTextContent('Accessible Icon');
+  });
 
-  it("should match snapshot", () => {
-    const { container } = render(<IconAccessible/>)
+  it('should match snapshot', () => {
+    const { container } = render(<IconAccessible />);
     expect(container.innerHTML).toMatchInlineSnapshot(`
       <svg xmlns="http://www.w3.org/2000/svg"
            width="24"
@@ -107,6 +111,6 @@ describe("React Icon component", () => {
         >
         </path>
       </svg>
-    `)
-  })
-})
+    `);
+  });
+});

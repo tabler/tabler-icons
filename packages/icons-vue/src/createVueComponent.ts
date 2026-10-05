@@ -9,8 +9,14 @@ const createVueComponent =
     iconNamePascal: string,
     iconNode: IconNode,
   ): Icon =>
-  ({ color = 'currentColor', size = 24, stroke = 2, title, class: classes, ...rest }: IconProps, { attrs, slots }) => {
-    let children = [...iconNode.map((child) => h(...child)), ...(slots.default ? [slots.default()] : [])];
+  (
+    { color = 'currentColor', size = 24, stroke = 2, title, class: classes, ...rest }: IconProps,
+    { attrs, slots },
+  ) => {
+    let children = [
+      ...iconNode.map((child) => h(...child)),
+      ...(slots.default ? [slots.default()] : []),
+    ];
     if (title) children = [h('title', title), ...children];
     return h(
       'svg',

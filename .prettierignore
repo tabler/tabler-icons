@@ -1,0 +1,42 @@
+# Sources and generated output
+icons/
+_site/
+.claude/
+public/
+packages-zip/
+pnpm-lock.yaml
+**/dist/
+**/stats/
+packages/icons*/icons/
+packages/icons*/src/icons/
+packages/icons*/src/icons-dts/
+packages/icons*/src/icons.*
+packages/icons*/src/aliases.ts
+packages/icons*/src/icons-list.ts
+packages/icons*/src/dynamic-imports.ts
+packages/icons/icons.json
+packages/icons/tabler-nodes-*.json
+packages/icons/categories/
+packages/icons/docs/
+packages/icons-webfont/icons-outlined/
+packages/icons-webfont/icons-filled/
+.astro/
+.turbo/
+.angular/
+.svelte-kit/
+
+# Data files with their own formatting
+aliases.json
+src/data/
+
+# Eta templates
+*.html
+**/.build/iconfont.scss
+
+# Need parser plugins that are not installed
+*.astro
+*.svelte
+
+# Markdown is partly generated (see .build/update-readme.mjs)
+*.md
+*.mdx

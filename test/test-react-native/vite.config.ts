@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,10 +9,10 @@ export default defineConfig({
       name: 'exclude-react-native',
       resolveId(id) {
         if (id === 'react-native' || id.startsWith('react-native/')) {
-          return { id: 'react-native', external: true }
+          return { id: 'react-native', external: true };
         }
         if (id === 'react-native-svg') {
-          return { id: 'react-native-svg', external: true }
+          return { id: 'react-native-svg', external: true };
         }
       },
     },
@@ -23,7 +23,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: (id) => {
-        return id === 'react-native' || id === 'react-native-svg' || id.startsWith('react-native/')
+        return id === 'react-native' || id === 'react-native-svg' || id.startsWith('react-native/');
       },
     },
     commonjsOptions: {
@@ -31,4 +31,4 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
-})
+});

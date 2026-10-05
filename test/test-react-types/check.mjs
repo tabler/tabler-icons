@@ -36,7 +36,11 @@ for (const alias of aliases) {
   const typesDir = path.join(root, 'node_modules', alias);
 
   if (!fs.existsSync(typesDir)) {
-    failures.push({ alias, version: '(not installed)', output: `Missing ${typesDir}. Run pnpm install.` });
+    failures.push({
+      alias,
+      version: '(not installed)',
+      output: `Missing ${typesDir}. Run pnpm install.`,
+    });
     console.log(`✗ ${alias.padEnd(20)} not installed`);
     continue;
   }

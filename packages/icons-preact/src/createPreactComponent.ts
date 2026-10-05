@@ -20,12 +20,14 @@ const createPreactComponent = (
     ...rest
   }: IconProps) =>
     h(
-      'svg' as any,
+      'svg',
       {
         ...defaultAttributes[type],
         width: String(size),
         height: String(size),
-        class: [`tabler-icon`, `tabler-icon-${iconName}`, classes, className].filter(Boolean).join(' '),
+        class: [`tabler-icon`, `tabler-icon-${iconName}`, classes, className]
+          .filter(Boolean)
+          .join(' '),
         ...(type === 'filled'
           ? {
               fill: color,

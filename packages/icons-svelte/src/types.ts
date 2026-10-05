@@ -1,5 +1,5 @@
-import type { SvelteComponent } from "svelte";
-import type { SVGAttributes, SvelteHTMLElements } from "svelte/elements";
+import type { SvelteComponent } from 'svelte';
+import type { SVGAttributes, SvelteHTMLElements } from 'svelte/elements';
 
 export type Attrs = SVGAttributes<SVGSVGElement>;
 
@@ -13,10 +13,13 @@ export interface IconProps extends Attrs {
 }
 
 type IconEvents = {
+  // matches the default events type of `SvelteComponent`
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [evt: string]: CustomEvent<any>;
 };
 
 type IconSlots = {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   default: {};
 };
 

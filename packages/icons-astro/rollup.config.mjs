@@ -1,15 +1,15 @@
-import fs from 'fs'
-import { getRollupConfig } from '../../.build/rollup-plugins.mjs'
-import dts from 'rollup-plugin-dts'
+import fs from 'fs';
+import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
+import dts from 'rollup-plugin-dts';
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
-const outputFileName = 'tabler-icons-astro'
-const inputs = ['./src/tabler-icons-astro.ts']
+const outputFileName = 'tabler-icons-astro';
+const inputs = ['./src/tabler-icons-astro.ts'];
 
 // Astro's runtime helpers stay external — they are resolved by the
 // consumer's Astro/Vite pipeline via the `astro` peer dependency.
-const external = [/^astro(\/|$)/]
+const external = [/^astro(\/|$)/];
 
 const bundles = [
   {
@@ -25,7 +25,7 @@ const bundles = [
     extension: 'mjs',
     external,
   },
-]
+];
 
 export default [
   {
@@ -37,7 +37,7 @@ export default [
         format: 'es',
       },
     ],
-    plugins: [dts()],
+    plugins: [iconsDts(), dts()],
   },
   ...getRollupConfig(pkg, outputFileName, bundles, {}),
-]
+];

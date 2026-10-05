@@ -1,13 +1,8 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs'
+import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
 
-const componentTemplate = ({
-  type,
-  name,
-  namePascal,
-  children
-}) => `\
+const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createTablerIcon from '../createTablerIcon';
 import type { AstroComponent } from '../types';
 
@@ -22,14 +17,14 @@ const Icon${namePascal} = createTablerIcon('${name}', ${JSON.stringify(children)
 
 export default Icon${namePascal};`;
 
-const indexItemTemplate = ({
-  name,
-  namePascal
-}) => `export { default as Icon${namePascal} } from './${name}';`
+const indexItemTemplate = ({ name, namePascal }) =>
+  `export { default as Icon${namePascal} } from './${name}';`;
 
-const aliasTemplate = ({ fromPascal, to }) => `export { default as Icon${fromPascal} } from './icons/${to}';\n`
+const aliasTemplate = ({ fromPascal, to }) =>
+  `export { default as Icon${fromPascal} } from './icons/${to}';\n`;
 
 buildJsIcons({
+  dtsEntry: true,
   name: 'icons-astro',
   componentTemplate,
   indexItemTemplate,
@@ -37,7 +32,7 @@ buildJsIcons({
   key: false,
   extension: 'ts',
   indexFile: 'index.ts',
-  pascalName: false
-})
+  pascalName: false,
+});
 
-buildIconsList('icons-astro')
+buildIconsList('icons-astro');
