@@ -70,7 +70,7 @@ Pass props to adjust the icon:
 | `size` | _number | string_ | 24 | Width and height of the icon |
 | `color` | _string_ | currentColor | Stroke color for outline icons, fill color for filled icons |
 | `strokeWidth` | _number | string_ | 2 | Stroke width, outline icons only |
-| `title` | _string_ | – | Adds a `<title>` element for accessibility |
+| `title` | _string_ | – | Accessibility label read by screen readers (sets `accessible`, `accessibilityRole="image"` and `accessibilityLabel` on the `Svg`) |
 
 Any other prop is forwarded to the underlying `Svg` component. Components forward refs and ship with TypeScript declarations.
 

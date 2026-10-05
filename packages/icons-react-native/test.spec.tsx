@@ -1,11 +1,24 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { render, cleanup } from '@testing-library/react';
-import { Path } from 'react-native-svg';
+import type { ReactElement } from 'react';
+import { act, create } from 'react-test-renderer';
+import { Path, Svg } from 'react-native-svg';
 import {
   IconAccessible,
   IconAccessibleFilled,
   createReactComponent,
 } from './src/tabler-icons-react-native';
+
+// props the icon passes to the root `Svg`, before the DOM mock drops the ones
+// that are not valid DOM attributes (e.g. `accessible`)
+const renderSvgProps = (element: ReactElement) => {
+  let renderer!: ReturnType<typeof create>;
+  act(() => {
+    renderer = create(element);
+  });
+
+  return renderer.root.findByType(Svg).props;
+};
 
 describe('React Native Icon component', () => {
   afterEach(() => {
@@ -61,6 +74,31 @@ describe('React Native Icon component', () => {
     expect(svg.getAttribute('opacity')).toBe('0.5');
   });
 
+  it('should not repeat other props on the icon nodes', () => {
+    const { container } = render(<IconAccessible opacity={0.5} accessibilityLabel="icon" />);
+    const paths = Array.from(container.getElementsByTagName('path'));
+
+    expect(paths.length).toBe(3);
+    paths.forEach((path) => {
+      expect(path.getAttribute('opacity')).toBe(null);
+      expect(path.getAttribute('accessibilityLabel')).toBe(null);
+    });
+  });
+
+  it('should still apply explicit stroke and fill props to the svg and its nodes', () => {
+    const { container } = render(
+      <IconAccessible stroke="blue" fill="yellow" strokeLinecap="square" />,
+    );
+    const svg = container.getElementsByTagName('svg')[0];
+    const path = container.getElementsByTagName('path')[0];
+
+    expect(svg.getAttribute('stroke')).toBe('blue');
+    expect(svg.getAttribute('fill')).toBe('yellow');
+    expect(path.getAttribute('stroke')).toBe('blue');
+    expect(path.getAttribute('fill')).toBe('yellow');
+    expect(path.getAttribute('stroke-linecap')).toBe('square');
+  });
+
   it('should render children after the icon nodes', () => {
     const { container } = render(
       <IconAccessible>
@@ -73,12 +111,30 @@ describe('React Native Icon component', () => {
     expect(paths[3].getAttribute('d')).toBe('M0 0h24');
   });
 
-  it('should add title child element to svg when title prop is passed', () => {
+  it('should expose the title as accessibility props instead of a title element', () => {
     const { container } = render(<IconAccessible title="Accessible Icon" />);
-    const svg = container.getElementsByTagName('svg')[0];
-    const title = svg.getElementsByTagName('title')[0];
+    expect(container.getElementsByTagName('title').length).toBe(0);
 
-    expect(title).toHaveTextContent('Accessible Icon');
+    const svgProps = renderSvgProps(<IconAccessible title="Accessible Icon" />);
+    expect(svgProps.accessible).toBe(true);
+    expect(svgProps.accessibilityRole).toBe('image');
+    expect(svgProps.accessibilityLabel).toBe('Accessible Icon');
+  });
+
+  it('should let explicit accessibility props override the title', () => {
+    const svgProps = renderSvgProps(
+      <IconAccessible title="Accessible Icon" accessibilityLabel="Custom label" />,
+    );
+
+    expect(svgProps.accessibilityLabel).toBe('Custom label');
+  });
+
+  it('should not add accessibility props without a title', () => {
+    const svgProps = renderSvgProps(<IconAccessible />);
+
+    expect(svgProps.accessible).toBeUndefined();
+    expect(svgProps.accessibilityRole).toBeUndefined();
+    expect(svgProps.accessibilityLabel).toBeUndefined();
   });
 
   it('should set display name of the component', () => {
