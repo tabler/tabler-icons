@@ -33,6 +33,13 @@ const createReactNativeComponent = (
         }
       }
 
+      // React Native has no `<title>` element, so the title is exposed to
+      // screen readers through the accessibility props instead. Explicitly
+      // passed accessibility props still take precedence.
+      const titleAttrs = title
+        ? { accessible: true, accessibilityRole: 'image', accessibilityLabel: title }
+        : {};
+
       return createElement(
         NativeSvg.Svg as unknown as string,
         {
@@ -40,6 +47,7 @@ const createReactNativeComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
+          ...titleAttrs,
           ...rest,
           ...paintAttrs,
         },
@@ -53,10 +61,7 @@ const createReactNativeComponent = (
               { ...paintAttrs, ...attrs } as IconProps,
             );
           }),
-          [
-            title && createElement('title', { key: 'svg-title' }, title),
-            ...((Array.isArray(children) ? children : [children]) || []),
-          ],
+          ...(Array.isArray(children) ? children : [children]),
         ],
       );
     },
