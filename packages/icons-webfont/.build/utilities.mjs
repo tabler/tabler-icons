@@ -131,10 +131,14 @@ export async function generateFont(strokeName, type, DIR) {
 
   const fileName = `tabler-icons${type === 'outline' ? (strokeName !== '400' ? `-${strokeName}` : '') : `-${type}`}`;
 
-  // Ensure dist/fonts directory exists
+  // Ensure the output directories exist
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
+  mkdirSync(path.join(DIR, 'fonts'), { recursive: true });
 
-  writeFileSync(path.join(DIR, `dist/fonts/${fileName}.svg`), svgFontFileSource); // for debug
+  // The intermediate SVG font is kept for debugging only. It goes to `fonts/`
+  // (git-ignored, not published) because the CSS does not reference it and it
+  // would make up most of the package size.
+  writeFileSync(path.join(DIR, `fonts/${fileName}.svg`), svgFontFileSource);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.ttf`), ttfFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
