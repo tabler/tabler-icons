@@ -29,6 +29,11 @@ jobs:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
 
+      # Packages are published with npm trusted publishing (OIDC), which needs
+      # npm 11.5.1 or newer. Node.js 22 ships with npm 10.
+      - name: Update npm
+        run: npm install -g npm@11
+
       - uses: pnpm/action-setup@v6
         name: Install pnpm
 
@@ -71,8 +76,6 @@ jobs:
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # Changesets describes every package separately, while GitHub gets a single
       # release for all of them. The description is replaced with a preview of
