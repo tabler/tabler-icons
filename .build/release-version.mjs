@@ -3,9 +3,9 @@
 // packages to the version Changesets picked and generates the preview image
 // of the icons released in it.
 import { execSync } from 'child_process';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
-import { HOME_DIR, PACKAGES_DIR, getIconsReleasedIn } from './helpers.mjs';
+import { HOME_DIR, PACKAGES_DIR } from './helpers.mjs';
 
 const { version } = JSON.parse(readFileSync(resolve(PACKAGES_DIR, 'icons/package.json'), 'utf-8'));
 
@@ -32,23 +32,3 @@ run('validate --hard');
 run('optimize');
 run('changelog-image');
 run('update-readme');
-
-// List the new icons in the changelog of @tabler/icons, right below the
-// heading Changesets wrote for this version
-const newIcons = getIconsReleasedIn(version);
-const changelogPath = resolve(PACKAGES_DIR, 'icons/CHANGELOG.md');
-
-if (newIcons.length > 0 && existsSync(changelogPath)) {
-  const changelog = readFileSync(changelogPath, 'utf-8');
-  const plural = newIcons.length > 1 ? 's' : '';
-  const section =
-    `### ${newIcons.length} new icon${plural}\n\n` +
-    newIcons.map((icon) => `- \`${icon.type}/${icon.name}\``).join('\n');
-
-  if (!changelog.includes(section)) {
-    writeFileSync(
-      changelogPath,
-      changelog.replace(`## ${version}\n`, (heading) => `${heading}\n${section}\n`),
-    );
-  }
-}

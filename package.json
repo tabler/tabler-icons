@@ -36,7 +36,7 @@
     "generate-preview-stroke": "node ./.build/preview-stroke.mjs",
     "validate": "node ./.build/validate-icons.mjs",
     "changeset": "changeset",
-    "version-packages": "changeset version && node ./.build/release-version.mjs",
+    "version-packages": "node ./.build/release-changeset.mjs && changeset version && node ./.build/release-version.mjs",
     "release": "pnpm run build:packages && changeset publish",
     "build:packages": "turbo run build --filter='./packages/*'",
     "build:icons": "pnpm --filter @tabler/icons build",
