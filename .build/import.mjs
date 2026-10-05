@@ -2,6 +2,7 @@ import { readFileSync, existsSync, writeFileSync } from 'fs';
 import { glob } from 'glob';
 import { resolve, basename } from 'path';
 import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './helpers.mjs';
+import { convertDashesToPaths } from './dashes.mjs';
 
 types.forEach((type) => {
   const files = glob.sync(resolve(HOME_DIR, `./new/${type}/*.svg`));
@@ -13,6 +14,9 @@ types.forEach((type) => {
     console.log(`${type}/${filename}`);
 
     fileData = optimizeSVG(fileData);
+
+    // dashed strokes are not allowed in icons — every dash becomes its own path
+    fileData = convertDashesToPaths(fileData);
 
     if (fileData.match(/transform="/)) {
       throw new Error(`File ${file} has \`transform\` in code!!`);
