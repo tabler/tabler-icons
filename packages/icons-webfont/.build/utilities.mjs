@@ -120,16 +120,27 @@ export function calculateHash(content) {
 }
 
 export async function generateFont(strokeName, type, DIR) {
-  console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
-  const svgFiles = await loadSvgFiles(
-    path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
-  );
+  console.log(`Generating font for ${type !== 'filled' ? `${type}/${strokeName}` : 'filled'}`);
+  let svgFiles;
+  if (type === 'all') {
+    svgFiles = [
+      ...(await loadSvgFiles(path.join(DIR, 'icons-filled'))).map((f) => {
+        f.metadata.name = `${f.metadata.name}-filled`;
+        return f;
+      }),
+      ...(await loadSvgFiles(path.join(DIR, `icons-outlined/${strokeName}`))),
+    ];
+  } else {
+    svgFiles = await loadSvgFiles(
+      path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
+    );
+  }
   const svgFontFileSource = await buildSvgFont(svgFiles);
   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource, { ts: FONT_TIMESTAMP }).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
-  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== '400' ? `-${strokeName}` : '') : `-${type}`}`;
+  const fileName = `tabler-icons${type !== 'filled' ? (strokeName !== '400' ? `-${strokeName}` : '') : ''}${type !== 'all' ? `-${type}` : ''}`;
 
   // Ensure the output directories exist
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
@@ -156,12 +167,20 @@ export async function generateFont(strokeName, type, DIR) {
     });
 
   // Convert aliases object to array of {from, to} objects
-  const aliasesArray = aliases[type]
-    ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to }))
-    : [];
+  // The `all` font contains both variants, so filled glyphs (and their aliases) are suffixed
+  const aliasesArray =
+    type === 'all'
+      ? [
+          ...Object.entries(aliases.outline ?? {}).map(([from, to]) => ({ from, to })),
+          ...Object.entries(aliases.filled ?? {}).map(([from, to]) => ({
+            from: `${from}-filled`,
+            to: `${to}-filled`,
+          })),
+        ]
+      : Object.entries(aliases[type] ?? {}).map(([from, to]) => ({ from, to }));
 
   const options = {
-    name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+    name: `Tabler Icons${type !== 'all' ? ` ${type.charAt(0).toUpperCase()}${type.slice(1)}` : ''}`,
     fileName,
     glyphs,
     v: packageJson.version,
