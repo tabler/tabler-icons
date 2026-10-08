@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "pnpm run copy && pnpm run build:prepare && pnpm run build:webfont && pnpm run build:css",
+    "test": "node --test .build/utilities.test.mjs",
     "build:prepare": "mkdir -p icons-outlined dist && rm -fdr dist/*",
     "build:webfont": "rm -fd dist/fonts/* && node .build/build-webfont.mjs",
     "build:css": "pnpm run build:css:outline && pnpm run build:css:filled",
