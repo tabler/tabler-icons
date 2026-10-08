@@ -205,19 +205,28 @@ export async function processIcons(
     if (!unicode) continue;
 
     let svgContent = content;
+    const sourceHash = calculateHash(content);
     const fileName = `u${unicode.toUpperCase()}-${name}`;
     const filePath = path.join(dirname, `${fileName}.svg`);
 
     // Check cache (try/catch faster than existsSync + readFileSync)
     try {
       const cachedContent = readFileSync(filePath, 'utf-8');
-      let cachedHash = '';
-      const contentWithoutHash = cachedContent.replace(/<!--!cache:([a-z0-9]+)-->/, (m, hash) => {
-        cachedHash = hash;
-        return '';
-      });
+      let cachedSourceHash = '';
+      let cachedOutputHash = '';
+      const contentWithoutHash = cachedContent.replace(
+        /<!--!cache:([a-z0-9]+):([a-z0-9]+)-->/,
+        (m, inputHash, outputHash) => {
+          cachedSourceHash = inputHash;
+          cachedOutputHash = outputHash;
+          return '';
+        },
+      );
 
-      if (cachedHash && calculateHash(contentWithoutHash) === cachedHash) {
+      if (
+        cachedSourceHash === sourceHash &&
+        calculateHash(contentWithoutHash) === cachedOutputHash
+      ) {
         cached++;
         continue;
       }
@@ -232,7 +241,7 @@ export async function processIcons(
 
     // Prepare final content with hash
     const finalContent = svgContent.replace(/\n/g, ' ').trim();
-    const hashString = `<!--!cache:${calculateHash(finalContent)}-->`;
+    const hashString = `<!--!cache:${sourceHash}:${calculateHash(finalContent)}-->`;
 
     // Save file
     writeFileSync(filePath, finalContent + hashString, 'utf-8');
