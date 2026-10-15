@@ -136,24 +136,30 @@ export function calculateHash(content) {
 const slugify = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 /**
- * Split glyphs into the `core` chunk and one chunk per category, with big
- * categories cut into parts of at most MAX_CHUNK_SIZE consecutive codepoints.
- * The core chunk is never split.
+ * Split glyphs into the `core` chunk and the rest. With `byCategory` the rest is
+ * split into one chunk per category, with big categories cut into parts of at
+ * most MAX_CHUNK_SIZE consecutive codepoints.
+ * Without it the rest is a single chunk. The core chunk is never split.
  *
  * @param glyphs {{ name: string, unicode: string[] }[]}
+ * @param byCategory {boolean}
  * @return {{ name: string, names: Set<string>, codepoints: number[] }[]}
  */
-export function getChunks(glyphs) {
+export function getChunks(glyphs, byCategory = true) {
   const groups = { core: [] };
   for (const glyph of glyphs) {
-    const group = coreIcons.has(glyph.name) ? 'core' : slugify(categories[glyph.name] || 'other');
+    const group = coreIcons.has(glyph.name)
+      ? 'core'
+      : byCategory
+        ? slugify(categories[glyph.name] || 'other')
+        : 'rest';
     (groups[group] ||= []).push(glyph);
   }
 
   return Object.entries(groups).flatMap(([name, list]) => {
     if (!list.length) return [];
     list.sort((a, b) => a.unicode[0].codePointAt(0) - b.unicode[0].codePointAt(0));
-    const parts = name === 'core' ? 1 : Math.ceil(list.length / MAX_CHUNK_SIZE);
+    const parts = byCategory && name !== 'core' ? Math.ceil(list.length / MAX_CHUNK_SIZE) : 1;
     return Array.from({ length: parts }, (_, i) => {
       const part = list.slice(
         Math.floor((i * list.length) / parts),
@@ -219,9 +225,13 @@ export async function generateFont(strokeName, type, DIR) {
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
 
   // Chunks for the split @font-face. Each file is loaded only when the page
-  // shows a glyph from its unicode-range.
+  // shows a glyph from its unicode-range. The filled font is small enough that
+  // per-category chunks would mostly be overhead, so it is only core + rest.
   const chunks = [];
-  for (const chunk of getChunks(svgFiles.map((f) => f.metadata))) {
+  for (const chunk of getChunks(
+    svgFiles.map((f) => f.metadata),
+    type === 'outline',
+  )) {
     const chunkFile = await buildWoff2(
       await loadSvgFiles(svgDir, ({ name }) => chunk.names.has(name)),
     );
