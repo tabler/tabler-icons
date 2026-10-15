@@ -21,7 +21,9 @@ const packageJson = getPackageJson();
 
 // Most downloaded icons on tabler.io. They go into one `core` chunk so a typical
 // page only needs that file; the rest is split by category.
-const coreIcons = new Set(JSON.parse(readFileSync(new URL('./core-icons.json', import.meta.url))));
+const coreIcons = new Set(
+  JSON.parse(readFileSync(new URL('./core-icons.json', import.meta.url), 'utf-8')),
+);
 
 // Filled icons have no category of their own, so use the outline one.
 const categories = Object.fromEntries(
@@ -63,6 +65,7 @@ function getMetadataFromSvgName(name) {
 /**
  *
  * @param path {string} The directory contains SVG files
+ * @param filter {(metadata: { unicode: string[], name: string }) => boolean} Which icons to load
  * @return {Promise<Svgicons2svgfontStream[]>}
  */
 export async function loadSvgFiles(path, filter = () => true) {
