@@ -2,7 +2,7 @@ import fsPromises from 'node:fs/promises';
 import { createReadStream, mkdirSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
 import { globSync } from 'glob';
-import { blankSquare, getAliases, getPackageJson } from '../../../.build/helpers.mjs';
+import { blankSquare, getAliases, getAllIcons, getPackageJson } from '../../../.build/helpers.mjs';
 import crypto from 'crypto';
 import { Eta } from 'eta';
 import svg2ttf from 'svg2ttf';
@@ -18,6 +18,18 @@ const eta = new Eta({
 const aliases = getAliases(true);
 
 const packageJson = getPackageJson();
+
+// Most downloaded icons on tabler.io. They go into one `core` chunk so a typical
+// page only needs that file; the rest is split by category.
+const coreIcons = new Set(JSON.parse(readFileSync(new URL('./core-icons.json', import.meta.url))));
+
+// Filled icons have no category of their own, so use the outline one.
+const categories = Object.fromEntries(
+  getAllIcons().outline.map(({ name, category }) => [name, category]),
+);
+
+// Categories bigger than this are split into several chunks.
+const MAX_CHUNK_SIZE = 256;
 
 // Template function compatible with lodash.template API
 function template(templateString) {
@@ -53,17 +65,19 @@ function getMetadataFromSvgName(name) {
  * @param path {string} The directory contains SVG files
  * @return {Promise<Svgicons2svgfontStream[]>}
  */
-export async function loadSvgFiles(path) {
+export async function loadSvgFiles(path, filter = () => true) {
   const svgFiles = await fsPromises
     .readdir(path)
     .then((files) => files.filter((file) => file.endsWith('.svg')));
   svgFiles.sort();
-  return svgFiles.map((file) => {
-    /** @type {Svgicons2svgfontStream} */
-    const stream = createReadStream(`${path}/${file}`);
-    stream.metadata = getMetadataFromSvgName(file);
-    return stream;
-  });
+  return svgFiles
+    .filter((file) => filter(getMetadataFromSvgName(file)))
+    .map((file) => {
+      /** @type {Svgicons2svgfontStream} */
+      const stream = createReadStream(`${path}/${file}`);
+      stream.metadata = getMetadataFromSvgName(file);
+      return stream;
+    });
 }
 
 /**
@@ -119,11 +133,72 @@ export function calculateHash(content) {
   return crypto.createHash('sha1').update(content).digest('hex');
 }
 
+const slugify = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+/**
+ * Split glyphs into the `core` chunk and one chunk per category, with big
+ * categories cut into parts of at most MAX_CHUNK_SIZE consecutive codepoints.
+ * The core chunk is never split.
+ *
+ * @param glyphs {{ name: string, unicode: string[] }[]}
+ * @return {{ name: string, names: Set<string>, codepoints: number[] }[]}
+ */
+export function getChunks(glyphs) {
+  const groups = { core: [] };
+  for (const glyph of glyphs) {
+    const group = coreIcons.has(glyph.name) ? 'core' : slugify(categories[glyph.name] || 'other');
+    (groups[group] ||= []).push(glyph);
+  }
+
+  return Object.entries(groups).flatMap(([name, list]) => {
+    if (!list.length) return [];
+    list.sort((a, b) => a.unicode[0].codePointAt(0) - b.unicode[0].codePointAt(0));
+    const parts = name === 'core' ? 1 : Math.ceil(list.length / MAX_CHUNK_SIZE);
+    return Array.from({ length: parts }, (_, i) => {
+      const part = list.slice(
+        Math.floor((i * list.length) / parts),
+        Math.floor(((i + 1) * list.length) / parts),
+      );
+      return {
+        name: parts > 1 ? `${name}-${i + 1}` : name,
+        names: new Set(part.map((glyph) => glyph.name)),
+        codepoints: part.map((glyph) => glyph.unicode[0].codePointAt(0)),
+      };
+    });
+  });
+}
+
+/**
+ * Turn codepoints into a `unicode-range` value, merging consecutive ones.
+ *
+ * @param codepoints {number[]} sorted codepoints
+ * @return {string}
+ */
+export function toUnicodeRange(codepoints) {
+  const ranges = [];
+  for (const codepoint of codepoints) {
+    const last = ranges.at(-1);
+    if (last && codepoint === last[1] + 1) last[1] = codepoint;
+    else ranges.push([codepoint, codepoint]);
+  }
+  const hex = (codepoint) => codepoint.toString(16).toUpperCase();
+  return ranges
+    .map(([from, to]) => (from === to ? `U+${hex(from)}` : `U+${hex(from)}-${hex(to)}`))
+    .join(', ');
+}
+
+async function buildWoff2(svgFiles) {
+  const svgFont = await buildSvgFont(svgFiles);
+  return wawoff2.compress(Buffer.from(svg2ttf(svgFont, { ts: FONT_TIMESTAMP }).buffer));
+}
+
 export async function generateFont(strokeName, type, DIR) {
   console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
-  const svgFiles = await loadSvgFiles(
-    path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
+  const svgDir = path.join(
+    DIR,
+    `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`,
   );
+  const svgFiles = await loadSvgFiles(svgDir);
   const svgFontFileSource = await buildSvgFont(svgFiles);
   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource, { ts: FONT_TIMESTAMP }).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
@@ -142,6 +217,22 @@ export async function generateFont(strokeName, type, DIR) {
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.ttf`), ttfFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff`), woffFile);
   writeFileSync(path.join(DIR, `dist/fonts/${fileName}.woff2`), woff2File);
+
+  // Chunks for the split @font-face. Each file is loaded only when the page
+  // shows a glyph from its unicode-range.
+  const chunks = [];
+  for (const chunk of getChunks(svgFiles.map((f) => f.metadata))) {
+    const chunkFile = await buildWoff2(
+      await loadSvgFiles(svgDir, ({ name }) => chunk.names.has(name)),
+    );
+    const chunkFileName = `${fileName}.${chunk.name}`;
+    writeFileSync(path.join(DIR, `dist/fonts/${chunkFileName}.woff2`), chunkFile);
+    chunks.push({
+      fileName: chunkFileName,
+      hash: calculateHash(chunkFile).slice(0, 8),
+      unicodeRange: toUnicodeRange(chunk.codepoints),
+    });
+  }
 
   const glyphs = svgFiles
     .map((f) => ({
@@ -166,6 +257,7 @@ export async function generateFont(strokeName, type, DIR) {
     glyphs,
     v: packageJson.version,
     aliases: aliasesArray,
+    chunks,
   };
 
   //scss

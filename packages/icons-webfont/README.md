@@ -82,6 +82,16 @@ Import the SCSS source and use the generated variable:
 content: $ti-icon-brand-tabler;
 ```
 
+### Font loading
+
+The font is split into chunks: one with the most popular icons and one per icon category (`dist/fonts/tabler-icons.<chunk>.woff2`). Each chunk has its own `unicode-range`, so the browser downloads only the chunks with icons shown on the page.
+
+To load the whole font from a single file instead, set `$ti-font-split` before importing the SCSS source:
+
+```scss
+@use '@tabler/icons-webfont/dist/tabler-icons.scss' with ($ti-font-split: false);
+```
+
 ## CDN
 
 ```html
