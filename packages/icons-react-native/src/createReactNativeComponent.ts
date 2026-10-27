@@ -48,8 +48,11 @@ const createReactNativeComponent = (
           width: size,
           height: size,
           // What `currentColor` resolves to, for the nodes that set it as their
-          // own `fill` (react-native-svg does not inherit it from `fill`).
-          color,
+          // own `fill` (react-native-svg does not inherit it from `fill`). Not
+          // the default `'currentColor'` itself, which React Native can't parse:
+          // on Android, updating from a real color to it reset the root's current
+          // color to 0 (transparent).
+          ...(color !== 'currentColor' && { color }),
           ...titleAttrs,
           ...rest,
           ...paintAttrs,

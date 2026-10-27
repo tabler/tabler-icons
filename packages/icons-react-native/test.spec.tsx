@@ -80,6 +80,13 @@ describe('React Native Icon component', () => {
     expect(renderSvgProps(<IconSquareRoundedCheckFilled color={'red'} />).color).toBe('red');
   });
 
+  it('should not pass the default currentColor to the svg element', () => {
+    // React Native can't parse it: on Android, updating the root from a real
+    // color to it reset its current color to transparent.
+    expect(renderSvgProps(<IconAccessible />)).not.toHaveProperty('color');
+    expect(renderSvgProps(<IconAccessible color="currentColor" />)).not.toHaveProperty('color');
+  });
+
   it('should forward other props to the svg element', () => {
     const { container } = render(<IconAccessible opacity={0.5} />);
     const svg = container.getElementsByTagName('svg')[0];
