@@ -6,7 +6,6 @@ import { Path, Svg } from 'react-native-svg';
 import {
   IconAccessible,
   IconAccessibleFilled,
-  IconSquareRoundedCheckFilled,
   createReactComponent,
 } from './src/tabler-icons-react-native';
 
@@ -71,13 +70,14 @@ describe('React Native Icon component', () => {
   it('should set the color of the nodes that fill with currentColor', () => {
     // Some icons have nodes with their own `fill="currentColor"` (the dot of
     // `accessible`, the shape of `square-rounded-check-filled`): react-native-svg
-    // resolves it to the root's `color`.
+    // resolves it to the root's `color`, so the root always gets it. Only icons
+    // from the start of the alphabet exist under ICONS_LIMIT, hence `accessible`.
     const { container } = render(<IconAccessible color={'red'} />);
     const dot = container.getElementsByTagName('path')[2];
 
     expect(dot.getAttribute('fill')).toBe('currentColor');
     expect(renderSvgProps(<IconAccessible color={'red'} />).color).toBe('red');
-    expect(renderSvgProps(<IconSquareRoundedCheckFilled color={'red'} />).color).toBe('red');
+    expect(renderSvgProps(<IconAccessibleFilled color={'red'} />).color).toBe('red');
   });
 
   it('should forward other props to the svg element', () => {
