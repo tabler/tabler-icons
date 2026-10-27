@@ -110,6 +110,10 @@ jobs:
       # that release, with the image of the new icons on top. The image is loaded
       # from the commit on the release branch, the `v<version>` tag does not
       # exist yet.
+      #
+      # The action pushes the release commit through the GitHub API and leaves
+      # the versioned files uncommitted in the working tree, so the checkout of
+      # that commit has to be forced. The files are the same either way.
       - name: Show the GitHub release in the release pull request
         if: steps.changesets.outputs.pr-number != ''
         env:
@@ -118,7 +122,7 @@ jobs:
         run: |
           SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/changeset-release/main" --jq .sha)
           git fetch origin changeset-release/main
-          git checkout --detach "$SHA"
+          git checkout --force --detach "$SHA"
           VERSION=$(node -p "require('./packages/icons/package.json').version")
           {
             echo "Merging this pull request publishes all \`@tabler/icons*\` packages in version **${VERSION}** to npm and creates the following GitHub release."
