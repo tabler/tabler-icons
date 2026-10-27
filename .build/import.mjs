@@ -1,7 +1,14 @@
 import { readFileSync, existsSync, writeFileSync } from 'fs';
 import { glob } from 'glob';
 import { resolve, basename } from 'path';
-import { HOME_DIR, optimizeSVG, iconTemplate, types, removeClosePath } from './helpers.mjs';
+import {
+  HOME_DIR,
+  optimizeSVG,
+  iconTemplate,
+  types,
+  removeClosePath,
+  convertDotFills,
+} from './helpers.mjs';
 import { convertDashesToPaths } from './dashes.mjs';
 
 types.forEach((type) => {
@@ -14,6 +21,9 @@ types.forEach((type) => {
     console.log(`${type}/${filename}`);
 
     fileData = optimizeSVG(fileData);
+
+    // the dots keep their fill, every other colour goes
+    fileData = convertDotFills(fileData);
 
     // dashed strokes are not allowed in icons — every dash becomes its own path
     fileData = convertDashesToPaths(fileData);

@@ -327,6 +327,28 @@ export const removeClosePath = (d) => {
   return path.toString();
 };
 
+/**
+ * Keep the fill of the small dots. In the source files a dot is a `<circle>`
+ * with `r` of at most 1 that has a black fill. The import strips every colour,
+ * and once the parent's `fill="none"` is gone svgo drops a black fill as the
+ * default, so the dot would end up as a hollow ring. The dots are the only
+ * elements that keep a fill in outline icons; every other fill is removed.
+ */
+export const convertDotFills = (data) => {
+  return data
+    .replace(/<circle\b([^>]*?)\s*\/>/g, (match, attrs) => {
+      const r = attrs.match(/\sr="([^"]+)"/);
+      const fill = attrs.match(/\sfill="([^"]+)"/);
+
+      if (r && fill && Number(r[1]) <= 1 && fill[1] !== 'none') {
+        return `<circle${attrs.replace(/\sfill="[^"]+"/, '')} fill="currentColor" />`;
+      }
+
+      return match;
+    })
+    .replace(/\sfill="(#000000|#000|black)"/gi, '');
+};
+
 export const optimizeSVG = (data) => {
   return optimize(data, {
     js2svg: {
