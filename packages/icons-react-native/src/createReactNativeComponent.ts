@@ -47,6 +47,9 @@ const createReactNativeComponent = (
           ...defaultAttributes[type],
           width: size,
           height: size,
+          // What `currentColor` resolves to, for the nodes that set it as their
+          // own `fill` (react-native-svg does not inherit it from `fill`).
+          color,
           ...titleAttrs,
           ...rest,
           ...paintAttrs,
