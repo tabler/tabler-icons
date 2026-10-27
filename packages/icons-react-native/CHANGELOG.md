@@ -1,5 +1,13 @@
 # @tabler/icons-react-native
 
+## 3.50.0
+
+### Patch Changes
+
+- [#1668](https://github.com/tabler/tabler-icons/pull/1668) [`727cb04`](https://github.com/tabler/tabler-icons/commit/727cb04f91880fb601c270c4afdd9e948ef9f373) - Fix `color` being ignored by the icon nodes that fill with `currentColor` (e.g. `IconSquareRoundedCheckFilled`, the dot of `IconAccessible`): the root `Svg` now gets `color`, which react-native-svg resolves `currentColor` to
+- Updated dependencies []:
+  - @tabler/icons@3.50.0
+
 ## 3.49.0
 
 ### Patch Changes

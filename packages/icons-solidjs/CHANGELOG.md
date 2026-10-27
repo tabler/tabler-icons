@@ -1,5 +1,12 @@
 # @tabler/icons-solidjs
 
+## 3.50.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @tabler/icons@3.50.0
+
 ## 3.49.0
 
 ### Patch Changes
