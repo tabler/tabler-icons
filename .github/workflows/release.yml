@@ -83,12 +83,16 @@ jobs:
         id: changesets
         uses: changesets/action@v2
         with:
-          version: pnpm run version-packages
-          publish: pnpm run release
-          title: 'Release'
-          commit: 'Release'
-          createGithubReleases: false
+          version-script: pnpm run version-packages
+          publish-script: pnpm run release
+          pr-title: 'Release'
+          commit-message: 'Release'
+          # The tag and the GitHub release are created by the step below, from
+          # the zip of the published packages.
+          create-github-releases: false
+          push-git-tags: false
         env:
+          # Read by `@changesets/changelog-github` for the pull request links
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Saved even when the publish command fails, that is exactly the run whose
@@ -96,7 +100,7 @@ jobs:
       # entry cannot be overwritten.
       - uses: actions/cache/save@v6
         name: Save turbo cache
-        if: ${{ !cancelled() && steps.changesets.outputs.hasChangesets == 'false' }}
+        if: ${{ !cancelled() && steps.changesets.outputs.has-changesets == 'false' }}
         with:
           path: .turbo/cache
           key: ${{ runner.os }}-turbo-release-${{ github.sha }}-${{ github.run_attempt }}
@@ -107,10 +111,10 @@ jobs:
       # from the commit on the release branch, the `v<version>` tag does not
       # exist yet.
       - name: Show the GitHub release in the release pull request
-        if: steps.changesets.outputs.pullRequestNumber != ''
+        if: steps.changesets.outputs.pr-number != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.changesets.outputs.pullRequestNumber }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pr-number }}
         run: |
           SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/changeset-release/main" --jq .sha)
           git fetch origin changeset-release/main
@@ -125,15 +129,14 @@ jobs:
           } > body.md
           gh pr edit "$PR_NUMBER" --body-file body.md
 
-      # The `published` output of the action stays empty with Changesets 3, which
-      # no longer prints the `New tag:` lines the action looks for. Without
-      # pending changesets the action runs the publish command, so the release is
+      # The `published` output of the action is not relied on. Without pending
+      # changesets the action runs the publish command, so the release is
       # created whenever it does not exist yet. It is created even when the
       # publish command fails (for example when npm rejects a package that was
       # already staged in an earlier run), the packages that were published
       # should not stay without the release.
       - name: Create GitHub release
-        if: ${{ !cancelled() && steps.changesets.outputs.hasChangesets == 'false' }}
+        if: ${{ !cancelled() && steps.changesets.outputs.has-changesets == 'false' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
