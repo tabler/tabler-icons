@@ -29,16 +29,19 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Resolve the PR number from the head SHA via the API instead of trusting
-      # data produced by the unprivileged run.
+      # Resolve the PR number from the head SHA instead of trusting data produced
+      # by the unprivileged run. `workflow_run.pull_requests` is empty for fork
+      # PRs and the `commits/{sha}/pulls` endpoint does not list them either, so
+      # match the SHA against the heads of the open PRs.
       - name: Resolve PR number
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
-          PR_NUMBER=$(gh api "repos/${{ github.repository }}/commits/${HEAD_SHA}/pulls" \
-            --jq ".[] | select(.head.sha == \"${HEAD_SHA}\") | .number" | head -n1)
+          PR_NUMBER=$(gh pr list --repo "${{ github.repository }}" --state open --limit 100 \
+            --json number,headRefOid \
+            --jq ".[] | select(.headRefOid == \"${HEAD_SHA}\") | .number" | head -n1)
           if [ -z "$PR_NUMBER" ]; then
             echo "No open PR found for commit ${HEAD_SHA}, skipping comments"
           fi
