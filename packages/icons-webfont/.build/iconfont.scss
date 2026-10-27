@@ -9,15 +9,31 @@ $ti-font-family: '<%= it.fileName %>' !default;
 $ti-font-path: './fonts' !default;
 $ti-font-display: null !default;
 $ti-prefix: 'ti' !default;
+// Load the font in chunks (popular icons + one per category) that the browser
+// downloads only for the icons shown on the page. Set to false to load a single file.
+$ti-font-split: true !default;
 
-@font-face {
-  font-family: $ti-font-family;
-  font-style: normal;
-  font-weight: 400;
-  font-display: $ti-font-display;
-  src: url('#{$ti-font-path}/<%= it.fileName %>.woff2?v<%= it.v %>') format('woff2'),
-    url('#{$ti-font-path}/<%= it.fileName %>.woff?') format('woff'),
-    url('#{$ti-font-path}/<%= it.fileName %>.ttf?v<%= it.v %>') format('truetype');
+@if $ti-font-split {
+<% it.chunks.forEach(function(chunk) { %>
+  @font-face {
+    font-family: $ti-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-display: $ti-font-display;
+    src: url('#{$ti-font-path}/<%= chunk.fileName %>.woff2?h<%= chunk.hash %>') format('woff2');
+    unicode-range: <%= chunk.unicodeRange %>;
+  }
+<% }) %>
+} @else {
+  @font-face {
+    font-family: $ti-font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-display: $ti-font-display;
+    src: url('#{$ti-font-path}/<%= it.fileName %>.woff2?v<%= it.v %>') format('woff2'),
+      url('#{$ti-font-path}/<%= it.fileName %>.woff?') format('woff'),
+      url('#{$ti-font-path}/<%= it.fileName %>.ttf?v<%= it.v %>') format('truetype');
+  }
 }
 
 .#{$ti-prefix} {
