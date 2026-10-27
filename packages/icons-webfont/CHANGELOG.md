@@ -1,5 +1,16 @@
 # @tabler/icons-webfont
 
+## 3.50.0
+
+### Minor Changes
+
+- [#1654](https://github.com/tabler/tabler-icons/pull/1654) [`668df3f`](https://github.com/tabler/tabler-icons/commit/668df3f00a3ba8f5aa386426b9242837ae45af6e) - Split the webfont into chunks loaded with `unicode-range`: one with the 300 most popular icons and one per icon category (for the filled font: the popular icons and the rest). A page now downloads only the chunks with the icons it shows, e.g. about 40 KB instead of about 500 KB when it uses only popular icons. Set `$ti-font-split: false` in SCSS to load the single font file as before.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @tabler/icons@3.50.0
+
 ## 3.49.0
 
 ### Patch Changes

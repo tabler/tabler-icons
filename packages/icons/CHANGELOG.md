@@ -1,5 +1,30 @@
 # @tabler/icons
 
+## 3.50.0
+
+### Minor Changes
+
+- 18 new icons
+  
+  - `outline/archive-restore`
+  - `outline/beach-bag`
+  - `outline/book-clone`
+  - `outline/brand-misskey`
+  - `outline/brand-viber`
+  - `outline/decagram`
+  - `outline/git-merge-ai`
+  - `outline/git-pull-request-closed-ai`
+  - `outline/git-pull-request-draft-ai`
+  - `outline/git-pull-request-locked-ai`
+  - `outline/loop`
+  - `outline/map-pins-off`
+  - `outline/mcp`
+  - `outline/opacity`
+  - `outline/pencil-ruler`
+  - `outline/snail`
+  - `outline/world-map-off`
+  - `outline/zsh`
+
 ## 3.49.0
 
 ### Minor Changes
