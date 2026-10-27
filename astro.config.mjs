@@ -55,5 +55,21 @@ export default defineConfig({
   },
   vite: {
     plugins: [watchIcons()],
+    server: {
+      watch: {
+        // Vite watches the whole repo. Worktrees, framework test apps, build
+        // stats and release zips are not part of this site, but files appearing
+        // there (another checkout's tsconfig or astro.config) made the dev
+        // server restart mid-request and fail with "transport was disconnected".
+        ignored: [
+          '**/.claude/**',
+          '**/.turbo/**',
+          '**/_site/**',
+          '**/packages-zip/**',
+          '**/packages/*/stats/**',
+          '**/test/test-*/**',
+        ],
+      },
+    },
   },
 });
