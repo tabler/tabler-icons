@@ -1,6 +1,6 @@
 import { globSync } from 'glob';
 import { readFileSync, writeFileSync } from 'fs';
-import { join, basename } from 'path';
+import { join } from 'path';
 import { pathToFileURL } from 'url';
 import { optimizePath, removeClosePath, ICONS_SRC_DIR, iconTemplate, types } from './helpers.mjs';
 
@@ -165,8 +165,6 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     const files = globSync(join(ICONS_SRC_DIR, type, '*.svg'));
 
     files.forEach(function (file) {
-      console.log(`Optimize ${basename(file)}`);
-
       // Read files
       let svgFile = readFileSync(file),
         svgFileContent = optimizeSvgContent(svgFile.toString(), type);

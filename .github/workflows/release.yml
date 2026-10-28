@@ -1,0 +1,155 @@
+name: Release
+
+# On every push to `main` Changesets opens (or updates) the "Version Packages"
+# pull request. Merging it publishes the packages and creates the GitHub release.
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+
+jobs:
+  release:
+    if: github.repository == 'tabler/tabler-icons'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      # Packages are published with npm trusted publishing (OIDC), which needs
+      # npm 11.5.1 or newer. Node.js 22 ships with npm 10.
+      - name: Update npm
+        run: npm install -g npm@11
+
+      - uses: pnpm/action-setup@v6
+        name: Install pnpm
+
+      # Preview image of the new icons and the PNG/PDF/EPS packages
+      - name: Install rsvg-convert
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v6
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Icons are added without changesets. Generating the changeset for the
+      # unreleased ones before the action runs makes any new icon open (or
+      # update) the release pull request as a minor release.
+      - name: Add changeset for new icons
+        run: node ./.build/release-changeset.mjs
+
+      # Turbo's local cache for a rerun of a failed release: the packages built by
+      # the earlier attempt are restored instead of being rebuilt. Only attempts
+      # of the same commit are restored, the version bump of a new release
+      # changes the inputs of every package anyway. Skipped while changesets are
+      # pending, the packages are built only when they are published.
+      - uses: actions/cache/restore@v6
+        name: Restore turbo cache
+        if: hashFiles('.changeset/*.md', '!.changeset/README.md') == ''
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-release-${{ github.sha }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-release-${{ github.sha }}-
+
+      - name: Create release pull request or publish
+        id: changesets
+        uses: changesets/action@v2
+        with:
+          version-script: pnpm run version-packages
+          publish-script: pnpm run release
+          pr-title: 'Release'
+          commit-message: 'Release'
+          # The tag and the GitHub release are created by the step below, from
+          # the zip of the published packages.
+          create-github-releases: false
+          push-git-tags: false
+        env:
+          # Read by `@changesets/changelog-github` for the pull request links
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Saved even when the publish command fails, that is exactly the run whose
+      # rerun needs the cache. Every attempt gets its own key, an existing cache
+      # entry cannot be overwritten.
+      - uses: actions/cache/save@v6
+        name: Save turbo cache
+        if: ${{ !cancelled() && steps.changesets.outputs.has-changesets == 'false' }}
+        with:
+          path: .turbo/cache
+          key: ${{ runner.os }}-turbo-release-${{ github.sha }}-${{ github.run_attempt }}
+
+      # Changesets describes every package separately, while GitHub gets a single
+      # release for all of them. The description is replaced with a preview of
+      # that release, with the image of the new icons on top. The image is loaded
+      # from the commit on the release branch, the `v<version>` tag does not
+      # exist yet.
+      #
+      # The action pushes the release commit through the GitHub API and leaves
+      # the versioned files uncommitted in the working tree, so the checkout of
+      # that commit has to be forced. The files are the same either way.
+      - name: Show the GitHub release in the release pull request
+        if: steps.changesets.outputs.pr-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.changesets.outputs.pr-number }}
+        run: |
+          SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/changeset-release/main" --jq .sha)
+          git fetch origin changeset-release/main
+          git checkout --force --detach "$SHA"
+          VERSION=$(node -p "require('./packages/icons/package.json').version")
+          {
+            echo "Merging this pull request publishes all \`@tabler/icons*\` packages in version **${VERSION}** to npm and creates the following GitHub release."
+            echo
+            echo "---"
+            echo
+            node ./.build/release-notes.mjs --ref "$SHA"
+          } > body.md
+          gh pr edit "$PR_NUMBER" --body-file body.md
+
+      # The `published` output of the action is not relied on. Without pending
+      # changesets the action runs the publish command, so the release is
+      # created whenever it does not exist yet. It is created even when the
+      # publish command fails (for example when npm rejects a package that was
+      # already staged in an earlier run), the packages that were published
+      # should not stay without the release.
+      - name: Create GitHub release
+        if: ${{ !cancelled() && steps.changesets.outputs.has-changesets == 'false' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./packages/icons/package.json').version")
+          if gh release view "v${VERSION}" > /dev/null 2>&1; then
+            echo "Release v${VERSION} already exists"
+            exit 0
+          fi
+          node ./.build/release-notes.mjs > notes.md
+          # SVG, PNG, PDF, EPS and webfont files built for the published packages
+          pnpm run zip
+          gh release create "v${VERSION}" "packages-zip/tabler-icons-${VERSION}.zip" --target "$GITHUB_SHA" --title "Release ${VERSION}" --notes-file notes.md
