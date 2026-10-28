@@ -201,19 +201,76 @@ async function buildWoff2(svgFiles) {
   return wawoff2.compress(Buffer.from(svg2ttf(svgFont, { ts: FONT_TIMESTAMP }).buffer));
 }
 
-export async function generateFont(strokeName, type, DIR) {
-  console.log(`Generating font for ${type === 'outline' ? `outline/${strokeName}` : `filled`}`);
-  const svgDir = path.join(
-    DIR,
-    `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`,
+const FILLED_SUFFIX = '-filled';
+
+/**
+ * Load the SVG files of a font. The `all` font contains both variants, so filled
+ * glyphs are suffixed with `-filled`. `filter` gets the name as it is in the font.
+ *
+ * @param strokeName {string}
+ * @param type {'outline' | 'filled' | 'all'}
+ * @param DIR {string}
+ * @param filter {(metadata: { unicode: string[], name: string }) => boolean} Which icons to load
+ * @return {Promise<Svgicons2svgfontStream[]>}
+ */
+async function loadFontSvgFiles(strokeName, type, DIR, filter = () => true) {
+  if (type === 'all') {
+    const filledFiles = await loadSvgFiles(path.join(DIR, 'icons-filled'), ({ name, unicode }) =>
+      filter({ name: `${name}${FILLED_SUFFIX}`, unicode }),
+    );
+    for (const f of filledFiles) {
+      f.metadata.name = `${f.metadata.name}${FILLED_SUFFIX}`;
+    }
+    return [
+      ...filledFiles,
+      ...(await loadSvgFiles(path.join(DIR, `icons-outlined/${strokeName}`), filter)),
+    ];
+  }
+  return loadSvgFiles(
+    path.join(DIR, `icons-${type === 'outline' ? `outlined/${strokeName}` : 'filled'}`),
+    filter,
   );
-  const svgFiles = await loadSvgFiles(svgDir);
+}
+
+/**
+ * Chunks of a font: by category for outline glyphs, core + rest for filled ones.
+ * In the `all` font, the filled chunks are prefixed with `filled-`.
+ *
+ * @param glyphs {{ name: string, unicode: string[] }[]}
+ * @param type {'outline' | 'filled' | 'all'}
+ * @return {{ name: string, names: Set<string>, codepoints: number[] }[]}
+ */
+function getFontChunks(glyphs, type) {
+  if (type !== 'all') return getChunks(glyphs, type === 'outline');
+
+  const isFilled = (glyph) => glyph.name.endsWith(FILLED_SUFFIX);
+  return [
+    ...getChunks(
+      glyphs.filter((glyph) => !isFilled(glyph)),
+      true,
+    ),
+    ...getChunks(
+      glyphs
+        .filter(isFilled)
+        .map((glyph) => ({ ...glyph, name: glyph.name.slice(0, -FILLED_SUFFIX.length) })),
+      false,
+    ).map((chunk) => ({
+      ...chunk,
+      name: `filled-${chunk.name}`,
+      names: new Set([...chunk.names].map((name) => `${name}${FILLED_SUFFIX}`)),
+    })),
+  ];
+}
+
+export async function generateFont(strokeName, type, DIR) {
+  console.log(`Generating font for ${type !== 'filled' ? `${type}/${strokeName}` : 'filled'}`);
+  const svgFiles = await loadFontSvgFiles(strokeName, type, DIR);
   const svgFontFileSource = await buildSvgFont(svgFiles);
   const ttfFile = Buffer.from(svg2ttf(svgFontFileSource, { ts: FONT_TIMESTAMP }).buffer);
   const woffFile = Buffer.from(ttf2woff(ttfFile).buffer);
   const woff2File = await wawoff2.compress(ttfFile);
 
-  const fileName = `tabler-icons${type === 'outline' ? (strokeName !== '400' ? `-${strokeName}` : '') : `-${type}`}`;
+  const fileName = `tabler-icons${type !== 'filled' ? (strokeName !== '400' ? `-${strokeName}` : '') : ''}${type !== 'all' ? `-${type}` : ''}`;
 
   // Ensure the output directories exist
   mkdirSync(path.join(DIR, 'dist/fonts'), { recursive: true });
@@ -230,13 +287,14 @@ export async function generateFont(strokeName, type, DIR) {
   // Chunks for the split @font-face. Each file is loaded only when the page
   // shows a glyph from its unicode-range. The filled font is small enough that
   // per-category chunks would mostly be overhead, so it is only core + rest.
+  // The `all` font gets the chunks of both: outline ones and `filled-` prefixed ones.
   const chunks = [];
-  for (const chunk of getChunks(
+  for (const chunk of getFontChunks(
     svgFiles.map((f) => f.metadata),
-    type === 'outline',
+    type,
   )) {
     const chunkFile = await buildWoff2(
-      await loadSvgFiles(svgDir, ({ name }) => chunk.names.has(name)),
+      await loadFontSvgFiles(strokeName, type, DIR, ({ name }) => chunk.names.has(name)),
     );
     const chunkFileName = `${fileName}.${chunk.name}`;
     writeFileSync(path.join(DIR, `dist/fonts/${chunkFileName}.woff2`), chunkFile);
@@ -260,12 +318,20 @@ export async function generateFont(strokeName, type, DIR) {
     });
 
   // Convert aliases object to array of {from, to} objects
-  const aliasesArray = aliases[type]
-    ? Object.entries(aliases[type]).map(([from, to]) => ({ from, to }))
-    : [];
+  // The `all` font contains both variants, so filled glyphs (and their aliases) are suffixed
+  const aliasesArray =
+    type === 'all'
+      ? [
+          ...Object.entries(aliases.outline ?? {}).map(([from, to]) => ({ from, to })),
+          ...Object.entries(aliases.filled ?? {}).map(([from, to]) => ({
+            from: `${from}-filled`,
+            to: `${to}-filled`,
+          })),
+        ]
+      : Object.entries(aliases[type] ?? {}).map(([from, to]) => ({ from, to }));
 
   const options = {
-    name: `Tabler Icons ${type.charAt(0).toUpperCase() + type.slice(1)}`,
+    name: `Tabler Icons${type !== 'all' ? ` ${type.charAt(0).toUpperCase()}${type.slice(1)}` : ''}`,
     fileName,
     glyphs,
     v: packageJson.version,

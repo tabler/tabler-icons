@@ -486,10 +486,6 @@ importers:
         version: 3.5.44(typescript@5.9.3)
 
   packages/icons-webfont:
-    dependencies:
-      '@tabler/icons':
-        specifier: 'workspace:'
-        version: link:../icons
     devDependencies:
       eta:
         specifier: ^4.6.0
