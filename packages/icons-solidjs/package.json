@@ -36,15 +36,15 @@
       },
       "require": {
         "types": "./dist/types/tabler-icons-solidjs.d.ts",
-        "default": "./dist/cjs/tabler-icons-solidjs.js"
+        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
       },
       "node": {
-        "default": "./dist/cjs/tabler-icons-solidjs.js",
-        "types": "./dist/types/tabler-icons-solidjs.d.ts"
+        "types": "./dist/types/tabler-icons-solidjs.d.ts",
+        "default": "./dist/cjs/tabler-icons-solidjs.cjs"
       }
     }
   },
-  "main": "./dist/cjs/tabler-icons-solidjs.js",
+  "main": "./dist/cjs/tabler-icons-solidjs.cjs",
   "module": "./dist/esm/tabler-icons-solidjs.js",
   "types": "./dist/types/tabler-icons-solidjs.d.ts",
   "files": [
