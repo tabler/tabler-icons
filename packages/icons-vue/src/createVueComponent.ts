@@ -2,16 +2,15 @@ import { h } from 'vue';
 import defaultAttributes from './defaultAttributes';
 import type { Icon, IconNode, IconProps } from './types';
 
-const createVueComponent =
-  (
-    type: 'outline' | 'filled',
-    iconName: string,
-    iconNamePascal: string,
-    iconNode: IconNode,
-  ): Icon =>
-  (
-    { color = 'currentColor', size = 24, stroke = 2, title, class: classes, ...rest }: IconProps,
-    { attrs, slots },
+const createVueComponent = (
+  type: 'outline' | 'filled',
+  iconName: string,
+  iconNamePascal: string,
+  iconNode: IconNode,
+): Icon => {
+  const component: Icon = (
+    { color = 'currentColor', size = 24, stroke = 2, strokeWidth, title }: IconProps,
+    { slots },
   ) => {
     let children = [
       ...iconNode.map((child) => h(...child)),
@@ -24,20 +23,27 @@ const createVueComponent =
         ...defaultAttributes[type],
         width: size,
         height: size,
-        ...attrs,
         class: ['tabler-icon', `tabler-icon-${iconName}`],
         ...(type === 'filled'
           ? {
               fill: color,
             }
           : {
-              'stroke-width': stroke ?? defaultAttributes[type]['stroke-width'],
+              'stroke-width': strokeWidth ?? stroke,
               stroke: color,
             }),
-        ...rest,
       },
       children,
     );
   };
+
+  // Declared props stay out of `attrs`, so they are not rendered as DOM
+  // attributes. Everything else (class, style, listeners, extra SVG
+  // attributes) falls through to the root `<svg>` and overrides the defaults.
+  component.props = ['color', 'size', 'stroke', 'strokeWidth', 'title'];
+  component.displayName = iconNamePascal;
+
+  return component;
+};
 
 export default createVueComponent;
