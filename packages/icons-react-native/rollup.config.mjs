@@ -1,8 +1,19 @@
 import fs from 'fs';
+import path from 'path';
 import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
 import dts from 'rollup-plugin-dts';
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+
+// Declarations for the CommonJS bundle: same content, `.d.cts` extension and
+// `.cjs` relative imports, so TypeScript treats them as CommonJS.
+const copyDtsAsCts = (from, to) => {
+  fs.mkdirSync(path.dirname(to), { recursive: true });
+  fs.writeFileSync(
+    to,
+    fs.readFileSync(from, 'utf-8').replace(/(from\s+'\.[^']*)\.js'/g, "$1.cjs'"),
+  );
+};
 
 const outputFileName = 'tabler-icons-react-native';
 const inputs = ['./src/tabler-icons-react-native.ts'];
@@ -30,13 +41,24 @@ export default [
         format: 'es',
       },
     ],
-    plugins: [iconsDts(), dts()],
+    plugins: [
+      iconsDts(),
+      dts(),
+      {
+        name: 'copy-dts-to-cjs',
+        writeBundle() {
+          copyDtsAsCts(`dist/${outputFileName}.d.ts`, `dist/cjs/${outputFileName}.d.cts`);
+        },
+      },
+    ],
   },
   {
     input: './src/icons/index.ts',
     output: [
       {
-        dir: 'dist/icons',
+        // `src/icons/*.ts` land at `dist/icons/*.d.ts` (the paths `exports` promises)
+        // and the shared `src/types.ts` at `dist/types.d.ts`.
+        dir: 'dist',
         format: 'es',
         preserveModules: true,
         preserveModulesRoot: 'src',
@@ -49,12 +71,21 @@ export default [
           emitDeclarationOnly: true,
         },
       }),
-      // The CJS build ships the same per-icon declarations — copy them
-      // instead of emitting every icon a second time.
+      // The CJS build ships the same per-icon declarations — copy them as
+      // `.d.cts` (the package is `type: module`) instead of emitting every icon
+      // a second time.
       {
         name: 'copy-icons-dts-to-cjs',
         writeBundle() {
-          fs.cpSync('dist/icons', 'dist/cjs/icons', { recursive: true });
+          copyDtsAsCts('dist/types.d.ts', 'dist/cjs/types.d.cts');
+          for (const file of fs.readdirSync('dist/icons')) {
+            if (file.endsWith('.d.ts')) {
+              copyDtsAsCts(
+                `dist/icons/${file}`,
+                `dist/cjs/icons/${file.replace(/\.d\.ts$/, '.d.cts')}`,
+              );
+            }
+          }
         },
       },
     ],
