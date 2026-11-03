@@ -171,7 +171,10 @@ export function getChunks(glyphs, byCategory = true) {
       return {
         name: parts > 1 ? `${name}-${i + 1}` : name,
         names: new Set(part.map((glyph) => glyph.name)),
-        codepoints: part.map((glyph) => glyph.unicode[0].codePointAt(0)),
+        codepoints: [
+          ...(name === 'core' ? [0x20] : []),
+          ...part.map((glyph) => glyph.unicode[0].codePointAt(0)),
+        ],
       };
     });
   });
