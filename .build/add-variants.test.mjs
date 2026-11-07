@@ -36,6 +36,14 @@ test('a dot is never cut: kept whole outside the badge, dropped under it', () =>
   assert.deepEqual(cutPathUnderMask('M18 20a1 1 0 1 0 2 0a1 1 0 0 0 -2 0', addons.check.mask), []);
 });
 
+test('a stroke the badge only grazes is kept whole instead of losing a sliver', () => {
+  // camera lens under the check: the hand-drawn `camera-check` keeps the full circle
+  const lens = 'M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0';
+  assert.deepEqual(norm(cutPathUnderMask(lens, addons.check.mask)), [lens]);
+  // under the wider cog badge the cut is real and the lens is opened
+  assert.notDeepEqual(norm(cutPathUnderMask(lens, addons.cog.mask)), [lens]);
+});
+
 test('subpaths are split at every M and closepaths resolved', () => {
   assert.deepEqual(norm(splitSubpaths('M17 20l-1-1m2 0l1 1Z')), [
     'M17 20l-1 -1',

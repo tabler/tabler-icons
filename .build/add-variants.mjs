@@ -82,6 +82,28 @@ const toPaperPathData = (d) => svgpath(d).abs().toString();
 const DOT_MAX_SIZE = 2.001;
 
 /**
+ * When the badge only grazes a stroke — the total length that would be cut
+ * away is shorter than this, a bit more than the stroke width — the stroke is
+ * kept whole. A sliver missing from a circle reads as a mistake, while a
+ * stroke that comes a little closer to the badge does not (the hand-drawn
+ * `camera-check` keeps the full lens). Strokes entirely under the badge are
+ * still dropped.
+ */
+const MIN_CUT_LENGTH = 2.5;
+
+/**
+ * Length of the curves that would be removed; `null` tells the caller to
+ * keep the whole subpath because the cut would be too small to be worth it.
+ * @param {paper.Curve[]} curves
+ * @param {boolean[]} keep
+ */
+const cutIsTooSmall = (curves, keep) => {
+  if (!keep.some((k) => k) || keep.every((k) => k)) return false;
+  const removed = curves.reduce((sum, c, i) => (keep[i] ? sum : sum + c.length), 0);
+  return removed < MIN_CUT_LENGTH;
+};
+
+/**
  * Set up a Paper project large enough for both shapes, shifted so that
  * nothing has negative coordinates. Returns the shift back to SVG space.
  * @returns {{ outer: paper.Path, inner: paper.CompoundPath, backShift: paper.Point }}
@@ -251,6 +273,7 @@ function cutOneOuterPath(outer, inner, backShift) {
 
     if (keep.every(Boolean)) return null;
     if (!keep.some(Boolean)) return [];
+    if (cutIsTooSmall(curves, keep)) return null;
 
     const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
     return runs.map((r) => pathDataFromCurveRun(curves, r, backShift)).filter(Boolean);
@@ -265,6 +288,8 @@ function cutOneOuterPath(outer, inner, backShift) {
 
   const curves = outer.curves;
   const keep = curves.map((c) => !curveMostlyInside(inner, c));
+  if (cutIsTooSmall(curves, keep)) return null;
+
   const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
 
   return runs.map((r) => pathDataFromCurveRun(curves, r, backShift)).filter(Boolean);
