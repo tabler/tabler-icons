@@ -82,23 +82,29 @@ const toPaperPathData = (d) => svgpath(d).abs().toString();
 const DOT_MAX_SIZE = 2.001;
 
 /**
- * When the badge only grazes a stroke — the total length that would be cut
- * away is shorter than this, a bit more than the stroke width — the stroke is
- * kept whole. A sliver missing from a circle reads as a mistake, while a
- * stroke that comes a little closer to the badge does not (the hand-drawn
- * `camera-check` keeps the full lens). Strokes entirely under the badge are
- * still dropped.
+ * When the badge only grazes the middle of a stroke — the total length that
+ * would be cut out of it is shorter than this, a bit more than the stroke
+ * width — the stroke is kept whole. A sliver missing from a circle reads as
+ * a mistake, while a stroke that comes a little closer to the badge does not
+ * (the hand-drawn `camera-check` keeps the full lens). This only applies to
+ * gaps inside a stroke: trimming the end of an open stroke is always done,
+ * however short (`photo-key` shortens the mountain line by 2.46), and
+ * strokes entirely under the badge are still dropped.
  */
 const MIN_CUT_LENGTH = 2.5;
 
 /**
- * Length of the curves that would be removed; `null` tells the caller to
- * keep the whole subpath because the cut would be too small to be worth it.
+ * Whether the cut would only open a small gap inside the stroke, which is
+ * not worth it. On an open path a removed run that reaches the first or
+ * last curve trims the stroke's end instead of opening a gap, so such cuts
+ * always go ahead.
  * @param {paper.Curve[]} curves
  * @param {boolean[]} keep
+ * @param {boolean} closed
  */
-const cutIsTooSmall = (curves, keep) => {
+const cutIsTooSmall = (curves, keep, closed) => {
   if (!keep.some((k) => k) || keep.every((k) => k)) return false;
+  if (!closed && (!keep[0] || !keep[keep.length - 1])) return false;
   const removed = curves.reduce((sum, c, i) => (keep[i] ? sum : sum + c.length), 0);
   return removed < MIN_CUT_LENGTH;
 };
@@ -273,7 +279,7 @@ function cutOneOuterPath(outer, inner, backShift) {
 
     if (keep.every(Boolean)) return null;
     if (!keep.some(Boolean)) return [];
-    if (cutIsTooSmall(curves, keep)) return null;
+    if (cutIsTooSmall(curves, keep, outerWasClosed)) return null;
 
     const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
     return runs.map((r) => pathDataFromCurveRun(curves, r, backShift)).filter(Boolean);
@@ -288,7 +294,7 @@ function cutOneOuterPath(outer, inner, backShift) {
 
   const curves = outer.curves;
   const keep = curves.map((c) => !curveMostlyInside(inner, c));
-  if (cutIsTooSmall(curves, keep)) return null;
+  if (cutIsTooSmall(curves, keep, outerWasClosed)) return null;
 
   const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
 
