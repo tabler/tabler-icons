@@ -44,6 +44,14 @@ test('a stroke the badge only grazes is kept whole instead of losing a sliver', 
   assert.notDeepEqual(norm(cutPathUnderMask(lens, addons.cog.mask)), [lens]);
 });
 
+test('the end of an open stroke is trimmed even when the trim is short', () => {
+  // `photo` mountain line: its end pokes 2.46 units into the key badge zone
+  const mountain = 'M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5';
+  const [piece] = norm(cutPathUnderMask(mountain, addons.key.mask));
+  assert.match(piece, /^M3 16l5 -5c/);
+  assert.doesNotMatch(piece, /l5 5$/);
+});
+
 test('subpaths are split at every M and closepaths resolved', () => {
   assert.deepEqual(norm(splitSubpaths('M17 20l-1-1m2 0l1 1Z')), [
     'M17 20l-1 -1',
