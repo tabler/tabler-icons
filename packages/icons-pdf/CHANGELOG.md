@@ -1,5 +1,12 @@
 # @tabler/icons-pdf
 
+## 3.51.0
+
+### Patch Changes
+
+- Updated dependencies [[`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26)]:
+  - @tabler/icons@3.51.0
+
 ## 3.50.0
 
 ### Patch Changes

@@ -1,5 +1,46 @@
 # @tabler/icons
 
+## 3.51.0
+
+### Minor Changes
+
+- 30 new icons
+  
+  - `outline/adjustments-flame`
+  - `outline/adjustments-key`
+  - `outline/arrow-move-down-x`
+  - `outline/arrow-move-left-x`
+  - `outline/arrow-move-right-x`
+  - `outline/arrow-move-up-x`
+  - `outline/camera-flame`
+  - `outline/camera-key`
+  - `outline/eye-flame`
+  - `outline/eye-key`
+  - `outline/filter-2-flame`
+  - `outline/filter-2-key`
+  - `outline/filter-flame`
+  - `outline/filter-key`
+  - `outline/flag-flame`
+  - `outline/flag-key`
+  - `outline/heart-flame`
+  - `outline/heart-key`
+  - `outline/home-flame`
+  - `outline/home-key`
+  - `outline/mail-flame`
+  - `outline/mail-key`
+  - `outline/photo-flame`
+  - `outline/photo-key`
+  - `outline/settings-flame`
+  - `outline/settings-key`
+  - `outline/sitemap-minus`
+  - `outline/sitemap-plus`
+  - `outline/user-flame`
+  - `outline/user-spark`
+
+### Patch Changes
+
+- [#1692](https://github.com/tabler/tabler-icons/pull/1692) [`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26) - Redraw `shopping-cart-copy`, which was identical to `shopping-cart-check`
+
 ## 3.50.0
 
 ### Minor Changes
