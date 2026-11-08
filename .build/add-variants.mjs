@@ -13,6 +13,8 @@
  *   node .build/add-variants.mjs lock camera --all
  *   node .build/add-variants.mjs lock --addons check,cog
  *
+ * Badges (masks, paths, tags) live in `add-variants-addons.mjs`.
+ *
  * Options:
  *   --all       every addon for icons given without `:addon,…`
  *   --addons    default addon list for icons given without `:addon,…`
@@ -32,37 +34,11 @@ import paper from 'paper';
 import svgpath from 'svgpath';
 import { ICONS_SRC_DIR, getArgvs, iconTemplate, removeClosePath } from './helpers.mjs';
 import { optimizeSvgContent } from './optimize.mjs';
+import { addons } from './add-variants-addons.mjs';
 
-/** @typedef {{ mask: string, path: string, tags: string[] }} Addon */
+/** @typedef {import('./add-variants-addons.mjs').Addon} Addon */
 
-/** @type {Record<string, Addon>} */
-export const addons = {
-  check: {
-    mask: 'M23.828 14.172a4 4 0 0 1 0 5.656l-4 4a4 4 0 0 1-5.656 0l-2-2a4 4 0 0 1 4.704-6.36l1.296-1.296a4 4 0 0 1 5.656 0',
-    path: 'M15 19l2 2 4-4',
-    tags: ['check', 'done', 'success', 'confirmed', 'approved', 'verified'],
-  },
-  cog: {
-    mask: 'M19.001 11.5c1.38 0 2.596.698 3.315 1.76a4 4 0 0 1 3.18 1.99A4 4 0 0 1 25.63 19a4 4 0 0 1-.133 3.75 4 4 0 0 1-3.18 1.99A4 4 0 0 1 19 26.5a4 4 0 0 1-3.315-1.76 4 4 0 0 1-3.18-1.99 4 4 0 0 1-.133-3.751 3.99 3.99 0 0 1 .133-3.749 4 4 0 0 1 3.18-1.99 4 4 0 0 1 3.315-1.76',
-    path: 'M21.001 19a2 2 0 01-4 0 2 2 0 014 0m-2-3.5V17m0 4v1.5m3.031-5.25-1.299.75m-3.463 2-1.3.75m0-3.5 1.3.75m3.463 2 1.3.75',
-    tags: ['settings', 'cog', 'gear', 'configure', 'preferences', 'options'],
-  },
-  key: {
-    mask: 'M24.243 12.757a6 6 0 0 1-4.576 10.234l-1.839 1.837a4 4 0 0 1-5.656 0l-1-1a4 4 0 0 1 1.181-6.474 4 4 0 0 1 .819-1.182 4 4 0 0 1 1.04-.751 6 6 0 0 1 10.03-2.663',
-    path: 'M17 20l-1-1m2.586-.586a2 2 0 002.828-2.828 2 2 0 10-2.828 2.828ZM14 21l1 1 3.5-3.5',
-    tags: ['key', 'password', 'access', 'login', 'security', 'unlock', 'auth'],
-  },
-  flame: {
-    mask: 'M19.025 9.134c.304.08.706.215 1.178.418.75.322 1.498.74 2.212 1.282C24.603 12.491 26 14.926 26 18c0 3.19-1.406 6.203-4.24 7.592a3.94 3.94 0 0 1-3.76-.135 3.94 3.94 0 0 1-3.76.135C11.488 24.244 10 21.524 10 18.5c0-1.742.676-3.205 1.713-4.416.55-.642 1.1-1.1 1.568-1.412q.38-.252.793-.408a3.993 3.993 0 0 1 4.951-3.13',
-    path: 'M15.5 16q2.5 1.5 2.5-1v-2s4 1.06 4 5c0 1.664-.649 3.338-2 4v-.25c0-.957-1.053-1.75-2-1.75s-2 .793-2 1.75V22c-1.351-.662-2-2-2-3.5s1.5-2.5 1.5-2.5Z',
-    tags: ['flame', 'fire', 'hot', 'burn', 'heat', 'trending'],
-  },
-  spark: {
-    mask: 'M15.12 14.53c1.01-4.04 6.75-4.04 7.76 0 .08.317.273.51.59.59 4.04 1.01 4.04 6.75 0 7.76a.75.75 0 0 0-.59.59c-1.01 4.04-6.75 4.04-7.76 0a.75.75 0 0 0-.59-.59c-4.04-1.01-4.04-6.75 0-7.76a.75.75 0 0 0 .59-.59',
-    path: 'M19 22.5a4.75 4.75 0 0 1 3.5-3.5 4.75 4.75 0 0 1-3.5-3.5 4.75 4.75 0 0 1-3.5 3.5 4.75 4.75 0 0 1 3.5 3.5',
-    tags: ['spark', 'sparkle', 'magic', 'shine'],
-  },
-};
+export { addons };
 
 /**
  * Fragments assembled from pieces cut at the intersections shorter than this
