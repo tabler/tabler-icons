@@ -117,3 +117,8 @@ test('every mask encloses its own badge with room for the stroke and a gap', () 
     badge.remove();
   }
 });
+
+test('an open dot (`h.01`) under the badge is dropped, one outside is kept', () => {
+  assert.deepEqual(cutPathUnderMask('M18 12h.01', addons.cog.mask), []);
+  assert.deepEqual(norm(cutPathUnderMask('M6 12h.01', addons.cog.mask)), ['M6 12h.01']);
+});

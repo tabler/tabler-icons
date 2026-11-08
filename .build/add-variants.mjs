@@ -42,10 +42,12 @@ export { addons };
 
 /**
  * Fragments assembled from pieces cut at the intersections shorter than this
- * are slivers left over from the cut and are dropped. Whole source paths
- * (the dots, `M9 9l.01 0`) never go through this check.
+ * are slivers left over from the cut and are dropped: with a 2px round-capped
+ * stroke a stub under 1px reads as a stray dot. Whole source paths (the dots,
+ * `M9 9l.01 0`, the 1px window dashes of `building`) never go through this
+ * check. Just under 1 so that a run re-assembled from a 1px dash survives.
  */
-const MIN_FRAGMENT_PATH_LENGTH = 0.05;
+const MIN_FRAGMENT_PATH_LENGTH = 0.99;
 
 /** Paper.js ignores the SVG rule that arc flags may be glued together (`0 00-7`) — svgpath re-serializes with every token separated. */
 const toPaperPathData = (d) => svgpath(d).abs().toString();
@@ -189,15 +191,16 @@ function collectKeptRunsLinear(keep) {
 }
 
 /**
- * A curve is "under the badge" when most of its samples fall inside the
- * exclusion zone — more than half, not all three.
+ * A curve is "under the badge" when most of its samples (at curve times
+ * 0.2, 0.5, 0.8 — not offsets, so a 0.01px dot is sampled too) fall inside
+ * the exclusion zone — more than half, not all three.
  * @param {paper.CompoundPath} inner
  * @param {paper.Curve} curve
  */
 function curveMostlyInside(inner, curve, samples = [0.2, 0.5, 0.8]) {
   let inside = 0;
   for (const t of samples) {
-    if (inner.contains(curve.getPointAt(t))) inside++;
+    if (inner.contains(curve.getPointAtTime(t))) inside++;
   }
   return inside > samples.length / 2;
 }
