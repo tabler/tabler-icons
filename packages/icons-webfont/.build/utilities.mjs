@@ -33,6 +33,9 @@ const categories = Object.fromEntries(
 // Categories bigger than this are split into several chunks.
 const MAX_CHUNK_SIZE = 256;
 
+// Added to the unicode-range of the core chunk, see getChunks.
+const SPACE_CODEPOINT = 0x20;
+
 // Template function compatible with lodash.template API
 function template(templateString) {
   return function (data) {
@@ -168,10 +171,18 @@ export function getChunks(glyphs, byCategory = true) {
         Math.floor((i * list.length) / parts),
         Math.floor(((i + 1) * list.length) / parts),
       );
+      const codepoints = part.map((glyph) => glyph.unicode[0].codePointAt(0));
+      // Browsers take the line metrics (ascent, descent, baseline) from the
+      // "first available font": the first face in the family whose
+      // unicode-range covers U+0020 (CSS Fonts 4, §3.1). Without it the metrics
+      // would come from the system fallback font and the icons would shift
+      // inside their line box (#1683). Only the range is extended: the font has
+      // no space glyph and `names` stays as is, so no `space.svg` is looked up.
+      if (name === 'core') codepoints.unshift(SPACE_CODEPOINT);
       return {
         name: parts > 1 ? `${name}-${i + 1}` : name,
         names: new Set(part.map((glyph) => glyph.name)),
-        codepoints: part.map((glyph) => glyph.unicode[0].codePointAt(0)),
+        codepoints,
       };
     });
   });
