@@ -1,5 +1,13 @@
 # @tabler/icons-react-native
 
+## 3.51.0
+
+### Patch Changes
+
+- [#1690](https://github.com/tabler/tabler-icons/pull/1690) [`67ae619`](https://github.com/tabler/tabler-icons/commit/67ae61992c84ae4a8cf5f840eb2c3846e3f61d00) - The `types` entries in `package.json` point at files that exist: CommonJS consumers get `.d.cts` declarations and per-icon subpath imports are typed
+- Updated dependencies [[`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26)]:
+  - @tabler/icons@3.51.0
+
 ## 3.50.0
 
 ### Patch Changes
