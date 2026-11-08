@@ -16,7 +16,7 @@ const buildSprite = () => {
         .replace(/<\/svg>/g, '')
         .replace(/\n+/g, '')
         .replace(/>\s+</g, '><')
-        .replace('<path stroke="none" d="M0 0h24v24H0z" fill="none"/>', '')
+        .replace(/<path stroke="none" d="M0 0h24v24H0z" fill="none"\s*\/>/, '')
         .trim();
 
       svgContent += `<symbol id="tabler-${type == 'outline' ? '' : `${type}-`}${icon.name}" viewBox="0 0 24 24" fill="${type == 'outline' ? 'none' : 'currentColor'}" stroke="${type == 'outline' ? 'currentColor' : 'none'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`;
