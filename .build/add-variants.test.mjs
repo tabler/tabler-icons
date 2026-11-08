@@ -2,8 +2,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import paper from 'paper';
+import svgpath from 'svgpath';
 import { addons, buildVariant, cutPathUnderMask, splitSubpaths } from './add-variants.mjs';
-import { ICONS_SRC_DIR, optimizePath } from './helpers.mjs';
+import { ICONS_SRC_DIR, optimizePath, removeClosePath } from './helpers.mjs';
 
 // the raw cut comes back in Paper/svgpath formatting; `optimize` normalizes it later
 const norm = (pieces) => pieces.map((d) => optimizePath(d).replace(/([a-zA-Z]) /g, '$1'));
@@ -88,5 +90,30 @@ test('every addon produces outline-valid path data', () => {
       assert.doesNotMatch(d, /[hv]0(?!\.\d)/, `${name}: v0/h0`);
     }
     assert.ok(paths(svg).length >= 2, `${name}: too few paths`);
+  }
+});
+
+test('every mask encloses its own badge with room for the stroke and a gap', () => {
+  paper.setup(new paper.Size(1, 1));
+
+  for (const [name, addon] of Object.entries(addons)) {
+    const mask = new paper.CompoundPath(svgpath(addon.mask).abs().toString());
+    /** @type {paper.Path[]} */ (mask.children.length ? mask.children : [mask]).forEach((c) => {
+      c.closed = true;
+    });
+    const badge = new paper.CompoundPath(svgpath(removeClosePath(addon.path)).abs().toString());
+
+    const subs = /** @type {paper.Path[]} */ (badge.children.length ? badge.children : [badge]);
+    for (const sub of subs) {
+      for (let offset = 0; offset <= sub.length; offset += 0.25) {
+        const point = sub.getPointAt(Math.min(offset, sub.length));
+        assert.ok(mask.contains(point), `${name}: badge point ${point} is outside the mask`);
+        const gap = mask.getNearestLocation(point).distance;
+        assert.ok(gap >= 3, `${name}: only ${gap.toFixed(2)} between the badge and the mask edge`);
+      }
+    }
+
+    mask.remove();
+    badge.remove();
   }
 });
