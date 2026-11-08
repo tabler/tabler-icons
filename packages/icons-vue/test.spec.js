@@ -96,6 +96,29 @@ describe('Vue Icon component', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
+  it('should not render component props as DOM attributes', () => {
+    const { container } = render(IconAccessible, {
+      props: {
+        size: 48,
+        color: 'red',
+        strokeWidth: 3,
+        title: 'Test Title',
+        'data-testid': 'icon',
+      },
+    });
+
+    const svg = container.getElementsByTagName('svg')[0];
+
+    expect(svg).toHaveAttribute('width', '48');
+    expect(svg).toHaveAttribute('stroke', 'red');
+    expect(svg).toHaveAttribute('stroke-width', '3');
+    expect(svg).toHaveAttribute('data-testid', 'icon');
+    expect(svg).not.toHaveAttribute('size');
+    expect(svg).not.toHaveAttribute('color');
+    expect(svg).not.toHaveAttribute('strokeWidth');
+    expect(svg).not.toHaveAttribute('title');
+  });
+
   it('should pass children to the icon slot', () => {
     const testText = 'Hello World';
     const template = {
