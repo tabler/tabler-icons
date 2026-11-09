@@ -1,5 +1,15 @@
 # @tabler/icons-webfont
 
+## 3.51.0
+
+### Patch Changes
+
+- [#1651](https://github.com/tabler/tabler-icons/pull/1651) [`647229d`](https://github.com/tabler/tabler-icons/commit/647229d29cd10cf33bbd59819134d727ca1ddb59) - Refresh cached webfont icons when their source SVGs change.
+
+- [#1716](https://github.com/tabler/tabler-icons/pull/1716) [`fd72a45`](https://github.com/tabler/tabler-icons/commit/fd72a451bbb664f6a83fad1718c457dbce0c1527) - Add `U+20` to the `unicode-range` of the `core` chunk so that browsers take the line metrics from Tabler Icons and not from the system fallback font. Since 3.50.0 icons rendered taller than `1em` and sat too high in their line box.
+- Updated dependencies [[`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26)]:
+  - @tabler/icons@3.51.0
+
 ## 3.50.0
 
 ### Minor Changes

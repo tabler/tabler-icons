@@ -1,6 +1,6 @@
 {
   "name": "tabler-icons",
-  "version": "3.50.0",
+  "version": "3.51.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tabler/tabler-icons.git"
@@ -25,11 +25,12 @@
     "update": "pnpm run update:icons",
     "update:icons": "node ./.build/update-icons.mjs",
     "optimize": "node ./.build/optimize.mjs",
-    "test:build": "node --test ./.build/optimize.test.mjs ./.build/dashes.test.mjs ./.build/import.test.mjs",
+    "test:build": "node --test ./.build/optimize.test.mjs ./.build/dashes.test.mjs ./.build/import.test.mjs ./.build/add-variants.test.mjs",
     "typecheck:build": "tsc -p .build/tsconfig.json",
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",
     "import-categories": "node ./.build/import-categories.mjs",
+    "add-variants": "node ./.build/add-variants.mjs",
     "generate-preview": "pnpm run generate-preview-icons && pnpm run generate-preview-stroke",
     "generate-preview-icons": "node ./.build/preview-icons.mjs",
     "generate-preview-random-icons": "node ./.build/preview-random-icons.mjs",
@@ -81,6 +82,7 @@
     "jest-serializer-html": "catalog:",
     "jsdom": "catalog:",
     "minimist": "1.2.8",
+    "paper": "^0.16.0",
     "parse-svg-path": "^0.2.0",
     "prettier": "^3.9.9",
     "rollup": "catalog:",

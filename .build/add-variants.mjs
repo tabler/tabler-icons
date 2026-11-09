@@ -1,0 +1,465 @@
+/**
+ * Generate badge variants of existing outline icons (`lock` → `lock-check`,
+ * `lock-key`, …).
+ *
+ * The badge sits in the bottom-right corner. Every stroke of the base icon
+ * that runs under the badge is cut away along the badge's exclusion zone
+ * (`mask`: the badge outline offset by the stroke width plus a gap), then the
+ * badge paths are appended. The cut is done on the stroke centerlines with
+ * Paper.js, so the result is plain `<path>` data — no SVG masks.
+ *
+ * Usage:
+ *   node .build/add-variants.mjs lock:check,key camera:spark
+ *   node .build/add-variants.mjs lock camera --all
+ *   node .build/add-variants.mjs lock --addons check,cog
+ *
+ * Badges (masks, paths, tags) live in `add-variants-addons.mjs`.
+ *
+ * Options:
+ *   --all       every addon for icons given without `:addon,…`
+ *   --addons    default addon list for icons given without `:addon,…`
+ *   --force     overwrite variants that already exist in `icons/outline`
+ *   --dry-run   print the SVGs instead of writing them
+ *   --list      list the available addons
+ *
+ * New files get the base icon's category and its tags merged with the
+ * addon's tags. `unicode` and `version` are added by `pnpm update` at release
+ * time, exactly like for hand-drawn icons.
+ */
+import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
+import { pathToFileURL } from 'url';
+import matter from 'gray-matter';
+import paper from 'paper';
+import svgpath from 'svgpath';
+import { ICONS_SRC_DIR, getArgvs, iconTemplate, removeClosePath } from './helpers.mjs';
+import { optimizeSvgContent } from './optimize.mjs';
+import { addons } from './add-variants-addons.mjs';
+
+/** @typedef {import('./add-variants-addons.mjs').Addon} Addon */
+
+export { addons };
+
+/**
+ * Fragments assembled from pieces cut at the intersections shorter than this
+ * are slivers left over from the cut and are dropped. Whole source paths
+ * (the dots, `M9 9l.01 0`) never go through this check.
+ */
+const MIN_FRAGMENT_PATH_LENGTH = 0.05;
+
+/** Paper.js ignores the SVG rule that arc flags may be glued together (`0 00-7`) — svgpath re-serializes with every token separated. */
+const toPaperPathData = (d) => svgpath(d).abs().toString();
+
+/**
+ * Closed subpaths no larger than this (the 2×2 dots) are never cut: a
+ * three-quarter dot looks broken, so a dot is either kept whole or dropped
+ * when its centre is under the badge.
+ */
+const DOT_MAX_SIZE = 2.001;
+
+/**
+ * When the badge only grazes the middle of a stroke — the total length that
+ * would be cut out of it is shorter than this, a bit more than the stroke
+ * width — the stroke is kept whole. A sliver missing from a circle reads as
+ * a mistake, while a stroke that comes a little closer to the badge does not
+ * (the hand-drawn `camera-check` keeps the full lens). This only applies to
+ * gaps inside a stroke: trimming the end of an open stroke is always done,
+ * however short (`photo-key` shortens the mountain line by 2.46), and
+ * strokes entirely under the badge are still dropped.
+ */
+const MIN_CUT_LENGTH = 2.5;
+
+/**
+ * Whether the cut would only open a small gap inside the stroke, which is
+ * not worth it. On an open path a removed run that reaches the first or
+ * last curve trims the stroke's end instead of opening a gap, so such cuts
+ * always go ahead.
+ * @param {paper.Curve[]} curves
+ * @param {boolean[]} keep
+ * @param {boolean} closed
+ */
+const cutIsTooSmall = (curves, keep, closed) => {
+  if (!keep.some((k) => k) || keep.every((k) => k)) return false;
+  if (!closed && (!keep[0] || !keep[keep.length - 1])) return false;
+  const removed = curves.reduce((sum, c, i) => (keep[i] ? sum : sum + c.length), 0);
+  return removed < MIN_CUT_LENGTH;
+};
+
+/**
+ * Set up a Paper project large enough for both shapes, shifted so that
+ * nothing has negative coordinates. Returns the shift back to SVG space.
+ * @returns {{ outer: paper.Path, inner: paper.CompoundPath, backShift: paper.Point }}
+ */
+function setupProjectAround(outerD, innerD) {
+  outerD = toPaperPathData(outerD);
+  innerD = toPaperPathData(innerD);
+
+  paper.setup(new paper.Size(1, 1));
+  const tmpO = new paper.Path(outerD);
+  const tmpI = new paper.CompoundPath(innerD);
+  const pad = 32;
+  const u = tmpO.bounds.unite(tmpI.bounds).expand(pad);
+  tmpO.remove();
+  tmpI.remove();
+
+  const w = Math.max(32, Math.ceil(u.width));
+  const h = Math.max(32, Math.ceil(u.height));
+  paper.project.clear();
+  paper.setup(new paper.Size(w, h));
+
+  const outer = new paper.Path(outerD);
+  const inner = new paper.CompoundPath(innerD);
+  const shift = new paper.Point(-u.x, -u.y);
+  outer.translate(shift);
+  inner.translate(shift);
+
+  return { outer, inner, backShift: new paper.Point(u.x, u.y) };
+}
+
+/**
+ * Paper often leaves `closed: false` when the first point equals the last
+ * one (no `Z` in the SVG). `contains()` needs closed curves — cubics can
+ * leave a gap of ~1e-3.
+ * @param {paper.Path} path
+ */
+function ensureClosedIfEndpointsMeet(path, tol = 2e-3) {
+  if (!path.closed && path.firstSegment && path.lastSegment) {
+    if (path.firstSegment.point.isClose(path.lastSegment.point, tol)) {
+      path.closed = true;
+    }
+  }
+}
+
+/** Drop duplicate intersections (the same corner found several times). */
+function dedupeIntersections(locs, tol = 1e-3) {
+  locs.sort((a, b) => a.offset - b.offset);
+  const out = [];
+  for (const loc of locs) {
+    if (!out.some((o) => o.point.isClose(loc.point, tol))) out.push(loc);
+  }
+  return out;
+}
+
+/** Runs of consecutive kept curve indices on a closed ring. */
+function collectKeptRunsCircular(keep) {
+  const n = keep.length;
+  if (n === 0) return [];
+  if (keep.every(Boolean)) return [[...Array(n).keys()]];
+  if (!keep.some(Boolean)) return [];
+
+  let start = -1;
+  for (let i = 0; i < n; i++) {
+    if (keep[i] && !keep[(i - 1 + n) % n]) {
+      start = i;
+      break;
+    }
+  }
+  if (start < 0) return [];
+
+  const runs = [];
+  let current = [];
+  for (let step = 0; step < n; step++) {
+    const i = (start + step) % n;
+    if (keep[i]) {
+      current.push(i);
+    } else if (current.length) {
+      runs.push(current);
+      current = [];
+    }
+  }
+  if (current.length) runs.push(current);
+
+  return runs;
+}
+
+/** Runs of consecutive kept curve indices on an open path. */
+function collectKeptRunsLinear(keep) {
+  const runs = [];
+  let current = [];
+  for (let i = 0; i < keep.length; i++) {
+    if (keep[i]) {
+      current.push(i);
+    } else if (current.length) {
+      runs.push(current);
+      current = [];
+    }
+  }
+  if (current.length) runs.push(current);
+  return runs;
+}
+
+/**
+ * A curve is "under the badge" when most of its samples fall inside the
+ * exclusion zone — more than half, not all three.
+ * @param {paper.CompoundPath} inner
+ * @param {paper.Curve} curve
+ */
+function curveMostlyInside(inner, curve, samples = [0.2, 0.5, 0.8]) {
+  let inside = 0;
+  for (const t of samples) {
+    if (inner.contains(curve.getPointAt(t))) inside++;
+  }
+  return inside > samples.length / 2;
+}
+
+/**
+ * Path data of one run of curves, translated back to SVG space.
+ * @param {paper.Curve[]} curves
+ * @param {number[]} runIndices
+ * @param {paper.Point} backShift
+ */
+function pathDataFromCurveRun(curves, runIndices, backShift) {
+  const openPath = new paper.Path();
+  openPath.moveTo(curves[runIndices[0]].segment1.point);
+  for (const ci of runIndices) {
+    const v = curves[ci].values;
+    openPath.cubicCurveTo(
+      new paper.Point(v[2], v[3]),
+      new paper.Point(v[4], v[5]),
+      new paper.Point(v[6], v[7]),
+    );
+  }
+  if (openPath.length < MIN_FRAGMENT_PATH_LENGTH) {
+    openPath.remove();
+    return '';
+  }
+  openPath.translate(backShift);
+  const d = openPath.pathData;
+  openPath.remove();
+  return d;
+}
+
+/**
+ * Cut one subpath of the base icon along the exclusion zone. Returns the
+ * kept pieces, each as its own path data string, or `null` when the subpath
+ * is untouched (so the caller keeps the original arcs instead of Paper's
+ * cubic approximation).
+ * @param {paper.Path} outer
+ * @param {paper.CompoundPath} inner
+ * @param {paper.Point} backShift
+ * @returns {string[] | null}
+ */
+function cutOneOuterPath(outer, inner, backShift) {
+  ensureClosedIfEndpointsMeet(outer);
+  const outerWasClosed = outer.closed;
+
+  if (outerWasClosed && outer.bounds.width <= DOT_MAX_SIZE && outer.bounds.height <= DOT_MAX_SIZE) {
+    return inner.contains(outer.bounds.center) ? [] : null;
+  }
+
+  const locs = dedupeIntersections(outer.getIntersections(inner));
+
+  if (locs.length === 0) {
+    const curves = outer.curves;
+    const keep = curves.map((c) => !curveMostlyInside(inner, c));
+
+    if (keep.every(Boolean)) return null;
+    if (!keep.some(Boolean)) return [];
+    if (cutIsTooSmall(curves, keep, outerWasClosed)) return null;
+
+    const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
+    return runs.map((r) => pathDataFromCurveRun(curves, r, backShift)).filter(Boolean);
+  }
+
+  const cutPts = locs.map((l) => l.point.clone());
+  for (let i = cutPts.length - 1; i >= 0; i--) {
+    const loc = outer.getNearestLocation(cutPts[i]);
+    if (loc) outer.divideAt(loc);
+  }
+  outer.reduce({});
+
+  const curves = outer.curves;
+  const keep = curves.map((c) => !curveMostlyInside(inner, c));
+  if (cutIsTooSmall(curves, keep, outerWasClosed)) return null;
+
+  const runs = outerWasClosed ? collectKeptRunsCircular(keep) : collectKeptRunsLinear(keep);
+
+  return runs.map((r) => pathDataFromCurveRun(curves, r, backShift)).filter(Boolean);
+}
+
+/**
+ * Every leaf `Path` of a `CompoundPath`, nested ones included.
+ * @param {paper.Item} root
+ * @returns {paper.Path[]}
+ */
+function flattenToPaths(root) {
+  const acc = [];
+  const walk = (item) => {
+    if (item instanceof paper.Path) {
+      if (item.segments.length > 0) acc.push(item);
+    } else if (item instanceof paper.CompoundPath) {
+      item.children.forEach(walk);
+    }
+  };
+  walk(root);
+  return acc;
+}
+
+/**
+ * Cut the strokes of `outerD` (any number of `M…` subpaths) along the
+ * exclusion zone `maskD`. Returns one path data string per kept piece;
+ * subpaths the badge does not touch come back verbatim.
+ * @returns {string[]}
+ */
+export function cutPathUnderMask(outerD, maskD) {
+  const pieces = [];
+
+  for (const sub of splitSubpaths(outerD)) {
+    const { outer, inner, backShift } = setupProjectAround(sub, maskD);
+    flattenToPaths(inner).forEach((p) => ensureClosedIfEndpointsMeet(p));
+
+    const cut = cutOneOuterPath(outer, inner, backShift);
+    pieces.push(...(cut ?? [sub]));
+
+    outer.remove();
+    inner.remove();
+  }
+
+  return pieces;
+}
+
+/**
+ * Split path data into its `M…` subpaths — Tabler icons keep one subpath per
+ * `<path>`. Closepaths are resolved first, since `z` refers to the subpath
+ * start.
+ * @returns {string[]}
+ */
+export function splitSubpaths(d) {
+  // `segments` is not part of svgpath's public typings
+  /** @type {any} */
+  const path = svgpath(removeClosePath(d)).abs();
+  const groups = [];
+  path.segments.forEach((segment) => {
+    if (segment[0] === 'M') groups.push([]);
+    groups[groups.length - 1].push(segment.join(' '));
+  });
+  return groups.map((g) => g.join(''));
+}
+
+/**
+ * Build the variant SVG (with metadata) for one icon and one addon.
+ * @param {string} baseSvg content of the source icon file
+ * @param {Addon} addon
+ */
+export function buildVariant(baseSvg, addon) {
+  const { data, content } = matter(baseSvg, { delimiters: ['<!--', '-->'] });
+  const paths = [];
+
+  for (const m of content.matchAll(/<path\b([^>]*?)\sd="([^"]*)"([^>]*?)\/>/g)) {
+    const [, before, d, after] = m;
+    const attrs = `${before}${after}`.replace(/\s+/g, ' ').trim();
+    for (const piece of cutPathUnderMask(d, addon.mask)) {
+      for (const sub of splitSubpaths(piece)) {
+        paths.push(attrs ? `<path d="${sub}" ${attrs} />` : `<path d="${sub}" />`);
+      }
+    }
+  }
+
+  for (const sub of splitSubpaths(addon.path)) {
+    paths.push(`<path d="${sub}" />`);
+  }
+
+  const tags = [...new Set([...(data.tags || []), ...addon.tags])];
+  const meta = [`tags: [${tags.join(', ')}]`, data.category ? `category: ${data.category}` : null]
+    .filter(Boolean)
+    .join('\n');
+
+  const svg = `<!--\n${meta}\n-->\n${iconTemplate('outline')}\n  ${paths.join('\n  ')}\n</svg>\n`;
+
+  return optimizeSvgContent(svg, 'outline');
+}
+
+/**
+ * `lock:check,key` → `['lock', ['check', 'key']]`; `lock` → `['lock', null]`
+ * @returns {[string, string[] | null]}
+ */
+const parseIconArg = (arg) => {
+  const [name, list] = String(arg).split(':');
+  return [name, list ? list.split(',').filter(Boolean) : null];
+};
+
+const main = () => {
+  const argvs = getArgvs();
+
+  if (argvs.list) {
+    Object.entries(addons).forEach(([name, addon]) => {
+      console.log(`${name.padEnd(8)} tags: ${addon.tags.join(', ')}`);
+    });
+    return;
+  }
+
+  if (argvs._.length === 0) {
+    console.log(
+      'Usage: node .build/add-variants.mjs <icon>[:addon,addon] … [--all] [--addons a,b] [--force] [--dry-run]',
+    );
+    console.log(`Addons: ${Object.keys(addons).join(', ')} (see --list)`);
+    process.exit(1);
+  }
+
+  const defaultAddons = argvs.all
+    ? Object.keys(addons)
+    : argvs.addons
+      ? String(argvs.addons).split(',').filter(Boolean)
+      : [];
+
+  let failed = false;
+  let written = 0;
+
+  for (const arg of argvs._) {
+    const [name, explicit] = parseIconArg(arg);
+    const names = explicit ?? defaultAddons;
+    const source = join(ICONS_SRC_DIR, 'outline', `${name}.svg`);
+
+    if (!existsSync(source)) {
+      console.log(`⛔️ Icon \`outline/${name}\` does not exist`);
+      failed = true;
+      continue;
+    }
+
+    if (names.length === 0) {
+      console.log(`⛔️ No addons for \`${name}\` — use \`${name}:check,key\`, --addons or --all`);
+      failed = true;
+      continue;
+    }
+
+    const baseSvg = readFileSync(source, 'utf-8');
+
+    for (const addonName of names) {
+      const addon = addons[addonName];
+      if (!addon) {
+        console.log(
+          `⛔️ Unknown addon \`${addonName}\` (available: ${Object.keys(addons).join(', ')})`,
+        );
+        failed = true;
+        continue;
+      }
+
+      const target = join(ICONS_SRC_DIR, 'outline', `${name}-${addonName}.svg`);
+      if (existsSync(target) && !argvs.force && !argvs['dry-run']) {
+        console.log(
+          `⚠️  \`outline/${name}-${addonName}\` already exists, skipped (use --force to overwrite)`,
+        );
+        continue;
+      }
+
+      const svg = buildVariant(baseSvg, addon);
+
+      if (argvs['dry-run']) {
+        console.log(`--- outline/${name}-${addonName}.svg`);
+        console.log(svg);
+        continue;
+      }
+
+      writeFileSync(target, svg);
+      written++;
+      console.log(`✅ outline/${name}-${addonName}`);
+    }
+  }
+
+  if (!argvs['dry-run']) console.log(`\n${written} icon(s) written to icons/outline`);
+  if (failed) process.exit(1);
+};
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
+}

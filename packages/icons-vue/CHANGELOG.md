@@ -1,5 +1,13 @@
 # @tabler/icons-vue
 
+## 3.51.0
+
+### Patch Changes
+
+- [#1688](https://github.com/tabler/tabler-icons/pull/1688) [`9e6d65f`](https://github.com/tabler/tabler-icons/commit/9e6d65f2a49f17d87f224dd8474158ad543cb7b2) - `size`, `color`, `stroke`, `strokeWidth` and `title` are declared as props, so they are no longer rendered as DOM attributes on the `<svg>`, and `strokeWidth` maps to `stroke-width`
+- Updated dependencies [[`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26)]:
+  - @tabler/icons@3.51.0
+
 ## 3.50.0
 
 ### Patch Changes

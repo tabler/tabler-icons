@@ -1,5 +1,13 @@
 # @tabler/icons-solidjs
 
+## 3.51.0
+
+### Patch Changes
+
+- [#1689](https://github.com/tabler/tabler-icons/pull/1689) [`1775da7`](https://github.com/tabler/tabler-icons/commit/1775da7034ad6979a764ce4aad31ae43c936a84c) - The CommonJS bundle is published as `.cjs`, so Node no longer parses it as an ES module
+- Updated dependencies [[`1d35ae6`](https://github.com/tabler/tabler-icons/commit/1d35ae6181206c93ffd0f0f22e07df7fd39dca26)]:
+  - @tabler/icons@3.51.0
+
 ## 3.50.0
 
 ### Patch Changes
