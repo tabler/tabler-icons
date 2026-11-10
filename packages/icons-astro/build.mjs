@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import {
+  buildJsIcons,
+  buildIconsList,
+  buildIconsDynamicImport,
+} from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createTablerIcon from '../createTablerIcon';
@@ -13,7 +17,7 @@ import type { AstroComponent } from '../types';
  * @param {import('../types').IconProps} props - Tabler icons props and any valid SVG attribute
  * @returns {any} Astro Component
  */
-const Icon${namePascal} = createTablerIcon('${name}', ${JSON.stringify(children)}, '${type}') as AstroComponent;
+const Icon${namePascal} = /* @__PURE__ */ createTablerIcon('${name}', ${JSON.stringify(children)}, '${type}') as AstroComponent;
 
 export default Icon${namePascal};`;
 
@@ -36,3 +40,5 @@ buildJsIcons({
 });
 
 buildIconsList('icons-astro');
+
+buildIconsDynamicImport('icons-astro', { pascalName: false });
