@@ -34,9 +34,10 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run typecheck && pnpm run build:ng && pnpm run build:strip-source-maps",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run typecheck && pnpm run build:ng && pnpm run build:subpaths && pnpm run build:strip-source-maps",
     "build:icons": "node build.mjs",
     "build:ng": "ng build --configuration=production",
+    "build:subpaths": "rollup -c ./rollup.config.mjs",
     "build:strip-source-maps": "node strip-source-maps.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
@@ -47,6 +48,30 @@
   "main": "./dist/fesm2022/tabler-icons-angular.mjs",
   "module": "./dist/fesm2022/tabler-icons-angular.mjs",
   "types": "./dist/types/tabler-icons-angular.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/tabler-icons-angular.d.ts",
+      "default": "./dist/fesm2022/tabler-icons-angular.mjs"
+    },
+    "./icons/*": {
+      "types": "./dist/esm/icon.d.mts",
+      "default": "./dist/esm/icons/*.mjs"
+    },
+    "./icons-list": {
+      "types": "./dist/esm/icons-list.d.mts",
+      "default": "./dist/esm/icons-list.mjs"
+    },
+    "./dynamic-imports": {
+      "types": "./dist/esm/dynamic-imports.d.mts",
+      "default": "./dist/esm/dynamic-imports.mjs"
+    },
+    "./dist/*": {
+      "default": "./dist/*"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^21.1.2",
     "@angular/animations": "^21.1.1",

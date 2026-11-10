@@ -143,6 +143,24 @@ If you use `NgModule`, import `TablerIconComponent` in the module’s `imports` 
 <tabler-icon [icon]="iconBrandAngular" />
 ```
 
+### III. Importing individual icons
+
+Every icon is also available from its own path, so a single icon can be loaded without the rest of the package:
+
+```ts
+import IconBrandAngular from '@tabler/icons-angular/icons/IconBrandAngular';
+```
+
+The path is the symbol name, and the default export is the same `TablerIcon` object as the named export from `@tabler/icons-angular`, so it works with both `provideTablerIcons()` and the `[icon]` input.
+
+To load icons by name at runtime, use the lazy loaders from `@tabler/icons-angular/dynamic-imports`; the names are listed in `@tabler/icons-angular/icons-list`:
+
+```ts
+import dynamicImports from '@tabler/icons-angular/dynamic-imports';
+
+const { default: icon } = await dynamicImports['brand-angular']();
+```
+
 ## Props
 
 The component uses Angular `input()` APIs (signal inputs) and supports both outline and filled icon types.
