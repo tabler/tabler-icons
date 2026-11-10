@@ -20,7 +20,7 @@ export const __iconNode: IconNode = ${JSON.stringify(children)}
  * @see https://docs.tabler.io/icons/libraries/react - Documentation
  *
  */
-const Icon${namePascal} = createReactComponent('${type}', '${name}', '${namePascal}', __iconNode);
+const Icon${namePascal} = /* @__PURE__ */ createReactComponent('${type}', '${name}', '${namePascal}', __iconNode);
 
 export default Icon${namePascal};`;
 };
