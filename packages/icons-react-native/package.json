@@ -37,6 +37,16 @@
         "default": "./dist/esm/tabler-icons-react-native.mjs"
       }
     },
+    "./icons-list": {
+      "require": {
+        "types": "./dist/cjs/icons-list.d.cts",
+        "default": "./dist/cjs/icons-list.cjs"
+      },
+      "import": {
+        "types": "./dist/icons-list.d.ts",
+        "default": "./dist/esm/icons-list.mjs"
+      }
+    },
     "./*": {
       "require": {
         "types": "./dist/cjs/icons/*.d.cts",
