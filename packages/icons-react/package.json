@@ -26,8 +26,10 @@
   "exports": {
     ".": {
       "types": "./dist/tabler-icons-react.d.ts",
+      "module": "./dist/esm/tabler-icons-react.mjs",
+      "node": "./dist/cjs/tabler-icons-react.cjs",
       "import": "./dist/esm/tabler-icons-react.mjs",
-      "require": "./dist/cjs/tabler-icons-react.cjs"
+      "default": "./dist/cjs/tabler-icons-react.cjs"
     },
     "./icons/*": {
       "types": "./dist/icon.d.mts",
