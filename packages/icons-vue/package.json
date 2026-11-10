@@ -26,8 +26,10 @@
   "exports": {
     ".": {
       "types": "./dist/tabler-icons-vue.d.ts",
+      "module": "./dist/esm/tabler-icons-vue.mjs",
+      "node": "./dist/cjs/tabler-icons-vue.cjs",
       "import": "./dist/esm/tabler-icons-vue.mjs",
-      "require": "./dist/cjs/tabler-icons-vue.cjs"
+      "default": "./dist/cjs/tabler-icons-vue.cjs"
     },
     "./icons/*": {
       "types": "./dist/icon.d.mts",
