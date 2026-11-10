@@ -4,7 +4,7 @@ import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createSolidComponent from '../createSolidComponent';
-export default createSolidComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default /* @__PURE__ */ createSolidComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({ namePascal }) =>
   `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
