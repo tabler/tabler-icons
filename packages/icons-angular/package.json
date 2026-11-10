@@ -34,9 +34,10 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run typecheck && pnpm run build:ng",
+    "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run typecheck && pnpm run build:ng && pnpm run build:strip-source-maps",
     "build:icons": "node build.mjs",
     "build:ng": "ng build --configuration=production",
+    "build:strip-source-maps": "node strip-source-maps.mjs",
     "copy:license": "cp ../../LICENSE ./LICENSE",
     "clean": "rm -rf dist && find src/icons -mindepth 1 ! -name '.gitkeep' -delete",
     "typecheck": "tsc",
