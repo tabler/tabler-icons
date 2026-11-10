@@ -27,6 +27,28 @@ const bundles = [
   },
 ];
 
+/**
+ * Every icon module has the same shape, so the per-icon subpaths
+ * (`@tabler/icons-react/icons/IconHome`) all resolve to this one declaration
+ * file through the `exports` map instead of shipping a declaration per icon.
+ */
+const iconDts = () => ({
+  name: 'icon-dts',
+  generateBundle() {
+    this.emitFile({
+      type: 'asset',
+      fileName: 'icon.d.mts',
+      source: `\
+import type { IconNode, TablerIcon } from './${outputFileName}.js';
+
+export declare const __iconNode: IconNode;
+declare const Icon: TablerIcon;
+export default Icon;
+`,
+    });
+  },
+});
+
 export default [
   {
     input: inputs[0],
@@ -36,7 +58,7 @@ export default [
         format: 'es',
       },
     ],
-    plugins: [iconsDts(), dts()],
+    plugins: [iconsDts(), dts(), iconDts()],
   },
 
   ...getRollupConfig(pkg, outputFileName, bundles, {
