@@ -13,9 +13,12 @@
   },
   "amdName": "TablerIcons",
   "exports": {
-    "./*": [
-      "./icons/*"
-    ]
+    ".": "./icons.json",
+    "./package.json": "./package.json",
+    "./icons.json": "./icons.json",
+    "./tabler-nodes-outline.json": "./tabler-nodes-outline.json",
+    "./tabler-nodes-filled.json": "./tabler-nodes-filled.json",
+    "./*": "./icons/*"
   },
   "sideEffects": false,
   "files": [
