@@ -1,0 +1,39 @@
+---
+description: Tabler Icons Project Rules
+globs:
+alwaysApply: true
+---
+
+# Tabler Icons — project rules
+
+Shared instructions for all AI agents (Claude Code, Cursor, etc.). Canonical agent configuration lives in `.agents/` (`rules/` + `skills/`); `.claude/skills` and `.cursor/{rules,skills}` are symlinks into it.
+
+## Skills
+
+Task-specific instructions live in `.agents/skills/<name>/SKILL.md` — read the matching one before starting, it is the source of truth for that area.
+
+| Skill | Use it when |
+| --- | --- |
+| `generate-changeset` | writing a changeset (always — never hand-write the file) |
+
+## Language
+
+- Write all repository content in English: code, comments, documentation, commit messages, PR titles and descriptions.
+
+## Changesets
+
+- **Always use the `generate-changeset` skill** (`.agents/skills/generate-changeset/SKILL.md`) to write a changeset — both when asked for one and on your own before committing or opening a PR that changes a package in `packages/` or an existing icon in `icons/`. Do not hand-write the file.
+- Each change gets a separate file in `.changeset/` with a descriptive kebab-case filename (e.g. `icons-svelte-entry-points.md`).
+- One sentence per changeset, **130 characters or fewer** (hard ceiling 160, only when a longer list is the actual content), starting with an action verb (`Added`, `Updated`, `Fixed`, `Removed`), with backticks for code elements (`arrow-up`, `IconHome`, `@tabler/icons-react`, `strokeWidth`, `exports`). A changeset is one changelog line — keep the reasons, implementation notes, usage examples and affected-file lists in the PR description. Always name a concrete package, icon, component, prop, export, file, or dependency; "Fixed webfont issues" tells a reader nothing.
+- Version bumps: **minor** = new entry points, exports, props or options; **patch** = bug fixes, redrawn or retagged icons, packaging fixes. No **major** bumps — changes to the packages must be additive.
+- Packages: `"@tabler/icons"` for icon sources and `aliases.json`, `"@tabler/icons-<name>"` for `packages/icons-<name>/`; list multiple packages when the change spans them.
+- New icons do not get a changeset: `.build/release-changeset.mjs` generates one when the release is prepared.
+- Example:
+
+  ```md
+  ---
+  "@tabler/icons-webfont": patch
+  ---
+
+  Fixed filled `home` webfont glyph having zero width in Chrome.
+  ```
