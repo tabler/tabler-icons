@@ -165,7 +165,12 @@ export const buildIconsList = (name) => {
   );
 };
 
-export const buildIconsDynamicImport = (name) => {
+/**
+ * @param name package directory name inside `packages/`
+ * @param pascalName whether the icon modules are named `Icon<PascalName>`
+ *   (must match the `pascalName` passed to `buildJsIcons`)
+ */
+export const buildIconsDynamicImport = (name, { pascalName = true } = {}) => {
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
   const allIcons = getAllIcons();
 
@@ -175,7 +180,9 @@ export const buildIconsDynamicImport = (name) => {
       const iconName = getIconName(icon.name, type),
         iconNamePascal = toPascalCase(iconName);
 
-      dynamicImportString += `  '${iconName}': () => import('./icons/Icon${iconNamePascal}'),\n`;
+      const moduleName = pascalName ? `Icon${iconNamePascal}` : iconName;
+
+      dynamicImportString += `  '${iconName}': () => import('./icons/${moduleName}'),\n`;
     });
   });
 
