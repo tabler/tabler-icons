@@ -63,6 +63,17 @@ Pass props to adjust the icon:
 <IconArrowLeft color="red" size={48} strokeWidth={1.5} />
 ```
 
+### Importing individual icons
+
+Metro does not remove unused exports by default, so importing from the package root adds every icon to your bundle. To include only the icons you use, import each one from its own path:
+
+```jsx
+import IconArrowLeft from '@tabler/icons-react-native/IconArrowLeft';
+import IconHeartFilled from '@tabler/icons-react-native/IconHeartFilled';
+```
+
+The path is the component name. This relies on the package `exports` map, which Metro resolves by default since React Native 0.79 (in earlier versions, enable `resolver.unstable_enablePackageExports`).
+
 ### Props
 
 | Name | Type | Default | Description |

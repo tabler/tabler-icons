@@ -35,6 +35,10 @@
       "svelte": "./dist/tabler-icons-svelte.js",
       "default": "./dist/tabler-icons-svelte.js"
     },
+    "./icons-list": {
+      "types": "./dist/icons-list.d.ts",
+      "default": "./dist/icons-list.js"
+    },
     "./icons/*": {
       "types": "./dist/icons/*.svelte.d.ts",
       "svelte": "./dist/icons/*.svelte",

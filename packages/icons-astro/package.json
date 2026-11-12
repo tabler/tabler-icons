@@ -25,6 +25,33 @@
   "main": "./dist/cjs/tabler-icons-astro.cjs",
   "module": "./dist/esm/tabler-icons-astro.mjs",
   "types": "./dist/tabler-icons-astro.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-astro.d.ts",
+      "module": "./dist/esm/tabler-icons-astro.mjs",
+      "node": "./dist/cjs/tabler-icons-astro.cjs",
+      "import": "./dist/esm/tabler-icons-astro.mjs",
+      "default": "./dist/cjs/tabler-icons-astro.cjs"
+    },
+    "./icons/*": {
+      "types": "./dist/icon.d.mts",
+      "default": "./dist/esm/icons/*.mjs"
+    },
+    "./icons-list": {
+      "types": "./dist/icons-list.d.mts",
+      "default": "./dist/esm/icons-list.mjs"
+    },
+    "./dynamic-imports": {
+      "types": "./dist/dynamic-imports.d.mts",
+      "default": "./dist/esm/dynamic-imports.mjs"
+    },
+    "./dist/esm/icons/*.mjs": {
+      "types": "./dist/icon.d.mts",
+      "default": "./dist/esm/icons/*.mjs"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
