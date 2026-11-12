@@ -68,10 +68,22 @@ Use an icon with the `ti` base class and the `ti-{name}` modifier:
 
 ### CSS
 
-Use the icon's unicode value, listed in `icons.json` of the `@tabler/icons` package:
+Use the icon's unicode value, listed in `icons.json` of the `@tabler/icons` package, together with the font family of the stylesheet you included:
 
 ```css
-content: '\ec8f';
+.icon::before {
+  content: '\ec8f';
+  font-family: 'tabler-icons';
+}
+```
+
+Outline icons (`tabler-icons`, `tabler-icons-200`, `tabler-icons-300`) and filled icons (`tabler-icons-filled`) are separate fonts. An icon that exists in both styles has a different unicode value for each (`styles.outline.unicode` and `styles.filled.unicode` in `icons.json`), and the filled value renders only with the `tabler-icons-filled` family:
+
+```css
+.icon-filled::before {
+  content: '\f680'; /* map-pin, filled */
+  font-family: 'tabler-icons-filled';
+}
 ```
 
 ### SCSS
