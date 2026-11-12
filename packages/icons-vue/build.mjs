@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import {
+  buildJsIcons,
+  buildIconsList,
+  buildIconsDynamicImport,
+} from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createVueComponent from '../createVueComponent';
-export default createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default /* @__PURE__ */ createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({ namePascal }) =>
   `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
@@ -23,3 +27,5 @@ buildJsIcons({
 });
 
 buildIconsList('icons-vue');
+
+buildIconsDynamicImport('icons-vue');
