@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import {
+  buildJsIcons,
+  buildIconsList,
+  buildIconsDynamicImport,
+} from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createPreactComponent from '../createPreactComponent';
-export default createPreactComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
+export default /* @__PURE__ */ createPreactComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
 const indexItemTemplate = ({ namePascal }) =>
   `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
@@ -24,3 +28,5 @@ buildJsIcons({
 });
 
 buildIconsList('icons-preact');
+
+buildIconsDynamicImport('icons-preact');
