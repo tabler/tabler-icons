@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  All <!--icons-count-->6287<!--/icons-count--> Tabler Icons as EPS files.
+  All <!--icons-count-->6545<!--/icons-count--> Tabler Icons as EPS files.
 </p>
 
 <p align="center">

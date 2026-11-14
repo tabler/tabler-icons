@@ -1,5 +1,19 @@
 # @tabler/icons-preact
 
+## 3.52.0
+
+### Minor Changes
+
+- [#1729](https://github.com/tabler/tabler-icons/pull/1729) [`e319957`](https://github.com/tabler/tabler-icons/commit/e31995749a27260cea01b02539f8ab3e4ea8333a) - Added `exports` map with `icons/*`, `icons-list` and `dynamic-imports` entry points to `@tabler/icons-preact`.
+
+### Patch Changes
+
+- [#1729](https://github.com/tabler/tabler-icons/pull/1729) [`e319957`](https://github.com/tabler/tabler-icons/commit/e31995749a27260cea01b02539f8ab3e4ea8333a) - Updated `icons` and `iconsList` exports of `@tabler/icons-preact` to be marked `@deprecated`.
+
+- [#1729](https://github.com/tabler/tabler-icons/pull/1729) [`e319957`](https://github.com/tabler/tabler-icons/commit/e31995749a27260cea01b02539f8ab3e4ea8333a) - Added `/* @__PURE__ */` to `@tabler/icons-preact` icons so unused ones are dropped without relying on `sideEffects`.
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @tabler/icons-svelte-runes
 
+## 3.52.0
+
+### Minor Changes
+
+- [#1727](https://github.com/tabler/tabler-icons/pull/1727) [`6e68709`](https://github.com/tabler/tabler-icons/commit/6e68709e20ad8878de0332c64fcfb32d24e2b304) - Added `icons-list` entry point to `@tabler/icons-svelte` and `@tabler/icons-svelte-runes`.
+
+### Patch Changes
+
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes

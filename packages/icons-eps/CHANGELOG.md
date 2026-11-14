@@ -1,5 +1,12 @@
 # @tabler/icons-eps
 
+## 3.52.0
+
+### Patch Changes
+
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes

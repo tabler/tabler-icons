@@ -1,5 +1,13 @@
 # @tabler/icons-angular
 
+## 3.52.0
+
+### Patch Changes
+
+- [#1733](https://github.com/tabler/tabler-icons/pull/1733) [`7b225a1`](https://github.com/tabler/tabler-icons/commit/7b225a19cb6fc31f988db38c0c401f3a490ae958) - Removed the source map from `@tabler/icons-angular`, reducing the unpacked package size from 9.3 MB to 3.6 MB.
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes
