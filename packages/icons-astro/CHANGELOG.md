@@ -1,5 +1,19 @@
 # @tabler/icons-astro
 
+## 3.52.0
+
+### Minor Changes
+
+- [#1731](https://github.com/tabler/tabler-icons/pull/1731) [`05b4bd5`](https://github.com/tabler/tabler-icons/commit/05b4bd559a12b1970829aab3cc03df20eef22d4e) - Added `exports` map with `icons/*`, `icons-list` and `dynamic-imports` entry points to `@tabler/icons-astro`.
+
+### Patch Changes
+
+- [#1731](https://github.com/tabler/tabler-icons/pull/1731) [`05b4bd5`](https://github.com/tabler/tabler-icons/commit/05b4bd559a12b1970829aab3cc03df20eef22d4e) - Updated `icons` and `iconsList` exports of `@tabler/icons-astro` to be marked `@deprecated`.
+
+- [#1731](https://github.com/tabler/tabler-icons/pull/1731) [`05b4bd5`](https://github.com/tabler/tabler-icons/commit/05b4bd559a12b1970829aab3cc03df20eef22d4e) - Added `/* @__PURE__ */` to `@tabler/icons-astro` icons so unused ones are dropped without relying on `sideEffects`.
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes

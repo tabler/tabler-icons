@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Icon font with CSS and SCSS files for all <!--icons-count-->6287<!--/icons-count--> Tabler Icons.
+  Icon font with CSS and SCSS files for all <!--icons-count-->6545<!--/icons-count--> Tabler Icons.
 </p>
 
 <p align="center">

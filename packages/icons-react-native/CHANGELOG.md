@@ -1,5 +1,19 @@
 # @tabler/icons-react-native
 
+## 3.52.0
+
+### Minor Changes
+
+- [#1732](https://github.com/tabler/tabler-icons/pull/1732) [`0dc54db`](https://github.com/tabler/tabler-icons/commit/0dc54db55ba099be924e5ab85b09e60576da24da) - Added `icons-list` entry point to `@tabler/icons-react-native`.
+
+### Patch Changes
+
+- [#1732](https://github.com/tabler/tabler-icons/pull/1732) [`0dc54db`](https://github.com/tabler/tabler-icons/commit/0dc54db55ba099be924e5ab85b09e60576da24da) - Updated `icons` and `iconsList` exports of `@tabler/icons-react-native` to be marked `@deprecated`.
+
+- [#1732](https://github.com/tabler/tabler-icons/pull/1732) [`0dc54db`](https://github.com/tabler/tabler-icons/commit/0dc54db55ba099be924e5ab85b09e60576da24da) - Added `/* @__PURE__ */` to `@tabler/icons-react-native` icons so unused ones are dropped without relying on `sideEffects`.
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes

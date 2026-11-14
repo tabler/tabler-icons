@@ -1,5 +1,13 @@
 # @tabler/icons-solidjs
 
+## 3.52.0
+
+### Patch Changes
+
+- [#1730](https://github.com/tabler/tabler-icons/pull/1730) [`c43b321`](https://github.com/tabler/tabler-icons/commit/c43b3219c494e80d5bc3c50d3e4a32fc7a439e86) - Fixed `@tabler/icons-solidjs` bundling every icon when imported without the `solid` export condition.
+- Updated dependencies [[`e45f1c1`](https://github.com/tabler/tabler-icons/commit/e45f1c1d0cdc8d033a7143fb19dd3c437a79152d)]:
+  - @tabler/icons@3.52.0
+
 ## 3.51.0
 
 ### Patch Changes
