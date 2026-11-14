@@ -1,4 +1,8 @@
-import { buildJsIcons } from '../../.build/build-icons.mjs';
+import {
+  buildJsIcons,
+  buildIconsList,
+  buildIconsDynamicImport,
+} from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => {
   const nodes = JSON.stringify(Array.isArray(children) ? children : [children]);
@@ -29,3 +33,8 @@ buildJsIcons({
   pascalCase: true,
   extension: 'ts',
 });
+
+// Sources of the `icons-list` and `dynamic-imports` subpath entries.
+buildIconsList('icons-angular');
+
+buildIconsDynamicImport('icons-angular');
