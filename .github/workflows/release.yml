@@ -145,11 +145,32 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(node -p "require('./packages/icons/package.json').version")
-          if gh release view "v${VERSION}" > /dev/null 2>&1; then
-            echo "Release v${VERSION} already exists"
+          TAG="v${VERSION}"
+          ZIP_PATH="packages-zip/tabler-icons-${VERSION}.zip"
+          ZIP_NAME="tabler-icons-${VERSION}.zip"
+
+          # If the release already exists, check whether its ZIP is attached.
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "Release $TAG already exists"
+
+            # Fetch the asset list and fail if GitHub cannot return it.
+            ASSETS=$(gh release view "$TAG" --json assets --jq '.assets[].name') || exit 1
+
+            if printf '%s\n' "$ASSETS" | grep -Fxq "$ZIP_NAME"; then
+            echo "ZIP asset already exists; nothing to do"
+            exit 0
+            fi
+
+            echo "ZIP asset is missing; generating and uploading it"
+            pnpm run zip
+            gh release upload "$TAG" "$ZIP_PATH"
             exit 0
           fi
+
+          # Create a new release with its packaged ZIP.
           node ./.build/release-notes.mjs > notes.md
-          # SVG, PNG, PDF, EPS and webfont files built for the published packages
           pnpm run zip
-          gh release create "v${VERSION}" "packages-zip/tabler-icons-${VERSION}.zip" --target "$GITHUB_SHA" --title "Release ${VERSION}" --notes-file notes.md
+          gh release create "$TAG" "$ZIP_PATH" \
+            --target "$GITHUB_SHA" \
+            --title "Release ${VERSION}" \
+            --notes-file notes.md
