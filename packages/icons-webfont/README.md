@@ -84,7 +84,7 @@ content: $ti-icon-brand-tabler;
 
 ### Font loading
 
-The font is split into chunks: one with the most popular icons and one per icon category (`dist/fonts/tabler-icons.<chunk>.woff2`). The filled font, which is much smaller, has only two: the popular icons and the rest. Each chunk has its own `unicode-range`, so the browser downloads only the chunks with icons shown on the page.
+The font is split into chunks: one with the most popular icons and one per icon category (`dist/fonts/tabler-icons.<chunk>.woff2`). The filled font, which is much smaller, has only two: the popular icons and the rest. The font with both variants (`tabler-icons.css`) has the chunks of both, the filled ones prefixed with `filled-`. Each chunk has its own `unicode-range`, so the browser downloads only the chunks with icons shown on the page.
 
 To load the whole font from a single file instead, set `$ti-font-split` before importing the SCSS source:
 
