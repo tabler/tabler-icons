@@ -1,5 +1,9 @@
 # @tabler/icons
 
+## 3.52.1
+
+No changes in this release.
+
 ## 3.52.0
 
 ### Minor Changes
