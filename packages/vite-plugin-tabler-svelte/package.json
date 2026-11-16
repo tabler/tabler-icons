@@ -1,0 +1,58 @@
+{
+  "name": "@tabler/vite-plugin-svelte",
+  "version": "3.50.0",
+  "description": "Opt-in static per-icon imports for Tabler Svelte icons in Vite",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git",
+    "directory": "packages/vite-plugin-tabler-svelte"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "vite-plugin",
+    "svelte",
+    "tabler",
+    "icons"
+  ],
+  "scripts": {
+    "test": "node --test --test-concurrency=1 --test-timeout=120000 test/*.test.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.9",
+    "magic-string": "^0.30.21"
+  },
+  "peerDependencies": {
+    "svelte": "^4.0.0 || ^5.0.0",
+    "vite": "^5.4.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "svelte": "5.57.1",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite5": "npm:vite@5.4.21",
+    "vite6": "npm:vite@6.4.5",
+    "vite7": "npm:vite@7.3.6",
+    "svelte4": "npm:svelte@4.2.20",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "jsdom": "catalog:"
+  }
+}
