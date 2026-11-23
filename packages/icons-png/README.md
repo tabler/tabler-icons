@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  All <!--icons-count-->6545<!--/icons-count--> Tabler Icons as PNG files.
+  All <!--icons-count-->6563<!--/icons-count--> Tabler Icons as PNG files.
 </p>
 
 <p align="center">
