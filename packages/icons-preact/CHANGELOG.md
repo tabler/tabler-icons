@@ -1,5 +1,13 @@
 # @tabler/icons-preact
 
+## 3.53.0
+
+### Patch Changes
+
+- [#1748](https://github.com/tabler/tabler-icons/pull/1748) [`85e870d`](https://github.com/tabler/tabler-icons/commit/85e870dbe8680c2d6deefd062122d30ef1544a41) - Added Preact 11 support to `@tabler/icons-preact`: wider `preact` peer range and fixed `IconProps` type.
+- Updated dependencies []:
+  - @tabler/icons@3.53.0
+
 ## 3.52.0
 
 ### Minor Changes
