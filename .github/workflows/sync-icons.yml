@@ -56,6 +56,10 @@ jobs:
           mkdir -p /tmp/icons-sync
           cp -r $SOURCE_FOLDER/* /tmp/icons-sync/
 
+          # Vercel reads vercel.json from the branch it deploys, so the CDN branch
+          # needs its own copy to keep its deployments disabled
+          cp vercel.json /tmp/icons-sync-vercel.json
+
           MAIN_SHA=$(git rev-parse --short HEAD)
 
           # Setup CDN branch (use origin/$CDN_BRANCH to avoid ambiguity with local icons/ folder)
@@ -70,6 +74,7 @@ jobs:
 
           # Copy icons to root
           cp -r /tmp/icons-sync/* .
+          cp /tmp/icons-sync-vercel.json vercel.json
 
           git add -A
 
