@@ -1,5 +1,30 @@
 # @tabler/icons
 
+## 3.53.0
+
+### Minor Changes
+
+- 18 new icons
+  
+  - `outline/bed-pin`
+  - `outline/bike-pin`
+  - `outline/briefcase-pin`
+  - `outline/building-hospital-pin`
+  - `outline/building-store-pin`
+  - `outline/bus-pin`
+  - `outline/car-pin`
+  - `outline/coffee-pin`
+  - `outline/gas-station-pin`
+  - `outline/home-pin`
+  - `outline/package-pin`
+  - `outline/parking-pin`
+  - `outline/phone-pin`
+  - `outline/plane-pin`
+  - `outline/school-pin`
+  - `outline/tent-pin`
+  - `outline/tools-kitchen-2-pin`
+  - `outline/truck-delivery-pin`
+
 ## 3.52.0
 
 ### Minor Changes

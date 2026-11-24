@@ -1,5 +1,12 @@
 # @tabler/icons-eps
 
+## 3.53.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @tabler/icons@3.53.0
+
 ## 3.52.0
 
 ### Patch Changes
