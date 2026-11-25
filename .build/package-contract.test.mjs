@@ -7,6 +7,8 @@
  * - Node resolves the package root and every subpath through its real
  *   resolver, under both `require` and `import`, and the root of a package
  *   that ships CommonJS resolves to `.cjs` under `require`;
+ * - a package built by the package recipe declares exactly the `exports`
+ *   map the recipe expects, in the same order;
  * - the contract only grows: everything recorded in
  *   `package-contract.snapshot.json` is still there, with the same targets and
  *   in the same condition order.
@@ -22,6 +24,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { expectedExports } from './package-recipe.mjs';
 
 const HOME_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOT_FILE = path.resolve(HOME_DIR, '.build/package-contract.snapshot.json');
@@ -157,6 +160,18 @@ for (const [dir, { cjsRoot }] of Object.entries(PACKAGES)) {
       ...(pkg.exports ? { exports: pkg.exports } : {}),
       resolved: {},
     };
+
+    const descriptorFile = path.join(packageDir, 'package.recipe.mjs');
+    if (fs.existsSync(descriptorFile)) {
+      await t.test('exports map is the one the package recipe expects', async () => {
+        const { default: descriptor } = await import(pathToFileURL(descriptorFile).href);
+        // compared as JSON: the order of conditions matters to Node
+        assert.equal(
+          JSON.stringify(pkg.exports, null, 2),
+          JSON.stringify(expectedExports(descriptor), null, 2),
+        );
+      });
+    }
 
     await t.test('every file it points to exists', () => {
       for (const field of TOP_LEVEL_FIELDS.filter((f) => pkg[f])) {

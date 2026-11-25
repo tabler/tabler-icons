@@ -1,14 +1,6 @@
 #!/usr/bin/env node
 
-import { buildJsIcons } from '../../.build/build-icons.mjs';
+import { generateSources } from '../../.build/package-recipe.mjs';
+import descriptor from './package.recipe.mjs';
 
-const componentTemplate = ({ type, name, namePascal, children }) => `\
-import createVueComponent from '../createVueComponent';
-export default /* @__PURE__ */ createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
-
-buildJsIcons({
-  name: 'icons-vue',
-  componentTemplate,
-  extension: 'ts',
-  dtsEntry: true,
-});
+generateSources(descriptor);
