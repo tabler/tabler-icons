@@ -74,6 +74,11 @@ jobs:
           ICONS_LIMIT: 100
         run: pnpm run build
 
+      # Entry points of the framework packages: files exist, Node resolves them,
+      # and nothing recorded in .build/package-contract.snapshot.json disappears.
+      - name: Check package contract
+        run: pnpm run test:contract
+
       - name: Check image packages
         env:
           ICONS_LIMIT: 100

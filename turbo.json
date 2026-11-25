@@ -24,6 +24,7 @@
         "../../aliases.json",
         "../../.build/**",
         "!../../.build/**/*.test.mjs",
+        "!../../.build/package-contract.snapshot.json",
         "../../LICENSE",
         "../../tsconfig.base.json"
       ]
