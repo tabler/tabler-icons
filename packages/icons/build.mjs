@@ -4,6 +4,19 @@ import { getAllIconsMerged, getAllIcons } from '../../.build/helpers.mjs'
 const iconsMerged = getAllIconsMerged()
 const icons = getAllIcons(true, true)
 
+const compactSvgTags = (svg) => {
+  // Preserve text nodes, comments, and quoted attribute values.
+  return svg.replace(
+    /<!--[\s\S]*?-->|<\?[\s\S]*?\?>|<!\[CDATA\[[\s\S]*?\]\]>|<\/?[A-Za-z_](?:[^<>"']|"[^"]*"|'[^']*')*>/g,
+    (tag) => {
+      if (tag.startsWith('<!') || tag.startsWith('<?')) {
+        return tag
+      }
+      return tag.replace(/("[^"]*"|'[^']*')|[ \t\r\n]+(\/?>)?/g, (_, quoted, close) => quoted ?? close ?? ' ')
+    },
+  )
+}
+
 const buildJSON = () => {
   console.log('Building icons.json')
 
@@ -33,11 +46,12 @@ const buildSvgs = () => {
     fs.mkdirSync(`./icons/${type}`, { recursive: true });
 
     icons.forEach(({ name, content, category }) => {
-      fs.writeFileSync(`./icons/${type}/${name}.svg`, content);
+      const compact = compactSvgTags(content);
+      fs.writeFileSync(`./icons/${type}/${name}.svg`, compact);
 
       if (category) {
         fs.mkdirSync(`./categories/${type}/${category}`, { recursive: true });
-        fs.writeFileSync(`./categories/${type}/${category}/${name}.svg`, content);
+        fs.writeFileSync(`./categories/${type}/${category}/${name}.svg`, compact);
       }
     })
   })
