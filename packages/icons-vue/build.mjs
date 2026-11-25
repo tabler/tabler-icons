@@ -1,31 +1,6 @@
 #!/usr/bin/env node
 
-import {
-  buildJsIcons,
-  buildIconsList,
-  buildIconsDynamicImport,
-} from '../../.build/build-icons.mjs';
+import { generateSources } from '../../.build/package-recipe.mjs';
+import descriptor from './package.recipe.mjs';
 
-const componentTemplate = ({ type, name, namePascal, children }) => `\
-import createVueComponent from '../createVueComponent';
-export default /* @__PURE__ */ createVueComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
-
-const indexItemTemplate = ({ namePascal }) =>
-  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
-
-const aliasTemplate = ({ fromPascal, toPascal }) =>
-  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
-
-buildJsIcons({
-  dtsEntry: true,
-  name: 'icons-vue',
-  componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
-  extension: 'ts',
-  indexFile: 'index.ts',
-});
-
-buildIconsList('icons-vue');
-
-buildIconsDynamicImport('icons-vue');
+generateSources(descriptor);

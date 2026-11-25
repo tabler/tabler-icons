@@ -4,38 +4,44 @@ import { PACKAGES_DIR, getAliases, getIconName, toPascalCase, getAllIcons } from
 import { stringify } from 'svgson';
 
 /**
- * Build icons
+ * Generate the sources of a framework package: one module per icon, the icons
+ * index, the aliases and, unless turned off, the icons list and the dynamic
+ * imports.
  *
  * @param name package directory name inside `packages/`, e.g. `icons-react`
  * @param componentTemplate returns the source of a single icon module; called
  *   with `{ type, name, namePascal, children, stringify, svg }`
- * @param indexItemTemplate returns the line re-exporting an icon from the
- *   icons index; called with `{ type, name, namePascal, svg }`
- * @param aliasTemplate returns the line exporting an alias in
- *   `src/aliases.ts`; called with `{ from, to, fromPascal, toPascal }`. When
- *   omitted, the aliases file is left empty
  * @param extension extension of the generated icon modules
+ * @param moduleNaming file names of the icon modules: `pascal` for
+ *   `IconArrowLeft`, `kebab` for `arrow-left`
+ * @param importExtension keep the extension in the specifiers that re-export
+ *   the icon modules (`./arrow-left.svelte` instead of `./arrow-left`)
  * @param key add a `key` attribute (`svg-0`, `svg-1`, …) to every icon node
  * @param pascalCase rename `stroke-width` to `strokeWidth` in icon nodes
- * @param pascalName name icon modules `Icon<PascalName>` instead of the
- *   kebab-case icon name
- * @param indexFile file name of the icons index inside `src/icons`
  * @param dtsEntry generate `src/icons-dts`, a single-module stand-in for the
  *   icon modules that the declaration bundle is built from (see `iconsDts`
  *   in rollup-plugins.mjs)
+ * @param iconsList generate `src/icons-list.ts`, the names of all icons
+ * @param dynamicImports generate `src/dynamic-imports.ts`, lazy loaders of
+ *   the icon modules keyed by icon name
  */
 export const buildJsIcons = ({
   name,
   componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
   extension = 'js',
+  moduleNaming = 'pascal',
+  importExtension = false,
   key = true,
   pascalCase = false,
-  pascalName = true,
-  indexFile = 'icons.ts',
   dtsEntry = false,
+  iconsList = true,
+  dynamicImports = true,
 }) => {
+  const moduleName = (iconName) =>
+    moduleNaming === 'pascal' ? `Icon${toPascalCase(iconName)}` : iconName;
+  const specifier = (iconName) =>
+    `${moduleName(iconName)}${importExtension ? `.${extension}` : ''}`;
+
   const DIST_DIR = path.resolve(PACKAGES_DIR, name);
   const aliases = getAliases(),
     allIcons = getAllIcons(true, true);
@@ -73,11 +79,7 @@ export const buildJsIcons = ({
         svg: icon.content,
       });
 
-      let filePath = path.resolve(
-        DIST_DIR,
-        'src/icons',
-        `${pascalName ? `Icon${iconNamePascal}` : iconName}.${extension}`,
-      );
+      let filePath = path.resolve(DIST_DIR, 'src/icons', `${moduleName(iconName)}.${extension}`);
       fs.writeFileSync(filePath, component, 'utf-8');
 
       dtsIcons.push({
@@ -87,36 +89,32 @@ export const buildJsIcons = ({
         doc: component.match(/\/\*\*(?:(?!\*\/)[^])*\*\/(?=\s*const )/)?.[0],
       });
 
-      index.push(
-        indexItemTemplate({
-          type,
-          name: iconName,
-          namePascal: iconNamePascal,
-          svg: icon.content,
-        }),
-      );
+      index.push(`export { default as Icon${iconNamePascal} } from './${specifier(iconName)}';`);
     });
   });
 
-  fs.writeFileSync(path.resolve(DIST_DIR, `src/icons/${indexFile}`), index.join('\n'), 'utf-8');
+  fs.writeFileSync(path.resolve(DIST_DIR, 'src/icons/index.ts'), index.join('\n'), 'utf-8');
 
   // Write aliases
-  let aliasesStr = '';
-  if (aliases && aliasTemplate) {
-    Object.entries(aliases).forEach(([from, to]) => {
-      aliasesStr += aliasTemplate({
-        from,
-        to,
-        fromPascal: toPascalCase(from),
-        toPascal: toPascalCase(to),
-      });
-    });
-  }
+  const aliasesStr = Object.entries(aliases || {})
+    .map(
+      ([from, to]) =>
+        `export { default as Icon${toPascalCase(from)} } from './icons/${specifier(to)}';\n`,
+    )
+    .join('');
 
   fs.writeFileSync(path.resolve(DIST_DIR, `./src/aliases.ts`), aliasesStr || `export {};`, 'utf-8');
 
   if (dtsEntry) {
     buildDtsEntry({ dir: path.resolve(DIST_DIR, 'src/icons-dts'), icons: dtsIcons, aliases });
+  }
+
+  if (iconsList) {
+    buildIconsList(DIST_DIR);
+  }
+
+  if (dynamicImports) {
+    buildIconsDynamicImport(DIST_DIR, moduleName);
   }
 };
 
@@ -147,8 +145,7 @@ const buildDtsEntry = ({ dir, icons, aliases }) => {
   fs.writeFileSync(path.resolve(dir, 'aliases.ts'), aliasesStr || `export {};`, 'utf-8');
 };
 
-export const buildIconsList = (name) => {
-  const DIST_DIR = path.resolve(PACKAGES_DIR, name);
+const buildIconsList = (DIST_DIR) => {
   const allIcons = getAllIcons();
 
   let index = [];
@@ -165,24 +162,15 @@ export const buildIconsList = (name) => {
   );
 };
 
-/**
- * @param name package directory name inside `packages/`
- * @param pascalName whether the icon modules are named `Icon<PascalName>`
- *   (must match the `pascalName` passed to `buildJsIcons`)
- */
-export const buildIconsDynamicImport = (name, { pascalName = true } = {}) => {
-  const DIST_DIR = path.resolve(PACKAGES_DIR, name);
+const buildIconsDynamicImport = (DIST_DIR, moduleName) => {
   const allIcons = getAllIcons();
 
   let dynamicImportString = 'export default {';
   Object.entries(allIcons).forEach(([type, icons]) => {
     icons.forEach((icon) => {
-      const iconName = getIconName(icon.name, type),
-        iconNamePascal = toPascalCase(iconName);
+      const iconName = getIconName(icon.name, type);
 
-      const moduleName = pascalName ? `Icon${iconNamePascal}` : iconName;
-
-      dynamicImportString += `  '${iconName}': () => import('./icons/${moduleName}'),\n`;
+      dynamicImportString += `  '${iconName}': () => import('./icons/${moduleName(iconName)}'),\n`;
     });
   });
 

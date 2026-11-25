@@ -30,6 +30,44 @@ export const iconsDts = (srcDir = 'src') => {
   };
 };
 
+/** Declarations of the `icons-list` entry: the names of all icons. */
+export const iconsListDts = `\
+/** Names of all icons, e.g. \`home\` or \`home-filled\`. */
+declare const iconsList: string[];
+export default iconsList;
+`;
+
+/**
+ * For the declaration bundle: tag the namespaces re-exported from the main
+ * entry as `@deprecated` (`export * as` cannot carry JSDoc through the bundle,
+ * so the tags are added to the bundled namespaces), and emit the declaration
+ * files of the subpath entries next to it.
+ *
+ * @param {object} options
+ * @param {Record<string, string>} options.deprecatedNamespaces deprecation
+ *   message by namespace name; a namespace missing from the bundle is an error
+ * @param {Record<string, string>} [options.files] source by file name,
+ *   relative to the output directory
+ */
+export const subpathsDts = ({ deprecatedNamespaces, files = {} }) => ({
+  name: 'subpaths-dts',
+  renderChunk(code) {
+    for (const [namespace, message] of Object.entries(deprecatedNamespaces)) {
+      const declaration = `declare namespace ${namespace} {`;
+      if (!code.includes(declaration)) {
+        this.error(`Namespace "${namespace}" not found in the declaration bundle`);
+      }
+      code = code.replace(declaration, `/** @deprecated ${message} */\n${declaration}`);
+    }
+    return { code, map: null };
+  },
+  generateBundle() {
+    for (const [fileName, source] of Object.entries(files)) {
+      this.emitFile({ type: 'asset', fileName, source });
+    }
+  },
+});
+
 const getRollupPlugins = (pkg, minify) => {
   return [
     esbuild({

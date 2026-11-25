@@ -1,26 +1,6 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import { generateSources } from '../../.build/package-recipe.mjs';
+import descriptor from './package.recipe.mjs';
 
-const componentTemplate = ({ type, name, namePascal, children }) => `\
-import createReactNativeComponent from '../createReactNativeComponent';
-export default /* @__PURE__ */ createReactNativeComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
-
-const indexItemTemplate = ({ namePascal }) =>
-  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
-
-const aliasTemplate = ({ fromPascal, toPascal }) =>
-  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
-
-buildJsIcons({
-  dtsEntry: true,
-  name: 'icons-react-native',
-  componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
-  indexFile: 'index.ts',
-  pascalCase: true,
-  extension: 'ts',
-});
-
-buildIconsList('icons-react-native');
+generateSources(descriptor);
