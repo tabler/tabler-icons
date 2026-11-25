@@ -10,6 +10,7 @@ export default /* @__PURE__ */ createVueComponent('${type}', '${name}', '${nameP
 /** @type {import('../../.build/package-recipe.mjs').PackageDescriptor} */
 export default {
   name: 'icons-vue',
+  layout: 'default',
   componentTemplate,
   external: ['vue'],
   iconDts: `\

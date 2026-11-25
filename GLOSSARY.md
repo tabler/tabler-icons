@@ -27,9 +27,12 @@ A package that ships the icons as rendered files (PNG, PDF, EPS).
 What users of a framework package can rely on: which entry points exist (root, per-icon, icons list, dynamic imports), that the root resolves to CommonJS under Node's `require`, and that existing entry points never disappear outside a major release.
 _Avoid_: exports map (that is only where part of the contract is written down)
 
+**Package layout**:
+One of the published shapes a framework package comes in: which entry points it has, in which module formats, and how its icon modules are named. React, Preact, Vue and Astro share one layout; Svelte 4 and Svelte 5 share another; Solid, React Native and Angular each have their own.
+
 **Package descriptor**:
-The per-package statement of everything that differs between framework packages — the framework, how icon modules are named, how a single icon is rendered.
+The per-package statement of what differs between framework packages — its package layout, how icon modules are named, how a single icon is rendered.
 
 **Package recipe**:
-The shared way a group of framework packages is produced from their package descriptors, from generated sources to published bundles. There is one for React, Preact, Vue and Astro, and one for the two Svelte packages; the other framework packages have none.
+The shared way every framework package is produced from its package descriptor: the sources it generates and the entry points it must declare for its package layout. Bundling is shared only within a layout whose framework has no tooling of its own.
 _Avoid_: build config, template

@@ -1,6 +1,6 @@
 /**
- * Package descriptor of `@tabler/icons-svelte-runes` (Svelte 5): what the Svelte
- * package recipe (.build/svelte-recipe.mjs) needs to know about it.
+ * Package descriptor of `@tabler/icons-svelte-runes` (Svelte 5): what the package recipe
+ * (.build/package-recipe.mjs) needs to know about this framework package.
  */
 
 const componentTemplate = ({ type, name, children }) => {
@@ -22,8 +22,9 @@ const iconNode: IconNode = ${JSON.stringify(children)};
 `;
 };
 
-/** @type {import('../../.build/svelte-recipe.mjs').SvelteDescriptor} */
+/** @type {import('../../.build/package-recipe.mjs').PackageDescriptor} */
 export default {
   name: 'icons-svelte-runes',
+  layout: 'svelte',
   componentTemplate,
 };

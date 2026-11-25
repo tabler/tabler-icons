@@ -25,6 +25,7 @@ export default Icon${namePascal};`;
 /** @type {import('../../.build/package-recipe.mjs').PackageDescriptor} */
 export default {
   name: 'icons-react',
+  layout: 'default',
   componentTemplate,
   pascalCase: true,
   external: ['react'],

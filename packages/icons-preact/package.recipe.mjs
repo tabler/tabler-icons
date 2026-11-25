@@ -10,6 +10,7 @@ export default /* @__PURE__ */ createPreactComponent('${type}', '${name}', '${na
 /** @type {import('../../.build/package-recipe.mjs').PackageDescriptor} */
 export default {
   name: 'icons-preact',
+  layout: 'default',
   componentTemplate,
   pascalCase: true,
   external: ['preact'],
