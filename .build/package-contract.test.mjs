@@ -7,8 +7,8 @@
  * - Node resolves the package root and every subpath through its real
  *   resolver, under both `require` and `import`, and the root of a package
  *   that ships CommonJS resolves to `.cjs` under `require`;
- * - a package built by the package recipe declares exactly the `exports`
- *   map the recipe expects, in the same order;
+ * - a package built by a package recipe declares exactly the `exports` map
+ *   the recipe expects, in the same order;
  * - the contract only grows: everything recorded in
  *   `package-contract.snapshot.json` is still there, with the same targets and
  *   in the same condition order.
@@ -24,22 +24,26 @@ import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { expectedExports } from './package-recipe.mjs';
+import * as packageRecipe from './package-recipe.mjs';
+import * as svelteRecipe from './svelte-recipe.mjs';
 
 const HOME_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOT_FILE = path.resolve(HOME_DIR, '.build/package-contract.snapshot.json');
 const UPDATE = process.env.UPDATE_CONTRACT === '1';
 
-/** Framework packages, and whether their root ships a CommonJS bundle. */
+/**
+ * Framework packages: whether their root ships a CommonJS bundle, and the
+ * package recipe that builds them from their `package.recipe.mjs`, if any.
+ */
 const PACKAGES = {
-  'icons-react': { cjsRoot: true },
-  'icons-preact': { cjsRoot: true },
-  'icons-vue': { cjsRoot: true },
-  'icons-astro': { cjsRoot: true },
+  'icons-react': { cjsRoot: true, recipe: packageRecipe },
+  'icons-preact': { cjsRoot: true, recipe: packageRecipe },
+  'icons-vue': { cjsRoot: true, recipe: packageRecipe },
+  'icons-astro': { cjsRoot: true, recipe: packageRecipe },
   'icons-solidjs': { cjsRoot: true },
   'icons-react-native': { cjsRoot: true },
-  'icons-svelte': { cjsRoot: false },
-  'icons-svelte-runes': { cjsRoot: false },
+  'icons-svelte': { cjsRoot: false, recipe: svelteRecipe },
+  'icons-svelte-runes': { cjsRoot: false, recipe: svelteRecipe },
   'icons-angular': { cjsRoot: false },
 };
 
@@ -141,7 +145,7 @@ const createResolver = async (packageName, packageDir) => {
   };
 };
 
-for (const [dir, { cjsRoot }] of Object.entries(PACKAGES)) {
+for (const [dir, { cjsRoot, recipe }] of Object.entries(PACKAGES)) {
   const packageDir = path.resolve(HOME_DIR, 'packages', dir);
   const pkg = JSON.parse(fs.readFileSync(path.join(packageDir, 'package.json'), 'utf-8'));
 
@@ -162,13 +166,17 @@ for (const [dir, { cjsRoot }] of Object.entries(PACKAGES)) {
     };
 
     const descriptorFile = path.join(packageDir, 'package.recipe.mjs');
-    if (fs.existsSync(descriptorFile)) {
-      await t.test('exports map is the one the package recipe expects', async () => {
+    await t.test('has a package descriptor exactly when it is built by a recipe', () => {
+      assert.equal(fs.existsSync(descriptorFile), Boolean(recipe));
+    });
+
+    if (recipe) {
+      await t.test('exports map is the one its package recipe expects', async () => {
         const { default: descriptor } = await import(pathToFileURL(descriptorFile).href);
         // compared as JSON: the order of conditions matters to Node
         assert.equal(
           JSON.stringify(pkg.exports, null, 2),
-          JSON.stringify(expectedExports(descriptor), null, 2),
+          JSON.stringify(recipe.expectedExports(descriptor), null, 2),
         );
       });
     }

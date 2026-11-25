@@ -31,5 +31,5 @@ _Avoid_: exports map (that is only where part of the contract is written down)
 The per-package statement of everything that differs between framework packages — the framework, how icon modules are named, how a single icon is rendered.
 
 **Package recipe**:
-The shared way every framework package is produced from its package descriptor, from generated sources to published bundles.
+The shared way a group of framework packages is produced from their package descriptors, from generated sources to published bundles. There is one for React, Preact, Vue and Astro, and one for the two Svelte packages; the other framework packages have none.
 _Avoid_: build config, template
