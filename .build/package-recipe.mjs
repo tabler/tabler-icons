@@ -27,7 +27,7 @@ import fs from 'fs';
 import path from 'path';
 import dts from 'rollup-plugin-dts';
 import { buildJsIcons } from './build-icons.mjs';
-import { getRollupConfig, iconsDts } from './rollup-plugins.mjs';
+import { getRollupConfig, iconsDts, iconsListDts, subpathsDts } from './rollup-plugins.mjs';
 
 const PACKAGES_DIR = path.resolve(import.meta.dirname, '../packages');
 
@@ -82,52 +82,30 @@ export const expectedExports = (descriptor) => {
 };
 
 /**
- * Declarations of the subpath entries, and the `@deprecated` tags of the
- * namespaces re-exported from the main entry. `export * as` cannot carry
- * JSDoc through the declaration bundle, so the tags are added to the bundled
- * namespaces.
+ * Declarations of the subpath entries and deprecation messages of the
+ * namespaces re-exported from the main entry.
  *
  * @param {PackageDescriptor} descriptor
  */
-const subpathsDts = ({ name, moduleNaming = 'pascal', iconDts, iconsNamespaceCost }) => {
+const subpaths = ({ name, moduleNaming = 'pascal', iconDts, iconsNamespaceCost }) => {
   const pkgName = `@tabler/${name}`;
   const iconName = moduleNaming === 'pascal' ? '<IconName>' : '<icon-name>';
-  const files = {
-    'icon.d.mts': iconDts,
-    'icons-list.d.mts': `\
-/** Names of all icons, e.g. \`home\` or \`home-filled\`. */
-declare const iconsList: string[];
-export default iconsList;
-`,
-    'dynamic-imports.d.mts': `\
+
+  return subpathsDts({
+    deprecatedNamespaces: {
+      index: `Referencing \`icons\` ${iconsNamespaceCost ?? 'pulls every icon into the bundle'}. Import icons by name, from \`${pkgName}/icons/${iconName}\`, or load them by name with \`${pkgName}/dynamic-imports\`. Will be removed from the main entry in the next major version.`,
+      iconsList: `Import the list from \`${pkgName}/icons-list\` instead. Will be removed from the main entry in the next major version.`,
+    },
+    files: {
+      'icon.d.mts': iconDts,
+      'icons-list.d.mts': iconsListDts,
+      'dynamic-imports.d.mts': `\
 /** Lazy loaders of the icon modules, keyed by icon name (see \`icons-list\`). */
 declare const dynamicImports: Record<string, () => Promise<typeof import('./icon.mjs')>>;
 export default dynamicImports;
 `,
-  };
-  const deprecatedNamespaces = {
-    index: `Referencing \`icons\` ${iconsNamespaceCost ?? 'pulls every icon into the bundle'}. Import icons by name, from \`${pkgName}/icons/${iconName}\`, or load them by name with \`${pkgName}/dynamic-imports\`. Will be removed from the main entry in the next major version.`,
-    iconsList: `Import the list from \`${pkgName}/icons-list\` instead. Will be removed from the main entry in the next major version.`,
-  };
-
-  return {
-    name: 'subpaths-dts',
-    renderChunk(code) {
-      for (const [namespace, message] of Object.entries(deprecatedNamespaces)) {
-        const declaration = `declare namespace ${namespace} {`;
-        if (!code.includes(declaration)) {
-          this.error(`Namespace "${namespace}" not found in the declaration bundle`);
-        }
-        code = code.replace(declaration, `/** @deprecated ${message} */\n${declaration}`);
-      }
-      return { code, map: null };
     },
-    generateBundle() {
-      for (const [fileName, source] of Object.entries(files)) {
-        this.emitFile({ type: 'asset', fileName, source });
-      }
-    },
-  };
+  });
 };
 
 /**
@@ -168,7 +146,7 @@ export const rollupConfig = (descriptor) => {
       plugins: [
         iconsDts(),
         dts({ compilerOptions: { preserveSymlinks: false } }),
-        subpathsDts(descriptor),
+        subpaths(descriptor),
       ],
     },
     ...getRollupConfig(pkg, entry, bundles, {}),

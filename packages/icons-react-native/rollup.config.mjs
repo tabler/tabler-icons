@@ -1,6 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { getRollupConfig, iconsDts } from '../../.build/rollup-plugins.mjs';
+import {
+  getRollupConfig,
+  iconsDts,
+  iconsListDts,
+  subpathsDts,
+} from '../../.build/rollup-plugins.mjs';
 import dts from 'rollup-plugin-dts';
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
@@ -32,42 +37,15 @@ const bundles = [
   },
 ];
 
-// Declarations for the `icons-list` entry of the `exports` map, in both module
-// formats.
-const iconsListDts = `\
-/** Names of all icons, e.g. \`home\` or \`home-filled\`. */
-declare const iconsList: string[];
-export default iconsList;
-`;
-
-/**
- * The namespaces re-exported from the main entry are deprecated in favour of
- * the subpath entries. `export * as` cannot carry JSDoc through the
- * declaration bundle, so the tag is added to the bundled namespaces.
- */
-const deprecatedNamespaces = {
-  index:
-    'Referencing `icons` pulls every icon into the bundle. Import icons by name or from `@tabler/icons-react-native/<IconName>`. Will be removed from the main entry in the next major version.',
-  iconsList:
-    'Import the list from `@tabler/icons-react-native/icons-list` instead. Will be removed from the main entry in the next major version.',
-};
-
-const subpathsDts = () => ({
-  name: 'subpaths-dts',
-  renderChunk(code) {
-    for (const [name, message] of Object.entries(deprecatedNamespaces)) {
-      const declaration = `declare namespace ${name} {`;
-      if (!code.includes(declaration)) {
-        this.error(`Namespace "${name}" not found in the declaration bundle`);
-      }
-      code = code.replace(declaration, `/** @deprecated ${message} */\n${declaration}`);
-    }
-    return { code, map: null };
+const subpaths = subpathsDts({
+  deprecatedNamespaces: {
+    index:
+      'Referencing `icons` pulls every icon into the bundle. Import icons by name or from `@tabler/icons-react-native/<IconName>`. Will be removed from the main entry in the next major version.',
+    iconsList:
+      'Import the list from `@tabler/icons-react-native/icons-list` instead. Will be removed from the main entry in the next major version.',
   },
-  generateBundle() {
-    this.emitFile({ type: 'asset', fileName: 'icons-list.d.ts', source: iconsListDts });
-    this.emitFile({ type: 'asset', fileName: 'cjs/icons-list.d.cts', source: iconsListDts });
-  },
+  // the `icons-list` entry of the `exports` map, in both module formats
+  files: { 'icons-list.d.ts': iconsListDts, 'cjs/icons-list.d.cts': iconsListDts },
 });
 
 export default [
@@ -82,7 +60,7 @@ export default [
     plugins: [
       iconsDts(),
       dts(),
-      subpathsDts(),
+      subpaths,
       {
         name: 'copy-dts-to-cjs',
         writeBundle() {
