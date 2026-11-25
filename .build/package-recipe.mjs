@@ -20,8 +20,6 @@
  *   e.g. the framework itself
  * @property {string} iconDts declarations of a single icon module, behind
  *   `icons/*`; `./<entry>.js` stands for the main declaration bundle
- * @property {string} [iconsNamespaceCost] what referencing the deprecated
- *   `icons` namespace costs, in the deprecation message
  */
 import fs from 'fs';
 import path from 'path';
@@ -89,7 +87,7 @@ export const expectedExports = (descriptor) => {
  *
  * @param {PackageDescriptor} descriptor
  */
-const subpathsDts = ({ name, moduleNaming = 'pascal', iconDts, iconsNamespaceCost }) => {
+const subpathsDts = ({ name, moduleNaming = 'pascal', iconDts }) => {
   const pkgName = `@tabler/${name}`;
   const iconName = moduleNaming === 'pascal' ? '<IconName>' : '<icon-name>';
   const files = {
@@ -106,7 +104,7 @@ export default dynamicImports;
 `,
   };
   const deprecatedNamespaces = {
-    index: `Referencing \`icons\` ${iconsNamespaceCost ?? 'pulls every icon into the bundle'}. Import icons by name, from \`${pkgName}/icons/${iconName}\`, or load them by name with \`${pkgName}/dynamic-imports\`. Will be removed from the main entry in the next major version.`,
+    index: `Referencing \`icons\` pulls every icon into the bundle. Import icons by name, from \`${pkgName}/icons/${iconName}\`, or load them by name with \`${pkgName}/dynamic-imports\`. Will be removed from the main entry in the next major version.`,
     iconsList: `Import the list from \`${pkgName}/icons-list\` instead. Will be removed from the main entry in the next major version.`,
   };
 

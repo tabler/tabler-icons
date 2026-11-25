@@ -27,7 +27,6 @@ export default {
   // Astro's runtime helpers are resolved by the consumer's Astro/Vite
   // pipeline via the `astro` peer dependency.
   external: [/^astro(\/|$)/],
-  iconsNamespaceCost: 'loads every icon',
   iconDts: `\
 import type { AstroComponent } from './tabler-icons-astro.js';
 
