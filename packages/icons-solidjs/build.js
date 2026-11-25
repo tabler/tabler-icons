@@ -1,25 +1,15 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import { buildJsIcons } from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createSolidComponent from '../createSolidComponent';
 export default /* @__PURE__ */ createSolidComponent('${type}', '${name}', '${namePascal}', ${JSON.stringify(children)});`;
 
-const indexItemTemplate = ({ namePascal }) =>
-  `export { default as Icon${namePascal} } from './Icon${namePascal}';`;
-
-const aliasTemplate = ({ fromPascal, toPascal }) =>
-  `export { default as Icon${fromPascal} } from './icons/Icon${toPascal}';\n`;
-
 buildJsIcons({
   name: 'icons-solidjs',
   componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
-  key: false,
   extension: 'ts',
-  indexFile: 'index.ts',
+  key: false,
+  dynamicImports: false,
 });
-
-buildIconsList('icons-solidjs');

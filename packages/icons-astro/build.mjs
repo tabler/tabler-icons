@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 
-import {
-  buildJsIcons,
-  buildIconsList,
-  buildIconsDynamicImport,
-} from '../../.build/build-icons.mjs';
+import { buildJsIcons } from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, namePascal, children }) => `\
 import createTablerIcon from '../createTablerIcon';
@@ -21,24 +17,11 @@ const Icon${namePascal} = /* @__PURE__ */ createTablerIcon('${name}', ${JSON.str
 
 export default Icon${namePascal};`;
 
-const indexItemTemplate = ({ name, namePascal }) =>
-  `export { default as Icon${namePascal} } from './${name}';`;
-
-const aliasTemplate = ({ fromPascal, to }) =>
-  `export { default as Icon${fromPascal} } from './icons/${to}';\n`;
-
 buildJsIcons({
-  dtsEntry: true,
   name: 'icons-astro',
   componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
-  key: false,
   extension: 'ts',
-  indexFile: 'index.ts',
-  pascalName: false,
+  moduleNaming: 'kebab',
+  key: false,
+  dtsEntry: true,
 });
-
-buildIconsList('icons-astro');
-
-buildIconsDynamicImport('icons-astro', { pascalName: false });

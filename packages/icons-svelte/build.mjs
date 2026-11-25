@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { buildJsIcons, buildIconsList } from '../../.build/build-icons.mjs';
+import { buildJsIcons } from '../../.build/build-icons.mjs';
 
 const componentTemplate = ({ type, name, children }) => {
   return `\
@@ -18,21 +18,12 @@ const iconNode: IconNode = ${JSON.stringify(children)};
 `;
 };
 
-const aliasTemplate = ({ fromPascal, to }) =>
-  `export { default as Icon${fromPascal} } from './icons/${to}.svelte';\n`;
-
-const indexItemTemplate = ({ name, namePascal }) =>
-  `export { default as Icon${namePascal} } from './${name}.svelte';`;
-
 buildJsIcons({
   name: 'icons-svelte',
   componentTemplate,
-  indexItemTemplate,
-  aliasTemplate,
   extension: 'svelte',
+  moduleNaming: 'kebab',
+  importExtension: true,
   key: false,
-  indexFile: 'index.ts',
-  pascalName: false,
+  dynamicImports: false,
 });
-
-buildIconsList('icons-svelte');
