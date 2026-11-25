@@ -26,6 +26,7 @@
     "update:icons": "node ./.build/update-icons.mjs",
     "optimize": "node ./.build/optimize.mjs",
     "test:build": "node --test ./.build/optimize.test.mjs ./.build/dashes.test.mjs ./.build/import.test.mjs ./.build/add-variants.test.mjs",
+    "test:contract": "node --test ./.build/package-contract.test.mjs",
     "typecheck:build": "tsc -p .build/tsconfig.json",
     "import": "node ./.build/import.mjs && pnpm run optimize",
     "import-tags": "node ./.build/import-tags.mjs",

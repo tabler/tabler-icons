@@ -1,0 +1,3 @@
+# The package root resolves to CommonJS in Node
+
+A framework package's root entry (`@tabler/icons-<framework>`) resolves to its CommonJS bundle under Node, through the `node` condition placed before `import` in `exports`, while bundlers get the ES modules through the `module` condition. Before the exports map existed, Node loaded the root through `main`, the single-file CommonJS bundle; an `import` condition alone would silently switch Node to the per-file ES module build, which loads much slower and has no default export. Changing what the root resolves to in Node is a breaking change, so it waits for a major release. New subpath entry points (per-icon, `icons-list`, `dynamic-imports`) carry no such history and may be ES modules only. See b6578c7bd.
