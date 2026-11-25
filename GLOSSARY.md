@@ -34,5 +34,5 @@ One of the published shapes a framework package comes in: which entry points it 
 The per-package statement of what differs between framework packages — its package layout, how icon modules are named, how a single icon is rendered.
 
 **Package recipe**:
-The shared way every framework package is produced from its package descriptor: the sources it generates and the entry points it must declare for its package layout. Bundling is shared only within a layout whose framework has no tooling of its own.
+The shared way every framework package is produced from its package descriptor: the sources it generates, the entry points it must declare for its package layout and, unless its framework has build tooling of its own, how it is bundled.
 _Avoid_: build config, template

@@ -12,4 +12,5 @@ export default {
   name: 'icons-react-native',
   layout: 'react-native',
   componentTemplate,
+  external: ['react', 'react-native-svg'],
 };
