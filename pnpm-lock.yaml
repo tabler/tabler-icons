@@ -318,13 +318,13 @@ importers:
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.6
-        version: 2.10.6(@babel/core@7.29.13)(preact@10.29.8)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
+        version: 2.10.6(@babel/core@7.29.13)(preact@11.2.0)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
       '@testing-library/preact':
         specifier: ^3.2.6
-        version: 3.2.6(preact@10.29.8)
+        version: 3.2.6(preact@11.2.0)
       preact:
-        specifier: ^10.29.8
-        version: 10.29.8
+        specifier: ^11.2.0
+        version: 11.2.0
 
   packages/icons-react:
     dependencies:
@@ -589,12 +589,12 @@ importers:
         specifier: workspace:*
         version: link:../../packages/icons-preact
       preact:
-        specifier: ^10.29.8
-        version: 10.29.8
+        specifier: ^11.2.0
+        version: 11.2.0
     devDependencies:
       '@preact/preset-vite':
         specifier: ^2.10.6
-        version: 2.10.6(@babel/core@7.29.13)(preact@10.29.8)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
+        version: 2.10.6(@babel/core@7.29.13)(preact@11.2.0)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
       vite:
         specifier: 'catalog:'
         version: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1)
@@ -1195,6 +1195,10 @@ packages:
     resolution: {integrity: sha512-CXvKMFvM80ihI7Vox9jb+kQjnyjESQNPM+vB7U0Zz6TWuZA+Z/FL0QPMH300h33qJtIx+REeBhXqWOPW48TcAQ==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/helper-string-parser@7.29.15':
+    resolution: {integrity: sha512-C2FuapQ2Kh1OnVHAoLi5rD3GBJ8COb9Q609T6HEpLqaBAo560PDP5OxBE5dCI/h951MBO/+bCUYU5SZ+8ZlV+w==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/helper-validator-identifier@7.29.7':
     resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
@@ -1222,6 +1226,11 @@ packages:
 
   '@babel/parser@7.29.14':
     resolution: {integrity: sha512-VL220vXuyO2z3rNIQwY7ftj9UwpqOt+33sH+sBWkOekbsSR2g7EEMnOx24ZlCH0xOA3DM/33SifVFGbnJD8r/w==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
+  '@babel/parser@7.29.15':
+    resolution: {integrity: sha512-RpKWyisHoP81twtSCgmE02iU0RnPcq1DN5bBEbpUePrjA9Q3wXhufnCJrrayPpoZieqFh3zyZQqwtSK0gGccRA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1708,6 +1717,10 @@ packages:
 
   '@babel/types@7.29.14':
     resolution: {integrity: sha512-UjI/dKmwJwT9pOszJitq2G6EObZPnsZUfdCr92z2TlF3EZK9J3EdfOKUrCzHl6wFthbzwhzl1Soc/UIwxRiq6w==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.29.15':
+    resolution: {integrity: sha512-/XKpKDakL//LZ66bq1XsZOswuqeI5MZqPLDu18o3XdkU1fNJ7bdPtzgnc4ZNS+bBGHV0FJG8jjb8SwcC3nNVQQ==}
     engines: {node: '>=6.9.0'}
 
   '@bruits/satteri-android-arm64@0.11.7':
@@ -7455,10 +7468,10 @@ packages:
     resolution: {integrity: sha512-C+y9x90UElAddDZmV4qOx9W53B61PO7cIqWz2dQsWlwswuq4mr8NEwytdGKboYbQlGZ3awrkTeNvcZiZNHnQ8A==}
     engines: {node: '>=20'}
 
-  preact@10.29.8:
-    resolution: {integrity: sha512-ej2aVZ+vZ8WO7tvlQWRM9N63A0KzF9q4mWJfDUHgYaIofWY9hu74QdnQrjoPMmZi2/nZ5gN0bJCQF49xQqx09Q==}
+  preact@11.2.0:
+    resolution: {integrity: sha512-/HfHI/7N84e6GrWBJ3J280z3mLaRJiDcSvj/A+y/4AbLnND/1UlGHe1sR6oYuTGwId0nP7dqDU9OnLxMPZ7xBg==}
     peerDependencies:
-      preact-render-to-string: '>=5'
+      preact-render-to-string: '>=6.7.0'
     peerDependenciesMeta:
       preact-render-to-string:
         optional: true
@@ -10210,6 +10223,9 @@ snapshots:
 
   '@babel/helper-string-parser@7.29.14': {}
 
+  '@babel/helper-string-parser@7.29.15':
+    optional: true
+
   '@babel/helper-validator-identifier@7.29.7': {}
 
   '@babel/helper-validator-identifier@8.0.6':
@@ -10237,6 +10253,11 @@ snapshots:
   '@babel/parser@7.29.14':
     dependencies:
       '@babel/types': 7.29.14
+
+  '@babel/parser@7.29.15':
+    dependencies:
+      '@babel/types': 7.29.15
+    optional: true
 
   '@babel/plugin-bugfix-firefox-class-in-computed-class-key@7.29.7(@babel/core@7.29.13)':
     dependencies:
@@ -11297,6 +11318,12 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.29.14
       '@babel/helper-validator-identifier': 7.29.7
+
+  '@babel/types@7.29.15':
+    dependencies:
+      '@babel/helper-string-parser': 7.29.15
+      '@babel/helper-validator-identifier': 7.29.7
+    optional: true
 
   '@bruits/satteri-android-arm64@0.11.7':
     optional: true
@@ -12709,12 +12736,12 @@ snapshots:
 
   '@pnpm/deps.graph-sequencer@1100.0.1': {}
 
-  '@preact/preset-vite@2.10.6(@babel/core@7.29.13)(preact@10.29.8)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
+  '@preact/preset-vite@2.10.6(@babel/core@7.29.13)(preact@11.2.0)(rollup@4.68.3)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
     dependencies:
       '@babel/core': 7.29.13
       '@babel/plugin-transform-react-jsx': 7.29.7(@babel/core@7.29.13)
       '@babel/plugin-transform-react-jsx-development': 7.29.7(@babel/core@7.29.13)
-      '@prefresh/vite': 2.4.12(preact@10.29.8)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
+      '@prefresh/vite': 2.4.12(preact@11.2.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
       '@rollup/pluginutils': 5.5.1(rollup@4.68.3)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.29.13)
       debug: 4.4.3
@@ -12732,20 +12759,20 @@ snapshots:
     dependencies:
       '@babel/core': 7.29.13
 
-  '@prefresh/core@1.5.11(preact@10.29.8)':
+  '@prefresh/core@1.5.11(preact@11.2.0)':
     dependencies:
-      preact: 10.29.8
+      preact: 11.2.0
 
   '@prefresh/utils@1.2.1': {}
 
-  '@prefresh/vite@2.4.12(preact@10.29.8)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
+  '@prefresh/vite@2.4.12(preact@11.2.0)(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))':
     dependencies:
       '@babel/core': 7.29.13
       '@prefresh/babel-plugin': 0.5.4(@babel/core@7.29.13)
-      '@prefresh/core': 1.5.11(preact@10.29.8)
+      '@prefresh/core': 1.5.11(preact@11.2.0)
       '@prefresh/utils': 1.2.1
       '@rollup/pluginutils': 4.2.1
-      preact: 10.29.8
+      preact: 11.2.0
       vite: 8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1)
     transitivePeerDependencies:
       - supports-color
@@ -13330,10 +13357,10 @@ snapshots:
       vitest: 5.1.0(@types/node@26.6.6)(jsdom@31.0.1(@noble/hashes@1.8.0))(vite@8.3.7(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1)(sass@1.108.2)(terser@5.51.2)(yaml@2.9.1))
     optional: true
 
-  '@testing-library/preact@3.2.6(preact@10.29.8)':
+  '@testing-library/preact@3.2.6(preact@11.2.0)':
     dependencies:
       '@testing-library/dom': 10.4.2
-      preact: 10.29.8
+      preact: 11.2.0
 
   '@testing-library/react@16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
@@ -14452,7 +14479,7 @@ snapshots:
 
   babel-walk@3.0.0-canary-5:
     dependencies:
-      '@babel/types': 7.29.14
+      '@babel/types': 7.29.15
     optional: true
 
   bail@2.0.2: {}
@@ -14774,8 +14801,8 @@ snapshots:
 
   constantinople@4.0.1:
     dependencies:
-      '@babel/parser': 7.29.14
-      '@babel/types': 7.29.14
+      '@babel/parser': 7.29.15
+      '@babel/types': 7.29.15
     optional: true
 
   content-disposition@0.5.4:
@@ -17569,7 +17596,7 @@ snapshots:
 
   powershell-utils@0.2.1: {}
 
-  preact@10.29.8: {}
+  preact@11.2.0: {}
 
   prelude-ls@1.2.1: {}
 
@@ -19704,8 +19731,8 @@ snapshots:
 
   with@7.0.2:
     dependencies:
-      '@babel/parser': 7.29.14
-      '@babel/types': 7.29.14
+      '@babel/parser': 7.29.15
+      '@babel/types': 7.29.15
       assert-never: 1.4.0
       babel-walk: 3.0.0-canary-5
     optional: true
