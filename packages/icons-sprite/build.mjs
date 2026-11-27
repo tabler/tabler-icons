@@ -22,7 +22,7 @@ const buildSprite = () => {
       svgContent += `<symbol id="tabler-${type == 'outline' ? '' : `${type}-`}${icon.name}" viewBox="0 0 24 24" fill="${type == 'outline' ? 'none' : 'currentColor'}" stroke="${type == 'outline' ? 'currentColor' : 'none'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${svgFileContent}</symbol>`;
     });
 
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" id="tabler-icons${type == 'outline' ? '' : `-${type}`}"><defs>${svgContent}</defs></svg>`;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg"><defs>${svgContent}</defs></svg>`;
 
     fs.writeFileSync(`dist/tabler-sprite${type == 'outline' ? '' : `-${type}`}.svg`, svg);
 
